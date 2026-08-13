@@ -127,9 +127,9 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .learning-check-summary { margin-top: 1.5rem; padding: .8rem 1rem; border-left: 4px solid var(--red); background: var(--white); font: 600 .82rem var(--mono); }
 .quiz-question-list { display: grid; gap: 1.2rem; }
 .quiz-question { min-width: 0; margin: 0; padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid #18211d55; background: var(--white); }
-.quiz-question legend { width: 100%; padding: 0; font: 600 clamp(1.1rem, 2vw, 1.35rem)/1.45 var(--sans); }
+.quiz-question legend { float: left; width: 100%; margin: 0 0 1.2rem; padding: 0; font: 600 clamp(1.1rem, 2vw, 1.35rem)/1.45 var(--sans); }
 .quiz-question-meta { display: block; margin-bottom: .65rem; color: #53615a; font: 500 .68rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-.quiz-options { display: grid; gap: .65rem; margin-top: 1.2rem; }
+.quiz-options { clear: both; display: grid; gap: .65rem; }
 .quiz-option { display: grid; grid-template-columns: 1.15rem 2rem minmax(0, 1fr); align-items: start; gap: .7rem; min-height: 48px; padding: .85rem .95rem; border: 1px solid #18211d55; background: #f5f1e866; cursor: pointer; line-height: 1.5; }
 .quiz-option:hover { border-color: var(--ink); background: var(--paper); }
 .quiz-option:has(input:focus-visible) { outline: 3px solid var(--red); outline-offset: 3px; }
