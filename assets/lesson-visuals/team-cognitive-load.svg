@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="team-load-title team-load-desc">
+  <title id="team-load-title">A team needs a manageable cognitive-load boundary</title>
+  <desc id="team-load-desc">A capacity budget contains domain, technical, operational and coordination knowledge while preserving headroom. A request to own another system crosses the boundary and creates overload risk.</desc>
+  <defs>
+    <marker id="team-load-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M1 1l10 5-10 5" fill="none" stroke="#18211d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <rect x="42" y="42" width="808" height="674" rx="28" fill="#faf7f0" stroke="#18211d" stroke-width="4"/>
+  <text x="78" y="96" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">MANAGEABLE TEAM BOUNDARY</text>
+  <text x="78" y="136" font-family="Arial, sans-serif" font-size="24" fill="#18211d">A finite capacity budget for understanding and decisions</text>
+
+  <g font-family="Arial, sans-serif" fill="#18211d" stroke="#18211d" stroke-width="3">
+    <rect x="78" y="184" width="350" height="142" rx="20" fill="#b8d5e5"/>
+    <rect x="464" y="184" width="350" height="142" rx="20" fill="#d8cce8"/>
+    <rect x="78" y="358" width="350" height="142" rx="20" fill="#f5c79d"/>
+    <rect x="464" y="358" width="350" height="142" rx="20" fill="#e9d17f"/>
+    <g stroke="none">
+      <text x="104" y="230" font-size="30" font-weight="700">DOMAIN</text>
+      <text x="104" y="272" font-size="24">Product, users and outcomes</text>
+      <text x="490" y="230" font-size="30" font-weight="700">TECHNICAL</text>
+      <text x="490" y="272" font-size="24">Codebase and tooling</text>
+      <text x="104" y="404" font-size="30" font-weight="700">OPERATIONAL</text>
+      <text x="104" y="446" font-size="24">Operations and security</text>
+      <text x="490" y="404" font-size="30" font-weight="700">COORDINATION</text>
+      <text x="490" y="440" font-size="24">Stakeholders and</text>
+      <text x="490" y="474" font-size="24">dependencies</text>
+    </g>
+  </g>
+
+  <rect x="78" y="548" width="736" height="116" rx="20" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text x="104" y="594" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">HEADROOM</text>
+  <text x="104" y="636" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Reserved for learning, incidents and change</text>
+
+  <rect x="918" y="170" width="240" height="142" rx="20" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text x="1038" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">ANOTHER</text>
+  <text x="1038" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">SYSTEM</text>
+  <path d="M918 242H864" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#team-load-arrow)"/>
+  <text x="1038" y="356" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">NEW OWNERSHIP</text>
+  <text x="1038" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">REQUEST</text>
+
+  <rect x="894" y="444" width="288" height="190" rx="22" fill="#faf7f0" stroke="#d86136" stroke-width="4"/>
+  <text x="1038" y="494" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#d86136">OVERLOAD RISK</text>
+  <text x="1038" y="542" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Context switching</text>
+  <text x="1038" y="578" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Fragile ownership</text>
+  <text x="1038" y="614" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Slower decisions</text>
+</svg>

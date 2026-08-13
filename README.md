@@ -17,6 +17,12 @@ node tools/check-content.mjs
 
 The builder creates `index.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the five-lesson, three-idea learning structure and verifies the source notes and visuals. Commit the generated files together with the source data.
 
+## Visual quality standard
+
+Lesson diagrams are deterministic SVGs rather than generated text-heavy images. Every visual must use the shared `1200 × 760` canvas, accessible title and description, readable typography, consistent strokes and the site palette. On small screens the diagram stays at a legible scale inside a labelled horizontal exploration window.
+
+`node tools/check-content.mjs` rejects referenced raster images, embedded rasters, missing accessibility metadata, inconsistent canvases and diagram text below the agreed minimum. Browser review at desktop, 390px and 320px remains required to catch spatial problems such as crossed labels or crowded arrows.
+
 ## Comments and reactions
 
 GitHub Pages cannot securely store anonymous visitor data by itself.
@@ -29,4 +35,4 @@ The share control uses the device share sheet where available and provides a cop
 
 ## Imported source material
 
-The four dated Daily Book Learning Lab lessons and their twelve concept visuals were imported from the owner's Gmail archive. Private email headers, attachment URLs and delivery notes are not published. The launch-bonus *Thinking in Systems* lesson was expanded to the same learning standard.
+The four dated Daily Book Learning Lab lessons were imported from the owner's Gmail archive. Their visual concepts were redrawn as a consistent, accessible SVG system; the original email raster files are not published. Private email headers, attachment URLs and delivery notes are not published. The launch-bonus *Thinking in Systems* lesson was expanded to the same learning standard.

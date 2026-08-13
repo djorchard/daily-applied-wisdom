@@ -67,7 +67,10 @@ function renderIdea(lesson, idea, index) {
         ${paragraphList(idea.argument)}
         <aside class="interpretation"><strong>Applied interpretation.</strong> ${esc(idea.extension)}</aside>
         <figure class="lesson-visual">
-          <img src="${esc(idea.image)}" alt="${esc(idea.imageAlt)}" width="1600" height="1000" loading="lazy" decoding="async" />
+          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+            <img src="${esc(idea.image)}" alt="${esc(idea.imageAlt)}" width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>${esc(idea.imageCaption)}</figcaption>
         </figure>
         <div class="practice-grid">

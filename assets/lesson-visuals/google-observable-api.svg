@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Consumers depending on documented and observable API behaviour</title>
+  <desc id="desc">A documented API is connected to observable details including a default value, result ordering, timing, and error text. Four different consumers depend on those details, illustrating how observable behaviour becomes an unofficial contract.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 26px; }
+      .small { font-size: 24px; }
+      .node { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <rect class="node" x="430" y="260" width="340" height="210" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="600" y="337" text-anchor="middle">DOCUMENTED API</text>
+  <text class="body" x="600" y="385" text-anchor="middle">official contract</text>
+  <text class="small" x="600" y="430" text-anchor="middle">inputs • outputs • errors</text>
+
+  <rect class="node" x="85" y="155" width="245" height="100" rx="18" fill="#e9d17f"/>
+  <text class="small" x="207" y="190" text-anchor="middle" font-weight="700">OBSERVABLE</text>
+  <text class="body" x="207" y="230" text-anchor="middle">default value</text>
+  <rect class="node" x="870" y="155" width="245" height="100" rx="18" fill="#d8cce8"/>
+  <text class="small" x="992" y="190" text-anchor="middle" font-weight="700">OBSERVABLE</text>
+  <text class="body" x="992" y="230" text-anchor="middle">result ordering</text>
+  <rect class="node" x="85" y="505" width="245" height="100" rx="18" fill="#bdd9bf"/>
+  <text class="small" x="207" y="540" text-anchor="middle" font-weight="700">OBSERVABLE</text>
+  <text class="body" x="207" y="580" text-anchor="middle">timing</text>
+  <rect class="node" x="870" y="505" width="245" height="100" rx="18" fill="#f5c79d"/>
+  <text class="small" x="992" y="540" text-anchor="middle" font-weight="700">OBSERVABLE</text>
+  <text class="body" x="992" y="580" text-anchor="middle">error text</text>
+
+  <path class="line" d="M 430 315 L 330 230"/>
+  <path class="line" d="M 770 315 L 870 230"/>
+  <path class="line" d="M 430 415 L 330 530"/>
+  <path class="line" d="M 770 415 L 870 530"/>
+
+  <rect class="node" x="90" y="35" width="235" height="75" rx="18" fill="#fffdf8"/>
+  <text class="body" x="207" y="82" text-anchor="middle" font-weight="700">CLIENT APP</text>
+  <path class="line" d="M 207 110 V 155" marker-end="url(#arrow)"/>
+  <rect class="node" x="875" y="35" width="235" height="75" rx="18" fill="#fffdf8"/>
+  <text class="body" x="992" y="82" text-anchor="middle" font-weight="700">REPORT</text>
+  <path class="line" d="M 992 110 V 155" marker-end="url(#arrow)"/>
+  <rect class="node" x="90" y="650" width="235" height="75" rx="18" fill="#fffdf8"/>
+  <text class="body" x="207" y="697" text-anchor="middle" font-weight="700">TEST SUITE</text>
+  <path class="line" d="M 207 650 V 605" marker-end="url(#arrow)"/>
+  <rect class="node" x="875" y="650" width="235" height="75" rx="18" fill="#fffdf8"/>
+  <text class="body" x="992" y="697" text-anchor="middle" font-weight="700">MONITOR</text>
+  <path class="line" d="M 992 650 V 605" marker-end="url(#arrow)"/>
+</svg>

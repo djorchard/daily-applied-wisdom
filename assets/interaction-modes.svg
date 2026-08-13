@@ -1,34 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
   <title id="title">Three deliberate team interaction modes</title>
-  <desc id="desc">Collaboration is high-bandwidth and time-boxed, X-as-a-Service uses a clear interface, and facilitation transfers capability temporarily.</desc>
+  <desc id="desc">Collaboration supports joint discovery, X-as-a-Service supports independent consumption through a clear interface, and facilitation transfers capability temporarily.</desc>
   <rect width="1200" height="760" fill="#faf7f0"/>
-  <text x="600" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#18211d">Choose the interaction for the job</text>
-  <g font-family="Arial, sans-serif" fill="#18211d" stroke="#18211d" stroke-width="3">
-    <rect x="62" y="178" width="328" height="360" rx="24" fill="#d8cce8"/>
-    <rect x="436" y="178" width="328" height="360" rx="24" fill="#b8d5e5"/>
-    <rect x="810" y="178" width="328" height="360" rx="24" fill="#bdd9bf"/>
+  <g font-family="Arial, sans-serif" fill="#18211d" stroke="#18211d" stroke-width="4">
+    <rect x="45" y="72" width="350" height="480" rx="26" fill="#d8cce8"/>
+    <rect x="425" y="72" width="350" height="480" rx="26" fill="#b8d5e5"/>
+    <rect x="805" y="72" width="350" height="480" rx="26" fill="#bdd9bf"/>
     <g stroke="none" text-anchor="middle">
-      <text x="226" y="246" font-size="28" font-weight="700">COLLABORATION</text>
-      <text x="226" y="306" font-size="21">discover together</text>
-      <text x="226" y="343" font-size="21">high bandwidth</text>
-      <text x="226" y="380" font-size="21">time-boxed</text>
-      <text x="600" y="246" font-size="28" font-weight="700">X-AS-A-SERVICE</text>
-      <text x="600" y="306" font-size="21">clear ownership</text>
-      <text x="600" y="343" font-size="21">self-service interface</text>
-      <text x="600" y="380" font-size="21">low coordination</text>
-      <text x="974" y="246" font-size="28" font-weight="700">FACILITATION</text>
-      <text x="974" y="306" font-size="21">remove an obstacle</text>
-      <text x="974" y="343" font-size="21">transfer capability</text>
-      <text x="974" y="380" font-size="21">temporary help</text>
+      <text x="220" y="150" font-size="32" font-weight="700">COLLABORATION</text>
+      <text x="220" y="210" font-size="27">Discover together</text>
+      <text x="220" y="252" font-size="27">High bandwidth</text>
+      <text x="220" y="294" font-size="27">Time-boxed</text>
+      <rect x="70" y="395" width="300" height="105" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+      <text x="220" y="445" font-size="22" font-weight="700">EXIT WHEN</text>
+      <text x="220" y="480" font-size="24">uncertainty falls</text>
+
+      <text x="600" y="150" font-size="32" font-weight="700">X-AS-A-SERVICE</text>
+      <text x="600" y="210" font-size="27">Clear ownership</text>
+      <text x="600" y="252" font-size="27">Self-service interface</text>
+      <text x="600" y="294" font-size="27">Low coordination</text>
+      <rect x="450" y="395" width="300" height="105" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+      <text x="600" y="445" font-size="22" font-weight="700">HEALTHY WHEN</text>
+      <text x="600" y="480" font-size="22">teams move independently</text>
+
+      <text x="980" y="150" font-size="32" font-weight="700">FACILITATION</text>
+      <text x="980" y="210" font-size="27">Remove an obstacle</text>
+      <text x="980" y="252" font-size="27">Transfer capability</text>
+      <text x="980" y="294" font-size="27">Temporary help</text>
+      <rect x="830" y="395" width="300" height="105" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+      <text x="980" y="445" font-size="22" font-weight="700">EXIT WHEN</text>
+      <text x="980" y="480" font-size="22">capability is established</text>
     </g>
-    <line x1="390" y1="450" x2="436" y2="450"/>
-    <path d="M423 438l14 12-14 12" fill="none"/>
-    <text x="413" y="424" text-anchor="middle" stroke="none" font-size="16" font-weight="700">boundary stabilises</text>
   </g>
-  <g font-family="Arial, sans-serif" fill="#18211d" text-anchor="middle">
-    <text x="226" y="590" font-size="18" font-weight="700">EXIT: uncertainty falls</text>
-    <text x="600" y="590" font-size="18" font-weight="700">SIGNAL: consumers move independently</text>
-    <text x="974" y="590" font-size="18" font-weight="700">EXIT: capability is established</text>
-    <text x="600" y="686" font-size="23">Mode + purpose + duration + exit condition = an interaction you can inspect and change.</text>
-  </g>
+  <rect x="160" y="600" width="880" height="112" rx="40" fill="#18211d"/>
+  <text x="600" y="648" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="white">COMMON EVOLUTION</text>
+  <text x="600" y="686" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">Collaborate while uncertain → stabilise a boundary → offer a service</text>
 </svg>

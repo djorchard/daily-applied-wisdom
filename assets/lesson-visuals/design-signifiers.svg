@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ambiguous and clear door signifiers</title>
+  <desc id="desc">Two doors have identical push plates. The first plate is blank, forcing a guess. The second is labelled PUSH, making the intended action discoverable.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+      .body { font-size: 26px; }
+      .strong { font-size: 30px; font-weight: 700; }
+      .card { fill: #fffdf8; stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <text class="heading" x="310" y="72" text-anchor="middle">AMBIGUOUS</text>
+  <text class="heading" x="890" y="72" text-anchor="middle">CLEAR SIGNIFIER</text>
+
+  <rect class="card" x="90" y="105" width="440" height="570" rx="22"/>
+  <rect class="card" x="670" y="105" width="440" height="570" rx="22"/>
+
+  <rect x="390" y="270" width="105" height="190" rx="12" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+  <rect x="970" y="270" width="105" height="190" rx="12" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+
+  <circle cx="235" cy="365" r="56" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text x="235" y="378" text-anchor="middle" font-size="42" font-weight="700">?</text>
+  <path class="line" d="M 292 365 H 390" marker-end="url(#arrow)"/>
+  <text class="body" x="310" y="535" text-anchor="middle">Blank plate</text>
+  <text class="strong" x="310" y="605" text-anchor="middle">Users must guess</text>
+
+  <path class="line" d="M 795 365 H 970" marker-end="url(#arrow)"/>
+  <text class="body" x="870" y="335" text-anchor="middle">Action is visible</text>
+  <text class="strong" x="1022" y="377" text-anchor="middle">PUSH</text>
+  <text class="body" x="890" y="535" text-anchor="middle">Same plate, visible cue</text>
+  <text class="strong" x="890" y="605" text-anchor="middle">Users can discover it</text>
+</svg>

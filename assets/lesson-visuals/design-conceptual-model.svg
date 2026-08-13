@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Guessed and accurate thermostat conceptual models</title>
+  <desc id="desc">The guessed model assumes that a higher setpoint makes heating faster. The accurate model compares the target with measured room temperature, switches the heater on or off, and repeats that comparison as feedback.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+      .body { font-size: 26px; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .5px; }
+      .strong { font-size: 30px; font-weight: 700; }
+      .panel { fill: #fffdf8; stroke: #18211d; stroke-width: 4; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <text class="heading" x="300" y="65" text-anchor="middle">GUESSED MODEL</text>
+  <text class="heading" x="900" y="65" text-anchor="middle">ACCURATE MODEL</text>
+  <rect class="panel" x="55" y="95" width="500" height="600" rx="22"/>
+  <rect class="panel" x="645" y="95" width="500" height="600" rx="22"/>
+
+  <rect class="card" x="145" y="145" width="320" height="125" rx="18" fill="#b8d5e5"/>
+  <text class="label" x="305" y="188" text-anchor="middle">TARGET SETPOINT</text>
+  <text class="strong" x="305" y="239" text-anchor="middle">30°C</text>
+  <path class="line" d="M 305 270 V 340" marker-end="url(#arrow)"/>
+  <rect class="card" x="110" y="340" width="390" height="190" rx="18" fill="#f5c79d"/>
+  <text class="label" x="305" y="386" text-anchor="middle">ASSUMPTION</text>
+  <text class="strong" x="305" y="438" text-anchor="middle">Higher target</text>
+  <text class="body" x="305" y="482" text-anchor="middle">means faster heating</text>
+  <rect x="130" y="580" width="350" height="68" rx="34" fill="#d86136"/>
+  <text x="305" y="623" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#faf7f0">MISLEADING PREDICTION</text>
+
+  <rect class="card" x="680" y="140" width="195" height="115" rx="18" fill="#b8d5e5"/>
+  <text class="label" x="777.5" y="181" text-anchor="middle">TARGET</text>
+  <text class="strong" x="777.5" y="226" text-anchor="middle">22°C</text>
+  <rect class="card" x="915" y="140" width="195" height="115" rx="18" fill="#bdd9bf"/>
+  <text class="label" x="1012.5" y="181" text-anchor="middle">ROOM</text>
+  <text class="strong" x="1012.5" y="226" text-anchor="middle">18°C</text>
+
+  <path class="line" d="M 777.5 255 V 300" marker-end="url(#arrow)"/>
+  <path class="line" d="M 1012.5 255 V 275 H 985 V 300" marker-end="url(#arrow)"/>
+  <rect class="card" x="710" y="300" width="370" height="155" rx="18" fill="#d8cce8"/>
+  <text class="label" x="895" y="345" text-anchor="middle">CONTROLLER</text>
+  <text class="body" x="895" y="393" text-anchor="middle">Compares the target</text>
+  <text class="body" x="895" y="428" text-anchor="middle">with room temperature</text>
+
+  <path class="line" d="M 895 455 V 505" marker-end="url(#arrow)"/>
+  <rect class="card" x="765" y="505" width="260" height="115" rx="18" fill="#f5c79d"/>
+  <text class="label" x="895" y="548" text-anchor="middle">HEATER</text>
+  <text class="strong" x="895" y="594" text-anchor="middle">ON or OFF</text>
+
+  <path class="line" d="M 1025 562 H 1115 V 197 H 1110" marker-end="url(#arrow)"/>
+  <rect x="745" y="635" width="300" height="42" rx="21" fill="#bdd9bf"/>
+  <text class="label" x="895" y="664" text-anchor="middle">FEEDBACK REPEATS</text>
+</svg>

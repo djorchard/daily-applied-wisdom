@@ -11,6 +11,7 @@ if (!Array.isArray(lessons) || lessons.length !== 5) {
 }
 
 const slugs = new Set();
+const lessonVisuals = new Set();
 for (const lesson of lessons) {
   for (const field of ['slug', 'date', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
     if (!present(lesson[field])) fail(`${lesson.slug ?? 'Unknown lesson'} is missing ${field}.`);
@@ -30,7 +31,19 @@ for (const lesson of lessons) {
     if (!Array.isArray(idea.argument) || idea.argument.length < 1) fail(`${label} needs an attributed explanation.`);
     if (!Array.isArray(idea.apply) || idea.apply.length < 1) fail(`${label} needs an application step.`);
     if (!Array.isArray(idea.questions) || idea.questions.length !== 2) fail(`${label} must have exactly two reinforcement questions.`);
-    await access(path.resolve(root, 'lessons', idea.image));
+    if (!idea.image.endsWith('.svg')) fail(`${label} must use a scalable SVG visual.`);
+    const visualPath = path.resolve(root, 'lessons', idea.image);
+    await access(visualPath);
+    const svg = await readFile(visualPath, 'utf8');
+    if (!svg.includes('viewBox="0 0 1200 760"')) fail(`${label} must use the standard 1200 by 760 canvas.`);
+    if (!svg.includes('role="img"') || !svg.includes('<title') || !svg.includes('<desc')) fail(`${label} needs accessible SVG metadata.`);
+    if (/<image\b/i.test(svg)) fail(`${label} contains an embedded raster image.`);
+    const fontSizes = [
+      ...[...svg.matchAll(/font-size="([0-9.]+)"/g)].map((match) => Number(match[1])),
+      ...[...svg.matchAll(/font-size:\s*([0-9.]+)px/g)].map((match) => Number(match[1]))
+    ];
+    if (!fontSizes.length || Math.min(...fontSizes) < 22) fail(`${label} contains text smaller than the 22px diagram minimum.`);
+    lessonVisuals.add(path.normalize(visualPath).toLowerCase());
   }
 
   const minutes = Number.parseInt(lesson.experiment?.duration, 10);
@@ -45,5 +58,7 @@ for (const lesson of lessons) {
 
   await access(path.join(root, 'lessons', `${lesson.slug}.html`));
 }
+
+if (lessonVisuals.size !== lessons.length * 3) fail('Every idea must reference its own visual.');
 
 console.log(`Validated ${lessons.length} lessons, ${lessons.length * 3} ideas and all referenced visuals.`);

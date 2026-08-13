@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="goal-flow-title goal-flow-desc">
+  <title id="goal-flow-title">Waiting accelerates as utilisation approaches full capacity</title>
+  <desc id="goal-flow-desc">A non-numeric directional illustration shows waiting increasing gradually and then sharply as resource utilisation moves from lower to near full. The higher-variability curve rises earlier and faster than the lower-variability curve. The chart is not measured data.</desc>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="310" y="28" width="580" height="58" rx="29" fill="#faf7f0" stroke="#18211d" stroke-width="3"/>
+  <text x="600" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">DIRECTIONAL ILLUSTRATION — NOT MEASURED DATA</text>
+
+  <rect x="934" y="126" width="176" height="500" rx="20" fill="#f5c79d" opacity="0.55"/>
+  <text x="1022" y="164" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#d86136">LITTLE SPARE</text>
+  <text x="1022" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#d86136">CAPACITY</text>
+
+  <g fill="none" stroke="#18211d" stroke-width="4" stroke-linecap="round">
+    <path d="M112 626H1112"/>
+    <path d="M112 626V126"/>
+  </g>
+  <text x="612" y="712" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">RESOURCE UTILISATION</text>
+  <text x="112" y="666" font-family="Arial, sans-serif" font-size="24" fill="#18211d">lower</text>
+  <text x="1112" y="666" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#18211d">near full</text>
+  <text x="48" y="376" transform="rotate(-90 48 376)" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">WAITING AND QUEUEING</text>
+  <text x="92" y="610" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#18211d">lower</text>
+  <text x="92" y="150" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#18211d">higher</text>
+
+  <path d="M128 606 C370 600, 610 578, 786 520 C900 482, 980 418, 1042 294 C1072 232, 1094 178, 1110 132" fill="none" stroke="#f5c79d" stroke-width="18" opacity="0.75" stroke-linecap="round"/>
+  <path d="M128 606 C370 600, 610 578, 786 520 C900 482, 980 418, 1042 294 C1072 232, 1094 178, 1110 132" fill="none" stroke="#d86136" stroke-width="5" stroke-linecap="round"/>
+  <path d="M128 616 C420 614, 684 604, 850 570 C966 546, 1038 500, 1078 430 C1096 398, 1105 366, 1110 336" fill="none" stroke="#b8d5e5" stroke-width="18" opacity="0.85" stroke-linecap="round"/>
+  <path d="M128 616 C420 614, 684 604, 850 570 C966 546, 1038 500, 1078 430 C1096 398, 1105 366, 1110 336" fill="none" stroke="#18211d" stroke-width="4" stroke-linecap="round"/>
+
+  <rect x="506" y="178" width="386" height="118" rx="20" fill="#faf7f0" stroke="#18211d" stroke-width="3"/>
+  <text x="699" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d">WAITING ACCELERATES</text>
+  <text x="699" y="264" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#18211d">as spare capacity disappears</text>
+
+  <rect x="222" y="116" width="252" height="114" rx="20" fill="#faf7f0" stroke="#18211d" stroke-width="3"/>
+  <line x1="248" y1="154" x2="306" y2="154" stroke="#d86136" stroke-width="6" stroke-linecap="round"/>
+  <text x="326" y="162" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Higher variability</text>
+  <line x1="248" y1="196" x2="306" y2="196" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
+  <text x="326" y="204" font-family="Arial, sans-serif" font-size="24" fill="#18211d">Lower variability</text>
+</svg>

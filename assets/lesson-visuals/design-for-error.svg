@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Fragile deletion compared with recoverable deletion</title>
+  <desc id="desc">In the fragile path, delete leads directly to a permanently gone item. In the recoverable path, delete moves the item to trash, restore is available, and the item returns.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+      .body { font-size: 26px; }
+      .strong { font-size: 30px; font-weight: 700; }
+      .panel { fill: #fffdf8; stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <text class="heading" x="300" y="65" text-anchor="middle">FRAGILE PATH</text>
+  <text class="heading" x="900" y="65" text-anchor="middle">RECOVERABLE PATH</text>
+  <rect class="panel" x="55" y="95" width="500" height="600" rx="22"/>
+  <rect class="panel" x="645" y="95" width="500" height="600" rx="22"/>
+
+  <rect x="95" y="240" width="180" height="120" rx="18" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+  <text class="strong" x="185" y="313" text-anchor="middle">DELETE</text>
+  <path class="line" d="M 275 300 H 365" marker-end="url(#arrow)"/>
+  <rect x="365" y="240" width="150" height="120" rx="18" fill="#d86136" stroke="#18211d" stroke-width="4"/>
+  <text x="440" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#faf7f0">GONE</text>
+  <path d="M 210 438 L 390 558 M 390 438 L 210 558" fill="none" stroke="#d86136" stroke-width="12" stroke-linecap="round"/>
+  <text class="body" x="300" y="625" text-anchor="middle">No return path</text>
+
+  <rect x="680" y="190" width="180" height="110" rx="18" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+  <text class="strong" x="770" y="257" text-anchor="middle">DELETE</text>
+  <path class="line" d="M 860 245 H 945" marker-end="url(#arrow)"/>
+  <rect x="945" y="190" width="160" height="110" rx="18" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text class="strong" x="1025" y="257" text-anchor="middle">TRASH</text>
+  <path class="line" d="M 1025 300 V 425" marker-end="url(#arrow)"/>
+  <rect x="925" y="425" width="200" height="110" rx="18" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text class="strong" x="1025" y="492" text-anchor="middle">RESTORE</text>
+  <path class="line" d="M 925 480 H 840" marker-end="url(#arrow)"/>
+  <rect x="680" y="425" width="160" height="110" rx="18" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <text class="strong" x="760" y="468" text-anchor="middle">ITEM</text>
+  <text class="body" x="760" y="507" text-anchor="middle">BACK</text>
+  <rect x="670" y="590" width="460" height="65" rx="32" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="900" y="632" text-anchor="middle" font-weight="700">STATE REMAINS RECOVERABLE</text>
+</svg>

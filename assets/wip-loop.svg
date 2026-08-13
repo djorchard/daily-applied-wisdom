@@ -1,31 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
   <title id="title">A reinforcing work-in-progress loop</title>
-  <desc id="desc">Deadline pressure causes more work to be started, which raises work in progress, slows completion and increases deadline pressure.</desc>
+  <desc id="desc">Deadline pressure leads a team to start more work. Work in progress rises, completion slows, and deadline pressure increases again.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M1 1l10 5-10 5" fill="none" stroke="#18211d" stroke-width="2"/>
+    </marker>
+  </defs>
   <rect width="1200" height="760" fill="#faf7f0"/>
-  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#18211d">A recurring result usually has a loop</text>
-  <g fill="#b8d5e5" stroke="#18211d" stroke-width="4">
-    <rect x="430" y="145" width="340" height="112" rx="56"/>
-    <rect x="775" y="325" width="340" height="112" rx="56"/>
-    <rect x="430" y="505" width="340" height="112" rx="56"/>
-    <rect x="85" y="325" width="340" height="112" rx="56"/>
+  <g stroke="#18211d" stroke-width="4">
+    <rect x="430" y="54" width="340" height="126" rx="24" fill="#f5c79d"/>
+    <rect x="820" y="300" width="310" height="126" rx="24" fill="#e9d17f"/>
+    <rect x="430" y="580" width="340" height="126" rx="24" fill="#d8cce8"/>
+    <rect x="70" y="300" width="310" height="126" rx="24" fill="#b8d5e5"/>
   </g>
-  <g fill="#18211d" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
-    <text x="600" y="214">DEADLINE PRESSURE</text>
-    <text x="945" y="394">START MORE WORK</text>
-    <text x="600" y="574">WORK IN PROGRESS RISES</text>
-    <text x="255" y="394">COMPLETION SLOWS</text>
+  <g font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#18211d" text-anchor="middle">
+    <text x="600" y="128">Deadline pressure</text>
+    <text x="975" y="374">Start more work</text>
+    <text x="600" y="654">Work in progress rises</text>
+    <text x="225" y="374">Completion slows</text>
   </g>
-  <g fill="none" stroke="#18211d" stroke-width="5">
-    <path d="M766 230c88 23 140 48 171 88"/>
-    <path d="M945 441c-21 68-81 111-169 132"/>
-    <path d="M426 573c-88-21-148-64-169-132"/>
-    <path d="M263 320c33-43 86-70 174-93"/>
-    <path d="m928 305 12 18-22 2M792 558l-19 16-4-22M274 454l-18-13 21-8M422 242l17-17 6 22"/>
+  <g fill="none" stroke="#18211d" stroke-width="5" marker-end="url(#arrow)">
+    <path d="M770 144C875 166 945 216 969 288"/>
+    <path d="M970 430C942 510 861 578 784 615"/>
+    <path d="M416 636C326 607 246 525 226 442"/>
+    <path d="M226 286C250 211 329 158 416 137"/>
   </g>
-  <g font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#b54424" text-anchor="middle">
-    <text x="850" y="254">+</text><text x="864" y="522">+</text><text x="350" y="522">+</text><text x="343" y="254">+</text>
+  <g font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">
+    <g><circle cx="852" cy="188" r="21" fill="#d86136"/><text x="852" y="197" fill="white">+</text></g>
+    <g><circle cx="874" cy="526" r="21" fill="#d86136"/><text x="874" y="535" fill="white">+</text></g>
+    <g><circle cx="327" cy="531" r="21" fill="#d86136"/><text x="327" y="540" fill="white">+</text></g>
+    <g><circle cx="343" cy="190" r="21" fill="#d86136"/><text x="343" y="199" fill="white">+</text></g>
   </g>
-  <circle cx="600" cy="381" r="62" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
-  <text x="600" y="392" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#b54424">R</text>
-  <text x="600" y="697" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#18211d">Short-term relief strengthens the conditions that recreate the pressure.</text>
+  <circle cx="600" cy="368" r="112" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text x="600" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="70" font-weight="700" fill="#d86136">R</text>
+  <text x="600" y="394" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">REINFORCING</text>
+  <text x="600" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">LOOP</text>
 </svg>

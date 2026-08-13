@@ -1,25 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Delayed feedback creates overshoot and oscillation</title>
-  <desc id="desc">Repeated adjustments continue while feedback is delayed, driving the result above a target before late corrections push it below again.</desc>
+  <title id="title">Delayed feedback creates overshoot</title>
+  <desc id="desc">Repeated adjustments are made during a feedback delay. The result appears later, overshoots the target, and prompts a correction in the opposite direction.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M1 1l10 5-10 5" fill="none" stroke="#18211d" stroke-width="2"/>
+    </marker>
+  </defs>
   <rect width="1200" height="760" fill="#faf7f0"/>
-  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#18211d">Delayed feedback invites overcorrection</text>
-  <g stroke="#18211d" stroke-width="3" fill="none">
-    <line x1="110" y1="610" x2="1125" y2="610"/>
-    <line x1="110" y1="150" x2="110" y2="610"/>
-    <line x1="110" y1="365" x2="1125" y2="365" stroke-dasharray="12 10"/>
+  <rect x="190" y="90" width="350" height="540" rx="18" fill="#e9d17f" opacity=".34"/>
+  <g stroke="#18211d" stroke-width="4" fill="none">
+    <line x1="115" y1="626" x2="1110" y2="626" marker-end="url(#arrow)"/>
+    <line x1="115" y1="100" x2="115" y2="626"/>
+    <line x1="115" y1="366" x2="1110" y2="366" stroke-dasharray="14 12"/>
   </g>
-  <text x="1135" y="372" font-family="Arial, sans-serif" font-size="20" fill="#18211d">target</text>
-  <path d="M110 552 C255 540 285 515 350 475 C420 430 470 285 565 238 C665 188 728 290 785 385 C850 492 914 500 970 410 C1020 332 1070 328 1125 365" fill="none" stroke="#b54424" stroke-width="8"/>
-  <g fill="#f5c79d" stroke="#18211d" stroke-width="3">
-    <circle cx="220" cy="535" r="12"/><circle cx="350" cy="475" r="12"/><circle cx="475" cy="305" r="12"/><circle cx="690" cy="250" r="12"/><circle cx="850" cy="492" r="12"/>
+  <text x="1120" y="638" font-family="Arial, sans-serif" font-size="26" fill="#18211d">time</text>
+  <rect x="1000" y="292" width="110" height="52" rx="26" fill="#18211d"/>
+  <text x="1055" y="327" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="white">target</text>
+  <path d="M115 550C260 542 320 520 395 455C455 404 500 260 585 210C678 156 742 270 800 392C852 501 918 521 974 427C1020 350 1062 337 1110 366" fill="none" stroke="#d86136" stroke-width="10"/>
+  <g fill="#fffdf8" stroke="#18211d" stroke-width="3">
+    <circle cx="210" cy="540" r="13"/><circle cx="330" cy="505" r="13"/><circle cx="450" cy="373" r="13"/>
   </g>
-  <g font-family="Arial, sans-serif" fill="#18211d" text-anchor="middle">
-    <text x="350" y="682" font-size="21" font-weight="700">ADJUST AGAIN</text>
-    <text x="565" y="172" font-size="21" font-weight="700">RESULT ARRIVES LATE</text>
-    <text x="850" y="555" font-size="21" font-weight="700">CORRECTION OVERSHOOTS</text>
+  <g font-family="Arial, sans-serif" fill="#18211d">
+    <text x="365" y="142" text-anchor="middle" font-size="28" font-weight="700">FEEDBACK DELAY</text>
+    <text x="365" y="178" text-anchor="middle" font-size="24">outcome is not visible yet</text>
+    <rect x="150" y="650" width="120" height="54" rx="27" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+    <rect x="290" y="650" width="168" height="54" rx="27" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+    <rect x="478" y="650" width="168" height="54" rx="27" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+    <text x="210" y="685" text-anchor="middle" font-size="24" font-weight="700">adjust</text>
+    <text x="374" y="685" text-anchor="middle" font-size="24" font-weight="700">adjust again</text>
+    <text x="562" y="685" text-anchor="middle" font-size="24" font-weight="700">adjust again</text>
+    <text x="650" y="128" font-size="28" font-weight="700">result arrives late</text>
+    <line x1="700" y1="143" x2="625" y2="204" stroke="#18211d" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="820" y="566" font-size="28" font-weight="700">late correction</text>
+    <line x1="884" y1="535" x2="858" y2="492" stroke="#18211d" stroke-width="3" marker-end="url(#arrow)"/>
   </g>
-  <path d="M250 520h165" stroke="#18211d" stroke-width="4" stroke-dasharray="10 8"/>
-  <path d="m402 508 15 12-15 12" fill="none" stroke="#18211d" stroke-width="4"/>
-  <text x="332" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#18211d">feedback delay</text>
-  <text x="600" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#18211d">The right response depends on the delay relative to the system's rate of change—not on reacting fastest.</text>
 </svg>

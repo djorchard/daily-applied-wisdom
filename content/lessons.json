@@ -20,7 +20,7 @@
             "Their definition of sustainability is practical: a project is sustainable when it retains the capability to respond to valuable technical or business changes. It does not require performing every possible upgrade."
           ],
           "extension": "Maintainability is preserved optionality. A system is healthier when future engineers can alter it without heroic knowledge, risky rewrites or frozen dependencies.",
-          "image": "../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea1_Changeability.png",
+          "image": "../assets/lesson-visuals/google-changeability.svg",
           "imageAlt": "A timeline from code working today, through a future change, to the question of whether the software remains adaptable years later.",
           "imageCaption": "Software engineering stretches the programming decision across the system's expected life.",
           "why": "A shortcut can be rational for a three-week prototype and reckless for a ten-year business system. Expected lifespan should influence investment in tests, interfaces, automation, documentation, migration paths and consistency.",
@@ -41,8 +41,8 @@
             "The practical lesson is not that APIs can never change. It is that the real compatibility surface is usually larger than the promised one."
           ],
           "extension": "Treat compatibility as an observation problem before treating it as a documentation argument. Telemetry, consumer tests and staged migrations reveal dependencies that the written contract cannot.",
-          "image": "../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea2_Hyrums_Law.png",
-          "imageAlt": "Consumers depending on undocumented API behaviours such as defaults, ordering, timing, side effects and error text.",
+          "image": "../assets/lesson-visuals/google-observable-api.svg",
+          "imageAlt": "A documented API connected to observable details—default value, result ordering, timing and error text—with a named consumer depending on each detail.",
           "imageCaption": "If a consumer can observe a detail, somebody may eventually rely on it.",
           "why": "Apparently harmless refactors can break production consumers because compatibility risk grows from what users can observe, not merely what the specification promises.",
           "apply": [
@@ -62,7 +62,7 @@
             "Google's account explicitly acknowledges the cost: review adds latency and can become unsustainable when it is heavyweight. Small changes, prompt feedback and automation keep the human attention focused on judgement."
           ],
           "extension": "Review reduces key-person risk only when it transfers context. The asset being distributed is not approval; it is enough understanding for someone else to maintain and challenge the change.",
-          "image": "../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea3_Code_Review.png",
+          "image": "../assets/lesson-visuals/google-code-review.svg",
           "imageAlt": "A small code change moving from author to reviewer, spreading knowledge to other maintainers and preserving rationale in review history.",
           "imageCaption": "A good review turns one person's context into shared ownership.",
           "why": "When only one developer understands an area, every future change queues behind that person. Review can gradually spread comprehension and make ownership less fragile.",
@@ -120,7 +120,7 @@
           ],
           "extension": "In product and engineering work, recurring release pain is often maintained by a loop: pressure encourages larger batches, large batches make review and testing harder, failures create more governance, and governance increases the pressure to batch.",
           "image": "../assets/wip-loop.svg",
-          "imageAlt": "A feedback loop showing work entering a queue, a bottleneck creating rework, and rework returning to the queue.",
+          "imageAlt": "A reinforcing loop where deadline pressure leads a team to start more work, work in progress rises, completion slows and deadline pressure increases again.",
           "imageCaption": "Recurring results often come from a loop, not one bad event.",
           "why": "Incident fixes matter, but a recurring pattern normally changes only when the structure producing it changes. Seeing the loop prevents repeated blame from masquerading as analysis.",
           "apply": [
@@ -141,7 +141,7 @@
           ],
           "extension": "Make two clocks explicit in product decisions: when a leading signal can appear and when the outcome that matters can be judged. This reduces the temptation to declare victory—or failure—from an early proxy.",
           "image": "../assets/delay-oscillation.svg",
-          "imageAlt": "A timeline showing an action, an invisible delay, an early signal and a later outcome.",
+          "imageAlt": "A time plot where repeated adjustments during a feedback delay cause the result to overshoot a target before a late correction.",
           "imageCaption": "Make the time between action and consequence visible before reacting again.",
           "why": "Teams often over-correct because the last intervention has not had time to work. Naming the delay improves pacing and helps separate an early signal from the real outcome.",
           "apply": [
@@ -162,7 +162,7 @@
           ],
           "extension": "Before asking people to be more careful, inspect what the workflow makes visible and rewarding. A system that displays speed immediately but hides rework for weeks will predictably privilege speed.",
           "image": "../assets/leverage-layers.svg",
-          "imageAlt": "A stack of intervention layers rising from numbers and targets through rules and information to goals and mindset.",
+          "imageAlt": "Four intervention layers from numbers and targets through information and rules, system goals, and mindsets, with potential reach and uncertainty increasing at deeper levels.",
           "imageCaption": "Deeper interventions can reshape many downstream choices—but carry broader consequences.",
           "why": "A rule, information channel or goal can change hundreds of local choices without supervising each one. That is leverage: changing the conditions under which decisions make sense.",
           "apply": [
@@ -214,7 +214,7 @@
             "A control can technically afford an action while remaining functionally undiscoverable. Repeated requests for help with an ordinary task may be evidence of weak signalling rather than weak users."
           ],
           "extension": "In software, wording, position, grouping, state and feedback all signify. A familiar icon can still fail when its placement or visual priority tells the wrong story.",
-          "image": "../assets/lessons/2026-08-12_Design_of_Everyday_Things_Idea1_Signifiers.png",
+          "image": "../assets/lesson-visuals/design-signifiers.svg",
           "imageAlt": "Two doors with the same physical affordance: one ambiguous and one clearly labelled push.",
           "imageCaption": "The possible action may be identical; the visible cue changes whether it is discovered.",
           "why": "A user should not need to reverse-engineer the designer's intention. Clear signifiers reduce hesitation, support learning and prevent repeated support questions.",
@@ -235,7 +235,7 @@
             "Norman's thermostat example shows the cost of a wrong model: with a simple on/off thermostat, setting a much higher target does not make heating faster; it only changes when heating stops. A user can act rationally from the model the interface appears to teach and still be wrong."
           ],
           "extension": "Product teams often explain screens instead of repairing the system image. If users misunderstand the workflow's rules, another tooltip may treat the symptom while preserving the wrong model.",
-          "image": "../assets/lessons/2026-08-12_Design_of_Everyday_Things_Idea2_Conceptual_Model.png",
+          "image": "../assets/lesson-visuals/design-conceptual-model.svg",
           "imageAlt": "A thermostat contrasted with a guessed model that a higher target heats faster and the actual on-off model.",
           "imageCaption": "A coherent model lets users predict behaviour beyond memorised instructions.",
           "why": "Once users understand how a system behaves, they can reason through unfamiliar cases. A wrong model produces systematic errors that training alone may not remove.",
@@ -256,7 +256,7 @@
             "Constraints, interlocks, undo, confirmation, sensibility checks, safe defaults and resilience are different tools. The important design question is not only how to prevent the wrong action, but how much damage occurs after it."
           ],
           "extension": "For consequential workflows, recoverability is a product capability. A reversible state can be more valuable than another warning because it still works when attention fails.",
-          "image": "../assets/lessons/2026-08-12_Design_of_Everyday_Things_Idea3_Design_for_Error.png",
+          "image": "../assets/lesson-visuals/design-for-error.svg",
           "imageAlt": "A fragile delete action leading to gone, compared with a resilient delete action leading to a recoverable trash state and undo.",
           "imageCaption": "Predictable slips become minor corrections when the system preserves recovery.",
           "why": "Undo, previews, reversible states and constraints can turn a serious incident into a small correction—even when a competent user acts under pressure.",
@@ -313,7 +313,7 @@
             "The wider Theory of Constraints turns this into five focusing steps: identify the constraint, exploit the capacity already available, subordinate other work to that decision, elevate the constraint if necessary, then repeat when the constraint moves—without letting old policy become the next constraint."
           ],
           "extension": "Treat constraint identification as a falsifiable hypothesis. Ask whether a small increase in this step's effective capacity would cause more completed value to leave the whole system.",
-          "image": "../assets/lessons/2026-08-11_The_Goal_Idea1_Constraint.png",
+          "image": "../assets/lesson-visuals/goal-constraint.svg",
           "imageAlt": "A delivery flow where review handles three items per day while other stages handle six to eight, creating a queue and a system ceiling of three.",
           "imageCaption": "Improving a non-constraint can raise local output without changing end-to-end throughput.",
           "why": "Teams often improve places that are visible, annoying or easy to optimise. Constraint thinking ranks improvement work by effect on the system's goal.",
@@ -334,7 +334,7 @@
             "The hiking story adds variability: dependent steps cannot rely on small fluctuations neatly cancelling. Delays compound when each step must wait for the previous one."
           ],
           "extension": "Queueing theory reinforces the direction of the effect: high utilisation combined with variability drives waiting sharply upward. The precise curve depends on the system, so there is no universal magic utilisation target.",
-          "image": "../assets/lessons/2026-08-11_The_Goal_Idea2_Flow_Not_Utilisation.png",
+          "image": "../assets/lesson-visuals/goal-flow-utilisation.svg",
           "imageAlt": "An illustrative chart where waiting time rises sharply as resource utilisation approaches full capacity, especially with higher variability.",
           "imageCaption": "The relationship is illustrative, not measured data from the book: variability needs slack.",
           "why": "A reviewer booked at 100% has no capacity for urgent defects, clarification, rework or variation in task size. Everyone can look busy while delivery slows.",
@@ -355,8 +355,8 @@
             "A local cost reduction can still harm the company if it lowers throughput or traps more work and capital in the system."
           ],
           "extension": "For software and product work, use the measures as a decision lens: useful outcomes delivered, work trapped in queues or half-finished states, and ongoing effort or spend required to produce those outcomes.",
-          "image": "../assets/lessons/2026-08-11_The_Goal_Idea3_Throughput_Accounting.png",
-          "imageAlt": "Three system-level tests—raise throughput, lower inventory and lower operating expense—pointing to the question of whether a change improves the whole system.",
+          "image": "../assets/lesson-visuals/goal-throughput-accounting.svg",
+          "imageAlt": "Three cards distinguish the formal Throughput Accounting lenses—throughput, inventory and operating expense—from explicitly labelled software-delivery interpretation questions.",
           "imageCaption": "A local saving can be a bad trade when it reduces throughput or traps more work.",
           "why": "Tickets closed, utilisation, lines of code and departmental cost can improve while users receive value more slowly. Global measures reconnect activity to purpose.",
           "apply": [
@@ -409,8 +409,8 @@
             "When responsibility grows too broad, delivery slows because more effort goes into navigating complexity, switching context and reconstructing knowledge. Team boundaries should therefore reflect cognitive limits, not just reporting lines."
           ],
           "extension": "This resembles designing software for finite memory. Declaring ownership does not increase processing capacity; each application, integration, stakeholder group and specialist technology consumes part of a finite attention budget.",
-          "image": "../assets/lessons/2026-08-10_Team_Topologies_Idea1_Cognitive_Load.png",
-          "imageAlt": "A team's capacity filled by product, codebase, operations, stakeholders, tooling and security, with another system sitting outside the manageable boundary.",
+          "image": "../assets/lesson-visuals/team-cognitive-load.svg",
+          "imageAlt": "A manageable team boundary contains domain, technical, operational and coordination knowledge plus headroom, while another-system ownership request creates overload risk.",
           "imageCaption": "Responsibility can outgrow the working knowledge needed for safe change.",
           "why": "A workload problem can masquerade as a performance problem. Pressure may worsen context switching, forgotten details and fragile ownership when the real issue is excessive cognitive breadth.",
           "apply": [
@@ -430,7 +430,7 @@
             "The supporting types exist to improve the stream-aligned team's flow, not to recreate permanent functional silos with new labels."
           ],
           "extension": "Ask what arrangement lets a team move from a user need to a working outcome with the fewest blocking dependencies—not which department traditionally owns a technology.",
-          "image": "../assets/lessons/2026-08-10_Team_Topologies_Idea2_Four_Team_Types.png",
+          "image": "../assets/lesson-visuals/team-types.svg",
           "imageAlt": "Enabling, platform and complicated-subsystem teams supporting a central stream-aligned team that owns a flow of value.",
           "imageCaption": "Supporting team types reduce blockers and cognitive load around value delivery.",
           "why": "Functional silos can optimise specialist utilisation while creating queues between specialists. A stream-aligned design instead makes the flow of change the primary unit of optimisation.",

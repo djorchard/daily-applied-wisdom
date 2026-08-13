@@ -61,7 +61,10 @@
 <p>Their definition of sustainability is practical: a project is sustainable when it retains the capability to respond to valuable technical or business changes. It does not require performing every possible upgrade.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Maintainability is preserved optionality. A system is healthier when future engineers can alter it without heroic knowledge, risky rewrites or frozen dependencies.</aside>
         <figure class="lesson-visual">
-          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea1_Changeability.png" alt="A timeline from code working today, through a future change, to the question of whether the software remains adaptable years later." width="1600" height="1000" loading="lazy" decoding="async" />
+          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+            <img src="../assets/lesson-visuals/google-changeability.svg" alt="A timeline from code working today, through a future change, to the question of whether the software remains adaptable years later." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>Software engineering stretches the programming decision across the system's expected life.</figcaption>
         </figure>
         <div class="practice-grid">
@@ -89,7 +92,10 @@
 <p>The practical lesson is not that APIs can never change. It is that the real compatibility surface is usually larger than the promised one.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Treat compatibility as an observation problem before treating it as a documentation argument. Telemetry, consumer tests and staged migrations reveal dependencies that the written contract cannot.</aside>
         <figure class="lesson-visual">
-          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea2_Hyrums_Law.png" alt="Consumers depending on undocumented API behaviours such as defaults, ordering, timing, side effects and error text." width="1600" height="1000" loading="lazy" decoding="async" />
+          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+            <img src="../assets/lesson-visuals/google-observable-api.svg" alt="A documented API connected to observable details—default value, result ordering, timing and error text—with a named consumer depending on each detail." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>If a consumer can observe a detail, somebody may eventually rely on it.</figcaption>
         </figure>
         <div class="practice-grid">
@@ -117,7 +123,10 @@
 <p>Google's account explicitly acknowledges the cost: review adds latency and can become unsustainable when it is heavyweight. Small changes, prompt feedback and automation keep the human attention focused on judgement.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Review reduces key-person risk only when it transfers context. The asset being distributed is not approval; it is enough understanding for someone else to maintain and challenge the change.</aside>
         <figure class="lesson-visual">
-          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea3_Code_Review.png" alt="A small code change moving from author to reviewer, spreading knowledge to other maintainers and preserving rationale in review history." width="1600" height="1000" loading="lazy" decoding="async" />
+          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+            <img src="../assets/lesson-visuals/google-code-review.svg" alt="A small code change moving from author to reviewer, spreading knowledge to other maintainers and preserving rationale in review history." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>A good review turns one person's context into shared ownership.</figcaption>
         </figure>
         <div class="practice-grid">
