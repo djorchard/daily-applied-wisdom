@@ -188,9 +188,9 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
 
       <aside class="reader-feedback" aria-labelledby="feedback-title" data-clarity-mask="true">
         <p class="eyebrow">The reading room</p>
-        <h2 id="feedback-title">What did this change for you?</h2>
-        <p class="comments-note">This form is provided by Cusdis, so loading it shares standard connection data with that service. You can post without an account; email is optional, and comments may be held for moderation.</p>
-        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="${cusdisAppId}" data-page-id="${esc(lesson.slug)}" data-page-url="${esc(lessonUrl(lesson))}" data-page-title="${esc(lesson.title)} — Daily Applied Wisdom"></div>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own separate discussion. This form is provided by Cusdis, so loading it shares standard connection data with that service. You can post without an account; email is optional, and comments may be held for moderation.</p>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="${cusdisAppId}" data-page-id="${esc(lesson.discussionId)}" data-page-url="${esc(lessonUrl(lesson))}" data-page-title="${esc(lesson.title)} — Daily Applied Wisdom" data-theme="light"></div>
         <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
         <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
       </aside>

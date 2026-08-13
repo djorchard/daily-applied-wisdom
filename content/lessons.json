@@ -2,6 +2,7 @@
   "lessons": [
     {
       "slug": "software-engineering-at-google",
+      "discussionId": "software-engineering-at-google",
       "date": "2026-08-13",
       "dateLabel": "13 August 2026",
       "edition": "Daily lesson",
@@ -104,6 +105,7 @@
     },
     {
       "slug": "thinking-in-systems",
+      "discussionId": "thinking-in-systems",
       "date": "2026-08-13",
       "dateLabel": "13 August 2026",
       "edition": "Launch bonus",
@@ -202,6 +204,7 @@
     },
     {
       "slug": "the-design-of-everyday-things",
+      "discussionId": "the-design-of-everyday-things",
       "date": "2026-08-12",
       "dateLabel": "12 August 2026",
       "edition": "Daily lesson",
@@ -303,6 +306,7 @@
     },
     {
       "slug": "the-goal",
+      "discussionId": "the-goal",
       "date": "2026-08-11",
       "dateLabel": "11 August 2026",
       "edition": "Daily lesson",
@@ -403,6 +407,7 @@
     },
     {
       "slug": "team-topologies",
+      "discussionId": "team-topologies",
       "date": "2026-08-10",
       "dateLabel": "10 August 2026",
       "edition": "Daily lesson",

@@ -20,6 +20,7 @@ if (!Array.isArray(lessons) || lessons.length < 1) {
 }
 
 const slugs = new Set();
+const discussionIds = new Set();
 const lessonVisuals = new Set();
 const stableIdeaKeys = new Set();
 const clarityEventNames = new Set();
@@ -29,12 +30,15 @@ const clarityEventName = (lesson, idea) => `dawUseful${`${lesson.slug}-${idea.id
   .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
   .join('')}`;
 for (const lesson of lessons) {
-  for (const field of ['slug', 'date', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
+  for (const field of ['slug', 'discussionId', 'date', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
     if (!present(lesson[field])) fail(`${lesson.slug ?? 'Unknown lesson'} is missing ${field}.`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.slug)) fail(`${lesson.slug} is not a URL-safe lesson slug.`);
   if (slugs.has(lesson.slug)) fail(`Duplicate lesson slug: ${lesson.slug}.`);
   slugs.add(lesson.slug);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.discussionId)) fail(`${lesson.discussionId} is not a safe discussion ID.`);
+  if (discussionIds.has(lesson.discussionId)) fail(`Duplicate book discussion ID: ${lesson.discussionId}.`);
+  discussionIds.add(lesson.discussionId);
 
   if (!Array.isArray(lesson.ideas) || lesson.ideas.length !== 3) {
     fail(`${lesson.title} must contain exactly three ideas.`);
@@ -89,13 +93,16 @@ for (const lesson of lessons) {
   }
   if (
     !generatedLesson.includes('data-host="https://cusdis.com"') ||
-    !generatedLesson.includes(`data-page-id="${lesson.slug}"`) ||
+    !generatedLesson.includes(`data-page-id="${lesson.discussionId}"`) ||
     !generatedLesson.includes(`data-page-url="${canonicalUrl}"`) ||
     !generatedLesson.includes(`data-page-title="${esc(lesson.title)} — Daily Applied Wisdom"`) ||
     !generatedLesson.includes(`<link rel="canonical" href="${canonicalUrl}" />`) ||
     !generatedLesson.includes('https://cusdis.com/js/cusdis.es.js') ||
+    !generatedLesson.includes('data-theme="light"') ||
     !generatedLesson.includes('data-clarity-mask="true"') ||
-    !generatedLesson.includes('data-analytics-consent')
+    !generatedLesson.includes('data-analytics-consent') ||
+    !generatedLesson.includes('What did this book change for you?') ||
+    !generatedLesson.includes('Each book has its own separate discussion.')
   ) {
     fail(`${lesson.title} has incomplete Cusdis page identity or script configuration.`);
   }
@@ -124,6 +131,7 @@ if (
   !clientScript.includes("window.clarity('event', button.dataset.clarityEvent)") ||
   !clientScript.includes("window.clarity('consentv2'") ||
   !clientScript.includes("ad_Storage: 'denied'") ||
+  !clientScript.includes("style.id = 'daw-cusdis-theme'") ||
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-')
 ) {

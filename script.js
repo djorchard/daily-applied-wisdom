@@ -264,6 +264,47 @@ document.querySelectorAll('[data-copy-url]').forEach((button) => {
 
 const comments = document.querySelector('#cusdis_thread');
 if (comments) {
+  const cusdisTheme = `
+    :root { color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { color: #18211d !important; font-family: Manrope, Arial, sans-serif !important; }
+    input[type="text"], input[type="email"], textarea {
+      min-height: 48px;
+      background: #fffdf8 !important;
+      border: 2px solid #53615a !important;
+      border-radius: 6px !important;
+      color: #18211d !important;
+      caret-color: #18211d;
+      box-shadow: none !important;
+    }
+    textarea { min-height: 128px; }
+    input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
+      border-color: #18211d !important;
+    }
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      border-color: #b54424 !important;
+      outline: 3px solid #b54424 !important;
+      outline-offset: 2px !important;
+    }
+    input::placeholder, textarea::placeholder { color: #53615a !important; opacity: 1; }
+    button {
+      min-height: 44px;
+      padding: 10px 18px !important;
+      background: #18211d !important;
+      border: 2px solid #18211d !important;
+      border-radius: 6px !important;
+      color: #fffdf8 !important;
+      cursor: pointer;
+      font: 700 14px Manrope, Arial, sans-serif !important;
+    }
+    button:hover { background: #b54424 !important; border-color: #b54424 !important; }
+    button:focus-visible {
+      outline: 3px solid #b54424 !important;
+      outline-offset: 3px !important;
+    }
+    a { color: #79301d !important; text-underline-offset: 3px; }
+  `;
+
   const prepareCommentsFrame = (frame) => {
     if (frame.dataset.dawPrepared === 'true') return;
     frame.dataset.dawPrepared = 'true';
@@ -277,6 +318,14 @@ if (comments) {
         if (!frameDocument || !frameRoot || observedDocuments.has(frameDocument)) return;
         observedDocuments.add(frameDocument);
 
+        const applyTheme = () => {
+          if (frameDocument.getElementById('daw-cusdis-theme')) return;
+          const style = frameDocument.createElement('style');
+          style.id = 'daw-cusdis-theme';
+          style.textContent = cusdisTheme;
+          (frameDocument.head || frameRoot).append(style);
+        };
+
         const syncHeight = () => {
           const contentHeight = Math.max(
             frameDocument.documentElement?.scrollHeight || 0,
@@ -287,8 +336,12 @@ if (comments) {
           }
         };
 
+        applyTheme();
         syncHeight();
-        new MutationObserver(syncHeight).observe(frameRoot, {
+        new MutationObserver(() => {
+          applyTheme();
+          syncHeight();
+        }).observe(frameRoot, {
           childList: true,
           subtree: true,
           characterData: true,
