@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Daily Applied Wisdom: one excellent book, three practical ideas, better thinking." />
+    <meta property="og:title" content="Daily Applied Wisdom" />
+    <meta property="og:description" content="One book. Three ideas. Better thinking." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/social-card.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <title>Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Daily Applied Wisdom home">DAW<span>·</span></a>
+      <nav aria-label="Main navigation"><a href="#today">Today</a><a href="#archive">Archive</a><a href="#about">About</a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">A daily learning practice</p>
+        <h1 id="hero-title">One book.<br />Three ideas.<br /><em>Better thinking.</em></h1>
+        <p class="hero-copy">A small, rigorous reading room for ideas worth carrying into your work and life.</p>
+        <a class="button" href="#today">Read today’s lesson <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="today" id="today" aria-labelledby="today-heading">
+        <div class="section-heading">
+          <p class="eyebrow">Thursday, 13 August 2026</p>
+          <h2 id="today-heading">Today’s book</h2>
+        </div>
+        <div class="book-intro">
+          <p class="category">Systems thinking · 1990</p>
+          <h3>Thinking in Systems</h3>
+          <p class="author">Donella H. Meadows</p>
+          <p>Meadows gives us a compact language for seeing the structures beneath recurring events. It is especially useful when a sensible local fix keeps making the wider problem worse.</p>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share>Share today’s ideas <span aria-hidden="true">↗</span></button>
+            <span id="share-status" class="share-status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ideas" aria-label="Three ideas from Thinking in Systems">
+        <article class="idea accent-blue">
+          <div class="idea-number">01</div>
+          <div class="idea-content">
+            <p class="eyebrow">Idea one</p>
+            <h2>Events are the surface, not the system</h2>
+            <p class="lead">When a pattern keeps recurring, look beyond the latest incident for the relationships and feedback that produce it.</p>
+            <p>A system is more than its visible parts. Meadows focuses attention on stocks, flows, delays, and feedback loops: the machinery that makes behaviour persist over time. Fixing one event can be useful; changing a recurring pattern normally requires finding the structure that creates it.</p>
+            <div class="idea-details"><p><strong>Apply it today.</strong> If a delivery keeps slipping, map the loop before adding another status meeting. What work enters the queue, what leaves it, and where does rework feed back in?</p><p><strong>Watch for.</strong> A neat diagram can still miss people, incentives, and outside constraints. Treat it as a hypothesis to test, not the system itself.</p></div>
+          </div>
+          <figure class="concept-visual"><img src="assets/feedback-loop.svg" alt="A simple loop showing work entering a queue, bottlenecks creating rework, and rework returning to the queue." /><figcaption>Recurring results often come from a loop, not a single bad event.</figcaption></figure>
+          <div class="reaction" data-reaction="events"><button type="button" class="thumb" aria-pressed="false">👍 <span>Helpful</span></button><span class="count" aria-live="polite">0</span></div>
+        </article>
+
+        <article class="idea accent-orange">
+          <div class="idea-number">02</div>
+          <div class="idea-content">
+            <p class="eyebrow">Idea two</p>
+            <h2>Delays create surprises</h2>
+            <p class="lead">A system can be responding correctly and still look broken if its feedback arrives late.</p>
+            <p>Meadows argues that delays are a major source of oscillation and over-correction. When we cannot see the effect of an action for weeks or months, we tend to push harder, then reverse too late. Shortening a delay—or making it visible—can improve a system without changing anyone’s intent.</p>
+            <div class="idea-details"><p><strong>Apply it today.</strong> Put an explicit lead-time measure on a product decision: when will the leading signal appear, and when will the customer outcome be visible?</p><p><strong>Watch for.</strong> Faster feedback is not always better when it rewards a noisy proxy. Pair early signals with the outcome you ultimately care about.</p></div>
+          </div>
+          <figure class="concept-visual"><img src="assets/delay.svg" alt="A timeline showing an action, an invisible delay period, an early signal, and a later outcome." /><figcaption>Make the time between action and consequence visible.</figcaption></figure>
+          <div class="reaction" data-reaction="delays"><button type="button" class="thumb" aria-pressed="false">👍 <span>Helpful</span></button><span class="count" aria-live="polite">0</span></div>
+        </article>
+
+        <article class="idea accent-green">
+          <div class="idea-number">03</div>
+          <div class="idea-content">
+            <p class="eyebrow">Idea three</p>
+            <h2>Change the rules before pushing the people</h2>
+            <p class="lead">The most influential places to intervene are often the goals, information, and rules shaping everyone’s choices.</p>
+            <p>Not all interventions have equal leverage. Meadows’ influential “leverage points” framework puts parameters such as targets and budgets below deeper changes to feedback, rules, goals, and mindsets. That does not make deep change easy; it asks us to avoid mistaking activity for leverage.</p>
+            <div class="idea-details"><p><strong>Apply it today.</strong> Before asking a team to be more careful, inspect what the workflow rewards. Does the metric make speed visible but leave quality or rework invisible?</p><p><strong>Watch for.</strong> Changing goals or rules can have broad side effects. Involve the people who live with the system and monitor the result.</p></div>
+          </div>
+          <figure class="concept-visual"><img src="assets/leverage.svg" alt="A stack of intervention layers, from numbers at the bottom through rules and goals to mindset at the top." /><figcaption>Deeper interventions can reshape many downstream decisions.</figcaption></figure>
+          <div class="reaction" data-reaction="leverage"><button type="button" class="thumb" aria-pressed="false">👍 <span>Helpful</span></button><span class="count" aria-live="polite">0</span></div>
+        </article>
+      </section>
+
+      <section class="experiment" aria-labelledby="experiment-title"><p class="eyebrow">Try it today · 10 minutes</p><h2 id="experiment-title">Draw one loop, not one blame story.</h2><p>Choose a frustrating recurring result. Draw four boxes: trigger, action, short-term benefit, and later consequence. Add the arrow that makes the trigger more likely next time.</p></section>
+
+      <section class="comments" aria-labelledby="comments-title"><p class="eyebrow">The reading room</p><h2 id="comments-title">What did this change for you?</h2><p>Anonymous comments are powered by <a href="https://cusdis.com/" target="_blank" rel="noreferrer">Cusdis</a>. Add your site ID in <code>script.js</code> before publishing to activate them.</p><div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="YOUR_CUSDIS_APP_ID" data-page-id="thinking-in-systems-2026-08-13" data-page-url="" data-page-title="Thinking in Systems — Daily Applied Wisdom"></div></section>
+
+      <section class="archive" id="archive"><p class="eyebrow">Coming next</p><h2>Build a library of ideas,<br />not a pile of summaries.</h2><p>Each lesson will remain available here, making patterns and past insights easy to revisit.</p></section>
+    </main>
+    <footer id="about"><span>Daily Applied Wisdom</span><span>Made for thoughtful practice.</span><span>© 2026</span></footer>
+    <script src="script.js"></script><script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </body>
+</html>
