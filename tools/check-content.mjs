@@ -21,6 +21,7 @@ if (!Array.isArray(lessons) || lessons.length < 1) {
 
 const slugs = new Set();
 const discussionIds = new Set();
+const lessonDates = new Set();
 const lessonVisuals = new Set();
 const stableIdeaKeys = new Set();
 const clarityEventNames = new Set();
@@ -30,12 +31,25 @@ const clarityEventName = (lesson, idea) => `dawUseful${`${lesson.slug}-${idea.id
   .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
   .join('')}`;
 for (const lesson of lessons) {
-  for (const field of ['slug', 'discussionId', 'date', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
+  for (const field of ['slug', 'discussionId', 'date', 'dateLabel', 'edition', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
     if (!present(lesson[field])) fail(`${lesson.slug ?? 'Unknown lesson'} is missing ${field}.`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.slug)) fail(`${lesson.slug} is not a URL-safe lesson slug.`);
   if (slugs.has(lesson.slug)) fail(`Duplicate lesson slug: ${lesson.slug}.`);
   slugs.add(lesson.slug);
+  const parsedDate = new Date(`${lesson.date}T00:00:00Z`);
+  if (
+    !/^\d{4}-\d{2}-\d{2}$/.test(lesson.date) ||
+    Number.isNaN(parsedDate.valueOf()) ||
+    parsedDate.toISOString().slice(0, 10) !== lesson.date
+  ) fail(`${lesson.slug} has an invalid lesson date.`);
+  if (lessonDates.has(lesson.date)) fail(`Duplicate lesson date: ${lesson.date}. Every lesson needs its own day.`);
+  lessonDates.add(lesson.date);
+  if (lesson.edition !== 'Daily lesson') fail(`${lesson.slug} must be labelled Daily lesson.`);
+  const expectedDateLabel = new Intl.DateTimeFormat('en-AU', {
+    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+  }).format(parsedDate);
+  if (lesson.dateLabel !== expectedDateLabel) fail(`${lesson.slug} has a date label that does not match ${lesson.date}.`);
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.discussionId)) fail(`${lesson.discussionId} is not a safe discussion ID.`);
   if (discussionIds.has(lesson.discussionId)) fail(`Duplicate book discussion ID: ${lesson.discussionId}.`);
   discussionIds.add(lesson.discussionId);
@@ -120,6 +134,12 @@ for (const lesson of lessons) {
     ) {
       fail(`${lesson.title}, idea ${index + 1} has incomplete save or useful-reaction controls.`);
     }
+  }
+}
+
+for (let index = 1; index < lessons.length; index += 1) {
+  if (lessons[index - 1].date <= lessons[index].date) {
+    fail('Lessons must remain in strictly descending date order with one lesson per date.');
   }
 }
 

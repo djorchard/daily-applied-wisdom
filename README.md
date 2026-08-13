@@ -44,4 +44,4 @@ The share control uses the device share sheet where available and provides a cop
 
 ## Imported source material
 
-The four dated Daily Book Learning Lab lessons were imported from the owner's Gmail archive. Their visual concepts were redrawn as a consistent, accessible SVG system; the original email raster files are not published. Private email headers, attachment URLs and delivery notes are not published. The launch-bonus *Thinking in Systems* lesson was expanded to the same learning standard.
+The four dated Daily Book Learning Lab lessons were imported from the owner's Gmail archive. Their visual concepts were redrawn as a consistent, accessible SVG system; the original email raster files are not published. Private email headers, attachment URLs and delivery notes are not published. *Thinking in Systems* was expanded to the same learning standard as every other daily lesson.
