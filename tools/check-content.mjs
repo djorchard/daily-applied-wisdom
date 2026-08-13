@@ -161,10 +161,14 @@ for (const lesson of lessons) {
     !generatedLesson.includes('data-theme="light"') ||
     !/<aside class="reader-feedback"[^>]*data-clarity-mask="true"/.test(generatedLesson) ||
     !generatedLesson.includes('data-analytics-consent') ||
+    !generatedLesson.includes('data-analytics-status') ||
     !generatedLesson.includes('What did this book change for you?') ||
     !generatedLesson.includes('Each book has its own separate discussion.')
   ) {
     fail(`${lesson.title} has incomplete Cusdis page identity or script configuration.`);
+  }
+  if (generatedLesson.includes('reaction-note') || generatedLesson.includes('Saved markers stay in this browser')) {
+    fail(`${lesson.title} repeats the Clarity disclosure below every idea instead of keeping it on the Privacy page.`);
   }
   if ((generatedLesson.match(/id="cusdis_thread"/g) || []).length !== 1 || (generatedLesson.match(/https:\/\/cusdis\.com\/js\/cusdis\.es\.js/g) || []).length !== 1) {
     fail(`${lesson.title} must contain exactly one Cusdis container and script.`);
@@ -218,6 +222,8 @@ if (
   !clientScript.includes(`const CLARITY_PROJECT_ID = '${clarityProjectId}'`) ||
   !clientScript.includes("window.clarity('event', button.dataset.clarityEvent)") ||
   !clientScript.includes("window.clarity('consentv2'") ||
+  !clientScript.includes("if (!safeStorageSet(ANALYTICS_CONSENT_KEY, choice))") ||
+  !clientScript.includes("if (choice === 'granted') loadClarity('granted').catch(() => {});") ||
   !clientScript.includes("ad_Storage: 'denied'") ||
   !clientScript.includes("style.id = 'daw-cusdis-theme'") ||
   !clientScript.includes('daw-saved-') ||
@@ -227,6 +233,9 @@ if (
   !clientScript.includes('data-quiz-form')
 ) {
   fail('The client script has incomplete personal Clarity, consent, saved-idea or useful-reaction handling.');
+}
+if (clientScript.includes("if (choice === 'granted') loadClarity('granted').catch(() => {\n    if (analyticsBanner) analyticsBanner.hidden = false;")) {
+  fail('A Clarity load failure must not reopen a consent choice that was already saved.');
 }
 
 const savedPage = await readFile(path.join(root, 'saved.html'), 'utf8');

@@ -75,6 +75,7 @@ function analyticsConsent(prefix = '') {
         <button type="button" data-analytics-allow>Allow analytics</button>
         <button type="button" data-analytics-reject>Reject analytics</button>
       </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
     </aside>`;
 }
 
@@ -110,7 +111,6 @@ function renderIdea(lesson, idea, index) {
           </button>
           <span class="idea-action-status" aria-live="polite"></span>
         </div>
-        <p class="reaction-note">Saved markers stay in this browser; allowed analytics may record use of the Save control. Marking an idea useful sends a best-effort signal to the owner's personal Microsoft Clarity project; no account or name is required. <a href="../privacy.html">Privacy and data use</a></p>
       </div>
     </section>`;
 }

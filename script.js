@@ -619,16 +619,19 @@ document.querySelector('[data-clear-learning-history]')?.addEventListener('click
 });
 
 const analyticsBanner = document.querySelector('[data-analytics-consent]');
+const analyticsStatus = document.querySelector('[data-analytics-status]');
 const storedAnalyticsChoice = safeStorageGet(ANALYTICS_CONSENT_KEY);
 if (storedAnalyticsChoice === 'granted' && !clarityDisabledOnPage) loadClarity('granted').catch(() => {});
 else if (!['granted', 'denied'].includes(storedAnalyticsChoice) && analyticsBanner) analyticsBanner.hidden = false;
 
 function chooseAnalytics(choice) {
-  safeStorageSet(ANALYTICS_CONSENT_KEY, choice);
+  if (!safeStorageSet(ANALYTICS_CONSENT_KEY, choice)) {
+    if (analyticsStatus) analyticsStatus.textContent = "We couldn't save your analytics choice. Check your browser's site data settings, then choose again.";
+    return;
+  }
+  if (analyticsStatus) analyticsStatus.textContent = '';
   if (analyticsBanner) analyticsBanner.hidden = true;
-  if (choice === 'granted') loadClarity('granted').catch(() => {
-    if (analyticsBanner) analyticsBanner.hidden = false;
-  });
+  if (choice === 'granted') loadClarity('granted').catch(() => {});
   else if (window.clarity) {
     sendClarityConsent('denied');
     location.reload();
