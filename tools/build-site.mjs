@@ -81,7 +81,7 @@ function analyticsConsent(prefix = '') {
 function renderIdea(lesson, idea, index) {
   const ideaNumber = index + 1;
   const stableIdeaKey = ideaKey(lesson, idea);
-  return `<section class="lesson-idea accent-${lesson.accent}" id="${esc(idea.id)}" aria-labelledby="${esc(idea.id)}-title">
+  return `<section class="lesson-idea accent-${esc(lesson.accent)}" id="${esc(idea.id)}" aria-labelledby="${esc(idea.id)}-title">
       <div class="idea-marker" aria-hidden="true">0${ideaNumber}</div>
       <div class="idea-main">
         <p class="eyebrow">Idea ${ideaNumber}</p>
@@ -101,10 +101,6 @@ function renderIdea(lesson, idea, index) {
           <section><h3>Apply it today</h3>${paragraphList(idea.apply)}</section>
           <section class="caveat"><h3>Caveat or failure mode</h3><p>${esc(idea.caveat)}</p></section>
         </div>
-        <section class="questions" aria-labelledby="idea-${ideaNumber}-questions">
-          <h3 id="idea-${ideaNumber}-questions">Reinforcement questions</h3>
-          <ol>${idea.questions.map((q) => `<li>${esc(q)}</li>`).join('')}</ol>
-        </section>
         <div class="idea-actions" data-clarity-mask="true">
           <button class="idea-save" type="button" data-save-id="${esc(stableIdeaKey)}" data-idea-number="${ideaNumber}" aria-pressed="false" aria-label="Save Idea ${ideaNumber} for later in this browser">
             <span aria-hidden="true">♡</span> Save idea for later
@@ -117,6 +113,75 @@ function renderIdea(lesson, idea, index) {
         <p class="reaction-note">Saved markers stay in this browser; allowed analytics may record use of the Save control. Marking an idea useful sends a best-effort signal to the owner's personal Microsoft Clarity project; no account or name is required. <a href="../privacy.html">Privacy and data use</a></p>
       </div>
     </section>`;
+}
+
+function orderedQuizQuestions(lesson) {
+  const conceptQuestions = lesson.ideas.map((idea) => ({ idea, question: idea.quiz.find((question) => question.type === 'concept') }));
+  const applicationQuestions = lesson.ideas.map((idea) => ({ idea, question: idea.quiz.find((question) => question.type === 'application') }));
+  return [...conceptQuestions, ...applicationQuestions];
+}
+
+function renderLearningCheck(lesson) {
+  const questions = orderedQuizQuestions(lesson);
+
+  return `<section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="${esc(lesson.slug)}" data-quiz-revision="${esc(lesson.quizRevision)}" data-clarity-mask="true">
+          <div class="learning-check-intro">
+            <p class="eyebrow">Retrieval practice · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6 before checking. Your first attempt is saved only in this browser, and each explanation appears after you check your answers. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              ${questions.map(({ idea, question }, index) => {
+                const ideaNumber = lesson.ideas.indexOf(idea) + 1;
+                const stableQuestionKey = `${lesson.slug}-${idea.id}-${question.id}`;
+                return `<fieldset class="quiz-question" data-quiz-question data-question-id="${esc(stableQuestionKey)}" data-question-type="${esc(question.type)}" data-correct-index="${question.correctIndex}">
+                  <legend><span class="quiz-question-meta">Question ${index + 1} of 6 · Idea ${ideaNumber} · ${question.type === 'concept' ? 'Concept' : 'Application'}</span>${esc(question.question)}</legend>
+                  <div class="quiz-options">
+                    ${question.options.map((option, optionIndex) => `<label class="quiz-option" data-quiz-option data-option-index="${optionIndex}">
+                      <input type="radio" name="${esc(stableQuestionKey)}" value="${optionIndex}" required aria-describedby="${esc(stableQuestionKey)}-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">${String.fromCharCode(65 + optionIndex)}</span>
+                      <span>${esc(option)}</span>
+                    </label>`).join('')}
+                  </div>
+                  <p class="quiz-validation" id="${esc(stableQuestionKey)}-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    ${question.feedbackByOption.map((feedback, optionIndex) => `<p data-feedback-for="${optionIndex}" hidden>${esc(optionIndex === question.correctIndex ? feedback.replace(/^Correct\.\s*/, '') : feedback)}</p>`).join('')}
+                    <p class="quiz-feedback-context">${esc(question.feedback)}</p>
+                  </div>
+                </fieldset>`;
+              }).join('')}
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>`;
+}
+
+function quickReviewData() {
+  return JSON.stringify({
+    lessons: lessons.map((lesson) => ({
+      slug: lesson.slug,
+      title: lesson.title,
+      revision: lesson.quizRevision,
+      questions: orderedQuizQuestions(lesson).map(({ idea, question }) => ({
+        id: `${lesson.slug}-${idea.id}-${question.id}`,
+        ideaNumber: lesson.ideas.indexOf(idea) + 1,
+        type: question.type,
+        question: question.question,
+        options: question.options,
+        correctIndex: question.correctIndex,
+        feedback: question.feedback,
+        feedbackByOption: question.feedbackByOption
+      }))
+    }))
+  }).replaceAll('<', '\\u003c');
 }
 
 function renderLesson(lesson, index) {
@@ -164,6 +229,8 @@ function renderLesson(lesson, index) {
 
         ${lesson.ideas.map((idea, ideaIndex) => renderIdea(lesson, idea, ideaIndex)).join('\n')}
 
+        ${renderLearningCheck(lesson)}
+
         <section class="experiment" aria-labelledby="experiment-title">
           <p class="eyebrow">Today's experiment · ${esc(lesson.experiment.duration)}</p>
           <h2 id="experiment-title">${esc(lesson.experiment.title)}</h2>
@@ -208,7 +275,7 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
 }
 
 function archiveCard(lesson, featured = false) {
-  return `<article class="library-card accent-${lesson.accent}${featured ? ' featured-card' : ''}">
+  return `<article class="library-card accent-${esc(lesson.accent)}${featured ? ' featured-card' : ''}">
       <p class="eyebrow">${esc(lesson.edition)} · <time datetime="${lesson.date}">${esc(lesson.dateLabel)}</time></p>
       <p class="category">${esc(lesson.category)}</p>
       <h3><a href="lessons/${lesson.slug}.html">${esc(lesson.title)}</a></h3>
@@ -236,6 +303,23 @@ function renderIndex() {
         <a class="button" href="#latest">Start with today's lesson <span aria-hidden="true">↓</span></a>
       </section>
 
+      <section class="quick-review" data-quick-review data-clarity-mask="true" aria-labelledby="quick-review-title" hidden>
+        <div class="quick-review-intro">
+          <p class="eyebrow">Spaced retrieval · <span data-quick-review-count>3 questions</span></p>
+          <h2 id="quick-review-title">Quick review</h2>
+          <p>Retrieve a few ideas from an earlier book. Missed questions can return on a later visit; progress stays in this browser.</p>
+          <p class="learning-check-summary" data-quick-review-summary></p>
+        </div>
+        <form data-quick-review-form novalidate>
+          <div class="quiz-question-list" data-quick-review-questions></div>
+          <div class="learning-check-actions">
+            <button class="quiz-submit" type="submit">Check review answers</button>
+            <span class="learning-check-action-status" data-quick-review-status aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+      <script id="daw-quick-review-data" type="application/json" data-clarity-mask="true">${quickReviewData()}</script>
+
       <section class="latest" id="latest" aria-labelledby="latest-title">
         <div class="section-heading"><p class="eyebrow">Latest lesson</p><h2 id="latest-title">Today's book</h2></div>
         ${archiveCard(latest, true)}
@@ -261,7 +345,7 @@ function renderIndex() {
 
 function savedIdeaCard(lesson, idea, ideaIndex) {
   const stableIdeaKey = ideaKey(lesson, idea);
-  return `<article class="saved-idea-card accent-${lesson.accent}" data-saved-card data-saved-id="${esc(stableIdeaKey)}" hidden>
+  return `<article class="saved-idea-card accent-${esc(lesson.accent)}" data-saved-card data-saved-id="${esc(stableIdeaKey)}" hidden>
       <p class="eyebrow">${esc(lesson.title)} · Idea ${ideaIndex + 1}</p>
       <h2>${esc(idea.title)}</h2>
       <p>${esc(idea.why)}</p>
@@ -307,7 +391,7 @@ function renderSaved() {
 function renderPrivacy() {
   return `<!doctype html>
 <html lang="en">
-  <head>${head({ title: 'Privacy and data use — Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles saved ideas, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
+  <head>${head({ title: 'Privacy and data use — Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles learning progress, saved ideas, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="privacy-page">
@@ -316,11 +400,27 @@ function renderPrivacy() {
       <header>
         <p class="eyebrow">Plain-language disclosure</p>
         <h1>Privacy and data use</h1>
-        <p>Daily Applied Wisdom separates private browser features from feedback sent to external services.</p>
+        <p>Daily Applied Wisdom distinguishes browser-local features from feedback deliberately sent to external services.</p>
       </header>
       <section>
         <h2>Saved ideas</h2>
         <p>“Save idea for later” stores the idea identifier in your browser's local storage. The stored identifier and your Saved ideas page are not sent to the site owner, and Microsoft Clarity is never loaded on that page. Saved ideas do not sync to another browser or device. If you allow analytics on lesson pages, Clarity may record that you used a Save control in the context of that page. Removing a saved idea deletes the local marker.</p>
+      </section>
+      <section>
+        <h2>Learning progress</h2>
+        <p>Learning checks store your first answer to each question, score and completion time in this browser's local storage. From the next local day, the homepage can offer one review of up to 3 questions; missed questions remain eligible and remembered questions leave the queue. Daily Applied Wisdom does not deliberately send answers or scores as Clarity events or tags, and learning-check and review content is masked from Clarity's recording. If allowed, Clarity can still record standard interaction data such as clicks and scrolling. Cusdis and Clarity are third-party page scripts, so browser-local storage is not technical isolation from scripts running on the same page. Progress remains until you clear learning history or this site's browser data; it does not sync to another browser or device.</p>
+        <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
+        <p data-learning-history-status aria-live="polite"></p>
+        <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
+          <form method="dialog">
+            <h3 id="clear-learning-history-title">Clear learning history?</h3>
+            <p>This removes first attempts and quick-review progress from this browser. Saved ideas and useful markers remain.</p>
+            <div class="confirmation-dialog-actions">
+              <button type="submit" value="cancel">Cancel</button>
+              <button class="destructive-button" type="button" data-clear-learning-history>Clear history</button>
+            </div>
+          </form>
+        </dialog>
       </section>
       <section>
         <h2>Useful reactions and Microsoft Clarity</h2>

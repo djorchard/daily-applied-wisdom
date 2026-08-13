@@ -24,6 +24,12 @@ function safeStorageRemove(key) {
   }
 }
 
+function safeStorageGetJson(key) {
+  const value = safeStorageGet(key);
+  if (!value) return null;
+  try { return JSON.parse(value); } catch { return null; }
+}
+
 function savedIdeaState(id) {
   const key = `daw-saved-${id}`;
   const current = safeStorageGet(key);
@@ -202,6 +208,415 @@ document.querySelectorAll('[data-remove-saved]').forEach((button) => {
 
 refreshSavedIdeas();
 window.addEventListener('storage', () => refreshSavedIdeas());
+
+document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
+  const form = learningCheck.querySelector('[data-quiz-form]');
+  const questions = [...learningCheck.querySelectorAll('[data-quiz-question]')];
+  const summary = learningCheck.querySelector('[data-quiz-summary]');
+  const actionStatus = learningCheck.querySelector('[data-quiz-action-status]');
+  const submitButton = learningCheck.querySelector('.quiz-submit');
+  const practiceAgainButton = learningCheck.querySelector('[data-practice-again]');
+  const firstAttemptKey = `daw-quiz-first-${learningCheck.dataset.lessonSlug}-${learningCheck.dataset.quizRevision}`;
+  let firstAttempt = safeStorageGetJson(firstAttemptKey);
+
+  function setQuestionResult(question, selectedIndex, reveal) {
+    const correctIndex = Number(question.dataset.correctIndex);
+    const options = [...question.querySelectorAll('[data-quiz-option]')];
+    const inputs = [...question.querySelectorAll('input[type="radio"]')];
+    inputs.forEach((input, index) => {
+      input.checked = index === selectedIndex;
+      input.disabled = reveal;
+    });
+    options.forEach((option, index) => {
+      option.classList.toggle('is-correct', reveal && index === correctIndex);
+      option.classList.toggle('is-incorrect', reveal && index === selectedIndex && index !== correctIndex);
+    });
+
+    const feedback = question.querySelector('[data-quiz-feedback]');
+    if (!feedback) return;
+    feedback.hidden = !reveal;
+    feedback.classList.toggle('is-correct', reveal && selectedIndex === correctIndex);
+    feedback.classList.toggle('is-incorrect', reveal && selectedIndex !== correctIndex);
+    const feedbackStatus = feedback.querySelector('[data-quiz-feedback-status]');
+    if (feedbackStatus) feedbackStatus.textContent = !reveal ? '' : selectedIndex === correctIndex ? 'Correct' : 'Not quite';
+    const correctAnswer = feedback.querySelector('[data-quiz-correct-answer]');
+    if (correctAnswer) {
+      correctAnswer.hidden = !reveal || selectedIndex === correctIndex;
+      const answerText = options[correctIndex]?.querySelector('span:last-child')?.textContent?.trim() || '';
+      correctAnswer.textContent = reveal && selectedIndex !== correctIndex
+        ? `Correct answer: ${String.fromCharCode(65 + correctIndex)} — ${answerText}`
+        : '';
+    }
+    feedback.querySelectorAll('[data-feedback-for]').forEach((message) => {
+      message.hidden = !reveal || Number(message.dataset.feedbackFor) !== selectedIndex;
+    });
+  }
+
+  function showFirstAttempt(attempt, announce = false) {
+    const answers = Array.isArray(attempt?.answers) ? attempt.answers : [];
+    if (answers.length !== questions.length) return false;
+    questions.forEach((question, index) => setQuestionResult(question, Number(answers[index]), true));
+    const score = answers.reduce((total, answer, index) => total + (Number(answer) === Number(questions[index].dataset.correctIndex) ? 1 : 0), 0);
+    if (summary) summary.textContent = `First attempt: ${score} of ${questions.length} remembered.`;
+    if (submitButton) submitButton.hidden = true;
+    if (practiceAgainButton) practiceAgainButton.hidden = false;
+    learningCheck.classList.add('is-complete');
+    if (announce && actionStatus) actionStatus.textContent = `Answers checked. You remembered ${score} of ${questions.length} on your first attempt.`;
+    return true;
+  }
+
+  function startPracticeAgain() {
+    questions.forEach((question) => {
+      setQuestionResult(question, -1, false);
+      const validation = question.querySelector('[data-quiz-validation]');
+      if (validation) validation.textContent = '';
+    });
+    if (summary && firstAttempt) {
+      const score = firstAttempt.answers.reduce((total, answer, index) => total + (Number(answer) === Number(questions[index].dataset.correctIndex) ? 1 : 0), 0);
+      summary.textContent = `First attempt stays ${score} of ${questions.length}. Practice all 6 again.`;
+    }
+    if (submitButton) {
+      submitButton.hidden = false;
+      submitButton.textContent = 'Check practice answers';
+    }
+    if (practiceAgainButton) practiceAgainButton.hidden = true;
+    if (actionStatus) actionStatus.textContent = firstAttempt
+      ? 'Practice answers cleared. Your first attempt is preserved.'
+      : 'Practice answers cleared. No first attempt is saved in this browser.';
+    learningCheck.classList.remove('is-complete');
+    questions[0]?.querySelector('input')?.focus();
+  }
+
+  function checkAnswers(event) {
+    event.preventDefault();
+    const answers = questions.map((question) => {
+      const selected = question.querySelector('input[type="radio"]:checked');
+      return selected ? Number(selected.value) : null;
+    });
+    const firstMissing = answers.findIndex((answer) => answer === null);
+    questions.forEach((question, index) => {
+      const validation = question.querySelector('[data-quiz-validation]');
+      const missing = answers[index] === null;
+      if (validation) validation.textContent = missing ? `Select an answer for Question ${index + 1}.` : '';
+      question.querySelectorAll('input[type="radio"]').forEach((input) => {
+        if (missing) input.setAttribute('aria-invalid', 'true');
+        else input.removeAttribute('aria-invalid');
+      });
+    });
+    if (firstMissing >= 0) {
+      if (actionStatus) actionStatus.textContent = `Answer all 6 questions before checking. Question ${firstMissing + 1} needs an answer.`;
+      questions[firstMissing].querySelector('input')?.focus();
+      return;
+    }
+
+    const persistedFirstAttempt = safeStorageGetJson(firstAttemptKey);
+    if (Array.isArray(persistedFirstAttempt?.answers) && persistedFirstAttempt.answers.length === questions.length) {
+      firstAttempt = persistedFirstAttempt;
+    }
+    const isFirstSubmission = !firstAttempt;
+    let firstAttemptSaveFailed = false;
+    if (isFirstSubmission) {
+      const attempt = { revision: learningCheck.dataset.quizRevision, answers, completedAt: new Date().toISOString() };
+      if (safeStorageSet(firstAttemptKey, JSON.stringify(attempt))) firstAttempt = attempt;
+      else firstAttemptSaveFailed = true;
+    }
+
+    questions.forEach((question, index) => setQuestionResult(question, answers[index], true));
+    const score = answers.reduce((total, answer, index) => total + (answer === Number(questions[index].dataset.correctIndex) ? 1 : 0), 0);
+    if (summary) summary.textContent = firstAttemptSaveFailed
+      ? `Result: ${score} of ${questions.length}. First attempt was not saved.`
+      : isFirstSubmission
+        ? `First attempt: ${score} of ${questions.length} remembered.`
+        : `Practice result: ${score} of ${questions.length}. Your first attempt is preserved.`;
+    if (submitButton) submitButton.hidden = true;
+    if (practiceAgainButton) practiceAgainButton.hidden = false;
+    learningCheck.classList.add('is-complete');
+    if (actionStatus) actionStatus.textContent = firstAttemptSaveFailed
+      ? `Answers checked: ${score} of ${questions.length}. Browser storage is unavailable, so no first attempt or next-day review was saved.`
+      : `Answers checked. You remembered ${score} of ${questions.length}${isFirstSubmission ? ' on your first attempt' : ' in this practice round'}.`;
+    questions[0]?.querySelector('[data-quiz-feedback]')?.focus();
+  }
+
+  if (!showFirstAttempt(firstAttempt)) {
+    if (summary) summary.textContent = `${questions.length} questions not yet answered.`;
+  }
+  form?.addEventListener('submit', checkAnswers);
+  form?.addEventListener('change', (event) => {
+    const question = event.target.closest('[data-quiz-question]');
+    if (!question) return;
+    const validation = question.querySelector('[data-quiz-validation]');
+    if (validation) validation.textContent = '';
+    question.querySelectorAll('input[type="radio"]').forEach((input) => input.removeAttribute('aria-invalid'));
+  });
+  practiceAgainButton?.addEventListener('click', startPracticeAgain);
+  window.addEventListener('storage', (event) => {
+    if (event.key !== firstAttemptKey) return;
+    const incomingAttempt = safeStorageGetJson(firstAttemptKey);
+    if (Array.isArray(incomingAttempt?.answers) && incomingAttempt.answers.length === questions.length) {
+      firstAttempt = incomingAttempt;
+      const hasInProgressAnswers = questions.some((question) => question.querySelector('input:checked')) && !learningCheck.classList.contains('is-complete');
+      if (hasInProgressAnswers) {
+        if (summary) summary.textContent = 'A first attempt was completed in another tab. Current answers will count as practice.';
+        if (actionStatus) actionStatus.textContent = 'Your selections are unchanged.';
+      } else {
+        showFirstAttempt(incomingAttempt);
+      }
+      return;
+    }
+
+    firstAttempt = null;
+    if (learningCheck.classList.contains('is-complete')) {
+      questions.forEach((question) => {
+        setQuestionResult(question, -1, false);
+        const validation = question.querySelector('[data-quiz-validation]');
+        if (validation) validation.textContent = '';
+      });
+      if (submitButton) {
+        submitButton.hidden = false;
+        submitButton.textContent = 'Check answers';
+      }
+      if (practiceAgainButton) practiceAgainButton.hidden = true;
+      learningCheck.classList.remove('is-complete');
+    }
+    if (summary) summary.textContent = `${questions.length} questions not yet answered.`;
+    if (actionStatus) actionStatus.textContent = 'Learning history was cleared in another tab. Any current selections remain.';
+  });
+});
+
+function localDateKey(value = new Date()) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.valueOf())) return '';
+  const pad = (part) => String(part).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function shuffledOptionIndices(key, count) {
+  let seed = 2166136261;
+  for (const character of key) {
+    seed ^= character.charCodeAt(0);
+    seed = Math.imul(seed, 16777619) >>> 0;
+  }
+  const indices = Array.from({ length: count }, (_, index) => index);
+  for (let index = indices.length - 1; index > 0; index -= 1) {
+    seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+    const swapIndex = seed % (index + 1);
+    [indices[index], indices[swapIndex]] = [indices[swapIndex], indices[index]];
+  }
+  return indices;
+}
+
+const quickReview = document.querySelector('[data-quick-review]');
+const quickReviewData = document.querySelector('#daw-quick-review-data');
+if (quickReview && quickReviewData) {
+  let reviewLibrary;
+  try { reviewLibrary = JSON.parse(quickReviewData.textContent); } catch { reviewLibrary = null; }
+  const today = localDateKey();
+  const dailyReviewKey = 'daw-quiz-review-day';
+  const candidates = [];
+
+  if (safeStorageGet(dailyReviewKey) !== today) reviewLibrary?.lessons?.forEach((lesson) => {
+    const firstAttempt = safeStorageGetJson(`daw-quiz-first-${lesson.slug}-${lesson.revision}`);
+    if (!Array.isArray(firstAttempt?.answers) || firstAttempt.answers.length !== lesson.questions.length) return;
+    const completedDate = localDateKey(firstAttempt.completedAt);
+    if (!completedDate || completedDate >= today) return;
+
+    lesson.questions.forEach((question, index) => {
+      const reviewKey = `daw-quiz-review-${lesson.revision}-${question.id}`;
+      const reviewState = safeStorageGetJson(reviewKey);
+      if (reviewState?.mastered || reviewState?.lastReviewedDate === today) return;
+      candidates.push({
+        lesson,
+        question,
+        reviewKey,
+        firstAttemptCorrect: Number(firstAttempt.answers[index]) === Number(question.correctIndex),
+        reviewCount: Number(reviewState?.reviewCount) || 0,
+        completedAt: firstAttempt.completedAt
+      });
+    });
+  });
+
+  candidates.sort((left, right) =>
+    Number(left.firstAttemptCorrect) - Number(right.firstAttemptCorrect) ||
+    left.reviewCount - right.reviewCount ||
+    String(left.completedAt).localeCompare(String(right.completedAt)) ||
+    left.question.id.localeCompare(right.question.id));
+
+  const reviewItems = candidates.slice(0, 3);
+  if (reviewItems.length) {
+    const list = quickReview.querySelector('[data-quick-review-questions]');
+    const summary = quickReview.querySelector('[data-quick-review-summary]');
+    const status = quickReview.querySelector('[data-quick-review-status]');
+    const form = quickReview.querySelector('[data-quick-review-form]');
+    const count = quickReview.querySelector('[data-quick-review-count]');
+    if (count) count.textContent = `${reviewItems.length} ${reviewItems.length === 1 ? 'question' : 'questions'}`;
+    if (summary) summary.textContent = `${reviewItems.length} ${reviewItems.length === 1 ? 'idea is' : 'ideas are'} ready to review.`;
+
+    reviewItems.forEach((item, itemIndex) => {
+      const { lesson, question } = item;
+      const validationId = `quick-review-question-${itemIndex + 1}-validation`;
+      const fieldset = document.createElement('fieldset');
+      fieldset.className = 'quiz-question';
+      fieldset.dataset.quickReviewQuestion = question.id;
+      fieldset.dataset.correctIndex = question.correctIndex;
+
+      const legend = document.createElement('legend');
+      const meta = document.createElement('span');
+      meta.className = 'quiz-question-meta';
+      meta.textContent = `Question ${itemIndex + 1} of ${reviewItems.length} · ${lesson.title} · Idea ${question.ideaNumber}`;
+      legend.append(meta, document.createTextNode(question.question));
+      fieldset.append(legend);
+
+      const options = document.createElement('div');
+      options.className = 'quiz-options';
+      shuffledOptionIndices(`${today}-${question.id}`, question.options.length).forEach((originalIndex, displayIndex) => {
+        const label = document.createElement('label');
+        label.className = 'quiz-option';
+        label.dataset.quizOption = '';
+        label.dataset.optionIndex = originalIndex;
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = `quick-review-${question.id}`;
+        input.value = originalIndex;
+        input.required = true;
+        input.setAttribute('aria-describedby', validationId);
+        const letter = document.createElement('span');
+        letter.className = 'quiz-option-letter';
+        letter.setAttribute('aria-hidden', 'true');
+        letter.textContent = String.fromCharCode(65 + displayIndex);
+        const optionText = document.createElement('span');
+        optionText.textContent = question.options[originalIndex];
+        label.append(input, letter, optionText);
+        options.append(label);
+      });
+      fieldset.append(options);
+
+      const validation = document.createElement('p');
+      validation.className = 'quiz-validation';
+      validation.id = validationId;
+      validation.dataset.quizValidation = '';
+      fieldset.append(validation);
+
+      const feedback = document.createElement('div');
+      feedback.className = 'quiz-feedback';
+      feedback.dataset.quizFeedback = '';
+      feedback.tabIndex = -1;
+      feedback.hidden = true;
+      const feedbackStatus = document.createElement('p');
+      feedbackStatus.className = 'quiz-feedback-status';
+      const correctAnswer = document.createElement('p');
+      correctAnswer.className = 'quiz-correct-answer';
+      correctAnswer.dataset.quizCorrectAnswer = '';
+      correctAnswer.hidden = true;
+      const selectedFeedback = document.createElement('p');
+      selectedFeedback.dataset.selectedFeedback = '';
+      const context = document.createElement('p');
+      context.className = 'quiz-feedback-context';
+      context.textContent = question.feedback;
+      feedback.append(feedbackStatus, correctAnswer, selectedFeedback, context);
+      fieldset.append(feedback);
+      list?.append(fieldset);
+    });
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const fieldsets = [...quickReview.querySelectorAll('[data-quick-review-question]')];
+      const answers = fieldsets.map((fieldset) => fieldset.querySelector('input:checked'));
+      const firstMissing = answers.findIndex((answer) => !answer);
+      fieldsets.forEach((fieldset, index) => {
+        const validation = fieldset.querySelector('[data-quiz-validation]');
+        const missing = !answers[index];
+        if (validation) validation.textContent = missing ? `Select an answer for Question ${index + 1}.` : '';
+        fieldset.querySelectorAll('input[type="radio"]').forEach((input) => {
+          if (missing) input.setAttribute('aria-invalid', 'true');
+          else input.removeAttribute('aria-invalid');
+        });
+      });
+      if (firstMissing >= 0) {
+        if (status) status.textContent = `Answer all ${reviewItems.length} review questions before checking.`;
+        fieldsets[firstMissing].querySelector('input')?.focus();
+        return;
+      }
+
+      let score = 0;
+      let storageAvailable = true;
+      fieldsets.forEach((fieldset, index) => {
+        const item = reviewItems[index];
+        const selectedIndex = Number(answers[index].value);
+        const isCorrect = selectedIndex === Number(item.question.correctIndex);
+        if (isCorrect) score += 1;
+        fieldset.querySelectorAll('input').forEach((input) => { input.disabled = true; });
+        fieldset.querySelectorAll('[data-quiz-option]').forEach((option) => {
+          const optionIndex = Number(option.dataset.optionIndex);
+          option.classList.toggle('is-correct', optionIndex === Number(item.question.correctIndex));
+          option.classList.toggle('is-incorrect', optionIndex === selectedIndex && !isCorrect);
+        });
+        const feedback = fieldset.querySelector('[data-quiz-feedback]');
+        feedback.hidden = false;
+        feedback.classList.toggle('is-correct', isCorrect);
+        feedback.classList.toggle('is-incorrect', !isCorrect);
+        feedback.querySelector('.quiz-feedback-status').textContent = isCorrect ? 'Correct' : 'Not quite';
+        const correctAnswer = feedback.querySelector('[data-quiz-correct-answer]');
+        if (correctAnswer) {
+          correctAnswer.hidden = isCorrect;
+          correctAnswer.textContent = isCorrect
+            ? ''
+            : `Correct answer: ${item.question.options[item.question.correctIndex]}`;
+        }
+        feedback.querySelector('[data-selected-feedback]').textContent = isCorrect
+          ? item.question.feedbackByOption[selectedIndex].replace(/^Correct\.\s*/, '')
+          : item.question.feedbackByOption[selectedIndex];
+        const previous = safeStorageGetJson(item.reviewKey);
+        const nextState = {
+          lastReviewedDate: today,
+          reviewCount: (Number(previous?.reviewCount) || 0) + 1,
+          mastered: isCorrect
+        };
+        if (!safeStorageSet(item.reviewKey, JSON.stringify(nextState))) storageAvailable = false;
+      });
+      if (storageAvailable && !safeStorageSet(dailyReviewKey, today)) storageAvailable = false;
+
+      if (summary) summary.textContent = `${score} of ${reviewItems.length} remembered today.`;
+      form.querySelector('.quiz-submit').hidden = true;
+      if (status) status.textContent = storageAvailable
+        ? `Review saved for today. ${score === reviewItems.length ? 'All remembered questions leave the queue.' : 'Missed questions can return on a later visit.'}`
+        : 'Answers are checked, but review progress could not be saved because browser storage is unavailable.';
+      fieldsets[0]?.querySelector('[data-quiz-feedback]')?.focus();
+    });
+    form?.addEventListener('change', (event) => {
+      const fieldset = event.target.closest('[data-quick-review-question]');
+      if (!fieldset) return;
+      const validation = fieldset.querySelector('[data-quiz-validation]');
+      if (validation) validation.textContent = '';
+      fieldset.querySelectorAll('input[type="radio"]').forEach((input) => input.removeAttribute('aria-invalid'));
+    });
+    window.addEventListener('storage', (event) => {
+      const learningKeyChanged = event.key === null || event.key?.startsWith('daw-quiz-first-') || event.key?.startsWith('daw-quiz-review-');
+      if (learningKeyChanged && (event.newValue === null || safeStorageGet(dailyReviewKey) === today)) {
+        quickReview.hidden = true;
+      }
+    });
+
+    quickReview.hidden = false;
+  }
+}
+
+const learningHistoryDialog = document.querySelector('[data-learning-history-dialog]');
+document.querySelector('[data-learning-history-open]')?.addEventListener('click', () => learningHistoryDialog?.showModal());
+document.querySelector('[data-clear-learning-history]')?.addEventListener('click', () => {
+  let cleared = true;
+  try {
+    Object.keys(localStorage)
+      .filter((key) => key.startsWith('daw-quiz-first-') || key.startsWith('daw-quiz-review-'))
+      .forEach((key) => localStorage.removeItem(key));
+  } catch {
+    cleared = false;
+  }
+  learningHistoryDialog?.close();
+  const status = document.querySelector('[data-learning-history-status]');
+  if (status) status.textContent = cleared
+    ? 'Learning history cleared from this browser.'
+    : 'Learning history was not cleared because browser storage is unavailable.';
+});
 
 const analyticsBanner = document.querySelector('[data-analytics-consent]');
 const storedAnalyticsChoice = safeStorageGet(ANALYTICS_CONSENT_KEY);

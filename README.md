@@ -2,7 +2,7 @@
 
 One book. Three ideas. Better thinking.
 
-This is a dependency-free static GitHub Pages site containing evidence-aware learning sessions, an archive, per-lesson sharing, browser-local saved ideas, private owner analytics for useful reactions, RSS, a sitemap, and moderated account-free comments.
+This is a dependency-free static GitHub Pages site containing evidence-aware learning sessions, interactive browser-local learning checks, an archive, per-lesson sharing, saved ideas, private owner analytics for useful reactions, RSS, a sitemap, and moderated account-free comments.
 
 Live site: <https://djorchard.github.io/daily-applied-wisdom/>
 
@@ -15,7 +15,15 @@ node tools/build-site.mjs
 node tools/check-content.mjs
 ```
 
-The builder creates `index.html`, `saved.html`, `privacy.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the three-idea learning structure, stable idea IDs, service configuration, source notes and visuals. Commit the generated files together with the source data.
+The builder creates `index.html`, `saved.html`, `privacy.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the three-idea learning structure, stable idea and question IDs, two learning-check questions per idea, four unique options, option-specific feedback, service configuration, source notes and visuals. Commit the generated files together with the source data.
+
+## Learning checks
+
+Each book has a six-question learning check after its three ideas: one concept question and one application scenario per idea. Questions are interleaved so one answer does not cue its paired scenario. The reader answers all six before receiving immediate corrective feedback. The first attempt is retained as a low-stakes browser-local result; **Practice again** clears only the displayed practice round and preserves that first attempt.
+
+From the next local calendar day, the homepage can offer one **Quick review** of up to three questions per day. Questions missed on the first attempt are prioritised, choices are shown in a stable shuffled order for that day, missed review questions remain eligible for a later visit, and remembered questions leave the queue. This is intentionally a small spaced-retrieval loop rather than a notification or account-based scheduler.
+
+Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four plausible options, one correct index, an overall explanation and an explanation for every selected option. Scores, answers and review state do not sync across browsers or devices. The privacy page can clear all learning history without removing saved ideas or useful markers. Daily Applied Wisdom does not deliberately send an answer or score as a Clarity event or tag, and it masks learning content from Clarity's recording. Allowed analytics can still record ordinary page interactions, and browser-local storage is not technical isolation from third-party scripts running on the page; the privacy page explains that boundary.
 
 ## Book selection
 

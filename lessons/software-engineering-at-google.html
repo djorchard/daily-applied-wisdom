@@ -74,10 +74,6 @@
 <p>Write the smallest move that would preserve the option to make that change later. Do not build the future feature; reduce one source of avoidable lock-in.</p></section>
           <section class="caveat"><h3>Caveat or failure mode</h3><p>Future-proofing can become speculative over-engineering. Preserve capability for plausible changes with asymmetric consequences, not every imaginable future.</p></section>
         </div>
-        <section class="questions" aria-labelledby="idea-1-questions">
-          <h3 id="idea-1-questions">Reinforcement questions</h3>
-          <ol><li>In your own words, what do time, scale and trade-offs add to the idea of programming?</li><li>A small internal application may run for eight years but depends directly on a vendor API throughout the codebase. What would you change now, and what would you deliberately leave alone?</li></ol>
-        </section>
         <div class="idea-actions" data-clarity-mask="true">
           <button class="idea-save" type="button" data-save-id="software-engineering-at-google-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
             <span aria-hidden="true">♡</span> Save idea for later
@@ -112,10 +108,6 @@
 <p>Classify each as safe to change, change only with telemetry or migration, or effectively part of the contract now.</p></section>
           <section class="caveat"><h3>Caveat or failure mode</h3><p>Hyrum's Law is an engineering observation, not a mathematical law. A small system with known consumers can often change behaviour safely after checking them directly.</p></section>
         </div>
-        <section class="questions" aria-labelledby="idea-2-questions">
-          <h3 id="idea-2-questions">Reinforcement questions</h3>
-          <ol><li>Why can an undocumented behaviour still function as part of an API contract?</li><li>You want to change the ordering returned by an internal endpoint because no order was promised. What evidence should you gather before shipping?</li></ol>
-        </section>
         <div class="idea-actions" data-clarity-mask="true">
           <button class="idea-save" type="button" data-save-id="software-engineering-at-google-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
             <span aria-hidden="true">♡</span> Save idea for later
@@ -150,10 +142,6 @@
 <p>If it matters, move that rationale into the code, test, change description or durable documentation. A review-only explanation may disappear from where future readers need it.</p></section>
           <section class="caveat"><h3>Caveat or failure mode</h3><p>Mandatory review can become ceremony or a gatekeeper queue. Optimise for small changes, fast first responses, clear reviewer roles and automated checks; do not confuse more reviewers with better review.</p></section>
         </div>
-        <section class="questions" aria-labelledby="idea-3-questions">
-          <h3 id="idea-3-questions">Reinforcement questions</h3>
-          <ol><li>Besides catching defects, which two long-term benefits of code review matter most, and why?</li><li>A senior developer reviews nearly every change because they know the system best, but delivery queues behind them. How would you spread knowledge without simply removing review?</li></ol>
-        </section>
         <div class="idea-actions" data-clarity-mask="true">
           <button class="idea-save" type="button" data-save-id="software-engineering-at-google-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
             <span aria-hidden="true">♡</span> Save idea for later
@@ -166,6 +154,193 @@
         <p class="reaction-note">Saved markers stay in this browser; allowed analytics may record use of the Save control. Marking an idea useful sends a best-effort signal to the owner's personal Microsoft Clarity project; no account or name is required. <a href="../privacy.html">Privacy and data use</a></p>
       </div>
     </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="software-engineering-at-google" data-quiz-revision="2026-08-13-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+            <p class="eyebrow">Retrieval practice · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6 before checking. Your first attempt is saved only in this browser, and each explanation appears after you check your answers. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-1-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What most clearly distinguishes software engineering from programming in this lesson?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q1" value="0" required aria-describedby="software-engineering-at-google-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It emphasises reusable abstractions so a program can support a wider range of features.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q1" value="1" required aria-describedby="software-engineering-at-google-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It treats tested correctness and present delivery cost as the main measures of success.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q1" value="2" required aria-describedby="software-engineering-at-google-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It considers safe, economical change across the software's expected life and scale.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q1" value="3" required aria-describedby="software-engineering-at-google-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It implements likely future upgrades early so later teams inherit fewer decisions.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Reusable abstractions can help, but using more of them does not by itself address change across time, scale and organisational cost.</p><p data-feedback-for="1" hidden>Present correctness and delivery cost matter, but software engineering also considers whether valuable future change remains economical.</p><p data-feedback-for="2" hidden>Time, scale and trade-offs extend the concern from working code today to sustainable change throughout the software's useful life.</p><p data-feedback-for="3" hidden>Building anticipated upgrades commits to predictions; sustainability instead preserves options for plausible changes without implementing them early.</p>
+                    <p class="quiz-feedback-context">Software engineering stretches a coding decision across time and organisational scale. Sustainability means retaining the capability to respond to valuable change, not predicting or implementing every future.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-2-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>According to Hyrum's Law, which behaviour can become part of an API's practical compatibility surface?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q1" value="0" required aria-describedby="software-engineering-at-google-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Behaviour described in the published contract, because consumers can safely rely on that subset.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q1" value="1" required aria-describedby="software-engineering-at-google-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Behaviour covered by provider tests, because those tests define the compatibility surface.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q1" value="2" required aria-describedby="software-engineering-at-google-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Implementation details visible inside the provider, since refactors can affect maintenance.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q1" value="3" required aria-describedby="software-engineering-at-google-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Behaviour consumers can observe and may rely on, whether or not documentation promises it.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The contract defines promised behaviour, but consumers can still form dependencies on additional details they observe.</p><p data-feedback-for="1" hidden>Provider tests describe intended behaviour but do not reveal assumptions made independently by consumers.</p><p data-feedback-for="2" hidden>Internal details affect maintenance, but they do not become consumer compatibility dependencies unless they are observable through the API.</p><p data-feedback-for="3" hidden>Observable details can acquire consumers, so practical compatibility often extends beyond the written contract.</p>
+                    <p class="quiz-feedback-context">Dependencies form around observations, not documentation boundaries. Ordering, timing, defaults or error text can therefore acquire compatibility costs once consumers rely on them.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-3-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>How can code review reduce key-person risk beyond catching defects?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q1" value="0" required aria-describedby="software-engineering-at-google-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It makes a reviewer capable of taking over the component after approving one change.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q1" value="1" required aria-describedby="software-engineering-at-google-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It spreads context and rationale so maintenance knowledge is less concentrated.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q1" value="2" required aria-describedby="software-engineering-at-google-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It keeps architectural authority with a senior reviewer who sees each change.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q1" value="3" required aria-describedby="software-engineering-at-google-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It creates an approval history that can substitute for maintainer documentation.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Review can build understanding gradually, but approving one change does not transfer the full context needed to own a component.</p><p data-feedback-for="1" hidden>Sharing context and rationale gives more people the understanding needed to maintain and challenge the code.</p><p data-feedback-for="2" hidden>Centralising decisions with one senior engineer preserves key-person dependence and can create a delivery bottleneck.</p><p data-feedback-for="3" hidden>Review history is useful evidence, but it cannot substitute for rationale placed where future maintainers will need it.</p>
+                    <p class="quiz-feedback-context">Key-person risk falls when another maintainer gains enough context to understand and challenge the change. Approval alone does not transfer that knowledge.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-1-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>An internal service is expected to run for eight years, but vendor API calls are scattered throughout its code. Replacement is plausible but not scheduled. What is the best next move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q2" value="0" required aria-describedby="software-engineering-at-google-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Build adapters for several likely providers now, even though their interfaces and value are uncertain.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q2" value="1" required aria-describedby="software-engineering-at-google-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Place vendor calls behind one tested boundary and defer multi-provider support until it is needed.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q2" value="2" required aria-describedby="software-engineering-at-google-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Document each current vendor call, but keep direct integrations unchanged until replacement is funded.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-1-q2" value="3" required aria-describedby="software-engineering-at-google-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Rebuild the vendor capability internally when its estimate falls below three years of licence fees.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Several adapters still pay now for uncertain providers. A single boundary preserves the replacement option with less speculative cost.</p><p data-feedback-for="1" hidden>A tested boundary reduces avoidable lock-in while postponing provider-specific investment until evidence justifies it.</p><p data-feedback-for="2" hidden>Documentation helps discovery, but leaving calls distributed preserves the structural migration cost that the boundary is meant to reduce.</p><p data-feedback-for="3" hidden>A licence comparison omits internal maintenance, migration and opportunity cost, so it does not establish that owning the capability is the better trade-off.</p>
+                    <p class="quiz-feedback-context">A narrow seam preserves the valuable option to replace the vendor without paying for a speculative platform today. It addresses plausible lock-in while limiting over-engineering.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>You want to change an internal endpoint's result ordering because no order was promised. What should you do before shipping?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q2" value="0" required aria-describedby="software-engineering-at-google-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Check known consumers, telemetry and tests, then stage the change if ordering dependencies appear.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q2" value="1" required aria-describedby="software-engineering-at-google-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Change the order after notifying consumers, because notice is enough for undocumented behaviour.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q2" value="2" required aria-describedby="software-engineering-at-google-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Treat the observed order as permanent because changing it creates unnecessary compatibility risk.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-2-q2" value="3" required aria-describedby="software-engineering-at-google-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Update the contract to permit the new order, then deploy without examining existing consumers.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Consumer evidence distinguishes a safe change from one requiring staging, communication or migration.</p><p data-feedback-for="1" hidden>Notice helps manage a change, but it does not reveal which consumers depend on ordering or whether they can migrate safely.</p><p data-feedback-for="2" hidden>Hyrum's Law warns about hidden dependencies, but it does not require preserving observed behaviour when evidence supports a managed change.</p><p data-feedback-for="3" hidden>Changing the written contract does not remove dependencies on current behaviour; consumer evidence is still needed before deployment.</p>
+                    <p class="quiz-feedback-context">The real question is whether consumers rely on the order. Evidence from usage and tests supports either a safe direct change or a managed migration; Hyrum's Law does not require freezing every behaviour.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="software-engineering-at-google-idea-3-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A senior developer reviews nearly every change because they know the system best, but work now queues behind them. Which response best preserves review while spreading knowledge?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q2" value="0" required aria-describedby="software-engineering-at-google-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Let authors merge low-risk changes, then invite reviewers to read a weekly summary.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q2" value="1" required aria-describedby="software-engineering-at-google-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Add a rotating second approver so more developers observe the senior reviewer's decisions.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q2" value="2" required aria-describedby="software-engineering-at-google-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Use smaller changes, coached reviewers and automation, while recording essential rationale.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="software-engineering-at-google-idea-3-q2" value="3" required aria-describedby="software-engineering-at-google-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Schedule larger review batches so the senior reviewer gets uninterrupted review sessions.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="software-engineering-at-google-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A delayed summary may spread awareness, but it removes timely challenge and context transfer from the change itself.</p><p data-feedback-for="1" hidden>Rotating observation exposes more people, but an additional approval gate increases latency without giving them active review responsibility.</p><p data-feedback-for="2" hidden>Smaller changes and automation lower review effort, while coaching and durable rationale broaden future ownership.</p><p data-feedback-for="3" hidden>Scheduled batches reduce interruption frequency but increase review complexity, feedback delay and the cost of understanding each change.</p>
+                    <p class="quiz-feedback-context">Small reviews and automation reduce review cost, while guided participation transfers system context to more people. Larger batches or extra gatekeepers intensify the bottleneck.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
 
         <section class="experiment" aria-labelledby="experiment-title">
           <p class="eyebrow">Today's experiment · 10 minutes</p>

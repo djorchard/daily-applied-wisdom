@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="How Daily Applied Wisdom handles saved ideas, useful reactions, analytics and comments." />
+    <meta name="description" content="How Daily Applied Wisdom handles learning progress, saved ideas, useful reactions, analytics and comments." />
     <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
     <meta property="og:title" content="Privacy and data use — Daily Applied Wisdom" />
-    <meta property="og:description" content="How Daily Applied Wisdom handles saved ideas, useful reactions, analytics and comments." />
+    <meta property="og:description" content="How Daily Applied Wisdom handles learning progress, saved ideas, useful reactions, analytics and comments." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
     <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
@@ -34,11 +34,27 @@
       <header>
         <p class="eyebrow">Plain-language disclosure</p>
         <h1>Privacy and data use</h1>
-        <p>Daily Applied Wisdom separates private browser features from feedback sent to external services.</p>
+        <p>Daily Applied Wisdom distinguishes browser-local features from feedback deliberately sent to external services.</p>
       </header>
       <section>
         <h2>Saved ideas</h2>
         <p>“Save idea for later” stores the idea identifier in your browser's local storage. The stored identifier and your Saved ideas page are not sent to the site owner, and Microsoft Clarity is never loaded on that page. Saved ideas do not sync to another browser or device. If you allow analytics on lesson pages, Clarity may record that you used a Save control in the context of that page. Removing a saved idea deletes the local marker.</p>
+      </section>
+      <section>
+        <h2>Learning progress</h2>
+        <p>Learning checks store your first answer to each question, score and completion time in this browser's local storage. From the next local day, the homepage can offer one review of up to 3 questions; missed questions remain eligible and remembered questions leave the queue. Daily Applied Wisdom does not deliberately send answers or scores as Clarity events or tags, and learning-check and review content is masked from Clarity's recording. If allowed, Clarity can still record standard interaction data such as clicks and scrolling. Cusdis and Clarity are third-party page scripts, so browser-local storage is not technical isolation from scripts running on the same page. Progress remains until you clear learning history or this site's browser data; it does not sync to another browser or device.</p>
+        <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
+        <p data-learning-history-status aria-live="polite"></p>
+        <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
+          <form method="dialog">
+            <h3 id="clear-learning-history-title">Clear learning history?</h3>
+            <p>This removes first attempts and quick-review progress from this browser. Saved ideas and useful markers remain.</p>
+            <div class="confirmation-dialog-actions">
+              <button type="submit" value="cancel">Cancel</button>
+              <button class="destructive-button" type="button" data-clear-learning-history>Clear history</button>
+            </div>
+          </form>
+        </dialog>
       </section>
       <section>
         <h2>Useful reactions and Microsoft Clarity</h2>
