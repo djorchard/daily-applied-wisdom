@@ -1,25 +1,63 @@
-const lessonKey = 'daw-thinking-in-systems-2026-08-13';
+function safeStorageGet(key) {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
 
-document.querySelectorAll('[data-reaction]').forEach((reaction) => {
-  const button = reaction.querySelector('.thumb');
-  const count = reaction.querySelector('.count');
-  const key = `${lessonKey}-${reaction.dataset.reaction}`;
-  const active = localStorage.getItem(key) === 'true';
-  button.setAttribute('aria-pressed', active);
-  count.textContent = active ? '1' : '0';
+function safeStorageSet(key, value) {
+  try { localStorage.setItem(key, value); } catch { /* Private browsing may block storage. */ }
+}
+
+document.querySelectorAll('[data-reaction]').forEach((button) => {
+  const key = `daw-reaction-${button.dataset.reaction}`;
+  const active = safeStorageGet(key) === 'true';
+  button.setAttribute('aria-pressed', String(active));
+  button.innerHTML = active ? '<span aria-hidden="true">♥</span> Saved as useful' : '<span aria-hidden="true">♡</span> Save as useful';
+
   button.addEventListener('click', () => {
     const next = button.getAttribute('aria-pressed') !== 'true';
-    button.setAttribute('aria-pressed', next);
-    count.textContent = next ? '1' : '0';
-    localStorage.setItem(key, String(next));
+    button.setAttribute('aria-pressed', String(next));
+    button.innerHTML = next ? '<span aria-hidden="true">♥</span> Saved as useful' : '<span aria-hidden="true">♡</span> Save as useful';
+    safeStorageSet(key, String(next));
   });
 });
 
-document.querySelector('[data-share]').addEventListener('click', async () => {
-  const status = document.querySelector('#share-status');
-  const share = { title: 'Daily Applied Wisdom', text: 'Three ideas from Thinking in Systems worth carrying into your work and life.', url: location.href };
-  try {
-    if (navigator.share) await navigator.share(share);
-    else { await navigator.clipboard.writeText(location.href); status.textContent = 'Link copied.'; }
-  } catch (error) { if (error.name !== 'AbortError') status.textContent = 'Could not open sharing.'; }
+document.querySelectorAll('[data-share]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const status = button.parentElement.querySelector('.share-status');
+    const shareData = {
+      title: button.dataset.shareTitle || document.title,
+      text: button.dataset.shareText || document.querySelector('meta[name="description"]')?.content || '',
+      url: button.dataset.shareUrl || document.querySelector('link[rel="canonical"]')?.href || location.href
+    };
+    try {
+      if (navigator.share) await navigator.share(shareData);
+      else {
+        await navigator.clipboard.writeText(shareData.url);
+        if (status) status.textContent = 'Link copied.';
+      }
+    } catch (error) {
+      if (error.name !== 'AbortError' && status) status.textContent = 'Sharing was unavailable.';
+    }
+  });
 });
+
+document.querySelectorAll('[data-copy-url]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const status = button.parentElement.querySelector('.share-status');
+    try {
+      await navigator.clipboard.writeText(button.dataset.copyUrl);
+      if (status) status.textContent = 'Link copied.';
+    } catch {
+      if (status) status.textContent = 'Copy was unavailable.';
+    }
+  });
+});
+
+const comments = document.querySelector('#cusdis_thread');
+if (comments && comments.dataset.appId && comments.dataset.appId !== 'YOUR_CUSDIS_APP_ID') {
+  document.querySelector('.comments-setup')?.remove();
+  const script = document.createElement('script');
+  script.src = 'https://cusdis.com/js/cusdis.es.js';
+  script.async = true;
+  script.defer = true;
+  document.body.append(script);
+}

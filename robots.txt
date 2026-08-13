@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://djorchard.github.io/daily-applied-wisdom/sitemap.xml

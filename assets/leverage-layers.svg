@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Potential leverage at different depths of a system</title>
+  <desc id="desc">Numbers and targets sit at the outside, while information, rules, goals and mindset affect progressively more downstream decisions, with uncertainty increasing toward the centre.</desc>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <text x="600" y="74" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#18211d">Look beneath the parameter you can see</text>
+  <g transform="translate(360 120)" stroke="#18211d" stroke-width="4">
+    <circle cx="300" cy="280" r="248" fill="#b8d5e5"/>
+    <circle cx="300" cy="280" r="190" fill="#bdd9bf"/>
+    <circle cx="300" cy="280" r="132" fill="#f5c79d"/>
+    <circle cx="300" cy="280" r="72" fill="#b54424"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#18211d" font-size="21" font-weight="700">
+    <text x="660" y="174">NUMBERS &amp; TARGETS</text>
+    <text x="660" y="237">INFORMATION &amp; RULES</text>
+    <text x="660" y="303">SYSTEM GOALS</text>
+    <text x="660" y="392" fill="#fffdf8" text-anchor="middle">MINDSET</text>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#18211d">
+    <text x="78" y="214" font-size="22" font-weight="700">EASIER TO CHANGE</text>
+    <text x="78" y="246" font-size="19">often lower leverage</text>
+    <line x1="240" y1="260" x2="385" y2="314" stroke="#18211d" stroke-width="3"/>
+    <text x="78" y="516" font-size="22" font-weight="700">BROADER EFFECT</text>
+    <text x="78" y="548" font-size="19">harder to understand</text>
+    <line x1="250" y1="500" x2="530" y2="410" stroke="#18211d" stroke-width="3"/>
+    <text x="600" y="700" text-anchor="middle" font-size="21">A leverage ranking is an invitation to investigate—not a guarantee that deeper change is safer or easier.</text>
+  </g>
+</svg>

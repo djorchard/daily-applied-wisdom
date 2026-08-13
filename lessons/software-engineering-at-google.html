@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html" />
+    <meta property="og:title" content="Software Engineering at Google — Daily Applied Wisdom" />
+    <meta property="og:description" content="How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom — One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-08-13" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <title>Software Engineering at Google — Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Software Engineering at Google","description":"How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate.","datePublished":"2026-08-13","author":[{"@type":"Person","name":"Titus Winters"},{"@type":"Person","name":"Tom Manshreck"},{"@type":"Person","name":"Hyrum Wright"}],"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">DAW<span>·</span></a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-08-13">13 August 2026</time></p>
+          <h1>Software Engineering at Google</h1>
+          <p class="lesson-author">Titus Winters, Tom Manshreck and Hyrum Wright</p>
+          <div class="lesson-meta"><span>2020</span><span>Software engineering · Engineering leadership</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> This is a practitioner account of Google's engineering practices, not a universal recipe. Its strongest value is as a set of explicit trade-offs tested at unusual scale; smaller organisations should adapt the mechanisms to their own lifespan and coordination costs.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Software Engineering at Google — Daily Applied Wisdom" data-share-text="How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Engineer for change, not just correctness today</a><a href="#idea-2"><span>02</span>Observable behaviour becomes part of your API</a><a href="#idea-3"><span>03</span>Code review is a knowledge-distribution system</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-green" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Engineer for change, not just correctness today <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>The authors distinguish programming from software engineering by adding time, scale and trade-offs. Programming asks whether code works now. Software engineering also asks whether the organisation can still change that code safely and economically throughout its useful life.</p>
+<p>Their definition of sustainability is practical: a project is sustainable when it retains the capability to respond to valuable technical or business changes. It does not require performing every possible upgrade.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Maintainability is preserved optionality. A system is healthier when future engineers can alter it without heroic knowledge, risky rewrites or frozen dependencies.</aside>
+        <figure class="lesson-visual">
+          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea1_Changeability.png" alt="A timeline from code working today, through a future change, to the question of whether the software remains adaptable years later." width="1600" height="1000" loading="lazy" decoding="async" />
+          <figcaption>Software engineering stretches the programming decision across the system's expected life.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A shortcut can be rational for a three-week prototype and reckless for a ten-year business system. Expected lifespan should influence investment in tests, interfaces, automation, documentation, migration paths and consistency.</p></section>
+          <section><h3>Apply it today</h3><p>Pick one component you expect to survive for several more years. Name one plausible change that would be disproportionately difficult: a vendor replacement, identity change, data migration, new client or new regulatory rule.</p>
+<p>Write the smallest move that would preserve the option to make that change later. Do not build the future feature; reduce one source of avoidable lock-in.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Future-proofing can become speculative over-engineering. Preserve capability for plausible changes with asymmetric consequences, not every imaginable future.</p></section>
+        </div>
+        <section class="questions" aria-labelledby="idea-1-questions">
+          <h3 id="idea-1-questions">Reinforcement questions</h3>
+          <ol><li>In your own words, what do time, scale and trade-offs add to the idea of programming?</li><li>A small internal application may run for eight years but depends directly on a vendor API throughout the codebase. What would you change now, and what would you deliberately leave alone?</li></ol>
+        </section>
+        <button class="idea-reaction" type="button" data-reaction="software-engineering-at-google-idea-1" aria-pressed="false" aria-label="Save Idea 1 as useful on this device">
+          <span aria-hidden="true">♡</span> Save as useful
+        </button>
+      </div>
+    </section>
+<section class="lesson-idea accent-green" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Observable behaviour becomes part of your API <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Hyrum's Law states that, with enough users of an API, every observable behaviour will eventually be depended on by somebody, whether or not it was documented as part of the contract. Ordering, error text, timing, default values, whitespace, side effects and quirks can all become dependencies.</p>
+<p>The practical lesson is not that APIs can never change. It is that the real compatibility surface is usually larger than the promised one.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Treat compatibility as an observation problem before treating it as a documentation argument. Telemetry, consumer tests and staged migrations reveal dependencies that the written contract cannot.</aside>
+        <figure class="lesson-visual">
+          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea2_Hyrums_Law.png" alt="Consumers depending on undocumented API behaviours such as defaults, ordering, timing, side effects and error text." width="1600" height="1000" loading="lazy" decoding="async" />
+          <figcaption>If a consumer can observe a detail, somebody may eventually rely on it.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Apparently harmless refactors can break production consumers because compatibility risk grows from what users can observe, not merely what the specification promises.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one API, database view, file export or shared component. List three observable behaviours that are not explicitly guaranteed.</p>
+<p>Classify each as safe to change, change only with telemetry or migration, or effectively part of the contract now.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Hyrum's Law is an engineering observation, not a mathematical law. A small system with known consumers can often change behaviour safely after checking them directly.</p></section>
+        </div>
+        <section class="questions" aria-labelledby="idea-2-questions">
+          <h3 id="idea-2-questions">Reinforcement questions</h3>
+          <ol><li>Why can an undocumented behaviour still function as part of an API contract?</li><li>You want to change the ordering returned by an internal endpoint because no order was promised. What evidence should you gather before shipping?</li></ol>
+        </section>
+        <button class="idea-reaction" type="button" data-reaction="software-engineering-at-google-idea-2" aria-pressed="false" aria-label="Save Idea 2 as useful on this device">
+          <span aria-hidden="true">♡</span> Save as useful
+        </button>
+      </div>
+    </section>
+<section class="lesson-idea accent-green" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Code review is a knowledge-distribution system <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book treats code review as more than defect detection. A well-designed process also improves comprehension, consistency, shared ownership, knowledge transfer and the historical record of why a change was made.</p>
+<p>Google's account explicitly acknowledges the cost: review adds latency and can become unsustainable when it is heavyweight. Small changes, prompt feedback and automation keep the human attention focused on judgement.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Review reduces key-person risk only when it transfers context. The asset being distributed is not approval; it is enough understanding for someone else to maintain and challenge the change.</aside>
+        <figure class="lesson-visual">
+          <img src="../assets/lessons/2026-08-13_Software_Engineering_at_Google_Idea3_Code_Review.png" alt="A small code change moving from author to reviewer, spreading knowledge to other maintainers and preserving rationale in review history." width="1600" height="1000" loading="lazy" decoding="async" />
+          <figcaption>A good review turns one person's context into shared ownership.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>When only one developer understands an area, every future change queues behind that person. Review can gradually spread comprehension and make ownership less fragile.</p></section>
+          <section><h3>Apply it today</h3><p>For the next meaningful review, ask: What assumption does this change rely on that the next maintainer is least likely to know?</p>
+<p>If it matters, move that rationale into the code, test, change description or durable documentation. A review-only explanation may disappear from where future readers need it.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Mandatory review can become ceremony or a gatekeeper queue. Optimise for small changes, fast first responses, clear reviewer roles and automated checks; do not confuse more reviewers with better review.</p></section>
+        </div>
+        <section class="questions" aria-labelledby="idea-3-questions">
+          <h3 id="idea-3-questions">Reinforcement questions</h3>
+          <ol><li>Besides catching defects, which two long-term benefits of code review matter most, and why?</li><li>A senior developer reviews nearly every change because they know the system best, but delivery queues behind them. How would you spread knowledge without simply removing review?</li></ol>
+        </section>
+        <button class="idea-reaction" type="button" data-reaction="software-engineering-at-google-idea-3" aria-pressed="false" aria-label="Save Idea 3 as useful on this device">
+          <span aria-hidden="true">♡</span> Save as useful
+        </button>
+      </div>
+    </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Run a changeability scan</h2>
+          <ol><li>Choose one long-lived component you actively own.</li><li>Write one plausible change it may face in the next two years.</li><li>Identify the single assumption or dependency that would make that change hardest.</li><li>Write one follow-up action that would take less than a day to implement later.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> Finish this sentence: If X changes, Y is our biggest obstacle, so the next cheap move is Z.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From The Goal: how would you distinguish the current system constraint from a stage that merely looks busy?</li><li>From The Design of Everyday Things: what might a code review interface be teaching when authors send enormous changes for review?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://abseil.io/resources/swe-book/html/ch01.html" target="_blank" rel="noreferrer">Official online edition: What Is Software Engineering? <span aria-hidden="true">↗</span></a></li><li><a href="https://abseil.io/resources/swe-book/html/ch09.html" target="_blank" rel="noreferrer">Official online edition: Code Review <span aria-hidden="true">↗</span></a></li><li><a href="https://google.github.io/eng-practices/review/reviewer/" target="_blank" rel="noreferrer">Google Engineering Practices: code review <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Good software engineering preserves the organisation's ability to change its mind later without paying a heroic price.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this change for you?</h2>
+        <p class="comments-setup">Anonymous discussion is ready to activate after the site owner connects the moderation service.</p>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="YOUR_CUSDIS_APP_ID" data-page-id="software-engineering-at-google" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html" data-page-title="Software Engineering at Google — Daily Applied Wisdom"></div>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="thinking-in-systems.html"><span>Previous</span>Thinking in Systems</a>
+        <span></span>
+      </nav>
+    </main>
+    <footer id="about">
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <span>© 2026</span>
+    </footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

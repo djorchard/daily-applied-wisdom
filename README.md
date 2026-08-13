@@ -2,20 +2,31 @@
 
 One book. Three ideas. Better thinking.
 
-This is a dependency-free static site intended for GitHub Pages. It includes an inaugural lesson based on Donella H. Meadows' *Thinking in Systems*, native sharing support, per-browser helpful buttons, and a prepared anonymous-comment integration.
+This is a dependency-free static GitHub Pages site containing five evidence-aware learning sessions, an archive, per-lesson sharing, device-local useful markers, RSS, a sitemap, and a prepared anonymous-comments integration.
 
-## Publish on GitHub Pages
+Live site: <https://djorchard.github.io/daily-applied-wisdom/>
 
-1. Create an empty GitHub repository called `daily-applied-wisdom`.
-2. Push this folder's `main` branch to GitHub.
-3. In **Settings → Pages**, select **Deploy from a branch**, then choose `main` and `/ (root)`.
-4. Add the eventual public site URL to `og:url` and replace the relative `og:image` with its absolute URL in `index.html` for the best social-card previews.
+## Add or edit a lesson
 
-## Anonymous comments and reaction counts
+Lesson content lives in `content/lessons.json`. After editing it, rebuild the static pages:
 
-GitHub Pages has no server-side database, so its built-in files cannot store site-wide anonymous votes or comments securely.
+```powershell
+node tools/build-site.mjs
+node tools/check-content.mjs
+```
 
-- **Comments:** create a free site at [Cusdis](https://cusdis.com/), then replace `YOUR_CUSDIS_APP_ID` in `index.html`. It supports anonymous comments and moderation.
-- **Helpful buttons:** the current buttons deliberately use each visitor's `localStorage`, so they provide a no-setup personal bookmark-style reaction. For public aggregate counts, connect a small hosted endpoint (for example Supabase or Firebase) and add spam/rate limiting before accepting anonymous votes.
+The builder creates `index.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the five-lesson, three-idea learning structure and verifies the source notes and visuals. Commit the generated files together with the source data.
 
-The share button uses the device's native share sheet where available and copies the link as a fallback.
+## Comments and reactions
+
+GitHub Pages cannot securely store anonymous visitor data by itself.
+
+- Anonymous comments are prepared for [Cusdis](https://cusdis.com/). Create a moderated site and replace `YOUR_CUSDIS_APP_ID` in the generated lesson template inside `tools/build-site.mjs`, then rebuild.
+- The current heart buttons are explicitly device-local bookmarks. They do not claim to be public counts.
+- Public aggregate reactions need a small endpoint with a stable lesson/idea ID, anonymous session token, uniqueness guard, rate limiting and no privileged browser key. Supabase Edge Functions or Cloudflare Workers are suitable options.
+
+The share control uses the device share sheet where available and provides a copy-link fallback.
+
+## Imported source material
+
+The four dated Daily Book Learning Lab lessons and their twelve concept visuals were imported from the owner's Gmail archive. Private email headers, attachment URLs and delivery notes are not published. The launch-bonus *Thinking in Systems* lesson was expanded to the same learning standard.
