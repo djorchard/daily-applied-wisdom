@@ -53,11 +53,53 @@ document.querySelectorAll('[data-copy-url]').forEach((button) => {
 });
 
 const comments = document.querySelector('#cusdis_thread');
-if (comments && comments.dataset.appId && comments.dataset.appId !== 'YOUR_CUSDIS_APP_ID') {
-  document.querySelector('.comments-setup')?.remove();
-  const script = document.createElement('script');
-  script.src = 'https://cusdis.com/js/cusdis.es.js';
-  script.async = true;
-  script.defer = true;
-  document.body.append(script);
+if (comments) {
+  const prepareCommentsFrame = (frame) => {
+    if (frame.dataset.dawPrepared === 'true') return;
+    frame.dataset.dawPrepared = 'true';
+    frame.title = `Comments for ${comments.dataset.pageTitle || document.title}`;
+
+    const observedDocuments = new WeakSet();
+    const observeContent = () => {
+      try {
+        const frameDocument = frame.contentDocument;
+        const frameRoot = frameDocument?.documentElement;
+        if (!frameDocument || !frameRoot || observedDocuments.has(frameDocument)) return;
+        observedDocuments.add(frameDocument);
+
+        const syncHeight = () => {
+          const contentHeight = Math.max(
+            frameDocument.documentElement?.scrollHeight || 0,
+            frameDocument.body?.scrollHeight || 0
+          );
+          if (contentHeight > 0 && Math.abs(frame.getBoundingClientRect().height - contentHeight) > 1) {
+            frame.style.height = `${Math.ceil(contentHeight)}px`;
+          }
+        };
+
+        syncHeight();
+        new MutationObserver(syncHeight).observe(frameRoot, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+          attributes: true
+        });
+        if ('ResizeObserver' in window) new ResizeObserver(syncHeight).observe(frameRoot);
+      } catch {
+        // The CSS minimum height remains a safe fallback if Cusdis changes iframe isolation.
+      }
+    };
+
+    frame.addEventListener('load', observeContent);
+    observeContent();
+    setTimeout(observeContent, 500);
+  };
+
+  const prepareCurrentFrame = () => {
+    const frame = comments.querySelector('iframe');
+    if (frame) prepareCommentsFrame(frame);
+  };
+
+  new MutationObserver(prepareCurrentFrame).observe(comments, { childList: true });
+  prepareCurrentFrame();
 }

@@ -2,7 +2,7 @@
 
 One book. Three ideas. Better thinking.
 
-This is a dependency-free static GitHub Pages site containing five evidence-aware learning sessions, an archive, per-lesson sharing, device-local useful markers, RSS, a sitemap, and a prepared anonymous-comments integration.
+This is a dependency-free static GitHub Pages site containing five evidence-aware learning sessions, an archive, per-lesson sharing, device-local useful markers, RSS, a sitemap, and moderated account-free comments.
 
 Live site: <https://djorchard.github.io/daily-applied-wisdom/>
 
@@ -27,7 +27,7 @@ Lesson diagrams are deterministic SVGs rather than generated text-heavy images. 
 
 GitHub Pages cannot securely store anonymous visitor data by itself.
 
-- Anonymous comments are prepared for [Cusdis](https://cusdis.com/). Create a moderated site and replace `YOUR_CUSDIS_APP_ID` in the generated lesson template inside `tools/build-site.mjs`, then rebuild.
+- Account-free comments are connected to the site's moderated [Cusdis](https://cusdis.com/) application. Each lesson has a stable page ID, canonical URL and title so its discussion remains separate. The lesson UI discloses that Cusdis receives standard connection data; email is optional.
 - The current heart buttons are explicitly device-local bookmarks. They do not claim to be public counts.
 - Public aggregate reactions need a small endpoint with a stable lesson/idea ID, anonymous session token, uniqueness guard, rate limiting and no privileged browser key. Supabase Edge Functions or Cloudflare Workers are suitable options.
 

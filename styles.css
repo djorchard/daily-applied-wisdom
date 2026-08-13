@@ -126,7 +126,8 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .takeaway { background: #9f3c22; color: white; }
 .takeaway h2 { max-width: 1050px; }
 .reader-feedback { background: var(--paper-deep); }
-.comments-setup { padding: 1rem 1.2rem; border-left: 4px solid var(--red); background: #fff8; }
+.comments-note { margin: 0 0 1.5rem; font-size: .85rem; }
+#cusdis_thread iframe { display: block; min-height: 340px; }
 .lesson-pagination { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
 .lesson-pagination a { min-height: 170px; padding: 2.5rem 7vw; background: var(--white); display: flex; flex-direction: column; justify-content: center; font: 400 clamp(1.4rem, 3vw, 2.5rem)/1.1 var(--serif); }
 .lesson-pagination a.next { text-align: right; align-items: flex-end; }

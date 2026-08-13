@@ -2,8 +2,16 @@ import { access, readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
+const siteUrl = 'https://djorchard.github.io/daily-applied-wisdom';
+const cusdisAppId = '714bda94-6019-4858-968f-91b3b5bb1c13';
 const fail = (message) => { throw new Error(message); };
 const present = (value) => typeof value === 'string' && value.trim().length > 0;
+const esc = (value = '') => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#039;');
 const { lessons } = JSON.parse(await readFile(path.join(root, 'content', 'lessons.json'), 'utf8'));
 
 if (!Array.isArray(lessons) || lessons.length !== 5) {
@@ -16,6 +24,7 @@ for (const lesson of lessons) {
   for (const field of ['slug', 'date', 'title', 'authors', 'summary', 'evidenceNote', 'takeaway']) {
     if (!present(lesson[field])) fail(`${lesson.slug ?? 'Unknown lesson'} is missing ${field}.`);
   }
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.slug)) fail(`${lesson.slug} is not a URL-safe lesson slug.`);
   if (slugs.has(lesson.slug)) fail(`Duplicate lesson slug: ${lesson.slug}.`);
   slugs.add(lesson.slug);
 
@@ -56,7 +65,26 @@ for (const lesson of lessons) {
     }
   }
 
-  await access(path.join(root, 'lessons', `${lesson.slug}.html`));
+  const generatedLessonPath = path.join(root, 'lessons', `${lesson.slug}.html`);
+  await access(generatedLessonPath);
+  const generatedLesson = await readFile(generatedLessonPath, 'utf8');
+  const canonicalUrl = `${siteUrl}/lessons/${lesson.slug}.html`;
+  if (generatedLesson.includes('YOUR_CUSDIS_APP_ID') || !generatedLesson.includes(`data-app-id="${cusdisAppId}"`)) {
+    fail(`${lesson.title} is not connected to the configured Cusdis app.`);
+  }
+  if (
+    !generatedLesson.includes('data-host="https://cusdis.com"') ||
+    !generatedLesson.includes(`data-page-id="${lesson.slug}"`) ||
+    !generatedLesson.includes(`data-page-url="${canonicalUrl}"`) ||
+    !generatedLesson.includes(`data-page-title="${esc(lesson.title)} — Daily Applied Wisdom"`) ||
+    !generatedLesson.includes(`<link rel="canonical" href="${canonicalUrl}" />`) ||
+    !generatedLesson.includes('https://cusdis.com/js/cusdis.es.js')
+  ) {
+    fail(`${lesson.title} has incomplete Cusdis page identity or script configuration.`);
+  }
+  if ((generatedLesson.match(/id="cusdis_thread"/g) || []).length !== 1 || (generatedLesson.match(/https:\/\/cusdis\.com\/js\/cusdis\.es\.js/g) || []).length !== 1) {
+    fail(`${lesson.title} must contain exactly one Cusdis container and script.`);
+  }
 }
 
 if (lessonVisuals.size !== lessons.length * 3) fail('Every idea must reference its own visual.');
