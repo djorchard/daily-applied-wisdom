@@ -1,23 +1,233 @@
+const CLARITY_PROJECT_ID = 'y1mr2l6g3q';
+const ANALYTICS_CONSENT_KEY = 'daw-clarity-consent';
+const clarityDisabledOnPage = document.body.classList.contains('saved-page');
+
 function safeStorageGet(key) {
   try { return localStorage.getItem(key); } catch { return null; }
 }
 
 function safeStorageSet(key, value) {
-  try { localStorage.setItem(key, value); } catch { /* Private browsing may block storage. */ }
+  try {
+    localStorage.setItem(key, value);
+    return localStorage.getItem(key) === value;
+  } catch {
+    return false;
+  }
 }
 
-document.querySelectorAll('[data-reaction]').forEach((button) => {
-  const key = `daw-reaction-${button.dataset.reaction}`;
-  const active = safeStorageGet(key) === 'true';
-  button.setAttribute('aria-pressed', String(active));
-  button.innerHTML = active ? '<span aria-hidden="true">♥</span> Saved as useful' : '<span aria-hidden="true">♡</span> Save as useful';
+function safeStorageRemove(key) {
+  try {
+    localStorage.removeItem(key);
+    return localStorage.getItem(key) === null;
+  } catch {
+    return false;
+  }
+}
+
+function savedIdeaState(id) {
+  const key = `daw-saved-${id}`;
+  const current = safeStorageGet(key);
+  if (current === 'true') return true;
+  if (current === 'false') safeStorageRemove(key);
+
+  const legacyKey = `daw-reaction-${id}`;
+  const legacySaved = safeStorageGet(legacyKey) === 'true';
+  if (legacySaved && safeStorageSet(key, 'true')) safeStorageRemove(legacyKey);
+  return legacySaved;
+}
+
+function writeSavedIdea(id, saved) {
+  const key = `daw-saved-${id}`;
+  const legacyKey = `daw-reaction-${id}`;
+  if (saved) {
+    const stored = safeStorageSet(key, 'true');
+    if (stored) safeStorageRemove(legacyKey);
+    return stored;
+  }
+  return safeStorageRemove(key) && safeStorageRemove(legacyKey);
+}
+
+function ideaActionStatus(button, message) {
+  const status = button.closest('.idea-actions')?.querySelector('.idea-action-status');
+  if (status) status.textContent = message;
+}
+
+function renderSaveButton(button, saved) {
+  const ideaNumber = button.dataset.ideaNumber;
+  button.setAttribute('aria-pressed', String(saved));
+  button.setAttribute('aria-label', saved
+    ? `Remove Idea ${ideaNumber} from saved ideas in this browser`
+    : `Save Idea ${ideaNumber} for later in this browser`);
+  button.innerHTML = saved
+    ? '<span aria-hidden="true">♥</span> Remove saved idea'
+    : '<span aria-hidden="true">♡</span> Save idea for later';
+}
+
+document.querySelectorAll('[data-save-id]').forEach((button) => {
+  const id = button.dataset.saveId;
+  renderSaveButton(button, savedIdeaState(id));
 
   button.addEventListener('click', () => {
     const next = button.getAttribute('aria-pressed') !== 'true';
-    button.setAttribute('aria-pressed', String(next));
-    button.innerHTML = next ? '<span aria-hidden="true">♥</span> Saved as useful' : '<span aria-hidden="true">♡</span> Save as useful';
-    safeStorageSet(key, String(next));
+    if (!writeSavedIdea(id, next)) {
+      ideaActionStatus(button, next
+        ? 'Idea was not saved because browser storage is unavailable.'
+        : 'Saved idea was not removed because browser storage is unavailable.');
+      return;
+    }
+    renderSaveButton(button, next);
+    ideaActionStatus(button, next ? 'Idea saved for later.' : 'Idea removed from saved ideas.');
   });
+});
+
+function ensureClarityQueue() {
+  window.clarity = window.clarity || function clarityQueue() {
+    (window.clarity.q = window.clarity.q || []).push(arguments);
+  };
+}
+
+function sendClarityConsent(choice) {
+  ensureClarityQueue();
+  window.clarity('consentv2', {
+    ad_Storage: 'denied',
+    analytics_Storage: choice === 'granted' ? 'granted' : 'denied'
+  });
+}
+
+let clarityLoadPromise;
+function loadClarity(choice) {
+  if (clarityDisabledOnPage) return Promise.reject(new Error('Analytics is disabled on the Saved ideas page.'));
+  ensureClarityQueue();
+  sendClarityConsent(choice);
+  if (document.querySelector('script[data-daw-clarity]')) return clarityLoadPromise || Promise.resolve();
+
+  clarityLoadPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.dataset.dawClarity = 'true';
+    script.referrerPolicy = 'strict-origin-when-cross-origin';
+    script.src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+    script.addEventListener('load', resolve, { once: true });
+    script.addEventListener('error', () => {
+      script.remove();
+      clarityLoadPromise = null;
+      reject(new Error('Microsoft Clarity did not load.'));
+    }, { once: true });
+    document.head.append(script);
+  });
+  return clarityLoadPromise;
+}
+
+function renderUsefulButton(button, marked) {
+  const ideaNumber = button.dataset.ideaNumber;
+  button.disabled = marked;
+  button.setAttribute('aria-label', marked
+    ? `Idea ${ideaNumber} marked useful`
+    : `Mark Idea ${ideaNumber} as useful`);
+  button.removeAttribute('aria-pressed');
+  button.innerHTML = marked
+    ? '<span aria-hidden="true">✓</span> Marked useful'
+    : '<span aria-hidden="true">👍</span> Mark idea useful';
+}
+
+document.querySelectorAll('[data-useful-id]').forEach((button) => {
+  const id = button.dataset.usefulId;
+  const key = `daw-useful-${id}`;
+  renderUsefulButton(button, safeStorageGet(key) === 'true');
+
+  button.addEventListener('click', async () => {
+    if (safeStorageGet(key) === 'true') return;
+    if (!safeStorageSet(key, 'true')) {
+      ideaActionStatus(button, 'Reaction was not sent because browser storage is unavailable.');
+      return;
+    }
+
+    button.disabled = true;
+    button.setAttribute('aria-label', `Sending useful reaction for Idea ${button.dataset.ideaNumber}`);
+    button.innerHTML = '<span aria-hidden="true">…</span> Sending reaction';
+    try {
+      const consent = safeStorageGet(ANALYTICS_CONSENT_KEY) === 'granted' ? 'granted' : 'denied';
+      await loadClarity(consent);
+      window.clarity('set', 'dawBook', button.dataset.lessonSlug);
+      window.clarity('set', 'dawIdea', id);
+      window.clarity('event', button.dataset.clarityEvent);
+      renderUsefulButton(button, true);
+      ideaActionStatus(button, 'Thanks. This idea is marked useful.');
+    } catch {
+      safeStorageRemove(key);
+      renderUsefulButton(button, false);
+      ideaActionStatus(button, 'Reaction was not sent. Check your connection and try again.');
+    }
+  });
+});
+
+function refreshSavedIdeas(statusMessage = '') {
+  const cards = [...document.querySelectorAll('[data-saved-card]')];
+  if (!cards.length) return;
+  let count = 0;
+  cards.forEach((card) => {
+    const saved = savedIdeaState(card.dataset.savedId);
+    card.hidden = !saved;
+    if (saved) count += 1;
+  });
+  const grid = document.querySelector('[data-saved-grid]');
+  const empty = document.querySelector('[data-saved-empty]');
+  const countLabel = document.querySelector('[data-saved-count]');
+  if (grid) grid.hidden = count === 0;
+  if (empty) empty.hidden = count !== 0;
+  if (countLabel) {
+    const countMessage = `${count} saved ${count === 1 ? 'idea' : 'ideas'} in this browser.`;
+    countLabel.textContent = statusMessage ? `${statusMessage} ${countMessage}` : countMessage;
+  }
+}
+
+document.querySelectorAll('[data-remove-saved]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('[data-saved-card]');
+    const visibleCards = [...document.querySelectorAll('[data-saved-card]:not([hidden])')];
+    const removedIndex = visibleCards.indexOf(card);
+    const ideaTitle = card?.querySelector('h2')?.textContent?.trim() || 'Saved idea';
+    if (!writeSavedIdea(button.dataset.removeSaved, false)) {
+      const countLabel = document.querySelector('[data-saved-count]');
+      if (countLabel) countLabel.textContent = 'Saved idea was not removed because browser storage is unavailable.';
+      return;
+    }
+    refreshSavedIdeas(`${ideaTitle} removed.`);
+    const remainingCards = [...document.querySelectorAll('[data-saved-card]:not([hidden])')];
+    const nextCard = remainingCards[Math.min(Math.max(removedIndex, 0), remainingCards.length - 1)];
+    if (nextCard) nextCard.querySelector('[data-remove-saved], a')?.focus();
+    else document.querySelector('[data-saved-empty]')?.focus();
+  });
+});
+
+refreshSavedIdeas();
+window.addEventListener('storage', () => refreshSavedIdeas());
+
+const analyticsBanner = document.querySelector('[data-analytics-consent]');
+const storedAnalyticsChoice = safeStorageGet(ANALYTICS_CONSENT_KEY);
+if (storedAnalyticsChoice === 'granted' && !clarityDisabledOnPage) loadClarity('granted').catch(() => {});
+else if (!['granted', 'denied'].includes(storedAnalyticsChoice) && analyticsBanner) analyticsBanner.hidden = false;
+
+function chooseAnalytics(choice) {
+  safeStorageSet(ANALYTICS_CONSENT_KEY, choice);
+  if (analyticsBanner) analyticsBanner.hidden = true;
+  if (choice === 'granted') loadClarity('granted').catch(() => {
+    if (analyticsBanner) analyticsBanner.hidden = false;
+  });
+  else if (window.clarity) {
+    sendClarityConsent('denied');
+    location.reload();
+  }
+}
+
+document.querySelector('[data-analytics-allow]')?.addEventListener('click', () => chooseAnalytics('granted'));
+document.querySelector('[data-analytics-reject]')?.addEventListener('click', () => chooseAnalytics('denied'));
+document.querySelector('[data-analytics-reset]')?.addEventListener('click', () => {
+  safeStorageRemove(ANALYTICS_CONSENT_KEY);
+  if (window.clarity) {
+    sendClarityConsent('denied');
+    location.reload();
+  } else if (analyticsBanner) analyticsBanner.hidden = false;
 });
 
 document.querySelectorAll('[data-share]').forEach((button) => {

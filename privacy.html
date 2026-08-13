@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="How Daily Applied Wisdom handles saved ideas, useful reactions, analytics and comments." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
+    <meta property="og:title" content="Privacy and data use — Daily Applied Wisdom" />
+    <meta property="og:description" content="How Daily Applied Wisdom handles saved ideas, useful reactions, analytics and comments." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom — One book. Three ideas. Better thinking." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <title>Privacy and data use — Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="privacy-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html#latest">Latest</a>
+        <a href="index.html#library">Library</a>
+        <a href="saved.html">Saved ideas</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </header>
+    <main id="main" class="privacy-main">
+      <header>
+        <p class="eyebrow">Plain-language disclosure</p>
+        <h1>Privacy and data use</h1>
+        <p>Daily Applied Wisdom separates private browser features from feedback sent to external services.</p>
+      </header>
+      <section>
+        <h2>Saved ideas</h2>
+        <p>“Save idea for later” stores the idea identifier in your browser's local storage. The stored identifier and your Saved ideas page are not sent to the site owner, and Microsoft Clarity is never loaded on that page. Saved ideas do not sync to another browser or device. If you allow analytics on lesson pages, Clarity may record that you used a Save control in the context of that page. Removing a saved idea deletes the local marker.</p>
+      </section>
+      <section>
+        <h2>Useful reactions and Microsoft Clarity</h2>
+        <p>“Mark idea useful” sends a stable book-and-idea event to the owner's personal Microsoft Clarity project. It does not ask for your name, email or an account. The browser also stores a local marker to reduce repeat reactions from that browser profile. Clearing browser data can remove that marker. Clarity is best-effort analytics rather than a verified voting system, so network or privacy blockers can prevent delivery.</p>
+        <p>Microsoft Clarity receives standard connection, device and page-interaction data when its script runs. Clarity events are private owner analytics; the site does not display public reaction counts and does not use Clarity's Identify API.</p>
+      </section>
+      <section>
+        <h2>Analytics preferences</h2>
+        <p>If you allow analytics, Microsoft Clarity can use analytics storage to connect interactions across pages, except on the Saved ideas page where Clarity is never loaded. Advertising storage remains denied. If you reject analytics, or change an earlier choice to reject, the page reloads without Clarity during ordinary browsing. If you later choose “Mark idea useful,” Clarity loads in no-consent mode to send that reaction without setting Clarity cookies.</p>
+        <button class="privacy-choice-button" type="button" data-analytics-reset>Change analytics choice</button>
+      </section>
+      <section>
+        <h2>Comments</h2>
+        <p>Lesson discussions are provided by Cusdis. Loading the comment form shares standard connection data with Cusdis. A nickname is requested, email is optional and comments may be held for moderation. Comment data is handled by Cusdis rather than GitHub Pages.</p>
+      </section>
+      <section>
+        <h2>Sharing</h2>
+        <p>The lesson sharing control uses your device's share feature when available. Its copy-link fallback writes the public lesson URL to your clipboard.</p>
+      </section>
+      <section>
+        <h2>External services</h2>
+        <ul>
+          <li><a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noreferrer">Microsoft privacy statement <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://cusdis.com/" target="_blank" rel="noreferrer">Cusdis service information <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="feed.xml">RSS</a>
+      <a href="privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+    </aside>
+    <script src="script.js"></script>
+  </body>
+</html>

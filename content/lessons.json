@@ -14,6 +14,7 @@
       "accent": "green",
       "ideas": [
         {
+          "id": "idea-1",
           "title": "Engineer for change, not just correctness today",
           "argument": [
             "The authors distinguish programming from software engineering by adding time, scale and trade-offs. Programming asks whether code works now. Software engineering also asks whether the organisation can still change that code safely and economically throughout its useful life.",
@@ -35,6 +36,7 @@
           ]
         },
         {
+          "id": "idea-2",
           "title": "Observable behaviour becomes part of your API",
           "argument": [
             "Hyrum's Law states that, with enough users of an API, every observable behaviour will eventually be depended on by somebody, whether or not it was documented as part of the contract. Ordering, error text, timing, default values, whitespace, side effects and quirks can all become dependencies.",
@@ -56,6 +58,7 @@
           ]
         },
         {
+          "id": "idea-3",
           "title": "Code review is a knowledge-distribution system",
           "argument": [
             "The book treats code review as more than defect detection. A well-designed process also improves comprehension, consistency, shared ownership, knowledge transfer and the historical record of why a change was made.",
@@ -113,6 +116,7 @@
       "accent": "blue",
       "ideas": [
         {
+          "id": "idea-1",
           "title": "Events are the surface, not the system",
           "argument": [
             "Meadows defines a system through elements, interconnections and a function or purpose. Its behaviour over time emerges from stocks, flows, feedback loops and delays—not just from the latest visible event.",
@@ -134,6 +138,7 @@
           ]
         },
         {
+          "id": "idea-2",
           "title": "Delays create surprises",
           "argument": [
             "Meadows shows that feedback often arrives after a delay. A decision can be sensible and the system can be responding correctly while the result remains invisible for days, months or years.",
@@ -155,6 +160,7 @@
           ]
         },
         {
+          "id": "idea-3",
           "title": "Change the rules before pushing the people",
           "argument": [
             "Meadows' leverage-points framework ranks places to intervene. Parameters such as numbers and budgets can matter, but information flows, rules, goals and paradigms can reshape many downstream decisions at once.",
@@ -208,6 +214,7 @@
       "accent": "orange",
       "ideas": [
         {
+          "id": "idea-1",
           "title": "Make the right action visible",
           "argument": [
             "Norman distinguishes affordances—relationships that make actions possible—from signifiers: perceptible clues showing where and how to act. Signifiers became more prominent in the revised edition because digital interfaces can support many invisible actions.",
@@ -229,6 +236,7 @@
           ]
         },
         {
+          "id": "idea-2",
           "title": "Give users a correct conceptual model",
           "argument": [
             "People build simplified explanations of how systems work. Good design helps them form a useful conceptual model so they can predict what actions will do and interpret system state.",
@@ -250,6 +258,7 @@
           ]
         },
         {
+          "id": "idea-3",
           "title": "Design for error, not perfect behaviour",
           "argument": [
             "Norman rejects the habit of treating every error as careless behaviour. A slip is the wrong action while pursuing the right goal; a mistake begins with the wrong goal, rule or plan. The two need different defences.",
@@ -306,6 +315,7 @@
       "accent": "gold",
       "ideas": [
         {
+          "id": "idea-1",
           "title": "The constraint sets the system's ceiling",
           "argument": [
             "In a chain of dependent work, system output is limited by the constraint: the resource or condition that most limits progress toward the goal. Improving a non-constraint may raise local output while leaving total throughput unchanged.",
@@ -328,6 +338,7 @@
           ]
         },
         {
+          "id": "idea-2",
           "title": "Balance flow, not local utilisation",
           "argument": [
             "The Goal challenges the assumption that every resource should stay busy. In a dependent system, producing faster upstream than the constraint can consume creates inventory and queues rather than useful output.",
@@ -349,6 +360,7 @@
           ]
         },
         {
+          "id": "idea-3",
           "title": "Measure the whole system, not the department",
           "argument": [
             "Goldratt reframes operational decisions around throughput, inventory or investment, and operating expense. In its original business context, throughput is money generated through sales, inventory is money tied up in things intended for sale, and operating expense is the money spent turning investment into throughput.",
@@ -403,6 +415,7 @@
       "accent": "purple",
       "ideas": [
         {
+          "id": "idea-1",
           "title": "Treat cognitive load as an architectural constraint",
           "argument": [
             "The authors argue that a team should own a coherent amount of software, domain knowledge, operational responsibility, tooling and business context that its members can realistically understand.",
@@ -424,6 +437,7 @@
           ]
         },
         {
+          "id": "idea-2",
           "title": "Make stream-aligned teams the centre",
           "argument": [
             "The first-edition framework defines four fundamental team types. Stream-aligned teams own a meaningful flow of work and deliver value end to end. Enabling teams build capability, complicated-subsystem teams contain specialist complexity, and a platform capability offers internal services that reduce unnecessary complexity. Later guidance emphasises that the platform may be a grouping of several team types operating as an internal product.",
@@ -445,6 +459,7 @@
           ]
         },
         {
+          "id": "idea-3",
           "title": "Give every relationship an explicit interaction mode",
           "argument": [
             "Team Topologies names three deliberate interaction modes: collaboration for high-bandwidth discovery, X-as-a-Service for consuming a capability through a clear interface, and facilitation for temporary capability-building help.",
