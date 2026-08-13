@@ -219,7 +219,7 @@ function renderIndex() {
       <section class="about" id="about" aria-labelledby="about-title">
         <p class="eyebrow">Why this exists</p>
         <h2 id="about-title">Reading becomes useful when an idea survives contact with a real decision.</h2>
-        <div><p>Daily Applied Wisdom is built around three carefully chosen ideas rather than a whole-book summary. Each idea is explained, challenged, visualised and turned into something testable today.</p><p>The goal is not passive inspiration. It is a growing library of mental models you can retrieve, question and use.</p></div>
+        <div><p>Daily Applied Wisdom is built around three carefully chosen ideas rather than a whole-book summary. Each idea is explained, challenged, visualised and turned into something testable today.</p><p>Software development remains the centre of gravity, with deliberate room for career growth, finance, reasoning, memory, mathematics, game design and the wider work of living well. The goal is a growing library of mental models you can retrieve, question and use.</p></div>
       </section>
     </main>
     ${footer('')}

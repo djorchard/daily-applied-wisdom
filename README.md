@@ -17,6 +17,12 @@ node tools/check-content.mjs
 
 The builder creates `index.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the five-lesson, three-idea learning structure and verifies the source notes and visuals. Commit the generated files together with the source data.
 
+## Book selection
+
+The canonical criteria are in [BOOK_SELECTION_POLICY.md](BOOK_SELECTION_POLICY.md). Software development, product, AI and technical leadership remain the centre of gravity, while a rolling portfolio guarantees regular coverage of career growth, personal finance, thinking, memory, applied mathematics, game design and a better, more fulfilling life.
+
+Books must pass an attribution, evidence, distinctiveness, usefulness, depth and teachability gate. Popularity alone is never a reason to select one.
+
 ## Visual quality standard
 
 Lesson diagrams are deterministic SVGs rather than generated text-heavy images. Every visual must use the shared `1200 × 760` canvas, accessible title and description, readable typography, consistent strokes and the site palette. On small screens the diagram stays at a legible scale inside a labelled horizontal exploration window.
