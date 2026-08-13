@@ -38,7 +38,7 @@ ${published ? `    <meta property="article:published_time" content="${published}
 function header(prefix = '') {
   return `<a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="${prefix}index.html" aria-label="Daily Applied Wisdom home">DAW<span>·</span></a>
+      <a class="brand" href="${prefix}index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
       <nav aria-label="Main navigation">
         <a href="${prefix}index.html#latest">Latest</a>
         <a href="${prefix}index.html#library">Library</a>
