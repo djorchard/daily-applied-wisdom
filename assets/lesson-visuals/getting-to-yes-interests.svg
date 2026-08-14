@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="getting-interests-title getting-interests-desc">
+  <title id="getting-interests-title">Move from opposed positions to underlying interests</title>
+  <desc id="getting-interests-desc">Two opposed release-date positions point to underlying interests: a customer commitment, safety evidence and support coverage. Once the interests are visible, the negotiation can produce several possible release packages.</desc>
+  <defs>
+    <marker id="getting-interests-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="180" y="24" width="840" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">A POSITION IS ONE ANSWER TO A DEEPER PROBLEM</text>
+
+  <rect class="card" x="55" y="120" width="440" height="125" rx="22" fill="#f5c79d"/>
+  <text class="small" x="95" y="160">POSITION A</text>
+  <text class="heading" x="275" y="215" text-anchor="middle">SHIP FRIDAY</text>
+
+  <rect class="card" x="705" y="120" width="440" height="125" rx="22" fill="#d8cce8"/>
+  <text class="small" x="745" y="160">POSITION B</text>
+  <text class="heading" x="925" y="215" text-anchor="middle">DELAY TWO WEEKS</text>
+
+  <path class="line" d="M275 245V275H365V305" marker-end="url(#getting-interests-arrow)"/>
+  <path class="line" d="M925 245V275H835V305" marker-end="url(#getting-interests-arrow)"/>
+
+  <rect class="card" x="90" y="305" width="1020" height="250" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="600" y="350" text-anchor="middle">INTERESTS TO UNDERSTAND</text>
+
+  <rect x="130" y="382" width="280" height="125" rx="18" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="270" y="429" text-anchor="middle">CUSTOMER</text>
+  <text class="body" x="270" y="470" text-anchor="middle">commitment</text>
+
+  <rect x="460" y="382" width="280" height="125" rx="18" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="600" y="429" text-anchor="middle">SAFETY</text>
+  <text class="body" x="600" y="470" text-anchor="middle">evidence</text>
+
+  <rect x="790" y="382" width="280" height="125" rx="18" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="930" y="429" text-anchor="middle">SUPPORT</text>
+  <text class="body" x="930" y="470" text-anchor="middle">coverage</text>
+
+  <path class="line" d="M600 555V605H230V625" marker-end="url(#getting-interests-arrow)"/>
+  <path class="line" d="M600 605V625" marker-end="url(#getting-interests-arrow)"/>
+  <path class="line" d="M600 605H970V625" marker-end="url(#getting-interests-arrow)"/>
+  <rect x="350" y="563" width="500" height="34" rx="17" fill="#faf7f0"/>
+  <text class="small" x="600" y="588" text-anchor="middle">MORE THAN ONE POSSIBLE PACKAGE</text>
+
+  <rect class="card" x="75" y="625" width="310" height="82" rx="20" fill="#f5c79d"/>
+  <text class="compact" x="230" y="676" text-anchor="middle">STAGED RELEASE</text>
+  <rect class="card" x="445" y="625" width="310" height="82" rx="20" fill="#e9d17f"/>
+  <text class="compact" x="600" y="676" text-anchor="middle">REDUCED SCOPE</text>
+  <rect class="card" x="815" y="625" width="310" height="82" rx="20" fill="#bdd9bf"/>
+  <text class="compact" x="970" y="676" text-anchor="middle">EVIDENCE GATE</text>
+</svg>

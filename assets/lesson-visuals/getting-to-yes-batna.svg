@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="getting-batna-title getting-batna-desc">
+  <title id="getting-batna-title">Compare a proposed agreement with a realistic BATNA</title>
+  <desc id="getting-batna-desc">Several possible no-agreement actions are improved and narrowed into the best realistic alternative. The full BATNA and the full proposed agreement are then compared by asking which path serves the negotiator's interests better, leading to acceptance of the deal or use of the BATNA.</desc>
+  <defs>
+    <marker id="getting-batna-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="190" y="24" width="820" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">A GOOD DEAL MUST BEAT YOUR BEST REAL ALTERNATIVE</text>
+
+  <rect class="card" x="45" y="120" width="520" height="255" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="305" y="168" text-anchor="middle">NO-AGREEMENT OPTIONS</text>
+  <rect x="85" y="195" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="305" y="226" text-anchor="middle">Keep the current course</text>
+  <rect x="85" y="255" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="305" y="286" text-anchor="middle">Pursue another option</text>
+  <rect x="85" y="315" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="305" y="346" text-anchor="middle">Change timing or scope</text>
+
+  <rect class="card" x="635" y="120" width="520" height="255" rx="22" fill="#e9d17f"/>
+  <text class="heading" x="895" y="168" text-anchor="middle">PROPOSED AGREEMENT</text>
+  <rect x="675" y="195" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="895" y="226" text-anchor="middle">Benefits</text>
+  <rect x="675" y="255" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="895" y="286" text-anchor="middle">Costs and delay</text>
+  <rect x="675" y="315" width="440" height="45" rx="15" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="895" y="346" text-anchor="middle">Risk and execution</text>
+
+  <path class="line" d="M305 375V420" marker-end="url(#getting-batna-arrow)"/>
+  <path class="line" d="M895 375V420" marker-end="url(#getting-batna-arrow)"/>
+
+  <rect class="card" x="80" y="420" width="450" height="110" rx="22" fill="#d8cce8"/>
+  <text class="compact" x="305" y="465" text-anchor="middle">BEST REALISTIC BATNA</text>
+  <text class="body" x="305" y="504" text-anchor="middle">improved and executable</text>
+
+  <rect class="card" x="670" y="420" width="450" height="110" rx="22" fill="#b8d5e5"/>
+  <text class="compact" x="895" y="465" text-anchor="middle">FULL DEAL PACKAGE</text>
+  <text class="body" x="895" y="504" text-anchor="middle">all terms and consequences</text>
+
+  <path class="line" d="M305 530V565H600V590"/>
+  <path class="line" d="M895 530V565H600V590" marker-end="url(#getting-batna-arrow)"/>
+
+  <rect class="card" x="200" y="590" width="800" height="76" rx="22" fill="#fffdf8"/>
+  <text class="heading" x="600" y="637" text-anchor="middle">WHICH PATH SERVES INTERESTS BETTER?</text>
+
+  <path class="line" d="M600 666V685H275V700" marker-end="url(#getting-batna-arrow)"/>
+  <path class="line" d="M600 685H925V700" marker-end="url(#getting-batna-arrow)"/>
+  <rect class="card" x="85" y="700" width="380" height="48" rx="18" fill="#bdd9bf"/>
+  <text class="small" x="275" y="732" text-anchor="middle">DEAL IS BETTER: ACCEPT</text>
+  <rect class="card" x="735" y="700" width="380" height="48" rx="18" fill="#f5c79d"/>
+  <text class="small" x="925" y="732" text-anchor="middle">BATNA IS BETTER: USE IT</text>
+</svg>

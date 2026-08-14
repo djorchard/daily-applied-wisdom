@@ -1243,6 +1243,220 @@
       ]
     },
     {
+      "slug": "getting-to-yes",
+      "discussionId": "getting-to-yes",
+      "date": "2026-06-18",
+      "dateLabel": "18 June 2026",
+      "edition": "Daily lesson",
+      "title": "Getting to Yes",
+      "authors": "Roger Fisher, William L. Ury and Bruce Patton",
+      "year": "1981 · third edition 2011",
+      "category": "Negotiation · Career · Communication",
+      "summary": "Negotiate without turning every disagreement into a contest: uncover interests, invent options before judging them and compare any deal with a real alternative.",
+      "evidenceNote": "Attribution to the book is strong, but evidence for the universal superiority of principled negotiation is mixed and context-dependent. Getting to Yes is a practitioner framework from the Harvard Negotiation Project, supported mainly by analysis and cases rather than controlled proof. Its preparation mechanisms are useful, but outcomes still depend on bargaining power, culture, trust, information and whether value can actually be created. Critics argue that it can oversimplify hard distributive conflicts and does not transfer uniformly across cultures. Use it as disciplined preparation, not a promise of mutual gain.",
+      "accent": "orange",
+      "quizRevision": "2026-06-18-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Look beneath positions for interests",
+          "argument": [
+            "Fisher, Ury and Patton distinguish positions, what people say they want, from interests, the needs, concerns and purposes that make those positions matter. Opposed positions can hide compatible interests or differences that can be traded across issues.",
+            "Their instruction to separate the people from the problem does not mean ignoring people. Address perception, emotion and communication directly, while treating the substantive issue as a joint problem rather than evidence that the other person is the problem."
+          ],
+          "extension": "When a stakeholder states a fixed answer, treat it as the visible output of a requirement you have not yet understood. Ask what outcome, risk or obligation the answer is trying to protect before debating the proposed term.",
+          "image": "../assets/lesson-visuals/getting-to-yes-interests.svg",
+          "imageAlt": "Two opposed release-date positions are opened to reveal customer commitment, safety evidence and support coverage interests, creating room for several possible packages.",
+          "imageCaption": "A position names one answer; interests reveal the problem that more than one answer may solve.",
+          "why": "Arguing over fixed demands turns movement into defeat. Interests expose design variables, such as timing, scope, certainty, recognition or risk, that can produce an agreement without pretending the conflict has vanished.",
+          "apply": [
+            "Choose one disagreement and write each side's stated position in one sentence.",
+            "Under each position, ask twice: What would this protect or make possible? Share your own interests clearly, then check the other side's rather than guessing."
+          ],
+          "caveat": "Interest disclosure is not automatically safe. A coercive or deceptive counterpart may exploit sensitive information, and some disputes really are about scarce value. Share selectively, verify assumptions and protect confidential constraints, especially where power is unequal.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which move best reflects negotiating interests rather than positions?",
+              "options": [
+                "Offer a midpoint between the stated demands before discussing their reasons.",
+                "Ask what each stated demand must protect or achieve before proposing terms.",
+                "Move emotional concerns outside the meeting so only the contract remains.",
+                "Require both sides to reveal every constraint before suggesting a solution."
+              ],
+              "correctIndex": 1,
+              "feedback": "Interests explain why a position matters. Making them visible can reveal additional variables and options, while a midpoint or a people-free discussion may leave the real problem untouched.",
+              "feedbackByOption": [
+                "A midpoint changes the number without discovering why either demand matters. It may split the difference while failing both sides' important interests.",
+                "Correct. Asking what a demand protects or enables exposes the interests that a workable agreement must address.",
+                "People concerns affect negotiation and need direct attention. Separating people from the problem does not mean removing emotion or communication from the discussion.",
+                "Interests should be explored, but demanding complete disclosure can be unsafe and unnecessary. Share and test information selectively."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product owner says ship Friday; an engineer says delay two weeks. What is the strongest first move?",
+              "options": [
+                "Ask each side to defend its date with detailed estimates and stronger evidence.",
+                "Choose the midpoint date, then negotiate which scope can fit the compromise.",
+                "Surface the customer promise, safety evidence and support needs before designing packages.",
+                "Escalate the date decision to the sponsor because the positions are directly opposed."
+              ],
+              "correctIndex": 2,
+              "feedback": "The opposed dates are positions. Understanding the customer, safety and operational interests creates variables for packages such as staged scope, a pilot or evidence-based release gates.",
+              "feedbackByOption": [
+                "Better evidence can help later, but asking each side to defend its date may deepen positional commitment before the underlying interests are known.",
+                "A midpoint is easy to calculate but may satisfy neither the customer commitment nor the safety and support constraints.",
+                "Correct. Making the protected interests visible creates a joint problem that several release packages may be able to solve.",
+                "Escalation can decide the date, but it bypasses the chance to understand the conflict and design a package that addresses both sets of interests."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Invent before you decide",
+          "argument": [
+            "The authors argue that premature judgment narrows negotiation. When every suggestion sounds like a commitment, people protect themselves by offering only one safe proposal or by criticising the other side's proposal before exploring it.",
+            "Separate option generation from commitment. First invent several ways to meet important interests, including differences in timing, scope, risk, cost or responsibility. Only then evaluate the packages and decide what, if anything, to propose or accept."
+          ],
+          "extension": "Turn a single proposal into a small portfolio. In product and career negotiations, packages can vary scope, sequence, support, review points, flexibility and reversible trials without assuming every issue must be split down the middle.",
+          "image": "../assets/lesson-visuals/getting-to-yes-options.svg",
+          "imageAlt": "A four-stage negotiation flow separates diagnosing interests, inventing three packages, evaluating them, then deciding whether to propose, accept or decline.",
+          "imageCaption": "Keep invention wide and the final decision deliberate by putting evaluation after option generation.",
+          "why": "A conflict on one visible term can hide several differently valued issues. Multiple packages make trade-offs comparable and reduce the chance that the first plausible answer becomes the only answer.",
+          "apply": [
+            "Take one proposal currently framed as yes or no. List at least four variables that could change without abandoning the goal.",
+            "Create three packages with different combinations. Do not rate them until all three are visible, then test each against both sides' important interests."
+          ],
+          "caveat": "More options do not create value when the conflict is genuinely distributive, and endless brainstorming can delay a necessary decision. Set a time limit, protect sensitive information and move to clear evaluation criteria once useful alternatives exist.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does the book separate inventing options from deciding among them?",
+              "options": [
+                "To record every idea before either side can withdraw an earlier concession.",
+                "To price each position independently before discussing shared interests.",
+                "To avoid objective standards until both sides prefer the same proposal.",
+                "To delay commitment and judgment while several useful packages are created."
+              ],
+              "correctIndex": 3,
+              "feedback": "Suspending commitment during invention makes it safer to explore. Evaluation still follows, but it no longer prevents potentially useful packages from being generated.",
+              "feedbackByOption": [
+                "Option generation is not a record of concessions. Ideas explored during invention should not automatically bind either side.",
+                "Pricing positions may inform evaluation, but the separation exists to broaden possibilities before judgment narrows them.",
+                "Objective standards can guide later evaluation. The method does not require waiting until both sides already prefer one proposal.",
+                "Correct. Separating invention from decision lets people explore multiple packages without treating each idea as a commitment."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A vendor and buyer are stuck on price but differ on support, term and rollout risk. What best applies this idea?",
+              "options": [
+                "Create packages varying scope, support, term and rollout, then evaluate them.",
+                "Split the price difference first, then use other issues to support the midpoint.",
+                "Ask for each side's preferred package and choose the one with lower total cost.",
+                "Set aside non-price issues until an independent market price is established."
+              ],
+              "correctIndex": 0,
+              "feedback": "The additional issues create possible trade-offs. Generating several packages before choosing allows the parties to discover which combinations create value and which merely shift cost.",
+              "feedbackByOption": [
+                "Correct. Multiple packages expose trade-offs across differently valued issues before either side commits to one answer.",
+                "Splitting price first locks the negotiation around the visible position before testing whether other variables support a better package.",
+                "Two preferred packages may remain incompatible, and lowest total cost may ignore support quality, risk and other important interests.",
+                "A market price can inform evaluation, but postponing all other issues discards the variables most likely to create workable trade-offs."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Strengthen your BATNA before chasing yes",
+          "argument": [
+            "Fisher, Ury and Patton define the BATNA as the best alternative to a negotiated agreement. It is the course of action you would actually take if no agreement is reached, and it protects against accepting a deal merely because time and emotion have made agreement feel like the only successful outcome.",
+            "Developing a BATNA requires more than naming a vague fallback. Generate possible alternatives, improve the promising ones and select the best realistic option. A proposed agreement is worthwhile only when it serves your interests better than that alternative after costs, risks and execution are considered."
+          ],
+          "extension": "Turn walk-away confidence into preparation. Make the alternative executable before the meeting, then compare the whole agreement with it rather than using a single headline term as the decision rule.",
+          "image": "../assets/lesson-visuals/getting-to-yes-batna.svg",
+          "imageAlt": "A flow develops several no-agreement alternatives into one realistic BATNA, then compares that path with a proposed agreement before accepting the deal or using the BATNA.",
+          "imageCaption": "A BATNA is a decision standard, not a bluff; it is the best realistic path available if this agreement does not happen.",
+          "why": "A concrete alternative reduces pressure, clarifies the minimum useful agreement and reveals when no deal is better than a poor deal. It also directs preparation toward improving real choices rather than performing confidence.",
+          "apply": [
+            "List at least three actions you could take if one upcoming negotiation ends without agreement.",
+            "Improve the most promising option until it is credible, then write what a deal must deliver to be better after switching costs, delay and risk."
+          ],
+          "caveat": "A BATNA can be overestimated, change during negotiation or look weaker after hidden costs are counted. The other side may also have an excellent alternative. Recheck assumptions and never invent a competing offer or use the BATNA as a dishonest threat.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the central function of a BATNA?",
+              "options": [
+                "It sets an opening position high enough to leave room for concessions.",
+                "It predicts the terms the other side will accept if talks continue.",
+                "It provides a workable no-agreement option against which to test a deal.",
+                "It defines a market standard that both sides should regard as fair."
+              ],
+              "correctIndex": 2,
+              "feedback": "A BATNA is the best realistic course outside the agreement. It gives the proposed deal a comparison point and makes no agreement a deliberate option rather than an undefined failure.",
+              "feedbackByOption": [
+                "An ambitious opening may shape bargaining, but it is not the alternative you will execute if agreement fails.",
+                "The other side's likely acceptance matters, but a BATNA concerns your own best course when no agreement is reached.",
+                "Correct. A concrete no-agreement option lets you judge whether the proposed deal actually improves your situation.",
+                "Independent standards can help assess fairness, but they are not the action you will take if the negotiation ends."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A candidate wants a job offer but has only a vague plan to keep looking if terms stay poor. What is the best preparation?",
+              "options": [
+                "Set a minimum salary from the current offer so the discussion has a clear floor.",
+                "Turn staying put and other applications into realistic options, then choose the best.",
+                "Signal willingness to walk so the employer assumes another offer is available.",
+                "Delay comparison until the employer presents its final package and deadline."
+              ],
+              "correctIndex": 1,
+              "feedback": "The candidate needs an executable alternative, not a bluff or a number derived from the current offer. Making outside options concrete enables a whole-package comparison.",
+              "feedbackByOption": [
+                "A salary floor can guide a decision, but deriving it from the current offer does not establish what the candidate can realistically do without agreement.",
+                "Correct. Developing real alternatives and selecting the best one creates a BATNA against which the complete offer can be tested.",
+                "Implying an unavailable offer is deceptive and does not improve the candidate's actual choices if negotiation fails.",
+                "Waiting preserves pressure and leaves the alternative vague. BATNA development is preparation that should occur before the final decision."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Prepare one negotiation on a single page",
+        "steps": [
+          "Write your position and the other side's apparent position.",
+          "List two interests each position may be protecting, marking any guess that still needs checking.",
+          "Invent three possible packages without judging them yet.",
+          "List at least two actions available if there is no agreement, then choose and strengthen the best realistic BATNA.",
+          "Write one decision test: I accept only if this package serves my interests better than ___."
+        ],
+        "result": "You finish with two visible positions, four testable interests, three packages, one BATNA and a written decision rule."
+      },
+      "spacedRecall": [
+        "From Superforecasting: before treating this negotiation as unique, what reference class and base rate could improve one important estimate?"
+      ],
+      "takeaway": "A strong negotiation moves beneath positions, creates choices before commitment and treats no agreement as a real option rather than a failure.",
+      "sources": [
+        { "label": "Penguin Random House: Getting to Yes, third edition", "url": "https://www.penguinrandomhouse.com/books/324551/getting-to-yes-by-roger-fisher-and-william-ury/9781101539545/" },
+        { "label": "Harvard Program on Negotiation: Six Guidelines for Getting to Yes", "url": "https://www.pon.harvard.edu/daily/negotiation-skills-daily/six-guidelines-for-getting-to-yes/" },
+        { "label": "William Ury: BATNA preparation tool", "url": "https://www.williamury.com/wp-content/uploads/2024/07/BATNA-Tool.docx.pdf" },
+        { "label": "University of Michigan Law School: The Pros and Cons of Getting to YES", "url": "https://repository.law.umich.edu/reviews/82/" },
+        { "label": "International Journal of Conflict Management: cross-cultural review of principled negotiation", "url": "https://doi.org/10.1108/IJCMA-12-2020-0216" }
+      ]
+    },
+    {
       "slug": "superforecasting",
       "discussionId": "superforecasting",
       "date": "2026-06-17",
