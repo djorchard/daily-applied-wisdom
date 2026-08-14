@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="legacy-feedback-title legacy-feedback-desc">
+  <title id="legacy-feedback-title">Characterization tests create a feedback loop around existing behavior</title>
+  <desc id="legacy-feedback-desc">Existing code is observed, its current output is recorded in a characterization test, and a small change is checked against that test. An expected result builds confidence, while an unexpected result sends the developer back to investigate. The test records current behavior without claiming that behavior is correct.</desc>
+  <defs>
+    <marker id="legacy-feedback-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact-heading { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="285" y="24" width="630" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">CAPTURE CURRENT BEHAVIOUR BEFORE CHANGE</text>
+
+  <path class="line" d="M290 220H335" marker-end="url(#legacy-feedback-arrow)"/>
+  <path class="line" d="M580 220H625" marker-end="url(#legacy-feedback-arrow)"/>
+  <path class="line" d="M905 220H950" marker-end="url(#legacy-feedback-arrow)"/>
+
+  <rect class="card" x="45" y="145" width="245" height="150" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="167.5" y="205" text-anchor="middle">EXISTING CODE</text>
+  <text class="body" x="167.5" y="252" text-anchor="middle">poorly understood</text>
+
+  <rect class="card" x="335" y="145" width="245" height="150" rx="22" fill="#e9d17f"/>
+  <text class="heading" x="457.5" y="205" text-anchor="middle">OBSERVE</text>
+  <text class="body" x="457.5" y="252" text-anchor="middle">current output</text>
+
+  <rect class="card" x="625" y="145" width="280" height="150" rx="22" fill="#d8cce8"/>
+  <text class="compact-heading" x="765" y="197" text-anchor="middle">CHARACTERIZATION</text>
+  <text class="heading" x="765" y="235" text-anchor="middle">TEST</text>
+  <text class="body" x="765" y="273" text-anchor="middle">records what happens</text>
+
+  <rect class="card" x="950" y="145" width="205" height="150" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="1052.5" y="205" text-anchor="middle">SMALL</text>
+  <text class="heading" x="1052.5" y="245" text-anchor="middle">CHANGE</text>
+
+  <path class="line" d="M1052.5 295V365H600V410" marker-end="url(#legacy-feedback-arrow)"/>
+  <rect class="card" x="470" y="410" width="260" height="120" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="600" y="462" text-anchor="middle">RUN TESTS</text>
+  <text class="body" x="600" y="503" text-anchor="middle">get fast feedback</text>
+
+  <path class="line" d="M600 530V565"/>
+  <path class="line" d="M600 565H355V605" marker-end="url(#legacy-feedback-arrow)"/>
+  <path class="line" d="M600 565H845V605" marker-end="url(#legacy-feedback-arrow)"/>
+
+  <rect class="card" x="190" y="605" width="330" height="90" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="355" y="645" text-anchor="middle">EXPECTED RESULT</text>
+  <text class="body" x="355" y="679" text-anchor="middle">confidence gained</text>
+
+  <rect x="680" y="605" width="330" height="90" rx="22" fill="#f5c79d" stroke="#d86136" stroke-width="4"/>
+  <text class="compact-heading" x="845" y="645" text-anchor="middle">UNEXPECTED RESULT</text>
+  <text class="body" x="845" y="679" text-anchor="middle">investigate</text>
+
+  <path class="line" d="M1010 650H1168V220H1155" marker-end="url(#legacy-feedback-arrow)"/>
+</svg>

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html" />
+    <meta property="og:title" content="Working Effectively with Legacy Code | Daily Applied Wisdom" />
+    <meta property="og:description" content="Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-06-16" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Working Effectively with Legacy Code | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Working Effectively with Legacy Code","description":"Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old.","datePublished":"2026-06-16","about":{"@type":"Book","name":"Working Effectively with Legacy Code","author":[{"@type":"Person","name":"Michael Feathers"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-06-16">16 June 2026</time></p>
+          <h1>Working Effectively with Legacy Code</h1>
+          <p class="lesson-author">Michael Feathers</p>
+          <div class="lesson-meta"><span>2004 · first edition</span><span>Software engineering · Testing · Legacy code</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Feathers offers practitioner guidance distilled from consulting and deliberately simplified examples, not controlled evidence that each technique improves outcomes in every codebase. Tests and seams can reduce uncertainty, but characterization tests may preserve defects, unit isolation does not prove integration correctness, and the book's Java, C++, C and C# examples reflect 2004 tooling. The mechanisms remain useful when adapted to today's languages and service boundaries.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Working Effectively with Legacy Code | Daily Applied Wisdom" data-share-text="Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Build a feedback path before a bold change</a><a href="#idea-2"><span>02</span>Find the seam and its enabling point</a><a href="#idea-3"><span>03</span>Sprout tested behaviour beside the risk</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-green" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Build a feedback path before a bold change <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Feathers uses a strict working definition: legacy code is code without tests. The point is not to insult old software or declare tests sufficient for quality. It is to expose the practical problem: when current behaviour cannot be checked quickly, developers cannot tell whether a change improved the code or quietly damaged something else.</p>
+<p>His change approach starts by identifying where behaviour must change, finding places to observe it, breaking only the dependencies needed to run that code, writing focused tests, then making the change and refactoring. Characterization tests capture what the system actually does so existing behaviour becomes visible before you decide what should change.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Treat feedback as an instrument panel, not a certificate. The first useful test is often the one that shortens the distance between a small edit and evidence about the behaviour at risk.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/legacy-characterization-feedback.svg" alt="A risky change moves through a feedback loop from observed current behaviour to a characterization test, a small edit and fast evidence, with expected and unexpected outcomes." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A feedback path turns some unknown behaviour into an observable constraint on change.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Without fast feedback, teams manage risk by avoiding structural improvement or relying on long manual checks. A focused harness makes small, safer changes possible and gradually grows understanding.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one change you have been avoiding. Write the behaviour you intend to alter and one existing behaviour that must remain.</p>
+<p>Name the nearest place you can observe both. Draft one focused test that would fail if the preserved behaviour moved.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A characterization test records observed behaviour, including bugs and accidental quirks, and only covers the paths you exercise. Preserve first when uncertainty is high, then decide explicitly which behaviour is correct; retain integration and system checks for effects a unit harness cannot see.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="working-effectively-with-legacy-code-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="working-effectively-with-legacy-code-idea-1" data-lesson-slug="working-effectively-with-legacy-code" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulWorkingEffectivelyWithLegacyCodeIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-green" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Find the seam and its enabling point <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Feathers defines a seam as a place where you can alter program behaviour without editing at that place. A call to a database, clock, filesystem or remote service becomes testable when another implementation can be selected while the caller stays unchanged.</p>
+<p>Every seam has an enabling point: the place where the choice is made. It may be a constructor argument, overridden method, link configuration, build setting or another mechanism. Seeing both matters because a supposed abstraction is not useful for testing if there is nowhere to substitute the collaborator.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Read code as a map of choices, not just a sheet of text. The seam is where behaviour differs; the enabling point is the control you use to choose the test behaviour.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/legacy-seam-enabling-point.svg" alt="Production and test paths share the same code under test, while an enabling point selects either a production dependency or a test substitute across a marked seam." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The call site stays put; the enabling point chooses which behaviour crosses the seam.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A well-placed seam lets you sense and separate a small area without rewriting its whole dependency graph. That can create just enough feedback for a safer change.</p></section>
+          <section><h3>Apply it today</h3><p>Pick one dependency blocking a focused test and mark the exact call whose behaviour you need to replace.</p>
+<p>Then mark where the implementation could be chosen. Prefer an explicit object seam such as an argument or constructor when the code allows it.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Not every indirect call is a useful seam, and test-only indirection can make production design harder to understand. Build or link seams can also hide differences between test and production. Use the smallest explicit substitution that preserves real behaviour and keep broader integration checks.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="working-effectively-with-legacy-code-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="working-effectively-with-legacy-code-idea-2" data-lesson-slug="working-effectively-with-legacy-code" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulWorkingEffectivelyWithLegacyCodeIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-green" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Sprout tested behaviour beside the risk <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Under time pressure, Feathers offers Sprout Method and Sprout Class for adding behaviour when the surrounding code cannot yet be placed under test. Write the new logic in a new method or class that can be developed with focused tests, then make the smallest delegation from the old code.</p>
+<p>This does not make the legacy area safe or clean. It creates a small island of understood behaviour and prevents the new rule from becoming another untestable tangle. A sprout class is especially useful when the new work has a distinct responsibility or the old class is already overloaded.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Use a sprout as a bounded risk decision: move the new logic to a testable boundary and keep the unverified edit at the connection point small enough to inspect.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/legacy-sprout-change.svg" alt="An urgent feature is either patched inside a tangled legacy method or placed in a focused tested method or class connected through one narrow call site." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>New behaviour can grow under test even before the whole legacy area is harnessed.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Waiting for a full rewrite can delay useful change indefinitely, while inserting more logic into an untested method increases future risk. A sprout provides a middle path.</p></section>
+          <section><h3>Apply it today</h3><p>For one urgent change, separate the new calculation or decision from the code that triggers it.</p>
+<p>Choose a method if the behaviour fits the current responsibility; choose a class if it introduces a new responsibility or needs its own dependencies. Test the new unit before adding the single delegation.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A sprout adds indirection and tests only the new unit, not the old call path or integration. Repeated sprouts can fragment a design. Use them to improve the local trajectory, then add broader coverage and consolidate responsibilities when evidence and time permit.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="working-effectively-with-legacy-code-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="working-effectively-with-legacy-code-idea-3" data-lesson-slug="working-effectively-with-legacy-code" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulWorkingEffectivelyWithLegacyCodeIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="working-effectively-with-legacy-code" data-quiz-revision="2026-06-16-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What is the main purpose of a characterization test when entering unfamiliar legacy code?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q1" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>To prove the current behaviour is correct before refactoring begins.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q1" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>To record observed behaviour so later changes reveal what moved.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q1" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>To replace slow integration checks with a complete unit-test safety net.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q1" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>To document intended requirements that the old implementation should satisfy.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Characterization records what the code does, which can include bugs or quirks. Correctness still requires a separate decision about intended behaviour.</p><p data-feedback-for="1" hidden>Capturing current behaviour creates a reference that exposes movement when the code changes, without certifying the behaviour as right.</p><p data-feedback-for="2" hidden>Focused unit feedback can complement integration checks, but it cannot replace effects and paths outside the harness.</p><p data-feedback-for="3" hidden>Intended requirements describe what the system should do. Characterization begins with what the implementation actually does.</p>
+                    <p class="quiz-feedback-context">A characterization test makes current behaviour observable before change. It supports comparison and learning, but it does not prove that the captured behaviour is correct or complete.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-2-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Which pair correctly distinguishes a seam from its enabling point?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q1" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>A seam records an observed effect; an enabling point asserts the expected test result.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q1" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>A seam contains test code; an enabling point removes it for production.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q1" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>A seam isolates a module; an enabling point exposes its private state.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q1" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>A seam is where behaviour can vary; an enabling point selects the variation.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Observation and assertion belong to a test feedback path, but they do not define the substitution site and the place where its choice is made.</p><p data-feedback-for="1" hidden>A seam can exist in production design without containing test code. The enabling point selects an implementation rather than removing tests.</p><p data-feedback-for="2" hidden>A seam may help isolate a dependency, but exposing private state is not what enables behaviour substitution.</p><p data-feedback-for="3" hidden>Behaviour varies at the seam, while the enabling point is where production or test code chooses the variation.</p>
+                    <p class="quiz-feedback-context">The seam is the place whose behaviour can be replaced without editing there. The enabling point is the separate control that chooses which implementation or behaviour is used.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-3-q1" data-question-type="concept" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What does a Sprout Method or Sprout Class primarily accomplish?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q1" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It places new behaviour in a testable unit while limiting edits to untested code.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q1" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It makes the surrounding legacy component safe by covering every path through its public interface.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q1" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It replaces the old implementation incrementally until no legacy code remains.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q1" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It separates every responsibility before adding the requested feature.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The new logic gains focused tests, while the untested legacy edit is reduced to a small delegation.</p><p data-feedback-for="1" hidden>The sprout's tests cover the new unit, not every path through the surrounding component or its public interface.</p><p data-feedback-for="2" hidden>A sprout can improve the local trajectory, but it is not an incremental rewrite plan and leaves most old code in place.</p><p data-feedback-for="3" hidden>Sprouting is a bounded tactic for the new behaviour, not a requirement to redesign every responsibility first.</p>
+                    <p class="quiz-feedback-context">A sprout isolates new behaviour so it can be tested while keeping the required edit to the legacy area narrow. It does not certify or replace the surrounding code.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-1-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A team must modify an untested billing rule while preserving current invoice totals elsewhere. What is the strongest first move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q2" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Refactor the billing class for clarity, then add tests around the cleaner design.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q2" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Copy representative production inputs into one end-to-end test and approve any stable output.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q2" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Find the change and test points, isolate needed dependencies, and capture current totals.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-1-q2" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Freeze surrounding code and verify the new rule through a manual regression checklist.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Refactoring before feedback can disturb behaviour the team does not yet understand. Establish an observable baseline first.</p><p data-feedback-for="1" hidden>An end-to-end test can help, but accepting any stable output fails to distinguish preserved totals from incorrect ones or isolate the rule at risk.</p><p data-feedback-for="2" hidden>The change point, test point and minimal dependency break create focused evidence about the totals that must remain stable.</p><p data-feedback-for="3" hidden>A manual checklist may add evidence, but it is slower, harder to repeat and less focused than an automated observation around the affected behaviour.</p>
+                    <p class="quiz-feedback-context">The safe-change path identifies what will move, what must stay, and where both can be observed. It breaks only the dependencies needed to create focused feedback before altering the rule.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A method constructs a concrete payment client and calls it immediately, so the call cannot be replaced in a test. What is the clearest next step?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q2" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Pass the client through an argument or constructor so tests can choose an implementation.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q2" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Subclass the containing class and inspect the payment client's private fields.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q2" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Add a retry around the call so transient failures no longer block the unit test.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-2-q2" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Move the call into a helper that still constructs the same concrete payment client inside the helper.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>An argument or constructor becomes the enabling point where a test can select a substitute without changing the call site.</p><p data-feedback-for="1" hidden>Inspecting private state does not provide a clean choice of behaviour at the payment call and couples the test to implementation details.</p><p data-feedback-for="2" hidden>A retry may change production resilience, but it does not let the test replace or observe the payment dependency directly.</p><p data-feedback-for="3" hidden>Moving the same construction hides it in another method but still provides no enabling point for choosing a substitute.</p>
+                    <p class="quiz-feedback-context">Passing the collaborator into the code creates an explicit enabling point. The call can then cross an object seam to a production client or a controlled test substitute.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="working-effectively-with-legacy-code-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>An urgent pricing calculation must enter a 900-line untested method. The calculation has clear inputs and outputs. What best applies the sprout technique?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q2" value="0" required aria-describedby="working-effectively-with-legacy-code-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Insert the calculation inline, then add regression tests after the release.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q2" value="1" required aria-describedby="working-effectively-with-legacy-code-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Put the calculation in a tested method or class, then delegate from one narrow point.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q2" value="2" required aria-describedby="working-effectively-with-legacy-code-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Refactor the full method into smaller pieces before adding any new behaviour.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="working-effectively-with-legacy-code-idea-3-q2" value="3" required aria-describedby="working-effectively-with-legacy-code-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Wrap the whole method with extensive logging and treat a stable observed output as sufficient coverage.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="working-effectively-with-legacy-code-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Inlining adds more untested logic to the riskiest area and postpones the feedback that would make the change safer now.</p><p data-feedback-for="1" hidden>The new unit can be tested independently, and the old method changes only at the narrow delegation point.</p><p data-feedback-for="2" hidden>Full refactoring may eventually help, but it expands the immediate unverified change when the urgent need has a separable boundary.</p><p data-feedback-for="3" hidden>Logging can aid observation, but stable output is not focused evidence that the new calculation is correct or safely integrated.</p>
+                    <p class="quiz-feedback-context">The clear input-output boundary makes the new calculation a good sprout candidate. Focused tests cover the new logic while one narrow delegation limits the unverified legacy edit.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Draw one safe-change path</h2>
+          <ol><li>Pick a small change you expect in risky code. Write the new behaviour and one behaviour that must remain.</li><li>Mark the change point and the nearest place you can observe the preserved behaviour.</li><li>Name the dependency preventing a focused test. Mark a candidate seam and its enabling point.</li><li>Decide whether the new behaviour could sprout into a tested method or class with one narrow delegation.</li><li>Write the smallest first test and one integration check that would still be needed.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with a bounded route from risky change to observable feedback, plus the uncertainty that route does not cover.</p>
+        </section>
+
+
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://www.informit.com/store/working-effectively-with-legacy-code-9780132931755" target="_blank" rel="noreferrer">Pearson: Working Effectively with Legacy Code, first edition <span aria-hidden="true">↗</span></a></li><li><a href="https://www.informit.com/content/images/9780131177055/samplepages/0131177052.pdf" target="_blank" rel="noreferrer">Pearson sample: preface, risky change and the Seam Model <span aria-hidden="true">↗</span></a></li><li><a href="https://www.informit.com/articles/article.aspx?p=359417&amp;seqNum=2" target="_blank" rel="noreferrer">Michael Feathers: Seams <span aria-hidden="true">↗</span></a></li><li><a href="https://www.informit.com/articles/article.aspx?p=359418&amp;seqNum=2" target="_blank" rel="noreferrer">Michael Feathers: Risky Change <span aria-hidden="true">↗</span></a></li><li><a href="https://www.infoq.com/podcasts/working-effectively-legacy-code/" target="_blank" rel="noreferrer">InfoQ interview: Michael Feathers looks back on the book <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Make legacy code safer one observable change at a time: capture behaviour, open a seam and grow new logic where it can be tested.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="working-effectively-with-legacy-code" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/working-effectively-with-legacy-code.html" data-page-title="Working Effectively with Legacy Code | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <span></span>
+        <a class="next" href="team-topologies.html"><span>Next</span>Team Topologies</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

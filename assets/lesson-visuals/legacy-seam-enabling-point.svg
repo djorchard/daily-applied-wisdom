@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="legacy-seam-title legacy-seam-desc">
+  <title id="legacy-seam-title">A seam lets tests replace behavior at an enabling point</title>
+  <desc id="legacy-seam-desc">Code under test reaches an enabling point where normal wiring selects a production dependency and test wiring selects a substitute. The seam is the place where behavior can vary without editing it in place, while the enabling point is where the choice is made.</desc>
+  <defs>
+    <marker id="legacy-seam-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="270" y="24" width="660" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">CHANGE BEHAVIOUR WITHOUT EDITING IT IN PLACE</text>
+
+  <line x1="690" y1="142" x2="690" y2="650" stroke="#18211d" stroke-width="4" stroke-dasharray="12 12"/>
+  <rect x="605" y="92" width="170" height="50" rx="25" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="690" y="125" text-anchor="middle" font-weight="700">SEAM</text>
+
+  <rect class="card" x="50" y="300" width="240" height="130" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="170" y="354" text-anchor="middle">CODE UNDER</text>
+  <text class="heading" x="170" y="394" text-anchor="middle">TEST</text>
+
+  <rect class="card" x="360" y="125" width="250" height="70" rx="20" fill="#e9d17f"/>
+  <text class="body" x="485" y="157" text-anchor="middle" font-weight="700">NORMAL WIRING</text>
+  <text class="small" x="485" y="184" text-anchor="middle">production run</text>
+
+  <rect class="card" x="360" y="535" width="250" height="70" rx="20" fill="#d8cce8"/>
+  <text class="body" x="485" y="567" text-anchor="middle" font-weight="700">TEST WIRING</text>
+  <text class="small" x="485" y="594" text-anchor="middle">controlled run</text>
+
+  <rect class="card" x="350" y="280" width="270" height="170" rx="22" fill="#d8cce8"/>
+  <text class="heading" x="485" y="337" text-anchor="middle">ENABLING</text>
+  <text class="heading" x="485" y="377" text-anchor="middle">POINT</text>
+  <text class="body" x="485" y="420" text-anchor="middle">selects behaviour</text>
+
+  <path class="line" d="M290 365H350" marker-end="url(#legacy-seam-arrow)"/>
+  <path class="line" d="M485 195V280" marker-end="url(#legacy-seam-arrow)"/>
+  <path class="line" d="M485 535V450" marker-end="url(#legacy-seam-arrow)"/>
+  <path class="line" d="M620 335H710V255H785" marker-end="url(#legacy-seam-arrow)"/>
+  <path class="line" d="M620 395H710V520H785" marker-end="url(#legacy-seam-arrow)"/>
+
+  <rect class="card" x="785" y="170" width="330" height="170" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="950" y="225" text-anchor="middle">PRODUCTION</text>
+  <text class="heading" x="950" y="265" text-anchor="middle">DEPENDENCY</text>
+  <text class="body" x="950" y="310" text-anchor="middle">database, clock, network</text>
+
+  <rect class="card" x="785" y="435" width="330" height="170" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="950" y="490" text-anchor="middle">TEST</text>
+  <text class="heading" x="950" y="530" text-anchor="middle">SUBSTITUTE</text>
+  <text class="body" x="950" y="575" text-anchor="middle">memory, fake clock, stub</text>
+
+  <rect x="155" y="680" width="890" height="55" rx="27.5" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="716" text-anchor="middle" font-weight="700">TESTS USE THE SEAM TO REPLACE A DIFFICULT COLLABORATOR</text>
+</svg>

@@ -1241,6 +1241,218 @@
         { "label": "IT Revolution: four fundamental team types", "url": "https://itrevolution.com/articles/four-team-types/" },
         { "label": "IT Revolution: three interaction modes", "url": "https://itrevolution.com/articles/the-three-team-interaction-modes/" }
       ]
+    },
+    {
+      "slug": "working-effectively-with-legacy-code",
+      "discussionId": "working-effectively-with-legacy-code",
+      "date": "2026-06-16",
+      "dateLabel": "16 June 2026",
+      "edition": "Daily lesson",
+      "title": "Working Effectively with Legacy Code",
+      "authors": "Michael Feathers",
+      "year": "2004 · first edition",
+      "category": "Software engineering · Testing · Legacy code",
+      "summary": "Change risky code in controlled steps by building feedback around real behaviour, finding seams that isolate dependencies and sprouting new tested code beside the old.",
+      "evidenceNote": "Feathers offers practitioner guidance distilled from consulting and deliberately simplified examples, not controlled evidence that each technique improves outcomes in every codebase. Tests and seams can reduce uncertainty, but characterization tests may preserve defects, unit isolation does not prove integration correctness, and the book's Java, C++, C and C# examples reflect 2004 tooling. The mechanisms remain useful when adapted to today's languages and service boundaries.",
+      "accent": "green",
+      "quizRevision": "2026-06-16-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Build a feedback path before a bold change",
+          "argument": [
+            "Feathers uses a strict working definition: legacy code is code without tests. The point is not to insult old software or declare tests sufficient for quality. It is to expose the practical problem: when current behaviour cannot be checked quickly, developers cannot tell whether a change improved the code or quietly damaged something else.",
+            "His change approach starts by identifying where behaviour must change, finding places to observe it, breaking only the dependencies needed to run that code, writing focused tests, then making the change and refactoring. Characterization tests capture what the system actually does so existing behaviour becomes visible before you decide what should change."
+          ],
+          "extension": "Treat feedback as an instrument panel, not a certificate. The first useful test is often the one that shortens the distance between a small edit and evidence about the behaviour at risk.",
+          "image": "../assets/lesson-visuals/legacy-characterization-feedback.svg",
+          "imageAlt": "A risky change moves through a feedback loop from observed current behaviour to a characterization test, a small edit and fast evidence, with expected and unexpected outcomes.",
+          "imageCaption": "A feedback path turns some unknown behaviour into an observable constraint on change.",
+          "why": "Without fast feedback, teams manage risk by avoiding structural improvement or relying on long manual checks. A focused harness makes small, safer changes possible and gradually grows understanding.",
+          "apply": [
+            "Choose one change you have been avoiding. Write the behaviour you intend to alter and one existing behaviour that must remain.",
+            "Name the nearest place you can observe both. Draft one focused test that would fail if the preserved behaviour moved."
+          ],
+          "caveat": "A characterization test records observed behaviour, including bugs and accidental quirks, and only covers the paths you exercise. Preserve first when uncertainty is high, then decide explicitly which behaviour is correct; retain integration and system checks for effects a unit harness cannot see.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main purpose of a characterization test when entering unfamiliar legacy code?",
+              "options": [
+                "To prove the current behaviour is correct before refactoring begins.",
+                "To record observed behaviour so later changes reveal what moved.",
+                "To replace slow integration checks with a complete unit-test safety net.",
+                "To document intended requirements that the old implementation should satisfy."
+              ],
+              "correctIndex": 1,
+              "feedback": "A characterization test makes current behaviour observable before change. It supports comparison and learning, but it does not prove that the captured behaviour is correct or complete.",
+              "feedbackByOption": [
+                "Characterization records what the code does, which can include bugs or quirks. Correctness still requires a separate decision about intended behaviour.",
+                "Correct. Capturing current behaviour creates a reference that exposes movement when the code changes, without certifying the behaviour as right.",
+                "Focused unit feedback can complement integration checks, but it cannot replace effects and paths outside the harness.",
+                "Intended requirements describe what the system should do. Characterization begins with what the implementation actually does."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team must modify an untested billing rule while preserving current invoice totals elsewhere. What is the strongest first move?",
+              "options": [
+                "Refactor the billing class for clarity, then add tests around the cleaner design.",
+                "Copy representative production inputs into one end-to-end test and approve any stable output.",
+                "Find the change and test points, isolate needed dependencies, and capture current totals.",
+                "Freeze surrounding code and verify the new rule through a manual regression checklist."
+              ],
+              "correctIndex": 2,
+              "feedback": "The safe-change path identifies what will move, what must stay, and where both can be observed. It breaks only the dependencies needed to create focused feedback before altering the rule.",
+              "feedbackByOption": [
+                "Refactoring before feedback can disturb behaviour the team does not yet understand. Establish an observable baseline first.",
+                "An end-to-end test can help, but accepting any stable output fails to distinguish preserved totals from incorrect ones or isolate the rule at risk.",
+                "Correct. The change point, test point and minimal dependency break create focused evidence about the totals that must remain stable.",
+                "A manual checklist may add evidence, but it is slower, harder to repeat and less focused than an automated observation around the affected behaviour."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Find the seam and its enabling point",
+          "argument": [
+            "Feathers defines a seam as a place where you can alter program behaviour without editing at that place. A call to a database, clock, filesystem or remote service becomes testable when another implementation can be selected while the caller stays unchanged.",
+            "Every seam has an enabling point: the place where the choice is made. It may be a constructor argument, overridden method, link configuration, build setting or another mechanism. Seeing both matters because a supposed abstraction is not useful for testing if there is nowhere to substitute the collaborator."
+          ],
+          "extension": "Read code as a map of choices, not just a sheet of text. The seam is where behaviour differs; the enabling point is the control you use to choose the test behaviour.",
+          "image": "../assets/lesson-visuals/legacy-seam-enabling-point.svg",
+          "imageAlt": "Production and test paths share the same code under test, while an enabling point selects either a production dependency or a test substitute across a marked seam.",
+          "imageCaption": "The call site stays put; the enabling point chooses which behaviour crosses the seam.",
+          "why": "A well-placed seam lets you sense and separate a small area without rewriting its whole dependency graph. That can create just enough feedback for a safer change.",
+          "apply": [
+            "Pick one dependency blocking a focused test and mark the exact call whose behaviour you need to replace.",
+            "Then mark where the implementation could be chosen. Prefer an explicit object seam such as an argument or constructor when the code allows it."
+          ],
+          "caveat": "Not every indirect call is a useful seam, and test-only indirection can make production design harder to understand. Build or link seams can also hide differences between test and production. Use the smallest explicit substitution that preserves real behaviour and keep broader integration checks.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which pair correctly distinguishes a seam from its enabling point?",
+              "options": [
+                "A seam records an observed effect; an enabling point asserts the expected test result.",
+                "A seam contains test code; an enabling point removes it for production.",
+                "A seam isolates a module; an enabling point exposes its private state.",
+                "A seam is where behaviour can vary; an enabling point selects the variation."
+              ],
+              "correctIndex": 3,
+              "feedback": "The seam is the place whose behaviour can be replaced without editing there. The enabling point is the separate control that chooses which implementation or behaviour is used.",
+              "feedbackByOption": [
+                "Observation and assertion belong to a test feedback path, but they do not define the substitution site and the place where its choice is made.",
+                "A seam can exist in production design without containing test code. The enabling point selects an implementation rather than removing tests.",
+                "A seam may help isolate a dependency, but exposing private state is not what enables behaviour substitution.",
+                "Correct. Behaviour varies at the seam, while the enabling point is where production or test code chooses the variation."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A method constructs a concrete payment client and calls it immediately, so the call cannot be replaced in a test. What is the clearest next step?",
+              "options": [
+                "Pass the client through an argument or constructor so tests can choose an implementation.",
+                "Subclass the containing class and inspect the payment client's private fields.",
+                "Add a retry around the call so transient failures no longer block the unit test.",
+                "Move the call into a helper that still constructs the same concrete payment client inside the helper."
+              ],
+              "correctIndex": 0,
+              "feedback": "Passing the collaborator into the code creates an explicit enabling point. The call can then cross an object seam to a production client or a controlled test substitute.",
+              "feedbackByOption": [
+                "Correct. An argument or constructor becomes the enabling point where a test can select a substitute without changing the call site.",
+                "Inspecting private state does not provide a clean choice of behaviour at the payment call and couples the test to implementation details.",
+                "A retry may change production resilience, but it does not let the test replace or observe the payment dependency directly.",
+                "Moving the same construction hides it in another method but still provides no enabling point for choosing a substitute."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Sprout tested behaviour beside the risk",
+          "argument": [
+            "Under time pressure, Feathers offers Sprout Method and Sprout Class for adding behaviour when the surrounding code cannot yet be placed under test. Write the new logic in a new method or class that can be developed with focused tests, then make the smallest delegation from the old code.",
+            "This does not make the legacy area safe or clean. It creates a small island of understood behaviour and prevents the new rule from becoming another untestable tangle. A sprout class is especially useful when the new work has a distinct responsibility or the old class is already overloaded."
+          ],
+          "extension": "Use a sprout as a bounded risk decision: move the new logic to a testable boundary and keep the unverified edit at the connection point small enough to inspect.",
+          "image": "../assets/lesson-visuals/legacy-sprout-change.svg",
+          "imageAlt": "An urgent feature is either patched inside a tangled legacy method or placed in a focused tested method or class connected through one narrow call site.",
+          "imageCaption": "New behaviour can grow under test even before the whole legacy area is harnessed.",
+          "why": "Waiting for a full rewrite can delay useful change indefinitely, while inserting more logic into an untested method increases future risk. A sprout provides a middle path.",
+          "apply": [
+            "For one urgent change, separate the new calculation or decision from the code that triggers it.",
+            "Choose a method if the behaviour fits the current responsibility; choose a class if it introduces a new responsibility or needs its own dependencies. Test the new unit before adding the single delegation."
+          ],
+          "caveat": "A sprout adds indirection and tests only the new unit, not the old call path or integration. Repeated sprouts can fragment a design. Use them to improve the local trajectory, then add broader coverage and consolidate responsibilities when evidence and time permit.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does a Sprout Method or Sprout Class primarily accomplish?",
+              "options": [
+                "It places new behaviour in a testable unit while limiting edits to untested code.",
+                "It makes the surrounding legacy component safe by covering every path through its public interface.",
+                "It replaces the old implementation incrementally until no legacy code remains.",
+                "It separates every responsibility before adding the requested feature."
+              ],
+              "correctIndex": 0,
+              "feedback": "A sprout isolates new behaviour so it can be tested while keeping the required edit to the legacy area narrow. It does not certify or replace the surrounding code.",
+              "feedbackByOption": [
+                "Correct. The new logic gains focused tests, while the untested legacy edit is reduced to a small delegation.",
+                "The sprout's tests cover the new unit, not every path through the surrounding component or its public interface.",
+                "A sprout can improve the local trajectory, but it is not an incremental rewrite plan and leaves most old code in place.",
+                "Sprouting is a bounded tactic for the new behaviour, not a requirement to redesign every responsibility first."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An urgent pricing calculation must enter a 900-line untested method. The calculation has clear inputs and outputs. What best applies the sprout technique?",
+              "options": [
+                "Insert the calculation inline, then add regression tests after the release.",
+                "Put the calculation in a tested method or class, then delegate from one narrow point.",
+                "Refactor the full method into smaller pieces before adding any new behaviour.",
+                "Wrap the whole method with extensive logging and treat a stable observed output as sufficient coverage."
+              ],
+              "correctIndex": 1,
+              "feedback": "The clear input-output boundary makes the new calculation a good sprout candidate. Focused tests cover the new logic while one narrow delegation limits the unverified legacy edit.",
+              "feedbackByOption": [
+                "Inlining adds more untested logic to the riskiest area and postpones the feedback that would make the change safer now.",
+                "Correct. The new unit can be tested independently, and the old method changes only at the narrow delegation point.",
+                "Full refactoring may eventually help, but it expands the immediate unverified change when the urgent need has a separable boundary.",
+                "Logging can aid observation, but stable output is not focused evidence that the new calculation is correct or safely integrated."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draw one safe-change path",
+        "steps": [
+          "Pick a small change you expect in risky code. Write the new behaviour and one behaviour that must remain.",
+          "Mark the change point and the nearest place you can observe the preserved behaviour.",
+          "Name the dependency preventing a focused test. Mark a candidate seam and its enabling point.",
+          "Decide whether the new behaviour could sprout into a tested method or class with one narrow delegation.",
+          "Write the smallest first test and one integration check that would still be needed."
+        ],
+        "result": "You finish with a bounded route from risky change to observable feedback, plus the uncertainty that route does not cover."
+      },
+      "spacedRecall": [],
+      "takeaway": "Make legacy code safer one observable change at a time: capture behaviour, open a seam and grow new logic where it can be tested.",
+      "sources": [
+        { "label": "Pearson: Working Effectively with Legacy Code, first edition", "url": "https://www.informit.com/store/working-effectively-with-legacy-code-9780132931755" },
+        { "label": "Pearson sample: preface, risky change and the Seam Model", "url": "https://www.informit.com/content/images/9780131177055/samplepages/0131177052.pdf" },
+        { "label": "Michael Feathers: Seams", "url": "https://www.informit.com/articles/article.aspx?p=359417&seqNum=2" },
+        { "label": "Michael Feathers: Risky Change", "url": "https://www.informit.com/articles/article.aspx?p=359418&seqNum=2" },
+        { "label": "InfoQ interview: Michael Feathers looks back on the book", "url": "https://www.infoq.com/podcasts/working-effectively-legacy-code/" }
+      ]
     }
   ]
 }
