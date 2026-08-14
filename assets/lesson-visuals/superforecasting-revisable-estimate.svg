@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="superforecasting-update-title superforecasting-update-desc">
+  <title id="superforecasting-update-title">A probability is a revisable estimate</title>
+  <desc id="superforecasting-update-desc">An illustrative forecast starts at 40 percent, moves to 48 percent after supporting evidence, then moves to 45 percent after a counter-signal. Each card includes a correctly positioned probability marker and a recorded point change.</desc>
+  <defs>
+    <marker id="superforecasting-update-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .number { font-size: 54px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="190" y="24" width="820" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">A PROBABILITY IS A WORKING ESTIMATE</text>
+  <text class="small" x="600" y="118" text-anchor="middle">ILLUSTRATIVE UPDATE</text>
+
+  <path class="line" d="M300 350H322" marker-end="url(#superforecasting-update-arrow)"/>
+  <path class="line" d="M585 350H607" marker-end="url(#superforecasting-update-arrow)"/>
+  <path class="line" d="M870 350H892" marker-end="url(#superforecasting-update-arrow)"/>
+
+  <rect class="card" x="45" y="150" width="255" height="395" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="172.5" y="205" text-anchor="middle">PRIOR</text>
+  <text class="number" x="172.5" y="280" text-anchor="middle">40%</text>
+  <text class="body" x="172.5" y="325" text-anchor="middle">before new evidence</text>
+  <line x1="75" y1="382" x2="270" y2="382" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M153 365L165 345L177 365Z" fill="#18211d"/>
+  <text class="small" x="75" y="422" text-anchor="middle">0</text>
+  <text class="small" x="270" y="422" text-anchor="middle">100</text>
+  <rect x="85" y="462" width="175" height="54" rx="27" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="172.5" y="497" text-anchor="middle">RECORDED</text>
+
+  <rect class="card" x="330" y="150" width="255" height="395" rx="22" fill="#e9d17f"/>
+  <text class="heading" x="457.5" y="205" text-anchor="middle">SUPPORT</text>
+  <text class="number" x="457.5" y="280" text-anchor="middle">48%</text>
+  <text class="body" x="457.5" y="325" text-anchor="middle">new signal arrives</text>
+  <line x1="360" y1="382" x2="555" y2="382" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M453.6 365L465.6 345L477.6 365Z" fill="#18211d"/>
+  <text class="small" x="360" y="422" text-anchor="middle">0</text>
+  <text class="small" x="555" y="422" text-anchor="middle">100</text>
+  <rect x="370" y="462" width="175" height="54" rx="27" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="457.5" y="497" text-anchor="middle">+8 POINTS</text>
+
+  <rect class="card" x="615" y="150" width="255" height="395" rx="22" fill="#d8cce8"/>
+  <text class="heading" x="742.5" y="205" text-anchor="middle">COUNTERSIGNAL</text>
+  <text class="number" x="742.5" y="280" text-anchor="middle">45%</text>
+  <text class="body" x="742.5" y="325" text-anchor="middle">evidence pushes back</text>
+  <line x1="645" y1="382" x2="840" y2="382" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M732.75 365L744.75 345L756.75 365Z" fill="#18211d"/>
+  <text class="small" x="645" y="422" text-anchor="middle">0</text>
+  <text class="small" x="840" y="422" text-anchor="middle">100</text>
+  <rect x="655" y="462" width="175" height="54" rx="27" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="742.5" y="497" text-anchor="middle">-3 POINTS</text>
+
+  <rect class="card" x="900" y="150" width="255" height="395" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="1027.5" y="205" text-anchor="middle">CURRENT</text>
+  <text class="number" x="1027.5" y="280" text-anchor="middle">45%</text>
+  <text class="body" x="1027.5" y="325" text-anchor="middle">state the revised view</text>
+  <line x1="930" y1="382" x2="1125" y2="382" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M1017.75 365L1029.75 345L1041.75 365Z" fill="#18211d"/>
+  <text class="small" x="930" y="422" text-anchor="middle">0</text>
+  <text class="small" x="1125" y="422" text-anchor="middle">100</text>
+  <rect x="940" y="462" width="175" height="54" rx="27" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="1027.5" y="497" text-anchor="middle">CURRENT VIEW</text>
+
+  <text class="small" x="600" y="596" text-anchor="middle">LET THE EVIDENCE DETERMINE THE SIZE OF EACH STEP</text>
+  <rect class="card" x="190" y="625" width="820" height="65" rx="32.5" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="667" text-anchor="middle">UPDATE, RECORD, AND REMAIN WILLING TO MOVE</text>
+</svg>

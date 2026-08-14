@@ -1243,6 +1243,222 @@
       ]
     },
     {
+      "slug": "superforecasting",
+      "discussionId": "superforecasting",
+      "date": "2026-06-17",
+      "dateLabel": "17 June 2026",
+      "edition": "Daily lesson",
+      "title": "Superforecasting",
+      "authors": "Philip E. Tetlock and Dan Gardner",
+      "year": "2015 · 2016 paperback edition",
+      "category": "Decision-making · Forecasting · Probabilistic reasoning",
+      "summary": "Make uncertain decisions more honest by starting with base rates, updating explicit probabilities as evidence changes and keeping score long enough to learn.",
+      "evidenceNote": "The tournament evidence is strong for bounded geopolitical questions with explicit resolution rules: thousands of motivated volunteers made repeated, scored forecasts, and selected superforecasters sustained unusually good performance. Transfer to rare, very long-range or poorly defined outcomes is context-dependent. Superforecasters were both selected and cultivated, and a 2025 reanalysis substantially weakened some causal claims about training and teaming. A calibrated forecast can still be wrong once, so treat probability as a decision input, not certainty.",
+      "accent": "blue",
+      "quizRevision": "2026-06-17-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Build the forecast from the outside in",
+          "argument": [
+            "Tetlock and Gardner advise forecasters to turn a vague question into a precise, resolvable one, then break it into tractable parts. Before becoming absorbed in the case, take the outside view: find a relevant reference class and ask how often comparable cases produced the outcome.",
+            "The base rate is a starting point, not the answer. Move inside only after the anchor is visible, then adjust for case-specific drivers and combine several perspectives. This makes the forecast's assumptions inspectable instead of letting one vivid story determine the probability."
+          ],
+          "extension": "Separate the anchor from the adjustment. Write the comparable-case rate first, then list what is genuinely different about this case and how much each difference should move the estimate.",
+          "image": "../assets/lesson-visuals/superforecasting-outside-in.svg",
+          "imageAlt": "A large forecast question branches into a reference-class base rate and case-specific drivers, which merge into one combined probability.",
+          "imageCaption": "Start with comparable outcomes, then make the special-case adjustment visible.",
+          "why": "Plans often feel unique from the inside. A reference class exposes ordinary failure rates, while decomposition reveals which assumptions actually carry the forecast.",
+          "apply": [
+            "Choose one meaningful yes-or-no question that will resolve within 30 days. Write the exact outcome, resolution date and source that will settle it.",
+            "Find a relevant class of comparable cases and note its rough base rate. Add two case-specific drivers, then state one probability that combines both views."
+          ],
+          "caveat": "A poor reference class can create false confidence, and a changing environment can make historical rates stale. Novel or rare events may have no defensible base rate. State the gap rather than disguising it with an irrelevant comparison.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the strongest use of the outside view in a forecast?",
+              "options": [
+                "Replace case details with the average result from the broadest comparison group available.",
+                "Delay a probability until enough inside evidence removes most uncertainty.",
+                "Start from outcomes in a relevant reference class, then adjust for case details.",
+                "Average expert opinions before defining the event that will count as resolved."
+              ],
+              "correctIndex": 2,
+              "feedback": "The outside view supplies a defensible starting point from comparable outcomes. The inside view then adjusts that anchor for evidence that is genuinely specific to the case.",
+              "feedbackByOption": [
+                "A reference class must be relevant, not merely broad. Case details still matter after the base rate provides a starting point.",
+                "Uncertainty does not disappear before a useful forecast is made. A probability expresses the current balance of incomplete evidence.",
+                "Correct. Comparable outcomes establish the anchor, and case-specific evidence supplies explicit, reviewable adjustments.",
+                "Aggregation can help later, but the event and its resolution rule must be defined before any forecast can be interpreted or scored."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An owner says a delayed project is unique and still has a 90% chance of finishing this month. What is the best forecasting response?",
+              "options": [
+                "Define finish, check comparable projects, decompose remaining work and revise the estimate.",
+                "Keep 90% unless a missed milestone proves the project cannot finish on time.",
+                "Use the team's confidence as the base rate because its members know this project best.",
+                "Replace the percentage with a date range so no single outcome has to be scored."
+              ],
+              "correctIndex": 0,
+              "feedback": "A precise resolution rule, relevant comparison and decomposition of the remaining work make the 90% claim testable. Uniqueness can then be represented as an adjustment rather than an exemption from evidence.",
+              "feedbackByOption": [
+                "Correct. Defining the outcome, anchoring in comparable work and exposing remaining drivers creates a forecast that can be revised and scored.",
+                "Waiting for impossibility preserves the original confidence without testing the assumptions already challenged by delay.",
+                "Team knowledge informs the inside view, but confidence among involved people is not a historical rate for comparable outcomes.",
+                "A range can be useful for duration, but removing a resolvable event prevents the team from learning whether its confidence was calibrated."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Treat probability as a revisable estimate",
+          "argument": [
+            "Superforecasters use many grades of maybe. A number such as 60% makes confidence more precise than words such as likely, and it creates a record that can later be compared with what happened.",
+            "They also update. A forecast is a working hypothesis rather than an identity to defend. New evidence should move the probability by an amount that reflects how diagnostic and independent that evidence is, avoiding both stubborn underreaction and dramatic whiplash."
+          ],
+          "extension": "Keep a forecast ledger with the date, current probability, new evidence and reason for each change. The trail preserves what was knowable at the time and makes later learning harder to rewrite through hindsight.",
+          "image": "../assets/lesson-visuals/superforecasting-revisable-estimate.svg",
+          "imageAlt": "An illustrative forecast moves from 40% to 48% after supporting evidence, then to 45% after a counter-signal, with each update recorded.",
+          "imageCaption": "An update changes the estimate without pretending the earlier evidence never existed.",
+          "why": "Explicit probabilities let a team distinguish a small shift from a reversal, connect decisions to thresholds and inspect whether confidence changes faster than evidence.",
+          "apply": [
+            "Write a probability for one current forecast and one sentence explaining its strongest evidence.",
+            "Name one signal that would move it up and one that would move it down. Give each signal a plausible point change before either arrives."
+          ],
+          "caveat": "A precise number can still rest on weak evidence. Correlated reports may repeat the same signal, and rare events are slow to calibrate. Keep the probability separate from the action threshold: the same estimate can justify different decisions when consequences differ.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does a specific probability add that a word such as likely often does not?",
+              "options": [
+                "It guarantees two forecasters attach the same evidence to the same numerical value.",
+                "It shows which decision should be taken once the forecast crosses that number.",
+                "It converts incomplete evidence into an objective frequency for this one event.",
+                "It makes confidence scorable and gives later updates a visible starting point."
+              ],
+              "correctIndex": 3,
+              "feedback": "A numerical probability does not guarantee shared interpretation or dictate the decision. It does create a testable record of confidence that can be updated and assessed across many forecasts.",
+              "feedbackByOption": [
+                "People can reach the same number from different evidence. Recording a rationale is still necessary to expose the reasoning.",
+                "A decision also depends on costs, benefits and thresholds. Probability informs action but does not determine it by itself.",
+                "The number remains a subjective estimate from incomplete evidence. Precision makes it inspectable, not objectively true.",
+                "Correct. A number provides a visible baseline for updates and can be evaluated for calibration after enough outcomes resolve."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team moves a forecast from 55% to 90% after one supportive customer email. What is the best next step?",
+              "options": [
+                "Keep 90% but record that the email caused the change, so the update remains auditable.",
+                "Check whether the email is independent and diagnostic, then record a proportionate update.",
+                "Return to 55% because one qualitative observation cannot justify any numerical update.",
+                "Average 55% and 90% to balance the original view with the new customer evidence."
+              ],
+              "correctIndex": 1,
+              "feedback": "The email may matter, but the size of the update depends on whether it adds independent evidence and how differently it would be expected under competing outcomes.",
+              "feedbackByOption": [
+                "Recording the jump is useful, but an audit trail does not make an unsupported 35-point change proportionate to the evidence.",
+                "Correct. Testing independence and diagnostic value guards against double-counting before the team records a justified movement.",
+                "Qualitative evidence can justify an update. The question is how much it should move the probability, not whether it is numerical.",
+                "Averaging the two numbers has no evidential basis. The revised estimate should reflect the new information's actual weight."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Score forecasts and combine independent views",
+          "argument": [
+            "The Good Judgment Project made forecasting a repeatable learning system: questions had resolution rules, people submitted probabilities, updates were timestamped, outcomes were scored and multiple judgments were aggregated. Original studies reported gains from probability training, teaming and tracking high performers.",
+            "A 2025 reanalysis found that controlling for extraneous variables substantially reduced, removed or sometimes reversed estimated effects of training and teaming on latent ability. The safer conclusion is not that one intervention guarantees better judgment, but that transparent forecasts, independent evidence, aggregation and outcome feedback make performance open to testing and improvement."
+          ],
+          "extension": "Elicit probabilities independently before discussion, aggregate them explicitly, then examine the largest disagreements and allow revisions. When the outcome resolves, review calibration across many forecasts rather than celebrating one lucky hit.",
+          "image": "../assets/lesson-visuals/superforecasting-score-aggregate.svg",
+          "imageAlt": "Independent probability estimates are aggregated into a team forecast, checked against the resolved outcome and used to calibrate the next round.",
+          "imageCaption": "Independent views become useful when the outcome returns as feedback rather than folklore.",
+          "why": "Confident narratives can evade accountability. A scored history reveals overconfidence, domains of skill and recurring process errors, while independent estimates preserve evidence that a group discussion might suppress.",
+          "apply": [
+            "Before the next uncertain group decision, ask two or more people to write a probability and one reason privately.",
+            "Combine the estimates as a visible baseline, discuss the widest disagreement, record the final forecast and schedule the resolution review."
+          ],
+          "caveat": "The tournament used motivated volunteers and bounded geopolitical questions. Selection, effort, updating frequency, knowledge and the environment interacted, so there is no single superforecaster trait or guaranteed team effect. Group discussion can also create herding unless initial views stay independent.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does a forecasting tournament support more learning than collecting confident predictions informally?",
+              "options": [
+                "It defines outcomes, records probabilities and scores results across many questions.",
+                "It rewards the most accurate expert after each result, making authority visible.",
+                "It removes disagreement by combining every forecast into one shared consensus probability.",
+                "It prevents forecasters from revising a probability after new evidence arrives."
+              ],
+              "correctIndex": 0,
+              "feedback": "Defined questions, timestamped probabilities and repeated scoring create feedback about calibration and accuracy. Updates and disagreement remain valuable parts of that record.",
+              "feedbackByOption": [
+                "Correct. Explicit resolution and repeated scoring turn forecasts into evidence about judgment rather than memorable anecdotes.",
+                "Authority is not the learning mechanism, and a single result can reflect luck. Performance needs a record across many questions.",
+                "Aggregation can improve a forecast, but useful dissent should remain visible and consensus is not required.",
+                "Forecasters should update before resolution when evidence changes. The timestamped history makes those changes inspectable."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Four leaders need a probability that a supplier will meet a deadline. Which process best preserves useful diversity and creates learning?",
+              "options": [
+                "Discuss the deadline together, then let the most experienced leader set the probability.",
+                "Ask each leader for a confidence word, then translate the group average into a percentage.",
+                "Vote yes or no in private, discuss the majority view and record whether it was correct.",
+                "Elicit private probabilities, aggregate them, discuss differences and score the result."
+              ],
+              "correctIndex": 3,
+              "feedback": "Independent probabilities preserve diverse evidence, aggregation creates a baseline, discussion can surface reasons and later scoring closes the learning loop.",
+              "feedbackByOption": [
+                "Experience can add evidence, but setting the answer after group discussion suppresses independent estimates and creates no calibration record.",
+                "Confidence words are interpreted differently, so translating their average invents precision rather than eliciting it.",
+                "A binary vote discards degrees of confidence, and one correct outcome does not show whether the group was well calibrated.",
+                "Correct. Independent estimates, explicit aggregation, reasoned revision and later scoring preserve both diversity and feedback."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Make one forecast inspectable",
+        "steps": [
+          "Choose one uncertain question that matters and will resolve within 30 days.",
+          "Write an exact yes-or-no outcome, resolution date and source that will settle it.",
+          "Choose a relevant reference class and write its rough base rate; if none is credible, state that gap.",
+          "Add two case-specific drivers and assign one probability.",
+          "Name one signal that would move the probability up and one that would move it down, then save the forecast where you can score it."
+        ],
+        "result": "You finish with a dated forecast that another person can understand, update and score after the outcome resolves."
+      },
+      "spacedRecall": [
+        "From Working Effectively with Legacy Code: why can a characterization test expose change without proving the captured behaviour is correct?"
+      ],
+      "takeaway": "Better judgment comes from forecasts that start with a base rate, move with evidence and stay visible long enough to be scored.",
+      "sources": [
+        { "label": "Penguin Random House: Superforecasting editions and book description", "url": "https://www.penguinrandomhouse.com/books/227815/superforecasting-by-philip-e-tetlock-and-dan-gardner/" },
+        { "label": "IARPA: Aggregative Contingent Estimation program", "url": "https://www.iarpa.gov/research-programs/ace" },
+        { "label": "Psychological Science: Psychological Strategies for Winning a Geopolitical Forecasting Tournament", "url": "https://pubmed.ncbi.nlm.nih.gov/24659192/" },
+        { "label": "Perspectives on Psychological Science: Identifying and Cultivating Superforecasters", "url": "https://pubmed.ncbi.nlm.nih.gov/25987508/" },
+        { "label": "Management Science: Confidence Calibration in a Multiyear Geopolitical Forecasting Competition", "url": "https://pubsonline.informs.org/doi/10.1287/mnsc.2016.2525" },
+        { "label": "IARPA: Good Judgment Project public data release", "url": "https://www.iarpa.gov/newsroom/article/iarpa-announces-publication-of-data-from-the-good-judgment-project" },
+        { "label": "Psychological Science 2025: Rethinking the Role of Teams and Training in Geopolitical Forecasting", "url": "https://www.psychologicalscience.org/journals/psychological-science/09567976241266481/" }
+      ]
+    },
+    {
       "slug": "working-effectively-with-legacy-code",
       "discussionId": "working-effectively-with-legacy-code",
       "date": "2026-06-16",

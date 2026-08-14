@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="superforecasting-outside-title superforecasting-outside-desc">
+  <title id="superforecasting-outside-title">Build a forecast from the outside view and the inside view</title>
+  <desc id="superforecasting-outside-desc">A large forecast question branches into a reference-class base rate and case-specific drivers. The base rate supplies the starting point, the specific evidence supplies measured adjustments, and both merge into one combined probability.</desc>
+  <defs>
+    <marker id="superforecasting-outside-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="220" y="24" width="760" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">BREAK THE QUESTION INTO FORECASTABLE PARTS</text>
+
+  <path class="line" d="M600 200V225H295V255" marker-end="url(#superforecasting-outside-arrow)"/>
+  <path class="line" d="M600 225H905V255" marker-end="url(#superforecasting-outside-arrow)"/>
+  <path class="line" d="M295 580V600H600"/>
+  <path class="line" d="M905 580V600H600V625" marker-end="url(#superforecasting-outside-arrow)"/>
+
+  <rect class="card" x="330" y="110" width="540" height="90" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="600" y="166" text-anchor="middle">BIG FORECAST QUESTION</text>
+
+  <rect class="card" x="55" y="255" width="480" height="325" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="95" y="296">OUTSIDE VIEW</text>
+  <text class="heading" x="295" y="337" text-anchor="middle">BASE RATE</text>
+  <rect x="95" y="360" width="400" height="76" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="295" y="407" text-anchor="middle" font-weight="700">RELEVANT REFERENCE CLASS</text>
+  <text class="body" x="295" y="480" text-anchor="middle">How often did comparable</text>
+  <text class="body" x="295" y="516" text-anchor="middle">cases produce the outcome?</text>
+  <text class="small" x="295" y="551" text-anchor="middle">STARTING POINT</text>
+
+  <rect class="card" x="665" y="255" width="480" height="325" rx="22" fill="#e9d17f"/>
+  <text class="small" x="705" y="296">INSIDE VIEW</text>
+  <text class="heading" x="905" y="337" text-anchor="middle">SPECIFIC DRIVERS</text>
+  <rect x="705" y="360" width="400" height="54" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="905" y="395" text-anchor="middle">What is genuinely different?</text>
+  <rect x="705" y="426" width="400" height="54" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="905" y="461" text-anchor="middle">Which direction should it move?</text>
+  <rect x="705" y="492" width="400" height="54" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="905" y="527" text-anchor="middle">How much should it matter?</text>
+  <text class="small" x="905" y="562" text-anchor="middle">MEASURED ADJUSTMENTS</text>
+
+  <rect class="card" x="300" y="625" width="600" height="90" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="681" text-anchor="middle">COMBINED PROBABILITY</text>
+</svg>

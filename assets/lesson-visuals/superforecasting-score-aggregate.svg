@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="superforecasting-score-title superforecasting-score-desc">
+  <title id="superforecasting-score-title">Score and aggregate forecasts to create a learning loop</title>
+  <desc id="superforecasting-score-desc">Four illustrative independent probability estimates are aggregated into a team forecast. The forecast is compared with the resolved outcome, scored for calibration, and used to adjust the next forecasting round.</desc>
+  <defs>
+    <marker id="superforecasting-score-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .number { font-size: 48px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="210" y="24" width="780" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">BETTER JUDGMENT COMES FROM VISIBLE FEEDBACK</text>
+
+  <path class="line" d="M385 255H442" marker-end="url(#superforecasting-score-arrow)"/>
+  <path class="line" d="M700 255H782" marker-end="url(#superforecasting-score-arrow)"/>
+  <path class="line" d="M960 345V412" marker-end="url(#superforecasting-score-arrow)"/>
+  <path class="line" d="M860 472H793" marker-end="url(#superforecasting-score-arrow)"/>
+  <path class="line" d="M500 540H383" marker-end="url(#superforecasting-score-arrow)"/>
+  <path class="line" d="M225 465V420H215V403" marker-end="url(#superforecasting-score-arrow)"/>
+
+  <rect class="card" x="45" y="135" width="340" height="265" rx="22" fill="#fffdf8"/>
+  <text class="compact" x="215" y="183" text-anchor="middle">INDEPENDENT</text>
+  <text class="compact" x="215" y="216" text-anchor="middle">ESTIMATES</text>
+  <text class="small" x="215" y="252" text-anchor="middle">ILLUSTRATIVE</text>
+  <rect x="70" y="278" width="65" height="58" rx="16" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="102.5" y="315" text-anchor="middle" font-weight="700">35%</text>
+  <rect x="145" y="278" width="65" height="58" rx="16" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="177.5" y="315" text-anchor="middle" font-weight="700">50%</text>
+  <rect x="220" y="278" width="65" height="58" rx="16" fill="#d8cce8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="252.5" y="315" text-anchor="middle" font-weight="700">60%</text>
+  <rect x="295" y="278" width="65" height="58" rx="16" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="327.5" y="315" text-anchor="middle" font-weight="700">75%</text>
+  <text class="body" x="215" y="373" text-anchor="middle">private first</text>
+
+  <rect class="card" x="450" y="185" width="250" height="140" rx="22" fill="#d8cce8"/>
+  <text class="heading" x="575" y="244" text-anchor="middle">AGGREGATE</text>
+  <text class="body" x="575" y="286" text-anchor="middle">combine explicitly</text>
+
+  <rect class="card" x="790" y="145" width="340" height="200" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="960" y="199" text-anchor="middle">TEAM FORECAST</text>
+  <text class="small" x="960" y="233" text-anchor="middle">ILLUSTRATIVE</text>
+  <text class="number" x="960" y="302" text-anchor="middle">56%</text>
+
+  <rect class="card" x="860" y="420" width="240" height="105" rx="22" fill="#f5c79d"/>
+  <text class="compact" x="980" y="462" text-anchor="middle">RESOLUTION</text>
+  <text class="body" x="980" y="499" text-anchor="middle">what happened?</text>
+
+  <rect class="card" x="500" y="455" width="285" height="170" rx="22" fill="#b8d5e5"/>
+  <text class="compact" x="642.5" y="503" text-anchor="middle">SCORE + CALIBRATE</text>
+  <text class="body" x="642.5" y="548" text-anchor="middle">Did 60% forecasts</text>
+  <text class="body" x="642.5" y="582" text-anchor="middle">resolve about 60%?</text>
+
+  <rect class="card" x="75" y="465" width="300" height="145" rx="22" fill="#e9d17f"/>
+  <text class="heading" x="225" y="515" text-anchor="middle">ADJUST</text>
+  <text class="body" x="225" y="557" text-anchor="middle">evidence weights</text>
+  <text class="body" x="225" y="590" text-anchor="middle">and team method</text>
+
+  <rect x="170" y="664" width="860" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="702" text-anchor="middle" font-weight="700">COMPARE · COMBINE · RESOLVE · LEARN · REPEAT</text>
+</svg>
