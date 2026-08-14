@@ -1,10 +1,31 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { lstat, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const root = process.cwd();
+const root = path.resolve(process.cwd());
 const { lessons } = JSON.parse(await readFile(path.join(root, 'content', 'lessons.json'), 'utf8'));
+const { families: topicFamilies } = JSON.parse(await readFile(path.join(root, 'content', 'topic-catalog.json'), 'utf8'));
 const siteUrl = 'https://djorchard.github.io/daily-applied-wisdom';
+const contactFormUrl = 'https://tally.so/r/RGelGj';
 const cusdisAppId = '714bda94-6019-4858-968f-91b3b5bb1c13';
+const checkOnly = process.argv.slice(2).includes('--check');
+const unsupportedArguments = process.argv.slice(2).filter((argument) => argument !== '--check');
+
+if (unsupportedArguments.length) {
+  throw new Error(`Unsupported build argument${unsupportedArguments.length === 1 ? '' : 's'}: ${unsupportedArguments.join(', ')}`);
+}
+
+if (!Array.isArray(lessons) || lessons.length < 1) {
+  throw new Error('Expected content/lessons.json to contain at least one lesson.');
+}
+
+const lessonSlugs = new Set();
+for (const lesson of lessons) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(lesson.slug)) {
+    throw new Error(`Refusing to build an unsafe lesson slug: ${lesson.slug ?? '(missing slug)'}.`);
+  }
+  if (lessonSlugs.has(lesson.slug)) throw new Error(`Refusing to build duplicate lesson slug: ${lesson.slug}.`);
+  lessonSlugs.add(lesson.slug);
+}
 
 const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;')
@@ -39,6 +60,7 @@ ${noindex ? '    <meta name="robots" content="noindex,follow" />\n' : ''}    <li
 ${published ? `    <meta property="article:published_time" content="${published}" />\n` : ''}    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f5f1e8" />
     <link rel="icon" href="${assetPrefix}assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="${assetPrefix}feed.xml" />
     <title>${esc(title)}</title>`;
 }
 
@@ -51,6 +73,7 @@ function header(prefix = '') {
         <a href="${prefix}index.html#library">Library</a>
         <a href="${prefix}saved.html">Saved ideas</a>
         <a href="${prefix}index.html#about">About</a>
+        <a href="${contactFormUrl}" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
       </nav>
     </header>`;
 }
@@ -60,6 +83,7 @@ function footer(prefix = '') {
       <span>Daily Applied Wisdom</span>
       <span>One book. Three ideas. Better thinking.</span>
       <a href="${prefix}feed.xml">RSS</a>
+      <a href="${contactFormUrl}" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
       <a href="${prefix}privacy.html">Privacy and data use</a>
       <span>© 2026</span>
     </footer>`;
@@ -91,10 +115,10 @@ function renderIdea(lesson, idea, index) {
         ${paragraphList(idea.argument)}
         <aside class="interpretation"><strong>Applied interpretation.</strong> ${esc(idea.extension)}</aside>
         <figure class="lesson-visual">
-          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+          <div class="visual-scroll" data-visual-scroll>
             <img src="${esc(idea.image)}" alt="${esc(idea.imageAlt)}" width="1200" height="760" loading="lazy" decoding="async" />
           </div>
-          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>${esc(idea.imageCaption)}</figcaption>
         </figure>
         <div class="practice-grid">
@@ -193,7 +217,11 @@ function renderLesson(lesson, index) {
     headline: lesson.title,
     description: lesson.summary,
     datePublished: lesson.date,
-    author: lesson.authors.split(/, | and /).map((name) => ({ '@type': 'Person', name })),
+    about: {
+      '@type': 'Book',
+      name: lesson.title,
+      author: lesson.authors.split(/, | and /).map((name) => ({ '@type': 'Person', name }))
+    },
     isPartOf: { '@type': 'WebSite', name: 'Daily Applied Wisdom', url: siteUrl },
     url: lessonUrl(lesson),
     educationalUse: 'Active recall and practical application'
@@ -253,13 +281,14 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
         </section>
       </article>
 
-      <aside class="reader-feedback" aria-labelledby="feedback-title" data-clarity-mask="true">
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
         <p class="eyebrow">The reading room</p>
         <h2 id="feedback-title">What did this book change for you?</h2>
         <p class="comments-note">Each book has its own separate discussion. This form is provided by Cusdis, so loading it shares standard connection data with that service. You can post without an account; email is optional, and comments may be held for moderation.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="${cusdisAppId}" data-page-id="${esc(lesson.discussionId)}" data-page-url="${esc(lessonUrl(lesson))}" data-page-title="${esc(lesson.title)} — Daily Applied Wisdom" data-theme="light"></div>
         <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
-        <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
       </aside>
 
       <nav class="lesson-pagination" aria-label="Lesson navigation">
@@ -284,6 +313,60 @@ function archiveCard(lesson, featured = false) {
       <ol>${lesson.ideas.map((idea) => `<li>${esc(idea.title)}</li>`).join('')}</ol>
       <a class="text-link" href="lessons/${lesson.slug}.html">Read the lesson <span aria-hidden="true">→</span></a>
     </article>`;
+}
+
+function piePoint(percent, radius = 205) {
+  const angle = (percent * 3.6 - 90) * Math.PI / 180;
+  return { x: 260 + radius * Math.cos(angle), y: 260 + radius * Math.sin(angle) };
+}
+
+function topicPieSlices() {
+  let offset = 0;
+  return topicFamilies.map((family) => {
+    const start = piePoint(offset);
+    offset += family.share;
+    const end = piePoint(offset);
+    const largeArc = family.share > 50 ? 1 : 0;
+    return `<path d="M 260 260 L ${start.x.toFixed(3)} ${start.y.toFixed(3)} A 205 205 0 ${largeArc} 1 ${end.x.toFixed(3)} ${end.y.toFixed(3)} Z" fill="${esc(family.color)}" stroke="#faf7f0" stroke-width="5"><title>${esc(family.label)}: ${family.share}%</title></path>`;
+  }).join('');
+}
+
+function renderTopicCoverage() {
+  const categoryCount = topicFamilies.reduce((sum, family) => sum + family.categories.length, 0);
+  const subtopicCount = topicFamilies.reduce((sum, family) => sum + family.categories.reduce((familySum, category) => familySum + category.subtopics.length, 0), 0);
+  return `<section class="topic-coverage" id="topics" aria-labelledby="topics-title">
+        <div class="topic-coverage-heading">
+          <p class="eyebrow">What the library explores</p>
+          <h2 id="topics-title">A technical centre of gravity,<br />with a much wider field of view.</h2>
+          <p>The discovery catalog contains ${categoryCount} topic categories and ${subtopicCount} subtopics. Software, product and AI lead the mix; the remaining space deliberately reaches into people, finance, strategy, history, security, games, creativity and ideas.</p>
+          <p class="topic-method-note">The pie shows the weighted candidate-discovery mix. Rolling deficits, repetition safeguards and the 9/12 quality gate still decide which books are published.</p>
+        </div>
+        <div class="topic-chart-layout">
+          <figure class="topic-chart">
+            <svg class="topic-chart-svg" viewBox="0 0 520 520" role="img" aria-labelledby="topic-chart-title topic-chart-desc">
+              <title id="topic-chart-title">Planned topic discovery mix</title>
+              <desc id="topic-chart-desc">A pie chart with eight topic families. Engineering, product and AI is 45 percent; thinking, behaviour and learning is 15 percent; strategy, leadership and organisations and economics, finance and entrepreneurship are 10 percent each; four other families are 5 percent each.</desc>
+              ${topicPieSlices()}
+              <circle cx="260" cy="260" r="106" fill="#faf7f0" stroke="#18211d" stroke-width="4" />
+              <text x="260" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${categoryCount} TOPIC</text>
+              <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">CATEGORIES</text>
+              <text x="260" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#53615a">${subtopicCount} subtopics</text>
+            </svg>
+            <figcaption>Target share of candidate discovery by topic family.</figcaption>
+          </figure>
+          <ul class="topic-legend" aria-label="Topic family shares">
+            ${topicFamilies.map((family) => `<li><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span><b>${family.share}%</b></li>`).join('')}
+          </ul>
+        </div>
+        <div class="topic-family-list">
+          ${topicFamilies.map((family, index) => `<details class="topic-family-details"${index === 0 ? ' open' : ''}>
+            <summary><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'} · ${family.share}% discovery share</small></span></summary>
+            <div class="topic-category-grid">
+              ${family.categories.map((category) => `<section><h3>${esc(category.label)}</h3><ul>${category.subtopics.map((subtopic) => `<li>${esc(subtopic)}</li>`).join('')}</ul></section>`).join('')}
+            </div>
+          </details>`).join('')}
+        </div>
+      </section>`;
 }
 
 function renderIndex() {
@@ -324,6 +407,8 @@ function renderIndex() {
         <div class="section-heading"><p class="eyebrow">Latest lesson</p><h2 id="latest-title">Today's book</h2></div>
         ${archiveCard(latest, true)}
       </section>
+
+      ${renderTopicCoverage()}
 
       <section class="library" id="library" aria-labelledby="library-title">
         <div class="library-heading"><p class="eyebrow">The library · ${lessons.length} lessons</p><h2 id="library-title">Ideas to revisit,<br />not summaries to collect.</h2><p>Every lesson separates the author's argument from practical extension, includes a failure mode, and ends with active recall and a small experiment.</p></div>
@@ -391,7 +476,7 @@ function renderSaved() {
 function renderPrivacy() {
   return `<!doctype html>
 <html lang="en">
-  <head>${head({ title: 'Privacy and data use — Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles learning progress, saved ideas, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
+  <head>${head({ title: 'Privacy and data use — Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles learning progress, saved ideas, contact messages, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="privacy-page">
@@ -437,6 +522,11 @@ function renderPrivacy() {
         <p>Lesson discussions are provided by Cusdis. Loading the comment form shares standard connection data with Cusdis. A nickname is requested, email is optional and comments may be held for moderation. Comment data is handled by Cusdis rather than GitHub Pages.</p>
       </section>
       <section>
+        <h2>Contact and anonymous feedback</h2>
+        <p>The Contact link opens a form hosted by Tally in a new tab. The form is not embedded in Daily Applied Wisdom pages and no form data is sent merely by browsing this site.</p>
+        <p>A message is required. The reason, name and email fields are optional. If you submit without a name or email address, the message is anonymous to the site owner, but the owner cannot reply. When you submit, Tally processes and stores the message and any optional details you provide, then sends the owner an email notification.</p>
+      </section>
+      <section>
         <h2>Sharing</h2>
         <p>The lesson sharing control uses your device's share feature when available. Its copy-link fallback writes the public lesson URL to your clipboard.</p>
       </section>
@@ -445,6 +535,7 @@ function renderPrivacy() {
         <ul>
           <li><a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noreferrer">Microsoft privacy statement <span aria-hidden="true">↗</span></a></li>
           <li><a href="https://cusdis.com/" target="_blank" rel="noreferrer">Cusdis service information <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://tally.so/help/terms-and-privacy" target="_blank" rel="noreferrer">Tally terms and privacy information <span aria-hidden="true">↗</span></a></li>
         </ul>
       </section>
     </main>
@@ -465,14 +556,108 @@ function renderSitemap() {
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`;
 }
 
-await mkdir(path.join(root, 'lessons'), { recursive: true });
-await Promise.all([
-  writeFile(path.join(root, 'index.html'), renderIndex()),
-  writeFile(path.join(root, 'saved.html'), renderSaved()),
-  writeFile(path.join(root, 'privacy.html'), renderPrivacy()),
-  writeFile(path.join(root, 'feed.xml'), renderFeed()),
-  writeFile(path.join(root, 'sitemap.xml'), renderSitemap()),
-  ...lessons.map((lesson, index) => writeFile(path.join(root, 'lessons', `${lesson.slug}.html`), renderLesson(lesson, index)))
-]);
+function renderNotFound() {
+  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found — Daily Applied Wisdom</title><link rel="stylesheet" href="/daily-applied-wisdom/styles.css"></head><body><main class="hero"><p class="eyebrow">404 · Page not found</p><h1>That idea<br>isn't here.</h1><p class="hero-copy">The library may have moved. Return to the complete collection.</p><a class="button" href="/daily-applied-wisdom/">Browse all lessons →</a></main></body></html>\n`;
+}
 
-console.log(`Built ${lessons.length} lesson pages, index, saved ideas, privacy, feed and sitemap.`);
+function renderRobots() {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`;
+}
+
+const normalizeRelativePath = (relativePath) => relativePath.split('/').join(path.sep);
+const outputEntries = new Map([
+  ['404.html', renderNotFound()],
+  ['index.html', renderIndex()],
+  ['saved.html', renderSaved()],
+  ['privacy.html', renderPrivacy()],
+  ['feed.xml', renderFeed()],
+  ['sitemap.xml', renderSitemap()],
+  ['robots.txt', renderRobots()],
+  ...lessons.map((lesson, index) => [`lessons/${lesson.slug}.html`, renderLesson(lesson, index)])
+]);
+const expectedLessonFiles = new Set(lessons.map((lesson) => `${lesson.slug}.html`));
+const lessonsDirectory = path.resolve(root, 'lessons');
+
+function assertContainedPath(candidate, parent, label) {
+  const relative = path.relative(parent, candidate);
+  if (relative === '' || relative.startsWith(`..${path.sep}`) || relative === '..' || path.isAbsolute(relative)) {
+    throw new Error(`Refusing to ${label} outside ${parent}: ${candidate}`);
+  }
+}
+
+async function listObsoleteLessonPages() {
+  let directoryInfo;
+  try {
+    directoryInfo = await lstat(lessonsDirectory);
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+  if (!directoryInfo.isDirectory() || directoryInfo.isSymbolicLink()) {
+    throw new Error(`Refusing to manage lesson pages through a non-directory or symbolic link: ${lessonsDirectory}`);
+  }
+
+  let entries;
+  try {
+    entries = await readdir(lessonsDirectory, { withFileTypes: true });
+  } catch (error) {
+    if (error.code === 'ENOENT') return [];
+    throw error;
+  }
+
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !expectedLessonFiles.has(entry.name))
+    .map((entry) => {
+      const target = path.resolve(lessonsDirectory, entry.name);
+      assertContainedPath(target, lessonsDirectory, 'remove an obsolete lesson page');
+      return { relativePath: `lessons/${entry.name}`, target };
+    });
+}
+
+async function checkGeneratedOutputs() {
+  const problems = [];
+  const normalizeLineEndings = (value) => value.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
+  for (const [relativePath, expected] of outputEntries) {
+    const target = path.resolve(root, normalizeRelativePath(relativePath));
+    assertContainedPath(target, root, 'read a generated output');
+    try {
+      const actual = await readFile(target, 'utf8');
+      if (normalizeLineEndings(actual) !== normalizeLineEndings(expected)) problems.push(`different: ${relativePath}`);
+    } catch (error) {
+      if (error.code === 'ENOENT') problems.push(`missing: ${relativePath}`);
+      else throw error;
+    }
+  }
+
+  for (const { relativePath } of await listObsoleteLessonPages()) problems.push(`stale: ${relativePath}`);
+
+  if (problems.length) {
+    console.error('Generated site output is not current:');
+    for (const problem of problems) console.error(`- ${problem}`);
+    console.error('Run `node tools/build-site.mjs`, then commit every generated output.');
+    process.exitCode = 1;
+    return;
+  }
+
+  console.log(`Generated site output is current (${outputEntries.size} files).`);
+}
+
+async function writeGeneratedOutputs() {
+  await mkdir(lessonsDirectory, { recursive: true });
+  const obsoleteLessonPages = await listObsoleteLessonPages();
+
+  await Promise.all([...outputEntries].map(([relativePath, contents]) => {
+    const target = path.resolve(root, normalizeRelativePath(relativePath));
+    assertContainedPath(target, root, 'write a generated output');
+    return writeFile(target, contents);
+  }));
+  for (const { target } of obsoleteLessonPages) await rm(target);
+
+  console.log(`Built ${lessons.length} lesson pages and ${outputEntries.size - lessons.length} shared site files.`);
+  if (obsoleteLessonPages.length) {
+    console.log(`Removed ${obsoleteLessonPages.length} obsolete lesson page${obsoleteLessonPages.length === 1 ? '' : 's'}.`);
+  }
+}
+
+if (checkOnly) await checkGeneratedOutputs();
+else await writeGeneratedOutputs();

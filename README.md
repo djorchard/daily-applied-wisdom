@@ -2,7 +2,7 @@
 
 One book. Three ideas. Better thinking.
 
-This is a dependency-free static GitHub Pages site containing evidence-aware learning sessions, interactive browser-local learning checks, an archive, per-lesson sharing, saved ideas, private owner analytics for useful reactions, RSS, a sitemap, and moderated account-free comments.
+This is a dependency-free static GitHub Pages site containing evidence-aware learning sessions, interactive browser-local learning checks, an archive, per-lesson sharing, saved ideas, private owner analytics for useful reactions, RSS, a sitemap, moderated account-free comments, and a linked anonymous-contact form.
 
 Live site: <https://djorchard.github.io/daily-applied-wisdom/>
 
@@ -15,7 +15,16 @@ node tools/build-site.mjs
 node tools/check-content.mjs
 ```
 
-The builder creates `index.html`, `saved.html`, `privacy.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. The checker enforces the three-idea learning structure, stable idea and question IDs, two learning-check questions per idea, four unique options, option-specific feedback, service configuration, source notes and visuals. Commit the generated files together with the source data.
+The builder deterministically creates `404.html`, `robots.txt`, `index.html`, `saved.html`, `privacy.html`, one page per lesson under `lessons/`, `feed.xml`, and `sitemap.xml`. A normal build also removes obsolete lesson HTML whose slug is no longer in the content file. Commit every generated file together with its source data.
+
+For a read-only release check, run:
+
+```powershell
+node tools/build-site.mjs --check
+node tools/check-content.mjs
+```
+
+`--check` reports missing, stale or different generated files without changing the working tree. The content checker invokes that same generated-output check and also validates the three-idea learning structure, stable IDs, learning checks, service configuration, source notes, visuals, local fonts, internal links, assets, anchors and duplicate HTML IDs. CI runs the syntax and full release-integrity checks on every pull request and push to `main`.
 
 ## Learning checks
 
@@ -28,6 +37,8 @@ Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four p
 ## Book selection
 
 The canonical criteria are in [BOOK_SELECTION_POLICY.md](BOOK_SELECTION_POLICY.md). Software development, product, AI and technical leadership remain the centre of gravity, while a rolling portfolio guarantees regular coverage of career growth, personal finance, thinking, memory, applied mathematics, game design and a better, more fulfilling life.
+
+`content/topic-catalog.json` is the machine-readable discovery catalog behind the homepage topic chart and `tools/randomize-topic.mjs`. It contains 29 categories and their full subtopic lists, grouped into eight weighted topic families. Run `node tools/randomize-topic.mjs --seed YYYY-MM-DD` for a reproducible candidate-discovery prompt. The result never overrides rolling deficits, repetition safeguards or the 9/12 quality gate.
 
 Books must pass an attribution, evidence, distinctiveness, usefulness, depth and teachability gate. Popularity alone is never a reason to select one.
 
@@ -49,6 +60,10 @@ GitHub Pages cannot securely store anonymous visitor data by itself.
 - Publicly visible aggregate counts would still need a small endpoint with stable IDs, uniqueness and rate-limiting controls; Clarity is intentionally not used as a public counter.
 
 The share control uses the device share sheet where available and provides a copy-link fallback.
+
+## Contact and anonymous feedback
+
+The navigation and footer link to the hosted Tally form at <https://tally.so/r/RGelGj>. A message is required; reason, name and email are optional. Tally sends the owner an email notification for each submission. The form is linked rather than embedded so it does not load while someone is simply browsing Daily Applied Wisdom. Preserve the Tally disclosure and external-service link in `privacy.html` whenever the contact workflow changes.
 
 ## Imported source material
 

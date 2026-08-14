@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "description": "The weighted topic-discovery catalog used to broaden candidate generation before the rolling portfolio and quality gate select a book.",
+  "families": [
+    {
+      "id": "engineering-product-ai",
+      "label": "Engineering, product & AI",
+      "share": 45,
+      "color": "#b54424",
+      "categories": [
+        {
+          "id": "product-design-ux",
+          "label": "Product Design & UX",
+          "subtopics": ["Usability", "Human-centred design", "Behavioural design", "Design psychology", "Information architecture"]
+        },
+        {
+          "id": "software-engineering",
+          "label": "Software Engineering",
+          "subtopics": ["Software architecture", "Clean code and refactoring", "Domain-driven design", "Distributed systems", "System design", "Engineering leadership", "Legacy system modernisation"]
+        },
+        {
+          "id": "ai-emerging-technology",
+          "label": "AI & Emerging Technology",
+          "subtopics": ["Artificial intelligence", "Agentic AI", "AI engineering", "Machine learning", "Human-AI interaction", "Future of software development"]
+        },
+        {
+          "id": "product-management",
+          "label": "Product Management",
+          "subtopics": ["Product strategy", "Product discovery", "Digital product leadership", "Outcome-driven development", "Prioritisation", "Customer research"]
+        },
+        {
+          "id": "automation-productivity",
+          "label": "Automation & Productivity",
+          "subtopics": ["Personal knowledge management", "Workflow automation", "Productivity systems", "Time management", "Delegation to AI", "Building personal operating systems"]
+        }
+      ]
+    },
+    {
+      "id": "thinking-behaviour-learning",
+      "label": "Thinking, behaviour & learning",
+      "share": 15,
+      "color": "#226b78",
+      "categories": [
+        {
+          "id": "systems-thinking",
+          "label": "Systems Thinking",
+          "subtopics": ["Systems theory", "Complexity", "Feedback loops", "Constraint theory", "Second-order effects", "Cybernetics"]
+        },
+        {
+          "id": "decision-making-rationality",
+          "label": "Decision Making & Rationality",
+          "subtopics": ["Critical thinking", "Cognitive biases", "Probabilistic thinking", "Forecasting", "Game theory", "Decision science"]
+        },
+        {
+          "id": "psychology",
+          "label": "Psychology",
+          "subtopics": ["Cognitive psychology", "Behavioural psychology", "Social psychology", "Motivation", "Personality", "Habit formation"]
+        },
+        {
+          "id": "human-behaviour",
+          "label": "Human Behaviour",
+          "subtopics": ["Persuasion", "Incentives", "Negotiation", "Group behaviour", "Organisational behaviour", "Why people make irrational decisions"]
+        },
+        {
+          "id": "problem-solving",
+          "label": "Problem Solving",
+          "subtopics": ["First-principles thinking", "Creative problem solving", "Root-cause analysis", "Troubleshooting", "Mental models", "Constraint-based thinking"]
+        },
+        {
+          "id": "science-of-learning",
+          "label": "Science of Learning",
+          "subtopics": ["Memory", "Skill acquisition", "Deliberate practice", "Learning how to learn", "Teaching", "Neuroscience of learning"]
+        }
+      ]
+    },
+    {
+      "id": "strategy-leadership-organisations",
+      "label": "Strategy, leadership & organisations",
+      "share": 10,
+      "color": "#70508f",
+      "categories": [
+        {
+          "id": "strategy",
+          "label": "Strategy",
+          "subtopics": ["Business strategy", "Competitive strategy", "Military strategy", "Strategic thinking", "Geopolitical strategy", "Technology strategy"]
+        },
+        {
+          "id": "leadership-management",
+          "label": "Leadership & Management",
+          "subtopics": ["Technical leadership", "Managing developers", "Organisational politics", "Delegation", "Team dynamics", "High-performing teams"]
+        },
+        {
+          "id": "workplace-politics-organisations",
+          "label": "Workplace Politics & Organisations",
+          "subtopics": ["Corporate power structures", "Outsourcing", "Organisational change", "Bureaucracy", "Incentives inside large companies", "Consulting and corporate strategy"]
+        }
+      ]
+    },
+    {
+      "id": "economics-finance-entrepreneurship",
+      "label": "Economics, finance & entrepreneurship",
+      "share": 10,
+      "color": "#97700b",
+      "categories": [
+        {
+          "id": "economics",
+          "label": "Economics",
+          "subtopics": ["Behavioural economics", "Microeconomics", "Incentives", "Market dynamics", "Economic history", "Political economy"]
+        },
+        {
+          "id": "finance-investing",
+          "label": "Finance & Investing",
+          "subtopics": ["Personal finance", "Property investing", "Stock investing", "Valuation", "Financial independence", "Risk management"]
+        },
+        {
+          "id": "entrepreneurship",
+          "label": "Entrepreneurship",
+          "subtopics": ["Startups", "Bootstrapping", "Building software businesses", "Business models", "Innovation", "Creating leverage"]
+        }
+      ]
+    },
+    {
+      "id": "security-geopolitics-warfare",
+      "label": "Security, geopolitics & warfare",
+      "share": 5,
+      "color": "#2f6f4f",
+      "categories": [
+        {
+          "id": "cybersecurity-adversarial-thinking",
+          "label": "Cybersecurity & Adversarial Thinking",
+          "subtopics": ["Security engineering", "Social engineering", "Threat modelling", "Hacking history", "Privacy", "Adversarial thinking"]
+        },
+        {
+          "id": "military-strategy-warfare",
+          "label": "Military Strategy & Warfare",
+          "subtopics": ["Famous battles", "Sieges", "Logistics", "Command and leadership", "Intelligence", "Asymmetric warfare"]
+        },
+        {
+          "id": "geopolitics",
+          "label": "Geopolitics",
+          "subtopics": ["Great-power competition", "China", "Russia", "United States", "Indo-Pacific", "Nuclear strategy", "International relations"]
+        }
+      ]
+    },
+    {
+      "id": "history-science-futures",
+      "label": "History, science & futures",
+      "share": 5,
+      "color": "#4d628d",
+      "categories": [
+        {
+          "id": "history",
+          "label": "History",
+          "subtopics": ["Military history", "Ancient civilisations", "Empires", "Technological history", "Economic history", "History of computing"]
+        },
+        {
+          "id": "science-technology-history",
+          "label": "Science & Technology History",
+          "subtopics": ["Computing history", "Inventions", "Industrial revolutions", "Space exploration", "Nuclear technology", "History of AI"]
+        },
+        {
+          "id": "future-forecasting",
+          "label": "Future & Forecasting",
+          "subtopics": ["Future of AI", "Future of work", "Automation", "Technological disruption", "Long-term forecasting", "Existential and systemic risks"]
+        }
+      ]
+    },
+    {
+      "id": "games-simulation-complexity",
+      "label": "Games, simulation & complex systems",
+      "share": 5,
+      "color": "#b04f77",
+      "categories": [
+        {
+          "id": "game-design",
+          "label": "Game Design",
+          "subtopics": ["Strategy game design", "Simulation systems", "Emergent gameplay", "Game economies", "Procedural generation", "Player psychology"]
+        },
+        {
+          "id": "simulation-complex-systems",
+          "label": "Simulation & Complex Systems",
+          "subtopics": ["Cities", "Logistics", "Supply chains", "Factories", "Ecosystems", "Agent-based simulation"]
+        }
+      ]
+    },
+    {
+      "id": "creativity-philosophy-stories",
+      "label": "Creativity, philosophy & human stories",
+      "share": 5,
+      "color": "#6c5d50",
+      "categories": [
+        {
+          "id": "music-creativity",
+          "label": "Music & Creativity",
+          "subtopics": ["Electronic music production", "Sound design", "Music theory", "Creativity", "Composition", "History of electronic music"]
+        },
+        {
+          "id": "philosophy",
+          "label": "Philosophy",
+          "subtopics": ["Stoicism", "Philosophy of mind", "Ethics", "Epistemology", "Existentialism", "Philosophy of technology"]
+        },
+        {
+          "id": "biographies",
+          "label": "Biographies",
+          "subtopics": ["Engineers", "Scientists", "Entrepreneurs", "Military commanders", "Inventors", "Technology founders"]
+        },
+        {
+          "id": "narrative-non-fiction",
+          "label": "Narrative Non-Fiction",
+          "subtopics": ["Technology failures", "Corporate disasters", "Engineering disasters", "Cyberattacks", "Scientific breakthroughs", "Extraordinary historical events"]
+        }
+      ]
+    }
+  ]
+}

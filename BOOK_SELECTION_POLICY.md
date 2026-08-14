@@ -47,10 +47,31 @@ At least 12 of every 20 books must have a clear, credible application to softwar
 
 For a library with fewer than 20 lessons, choose against the proportional deficit. This means currently missing tracks should begin appearing immediately rather than waiting for the twentieth lesson.
 
+## Topic discovery randomizer
+
+The machine-readable randomizer catalog is `content/topic-catalog.json`. It contains 29 eligible topic categories and their complete subtopic lists. The randomizer broadens where strong candidates are sought; it does not bypass the rolling-20 portfolio, repetition safeguards or quality gate.
+
+The public discovery mix is grouped into eight readable families:
+
+| Topic family | Discovery share | Included categories |
+| --- | ---: | --- |
+| Engineering, product and AI | 45% | Product Design & UX; Software Engineering; AI & Emerging Technology; Product Management; Automation & Productivity |
+| Thinking, behaviour and learning | 15% | Systems Thinking; Decision Making & Rationality; Psychology; Human Behaviour; Problem Solving; Science of Learning |
+| Strategy, leadership and organisations | 10% | Strategy; Leadership & Management; Workplace Politics & Organisations |
+| Economics, finance and entrepreneurship | 10% | Economics; Finance & Investing; Entrepreneurship |
+| Security, geopolitics and warfare | 5% | Cybersecurity & Adversarial Thinking; Military Strategy & Warfare; Geopolitics |
+| History, science and futures | 5% | History; Science & Technology History; Future & Forecasting |
+| Games, simulation and complex systems | 5% | Game Design; Simulation & Complex Systems |
+| Creativity, philosophy and human stories | 5% | Music & Creativity; Philosophy; Biographies; Narrative Non-Fiction |
+
+Family selection is weighted by the published shares. Category and subtopic selection are uniform within the selected family. Every category remains eligible, but software, product and AI retain the 45% centre of gravity.
+
+Use `node tools/randomize-topic.mjs` for a fresh discovery prompt or `node tools/randomize-topic.mjs --seed YYYY-MM-DD` for a reproducible draw. Treat the result as a search direction. If it conflicts with the largest rolling-20 deficit, recent repetition or a stronger quality-gated candidate, the policy takes precedence.
+
 ## Selection procedure
 
 1. Review the previous 19 lessons and identify the most underrepresented tracks.
-2. Build a vetted candidate pool for the largest deficits.
+2. Build a vetted candidate pool for the largest deficits. Use the topic randomizer to diversify discovery within those deficits, not to override them.
 3. Apply the quality gate below to every candidate.
 4. Select the strongest candidate. Randomise only among candidates of essentially equal quality.
 5. Never use a weak book merely to fill an allocation; carry the missing track forward.

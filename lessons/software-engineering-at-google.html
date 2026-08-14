@@ -17,9 +17,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f5f1e8" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
     <title>Software Engineering at Google — Daily Applied Wisdom</title>
     <link rel="stylesheet" href="../styles.css" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Software Engineering at Google","description":"How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate.","datePublished":"2026-08-13","author":[{"@type":"Person","name":"Titus Winters"},{"@type":"Person","name":"Tom Manshreck"},{"@type":"Person","name":"Hyrum Wright"}],"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html","educationalUse":"Active recall and practical application"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Software Engineering at Google","description":"How to keep software changeable, understandable and economically sustainable as years, teams and dependencies accumulate.","datePublished":"2026-08-13","about":{"@type":"Book","name":"Software Engineering at Google","author":[{"@type":"Person","name":"Titus Winters"},{"@type":"Person","name":"Tom Manshreck"},{"@type":"Person","name":"Hyrum Wright"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html","educationalUse":"Active recall and practical application"}</script>
   </head>
   <body class="lesson-page">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,6 +31,7 @@
         <a href="../index.html#library">Library</a>
         <a href="../saved.html">Saved ideas</a>
         <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
       </nav>
     </header>
     <main id="main">
@@ -62,10 +64,10 @@
 <p>Their definition of sustainability is practical: a project is sustainable when it retains the capability to respond to valuable technical or business changes. It does not require performing every possible upgrade.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Maintainability is preserved optionality. A system is healthier when future engineers can alter it without heroic knowledge, risky rewrites or frozen dependencies.</aside>
         <figure class="lesson-visual">
-          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+          <div class="visual-scroll" data-visual-scroll>
             <img src="../assets/lesson-visuals/google-changeability.svg" alt="A timeline from code working today, through a future change, to the question of whether the software remains adaptable years later." width="1200" height="760" loading="lazy" decoding="async" />
           </div>
-          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>Software engineering stretches the programming decision across the system's expected life.</figcaption>
         </figure>
         <div class="practice-grid">
@@ -95,10 +97,10 @@
 <p>The practical lesson is not that APIs can never change. It is that the real compatibility surface is usually larger than the promised one.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Treat compatibility as an observation problem before treating it as a documentation argument. Telemetry, consumer tests and staged migrations reveal dependencies that the written contract cannot.</aside>
         <figure class="lesson-visual">
-          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+          <div class="visual-scroll" data-visual-scroll>
             <img src="../assets/lesson-visuals/google-observable-api.svg" alt="A documented API connected to observable details—default value, result ordering, timing and error text—with a named consumer depending on each detail." width="1200" height="760" loading="lazy" decoding="async" />
           </div>
-          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>If a consumer can observe a detail, somebody may eventually rely on it.</figcaption>
         </figure>
         <div class="practice-grid">
@@ -128,10 +130,10 @@
 <p>Google's account explicitly acknowledges the cost: review adds latency and can become unsustainable when it is heavyweight. Small changes, prompt feedback and automation keep the human attention focused on judgement.</p>
         <aside class="interpretation"><strong>Applied interpretation.</strong> Review reduces key-person risk only when it transfers context. The asset being distributed is not approval; it is enough understanding for someone else to maintain and challenge the change.</aside>
         <figure class="lesson-visual">
-          <div class="visual-scroll" tabindex="0" aria-label="Scrollable lesson diagram">
+          <div class="visual-scroll" data-visual-scroll>
             <img src="../assets/lesson-visuals/google-code-review.svg" alt="A small code change moving from author to reviewer, spreading knowledge to other maintainers and preserving rationale in review history." width="1200" height="760" loading="lazy" decoding="async" />
           </div>
-          <span class="visual-scroll-hint" aria-hidden="true">Swipe to explore the diagram →</span>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
           <figcaption>A good review turns one person's context into shared ownership.</figcaption>
         </figure>
         <div class="practice-grid">
@@ -361,13 +363,14 @@
         </section>
       </article>
 
-      <aside class="reader-feedback" aria-labelledby="feedback-title" data-clarity-mask="true">
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
         <p class="eyebrow">The reading room</p>
         <h2 id="feedback-title">What did this book change for you?</h2>
         <p class="comments-note">Each book has its own separate discussion. This form is provided by Cusdis, so loading it shares standard connection data with that service. You can post without an account; email is optional, and comments may be held for moderation.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
         <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="software-engineering-at-google" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/software-engineering-at-google.html" data-page-title="Software Engineering at Google — Daily Applied Wisdom" data-theme="light"></div>
         <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
-        <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
       </aside>
 
       <nav class="lesson-pagination" aria-label="Lesson navigation">
@@ -379,6 +382,7 @@
       <span>Daily Applied Wisdom</span>
       <span>One book. Three ideas. Better thinking.</span>
       <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
       <a href="../privacy.html">Privacy and data use</a>
       <span>© 2026</span>
     </footer>

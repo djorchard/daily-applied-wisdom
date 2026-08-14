@@ -1,12 +1,89 @@
-import { access, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 
-const root = process.cwd();
+const root = path.resolve(process.cwd());
 const siteUrl = 'https://djorchard.github.io/daily-applied-wisdom';
+const contactFormUrl = 'https://tally.so/r/RGelGj';
+const siteBasePath = `${new URL(siteUrl).pathname}/`;
 const cusdisAppId = '714bda94-6019-4858-968f-91b3b5bb1c13';
 const clarityProjectId = 'y1mr2l6g3q';
 const fail = (message) => { throw new Error(message); };
 const present = (value) => typeof value === 'string' && value.trim().length > 0;
+const missingFiles = [];
+const pathIsInside = (candidate, parent = root) => {
+  const relative = path.relative(parent, candidate);
+  return relative === '' || (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative));
+};
+const displayPath = (candidate) => path.relative(root, candidate).split(path.sep).join('/');
+const readRequiredFile = async (candidate, context) => {
+  try {
+    return await readFile(candidate, 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      missingFiles.push(`${context}: ${displayPath(candidate)}`);
+      return null;
+    }
+    throw error;
+  }
+};
+const requireFile = async (candidate, context) => {
+  try {
+    await readFile(candidate);
+    return true;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      missingFiles.push(`${context}: ${displayPath(candidate)}`);
+      return false;
+    }
+    throw error;
+  }
+};
+const assertWellFormedXml = (source, label, expectedRoot) => {
+  if (!source.startsWith('<?xml version="1.0" encoding="UTF-8"?>')) {
+    fail(`${label} needs its UTF-8 XML declaration.`);
+  }
+
+  const withoutCdata = source.replaceAll(/<!\[CDATA\[[\s\S]*?\]\]>/g, '');
+  if (/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-f]+);)/i.test(withoutCdata)) {
+    fail(`${label} contains an unescaped or invalid XML entity.`);
+  }
+
+  const tokenPattern = /<\?[\s\S]*?\?>|<!--[\s\S]*?-->|<!\[CDATA\[[\s\S]*?\]\]>|<!DOCTYPE[\s\S]*?>|<\/?[A-Za-z_][A-Za-z0-9_.:-]*(?:\s[^<>]*?)?\/?>/g;
+  const stack = [];
+  let cursor = 0;
+  let root = null;
+  let rootCount = 0;
+  let match;
+
+  while ((match = tokenPattern.exec(source)) !== null) {
+    const text = source.slice(cursor, match.index);
+    if (/[<>]/.test(text) || (stack.length === 0 && text.trim())) fail(`${label} is not well-formed XML.`);
+    cursor = tokenPattern.lastIndex;
+
+    const token = match[0];
+    if (token.startsWith('<?') || token.startsWith('<!--') || token.startsWith('<![CDATA[')) continue;
+    if (token.startsWith('<!DOCTYPE')) fail(`${label} must not contain a document type declaration.`);
+
+    const name = token.match(/^<\/?([A-Za-z_][A-Za-z0-9_.:-]*)/)?.[1];
+    if (!name) fail(`${label} contains an invalid XML tag.`);
+    if (token.startsWith('</')) {
+      if (stack.pop() !== name) fail(`${label} has mismatched XML tags near </${name}>.`);
+      continue;
+    }
+
+    if (stack.length === 0) {
+      rootCount += 1;
+      root ??= name;
+    }
+    if (!token.endsWith('/>')) stack.push(name);
+  }
+
+  const trailingText = source.slice(cursor);
+  if (/[<>]/.test(trailingText) || (stack.length === 0 && trailingText.trim())) fail(`${label} is not well-formed XML.`);
+  if (stack.length) fail(`${label} has an unclosed <${stack.at(-1)}> element.`);
+  if (rootCount !== 1 || root !== expectedRoot) fail(`${label} must have one <${expectedRoot}> root element.`);
+};
 const esc = (value = '') => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -14,6 +91,53 @@ const esc = (value = '') => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#039;');
 const { lessons } = JSON.parse(await readFile(path.join(root, 'content', 'lessons.json'), 'utf8'));
+const topicCatalog = JSON.parse(await readFile(path.join(root, 'content', 'topic-catalog.json'), 'utf8'));
+
+const expectedTopicCategories = [
+  'Product Design & UX', 'Software Engineering', 'AI & Emerging Technology', 'Product Management',
+  'Systems Thinking', 'Decision Making & Rationality', 'Psychology', 'Human Behaviour', 'Strategy',
+  'Problem Solving', 'Leadership & Management', 'Workplace Politics & Organisations', 'Economics',
+  'Finance & Investing', 'Entrepreneurship', 'Automation & Productivity',
+  'Cybersecurity & Adversarial Thinking', 'History', 'Military Strategy & Warfare', 'Geopolitics',
+  'Science & Technology History', 'Future & Forecasting', 'Game Design', 'Simulation & Complex Systems',
+  'Music & Creativity', 'Philosophy', 'Science of Learning', 'Biographies', 'Narrative Non-Fiction'
+];
+
+if (!Array.isArray(topicCatalog.families) || topicCatalog.families.length !== 8) {
+  fail('The topic catalog must contain eight public chart families.');
+}
+if (topicCatalog.families.reduce((sum, family) => sum + family.share, 0) !== 100) {
+  fail('Topic family discovery shares must total 100.');
+}
+const topicFamilyIds = new Set();
+const topicCategoryIds = new Set();
+const topicCategoryLabels = [];
+for (const family of topicCatalog.families) {
+  if (!present(family.id) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(family.id) || topicFamilyIds.has(family.id)) {
+    fail(`Invalid or duplicate topic family ID: ${family.id ?? '(missing)'}.`);
+  }
+  topicFamilyIds.add(family.id);
+  if (!present(family.label) || !Number.isFinite(family.share) || family.share <= 0 || !/^#[0-9a-f]{6}$/i.test(family.color)) {
+    fail(`${family.id} has invalid chart metadata.`);
+  }
+  if (!Array.isArray(family.categories) || !family.categories.length) fail(`${family.id} needs topic categories.`);
+  for (const category of family.categories) {
+    if (!present(category.id) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category.id) || topicCategoryIds.has(category.id)) {
+      fail(`Invalid or duplicate topic category ID: ${category.id ?? '(missing)'}.`);
+    }
+    topicCategoryIds.add(category.id);
+    if (!present(category.label)) fail(`${category.id} needs a display label.`);
+    topicCategoryLabels.push(category.label);
+    if (!Array.isArray(category.subtopics) || !category.subtopics.length || category.subtopics.some((subtopic) => !present(subtopic))) {
+      fail(`${category.label} needs non-empty subtopics.`);
+    }
+    if (new Set(category.subtopics).size !== category.subtopics.length) fail(`${category.label} has duplicate subtopics.`);
+  }
+}
+if (
+  topicCategoryLabels.length !== expectedTopicCategories.length ||
+  expectedTopicCategories.some((label) => !topicCategoryLabels.includes(label))
+) fail('The topic catalog does not contain the complete required 29-category randomizer.');
 
 if (!Array.isArray(lessons) || lessons.length < 1) {
   fail('Expected at least one lesson.');
@@ -118,8 +242,9 @@ for (const lesson of lessons) {
     }
     if (!idea.image.endsWith('.svg')) fail(`${label} must use a scalable SVG visual.`);
     const visualPath = path.resolve(root, 'lessons', idea.image);
-    await access(visualPath);
-    const svg = await readFile(visualPath, 'utf8');
+    if (!pathIsInside(visualPath)) fail(`${label} references a visual outside the repository.`);
+    const svg = await readRequiredFile(visualPath, `${label} is missing its visual`);
+    if (svg === null) continue;
     if (!svg.includes('viewBox="0 0 1200 760"')) fail(`${label} must use the standard 1200 by 760 canvas.`);
     if (!svg.includes('role="img"') || !svg.includes('<title') || !svg.includes('<desc')) fail(`${label} needs accessible SVG metadata.`);
     if (/<image\b/i.test(svg)) fail(`${label} contains an embedded raster image.`);
@@ -145,8 +270,8 @@ for (const lesson of lessons) {
   }
 
   const generatedLessonPath = path.join(root, 'lessons', `${lesson.slug}.html`);
-  await access(generatedLessonPath);
-  const generatedLesson = await readFile(generatedLessonPath, 'utf8');
+  const generatedLesson = await readRequiredFile(generatedLessonPath, `${lesson.title} is missing its generated page`);
+  if (generatedLesson === null) continue;
   const canonicalUrl = `${siteUrl}/lessons/${lesson.slug}.html`;
   if (generatedLesson.includes('YOUR_CUSDIS_APP_ID') || !generatedLesson.includes(`data-app-id="${cusdisAppId}"`)) {
     fail(`${lesson.title} is not connected to the configured Cusdis app.`);
@@ -157,9 +282,11 @@ for (const lesson of lessons) {
     !generatedLesson.includes(`data-page-url="${canonicalUrl}"`) ||
     !generatedLesson.includes(`data-page-title="${esc(lesson.title)} — Daily Applied Wisdom"`) ||
     !generatedLesson.includes(`<link rel="canonical" href="${canonicalUrl}" />`) ||
-    !generatedLesson.includes('https://cusdis.com/js/cusdis.es.js') ||
+    !generatedLesson.includes('<link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />') ||
     !generatedLesson.includes('data-theme="light"') ||
-    !/<aside class="reader-feedback"[^>]*data-clarity-mask="true"/.test(generatedLesson) ||
+    !/<aside class="reader-feedback"[^>]*data-cusdis-comments[^>]*data-clarity-mask="true"/.test(generatedLesson) ||
+    !generatedLesson.includes('data-cusdis-status') ||
+    !generatedLesson.includes('data-cusdis-retry hidden') ||
     !generatedLesson.includes('data-analytics-consent') ||
     !generatedLesson.includes('data-analytics-status') ||
     !generatedLesson.includes('What did this book change for you?') ||
@@ -170,8 +297,33 @@ for (const lesson of lessons) {
   if (generatedLesson.includes('reaction-note') || generatedLesson.includes('Saved markers stay in this browser')) {
     fail(`${lesson.title} repeats the Clarity disclosure below every idea instead of keeping it on the Privacy page.`);
   }
-  if ((generatedLesson.match(/id="cusdis_thread"/g) || []).length !== 1 || (generatedLesson.match(/https:\/\/cusdis\.com\/js\/cusdis\.es\.js/g) || []).length !== 1) {
-    fail(`${lesson.title} must contain exactly one Cusdis container and script.`);
+  if ((generatedLesson.match(/id="cusdis_thread"/g) || []).length !== 1 || /<script\b[^>]*\bcusdis\.es\.js/i.test(generatedLesson)) {
+    fail(`${lesson.title} must contain one Cusdis container and leave script loading to the client loader.`);
+  }
+  if (
+    (generatedLesson.match(/\bdata-visual-scroll(?:\s|>)/g) || []).length !== 3 ||
+    (generatedLesson.match(/\bdata-visual-scroll-hint(?:\s|>)/g) || []).length !== 3 ||
+    /<div class="visual-scroll"[^>]*(?:tabindex|role|aria-label)=/i.test(generatedLesson)
+  ) {
+    fail(`${lesson.title} must keep diagram regions inert until overflow is detected by the client script.`);
+  }
+  const schemaMatch = generatedLesson.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  let schema;
+  try {
+    schema = schemaMatch ? JSON.parse(schemaMatch[1]) : null;
+  } catch {
+    fail(`${lesson.title} has invalid JSON-LD.`);
+  }
+  const expectedAuthors = lesson.authors.split(/, | and /);
+  if (
+    !schema ||
+    Object.hasOwn(schema, 'author') ||
+    schema.about?.['@type'] !== 'Book' ||
+    schema.about?.name !== lesson.title ||
+    !Array.isArray(schema.about?.author) ||
+    schema.about.author.map((author) => author.name).join('\n') !== expectedAuthors.join('\n')
+  ) {
+    fail(`${lesson.title} must attribute the book's authors under an about Book in its JSON-LD.`);
   }
   for (const [index, idea] of lesson.ideas.entries()) {
     const stableIdeaKey = `${lesson.slug}-${idea.id}`;
@@ -205,6 +357,23 @@ for (const lesson of lessons) {
   ) fail(`${lesson.title} has incomplete learning-check markup.`);
 }
 
+const [clientScript, savedPage, indexPage, privacyPage, styles, feed, sitemap] = await Promise.all([
+  readRequiredFile(path.join(root, 'script.js'), 'The client script is missing'),
+  readRequiredFile(path.join(root, 'saved.html'), 'The Saved ideas page is missing'),
+  readRequiredFile(path.join(root, 'index.html'), 'The homepage is missing'),
+  readRequiredFile(path.join(root, 'privacy.html'), 'The privacy page is missing'),
+  readRequiredFile(path.join(root, 'styles.css'), 'The site stylesheet is missing'),
+  readRequiredFile(path.join(root, 'feed.xml'), 'The RSS feed is missing'),
+  readRequiredFile(path.join(root, 'sitemap.xml'), 'The sitemap is missing')
+]);
+
+if (missingFiles.length) {
+  fail(`Missing required site files:\n${missingFiles.map((message) => `- ${message}`).join('\n')}`);
+}
+
+assertWellFormedXml(feed, 'feed.xml', 'rss');
+assertWellFormedXml(sitemap, 'sitemap.xml', 'urlset');
+
 if (uniquelyLongestCorrectCount > Math.floor(quizQuestionCount / 3)) {
   fail('Correct options are uniquely longest too often across the quiz library.');
 }
@@ -217,7 +386,6 @@ for (let index = 1; index < lessons.length; index += 1) {
 
 if (lessonVisuals.size !== lessons.length * 3) fail('Every idea must reference its own visual.');
 
-const clientScript = await readFile(path.join(root, 'script.js'), 'utf8');
 if (
   !clientScript.includes(`const CLARITY_PROJECT_ID = '${clarityProjectId}'`) ||
   !clientScript.includes("window.clarity('event', button.dataset.clarityEvent)") ||
@@ -230,7 +398,11 @@ if (
   !clientScript.includes('daw-useful-') ||
   !clientScript.includes('daw-quiz-first-') ||
   !clientScript.includes('daw-quiz-review-') ||
-  !clientScript.includes('data-quiz-form')
+  !clientScript.includes('data-quiz-form') ||
+  !clientScript.includes("document.querySelectorAll('[data-visual-scroll]')") ||
+  !clientScript.includes("querySelector('[data-visual-scroll-hint]')") ||
+  !clientScript.includes("closest('[data-cusdis-comments]')") ||
+  !clientScript.includes('data-daw-cusdis-script')
 ) {
   fail('The client script has incomplete personal Clarity, consent, saved-idea or useful-reaction handling.');
 }
@@ -238,7 +410,6 @@ if (clientScript.includes("if (choice === 'granted') loadClarity('granted').catc
   fail('A Clarity load failure must not reopen a consent choice that was already saved.');
 }
 
-const savedPage = await readFile(path.join(root, 'saved.html'), 'utf8');
 if (!savedPage.includes('<meta name="robots" content="noindex,follow" />') || !savedPage.includes('data-saved-empty')) {
   fail('The Saved ideas page needs its noindex directive and empty state.');
 }
@@ -248,7 +419,6 @@ for (const stableIdeaKey of stableIdeaKeys) {
 }
 if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) fail('Saved ideas must contain one card per idea.');
 
-const indexPage = await readFile(path.join(root, 'index.html'), 'utf8');
 if (
   !indexPage.includes('data-quick-review') ||
   !indexPage.includes('id="daw-quick-review-data"') ||
@@ -257,8 +427,27 @@ if (
   !/<section class="quick-review"[^>]*data-clarity-mask="true"/.test(indexPage) ||
   !/<script id="daw-quick-review-data"[^>]*data-clarity-mask="true"/.test(indexPage)
 ) fail('The homepage has incomplete browser-local quick-review markup or disclosure.');
+if (
+  !indexPage.includes('id="topics"') ||
+  !indexPage.includes('id="topic-chart-title"') ||
+  !indexPage.includes('role="img" aria-labelledby="topic-chart-title topic-chart-desc"') ||
+  !indexPage.includes('29 TOPIC') ||
+  (indexPage.match(/class="topic-family-details"/g) || []).length !== topicCatalog.families.length ||
+  (indexPage.match(/class="topic-swatch"/g) || []).length !== topicCatalog.families.length * 2
+) fail('The homepage has incomplete topic chart, legend or family details.');
+for (const family of topicCatalog.families) {
+  if (!indexPage.includes(`<strong>${esc(family.label)}</strong>`) || !indexPage.includes(`<b>${family.share}%</b>`)) {
+    fail(`The homepage topic chart is missing ${family.label}.`);
+  }
+  for (const category of family.categories) {
+    if (!indexPage.includes(`<h3>${esc(category.label)}</h3>`)) fail(`The homepage is missing ${category.label}.`);
+    for (const subtopic of category.subtopics) {
+      if (!indexPage.includes(`<li>${esc(subtopic)}</li>`)) fail(`The homepage is missing ${category.label}: ${subtopic}.`);
+    }
+  }
+}
+await readRequiredFile(path.join(root, 'tools', 'randomize-topic.mjs'), 'The topic randomizer is missing');
 
-const privacyPage = await readFile(path.join(root, 'privacy.html'), 'utf8');
 if (
   !privacyPage.includes('Learning progress') ||
   !privacyPage.includes('does not deliberately send answers or scores as Clarity events or tags') ||
@@ -269,9 +458,173 @@ if (
   !privacyPage.includes('Microsoft Clarity') ||
   !privacyPage.includes('data-analytics-reset') ||
   !privacyPage.includes('Cusdis') ||
+  !privacyPage.includes('Contact and anonymous feedback') ||
+  !privacyPage.includes('form hosted by Tally in a new tab') ||
+  !privacyPage.includes('the owner cannot reply') ||
+  !privacyPage.includes('https://tally.so/help/terms-and-privacy') ||
   !privacyPage.includes('data-analytics-consent')
 ) {
-  fail('The privacy page has incomplete Clarity, consent or Cusdis disclosure.');
+  fail('The privacy page has incomplete Clarity, consent, Cusdis or Tally disclosure.');
+}
+
+if (/fonts\.(?:googleapis|gstatic)\.com/i.test(styles)) {
+  fail('styles.css must not load fonts from Google; use repository-local font files.');
+}
+const fontReferences = [...styles.matchAll(/url\(\s*(['"]?)([^)'"?#]+\.(?:woff2?|ttf|otf))\1\s*\)/gi)]
+  .map((match) => match[2]);
+if (!fontReferences.length) fail('styles.css must reference repository-local font files.');
+const expectedLocalFonts = [
+  'dm-mono-400-latin-ext.woff2',
+  'dm-mono-400-latin.woff2',
+  'dm-mono-500-latin-ext.woff2',
+  'dm-mono-500-latin.woff2',
+  'dm-serif-display-400-italic-latin-ext.woff2',
+  'dm-serif-display-400-italic-latin.woff2',
+  'dm-serif-display-400-latin-ext.woff2',
+  'dm-serif-display-400-latin.woff2',
+  'manrope-400-700-latin-ext.woff2',
+  'manrope-400-700-latin.woff2'
+];
+const referencedFontNames = new Set(fontReferences.map((fontReference) => path.basename(fontReference)));
+for (const expectedFont of expectedLocalFonts) {
+  if (!referencedFontNames.has(expectedFont)) fail(`styles.css must reference local font file ${expectedFont}.`);
+}
+for (const fontReference of new Set(fontReferences)) {
+  if (/^[a-z][a-z0-9+.-]*:/i.test(fontReference) || fontReference.startsWith('//')) {
+    fail(`styles.css must not reference a remote font: ${fontReference}`);
+  }
+  const fontPath = path.resolve(root, fontReference);
+  if (!pathIsInside(fontPath)) fail(`styles.css references a font outside the repository: ${fontReference}`);
+  await requireFile(fontPath, 'styles.css is missing a referenced font');
+}
+for (const supportFile of ['README.md', 'OFL-DM-Mono.txt', 'OFL-DM-Serif-Display.txt', 'OFL-Manrope.txt']) {
+  await requireFile(
+    path.join(root, 'assets', 'fonts', supportFile),
+    `Self-hosted fonts are missing their documentation or licence (${supportFile})`
+  );
+}
+
+const generatedHtmlPaths = [
+  '404.html',
+  'index.html',
+  'saved.html',
+  'privacy.html',
+  ...lessons.map((lesson) => `lessons/${lesson.slug}.html`)
+];
+const contactLinkPages = generatedHtmlPaths.filter((relativePath) => relativePath !== '404.html');
+const htmlCache = new Map();
+const fileAvailability = new Map();
+const integrityIssues = [];
+const loadGeneratedHtml = async (relativePath, context) => {
+  if (htmlCache.has(relativePath)) return htmlCache.get(relativePath);
+  const contents = await readRequiredFile(path.join(root, ...relativePath.split('/')), context);
+  htmlCache.set(relativePath, contents);
+  return contents;
+};
+const ensureTargetExists = async (target, context) => {
+  if (fileAvailability.has(target)) return fileAvailability.get(target);
+  const available = await requireFile(target, context);
+  fileAvailability.set(target, available);
+  return available;
+};
+const localTargetFor = (rawReference, ownerRelativePath) => {
+  let resolved;
+  try {
+    const ownerUrl = ownerRelativePath === 'index.html'
+      ? `${siteUrl}/`
+      : `${siteUrl}/${ownerRelativePath}`;
+    resolved = new URL(rawReference.replaceAll('&amp;', '&'), ownerUrl);
+  } catch {
+    return { error: `invalid URL ${rawReference}` };
+  }
+  if (!['http:', 'https:'].includes(resolved.protocol) || resolved.origin !== new URL(siteUrl).origin) return null;
+  if (!resolved.pathname.startsWith(siteBasePath)) return null;
+
+  let relativePath;
+  let fragment;
+  try {
+    relativePath = decodeURIComponent(resolved.pathname.slice(siteBasePath.length));
+    fragment = decodeURIComponent(resolved.hash.slice(1));
+  } catch {
+    return { error: `invalid URL encoding in ${rawReference}` };
+  }
+  if (!relativePath || relativePath.endsWith('/')) relativePath += 'index.html';
+  const target = path.resolve(root, ...relativePath.split('/'));
+  if (!pathIsInside(target)) return { error: `URL escapes the repository: ${rawReference}` };
+  return { target, relativePath: displayPath(target), fragment };
+};
+
+for (const relativePath of generatedHtmlPaths) {
+  const html = await loadGeneratedHtml(relativePath, `Generated HTML is missing for integrity checking (${relativePath})`);
+  if (html === null) continue;
+
+  const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+  for (const duplicateId of duplicateIds) integrityIssues.push(`${relativePath} contains duplicate id "${duplicateId}".`);
+
+  const references = [...html.matchAll(/\b(?:href|src)\s*=\s*(["'])(.*?)\1/gi)].map((match) => match[2]);
+  const socialImage = html.match(/<meta\b[^>]*property="og:image"[^>]*content="([^"]+)"[^>]*>/i)?.[1];
+  if (socialImage) references.push(socialImage);
+
+  for (const reference of references) {
+    const resolved = localTargetFor(reference, relativePath);
+    if (resolved === null) continue;
+    if (resolved.error) {
+      integrityIssues.push(`${relativePath} has ${resolved.error}.`);
+      continue;
+    }
+    if (!await ensureTargetExists(resolved.target, `${relativePath} references a missing internal target (${reference})`)) continue;
+    if (!resolved.fragment || !resolved.relativePath.endsWith('.html')) continue;
+
+    const targetHtml = await loadGeneratedHtml(
+      resolved.relativePath,
+      `${relativePath} references a missing HTML target (${reference})`
+    );
+    if (targetHtml === null) continue;
+    const targetIds = new Set([...targetHtml.matchAll(/\s(?:id|name)="([^"]+)"/g)].map((match) => match[1]));
+    if (!targetIds.has(resolved.fragment)) {
+      integrityIssues.push(`${relativePath} references missing anchor "${resolved.fragment}" in ${resolved.relativePath}.`);
+    }
+  }
+}
+
+for (const relativePath of contactLinkPages) {
+  const html = await loadGeneratedHtml(relativePath, `Generated HTML is missing for contact-link checking (${relativePath})`);
+  if (html === null) continue;
+  const contactLink = `href="${contactFormUrl}" target="_blank" rel="noreferrer"`;
+  if ((html.match(new RegExp(contactLink, 'g')) || []).length !== 2) {
+    integrityIssues.push(`${relativePath} must include the Tally contact form in both its navigation and footer.`);
+  }
+}
+
+for (const match of styles.matchAll(/url\(\s*(['"]?)([^)'"?#]+)\1\s*\)/gi)) {
+  const reference = match[2];
+  if (/^(?:data:|https?:|\/\/)/i.test(reference)) continue;
+  const target = path.resolve(root, reference);
+  if (!pathIsInside(target)) {
+    integrityIssues.push(`styles.css references a target outside the repository: ${reference}.`);
+    continue;
+  }
+  await ensureTargetExists(target, `styles.css references a missing local asset (${reference})`);
+}
+
+if (integrityIssues.length) {
+  fail(`Generated site integrity checks failed:\n${integrityIssues.map((message) => `- ${message}`).join('\n')}`);
+}
+
+if (missingFiles.length) {
+  fail(`Missing required site files:\n${missingFiles.map((message) => `- ${message}`).join('\n')}`);
+}
+
+const generatedOutputCheck = spawnSync(
+  process.execPath,
+  [path.join(root, 'tools', 'build-site.mjs'), '--check'],
+  { cwd: root, encoding: 'utf8' }
+);
+if (generatedOutputCheck.error) throw generatedOutputCheck.error;
+if (generatedOutputCheck.status !== 0) {
+  const details = [generatedOutputCheck.stdout, generatedOutputCheck.stderr].filter(Boolean).join('\n').trim();
+  fail(`Generated output check failed.${details ? `\n${details}` : ''}`);
 }
 
 console.log(`Validated ${lessons.length} lessons, ${lessons.length * 3} ideas and all referenced visuals.`);

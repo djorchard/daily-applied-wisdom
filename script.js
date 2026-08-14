@@ -680,8 +680,60 @@ document.querySelectorAll('[data-copy-url]').forEach((button) => {
   });
 });
 
+const visualScrollRegions = [...document.querySelectorAll('[data-visual-scroll]')];
+if (visualScrollRegions.length) {
+  const updateVisualScrollRegion = (region) => {
+    const isScrollable = region.scrollWidth - region.clientWidth > 1;
+    region.dataset.scrollable = String(isScrollable);
+
+    if (isScrollable) {
+      region.tabIndex = 0;
+      region.setAttribute('role', 'group');
+      region.setAttribute('aria-label', 'Scrollable lesson diagram');
+    } else {
+      region.removeAttribute('tabindex');
+      region.removeAttribute('role');
+      region.removeAttribute('aria-label');
+    }
+
+    const hint = region.parentElement?.querySelector('[data-visual-scroll-hint]');
+    if (hint) hint.hidden = !isScrollable;
+  };
+
+  let visualScrollFrame;
+  const updateVisualScrollRegions = () => {
+    if (visualScrollFrame) cancelAnimationFrame(visualScrollFrame);
+    visualScrollFrame = requestAnimationFrame(() => {
+      visualScrollRegions.forEach(updateVisualScrollRegion);
+      visualScrollFrame = null;
+    });
+  };
+
+  visualScrollRegions.forEach((region) => {
+    region.querySelectorAll('img').forEach((image) => {
+      if (!image.complete) {
+        image.addEventListener('load', updateVisualScrollRegions, { once: true });
+        image.addEventListener('error', updateVisualScrollRegions, { once: true });
+      }
+    });
+  });
+  if ('ResizeObserver' in window) {
+    const visualScrollResizeObserver = new ResizeObserver(updateVisualScrollRegions);
+    visualScrollRegions.forEach((region) => visualScrollResizeObserver.observe(region));
+  }
+  window.addEventListener('resize', updateVisualScrollRegions);
+  updateVisualScrollRegions();
+}
+
 const comments = document.querySelector('#cusdis_thread');
 if (comments) {
+  const commentsPanel = comments.closest('[data-cusdis-comments]');
+  const commentsStatus = commentsPanel?.querySelector('[data-cusdis-status]');
+  const commentsRetry = commentsPanel?.querySelector('[data-cusdis-retry]');
+  const CUSDIS_LOAD_TIMEOUT_MS = 12000;
+  let cusdisLoadTimeout;
+  let cusdisLoadAttempt = 0;
+
   const cusdisTheme = `
     :root { color-scheme: light; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -776,11 +828,80 @@ if (comments) {
     setTimeout(observeContent, 500);
   };
 
-  const prepareCurrentFrame = () => {
-    const frame = comments.querySelector('iframe');
-    if (frame) prepareCommentsFrame(frame);
+  const showCommentsLoading = () => {
+    comments.setAttribute('aria-busy', 'true');
+    if (commentsStatus) {
+      commentsStatus.hidden = false;
+      commentsStatus.textContent = 'Loading discussion…';
+    }
+    if (commentsRetry) commentsRetry.hidden = true;
   };
 
-  new MutationObserver(prepareCurrentFrame).observe(comments, { childList: true });
-  prepareCurrentFrame();
+  const showCommentsFailure = (message) => {
+    clearTimeout(cusdisLoadTimeout);
+    comments.removeAttribute('aria-busy');
+    if (commentsStatus) {
+      commentsStatus.hidden = false;
+      commentsStatus.textContent = message;
+    }
+    if (commentsRetry) commentsRetry.hidden = false;
+  };
+
+  const showCommentsSuccess = (frame) => {
+    clearTimeout(cusdisLoadTimeout);
+    prepareCommentsFrame(frame);
+    comments.removeAttribute('aria-busy');
+    if (commentsStatus) {
+      commentsStatus.textContent = '';
+      commentsStatus.hidden = true;
+    }
+    if (commentsRetry) commentsRetry.hidden = true;
+  };
+
+  const prepareCurrentFrame = () => {
+    const frame = comments.querySelector('iframe');
+    if (frame) showCommentsSuccess(frame);
+    return frame;
+  };
+
+  new MutationObserver(prepareCurrentFrame).observe(comments, { childList: true, subtree: true });
+  const loadComments = ({ retry = false } = {}) => {
+    if (prepareCurrentFrame()) return;
+
+    const existingScript = document.querySelector('script[data-daw-cusdis-script]');
+    if (existingScript && !retry) return;
+    if (existingScript) existingScript.remove();
+
+    const host = comments.dataset.host?.replace(/\/$/, '');
+    let scriptUrl;
+    try {
+      scriptUrl = new URL(`${host}/js/cusdis.es.js`);
+      if (!['http:', 'https:'].includes(scriptUrl.protocol)) throw new Error('Unsupported Cusdis URL.');
+    } catch {
+      showCommentsFailure('The discussion is unavailable because its service address is invalid.');
+      return;
+    }
+
+    const attempt = ++cusdisLoadAttempt;
+    showCommentsLoading();
+    const script = document.createElement('script');
+    script.async = true;
+    script.defer = true;
+    script.dataset.dawCusdisScript = 'true';
+    script.src = scriptUrl.href;
+    script.addEventListener('error', () => {
+      if (attempt !== cusdisLoadAttempt || prepareCurrentFrame()) return;
+      showCommentsFailure('The discussion could not load. Check your connection or privacy blocker, then retry.');
+    }, { once: true });
+    document.head.append(script);
+
+    clearTimeout(cusdisLoadTimeout);
+    cusdisLoadTimeout = setTimeout(() => {
+      if (attempt !== cusdisLoadAttempt || prepareCurrentFrame()) return;
+      showCommentsFailure('The discussion took too long to load. Check your connection or privacy blocker, then retry.');
+    }, CUSDIS_LOAD_TIMEOUT_MS);
+  };
+
+  commentsRetry?.addEventListener('click', () => loadComments({ retry: true }));
+  loadComments();
 }
