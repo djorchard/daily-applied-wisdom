@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="good-life-wiser-title good-life-wiser-desc">
+  <title id="good-life-wiser-title">WISER creates choice inside a fast emotional response</title>
+  <desc id="good-life-wiser-desc">A relationship trigger enters a five-stage sequence. Watch the observable facts and body response. Interpret the first story and plausible alternatives. Select the outcome and response to serve. Engage with the chosen action. Reflect on what happened and what to carry into the next interaction. The path creates a pause without denying emotion.</desc>
+  <defs>
+    <marker id="good-life-wiser-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="250" y="22" width="700" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="60" text-anchor="middle" font-weight="700">CREATE CHOICE WITHOUT DENYING EMOTION</text>
+
+  <rect class="card" x="52" y="122" width="292" height="174" rx="24" fill="#f5c79d"/>
+  <text class="heading" x="198" y="172" text-anchor="middle">TRIGGER</text>
+  <text class="body" x="198" y="216" text-anchor="middle">Something happens</text>
+  <text class="body" x="198" y="252" text-anchor="middle">and an impulse rises</text>
+
+  <path class="line" d="M344 209H442" marker-end="url(#good-life-wiser-arrow)"/>
+
+  <rect class="card" x="442" y="122" width="292" height="174" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="588" y="172" text-anchor="middle">W · WATCH</text>
+  <text class="body" x="588" y="216" text-anchor="middle">What is observable?</text>
+  <text class="body" x="588" y="252" text-anchor="middle">What is happening in me?</text>
+
+  <path class="line" d="M734 209H832" marker-end="url(#good-life-wiser-arrow)"/>
+
+  <rect class="card" x="832" y="122" width="316" height="174" rx="24" fill="#d8cce8"/>
+  <text class="heading" x="990" y="172" text-anchor="middle">I · INTERPRET</text>
+  <text class="body" x="990" y="216" text-anchor="middle">What story did I add?</text>
+  <text class="body" x="990" y="252" text-anchor="middle">What else could be true?</text>
+
+  <path class="line" d="M990 296V396" marker-end="url(#good-life-wiser-arrow)"/>
+
+  <rect class="card" x="832" y="396" width="316" height="174" rx="24" fill="#e9d17f"/>
+  <text class="heading" x="990" y="446" text-anchor="middle">S · SELECT</text>
+  <text class="body" x="990" y="490" text-anchor="middle">What outcome matters?</text>
+  <text class="body" x="990" y="526" text-anchor="middle">Which response serves it?</text>
+
+  <path class="line" d="M832 483H734" marker-end="url(#good-life-wiser-arrow)"/>
+
+  <rect class="card" x="442" y="396" width="292" height="174" rx="24" fill="#bdd9bf"/>
+  <text class="heading" x="588" y="446" text-anchor="middle">E · ENGAGE</text>
+  <text class="body" x="588" y="490" text-anchor="middle">Act on the selected</text>
+  <text class="body" x="588" y="526" text-anchor="middle">response with attention</text>
+
+  <path class="line" d="M442 483H344" marker-end="url(#good-life-wiser-arrow)"/>
+
+  <rect class="card" x="52" y="396" width="292" height="174" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="198" y="446" text-anchor="middle">R · REFLECT</text>
+  <text class="body" x="198" y="490" text-anchor="middle">What happened?</text>
+  <text class="body" x="198" y="526" text-anchor="middle">What will I carry forward?</text>
+
+  <path class="line" d="M198 570V676H990V590" marker-end="url(#good-life-wiser-arrow)"/>
+  <rect x="300" y="602" width="600" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="640" text-anchor="middle" font-weight="700">LEARNING ENTERS THE NEXT INTERACTION</text>
+
+  <text class="small" x="600" y="730" text-anchor="middle">A PAUSE IS A PLACE TO CHOOSE, NOT A PROMISE OF CERTAINTY</text>
+</svg>

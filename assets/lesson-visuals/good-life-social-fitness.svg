@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="good-life-fitness-title good-life-fitness-desc">
+  <title id="good-life-fitness-title">Social fitness is a loop of small repeated relationship actions</title>
+  <desc id="good-life-fitness-desc">A four-stage loop shows social fitness as continuing practice. Notice who matters and what has changed, reach with one specific low-pressure bid, pay attention to the life the other person is living now, then repeat at a pace guided by mutual response. A relationship remains current inside the loop while work, care, health and distance continue changing around it.</desc>
+  <defs>
+    <marker id="good-life-fitness-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="350" y="22" width="500" height="60" rx="30" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="61" text-anchor="middle" font-weight="700">SOCIAL FITNESS IS A PRACTICE</text>
+
+  <rect class="card" x="52" y="142" width="330" height="164" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="217" y="190" text-anchor="middle">1 · NOTICE</text>
+  <text class="body" x="217" y="232" text-anchor="middle">Who matters?</text>
+  <text class="body" x="217" y="266" text-anchor="middle">What has changed?</text>
+
+  <path class="line" d="M382 224H818" marker-end="url(#good-life-fitness-arrow)"/>
+  <text class="small" x="600" y="205" text-anchor="middle">ONE SMALL REP</text>
+
+  <rect class="card" x="818" y="142" width="330" height="164" rx="24" fill="#bdd9bf"/>
+  <text class="heading" x="983" y="190" text-anchor="middle">2 · REACH</text>
+  <text class="body" x="983" y="232" text-anchor="middle">Make one specific,</text>
+  <text class="body" x="983" y="266" text-anchor="middle">low-pressure bid</text>
+
+  <path class="line" d="M983 306V456" marker-end="url(#good-life-fitness-arrow)"/>
+  <text class="small" x="1009" y="390">RESPONSE</text>
+
+  <rect class="card" x="818" y="456" width="330" height="164" rx="24" fill="#e9d17f"/>
+  <text class="heading" x="983" y="504" text-anchor="middle">3 · PAY ATTENTION</text>
+  <text class="body" x="983" y="546" text-anchor="middle">Learn the life they</text>
+  <text class="body" x="983" y="580" text-anchor="middle">are living now</text>
+
+  <path class="line" d="M818 538H382" marker-end="url(#good-life-fitness-arrow)"/>
+
+  <rect class="card" x="52" y="456" width="330" height="164" rx="24" fill="#d8cce8"/>
+  <text class="heading" x="217" y="504" text-anchor="middle">4 · REPEAT</text>
+  <text class="body" x="217" y="546" text-anchor="middle">Let mutual response</text>
+  <text class="body" x="217" y="580" text-anchor="middle">guide the pace</text>
+
+  <path class="line" d="M217 456V306" marker-end="url(#good-life-fitness-arrow)"/>
+  <text class="small" x="82" y="390">LIFE CHANGES</text>
+
+  <circle cx="600" cy="382" r="126" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="600" y="350" text-anchor="middle">RELATIONSHIP</text>
+  <text class="compact" x="600" y="386" text-anchor="middle">STAYS CURRENT</text>
+  <text class="body" x="600" y="430" text-anchor="middle">through repeated</text>
+  <text class="body" x="600" y="462" text-anchor="middle">mutual attention</text>
+
+  <rect x="402" y="106" width="112" height="48" rx="24" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="458" y="138" text-anchor="middle">WORK</text>
+  <rect x="543" y="106" width="114" height="48" rx="24" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="600" y="138" text-anchor="middle">CARE</text>
+  <rect x="686" y="106" width="132" height="48" rx="24" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="752" y="138" text-anchor="middle">HEALTH</text>
+
+  <rect x="280" y="660" width="640" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="698" text-anchor="middle" font-weight="700">SMALL ACTIONS, NO UNIVERSAL SCHEDULE</text>
+</svg>

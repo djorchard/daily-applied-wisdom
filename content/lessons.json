@@ -1243,6 +1243,220 @@
       ]
     },
     {
+      "slug": "the-good-life",
+      "discussionId": "the-good-life",
+      "date": "2026-06-20",
+      "dateLabel": "20 June 2026",
+      "edition": "Daily lesson",
+      "title": "The Good Life",
+      "authors": "Robert Waldinger and Marc Schulz",
+      "year": "2023 · first edition",
+      "category": "Relationships · Wellbeing · Adult development",
+      "summary": "Treat a good life as a relationship practice: invest in dependable connection, maintain social fitness through small repeated actions and slow reactive moments before they damage trust.",
+      "evidenceNote": "Waldinger and Schulz combine the unusually long Harvard Study of Adult Development with findings from many other studies. The central link between supportive relationships and later health or wellbeing is a strong observational association, not proof that one relationship intervention causes a particular outcome. The original cohorts were Boston-area boys and men selected from Harvard and disadvantaged neighbourhoods; later generations broadened participation. Relationship needs and opportunities also depend on safety, culture, disability, money, discrimination and circumstance. Social fitness and WISER are practical frameworks, not clinical treatment. This is general education, not medical or mental-health advice.",
+      "accent": "blue",
+      "quizRevision": "2026-06-20-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Invest in dependable connection, not headcount",
+          "argument": [
+            "Waldinger and Schulz argue that warm relationships are among the most consistent predictors of health and wellbeing across the lives and studies they examine. Other contributors still matter, and the evidence does not by itself establish that stronger relationships cause a particular outcome.",
+            "The useful signal is relationship quality, not a large contact list, marital status or constant company. A person can feel lonely in a crowd, while one or more relationships marked by trust, mutual care and availability can provide meaningful connection during ordinary life and difficult periods."
+          ],
+          "extension": "Audit connection as lived availability and reciprocity. Ask who can count on you, whom you can count on and where the relationship is safe enough for honesty, rather than treating the number of contacts as the score.",
+          "image": "../assets/lesson-visuals/good-life-dependable-connection.svg",
+          "imageAlt": "A contact list passes through four relationship-quality questions about availability, reciprocity, honesty and safety before becoming dependable connection.",
+          "imageCaption": "Contact is an opportunity; dependable connection is a quality built inside the relationship.",
+          "why": "Status, busyness and a crowded network can hide a missing safety net. Naming the quality you need makes a small, realistic investment possible without demanding one person meet every social need.",
+          "apply": [
+            "Write two private lists: people you could ask for help and people who could ask you. Look for one important relationship that appears on neither side or only one side.",
+            "Choose one low-pressure action that could improve mutual knowledge or availability, such as a check-in, a specific invitation or an offer of practical help."
+          ],
+          "caveat": "Association is not destiny, and more closeness is not always better. Conflict, coercion, abuse or repeated boundary violations can make distance protective. Do not use a wellbeing claim to pressure someone into contact or to blame illness, loneliness or hardship on individual effort.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which statement best represents the book's relationship-quality argument?",
+              "options": [
+                "A larger network predicts wellbeing once age and income are accounted for.",
+                "A romantic partner provides the one relationship every adult ultimately needs.",
+                "Warm, dependable connections matter more than contact count or formal status.",
+                "Conflict-free relationships protect health regardless of safety or reciprocity."
+              ],
+              "correctIndex": 2,
+              "feedback": "The authors emphasise warm, reliable relationship quality across different kinds of connection. They do not prescribe one network size or relationship form, and the evidence remains associative rather than deterministic.",
+              "feedbackByOption": [
+                "Network size alone does not establish felt connection or dependable support. The stronger signal in the lesson is relationship quality.",
+                "A romantic partnership can be valuable, but the book includes family, friends, colleagues and community rather than prescribing one essential form.",
+                "Correct. Trust, availability and mutual care make a connection meaningful; a contact count or formal status cannot establish those qualities.",
+                "Warm relationships can include conflict, and unsafe or coercive relationships are not protective simply because they continue."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Someone knows many people but cannot name anyone they could call under pressure. What is the strongest first move?",
+              "options": [
+                "Identify one potentially mutual tie and make a small, specific bid for contact.",
+                "Add more names to the network before asking any existing contact for support.",
+                "Wait until a serious problem provides a natural reason to test each friendship.",
+                "Share the concern widely so several contacts can decide who should respond."
+              ],
+              "correctIndex": 0,
+              "feedback": "A specific, low-pressure bid starts testing and building the quality that a large network does not guarantee. Mutual connection grows through ordinary contact rather than a surprise crisis or broad disclosure.",
+              "feedbackByOption": [
+                "Correct. One respectful, concrete bid creates evidence about mutual interest and begins building availability without demanding immediate intimacy.",
+                "More contacts can widen opportunity, but adding names does not address the missing quality inside existing or potential relationships.",
+                "A crisis is a costly first test and can place unexpected weight on a relationship that has not been maintained through ordinary contact.",
+                "Broad disclosure can cross personal boundaries and does not create the mutual trust or clarity that a direct, proportionate bid can build."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Social fitness is a repeated practice",
+          "argument": [
+            "The authors use social fitness as an analogy to physical fitness: relationships are a living system that changes as people, responsibilities and circumstances change. No single conversation or early bond keeps a relationship current forever.",
+            "Maintenance can be small. Taking stock of a relationship, paying undivided attention, sending a message, making a specific invitation or doing a valued activity alongside others can reopen contact and create repeated opportunities for connection."
+          ],
+          "extension": "Put relationship maintenance on the same side of the calendar as other important work. A tiny, genuine action performed now is more informative than an intention to reconnect when life becomes quiet.",
+          "image": "../assets/lesson-visuals/good-life-social-fitness.svg",
+          "imageAlt": "A repeating social-fitness loop moves through notice, reach, pay attention and repeat while changing life circumstances pass around it.",
+          "imageCaption": "Relationships stay current through small repeated acts, not one permanent achievement.",
+          "why": "Drift often happens without conflict. When maintenance remains only an intention, work, care and habit can quietly consume the attention a valued relationship needs.",
+          "apply": [
+            "Choose one relationship that matters and has received less attention than you intended. Name the smallest sincere action that fits its current level of trust.",
+            "Make the action specific and easy to answer, then leave room for the other person to accept, decline or respond later without pressure."
+          ],
+          "caveat": "Maintenance must be mutual enough to remain healthy. Repeated unanswered bids, incompatible needs or a history of harm may call for a boundary rather than more pursuit. Time, health, caring duties and access also constrain social effort, so do not turn social fitness into another universal performance target.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why do the authors compare social fitness with physical fitness?",
+              "options": [
+                "Strong early bonds create a reserve that usually removes the need for later effort.",
+                "Each relationship needs the same contact schedule to remain healthy over time.",
+                "Repairing one neglected tie is more valuable than forming any new connection.",
+                "Connection needs recurring attention because people and circumstances change."
+              ],
+              "correctIndex": 3,
+              "feedback": "The analogy highlights continuing practice rather than a fixed achievement. The form and frequency of maintenance vary by relationship, life stage, culture and mutual preference.",
+              "feedbackByOption": [
+                "History can support a bond, but people and circumstances continue changing. An early investment does not remove every later need for attention.",
+                "Recurring attention matters, but there is no universal schedule. Different relationships sustain connection through different patterns.",
+                "A neglected tie may merit attention, but new connections can also matter. Social fitness does not rank every repair above every new bond.",
+                "Correct. Relationships remain living systems, so small repeated attention helps them adapt as lives and needs change."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A valued friendship has drifted without conflict because both people became busy. What best applies social fitness?",
+              "options": [
+                "Write a long explanation of the drift and ask the friend to restore the old routine.",
+                "Send a low-pressure, specific invitation and notice whether the contact is mutual.",
+                "Wait for a quieter month so both people can offer the friendship proper attention.",
+                "Join the friend's wider social group before making direct contact about the drift."
+              ],
+              "correctIndex": 1,
+              "feedback": "A small, specific bid turns vague good intention into practice while respecting the friend's autonomy. The response provides information about what form of connection fits now.",
+              "feedbackByOption": [
+                "Explaining the whole drift can make the first contact heavy and assumes the old routine still fits both people. Start with a proportionate bid.",
+                "Correct. A clear, low-pressure invitation is easy to answer and lets mutual interest guide the next step.",
+                "Waiting for a quiet period can preserve the pattern indefinitely. Social fitness begins with a small action that fits present constraints.",
+                "A wider group may offer connection, but indirect entry is not necessary when a respectful direct bid can test the friendship more clearly."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Use WISER before reacting",
+          "argument": [
+            "Waldinger and Schulz describe emotional reactions as a fast sequence in which an event is interpreted, feelings rise and an action tendency follows. The speed can make the first interpretation feel like a fact and the first impulse feel unavoidable.",
+            "Their WISER sequence creates places to intervene: Watch what is happening, Interpret the story and alternatives, Select a response, Engage with that choice, then Reflect on what happened. The aim is not to erase emotion but to widen the set of responses available."
+          ],
+          "extension": "Treat a charged interaction as a short learning loop. Separate observation from story, choose the outcome the next action should serve and use reflection to improve the next repetition rather than to prosecute the last one.",
+          "image": "../assets/lesson-visuals/good-life-wiser.svg",
+          "imageAlt": "A relationship trigger moves through the five WISER stages: Watch, Interpret, Select, Engage and Reflect, with learning feeding the next interaction.",
+          "imageCaption": "A pause makes the interpretation and response inspectable without denying the emotion.",
+          "why": "Many relationship injuries begin when an ambiguous event and a familiar story collapse into one certainty. Even a brief pause can protect curiosity and make a clarifying response possible.",
+          "apply": [
+            "At the next mild relational trigger, write or silently name two lines: What I observed and The story I added. Generate one plausible alternative before replying.",
+            "Choose the response most likely to serve the relationship and the issue, then review the actual effect after the interaction rather than judging only your intention."
+          ],
+          "caveat": "WISER is a reflection aid, not a demand to stay in danger, tolerate abuse or perform perfect calm. Immediate safety can require leaving or seeking help, and a pause should not become avoidance of a necessary boundary or conversation. Strong or persistent distress may need professional support.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes WISER more than simply suppressing an emotional reaction?",
+              "options": [
+                "It waits for the emotional surge to fade before deciding whether the interaction needs a response.",
+                "It pauses the sequence so interpretation and response become visible choices.",
+                "It selects the interpretation most likely to preserve the relationship before responding.",
+                "It reflects on likely consequences before engagement so the first story can be tested."
+              ],
+              "correctIndex": 1,
+              "feedback": "WISER preserves the emotion as information while separating observation, interpretation and chosen action. It invites alternatives and later learning without requiring certainty or forced positivity.",
+              "feedbackByOption": [
+                "Waiting may lower intensity, but WISER makes observation, interpretation, selection, engagement and later reflection explicit. It does not depend on the feeling fading.",
+                "Correct. The pause exposes the story and action tendency so a response can be chosen and later reviewed.",
+                "WISER asks for alternative interpretations, not compulsory positivity. The selected response serves an intended outcome without declaring one story true.",
+                "In WISER, reflection follows engagement and uses the actual result. Selection happens before engagement, but it need not prove the original interpretation."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A colleague sends a terse message, and you immediately infer disrespect. Which response best uses WISER?",
+              "options": [
+                "Reply with equal brevity so the colleague can see how the message sounded.",
+                "Ignore the message until the emotional reaction has disappeared completely.",
+                "Ask another colleague whether the sender is usually disrespectful under pressure.",
+                "Separate facts from the first story, ask a clarifying question, then review."
+              ],
+              "correctIndex": 3,
+              "feedback": "The message is observable; disrespect is an interpretation. WISER creates room to test that story through a response serving clarity, then learn from what actually follows.",
+              "feedbackByOption": [
+                "Mirroring the tone acts from the first interpretation and may intensify the exchange before the sender's meaning is checked.",
+                "A pause can help, but waiting for all emotion to disappear is unnecessary and can become avoidance. Choose a proportionate next action.",
+                "A third person's general opinion can spread the conflict and still does not test what this message meant in its context.",
+                "Correct. Distinguishing observation from story allows a clarifying action, while reflection turns the outcome into evidence for next time."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Complete one social-fitness repetition",
+        "steps": [
+          "Choose one safe relationship that matters and has received less attention than you intended.",
+          "Write one sentence about the quality you value in it and one small bid that fits its current level of trust.",
+          "Send a brief, specific, low-pressure check-in or invitation. If contact now would be inappropriate, schedule the action and state why.",
+          "Before moving on, write one WISER prompt for any surprising reply: What did I observe, and what story did I add?"
+        ],
+        "result": "You finish with one completed or deliberately scheduled maintenance action and a visible pause to use before reacting to the response."
+      },
+      "spacedRecall": [
+        "From Getting to Yes: in a tense relationship conversation, how would you distinguish a stated position from the interest it protects?",
+        "From Superforecasting: before treating one terse message as proof of a pattern, what reference class and alternative explanations would improve your estimate?"
+      ],
+      "takeaway": "A good life is not a contact count or a finished state; it is the repeated work of building safe connection and choosing how to respond when relationships become difficult.",
+      "sources": [
+        { "label": "Simon & Schuster: The Good Life publication details and official excerpt", "url": "https://www.simonandschuster.net/books/The-Good-Life/Robert-Waldinger/9781982166694" },
+        { "label": "Harvard Gazette: Robert Waldinger on relationships and social fitness", "url": "https://news.harvard.edu/gazette/story/2023/02/work-out-daily-ok-but-how-socially-fit-are-you/" },
+        { "label": "Harvard Medicine Magazine: The Good Life and the Harvard Study", "url": "https://magazine.hms.harvard.edu/articles/good-life" },
+        { "label": "PLOS Medicine: Social Relationships and Mortality Risk meta-analysis", "url": "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316" },
+        { "label": "Big Think learner guide featuring Robert Waldinger: Reducing Reactivity with the WISER Model", "url": "https://assets.edge.bigthink.com/uploads/attachment/file/5175/Robert_Waldinger_Reducing_Reactivity_with_the_WISER_Model_Learner_Guide.pdf" }
+      ]
+    },
+    {
       "slug": "site-reliability-engineering",
       "discussionId": "site-reliability-engineering",
       "date": "2026-06-19",

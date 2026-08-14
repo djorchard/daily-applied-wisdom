@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="good-life-connection-title good-life-connection-desc">
+  <title id="good-life-connection-title">Relationship quality turns contact into dependable connection</title>
+  <desc id="good-life-connection-desc">A contact list is an opportunity for connection, not proof of it. Four questions test relationship quality: whether people can reach each other, whether support can move both ways, whether reality can be spoken honestly and whether boundaries are respected. These qualities can produce dependable connection marked by trust, mutual care and availability.</desc>
+  <defs>
+    <marker id="good-life-connection-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="314" y="24" width="572" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">CONTACT COUNT IS ONLY THE START</text>
+
+  <rect class="card" x="38" y="120" width="282" height="586" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="179" y="170" text-anchor="middle">CONTACTS</text>
+  <text class="small" x="179" y="204" text-anchor="middle">AROUND YOU</text>
+  <circle cx="105" cy="270" r="30" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <circle cx="179" cy="248" r="30" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <circle cx="253" cy="270" r="30" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <circle cx="105" cy="352" r="30" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <circle cx="179" cy="330" r="30" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+  <circle cx="253" cy="352" r="30" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <rect x="70" y="420" width="218" height="108" rx="20" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="179" y="462" text-anchor="middle">OPPORTUNITY</text>
+  <text class="body" x="179" y="498" text-anchor="middle">to connect</text>
+  <text class="body" x="179" y="586" text-anchor="middle">A list cannot show</text>
+  <text class="body" x="179" y="620" text-anchor="middle">trust or availability</text>
+  <text class="small" x="179" y="654" text-anchor="middle">HEADCOUNT</text>
+  <text class="small" x="179" y="684" text-anchor="middle">IS NOT QUALITY</text>
+
+  <path class="line" d="M320 413H374" marker-end="url(#good-life-connection-arrow)"/>
+
+  <rect class="card" x="374" y="120" width="452" height="586" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="600" y="170" text-anchor="middle">QUALITY QUESTIONS</text>
+
+  <rect class="card" x="414" y="212" width="372" height="92" rx="18" fill="#b8d5e5"/>
+  <text class="compact" x="438" y="250">AVAILABLE?</text>
+  <text class="body" x="438" y="282">Can we reach each other?</text>
+
+  <rect class="card" x="414" y="326" width="372" height="92" rx="18" fill="#bdd9bf"/>
+  <text class="compact" x="438" y="364">RECIPROCAL?</text>
+  <text class="body" x="438" y="396">Can support move both ways?</text>
+
+  <rect class="card" x="414" y="440" width="372" height="92" rx="18" fill="#e9d17f"/>
+  <text class="compact" x="438" y="478">HONEST?</text>
+  <text class="body" x="438" y="510">Can reality be spoken?</text>
+
+  <rect class="card" x="414" y="554" width="372" height="92" rx="18" fill="#d8cce8"/>
+  <text class="compact" x="438" y="592">SAFE?</text>
+  <text class="body" x="438" y="624">Are boundaries respected?</text>
+  <text class="small" x="600" y="682" text-anchor="middle">NO SINGLE FORM OR NETWORK SIZE</text>
+
+  <path class="line" d="M826 413H880" marker-end="url(#good-life-connection-arrow)"/>
+
+  <rect class="card" x="880" y="120" width="282" height="586" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="1021" y="170" text-anchor="middle">DEPENDABLE</text>
+  <text class="heading" x="1021" y="204" text-anchor="middle">CONNECTION</text>
+  <circle cx="946" cy="334" r="58" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <circle cx="1096" cy="334" r="58" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="946" y="344" text-anchor="middle">YOU</text>
+  <text class="compact" x="1096" y="344" text-anchor="middle">OTHER</text>
+  <path class="line" d="M1004 318H1038" marker-end="url(#good-life-connection-arrow)"/>
+  <path class="line" d="M1038 350H1004" marker-end="url(#good-life-connection-arrow)"/>
+  <rect class="card" x="910" y="446" width="222" height="146" rx="22" fill="#d8cce8"/>
+  <text class="compact" x="1021" y="488" text-anchor="middle">TRUST</text>
+  <text class="compact" x="1021" y="526" text-anchor="middle">MUTUAL CARE</text>
+  <text class="compact" x="1021" y="564" text-anchor="middle">AVAILABILITY</text>
+  <text class="body" x="1021" y="642" text-anchor="middle">Quality is built</text>
+  <text class="body" x="1021" y="676" text-anchor="middle">inside the relationship</text>
+</svg>
