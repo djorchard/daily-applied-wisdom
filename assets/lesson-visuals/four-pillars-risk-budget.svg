@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="four-pillars-risk-title four-pillars-risk-desc">
+  <title id="four-pillars-risk-title">Build a survivable risk budget before seeking return</title>
+  <desc id="four-pillars-risk-desc">Goal, time horizon and capacity for loss feed a survivable risk budget. That budget guides a trade-off where higher expected return is paired with the possibility of larger loss. Expected return is not guaranteed, so the chosen risk must be one the investor can survive.</desc>
+  <defs>
+    <marker id="four-pillars-risk-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .shield-body { font-size: 22px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="210" y="24" width="780" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">SET THE RISK LIMIT BEFORE CHASING THE RETURN</text>
+
+  <text class="small" x="45" y="122">START WITH YOUR CONSTRAINTS</text>
+
+  <rect class="card" x="45" y="145" width="300" height="105" rx="22" fill="#b8d5e5"/>
+  <text class="compact" x="195" y="188" text-anchor="middle">GOAL</text>
+  <text class="body" x="195" y="224" text-anchor="middle">Purpose and amount</text>
+
+  <rect class="card" x="45" y="307" width="300" height="105" rx="22" fill="#d8cce8"/>
+  <text class="compact" x="195" y="350" text-anchor="middle">TIME HORIZON</text>
+  <text class="body" x="195" y="386" text-anchor="middle">Time before withdrawal</text>
+
+  <rect class="card" x="45" y="469" width="300" height="105" rx="22" fill="#bdd9bf"/>
+  <text class="compact" x="195" y="512" text-anchor="middle">LOSS CAPACITY</text>
+  <text class="body" x="195" y="548" text-anchor="middle">Affordable loss</text>
+
+  <path class="line" d="M345 198H405V270H455" marker-end="url(#four-pillars-risk-arrow)"/>
+  <path class="line" d="M345 360H455" marker-end="url(#four-pillars-risk-arrow)"/>
+  <path class="line" d="M345 522H405V450H455" marker-end="url(#four-pillars-risk-arrow)"/>
+
+  <rect class="card" x="455" y="205" width="320" height="310" rx="28" fill="#e9d17f"/>
+  <path d="M615 230L740 270V360C740 425 692 468 615 495C538 468 490 425 490 360V270Z" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="615" y="302" text-anchor="middle">SURVIVABLE</text>
+  <text class="compact" x="615" y="332" text-anchor="middle">RISK BUDGET</text>
+  <text class="shield-body" x="615" y="362" text-anchor="middle">Loss the plan</text>
+  <text class="shield-body" x="615" y="386" text-anchor="middle">can absorb</text>
+  <text class="shield-body" x="615" y="410" text-anchor="middle">without abandoning</text>
+  <text class="shield-body" x="615" y="434" text-anchor="middle">the goal</text>
+  <rect x="505" y="449" width="220" height="56" rx="24" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="615" y="473" text-anchor="middle">A CEILING,</text>
+  <text class="small" x="615" y="498" text-anchor="middle">NOT A TARGET</text>
+
+  <path class="line" d="M775 360H835" marker-end="url(#four-pillars-risk-arrow)"/>
+
+  <rect class="card" x="835" y="145" width="320" height="429" rx="28" fill="#fffdf8"/>
+  <text class="small" x="995" y="184" text-anchor="middle">THE TRADE-OFF</text>
+  <rect x="855" y="203" width="280" height="125" rx="20" fill="#d8cce8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="995" y="247" text-anchor="middle">HIGHER EXPECTED</text>
+  <text class="compact" x="995" y="281" text-anchor="middle">RETURN</text>
+  <text class="body" x="995" y="314" text-anchor="middle">Not a promise</text>
+
+  <path class="line" d="M995 337V384" marker-start="url(#four-pillars-risk-arrow)" marker-end="url(#four-pillars-risk-arrow)"/>
+  <text class="small" x="1026" y="369">PAIRED</text>
+
+  <rect x="855" y="393" width="280" height="142" rx="20" fill="#f5c79d" stroke="#d86136" stroke-width="4"/>
+  <text class="compact" x="995" y="438" text-anchor="middle">POSSIBLE LARGER</text>
+  <text class="compact" x="995" y="472" text-anchor="middle">LOSS</text>
+  <text class="body" x="995" y="508" text-anchor="middle">Capital can be lost</text>
+
+  <rect class="card" x="135" y="625" width="930" height="92" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="600" y="665" text-anchor="middle">NO RETURN IS GUARANTEED</text>
+  <text class="body" x="600" y="700" text-anchor="middle">Choose only the risk your goal and behaviour can survive</text>
+</svg>

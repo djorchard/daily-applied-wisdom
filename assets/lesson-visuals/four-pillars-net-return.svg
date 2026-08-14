@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="four-pillars-net-title four-pillars-net-desc">
+  <title id="four-pillars-net-title">Audit the path from gross market outcome to net investor outcome</title>
+  <desc id="four-pillars-net-desc">A horizontal pipeline carries the gross market outcome through fees, turnover and tax friction, concentration and investor behaviour to the net investor outcome. Each stage has an audit or control point. Low cost improves the arithmetic, but low cost alone does not establish suitability.</desc>
+  <defs>
+    <marker id="four-pillars-net-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="13" markerHeight="13" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .audit-line { fill: none; stroke: #18211d; stroke-width: 3; stroke-dasharray: 7 7; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="205" y="22" width="790" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="60" text-anchor="middle" font-weight="700">AUDIT WHAT HAPPENS BETWEEN THE MARKET AND YOUR GOAL</text>
+
+  <text class="small" x="40" y="125">OUTCOME PIPELINE</text>
+  <path class="line" d="M225 250H245" marker-end="url(#four-pillars-net-arrow)"/>
+  <path class="line" d="M395 250H425" marker-end="url(#four-pillars-net-arrow)"/>
+  <path class="line" d="M575 250H605" marker-end="url(#four-pillars-net-arrow)"/>
+  <path class="line" d="M755 250H785" marker-end="url(#four-pillars-net-arrow)"/>
+  <path class="line" d="M935 250H970" marker-end="url(#four-pillars-net-arrow)"/>
+
+  <rect class="card" x="40" y="145" width="185" height="210" rx="24" fill="#b8d5e5"/>
+  <text class="small" x="132.5" y="188" text-anchor="middle">START</text>
+  <text class="compact" x="132.5" y="233" text-anchor="middle">GROSS</text>
+  <text class="compact" x="132.5" y="267" text-anchor="middle">MARKET</text>
+  <text class="compact" x="132.5" y="301" text-anchor="middle">OUTCOME</text>
+  <text class="body" x="132.5" y="337" text-anchor="middle">Before friction</text>
+
+  <rect class="card" x="245" y="145" width="150" height="210" rx="22" fill="#e9d17f"/>
+  <circle cx="320" cy="188" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="320" y="198" text-anchor="middle">−</text>
+  <text class="compact" x="320" y="244" text-anchor="middle">FEES</text>
+  <text class="body" x="320" y="286" text-anchor="middle">Product</text>
+  <text class="body" x="320" y="318" text-anchor="middle">and advice</text>
+
+  <rect class="card" x="425" y="145" width="150" height="210" rx="22" fill="#d8cce8"/>
+  <circle cx="500" cy="188" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="500" y="198" text-anchor="middle">−</text>
+  <text class="small" x="500" y="239" text-anchor="middle">TURNOVER</text>
+  <text class="small" x="500" y="269" text-anchor="middle">+ TAX</text>
+  <text class="body" x="500" y="309" text-anchor="middle">Trading</text>
+  <text class="body" x="500" y="337" text-anchor="middle">friction</text>
+
+  <rect class="card" x="605" y="145" width="150" height="210" rx="22" fill="#f5c79d"/>
+  <circle cx="680" cy="188" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="680" y="197" text-anchor="middle">±</text>
+  <text class="small" x="680" y="239" text-anchor="middle">CONCEN-</text>
+  <text class="small" x="680" y="269" text-anchor="middle">TRATION</text>
+  <text class="body" x="680" y="309" text-anchor="middle">Few holdings</text>
+  <text class="body" x="680" y="337" text-anchor="middle">dominate</text>
+
+  <rect class="card" x="785" y="145" width="150" height="210" rx="22" fill="#bdd9bf"/>
+  <circle cx="860" cy="188" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="860" y="197" text-anchor="middle">±</text>
+  <text class="small" x="860" y="244" text-anchor="middle">BEHAVIOUR</text>
+  <text class="body" x="860" y="286" text-anchor="middle">Buy, hold</text>
+  <text class="body" x="860" y="318" text-anchor="middle">or panic</text>
+
+  <rect class="card" x="970" y="145" width="190" height="210" rx="24" fill="#fffdf8"/>
+  <text class="small" x="1065" y="188" text-anchor="middle">FINISH</text>
+  <text class="compact" x="1065" y="233" text-anchor="middle">NET</text>
+  <text class="compact" x="1065" y="267" text-anchor="middle">INVESTOR</text>
+  <text class="compact" x="1065" y="301" text-anchor="middle">OUTCOME</text>
+  <text class="body" x="1065" y="337" text-anchor="middle">What you keep</text>
+
+  <text class="small" x="40" y="410">AUDIT / CONTROL</text>
+  <text class="small" x="40" y="439">POINTS</text>
+  <path class="audit-line" d="M320 355V405"/>
+  <path class="audit-line" d="M500 355V405"/>
+  <path class="audit-line" d="M680 355V405"/>
+  <path class="audit-line" d="M860 355V405"/>
+
+  <rect x="235" y="405" width="170" height="110" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="320" y="447" text-anchor="middle">COMPARE</text>
+  <text class="body" x="320" y="482" text-anchor="middle">all-in cost</text>
+
+  <rect x="415" y="405" width="170" height="110" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="500" y="439" text-anchor="middle">TRACK</text>
+  <text class="body" x="500" y="471" text-anchor="middle">turnover</text>
+  <text class="body" x="500" y="499" text-anchor="middle">+ tax</text>
+
+  <rect x="595" y="405" width="170" height="110" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="680" y="439" text-anchor="middle">LIMIT</text>
+  <text class="body" x="680" y="471" text-anchor="middle">position</text>
+  <text class="body" x="680" y="499" text-anchor="middle">weights</text>
+
+  <rect x="775" y="405" width="170" height="110" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="860" y="447" text-anchor="middle">FOLLOW</text>
+  <text class="body" x="860" y="482" text-anchor="middle">written rules</text>
+
+  <rect x="85" y="575" width="1030" height="120" rx="28" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="600" y="622" text-anchor="middle">LOW COST IMPROVES THE ARITHMETIC</text>
+  <text class="heading" x="600" y="660" text-anchor="middle">LOW COST ALONE IS NOT SUITABILITY</text>
+  <text class="body" x="600" y="687" text-anchor="middle">Goals, horizon, loss capacity and portfolio fit still matter</text>
+</svg>

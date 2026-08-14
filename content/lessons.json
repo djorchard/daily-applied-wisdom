@@ -1243,6 +1243,225 @@
       ]
     },
     {
+      "slug": "the-four-pillars-of-investing",
+      "discussionId": "the-four-pillars-of-investing",
+      "date": "2026-06-21",
+      "dateLabel": "21 June 2026",
+      "edition": "Daily lesson",
+      "title": "The Four Pillars of Investing",
+      "authors": "William J. Bernstein",
+      "year": "2002 · second edition 2023",
+      "category": "Personal finance · Investing · Portfolio design",
+      "summary": "Build an investing process that starts with survivable risk, recognises the social machinery of market booms and audits the costs and incentives between gross performance and the return you keep.",
+      "evidenceNote": "Bernstein's four-pillar model is an evidence-aware practitioner framework, not a guarantee of investment success. The broad risk-return trade-off and the impact of fees are well supported; historical bubble analogies and claims about crowd psychology are context-dependent. SPIVA Australia reports benchmark-relative results and also shows asset-class exceptions, so it supports careful comparison rather than the claim that active management never works. Diversification reduces some risk but cannot prevent market-wide losses. The book's US products, tax rules and example allocations do not transfer directly to Australia. This is general education, not personal financial advice.",
+      "accent": "gold",
+      "quizRevision": "2026-06-21-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Treat the portfolio as a risk budget",
+          "argument": [
+            "Bernstein's theory pillar begins with a trade-off: assets offering higher expected returns expose the investor to meaningful uncertainty and possible loss. Expected return is compensation for bearing risk, not a promise that the reward will arrive on schedule or at all.",
+            "Portfolio design therefore starts with the job the money must do, when it may be needed and how much loss the plan can absorb without failing. A return target chosen before those constraints can quietly demand a risk level the goal cannot survive."
+          ],
+          "extension": "Write the loss and liquidity constraint before choosing the product. The useful risk budget is the amount of uncertainty the goal can carry while still remaining viable, not the amount of volatility someone hopes they can tolerate in a calm market.",
+          "image": "../assets/lesson-visuals/four-pillars-risk-budget.svg",
+          "imageAlt": "A goal, time horizon and loss capacity flow into a risk budget, which limits the range of suitable asset mixes before expected return is considered.",
+          "imageCaption": "Return is pursued inside the risk a real goal can survive, never outside it.",
+          "why": "A high historical average cannot rescue money that must be withdrawn during a fall. Starting with the goal's failure conditions prevents a return wish from becoming an accidental bet with essential money.",
+          "apply": [
+            "Choose one financial goal and write its amount, earliest use date and need for ready cash.",
+            "Write the largest temporary or permanent loss that would force the goal to change. Use those constraints as questions for research or licensed advice before considering expected return."
+          ],
+          "caveat": "Higher risk does not guarantee a higher realised return, and a long horizon does not make loss impossible. Capacity depends on income, liabilities, health, access to cash and the purpose of the money, not age alone. Bernstein's US examples and allocation ranges are not Australian prescriptions.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does this lesson place risk before return when designing a portfolio?",
+              "options": [
+                "The asset with the highest expected return should receive the largest allocation.",
+                "The loss a goal can survive constrains which expected returns are worth pursuing.",
+                "A long holding period lets the investor treat temporary losses as harmless.",
+                "Historical volatility sets the return target the portfolio is likely to reach."
+              ],
+              "correctIndex": 1,
+              "feedback": "A goal creates practical limits on loss, timing and liquidity. Expected return is useful only inside a risk level that leaves the goal viable when outcomes disappoint.",
+              "feedbackByOption": [
+                "Expected return cannot set allocation by itself. A promising asset can still expose the goal to a loss it cannot absorb.",
+                "Correct. Loss capacity, timing and liquidity define the risk budget within which an expected return can be pursued responsibly.",
+                "A longer horizon can provide recovery time, but a loss is not harmless when it changes the goal, forces a sale or exceeds financial capacity.",
+                "Historical volatility describes past variation. It does not set a future return target or determine how much loss this goal can carry."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Money is needed for a house deposit in 18 months, but its owner wants a volatile growth fund after strong recent returns. What is the best first step?",
+              "options": [
+                "Choose a diversified growth fund so no single company can threaten the deposit.",
+                "Delay the purchase date so the growth strategy has more time to recover.",
+                "Estimate the historical average and invest only if it remains above inflation.",
+                "Define the loss and liquidity the goal can tolerate, then choose matching risk."
+              ],
+              "correctIndex": 3,
+              "feedback": "The near-term goal and need for access determine how much uncertainty the money can carry. Recent returns and diversification within growth assets do not answer that first question.",
+              "feedbackByOption": [
+                "Diversifying companies reduces concentration risk, but a broad growth fund can still fall when the deposit is needed.",
+                "Changing an important life date merely to justify a product reverses the design order. Confirm the goal before changing its risk.",
+                "A historical average does not describe the return over this 18-month window or the loss that could occur before withdrawal.",
+                "Correct. The goal's timing, liquidity need and affordable loss set the risk budget before recent performance or expected return is considered."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Use history as a warning, not a market clock",
+          "argument": [
+            "Bernstein's history and psychology pillars describe recurring speculative mechanisms: a persuasive new-era story attracts attention, visible gains draw in imitators, social proof strengthens the story and rising prices appear to validate it. Media, promoters and easy trading can accelerate the feedback.",
+            "History can make those conditions recognisable, but it cannot identify the exact top, bottom or date of reversal. A crowd can remain enthusiastic longer than an observer expects, and a genuine innovation can coexist with an unsustainable price."
+          ],
+          "extension": "Use a historical parallel to inspect the social mechanism, not to time a trade. Separate the asset's cash-flow or use case from evidence that other people are excited, then ask what would remain if the applause stopped.",
+          "image": "../assets/lesson-visuals/four-pillars-crowd-cycle.svg",
+          "imageAlt": "A crowd cycle moves from a persuasive story through imitation, rising price and apparent confirmation to reversal and fading memory, while a separate warning sign says history cannot date the turn.",
+          "imageCaption": "History can expose the feedback loop without supplying a reliable countdown to its reversal.",
+          "why": "Fear of missing out converts other people's buying into evidence, then converts price movement into proof of the original story. Naming that loop creates enough distance to investigate the investment rather than inherit the crowd's urgency.",
+          "apply": [
+            "Pick one investment receiving intense attention. Write the economic case in one sentence and the social proof in another.",
+            "Ask whether you would still research it if nobody else were discussing it. List the official document, independent evidence and loss scenario you would inspect before any action."
+          ],
+          "caveat": "Popularity does not prove a bubble, and an old episode can be cherry-picked to resemble almost any new market. Social dynamics do not reveal intrinsic value or a turning date. Use the pattern to slow and broaden research, not to justify a confident short position or automatic rejection.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the most defensible use of market history in this lesson?",
+              "options": [
+                "Estimate the average bubble duration and leave before the expected reversal.",
+                "Avoid any investment once popular media coverage begins to accelerate.",
+                "Recognise recurring crowd mechanisms without claiming an exact turning date.",
+                "Replace current research with the historical episode that looks most similar."
+              ],
+              "correctIndex": 2,
+              "feedback": "History offers a vocabulary for feedback, imitation and narrative pressure. It does not turn a resemblance into a reliable market-timing signal.",
+              "feedbackByOption": [
+                "Bubble durations vary, and the start point is usually disputed. An average cannot supply a dependable exit date.",
+                "Media attention can accompany legitimate information and growth. Popularity is a prompt for scrutiny, not an automatic rejection rule.",
+                "Correct. Historical cases help identify social feedback and warning conditions while leaving the timing and outcome uncertain.",
+                "A familiar analogy can hide important differences. Current evidence still has to carry the decision."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A fast-rising investment dominates group chats, and the main evidence offered is that everyone else is making money. What best applies the lesson?",
+              "options": [
+                "Separate the economic case from social proof and inspect risks before any action.",
+                "Buy a small position so you can learn whether the crowd's story remains valid.",
+                "Wait for momentum to weaken, then use that change as the reliable exit signal.",
+                "Find an older bubble with similar gains and estimate when this one will reverse."
+              ],
+              "correctIndex": 0,
+              "feedback": "Visible gains and participation are features of the crowd loop, not independent evidence of value. Separating the economic case from social pressure creates a researchable decision.",
+              "feedbackByOption": [
+                "Correct. Distinguishing the economic mechanism from imitation and urgency makes risks, documents and contrary evidence visible before money moves.",
+                "A small position still turns social pressure into action and may strengthen commitment before the economic case is understood.",
+                "Momentum can change after large losses or reverse temporarily. It is not a reliable exit clock supplied by history.",
+                "A historical resemblance can warn about a mechanism, but it cannot calculate the present episode's reversal date."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Audit what stands between gross and net return",
+          "argument": [
+            "Bernstein's business pillar asks who is paid, how they are paid and what behaviour the arrangement encourages. Management fees, transaction costs, borrowing, turnover and tax consequences can reduce the return an investor keeps even when the underlying assets perform well.",
+            "A product also needs a meaningful benchmark and a portfolio that does the claimed job. Low cost is valuable but cannot repair unsuitable risk, hidden concentration, poor liquidity or an incentive to chase whichever product has recently become easiest to sell."
+          ],
+          "extension": "Treat the product wrapper and distribution system as part of the investment. Trace the path from objective and holdings through fees, liquidity and incentives to the investor's net result, then compare it with a simpler executable alternative.",
+          "image": "../assets/lesson-visuals/four-pillars-net-return.svg",
+          "imageAlt": "Gross investment performance passes through visible filters for fees, trading and tax friction, concentration and behaviour before becoming the investor's net result.",
+          "imageCaption": "The return you keep depends on the machinery around the assets as well as the assets themselves.",
+          "why": "A strong headline return can conceal a weak comparison, large costs or risk that only becomes visible during withdrawal. Auditing the wrapper turns marketing claims into specific questions that a PDS, benchmark and holdings list can answer.",
+          "apply": [
+            "Choose one held or hypothetical managed fund and open its current PDS or official product page. Record its objective, benchmark, target market and major holdings.",
+            "Record ongoing, performance and transaction costs, liquidity limits and major concentrations. Compare the complete result with one simpler alternative without buying, selling or switching during the audit."
+          ],
+          "caveat": "The cheapest product is not automatically diversified, liquid, tax-efficient or suitable, and professional advice can add value when needs are complex. Active funds can outperform in particular categories and periods; SPIVA is descriptive and benchmark-dependent. Personal tax and product decisions may require licensed Australian advice.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why is investment-industry economics relevant to an investor's net return?",
+              "options": [
+                "Higher fees may reflect research or advice expected to improve gross performance.",
+                "Benchmark construction determines which market exposures an index fund inherits.",
+                "Frequent trading may react to information quickly enough to offset added costs.",
+                "Fees, turnover and incentives can reduce or redirect what the investor keeps."
+              ],
+              "correctIndex": 3,
+              "feedback": "The assets' gross performance is only the start. Product costs, trading, tax effects and the incentives behind promotion influence the investor's net outcome and behaviour.",
+              "feedbackByOption": [
+                "Research or advice can add value, but that expectation does not erase a known fee. The complete net result still needs comparison.",
+                "Benchmark design matters for exposure and concentration, but it does not explain how costs and incentives alter the investor's net result.",
+                "Fast trading can sometimes help, but its benefit is uncertain while transaction and tax friction still count against the retained result.",
+                "Correct. Costs and incentives sit between gross asset performance and the result the investor retains, so they belong in the analysis."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A fund advertises last year's top return but gives little prominence to fees or its benchmark. What is the strongest comparison?",
+              "options": [
+                "Compare its best year with the best year of several funds in the same category.",
+                "Check its objective, benchmark, long-term net result, fees, holdings and risks.",
+                "Prefer it if the manager invested personal money throughout the advertised year.",
+                "Choose the lowest-fee alternative because cost determines product suitability."
+              ],
+              "correctIndex": 1,
+              "feedback": "A relevant benchmark, longer net record, complete costs and the portfolio's actual job provide a fairer comparison than one selected year or one fee number.",
+              "feedbackByOption": [
+                "Comparing selected best years preserves performance chasing and still omits the relevant benchmark, costs and risk.",
+                "Correct. This comparison tests whether the fund did its stated job after costs and whether its holdings and risks suit the intended use.",
+                "Manager co-investment may align one incentive, but it does not establish benchmark-relative performance, cost or suitability.",
+                "Cost matters, but the cheapest product can still have the wrong holdings, liquidity, risk or target market."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run a no-transaction four-cell fund audit",
+        "steps": [
+          "Choose one held or hypothetical fund and open its current PDS or official product page.",
+          "Cell one: write the job, target market and benchmark the fund claims.",
+          "Cell two: write its suggested time frame, liquidity limits and largest relevant loss risk.",
+          "Cell three: write every ongoing, performance, transaction or exit cost you can find.",
+          "Cell four: write its largest concentration and one incentive behind how it is promoted.",
+          "Circle one unanswered question. Do not buy, sell or switch anything during this audit."
+        ],
+        "result": "You finish with a four-cell research note that exposes the product's job, risk, friction and concentration plus one question requiring better evidence."
+      },
+      "spacedRecall": [
+        "From Superforecasting: what evidence would make a confident investment prediction more diagnostic rather than merely more vivid?",
+        "From Getting to Yes: before accepting a fund's terms, what executable alternative should anchor the comparison?"
+      ],
+      "takeaway": "Investing becomes more durable when the goal sets the risk, history slows the crowd story and the full path from gross performance to net return stays visible.",
+      "sources": [
+        { "label": "McGraw Hill: The Four Pillars of Investing, second edition", "url": "https://www.mheducation.com/highered/mhp/product/four-pillars-investing-second-edition-lessons-building-winning-portfolio.html" },
+        { "label": "William J. Bernstein: second-edition note and revision context", "url": "https://www.efficientfrontier.com/t4poi/t4poi-new.html" },
+        { "label": "Authorised publisher sample: foreword, contents and introduction", "url": "https://efficientfrontier.com/t4poi/T4POI-sample.pdf" },
+        { "label": "Australian Government Moneysmart: Develop an investing plan", "url": "https://moneysmart.gov.au/how-to-invest/develop-an-investing-plan" },
+        { "label": "Australian Government Moneysmart: Diversification", "url": "https://moneysmart.gov.au/how-to-invest/diversification" },
+        { "label": "Australian Government Moneysmart: Choosing a managed fund", "url": "https://moneysmart.gov.au/managed-funds-and-etfs/choosing-a-managed-fund" },
+        { "label": "Australian Government Moneysmart: Do not get burned by investment hype", "url": "https://moneysmart.gov.au/investment-warnings/dont-get-burned-by-investment-hype" },
+        { "label": "S&P Dow Jones Indices: SPIVA Australia Year-End 2025", "url": "https://www.spglobal.com/spdji/en/spiva/article/spiva-australia/" }
+      ]
+    },
+    {
       "slug": "the-good-life",
       "discussionId": "the-good-life",
       "date": "2026-06-20",
