@@ -56,7 +56,7 @@ ${noindex ? '    <meta name="robots" content="noindex,follow" />\n' : ''}    <li
     <meta property="og:image" content="${siteUrl}/assets/social-card.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Daily Applied Wisdom — One book. Three ideas. Better thinking." />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
 ${published ? `    <meta property="article:published_time" content="${published}" />\n` : ''}    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f5f1e8" />
     <link rel="icon" href="${assetPrefix}assets/favicon.svg" type="image/svg+xml" />
@@ -150,9 +150,9 @@ function renderLearningCheck(lesson) {
 
   return `<section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="${esc(lesson.slug)}" data-quiz-revision="${esc(lesson.quizRevision)}" data-clarity-mask="true">
           <div class="learning-check-intro">
-            <p class="eyebrow">Retrieval practice · 6 questions</p>
+          <p class="eyebrow">Knowledge check · 6 questions</p>
             <h2 id="learning-check-title">Learning check</h2>
-            <p>Answer all 6 before checking. Your first attempt is saved only in this browser, and each explanation appears after you check your answers. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
             <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
           </div>
           <form data-quiz-form novalidate>
@@ -229,7 +229,7 @@ function renderLesson(lesson, index) {
 
   return `<!doctype html>
 <html lang="en">
-  <head>${head({ title: `${lesson.title} — Daily Applied Wisdom`, description: lesson.summary, url: lessonUrl(lesson), article: true, published: lesson.date })}
+  <head>${head({ title: `${lesson.title} | Daily Applied Wisdom`, description: lesson.summary, url: lessonUrl(lesson), article: true, published: lesson.date })}
     <link rel="stylesheet" href="../styles.css" />
     <script type="application/ld+json">${schema}</script>
   </head>
@@ -246,7 +246,7 @@ function renderLesson(lesson, index) {
           <p class="lesson-summary">${esc(lesson.summary)}</p>
           <aside class="evidence-note"><strong>Evidence lens.</strong> ${esc(lesson.evidenceNote)}</aside>
           <div class="share-row">
-            <button class="share-button" type="button" data-share data-share-title="${esc(lesson.title)} — Daily Applied Wisdom" data-share-text="${esc(lesson.summary)}" data-share-url="${lessonUrl(lesson)}">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="share-button" type="button" data-share data-share-title="${esc(lesson.title)} | Daily Applied Wisdom" data-share-text="${esc(lesson.summary)}" data-share-url="${lessonUrl(lesson)}">Share this lesson <span aria-hidden="true">↗</span></button>
             <button class="copy-button" type="button" data-copy-url="${lessonUrl(lesson)}">Copy link</button>
             <span class="share-status" aria-live="polite"></span>
           </div>
@@ -284,10 +284,10 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
       <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
         <p class="eyebrow">The reading room</p>
         <h2 id="feedback-title">What did this book change for you?</h2>
-        <p class="comments-note">Each book has its own separate discussion. This form is provided by Cusdis, so loading it shares standard connection data with that service. You can post without an account; email is optional, and comments may be held for moderation.</p>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
         <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
         <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
-        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="${cusdisAppId}" data-page-id="${esc(lesson.discussionId)}" data-page-url="${esc(lessonUrl(lesson))}" data-page-title="${esc(lesson.title)} — Daily Applied Wisdom" data-theme="light"></div>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="${cusdisAppId}" data-page-id="${esc(lesson.discussionId)}" data-page-url="${esc(lessonUrl(lesson))}" data-page-title="${esc(lesson.title)} | Daily Applied Wisdom" data-theme="light"></div>
         <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
       </aside>
 
@@ -336,31 +336,31 @@ function renderTopicCoverage() {
   const subtopicCount = topicFamilies.reduce((sum, family) => sum + family.categories.reduce((familySum, category) => familySum + category.subtopics.length, 0), 0);
   return `<section class="topic-coverage" id="topics" aria-labelledby="topics-title">
         <div class="topic-coverage-heading">
-          <p class="eyebrow">What the library explores</p>
+          <p class="eyebrow">What you can explore</p>
           <h2 id="topics-title">A technical centre of gravity,<br />with a much wider field of view.</h2>
-          <p>The discovery catalog contains ${categoryCount} topic categories and ${subtopicCount} subtopics. Software, product and AI lead the mix; the remaining space deliberately reaches into people, finance, strategy, history, security, games, creativity and ideas.</p>
-          <p class="topic-method-note">The pie shows the weighted candidate-discovery mix. Rolling deficits, repetition safeguards and the 9/12 quality gate still decide which books are published.</p>
+          <p>Software, product and AI are the main focus. You will also find lessons on people, finance, strategy, history, security, games, creativity and ideas.</p>
+          <p class="topic-method-note">The chart shows the balance planned as the library grows. It is a guide, not a quota, and every book must offer ideas worth understanding and applying.</p>
         </div>
         <div class="topic-chart-layout">
           <figure class="topic-chart">
             <svg class="topic-chart-svg" viewBox="0 0 520 520" role="img" aria-labelledby="topic-chart-title topic-chart-desc">
-              <title id="topic-chart-title">Planned topic discovery mix</title>
-              <desc id="topic-chart-desc">A pie chart with eight topic families. Engineering, product and AI is 45 percent; thinking, behaviour and learning is 15 percent; strategy, leadership and organisations and economics, finance and entrepreneurship are 10 percent each; four other families are 5 percent each.</desc>
+              <title id="topic-chart-title">Planned balance of future lessons</title>
+              <desc id="topic-chart-desc">A pie chart showing the planned balance of future lessons. Engineering, product and AI is 45 percent; thinking, behaviour and learning is 15 percent; strategy, leadership and organisations and economics, finance and entrepreneurship are 10 percent each; four other families are 5 percent each.</desc>
               ${topicPieSlices()}
               <circle cx="260" cy="260" r="106" fill="#faf7f0" stroke="#18211d" stroke-width="4" />
               <text x="260" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${categoryCount} TOPIC</text>
-              <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">CATEGORIES</text>
-              <text x="260" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#53615a">${subtopicCount} subtopics</text>
+              <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">AREAS</text>
+              <text x="260" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#53615a">${subtopicCount} subjects</text>
             </svg>
-            <figcaption>Target share of candidate discovery by topic family.</figcaption>
+            <figcaption>How the library aims to balance future topics.</figcaption>
           </figure>
-          <ul class="topic-legend" aria-label="Topic family shares">
+          <ul class="topic-legend" aria-label="Planned topic balance">
             ${topicFamilies.map((family) => `<li><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span><b>${family.share}%</b></li>`).join('')}
           </ul>
         </div>
         <div class="topic-family-list">
           ${topicFamilies.map((family, index) => `<details class="topic-family-details"${index === 0 ? ' open' : ''}>
-            <summary><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'} · ${family.share}% discovery share</small></span></summary>
+            <summary><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span></summary>
             <div class="topic-category-grid">
               ${family.categories.map((category) => `<section><h3>${esc(category.label)}</h3><ul>${category.subtopics.map((subtopic) => `<li>${esc(subtopic)}</li>`).join('')}</ul></section>`).join('')}
             </div>
@@ -382,15 +382,15 @@ function renderIndex() {
       <section class="hero" aria-labelledby="hero-title">
         <p class="eyebrow">A daily learning practice</p>
         <h1 id="hero-title">One book.<br />Three ideas.<br /><em>Better thinking.</em></h1>
-        <p class="hero-copy">A small, rigorous reading room for ideas worth carrying into your work and life—designed for application, recall and healthy scepticism.</p>
+        <p class="hero-copy">A small, rigorous reading room for ideas worth carrying into your work and life, designed for application, recall and healthy scepticism.</p>
         <a class="button" href="#latest">Start with today's lesson <span aria-hidden="true">↓</span></a>
       </section>
 
       <section class="quick-review" data-quick-review data-clarity-mask="true" aria-labelledby="quick-review-title" hidden>
         <div class="quick-review-intro">
-          <p class="eyebrow">Spaced retrieval · <span data-quick-review-count>3 questions</span></p>
+          <p class="eyebrow">Daily review · <span data-quick-review-count>3 questions</span></p>
           <h2 id="quick-review-title">Quick review</h2>
-          <p>Retrieve a few ideas from an earlier book. Missed questions can return on a later visit; progress stays in this browser.</p>
+          <p>Answer a few questions from an earlier book. Questions you miss may return later. Your progress stays in this browser.</p>
           <p class="learning-check-summary" data-quick-review-summary></p>
         </div>
         <form data-quick-review-form novalidate>
@@ -411,7 +411,7 @@ function renderIndex() {
       ${renderTopicCoverage()}
 
       <section class="library" id="library" aria-labelledby="library-title">
-        <div class="library-heading"><p class="eyebrow">The library · ${lessons.length} lessons</p><h2 id="library-title">Ideas to revisit,<br />not summaries to collect.</h2><p>Every lesson separates the author's argument from practical extension, includes a failure mode, and ends with active recall and a small experiment.</p></div>
+        <div class="library-heading"><p class="eyebrow">The library · ${lessons.length} lessons</p><h2 id="library-title">Ideas to revisit,<br />not summaries to collect.</h2><p>Each lesson explains the author's argument, tests where it may fall short, and ends with questions plus a small experiment you can try.</p></div>
         <div class="library-grid">${lessons.map((lesson) => archiveCard(lesson)).join('')}</div>
       </section>
 
@@ -445,7 +445,7 @@ function renderSaved() {
   const cards = lessons.flatMap((lesson) => lesson.ideas.map((idea, index) => savedIdeaCard(lesson, idea, index))).join('\n');
   return `<!doctype html>
 <html lang="en">
-  <head>${head({ title: 'Saved ideas — Daily Applied Wisdom', description: 'Ideas saved for later in this browser.', url: `${siteUrl}/saved.html`, noindex: true })}
+  <head>${head({ title: 'Saved ideas | Daily Applied Wisdom', description: 'Ideas saved for later in this browser.', url: `${siteUrl}/saved.html`, noindex: true })}
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="saved-page">
@@ -454,7 +454,7 @@ function renderSaved() {
       <header class="saved-hero">
         <p class="eyebrow">Your reading list</p>
         <h1>Saved ideas</h1>
-        <p>Ideas you save appear here only in this browser profile. They are not attached to an account and do not sync to another browser or device.</p>
+        <p>Ideas you save appear only in this browser. They are not connected to an account, so they will not appear in another browser or on another device.</p>
         <p class="saved-count" data-saved-count aria-live="polite"></p>
       </header>
       <section class="saved-content" aria-label="Saved ideas">
@@ -464,7 +464,7 @@ function renderSaved() {
           <p>Save an idea from any lesson and it will appear here.</p>
           <a class="button" href="index.html#library">Explore the library</a>
         </div>
-        <noscript><p>JavaScript is required to read ideas saved in this browser.</p></noscript>
+        <noscript><p>Turn on JavaScript to view ideas saved in this browser.</p></noscript>
       </section>
     </main>
     ${footer('')}
@@ -476,7 +476,7 @@ function renderSaved() {
 function renderPrivacy() {
   return `<!doctype html>
 <html lang="en">
-  <head>${head({ title: 'Privacy and data use — Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles learning progress, saved ideas, contact messages, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
+  <head>${head({ title: 'Privacy and data use | Daily Applied Wisdom', description: 'How Daily Applied Wisdom handles learning progress, saved ideas, contact messages, useful reactions, analytics and comments.', url: `${siteUrl}/privacy.html` })}
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="privacy-page">
@@ -485,15 +485,15 @@ function renderPrivacy() {
       <header>
         <p class="eyebrow">Plain-language disclosure</p>
         <h1>Privacy and data use</h1>
-        <p>Daily Applied Wisdom distinguishes browser-local features from feedback deliberately sent to external services.</p>
+        <p>This page explains what stays in your browser and what is sent to other services.</p>
       </header>
       <section>
         <h2>Saved ideas</h2>
-        <p>“Save idea for later” stores the idea identifier in your browser's local storage. The stored identifier and your Saved ideas page are not sent to the site owner, and Microsoft Clarity is never loaded on that page. Saved ideas do not sync to another browser or device. If you allow analytics on lesson pages, Clarity may record that you used a Save control in the context of that page. Removing a saved idea deletes the local marker.</p>
+        <p>“Save idea for later” keeps a small marker in this browser so the Saved ideas page can show it again. The site owner does not receive your saved list, and Microsoft Clarity does not run on the Saved ideas page. Your saved ideas stay in this browser and do not appear on other devices. If you allow analytics on lesson pages, Clarity may record that you selected Save. Removing an idea deletes its marker from this browser.</p>
       </section>
       <section>
         <h2>Learning progress</h2>
-        <p>Learning checks store your first answer to each question, score and completion time in this browser's local storage. From the next local day, the homepage can offer one review of up to 3 questions; missed questions remain eligible and remembered questions leave the queue. Daily Applied Wisdom does not deliberately send answers or scores as Clarity events or tags, and learning-check and review content is masked from Clarity's recording. If allowed, Clarity can still record standard interaction data such as clicks and scrolling. Cusdis and Clarity are third-party page scripts, so browser-local storage is not technical isolation from scripts running on the same page. Progress remains until you clear learning history or this site's browser data; it does not sync to another browser or device.</p>
+        <p>Learning checks keep your first answers, score and completion time in this browser. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your answers or score to Clarity, and it masks question content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
         <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
         <p data-learning-history-status aria-live="polite"></p>
         <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
@@ -509,17 +509,17 @@ function renderPrivacy() {
       </section>
       <section>
         <h2>Useful reactions and Microsoft Clarity</h2>
-        <p>“Mark idea useful” sends a stable book-and-idea event to the owner's personal Microsoft Clarity project. It does not ask for your name, email or an account. The browser also stores a local marker to reduce repeat reactions from that browser profile. Clearing browser data can remove that marker. Clarity is best-effort analytics rather than a verified voting system, so network or privacy blockers can prevent delivery.</p>
-        <p>Microsoft Clarity receives standard connection, device and page-interaction data when its script runs. Clarity events are private owner analytics; the site does not display public reaction counts and does not use Clarity's Identify API.</p>
+        <p>“Mark idea useful” sends the book and idea reference to the owner's Microsoft Clarity account. It does not ask for your name, email or an account. A marker in your browser helps prevent repeat reactions. Clearing this site's data removes that marker. Network problems or privacy tools may stop a reaction from being delivered.</p>
+        <p>When Clarity runs, it receives standard information about your connection, device and page interactions. These reactions are private feedback, not a verified public vote. The site does not show public reaction counts or connect reactions to a named visitor.</p>
       </section>
       <section>
         <h2>Analytics preferences</h2>
-        <p>If you allow analytics, Microsoft Clarity can use analytics storage to connect interactions across pages, except on the Saved ideas page where Clarity is never loaded. Advertising storage remains denied. If you reject analytics, or change an earlier choice to reject, the page reloads without Clarity during ordinary browsing. If you later choose “Mark idea useful,” Clarity loads in no-consent mode to send that reaction without setting Clarity cookies.</p>
+        <p>If you allow analytics, Microsoft Clarity can connect your visits across pages, except on the Saved ideas page where Clarity never loads. Advertising remains off. If you reject analytics, ordinary browsing continues without Clarity. If you later choose “Mark idea useful,” the site can send that one reaction without setting Clarity cookies.</p>
         <button class="privacy-choice-button" type="button" data-analytics-reset>Change analytics choice</button>
       </section>
       <section>
         <h2>Comments</h2>
-        <p>Lesson discussions are provided by Cusdis. Loading the comment form shares standard connection data with Cusdis. A nickname is requested, email is optional and comments may be held for moderation. Comment data is handled by Cusdis rather than GitHub Pages.</p>
+        <p>Each lesson's comments are hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can comment without an account. A nickname is requested, email is optional, and comments may wait for approval before appearing.</p>
       </section>
       <section>
         <h2>Contact and anonymous feedback</h2>
@@ -528,7 +528,7 @@ function renderPrivacy() {
       </section>
       <section>
         <h2>Sharing</h2>
-        <p>The lesson sharing control uses your device's share feature when available. Its copy-link fallback writes the public lesson URL to your clipboard.</p>
+        <p>The lesson sharing control uses your device's share feature when available. If your device does not offer sharing, it copies the lesson link to your clipboard.</p>
       </section>
       <section>
         <h2>External services</h2>
@@ -557,7 +557,7 @@ function renderSitemap() {
 }
 
 function renderNotFound() {
-  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found — Daily Applied Wisdom</title><link rel="stylesheet" href="/daily-applied-wisdom/styles.css"></head><body><main class="hero"><p class="eyebrow">404 · Page not found</p><h1>That idea<br>isn't here.</h1><p class="hero-copy">The library may have moved. Return to the complete collection.</p><a class="button" href="/daily-applied-wisdom/">Browse all lessons →</a></main></body></html>\n`;
+  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page not found | Daily Applied Wisdom</title><link rel="stylesheet" href="/daily-applied-wisdom/styles.css"></head><body><main class="hero"><p class="eyebrow">404 · Page not found</p><h1>That idea<br>isn't here.</h1><p class="hero-copy">The library may have moved. Return to the complete collection.</p><a class="button" href="/daily-applied-wisdom/">Browse all lessons →</a></main></body></html>\n`;
 }
 
 function renderRobots() {

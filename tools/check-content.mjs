@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 
@@ -280,7 +280,7 @@ for (const lesson of lessons) {
     !generatedLesson.includes('data-host="https://cusdis.com"') ||
     !generatedLesson.includes(`data-page-id="${lesson.discussionId}"`) ||
     !generatedLesson.includes(`data-page-url="${canonicalUrl}"`) ||
-    !generatedLesson.includes(`data-page-title="${esc(lesson.title)} — Daily Applied Wisdom"`) ||
+    !generatedLesson.includes(`data-page-title="${esc(lesson.title)} | Daily Applied Wisdom"`) ||
     !generatedLesson.includes(`<link rel="canonical" href="${canonicalUrl}" />`) ||
     !generatedLesson.includes('<link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />') ||
     !generatedLesson.includes('data-theme="light"') ||
@@ -290,7 +290,7 @@ for (const lesson of lessons) {
     !generatedLesson.includes('data-analytics-consent') ||
     !generatedLesson.includes('data-analytics-status') ||
     !generatedLesson.includes('What did this book change for you?') ||
-    !generatedLesson.includes('Each book has its own separate discussion.')
+    !generatedLesson.includes('Cusdis receives information such as your IP address and browser details.')
   ) {
     fail(`${lesson.title} has incomplete Cusdis page identity or script configuration.`);
   }
@@ -346,7 +346,7 @@ for (const lesson of lessons) {
   if (
     !generatedLesson.includes('id="learning-check"') ||
     !generatedLesson.includes(`data-quiz-revision="${lesson.quizRevision}"`) ||
-    !generatedLesson.includes('Answer all 6 before checking.') ||
+    !generatedLesson.includes('Answer all 6, then check your answers.') ||
     !generatedLesson.includes('Check answers') ||
     !generatedLesson.includes('Practice again') ||
     !/<section class="learning-check"[^>]*data-clarity-mask="true"/.test(generatedLesson) ||
@@ -432,6 +432,10 @@ if (
   !indexPage.includes('id="topic-chart-title"') ||
   !indexPage.includes('role="img" aria-labelledby="topic-chart-title topic-chart-desc"') ||
   !indexPage.includes('29 TOPIC') ||
+  !indexPage.includes('AREAS') ||
+  !indexPage.includes('The chart shows the balance planned as the library grows.') ||
+  indexPage.includes('candidate-discovery') ||
+  indexPage.includes('quality gate') ||
   (indexPage.match(/class="topic-family-details"/g) || []).length !== topicCatalog.families.length ||
   (indexPage.match(/class="topic-swatch"/g) || []).length !== topicCatalog.families.length * 2
 ) fail('The homepage has incomplete topic chart, legend or family details.');
@@ -450,9 +454,9 @@ await readRequiredFile(path.join(root, 'tools', 'randomize-topic.mjs'), 'The top
 
 if (
   !privacyPage.includes('Learning progress') ||
-  !privacyPage.includes('does not deliberately send answers or scores as Clarity events or tags') ||
-  !privacyPage.includes('browser-local storage is not technical isolation') ||
-  !privacyPage.includes('Progress remains until you clear learning history') ||
+  !privacyPage.includes('does not intentionally send your answers or score to Clarity') ||
+  !privacyPage.includes('Cusdis and Clarity run on some pages') ||
+  !privacyPage.includes('Your progress stays until you clear learning history') ||
   !privacyPage.includes('data-learning-history-dialog') ||
   !privacyPage.includes('data-clear-learning-history') ||
   !privacyPage.includes('Microsoft Clarity') ||
@@ -464,7 +468,7 @@ if (
   !privacyPage.includes('https://tally.so/help/terms-and-privacy') ||
   !privacyPage.includes('data-analytics-consent')
 ) {
-  fail('The privacy page has incomplete Clarity, consent, Cusdis or Tally disclosure.');
+  fail('The privacy page has incomplete visitor-facing Clarity, consent, Cusdis or Tally disclosure.');
 }
 
 if (/fonts\.(?:googleapis|gstatic)\.com/i.test(styles)) {
@@ -614,6 +618,32 @@ if (integrityIssues.length) {
 
 if (missingFiles.length) {
   fail(`Missing required site files:\n${missingFiles.map((message) => `- ${message}`).join('\n')}`);
+}
+
+const forbiddenDash = String.fromCodePoint(0x2014);
+const publicTextExtensions = new Set(['.css', '.html', '.js', '.json', '.md', '.mjs', '.svg', '.txt', '.xml', '.yaml', '.yml']);
+const scanSkipDirectories = new Set(['.git', '.playwright-cli', 'output']);
+
+async function findForbiddenDashes(directory = root) {
+  const matches = [];
+  const entries = await readdir(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isSymbolicLink()) continue;
+    const candidate = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      if (!scanSkipDirectories.has(entry.name)) matches.push(...await findForbiddenDashes(candidate));
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    if (!publicTextExtensions.has(path.extname(entry.name).toLowerCase()) && entry.name !== '.gitignore') continue;
+    if ((await readFile(candidate, 'utf8')).includes(forbiddenDash)) matches.push(displayPath(candidate));
+  }
+  return matches;
+}
+
+const filesWithForbiddenDashes = await findForbiddenDashes();
+if (filesWithForbiddenDashes.length) {
+  fail(`Em dashes are forbidden in site files:\n${filesWithForbiddenDashes.map((file) => `- ${file}`).join('\n')}`);
 }
 
 const generatedOutputCheck = spawnSync(

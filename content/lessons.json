@@ -78,7 +78,7 @@
           "title": "Room for error keeps the plan alive",
           "argument": [
             "Housel argues that uncertainty should be built into a financial plan rather than treated as a forecast failure. Returns, expenses, income and timing will differ from expectations, so a plan that requires every assumption to be right is fragile even when its central forecast is sensible.",
-            "Room for error is not simply avoiding risk. It is keeping enough slack—in cash, savings rate, time, debt load or expectations—to endure a surprise without being forced to abandon the long-term plan."
+            "Room for error is not simply avoiding risk. It is keeping enough slack in cash, savings rate, time, debt load or expectations so you can endure a surprise without being forced to abandon the long-term plan."
           ],
           "extension": "Judge a plan by its failure path as well as its expected path. A buffer is valuable when it converts an urgent, irreversible response into a choice with time to think.",
           "image": "../assets/lesson-visuals/money-room-for-error.svg",
@@ -297,7 +297,7 @@
           ],
           "extension": "Treat compatibility as an observation problem before treating it as a documentation argument. Telemetry, consumer tests and staged migrations reveal dependencies that the written contract cannot.",
           "image": "../assets/lesson-visuals/google-observable-api.svg",
-          "imageAlt": "A documented API connected to observable details—default value, result ordering, timing and error text—with a named consumer depending on each detail.",
+          "imageAlt": "A documented API connected to observable details such as default value, result ordering, timing and error text, with a named consumer depending on each detail.",
           "imageCaption": "If a consumer can observe a detail, somebody may eventually rely on it.",
           "why": "Apparently harmless refactors can break production consumers because compatibility risk grows from what users can observe, not merely what the specification promises.",
           "apply": [
@@ -437,7 +437,7 @@
       "authors": "Donella H. Meadows",
       "year": "2008",
       "category": "Systems thinking · Decision-making",
-      "summary": "A compact language for seeing the structures beneath recurring events—and finding interventions with more leverage than another local fix.",
+      "summary": "A compact language for seeing the structures beneath recurring events and finding interventions with more leverage than another local fix.",
       "evidenceNote": "Meadows presents a rigorous conceptual toolkit rather than a predictive formula. System maps are useful hypotheses about causality; they should be tested against observations and revised when people, incentives or outside conditions contradict them.",
       "accent": "blue",
       "quizRevision": "2026-08-13-1",
@@ -446,7 +446,7 @@
           "id": "idea-1",
           "title": "Events are the surface, not the system",
           "argument": [
-            "Meadows defines a system through elements, interconnections and a function or purpose. Its behaviour over time emerges from stocks, flows, feedback loops and delays—not just from the latest visible event.",
+            "Meadows defines a system through elements, interconnections and a function or purpose. Its behaviour over time emerges from stocks, flows, feedback loops and delays, not just from the latest visible event.",
             "When a pattern repeats, explaining the most recent incident may be true but incomplete. The stronger question is what structure keeps making this class of incident likely."
           ],
           "extension": "In product and engineering work, recurring release pain is often maintained by a loop: pressure encourages larger batches, large batches make review and testing harder, failures create more governance, and governance increases the pressure to batch.",
@@ -505,7 +505,7 @@
             "Meadows shows that feedback often arrives after a delay. A decision can be sensible and the system can be responding correctly while the result remains invisible for days, months or years.",
             "When decision-makers react faster than the system can reveal consequences, they overshoot, reverse too late and create oscillation. Delays are therefore part of the causal structure, not administrative detail."
           ],
-          "extension": "Make two clocks explicit in product decisions: when a leading signal can appear and when the outcome that matters can be judged. This reduces the temptation to declare victory—or failure—from an early proxy.",
+          "extension": "Make two clocks explicit in product decisions: when a leading signal can appear and when the outcome that matters can be judged. This reduces the temptation to declare victory or failure based on an early proxy.",
           "image": "../assets/delay-oscillation.svg",
           "imageAlt": "A time plot where repeated adjustments during a feedback delay cause the result to overshoot a target before a late correction.",
           "imageCaption": "Make the time between action and consequence visible before reacting again.",
@@ -564,7 +564,7 @@
           "extension": "Before asking people to be more careful, inspect what the workflow makes visible and rewarding. A system that displays speed immediately but hides rework for weeks will predictably privilege speed.",
           "image": "../assets/leverage-layers.svg",
           "imageAlt": "Four intervention layers from numbers and targets through information and rules, system goals, and mindsets, with potential reach and uncertainty increasing at deeper levels.",
-          "imageCaption": "Deeper interventions can reshape many downstream choices—but carry broader consequences.",
+          "imageCaption": "Deeper interventions can reshape many downstream choices, but carry broader consequences.",
           "why": "A rule, information channel or goal can change hundreds of local choices without supervising each one. That is leverage: changing the conditions under which decisions make sense.",
           "apply": [
             "Choose one behaviour you keep requesting from a team. Write what the current metric, approval rule or information flow rewards instead.",
@@ -640,7 +640,7 @@
       "year": "1988 · revised 2013",
       "category": "Product design · Human behaviour · Usability",
       "summary": "When users repeatedly make the same mistake, the interface may be teaching the wrong action.",
-      "evidenceNote": "Norman's framework combines established ideas from cognitive psychology with practical design principles. It is strongest as a diagnostic language for discoverability, mental models and error resilience—not as proof that one interface pattern works for every user or culture.",
+      "evidenceNote": "Norman's framework combines established ideas from cognitive psychology with practical design principles. It is strongest as a diagnostic language for discoverability, mental models and error resilience, not as proof that one interface pattern works for every user or culture.",
       "accent": "orange",
       "quizRevision": "2026-08-13-1",
       "ideas": [
@@ -648,7 +648,7 @@
           "id": "idea-1",
           "title": "Make the right action visible",
           "argument": [
-            "Norman distinguishes affordances—relationships that make actions possible—from signifiers: perceptible clues showing where and how to act. Signifiers became more prominent in the revised edition because digital interfaces can support many invisible actions.",
+            "Norman distinguishes affordances, which are relationships that make actions possible, from signifiers: perceptible clues showing where and how to act. Signifiers became more prominent in the revised edition because digital interfaces can support many invisible actions.",
             "A control can technically afford an action while remaining functionally undiscoverable. Repeated requests for help with an ordinary task may be evidence of weak signalling rather than weak users."
           ],
           "extension": "In software, wording, position, grouping, state and feedback all signify. A familiar icon can still fail when its placement or visual priority tells the wrong story.",
@@ -767,7 +767,7 @@
           "image": "../assets/lesson-visuals/design-for-error.svg",
           "imageAlt": "A fragile delete action leading to gone, compared with a resilient delete action leading to a recoverable trash state and undo.",
           "imageCaption": "Predictable slips become minor corrections when the system preserves recovery.",
-          "why": "Undo, previews, reversible states and constraints can turn a serious incident into a small correction—even when a competent user acts under pressure.",
+          "why": "Undo, previews, reversible states and constraints can turn a serious incident into a small correction, even when a competent user acts under pressure.",
           "apply": [
             "Find one destructive, financial or hard-to-reverse action. Classify its current defence as prevented, detectable, recoverable or irreversible.",
             "If it is mostly irreversible, identify the smallest change that makes the state recoverable."
@@ -855,7 +855,7 @@
           "argument": [
             "In a chain of dependent work, system output is limited by the constraint: the resource or condition that most limits progress toward the goal. Improving a non-constraint may raise local output while leaving total throughput unchanged.",
             "A constraint need not be a machine. In knowledge work it may be review capacity, a test environment, a specialist, release governance, unclear product decisions or even insufficient demand.",
-            "The wider Theory of Constraints turns this into five focusing steps: identify the constraint, exploit the capacity already available, subordinate other work to that decision, elevate the constraint if necessary, then repeat when the constraint moves—without letting old policy become the next constraint."
+            "The wider Theory of Constraints turns this into five focusing steps: identify the constraint, exploit the capacity already available, subordinate other work to that decision, elevate the constraint if necessary, then repeat when the constraint moves, without letting old policy become the next constraint."
           ],
           "extension": "Treat constraint identification as a falsifiable hypothesis. Ask whether a small increase in this step's effective capacity would cause more completed value to leave the whole system.",
           "image": "../assets/lesson-visuals/goal-constraint.svg",
@@ -971,7 +971,7 @@
           ],
           "extension": "For software and product work, use the measures as a decision lens: useful outcomes delivered, work trapped in queues or half-finished states, and ongoing effort or spend required to produce those outcomes.",
           "image": "../assets/lesson-visuals/goal-throughput-accounting.svg",
-          "imageAlt": "Three cards distinguish the formal Throughput Accounting lenses—throughput, inventory and operating expense—from explicitly labelled software-delivery interpretation questions.",
+          "imageAlt": "Three cards distinguish the formal Throughput Accounting lenses (throughput, inventory and operating expense) from explicitly labelled software-delivery interpretation questions.",
           "imageCaption": "A local saving can be a bad trade when it reduces throughput or traps more work.",
           "why": "Tickets closed, utilisation, lines of code and departmental cost can improve while users receive value more slowly. Global measures reconnect activity to purpose.",
           "apply": [
@@ -1028,10 +1028,10 @@
           "Write: I think the current constraint is ___ because ___.",
           "Name one exploit action that protects its existing capacity and one subordinate rule that stops upstream work overwhelming it."
         ],
-        "result": "You finish with a constraint hypothesis and one testable intervention—not a full process redesign."
+        "result": "You finish with a constraint hypothesis and one testable intervention, not a full process redesign."
       },
       "spacedRecall": [],
-      "takeaway": "The highest-leverage improvement is the place that currently limits the whole system's ability to produce its goal—not the place where the most people look busy.",
+      "takeaway": "The highest-leverage improvement is the place that currently limits the whole system's ability to produce its goal, not the place where the most people look busy.",
       "sources": [
         { "label": "TOCICO: introduction to Theory of Constraints", "url": "https://learningcenter.tocico.org/courses/Introduction-to-the-Theory-of-Constraints" },
         { "label": "TOCICO: Finance and Measures basics", "url": "https://learningcenter.tocico.org/courses/finance-and-measures-basics-workshop" },
@@ -1116,7 +1116,7 @@
             "The first-edition framework defines four fundamental team types. Stream-aligned teams own a meaningful flow of work and deliver value end to end. Enabling teams build capability, complicated-subsystem teams contain specialist complexity, and a platform capability offers internal services that reduce unnecessary complexity. Later guidance emphasises that the platform may be a grouping of several team types operating as an internal product.",
             "The supporting types exist to improve the stream-aligned team's flow, not to recreate permanent functional silos with new labels."
           ],
-          "extension": "Ask what arrangement lets a team move from a user need to a working outcome with the fewest blocking dependencies—not which department traditionally owns a technology.",
+          "extension": "Ask what arrangement lets a team move from a user need to a working outcome with the fewest blocking dependencies, not which department traditionally owns a technology.",
           "image": "../assets/lesson-visuals/team-types.svg",
           "imageAlt": "Enabling, platform and complicated-subsystem teams supporting a central stream-aligned team that owns a flow of value.",
           "imageCaption": "Supporting team types reduce blockers and cognitive load around value delivery.",

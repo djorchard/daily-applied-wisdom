@@ -244,7 +244,7 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
       correctAnswer.hidden = !reveal || selectedIndex === correctIndex;
       const answerText = options[correctIndex]?.querySelector('span:last-child')?.textContent?.trim() || '';
       correctAnswer.textContent = reveal && selectedIndex !== correctIndex
-        ? `Correct answer: ${String.fromCharCode(65 + correctIndex)} — ${answerText}`
+        ? `Correct answer: ${String.fromCharCode(65 + correctIndex)}: ${answerText}`
         : '';
     }
     feedback.querySelectorAll('[data-feedback-for]').forEach((message) => {

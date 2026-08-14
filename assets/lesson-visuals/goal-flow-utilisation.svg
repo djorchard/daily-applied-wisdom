@@ -3,7 +3,7 @@
   <desc id="goal-flow-desc">A non-numeric directional illustration shows waiting increasing gradually and then sharply as resource utilisation moves from lower to near full. The higher-variability curve rises earlier and faster than the lower-variability curve. The chart is not measured data.</desc>
   <rect width="1200" height="760" fill="#faf7f0"/>
   <rect x="310" y="28" width="580" height="58" rx="29" fill="#faf7f0" stroke="#18211d" stroke-width="3"/>
-  <text x="600" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">DIRECTIONAL ILLUSTRATION — NOT MEASURED DATA</text>
+  <text x="600" y="66" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">DIRECTIONAL ILLUSTRATION: NOT MEASURED DATA</text>
 
   <rect x="934" y="126" width="176" height="500" rx="20" fill="#f5c79d" opacity="0.55"/>
   <text x="1022" y="164" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#d86136">LITTLE SPARE</text>

@@ -8,7 +8,7 @@
   </defs>
   <rect width="1200" height="760" fill="#faf7f0"/>
   <rect x="238" y="30" width="724" height="58" rx="29" fill="#faf7f0" stroke="#18211d" stroke-width="3"/>
-  <text x="600" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">RELATIONSHIPS SHOW SUPPORT — NOT REPORTING LINES</text>
+  <text x="600" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#18211d">RELATIONSHIPS SHOW SUPPORT, NOT REPORTING LINES</text>
 
   <g fill="none" stroke="#18211d" stroke-width="4" stroke-linecap="round">
     <path d="M222 252L468 350"/>

@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="How Daily Applied Wisdom handles learning progress, saved ideas, contact messages, useful reactions, analytics and comments." />
     <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
-    <meta property="og:title" content="Privacy and data use — Daily Applied Wisdom" />
+    <meta property="og:title" content="Privacy and data use | Daily Applied Wisdom" />
     <meta property="og:description" content="How Daily Applied Wisdom handles learning progress, saved ideas, contact messages, useful reactions, analytics and comments." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/privacy.html" />
     <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Daily Applied Wisdom — One book. Three ideas. Better thinking." />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#f5f1e8" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="feed.xml" />
-    <title>Privacy and data use — Daily Applied Wisdom</title>
+    <title>Privacy and data use | Daily Applied Wisdom</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="privacy-page">
@@ -36,15 +36,15 @@
       <header>
         <p class="eyebrow">Plain-language disclosure</p>
         <h1>Privacy and data use</h1>
-        <p>Daily Applied Wisdom distinguishes browser-local features from feedback deliberately sent to external services.</p>
+        <p>This page explains what stays in your browser and what is sent to other services.</p>
       </header>
       <section>
         <h2>Saved ideas</h2>
-        <p>“Save idea for later” stores the idea identifier in your browser's local storage. The stored identifier and your Saved ideas page are not sent to the site owner, and Microsoft Clarity is never loaded on that page. Saved ideas do not sync to another browser or device. If you allow analytics on lesson pages, Clarity may record that you used a Save control in the context of that page. Removing a saved idea deletes the local marker.</p>
+        <p>“Save idea for later” keeps a small marker in this browser so the Saved ideas page can show it again. The site owner does not receive your saved list, and Microsoft Clarity does not run on the Saved ideas page. Your saved ideas stay in this browser and do not appear on other devices. If you allow analytics on lesson pages, Clarity may record that you selected Save. Removing an idea deletes its marker from this browser.</p>
       </section>
       <section>
         <h2>Learning progress</h2>
-        <p>Learning checks store your first answer to each question, score and completion time in this browser's local storage. From the next local day, the homepage can offer one review of up to 3 questions; missed questions remain eligible and remembered questions leave the queue. Daily Applied Wisdom does not deliberately send answers or scores as Clarity events or tags, and learning-check and review content is masked from Clarity's recording. If allowed, Clarity can still record standard interaction data such as clicks and scrolling. Cusdis and Clarity are third-party page scripts, so browser-local storage is not technical isolation from scripts running on the same page. Progress remains until you clear learning history or this site's browser data; it does not sync to another browser or device.</p>
+        <p>Learning checks keep your first answers, score and completion time in this browser. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your answers or score to Clarity, and it masks question content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
         <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
         <p data-learning-history-status aria-live="polite"></p>
         <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
@@ -60,17 +60,17 @@
       </section>
       <section>
         <h2>Useful reactions and Microsoft Clarity</h2>
-        <p>“Mark idea useful” sends a stable book-and-idea event to the owner's personal Microsoft Clarity project. It does not ask for your name, email or an account. The browser also stores a local marker to reduce repeat reactions from that browser profile. Clearing browser data can remove that marker. Clarity is best-effort analytics rather than a verified voting system, so network or privacy blockers can prevent delivery.</p>
-        <p>Microsoft Clarity receives standard connection, device and page-interaction data when its script runs. Clarity events are private owner analytics; the site does not display public reaction counts and does not use Clarity's Identify API.</p>
+        <p>“Mark idea useful” sends the book and idea reference to the owner's Microsoft Clarity account. It does not ask for your name, email or an account. A marker in your browser helps prevent repeat reactions. Clearing this site's data removes that marker. Network problems or privacy tools may stop a reaction from being delivered.</p>
+        <p>When Clarity runs, it receives standard information about your connection, device and page interactions. These reactions are private feedback, not a verified public vote. The site does not show public reaction counts or connect reactions to a named visitor.</p>
       </section>
       <section>
         <h2>Analytics preferences</h2>
-        <p>If you allow analytics, Microsoft Clarity can use analytics storage to connect interactions across pages, except on the Saved ideas page where Clarity is never loaded. Advertising storage remains denied. If you reject analytics, or change an earlier choice to reject, the page reloads without Clarity during ordinary browsing. If you later choose “Mark idea useful,” Clarity loads in no-consent mode to send that reaction without setting Clarity cookies.</p>
+        <p>If you allow analytics, Microsoft Clarity can connect your visits across pages, except on the Saved ideas page where Clarity never loads. Advertising remains off. If you reject analytics, ordinary browsing continues without Clarity. If you later choose “Mark idea useful,” the site can send that one reaction without setting Clarity cookies.</p>
         <button class="privacy-choice-button" type="button" data-analytics-reset>Change analytics choice</button>
       </section>
       <section>
         <h2>Comments</h2>
-        <p>Lesson discussions are provided by Cusdis. Loading the comment form shares standard connection data with Cusdis. A nickname is requested, email is optional and comments may be held for moderation. Comment data is handled by Cusdis rather than GitHub Pages.</p>
+        <p>Each lesson's comments are hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can comment without an account. A nickname is requested, email is optional, and comments may wait for approval before appearing.</p>
       </section>
       <section>
         <h2>Contact and anonymous feedback</h2>
@@ -79,7 +79,7 @@
       </section>
       <section>
         <h2>Sharing</h2>
-        <p>The lesson sharing control uses your device's share feature when available. Its copy-link fallback writes the public lesson URL to your clipboard.</p>
+        <p>The lesson sharing control uses your device's share feature when available. If your device does not offer sharing, it copies the lesson link to your clipboard.</p>
       </section>
       <section>
         <h2>External services</h2>
