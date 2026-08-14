@@ -1,6 +1,221 @@
 {
   "lessons": [
     {
+      "slug": "the-psychology-of-money",
+      "discussionId": "the-psychology-of-money",
+      "date": "2026-08-14",
+      "dateLabel": "14 August 2026",
+      "edition": "Daily lesson",
+      "title": "The Psychology of Money",
+      "authors": "Morgan Housel",
+      "year": "2020 · 2025 hardback with bonus chapter",
+      "category": "Personal finance · Behaviour · Decision-making",
+      "summary": "Build a financial life you can actually sustain by respecting personal context, leaving room for error and deciding what enough means before risk decides for you.",
+      "evidenceNote": "Housel presents practitioner arguments illustrated by history and individual cases, not controlled causal laws. The behavioural mechanisms are useful but context-dependent; strong Australian guidance supports liquid emergency savings and diversification, while the right buffer, risk level and definition of enough remain personal. This is general education, not personal financial advice.",
+      "accent": "gold",
+      "quizRevision": "2026-08-14-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "A plan must fit the person living it",
+          "argument": [
+            "Housel argues that people make money decisions through the narrow slice of history they have personally experienced. Inflation, job security, market crashes, family habits and luck shape what feels safe or reckless, so two informed people can interpret the same choice differently without either being irrational.",
+            "His practical distinction is between being coldly rational on paper and being reasonable enough to persist in real life. A mathematically attractive plan fails if fear, regret or family circumstances make it impossible to follow when conditions become uncomfortable."
+          ],
+          "extension": "Treat emotional durability as a design constraint, not an embarrassing defect. The useful plan is not the one with the best spreadsheet outcome under ideal behaviour; it is the sound plan you can keep following through ordinary stress.",
+          "image": "../assets/lesson-visuals/money-reasonable-plan.svg",
+          "imageAlt": "Three people encounter the same market fall through different histories, producing different reactions before each chooses a plan they can sustain.",
+          "imageCaption": "The same event passes through different histories before it becomes a decision.",
+          "why": "Copying another person's portfolio, savings target or appetite for uncertainty can import assumptions that do not fit your income stability, responsibilities, time horizon or ability to sleep. Fit supports consistency.",
+          "apply": [
+            "Choose one current money rule, such as a savings rate, investment mix or debt-payment pace. Write the life assumption it depends on.",
+            "Ask whether you could still follow it during a bad month. If not, change the rule or add a guardrail before judging yourself for lacking discipline."
+          ],
+          "caveat": "Personal fit does not make every comforting choice sound. Affordability, fees, diversification, tax, debt costs and fraud risk still impose external constraints; use reasonableness to make a sound plan sustainable, not to excuse an unsafe one.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What best distinguishes a reasonable financial plan from a merely rational one in this lesson?",
+              "options": [
+                "It favours familiar assets so uncertainty feels manageable during market declines.",
+                "It replaces numerical analysis with habits that match a person's past experience.",
+                "It remains financially sound while fitting behaviour well enough to be sustained.",
+                "It accepts lower expected returns whenever family members disagree about risk."
+              ],
+              "correctIndex": 2,
+              "feedback": "A reasonable plan still respects financial reality, but it also fits the person's emotions, responsibilities and endurance well enough to survive difficult periods.",
+              "feedbackByOption": [
+                "Familiarity can make a plan easier to hold, but concentrating in familiar assets can create avoidable risk. The plan must remain financially sound as well as tolerable.",
+                "Personal history matters, but it does not replace arithmetic, evidence or external constraints. It helps adapt a sound plan to the person following it.",
+                "Correct. A reasonable plan combines sound financial structure with enough behavioural fit to remain usable when conditions become uncomfortable.",
+                "Family agreement matters, but automatically accepting lower returns is not the principle. The aim is a sound plan the household can realistically sustain."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A diversified long-term plan is affordable, but its volatility repeatedly causes someone to sell after falls. What is the best next move?",
+              "options": [
+                "Adjust the risk to a sound level they can hold, then document when rebalancing occurs.",
+                "Keep the allocation and hide account values until the planned investment horizon ends.",
+                "Move entirely to cash until markets feel predictable enough to begin investing again.",
+                "Adopt the allocation used by a calmer investor with similar age and household income."
+              ],
+              "correctIndex": 0,
+              "feedback": "A theoretically efficient allocation is not effective if it triggers repeated panic selling. A still-sound but more durable risk level can improve the chance of following the plan.",
+              "feedbackByOption": [
+                "Correct. Adapting a sound diversified plan to tolerable risk addresses the behaviour causing harm while a rebalancing rule limits improvised reactions.",
+                "Less frequent checking may help, but hiding information does not fix a plan whose ordinary volatility exceeds the person's real tolerance.",
+                "Cash removes market volatility but creates inflation and timing risks. Waiting for predictability can make re-entry depend on an unavailable signal.",
+                "Similar demographics do not establish similar obligations, experiences or tolerance. Borrow the reasoning process, not another person's allocation."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Room for error keeps the plan alive",
+          "argument": [
+            "Housel argues that uncertainty should be built into a financial plan rather than treated as a forecast failure. Returns, expenses, income and timing will differ from expectations, so a plan that requires every assumption to be right is fragile even when its central forecast is sensible.",
+            "Room for error is not simply avoiding risk. It is keeping enough slack—in cash, savings rate, time, debt load or expectations—to endure a surprise without being forced to abandon the long-term plan."
+          ],
+          "extension": "Judge a plan by its failure path as well as its expected path. A buffer is valuable when it converts an urgent, irreversible response into a choice with time to think.",
+          "image": "../assets/lesson-visuals/money-room-for-error.svg",
+          "imageAlt": "Two financial plans meet the same surprise: an exact-fit plan breaks, while a plan with a visible buffer absorbs the shock and continues.",
+          "imageCaption": "A buffer turns one wrong assumption from an ending into an adjustment.",
+          "why": "Unexpected repairs, caring duties, job changes or market falls often arrive together with poor timing. Liquidity and conservative assumptions can prevent distress borrowing or forced selling when choices are narrowest.",
+          "apply": [
+            "Pick one financial assumption you rely on: monthly surplus, bonus, investment return, expense level or completion date.",
+            "Write a smaller or later outcome that would still leave the plan workable. If none exists, identify one buffer you can begin building."
+          ],
+          "caveat": "Every buffer has an opportunity cost, and no reserve removes all risk. The appropriate margin depends on obligations, access to credit, insurance, income stability and time horizon; a universal cash target can be too little for one household and unnecessarily costly for another.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the central purpose of room for error in a financial plan?",
+              "options": [
+                "To improve expected returns by keeping cash ready for market falls.",
+                "To replace uncertain forecasts with deliberately pessimistic assumptions.",
+                "To eliminate the need for insurance, credit or changes in spending.",
+                "To let the plan survive outcomes that differ from its central assumptions."
+              ],
+              "correctIndex": 3,
+              "feedback": "Room for error accepts that forecasts will be imperfect and preserves the ability to continue or adjust when reality differs from the expected path.",
+              "feedbackByOption": [
+                "Cash might later fund an opportunity, but the core purpose is resilience when life or markets differ from the plan, not return enhancement.",
+                "Conservative assumptions can help, but replacing one certain forecast with another still misses the need to survive a range of outcomes.",
+                "A buffer complements insurance, credit and spending choices. It cannot eliminate every risk or make other protections unnecessary.",
+                "Correct. Room for error keeps a forecast miss, expense shock or timing change from automatically ending the longer-term plan."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A household plan works only if both annual bonuses arrive and no major expense occurs. What change best creates room for error?",
+              "options": [
+                "Use the average bonus from recent years and retain the current spending commitments.",
+                "Fund essential commitments from base income and direct bonuses to buffers or goals.",
+                "Keep the plan but add a credit card reserved for any unexpected essential expense.",
+                "Invest the bonuses for higher growth so future gains can absorb an expense shock."
+              ],
+              "correctIndex": 1,
+              "feedback": "Separating essential commitments from uncertain income reduces the number of assumptions that must go right. Bonuses can then strengthen the plan instead of rescuing it.",
+              "feedbackByOption": [
+                "An average hides the timing and possibility of a missing bonus. Essential commitments would still depend on uncertain income arriving as expected.",
+                "Correct. Base income carries recurring essentials, while uncertain bonuses increase resilience or advance goals when they actually arrive.",
+                "Credit can provide short-term liquidity, but interest and repayment obligations can magnify the original shock rather than create owned slack.",
+                "Higher expected growth also brings uncertainty and may not be available when the expense occurs. It does not make essential commitments less fragile."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Define enough before the goalpost moves",
+          "argument": [
+            "Housel argues that social comparison can make financial success an unwinnable game: someone will always have more, and each gain can reset expectations instead of creating satisfaction. Without a stopping rule, the pursuit of more can invite risks that endanger what already matters.",
+            "Enough does not mean rejecting growth or ambition. It means recognising when an additional gain is not worth the new chance of losing security, integrity, time, health or relationships."
+          ],
+          "extension": "Turn enough into a pre-commitment. Define the outcome money is meant to protect and the risks you will not take for a higher score; otherwise comparison will define both after emotions rise.",
+          "image": "../assets/lesson-visuals/money-enough.svg",
+          "imageAlt": "A moving financial goalpost leads toward escalating risk, while a defined enough line redirects attention toward security, time and choice.",
+          "imageCaption": "A stopping rule protects the purpose of money from the scorekeeping of more.",
+          "why": "A raise, investment gain or bigger target can quietly become a new baseline. Naming enough helps distinguish a valuable opportunity from a status contest whose downside reaches the parts of life money was supposed to support.",
+          "apply": [
+            "Finish: Money is doing enough for me when it reliably protects ___ and gives me more choice over ___.",
+            "Then write one risk you will not take merely to make the number larger. Keep the statement where the next tempting decision will occur."
+          ],
+          "caveat": "Enough is not a fixed number for every season. Dependants, housing, health and prices change, and people facing scarcity may need more rather than a philosophical stopping rule. Revisit the definition deliberately without letting comparison revise it every week.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "How does defining enough function as financial risk control?",
+              "options": [
+                "It identifies gains that would justify taking more concentrated financial risk.",
+                "It sets a boundary beyond which more reward may not justify risking what matters.",
+                "It fixes a permanent wealth target that protects decisions from changing circumstances.",
+                "It shifts attention from financial outcomes to comparing time and relationships instead."
+              ],
+              "correctIndex": 1,
+              "feedback": "A prior boundary makes the trade-off visible: an extra gain can be declined when its downside threatens security or other values the money is meant to serve.",
+              "feedbackByOption": [
+                "Enough limits risk-taking after core purposes are met; it does not identify a threshold after which concentration becomes safer.",
+                "Correct. A stopping rule helps reject extra upside when pursuing it would expose security, integrity, time or relationships to disproportionate loss.",
+                "Circumstances change, so enough should be reviewed deliberately. Its value comes from resisting automatic goalpost movement, not remaining permanent.",
+                "Time and relationships can clarify money's purpose, but comparison in a different category can still create an unwinnable status contest."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Someone has met a secure long-term target but considers a concentrated bet to catch a wealthier peer. What best applies the idea of enough?",
+              "options": [
+                "Increase the target only after comparing the peer's obligations and investment time horizon.",
+                "Take a smaller position so the comparison goal remains active with a limited downside.",
+                "Revisit what the target protects and decline risks whose loss would damage that purpose.",
+                "Delay the bet until recent gains make the concentrated position a smaller share of wealth."
+              ],
+              "correctIndex": 2,
+              "feedback": "The relevant comparison is between extra upside and the purpose already secured, not between two people's numbers. Enough protects that purpose from an escalating status game.",
+              "feedbackByOption": [
+                "Peer context may explain the difference, but using it to reset the target keeps social comparison in control of the decision.",
+                "A smaller bet reduces exposure but still accepts catching the peer as the goal. First test whether that goal is worth risking what is already secured.",
+                "Correct. Reconnecting the decision to security, choice and other protected values reveals whether the extra upside is worth its downside.",
+                "A smaller future percentage may reduce exposure, but recent gains do not establish that the comparison-driven objective deserves any added risk."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Write a three-line financial operating rule",
+        "steps": [
+          "Write one financial rule that fits your real behaviour, not an ideal version of you.",
+          "Name one assumption that could fail and one buffer that would keep the plan alive.",
+          "Define what enough protects and one risk you will not take merely to chase more.",
+          "Read the three lines together and revise any pair that contradicts each other."
+        ],
+        "result": "You finish with three visible guardrails: a sustainable rule, a survival margin and a stopping boundary."
+      },
+      "spacedRecall": [
+        "From Software Engineering at Google: when does preserving optionality become speculative over-engineering rather than resilience?",
+        "From Thinking in Systems: what delayed consequence could turn comparison-driven risk-taking into a reinforcing loop?"
+      ],
+      "takeaway": "A durable financial plan fits your life, survives being wrong and knows what it is trying to protect before more becomes the goal.",
+      "sources": [
+        { "label": "Publisher: The Psychology of Money and 2025 bonus hardback", "url": "https://www.panmacmillan.com/authors/morgan-housel/psychology-of-money/9781804091609" },
+        { "label": "Morgan Housel: The Psychology of Money", "url": "https://collabfund.com/blog/the-psychology-of-money/" },
+        { "label": "Morgan Housel: Rational vs. Reasonable", "url": "https://collabfund.com/blog/rational-vs-reasonable/" },
+        { "label": "Morgan Housel: Fat, Happy, And In Over Your Head", "url": "https://collabfund.com/blog/fat-happy-and-in-over-your-head/" },
+        { "label": "Australian Government Moneysmart: Save for an emergency fund", "url": "https://moneysmart.gov.au/saving/save-for-an-emergency-fund" },
+        { "label": "Australian Government Moneysmart: Diversification", "url": "https://moneysmart.gov.au/how-to-invest/diversification" }
+      ]
+    },
+    {
       "slug": "software-engineering-at-google",
       "discussionId": "software-engineering-at-google",
       "date": "2026-08-13",
