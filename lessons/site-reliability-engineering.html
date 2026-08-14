@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html" />
+    <meta property="og:title" content="Site Reliability Engineering: How Google Runs Production Systems | Daily Applied Wisdom" />
+    <meta property="og:description" content="Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-06-19" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Site Reliability Engineering: How Google Runs Production Systems | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Site Reliability Engineering: How Google Runs Production Systems","description":"Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade.","datePublished":"2026-06-19","about":{"@type":"Book","name":"Site Reliability Engineering: How Google Runs Production Systems","author":[{"@type":"Person","name":"Edited by Betsy Beyer"},{"@type":"Person","name":"Chris Jones"},{"@type":"Person","name":"Jennifer Petoff"},{"@type":"Person","name":"Niall Richard Murphy"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-06-19">19 June 2026</time></p>
+          <h1>Site Reliability Engineering: How Google Runs Production Systems</h1>
+          <p class="lesson-author">Edited by Betsy Beyer, Chris Jones, Jennifer Petoff and Niall Richard Murphy</p>
+          <div class="lesson-meta"><span>2016 · first edition</span><span>Software engineering · Reliability · Operations</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> This multi-author book is a practitioner account of Google's SRE approach, not controlled evidence that its practices transfer unchanged. The mechanisms are clearly specified and grounded in large-scale operational experience, but SLO targets are product judgements, Google's 50% operational-work limit is an organisational policy rather than a universal threshold, and overload controls depend on architecture and user harm. Adapt and test the mechanisms at local scale.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Site Reliability Engineering: How Google Runs Production Systems | Daily Applied Wisdom" data-share-text="Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Turn reliability into a shared budget</a><a href="#idea-2"><span>02</span>Make toil visible before it consumes the team</a><a href="#idea-3"><span>03</span>Shed work before overload becomes collapse</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-purple" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Turn reliability into a shared budget <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book describes service level indicators, or SLIs, as carefully defined measures of service behaviour that matters to users, such as successful requests or latency. Service level objectives, or SLOs, set target values for those indicators so expected service can guide action rather than remain a vague promise.</p>
+<p>The book argues that 100% reliability is usually impossible and can be undesirable when the extra effort blocks valuable change. For a proportion-based SLO, the permitted miss becomes an error budget: a shared input to release and reliability decisions. Budget remaining can support change; rapid consumption or exhaustion should trigger the response agreed in advance.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Use reliability as a product control loop, not an operations veto. Measure a user-relevant event, compare it with the agreed target and let a written budget policy determine when to keep changing, slow down or invest in resilience.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/sre-error-budget.svg" alt="A user journey becomes an SLI, is compared with an SLO and feeds an error-budget gauge whose remaining or exhausted state leads to different release decisions." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The budget links user experience to an agreed response before pressure rises.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Product and operations can otherwise argue from incompatible absolutes: ship faster versus never fail. A visible budget makes the trade-off inspectable and revisable.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one user action, such as submitting an order or loading a critical page. Define a good event in terms the user would recognise.</p>
+<p>Choose a measurement window and a provisional objective. Write one action for healthy budget consumption and one for a budget burning faster than planned.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A precise SLO can optimise the wrong experience. Low-volume services, safety-critical actions and data-integrity failures may need different controls, and an error budget is not permission to ignore avoidable harm. Review the indicator, target and policy with product, engineering and affected users.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="site-reliability-engineering-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="site-reliability-engineering-idea-1" data-lesson-slug="site-reliability-engineering" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulSiteReliabilityEngineeringIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-purple" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Make toil visible before it consumes the team <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book gives toil a narrow meaning. It is operational work that is manual, repetitive, automatable, tactical, produces no enduring improvement and tends to grow with service demand. A novel incident, a necessary meeting or difficult engineering work is not automatically toil simply because it is unpleasant.</p>
+<p>Google's SRE policy aims to keep total operational work at or below half of an SRE team's time so engineering can remove future work. The exact ratio is organisation-specific; the durable mechanism is to measure recurring hands-on effort, prioritise reductions and reinvest the released capacity in lasting improvements.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Treat each repeated task as a cost curve. Record frequency and hands-on time, then compare another manual execution with a guarded fix, self-service path or automation that changes the next occurrence.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/sre-toil-cycle.svg" alt="Growing service demand feeds repetitive manual toil until engineering removes a recurring task and returns capacity to durable improvement." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Closing a ticket finishes one task; engineering can change whether the task returns.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Toil can look productive because each ticket closes, yet growth multiplies the same work and crowds out the engineering needed to reduce it.</p></section>
+          <section><h3>Apply it today</h3><p>List one task repeated in the last month. Check it against the book's traits and estimate monthly hands-on time, not elapsed machine time.</p>
+<p>Name the smallest durable change that would remove a step, reduce frequency or let the requester complete it safely. Decide what evidence would prove the work actually fell.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Automation can preserve a broken process, create silent failure or cost more than rare manual work. Keep human judgement where cases are novel or high consequence, add rollback and observability, and do not label every support duty as toil.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="site-reliability-engineering-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="site-reliability-engineering-idea-2" data-lesson-slug="site-reliability-engineering" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulSiteReliabilityEngineeringIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-purple" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Shed work before overload becomes collapse <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book shows how overload can become a positive feedback loop. Requests slow, in-flight work and queues consume more resources, health checks or instances fail, and the remaining capacity receives still more traffic. Immediate retries can add new demand exactly when the system is least able to serve it.</p>
+<p>Rather than trying to complete every request, the authors recommend knowing capacity through realistic load tests, bounding queues and retries, rejecting work early when overloaded, and serving cheaper degraded results where that is acceptable. Preserving some useful work is often safer than letting the whole service cross its breaking point.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Design an overload ladder before the incident: protect a core path, drop expired or lower-value work, return a clear overload signal and make clients back off rather than synchronise retries.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/sre-overload-control.svg" alt="An unbounded path turns overload, retries and lost capacity into a cascade, while admission control, bounded retries and graceful degradation protect core work." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A controlled partial loss can preserve useful service that an unchecked cascade would destroy.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Unbounded helpfulness can make a partial capacity problem global. Explicit admission and degradation rules turn uncontrolled collapse into a smaller, observable service loss.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one busy endpoint or dependency. Mark its core response, one optional expensive feature and the retry or queue that could multiply load.</p>
+<p>Write one admission limit and one degraded response to test under load. Define who may be harmed by shedding and how that effect will be monitored.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Load shedding deliberately denies or reduces service and can distribute harm unfairly. Retries may be necessary for transient failures, especially when operations are idempotent, and degraded paths can rot when rarely exercised. Test recovery, fairness and fail-safe behaviour instead of assuming one threshold works everywhere.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="site-reliability-engineering-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="site-reliability-engineering-idea-3" data-lesson-slug="site-reliability-engineering" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulSiteReliabilityEngineeringIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="site-reliability-engineering" data-quiz-revision="2026-06-19-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>Which relationship between an SLI, an SLO and an error budget is correct?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q1" value="0" required aria-describedby="site-reliability-engineering-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>The SLI sets the target, the SLO records performance and the budget funds monitoring.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q1" value="1" required aria-describedby="site-reliability-engineering-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>The SLI measures service behaviour, the SLO sets a target and the budget allows a defined miss.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q1" value="2" required aria-describedby="site-reliability-engineering-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>The SLI measures infrastructure health, the SLO sets release speed and the budget counts incidents.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q1" value="3" required aria-describedby="site-reliability-engineering-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>The SLI defines legal consequences, the SLO describes user needs and the budget covers outages.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>This reverses the measure and target. The SLI records service behaviour, while the SLO states the desired level for that measure.</p><p data-feedback-for="1" hidden>The SLI measures a relevant service behaviour, the SLO sets its target and the error budget represents the allowed miss.</p><p data-feedback-for="2" hidden>Infrastructure health can inform diagnosis, but a useful SLI reflects service behaviour and the SLO is not a release-speed target.</p><p data-feedback-for="3" hidden>Legal or financial consequences belong to an SLA. An SLO sets a service target, and its error budget is an operational decision input.</p>
+                    <p class="quiz-feedback-context">An SLI is a defined measure, an SLO is its target and the error budget expresses the permitted miss for a suitable proportion-based objective. An SLA is separate and may attach consequences.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-2-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Which task most clearly fits the book's definition of toil?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q1" value="0" required aria-describedby="site-reliability-engineering-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Investigating a new failure whose cause and safe response are not yet understood.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q1" value="1" required aria-describedby="site-reliability-engineering-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Designing a one-time migration that removes an obsolete production dependency.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q1" value="2" required aria-describedby="site-reliability-engineering-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Manually running the same safe recovery script after the same predictable alert.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q1" value="3" required aria-describedby="site-reliability-engineering-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Reviewing an unusual access request that requires contextual security judgement.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A novel failure requires diagnosis and judgement, so it is not repetitive, predictable work even if the response is operational.</p><p data-feedback-for="1" hidden>A one-time migration produces an enduring change. It may be difficult, but that does not make it toil under the book's definition.</p><p data-feedback-for="2" hidden>Repeating the same automatable recovery after a predictable alert is manual, tactical work that leaves the service unchanged.</p><p data-feedback-for="3" hidden>Contextual security judgement may be operational and inconvenient, but it is not clearly automatable repetition without enduring value.</p>
+                    <p class="quiz-feedback-context">Toil is identified by its operating pattern: recurring, manual, automatable and without enduring improvement. Novel diagnosis or context-heavy judgement does not fit that pattern.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-3-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What turns ordinary overload into a cascading failure?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q1" value="0" required aria-describedby="site-reliability-engineering-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Traffic exceeds the capacity forecast while autoscaling takes longer than expected.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q1" value="1" required aria-describedby="site-reliability-engineering-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Some requests receive cheaper responses while the full service stays constrained.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q1" value="2" required aria-describedby="site-reliability-engineering-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>A queue reaches its limit and rejects new work before memory is exhausted.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q1" value="3" required aria-describedby="site-reliability-engineering-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Failure and retries add load to shrinking capacity, causing further failure.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Forecast error and slow scaling can begin overload, but a cascade requires a feedback path that amplifies the initial capacity problem.</p><p data-feedback-for="1" hidden>Graceful degradation can be a protective response because cheaper results preserve capacity for useful work.</p><p data-feedback-for="2" hidden>Early rejection may create visible errors, but it can bound resource use and prevent a deeper collapse.</p><p data-feedback-for="3" hidden>Retries and redistributed traffic increase demand on reduced capacity, creating the reinforcing loop that spreads failure.</p>
+                    <p class="quiz-feedback-context">A cascade contains reinforcing feedback: lost capacity and slower work produce more failures or retries, which impose more load and remove still more useful capacity.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-1-q2" data-question-type="application" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>An API meets its server-side success target, but mobile users often time out before receiving a result. What is the best first response?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q2" value="0" required aria-describedby="site-reliability-engineering-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Lower the existing SLO so the server result and published target agree again.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q2" value="1" required aria-describedby="site-reliability-engineering-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Keep the current SLO and alert whenever mobile support contacts increase.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q2" value="2" required aria-describedby="site-reliability-engineering-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Freeze all releases until the server-side error budget resets next window.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-1-q2" value="3" required aria-describedby="site-reliability-engineering-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Define a client-relevant success or latency SLI, then agree its SLO and response policy.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Lowering the target makes the dashboard easier to satisfy but does not repair the gap between server measurement and user experience.</p><p data-feedback-for="1" hidden>Support contacts are useful evidence, but keeping an SLO that misses the user outcome preserves the wrong control signal.</p><p data-feedback-for="2" hidden>A freeze may be part of an agreed budget policy, but applying it to a misleading server-side measure does not solve the measurement problem.</p><p data-feedback-for="3" hidden>A client-relevant measure brings the experienced outcome into view before the team chooses a target and a response policy.</p>
+                    <p class="quiz-feedback-context">The current measure can look healthy while missing the user's outcome. A client-relevant SLI and an agreed target make the real experience part of the control loop.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A weekly account repair takes three hours and grows with customer count. What is the strongest next move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q2" value="0" required aria-describedby="site-reliability-engineering-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Measure its causes and effort, then test a guarded fix or self-service path.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q2" value="1" required aria-describedby="site-reliability-engineering-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Rotate the task across the team so knowledge and interruption remain shared.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q2" value="2" required aria-describedby="site-reliability-engineering-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Document every step in more detail so repairs need less specialist knowledge.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-2-q2" value="3" required aria-describedby="site-reliability-engineering-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Batch the repairs monthly so the team loses fewer blocks of engineering time.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Cause and effort data support a guarded change that can reduce how often the repair returns or who must perform it.</p><p data-feedback-for="1" hidden>Rotation spreads knowledge and burden but leaves the recurring work and its growth curve intact.</p><p data-feedback-for="2" hidden>Documentation can reduce specialist dependence, but the same manual repair still returns and grows with customer count.</p><p data-feedback-for="3" hidden>Batching may reduce context switching, but it delays repairs and preserves the accumulating manual demand.</p>
+                    <p class="quiz-feedback-context">The task has several toil characteristics and a rising cost curve. Measuring it and testing a durable reduction addresses recurrence rather than redistributing or postponing the work.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="site-reliability-engineering-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A dependency is at capacity and every client retries failures immediately. Which change most directly interrupts the feedback loop?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q2" value="0" required aria-describedby="site-reliability-engineering-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Increase client timeouts so more requests remain in flight until capacity returns.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q2" value="1" required aria-describedby="site-reliability-engineering-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Bound retries, add randomised backoff and reject overload early with a clear signal.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q2" value="2" required aria-describedby="site-reliability-engineering-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Add a larger server queue so the dependency retains more work during the spike.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="site-reliability-engineering-idea-3-q2" value="3" required aria-describedby="site-reliability-engineering-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Restart slow instances quickly so traffic moves to fresh available capacity.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="site-reliability-engineering-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Longer timeouts can increase in-flight work and resource use, making the overloaded state harder to escape.</p><p data-feedback-for="1" hidden>Retry limits and randomised backoff reduce synchronized amplification, while early rejection protects constrained capacity.</p><p data-feedback-for="2" hidden>A larger queue consumes more memory and increases latency; it postpones rejection without increasing processing capacity.</p><p data-feedback-for="3" hidden>Restarts can reduce capacity further and shift traffic to survivors, especially when slow instances are overloaded rather than defective.</p>
+                    <p class="quiz-feedback-context">Bounded, dispersed retries and explicit overload rejection stop clients from multiplying demand. Longer waits or larger queues retain more work inside an already constrained system.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Draft one reliability control card</h2>
+          <ol><li>Choose one user action and define the event that counts as good service.</li><li>Write a provisional measurement window, SLO and response if its error budget burns faster than planned.</li><li>Name one repeated operational task and the smallest durable change that could reduce it.</li><li>Draw one overload feedback step, then add one admission, retry or degradation guard that could break it.</li><li>Mark the assumption on the card that needs the next real measurement or load test.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with one user-facing measure, one decision rule, one toil-reduction candidate and one overload guard ready to test.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From Working Effectively with Legacy Code: why can a characterization test expose change without proving the captured behaviour is correct?</li><li>From Superforecasting: what reference class could help judge whether a proposed reliability target or incident rate is plausible?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://sre.google/sre-book/preface/" target="_blank" rel="noreferrer">Google SRE book: publication and editor details <span aria-hidden="true">↗</span></a></li><li><a href="https://research.google/pubs/site-reliability-engineering-how-google-runs-production-systems/" target="_blank" rel="noreferrer">Google Research: Site Reliability Engineering book record <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/sre-book/service-level-objectives/" target="_blank" rel="noreferrer">Google SRE book: Service Level Objectives <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/sre-book/embracing-risk/" target="_blank" rel="noreferrer">Google SRE book: Embracing Risk and error budgets <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/sre-book/eliminating-toil/" target="_blank" rel="noreferrer">Google SRE book: Eliminating Toil <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/workbook/eliminating-toil/" target="_blank" rel="noreferrer">Google SRE Workbook: Eliminating Toil in other organisations <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/sre-book/handling-overload/" target="_blank" rel="noreferrer">Google SRE book: Handling Overload <span aria-hidden="true">↗</span></a></li><li><a href="https://sre.google/sre-book/addressing-cascading-failures/" target="_blank" rel="noreferrer">Google SRE book: Addressing Cascading Failures <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Reliable systems make trade-offs before crisis: measure the user promise, engineer recurring work away and preserve useful capacity by refusing overload deliberately.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="site-reliability-engineering" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/site-reliability-engineering.html" data-page-title="Site Reliability Engineering: How Google Runs Production Systems | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="getting-to-yes.html"><span>Previous</span>Getting to Yes</a>
+        <a class="next" href="team-topologies.html"><span>Next</span>Team Topologies</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1243,6 +1243,224 @@
       ]
     },
     {
+      "slug": "site-reliability-engineering",
+      "discussionId": "site-reliability-engineering",
+      "date": "2026-06-19",
+      "dateLabel": "19 June 2026",
+      "edition": "Daily lesson",
+      "title": "Site Reliability Engineering: How Google Runs Production Systems",
+      "authors": "Edited by Betsy Beyer, Chris Jones, Jennifer Petoff and Niall Richard Murphy",
+      "year": "2016 · first edition",
+      "category": "Software engineering · Reliability · Operations",
+      "summary": "Run production systems with explicit trade-offs: measure reliability from the user's view, turn recurring operations into engineering and shed excess load before it becomes a cascade.",
+      "evidenceNote": "This multi-author book is a practitioner account of Google's SRE approach, not controlled evidence that its practices transfer unchanged. The mechanisms are clearly specified and grounded in large-scale operational experience, but SLO targets are product judgements, Google's 50% operational-work limit is an organisational policy rather than a universal threshold, and overload controls depend on architecture and user harm. Adapt and test the mechanisms at local scale.",
+      "accent": "purple",
+      "quizRevision": "2026-06-19-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Turn reliability into a shared budget",
+          "argument": [
+            "The book describes service level indicators, or SLIs, as carefully defined measures of service behaviour that matters to users, such as successful requests or latency. Service level objectives, or SLOs, set target values for those indicators so expected service can guide action rather than remain a vague promise.",
+            "The book argues that 100% reliability is usually impossible and can be undesirable when the extra effort blocks valuable change. For a proportion-based SLO, the permitted miss becomes an error budget: a shared input to release and reliability decisions. Budget remaining can support change; rapid consumption or exhaustion should trigger the response agreed in advance."
+          ],
+          "extension": "Use reliability as a product control loop, not an operations veto. Measure a user-relevant event, compare it with the agreed target and let a written budget policy determine when to keep changing, slow down or invest in resilience.",
+          "image": "../assets/lesson-visuals/sre-error-budget.svg",
+          "imageAlt": "A user journey becomes an SLI, is compared with an SLO and feeds an error-budget gauge whose remaining or exhausted state leads to different release decisions.",
+          "imageCaption": "The budget links user experience to an agreed response before pressure rises.",
+          "why": "Product and operations can otherwise argue from incompatible absolutes: ship faster versus never fail. A visible budget makes the trade-off inspectable and revisable.",
+          "apply": [
+            "Choose one user action, such as submitting an order or loading a critical page. Define a good event in terms the user would recognise.",
+            "Choose a measurement window and a provisional objective. Write one action for healthy budget consumption and one for a budget burning faster than planned."
+          ],
+          "caveat": "A precise SLO can optimise the wrong experience. Low-volume services, safety-critical actions and data-integrity failures may need different controls, and an error budget is not permission to ignore avoidable harm. Review the indicator, target and policy with product, engineering and affected users.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which relationship between an SLI, an SLO and an error budget is correct?",
+              "options": [
+                "The SLI sets the target, the SLO records performance and the budget funds monitoring.",
+                "The SLI measures service behaviour, the SLO sets a target and the budget allows a defined miss.",
+                "The SLI measures infrastructure health, the SLO sets release speed and the budget counts incidents.",
+                "The SLI defines legal consequences, the SLO describes user needs and the budget covers outages."
+              ],
+              "correctIndex": 1,
+              "feedback": "An SLI is a defined measure, an SLO is its target and the error budget expresses the permitted miss for a suitable proportion-based objective. An SLA is separate and may attach consequences.",
+              "feedbackByOption": [
+                "This reverses the measure and target. The SLI records service behaviour, while the SLO states the desired level for that measure.",
+                "Correct. The SLI measures a relevant service behaviour, the SLO sets its target and the error budget represents the allowed miss.",
+                "Infrastructure health can inform diagnosis, but a useful SLI reflects service behaviour and the SLO is not a release-speed target.",
+                "Legal or financial consequences belong to an SLA. An SLO sets a service target, and its error budget is an operational decision input."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An API meets its server-side success target, but mobile users often time out before receiving a result. What is the best first response?",
+              "options": [
+                "Lower the existing SLO so the server result and published target agree again.",
+                "Keep the current SLO and alert whenever mobile support contacts increase.",
+                "Freeze all releases until the server-side error budget resets next window.",
+                "Define a client-relevant success or latency SLI, then agree its SLO and response policy."
+              ],
+              "correctIndex": 3,
+              "feedback": "The current measure can look healthy while missing the user's outcome. A client-relevant SLI and an agreed target make the real experience part of the control loop.",
+              "feedbackByOption": [
+                "Lowering the target makes the dashboard easier to satisfy but does not repair the gap between server measurement and user experience.",
+                "Support contacts are useful evidence, but keeping an SLO that misses the user outcome preserves the wrong control signal.",
+                "A freeze may be part of an agreed budget policy, but applying it to a misleading server-side measure does not solve the measurement problem.",
+                "Correct. A client-relevant measure brings the experienced outcome into view before the team chooses a target and a response policy."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make toil visible before it consumes the team",
+          "argument": [
+            "The book gives toil a narrow meaning. It is operational work that is manual, repetitive, automatable, tactical, produces no enduring improvement and tends to grow with service demand. A novel incident, a necessary meeting or difficult engineering work is not automatically toil simply because it is unpleasant.",
+            "Google's SRE policy aims to keep total operational work at or below half of an SRE team's time so engineering can remove future work. The exact ratio is organisation-specific; the durable mechanism is to measure recurring hands-on effort, prioritise reductions and reinvest the released capacity in lasting improvements."
+          ],
+          "extension": "Treat each repeated task as a cost curve. Record frequency and hands-on time, then compare another manual execution with a guarded fix, self-service path or automation that changes the next occurrence.",
+          "image": "../assets/lesson-visuals/sre-toil-cycle.svg",
+          "imageAlt": "Growing service demand feeds repetitive manual toil until engineering removes a recurring task and returns capacity to durable improvement.",
+          "imageCaption": "Closing a ticket finishes one task; engineering can change whether the task returns.",
+          "why": "Toil can look productive because each ticket closes, yet growth multiplies the same work and crowds out the engineering needed to reduce it.",
+          "apply": [
+            "List one task repeated in the last month. Check it against the book's traits and estimate monthly hands-on time, not elapsed machine time.",
+            "Name the smallest durable change that would remove a step, reduce frequency or let the requester complete it safely. Decide what evidence would prove the work actually fell."
+          ],
+          "caveat": "Automation can preserve a broken process, create silent failure or cost more than rare manual work. Keep human judgement where cases are novel or high consequence, add rollback and observability, and do not label every support duty as toil.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which task most clearly fits the book's definition of toil?",
+              "options": [
+                "Investigating a new failure whose cause and safe response are not yet understood.",
+                "Designing a one-time migration that removes an obsolete production dependency.",
+                "Manually running the same safe recovery script after the same predictable alert.",
+                "Reviewing an unusual access request that requires contextual security judgement."
+              ],
+              "correctIndex": 2,
+              "feedback": "Toil is identified by its operating pattern: recurring, manual, automatable and without enduring improvement. Novel diagnosis or context-heavy judgement does not fit that pattern.",
+              "feedbackByOption": [
+                "A novel failure requires diagnosis and judgement, so it is not repetitive, predictable work even if the response is operational.",
+                "A one-time migration produces an enduring change. It may be difficult, but that does not make it toil under the book's definition.",
+                "Correct. Repeating the same automatable recovery after a predictable alert is manual, tactical work that leaves the service unchanged.",
+                "Contextual security judgement may be operational and inconvenient, but it is not clearly automatable repetition without enduring value."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A weekly account repair takes three hours and grows with customer count. What is the strongest next move?",
+              "options": [
+                "Measure its causes and effort, then test a guarded fix or self-service path.",
+                "Rotate the task across the team so knowledge and interruption remain shared.",
+                "Document every step in more detail so repairs need less specialist knowledge.",
+                "Batch the repairs monthly so the team loses fewer blocks of engineering time."
+              ],
+              "correctIndex": 0,
+              "feedback": "The task has several toil characteristics and a rising cost curve. Measuring it and testing a durable reduction addresses recurrence rather than redistributing or postponing the work.",
+              "feedbackByOption": [
+                "Correct. Cause and effort data support a guarded change that can reduce how often the repair returns or who must perform it.",
+                "Rotation spreads knowledge and burden but leaves the recurring work and its growth curve intact.",
+                "Documentation can reduce specialist dependence, but the same manual repair still returns and grows with customer count.",
+                "Batching may reduce context switching, but it delays repairs and preserves the accumulating manual demand."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Shed work before overload becomes collapse",
+          "argument": [
+            "The book shows how overload can become a positive feedback loop. Requests slow, in-flight work and queues consume more resources, health checks or instances fail, and the remaining capacity receives still more traffic. Immediate retries can add new demand exactly when the system is least able to serve it.",
+            "Rather than trying to complete every request, the authors recommend knowing capacity through realistic load tests, bounding queues and retries, rejecting work early when overloaded, and serving cheaper degraded results where that is acceptable. Preserving some useful work is often safer than letting the whole service cross its breaking point."
+          ],
+          "extension": "Design an overload ladder before the incident: protect a core path, drop expired or lower-value work, return a clear overload signal and make clients back off rather than synchronise retries.",
+          "image": "../assets/lesson-visuals/sre-overload-control.svg",
+          "imageAlt": "An unbounded path turns overload, retries and lost capacity into a cascade, while admission control, bounded retries and graceful degradation protect core work.",
+          "imageCaption": "A controlled partial loss can preserve useful service that an unchecked cascade would destroy.",
+          "why": "Unbounded helpfulness can make a partial capacity problem global. Explicit admission and degradation rules turn uncontrolled collapse into a smaller, observable service loss.",
+          "apply": [
+            "Choose one busy endpoint or dependency. Mark its core response, one optional expensive feature and the retry or queue that could multiply load.",
+            "Write one admission limit and one degraded response to test under load. Define who may be harmed by shedding and how that effect will be monitored."
+          ],
+          "caveat": "Load shedding deliberately denies or reduces service and can distribute harm unfairly. Retries may be necessary for transient failures, especially when operations are idempotent, and degraded paths can rot when rarely exercised. Test recovery, fairness and fail-safe behaviour instead of assuming one threshold works everywhere.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What turns ordinary overload into a cascading failure?",
+              "options": [
+                "Traffic exceeds the capacity forecast while autoscaling takes longer than expected.",
+                "Some requests receive cheaper responses while the full service stays constrained.",
+                "A queue reaches its limit and rejects new work before memory is exhausted.",
+                "Failure and retries add load to shrinking capacity, causing further failure."
+              ],
+              "correctIndex": 3,
+              "feedback": "A cascade contains reinforcing feedback: lost capacity and slower work produce more failures or retries, which impose more load and remove still more useful capacity.",
+              "feedbackByOption": [
+                "Forecast error and slow scaling can begin overload, but a cascade requires a feedback path that amplifies the initial capacity problem.",
+                "Graceful degradation can be a protective response because cheaper results preserve capacity for useful work.",
+                "Early rejection may create visible errors, but it can bound resource use and prevent a deeper collapse.",
+                "Correct. Retries and redistributed traffic increase demand on reduced capacity, creating the reinforcing loop that spreads failure."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A dependency is at capacity and every client retries failures immediately. Which change most directly interrupts the feedback loop?",
+              "options": [
+                "Increase client timeouts so more requests remain in flight until capacity returns.",
+                "Bound retries, add randomised backoff and reject overload early with a clear signal.",
+                "Add a larger server queue so the dependency retains more work during the spike.",
+                "Restart slow instances quickly so traffic moves to fresh available capacity."
+              ],
+              "correctIndex": 1,
+              "feedback": "Bounded, dispersed retries and explicit overload rejection stop clients from multiplying demand. Longer waits or larger queues retain more work inside an already constrained system.",
+              "feedbackByOption": [
+                "Longer timeouts can increase in-flight work and resource use, making the overloaded state harder to escape.",
+                "Correct. Retry limits and randomised backoff reduce synchronized amplification, while early rejection protects constrained capacity.",
+                "A larger queue consumes more memory and increases latency; it postpones rejection without increasing processing capacity.",
+                "Restarts can reduce capacity further and shift traffic to survivors, especially when slow instances are overloaded rather than defective."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draft one reliability control card",
+        "steps": [
+          "Choose one user action and define the event that counts as good service.",
+          "Write a provisional measurement window, SLO and response if its error budget burns faster than planned.",
+          "Name one repeated operational task and the smallest durable change that could reduce it.",
+          "Draw one overload feedback step, then add one admission, retry or degradation guard that could break it.",
+          "Mark the assumption on the card that needs the next real measurement or load test."
+        ],
+        "result": "You finish with one user-facing measure, one decision rule, one toil-reduction candidate and one overload guard ready to test."
+      },
+      "spacedRecall": [
+        "From Working Effectively with Legacy Code: why can a characterization test expose change without proving the captured behaviour is correct?",
+        "From Superforecasting: what reference class could help judge whether a proposed reliability target or incident rate is plausible?"
+      ],
+      "takeaway": "Reliable systems make trade-offs before crisis: measure the user promise, engineer recurring work away and preserve useful capacity by refusing overload deliberately.",
+      "sources": [
+        { "label": "Google SRE book: publication and editor details", "url": "https://sre.google/sre-book/preface/" },
+        { "label": "Google Research: Site Reliability Engineering book record", "url": "https://research.google/pubs/site-reliability-engineering-how-google-runs-production-systems/" },
+        { "label": "Google SRE book: Service Level Objectives", "url": "https://sre.google/sre-book/service-level-objectives/" },
+        { "label": "Google SRE book: Embracing Risk and error budgets", "url": "https://sre.google/sre-book/embracing-risk/" },
+        { "label": "Google SRE book: Eliminating Toil", "url": "https://sre.google/sre-book/eliminating-toil/" },
+        { "label": "Google SRE Workbook: Eliminating Toil in other organisations", "url": "https://sre.google/workbook/eliminating-toil/" },
+        { "label": "Google SRE book: Handling Overload", "url": "https://sre.google/sre-book/handling-overload/" },
+        { "label": "Google SRE book: Addressing Cascading Failures", "url": "https://sre.google/sre-book/addressing-cascading-failures/" }
+      ]
+    },
+    {
       "slug": "getting-to-yes",
       "discussionId": "getting-to-yes",
       "date": "2026-06-18",

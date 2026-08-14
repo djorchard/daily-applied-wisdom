@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="sre-overload-title sre-overload-desc">
+  <title id="sre-overload-title">Overload controls prevent retries and queues from amplifying demand</title>
+  <desc id="sre-overload-desc">The same demand spike reaches two systems. In the uncontrolled path, a growing queue causes slow responses or failures, callers retry, and amplified arrivals feed the queue again while core and optional work compete. In the controlled path, admission control accepts only manageable work, load shedding rejects or defers excess work early, a bounded queue limits backlog, and graceful degradation preserves capacity for core work.</desc>
+  <defs>
+    <marker id="sre-overload-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="344" y="22" width="512" height="58" rx="29" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="60" text-anchor="middle" font-weight="700">DEMAND EXCEEDS SAFE CAPACITY</text>
+  <path class="line" d="M600 80V104H302.5V130" marker-end="url(#sre-overload-arrow)"/>
+  <path class="line" d="M600 80V104H897.5V130" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect x="35" y="130" width="535" height="594" rx="28" fill="#fffdf8" stroke="#d86136" stroke-width="4"/>
+  <text class="heading" x="302.5" y="180" text-anchor="middle" fill="#d86136">UNCONTROLLED AMPLIFICATION</text>
+
+  <rect class="card" x="82" y="222" width="190" height="100" rx="20" fill="#f5c79d"/>
+  <text class="compact" x="177" y="263" text-anchor="middle">QUEUE</text>
+  <text class="body" x="177" y="297" text-anchor="middle">keeps growing</text>
+  <path class="line" d="M272 272H330" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect class="card" x="330" y="222" width="198" height="100" rx="20" fill="#f5c79d"/>
+  <text class="compact" x="429" y="263" text-anchor="middle">SLOW OR</text>
+  <text class="body" x="429" y="297" text-anchor="middle">failing responses</text>
+  <path class="line" d="M429 322V382" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect class="card" x="330" y="382" width="198" height="100" rx="20" fill="#e9d17f"/>
+  <text class="compact" x="429" y="423" text-anchor="middle">CALLERS</text>
+  <text class="body" x="429" y="457" text-anchor="middle">retry the work</text>
+  <path class="line" d="M330 432H272" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect class="card" x="82" y="382" width="190" height="100" rx="20" fill="#f5c79d"/>
+  <text class="compact" x="177" y="423" text-anchor="middle">ARRIVALS</text>
+  <text class="body" x="177" y="457" text-anchor="middle">are amplified</text>
+  <path class="line" d="M177 382V346H54V272H82" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect x="82" y="548" width="446" height="126" rx="22" fill="#f5c79d" stroke="#d86136" stroke-width="4"/>
+  <text class="compact" x="305" y="592" text-anchor="middle" fill="#d86136">ALL WORK COMPETES</text>
+  <text class="small" x="305" y="628" text-anchor="middle" font-weight="400">Core and optional work share pressure</text>
+  <text class="body" x="305" y="660" text-anchor="middle">Recovery becomes harder</text>
+  <path class="line" d="M302.5 482V548" marker-end="url(#sre-overload-arrow)"/>
+
+  <rect x="630" y="130" width="535" height="594" rx="28" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="heading" x="897.5" y="180" text-anchor="middle">CONTROLLED SURVIVAL</text>
+
+  <rect class="card" x="680" y="212" width="435" height="100" rx="20" fill="#b8d5e5"/>
+  <text class="compact" x="897.5" y="251" text-anchor="middle">ADMISSION CONTROL</text>
+  <text class="body" x="897.5" y="285" text-anchor="middle">Accept only manageable work</text>
+
+  <path class="line" d="M897.5 312V350H757.5V380" marker-end="url(#sre-overload-arrow)"/>
+  <path class="line" d="M897.5 312V350H1037.5V380" marker-end="url(#sre-overload-arrow)"/>
+  <text class="small" x="700" y="370" text-anchor="middle">EXCESS</text>
+  <text class="small" x="1100" y="370" text-anchor="middle">ACCEPTED</text>
+
+  <rect class="card" x="650" y="380" width="215" height="126" rx="20" fill="#f5c79d"/>
+  <text class="compact" x="757.5" y="418" text-anchor="middle">LOAD</text>
+  <text class="compact" x="757.5" y="450" text-anchor="middle">SHEDDING</text>
+  <text class="small" x="757.5" y="486" text-anchor="middle" font-weight="400">Reject excess early</text>
+
+  <rect class="card" x="910" y="380" width="255" height="126" rx="20" fill="#d8cce8"/>
+  <text class="compact" x="1037.5" y="416" text-anchor="middle">BOUNDED</text>
+  <text class="compact" x="1037.5" y="448" text-anchor="middle">QUEUE</text>
+  <text class="small" x="1037.5" y="484" text-anchor="middle" font-weight="400">Limits hidden backlog</text>
+
+  <rect class="card" x="650" y="568" width="250" height="112" rx="20" fill="#e9d17f"/>
+  <text class="compact" x="775" y="607" text-anchor="middle">GRACEFUL</text>
+  <text class="compact" x="775" y="639" text-anchor="middle">DEGRADATION</text>
+  <text class="small" x="775" y="671" text-anchor="middle" font-weight="400">Optional features yield</text>
+
+  <rect class="card" x="940" y="568" width="205" height="112" rx="20" fill="#bdd9bf"/>
+  <text class="compact" x="1042.5" y="613" text-anchor="middle">CORE WORK</text>
+  <text class="body" x="1042.5" y="651" text-anchor="middle">is protected</text>
+
+  <path class="line" d="M1037.5 506V568" marker-end="url(#sre-overload-arrow)"/>
+  <path class="line" d="M900 624H940" marker-end="url(#sre-overload-arrow)"/>
+</svg>
