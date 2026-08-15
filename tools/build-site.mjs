@@ -431,7 +431,7 @@ function renderIndex() {
         <form class="library-controls" data-library-controls role="search" hidden>
           <div class="library-field">
             <label for="library-search">Search the library</label>
-            <input id="library-search" type="search" autocomplete="off" aria-describedby="library-search-help" data-library-search />
+            <input id="library-search" type="search" autocomplete="off" placeholder="Title, author, topic or idea" aria-describedby="library-search-help" data-library-search />
             <small id="library-search-help">Search titles, authors, topics and ideas.</small>
           </div>
           <div class="library-field">

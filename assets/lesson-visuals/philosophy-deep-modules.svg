@@ -2,6 +2,12 @@
   <title id="philosophy-depth-title">Compare shallow and deep software modules</title>
   <desc id="philosophy-depth-desc">A shallow module exposes ordering, retry and state details through a large interface while hiding little implementation. A deep module gives callers a smaller intent-and-result interface and hides policy, algorithms and edge cases inside. Depth is conceptual, not a class-size target.</desc>
   <defs>
+    <clipPath id="philosophy-shallow-module-clip">
+      <rect x="45" y="185" width="495" height="410" rx="28"/>
+    </clipPath>
+    <clipPath id="philosophy-deep-module-clip">
+      <rect x="660" y="185" width="495" height="410" rx="28"/>
+    </clipPath>
     <style>
       text { font-family: Arial, sans-serif; fill: #18211d; }
       .heading { font-size: 30px; font-weight: 700; }
@@ -20,7 +26,7 @@
   <text class="small" x="45" y="124">SHALLOW MODULE</text>
   <text class="body" x="45" y="156">Callers assemble the mechanism</text>
   <rect class="card" x="45" y="185" width="495" height="410" rx="28" fill="#fffdf8"/>
-  <rect x="45" y="185" width="495" height="205" rx="28" fill="#f5c79d"/>
+  <rect x="45" y="185" width="495" height="177" fill="#f5c79d" clip-path="url(#philosophy-shallow-module-clip)"/>
   <path d="M45 362H540" class="divider"/>
   <text class="small" x="292.5" y="225" text-anchor="middle">EXPOSED INTERFACE KNOWLEDGE</text>
   <rect x="78" y="253" width="125" height="72" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
@@ -38,7 +44,7 @@
   <text class="small" x="660" y="124">DEEP MODULE</text>
   <text class="body" x="660" y="156">Callers state intent and receive a result</text>
   <rect class="card" x="660" y="185" width="495" height="410" rx="28" fill="#bdd9bf"/>
-  <rect x="660" y="185" width="495" height="105" rx="28" fill="#b8d5e5"/>
+  <rect x="660" y="185" width="495" height="77" fill="#b8d5e5" clip-path="url(#philosophy-deep-module-clip)"/>
   <path d="M660 262H1155" class="divider"/>
   <text class="small" x="907.5" y="222" text-anchor="middle">SMALL, STABLE INTERFACE</text>
   <text class="body" x="907.5" y="253" text-anchor="middle">Intent in · outcome out</text>

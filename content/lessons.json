@@ -1243,6 +1243,223 @@
       ]
     },
     {
+      "slug": "accelerate",
+      "discussionId": "accelerate",
+      "date": "2026-06-23",
+      "dateLabel": "23 June 2026",
+      "edition": "Daily lesson",
+      "title": "Accelerate",
+      "authors": "Nicole Forsgren, Jez Humble and Gene Kim",
+      "year": "2018 · first edition",
+      "category": "Software engineering · Continuous delivery · Engineering performance",
+      "summary": "Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help.",
+      "evidenceNote": "Accelerate reports multi-year DORA survey research using validated constructs and statistical models. It found predictive associations among capabilities, software-delivery performance and organisational outcomes, not randomised causal proof for every team. Samples were self-selected, much of the evidence was cross-sectional and many measures relied on respondents. The book's original four delivery metrics remain in DORA Core, while DORA's January 2026 practitioner guide uses an evolved five-metric model. This lesson teaches the durable balanced-measurement mechanism rather than frozen benchmark bands.",
+      "accent": "purple",
+      "quizRevision": "2026-06-23-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Measure flow and instability together",
+          "argument": [
+            "Forsgren, Humble and Kim organise software-delivery performance around two kinds of outcome. Deployment frequency and lead time for changes describe throughput, while change failure percentage and time to restore service describe stability. Their research challenges the assumption that faster delivery must be bought with worse stability: stronger performers tended to do well across both dimensions.",
+            "These are system measures, not individual productivity scores. Their value comes from reading the set together for one application or service over time. A faster number can hide larger failures, while a safer-looking number can hide work trapped in queues. The tension makes a constraint visible without pretending one metric captures delivery performance."
+          ],
+          "extension": "Pair every speed signal with a failure or recovery signal, then use the pattern to ask where the delivery system is creating delay or rework. The dashboard should open an investigation, not pronounce a verdict on a person or team.",
+          "image": "../assets/lesson-visuals/accelerate-balanced-delivery.svg",
+          "imageAlt": "The book's four software-delivery measures are grouped into flow and instability for one application, then combined as a trend used to investigate the delivery system rather than rank people.",
+          "imageCaption": "Balanced outcome measures reveal a delivery-system pattern that no single speed or stability number can show.",
+          "why": "Teams can make deployment counts rise by slicing work mechanically, or make failure rates fall by avoiding releases. A balanced view makes those local victories harder to mistake for a healthier path from change to production.",
+          "apply": [
+            "Choose one application or service. Write its current lead-time and deployment-frequency trend beside its failed-change and recovery trend, using rough ranges if exact data is costly.",
+            "Circle the pair that appears to be moving in the wrong direction together. Ask which wait, handoff or source of rework could plausibly influence both."
+          ],
+          "caveat": "Metric definitions and the delivery landscape evolve. DORA's current practitioner guide uses five metrics, while its conservative Core model retains four. Context also differs by service, so do not copy benchmark bands blindly, combine unlike systems, turn the measures into quotas or use them to rank individuals.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the strongest reason to read delivery flow and instability measures together?",
+              "options": [
+                "A high deployment count proves that the delivery process has little hidden rework.",
+                "The paired signals expose trade-offs that one speed or failure measure can hide.",
+                "A combined score lets leaders compare unlike services on one performance scale.",
+                "Stable recovery results make user and product outcomes unnecessary to measure."
+              ],
+              "correctIndex": 1,
+              "feedback": "Throughput and instability measures constrain each other's interpretation. Together they can reveal whether faster flow is also safe, but they still need service context and user outcomes.",
+              "feedbackByOption": [
+                "Deployment count shows activity, not whether changes are useful or create rework. Failure and recovery signals are still needed.",
+                "Correct. Reading flow beside instability makes it harder for one attractive number to hide delay, failed changes or slow recovery elsewhere.",
+                "Combining unlike services erases important differences in users, risk and delivery model. Use the measures within a service and over time.",
+                "Recovery is one delivery outcome, not a substitute for reliability, user experience or whether the product creates value."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A service deploys more often, but failed changes and emergency rework are rising. What is the best next move?",
+              "options": [
+                "Raise the frequency target so smaller releases eventually dilute the failures.",
+                "Average all delivery measures into one score and compare nearby teams.",
+                "Trace the service's failed-change path and test its strongest constraint.",
+                "Pause every deployment until each recent incident has one permanent fix."
+              ],
+              "correctIndex": 2,
+              "feedback": "The paired trend is a diagnostic signal. Mapping the failed-change and recovery path can identify a capability or bottleneck to test without gaming frequency or imposing a universal freeze.",
+              "feedbackByOption": [
+                "More frequent small changes can help only when the process supports them. Raising a target alone may intensify the same failure mechanism.",
+                "A single score hides the tension that revealed the problem, while comparing teams introduces context and incentive distortions.",
+                "Correct. Following the failed-change path turns the metric pattern into a testable hypothesis about the delivery system.",
+                "A short safety pause can be justified in a crisis, but a blanket freeze does not identify the mechanism and every incident may not have one permanent fix."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Improve the capability, not the target",
+          "argument": [
+            "The book separates performance outcomes from the technical and organisational capabilities that can improve them. Continuous delivery means keeping software deployable and being able to release changes on demand quickly, safely and sustainably. It is not the same as automatically deploying every commit.",
+            "That ability emerges from a system of practices: small batches, fast test feedback, version control, deployment automation, trunk-based development, database-change discipline, security, observability and architecture that lets teams test and release without heavy coordination. Installing a dashboard or demanding more deployments changes the measure before it changes this system."
+          ],
+          "extension": "Work backward from a weak outcome to the value stream that produces it. Find one constraint, choose the smallest capability change that could affect it and re-measure. Improvement is a sequence of experiments, not a maturity label purchased with tooling.",
+          "image": "../assets/lesson-visuals/accelerate-capability-chain.svg",
+          "imageAlt": "A weak delivery outcome leads to one mapped constraint, then to a targeted capability experiment and a re-measurement loop instead of a direct command to improve the metric.",
+          "imageCaption": "Metrics point to the investigation; capability experiments change the path that produces the outcome.",
+          "why": "Teams often buy orchestration, test or dashboard tools while preserving large batches, slow approvals and fragile environments. The new tool then automates only a fragment and the original delay survives.",
+          "apply": [
+            "Take the weakest paired delivery signal from Idea 1 and draw the actual path of one change from commit to production, including waiting and rework.",
+            "Mark the largest avoidable delay. Choose one bounded capability experiment, such as reliable test data on demand, a smaller batch or one automated deployment step, and state what trend should move if the hypothesis is right."
+          ],
+          "caveat": "DORA's relationships are predictive and context-dependent, not proof that copying one practice causes the same gain everywhere. Transformations can initially reduce performance while skills, architecture and process catch up. Preserve safety, regulation and domain constraints, and measure the whole change rather than declaring a tool installation successful.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What best distinguishes continuous delivery from continuous deployment in this lesson?",
+              "options": [
+                "Continuous delivery automates tests, while continuous deployment automates releases.",
+                "Continuous delivery is for regulated systems, while continuous deployment is for web services.",
+                "Continuous delivery keeps every branch releasable until a release window is approved.",
+                "Continuous delivery enables safe release on demand without requiring every change to ship."
+              ],
+              "correctIndex": 3,
+              "feedback": "Continuous delivery is the capability to release safely and sustainably whenever needed. Continuous deployment is the separate choice to release each qualifying change automatically.",
+              "feedbackByOption": [
+                "Both approaches can automate tests and releases. The distinction is readiness on demand versus automatically releasing every qualifying change.",
+                "Continuous delivery applies in web, firmware, mainframe and regulated contexts. The system and release policy shape how it is implemented.",
+                "Long-lived branches and release windows can work against fast integration. The defining capability is safe release on demand from a deployable state.",
+                "Correct. Continuous delivery preserves the ability to release safely when chosen, while continuous deployment applies that ability automatically to each change."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Lead time is dominated by waiting for a fragile shared test environment. Which response best targets the capability?",
+              "options": [
+                "Map the wait, then test isolated environments or reliable test data on demand.",
+                "Set a shorter lead-time objective so environment bookings receive more urgency.",
+                "Deploy smaller changes to the same queue and report their median wait separately.",
+                "Buy a delivery dashboard before changing how environments are created or shared."
+              ],
+              "correctIndex": 0,
+              "feedback": "The observed delay points to environment and test-data capability. A bounded experiment changes that mechanism and can be checked against the same lead-time and stability signals.",
+              "feedbackByOption": [
+                "Correct. The experiment addresses the source of waiting and can show whether faster access improves flow without harming stability.",
+                "A target may create attention, but it does not add environment capacity, reduce fragility or change the booking mechanism.",
+                "Smaller changes may reduce test effort, but every change still enters the same fragile queue and the system constraint remains.",
+                "A dashboard can make waiting visible, but visibility alone does not change environment creation, isolation or test-data access."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Culture decides whether bad news can travel",
+          "argument": [
+            "Accelerate uses Ron Westrum's organisational-culture model to focus on information flow. In a generative culture, cooperation is high, messengers are trained rather than punished, risks are shared, bridging between groups is encouraged and failure leads to inquiry. The research found this kind of culture predictive of software-delivery and organisational performance.",
+            "Culture is therefore visible in what happens after someone reports a flaky test, security risk or failed change. If the messenger is blamed, information becomes slower and safer-looking dashboards conceal risk. If the signal triggers shared inquiry and a bounded improvement, the organisation learns before the same condition becomes a larger failure."
+          ],
+          "extension": "Trace bad news as an operational signal. Observe who can raise it, how quickly it reaches someone able to act, what response the messenger receives and whether the learning changes code, process or ownership.",
+          "image": "../assets/lesson-visuals/accelerate-information-flow.svg",
+          "imageAlt": "One bad-news signal splits into a blocked path where blame hides risk and a generative path where the messenger is supported, the risk is investigated and learning changes the system.",
+          "imageCaption": "The response to an inconvenient signal determines whether risk becomes learning or goes underground.",
+          "why": "Delivery systems depend on people surfacing weak signals before metrics fully register them. Punishing inconvenience improves the appearance of control while increasing the chance that defects, security concerns and workarounds remain hidden.",
+          "apply": [
+            "Recall one recent piece of inconvenient delivery news. Write how long it took to reach someone able to act and what happened to the person who raised it.",
+            "Change one response for the next signal: thank the messenger, make the risk visible, assign shared inquiry and record one system-level learning rather than one person's fault."
+          ],
+          "caveat": "A generative culture does not remove standards, accountability or difficult decisions, and psychological safety is not guaranteed by calling a review blameless. Local team behaviour is constrained by incentives, hierarchy and employment conditions. The DORA evidence is predictive and survey-based, so improve observable information practices and watch the result rather than claiming culture alone caused performance.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why is information flow part of software-delivery performance in the book's model?",
+              "options": [
+                "Shared dashboards ensure every group interprets operational risk in the same way.",
+                "Frequent reporting lets leaders replace local judgement with standard responses.",
+                "Open channels prevent every failure by exposing its cause before deployment.",
+                "Usable bad news lets teams investigate risk and improve the system sooner."
+              ],
+              "correctIndex": 3,
+              "feedback": "Timely, usable information helps a team see risk and learn. It does not guarantee agreement or prevent every failure, but it shortens the path from signal to corrective action.",
+              "feedbackByOption": [
+                "Dashboards can distribute data, but people may interpret it differently and important weak signals may not yet appear in a metric.",
+                "Standard responses can help routine cases, but generative information flow keeps local expertise and inquiry available for complex conditions.",
+                "Open reporting improves detection and learning, but complex systems can still fail and causes may only become clear afterward.",
+                "Correct. When bad news can travel without punishment, risk becomes available for shared inquiry and earlier system improvement."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A developer stops reporting a flaky release test after being blamed for delays. What response best rebuilds generative flow?",
+              "options": [
+                "Require every flaky-test report to include a confirmed root cause before escalation.",
+                "Thank the reporter, expose the risk, and assign a shared system investigation.",
+                "Move test reporting to a manager so developers can focus on delivery work.",
+                "Track each reporter's false alarms so the team can filter unreliable signals."
+              ],
+              "correctIndex": 1,
+              "feedback": "Supporting the messenger and sharing investigation makes the weak signal usable. Requiring proof, centralising reporting or scoring reporters increases the cost of surfacing uncertainty.",
+              "feedbackByOption": [
+                "A confirmed cause is often unavailable when a weak signal first appears. Requiring it delays information and encourages silence.",
+                "Correct. The response protects the information path, makes risk visible and places learning responsibility on the system rather than one messenger.",
+                "A manager can coordinate action, but making reporting indirect adds delay and teaches developers that operational information is not their concern.",
+                "Signal quality matters, but scoring messengers can punish uncertainty and suppress the early reports needed to discover intermittent risk."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one balanced delivery diagnosis",
+        "steps": [
+          "Choose one application or service and write rough trends for flow and instability, marking unknown data honestly.",
+          "Trace one recent change from commit to production, including its longest wait and any rework or recovery path.",
+          "Circle the strongest constraint and name one technical or process capability that could change it.",
+          "Name the bad-news signal this experiment needs and how the messenger will be supported.",
+          "Write one observable result to check next week without setting a quota or ranking a person."
+        ],
+        "result": "You finish with one balanced baseline, one constraint hypothesis, one capability experiment and one protected information path for learning."
+      },
+      "spacedRecall": [
+        "From A Philosophy of Software Design: which complexity effect could be contributing to long delivery lead time, and what observation would distinguish it?",
+        "From Site Reliability Engineering: which user-facing reliability signal should remain beside delivery speed so faster change is not mistaken for better service?"
+      ],
+      "takeaway": "Sustainable delivery improves when balanced outcomes reveal the constraint, capability experiments change it and inconvenient information remains safe enough to reach the people who can learn from it.",
+      "sources": [
+        { "label": "IT Revolution: Accelerate publication details and official resources", "url": "https://itrevolution.com/product/accelerate/" },
+        { "label": "ACM Digital Library: A Valid and Reliable Measurement Model for Software Delivery Performance", "url": "https://doi.org/10.1145/3183519.3183549" },
+        { "label": "DORA: conservative Core model of capabilities, performance and outcomes", "url": "https://dora.dev/research/" },
+        { "label": "DORA: current software-delivery performance metrics and safeguards", "url": "https://dora.dev/guides/dora-metrics/" },
+        { "label": "DORA: continuous-delivery capability and implementation guidance", "url": "https://dora.dev/capabilities/continuous-delivery/" },
+        { "label": "DORA: generative organisational culture and information flow", "url": "https://dora.dev/capabilities/generative-organizational-culture/" },
+        { "label": "Google Cloud: 2021 DORA report methodology and limitations", "url": "https://cloud.google.com/resources/state-of-devops" }
+      ]
+    },
+    {
       "slug": "a-philosophy-of-software-design",
       "discussionId": "a-philosophy-of-software-design",
       "date": "2026-06-22",

@@ -2,7 +2,7 @@
   <title id="four-pillars-crowd-title">Crowd behaviour repeats in a cycle</title>
   <desc id="four-pillars-crowd-desc">A six-stage clockwise loop moves from observation to a persuasive story, imitation, price detaching from value, reversal and later amnesia. History can warn that this mechanism repeats, but it cannot provide a reliable timing signal for the turn.</desc>
   <defs>
-    <marker id="four-pillars-crowd-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+    <marker id="four-pillars-crowd-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="18" markerHeight="18" markerUnits="userSpaceOnUse" orient="auto">
       <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
     </marker>
     <style>
@@ -21,12 +21,12 @@
   <rect x="260" y="20" width="680" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
   <text class="body" x="600" y="58" text-anchor="middle" font-weight="700">CROWDS CHANGE; THE MECHANISM REPEATS</text>
 
-  <path class="line" d="M750 148H800C830 148 830 230 850 230" marker-end="url(#four-pillars-crowd-arrow)"/>
-  <path class="line" d="M1000 280V425" marker-end="url(#four-pillars-crowd-arrow)"/>
-  <path class="line" d="M850 475H825C810 475 810 612 750 612" marker-end="url(#four-pillars-crowd-arrow)"/>
-  <path class="line" d="M450 612H390C390 612 390 475 350 475" marker-end="url(#four-pillars-crowd-arrow)"/>
-  <path class="line" d="M200 425V280" marker-end="url(#four-pillars-crowd-arrow)"/>
-  <path class="line" d="M350 230H375C400 230 400 148 450 148" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M752 148H800C832 148 828 230 848 230" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M1000 282V423" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M848 475H825C790 475 810 612 752 612" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M448 612H415C380 612 390 475 352 475" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M200 423V282" marker-end="url(#four-pillars-crowd-arrow)"/>
+  <path class="line" d="M352 230H375C408 230 400 148 448 148" marker-end="url(#four-pillars-crowd-arrow)"/>
 
   <rect class="card" x="450" y="98" width="300" height="100" rx="22" fill="#b8d5e5"/>
   <circle cx="480" cy="130" r="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>

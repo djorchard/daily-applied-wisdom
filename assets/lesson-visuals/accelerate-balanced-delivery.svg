@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="accelerate-balance-title accelerate-balance-desc">
+  <title id="accelerate-balance-title">Read software delivery flow and instability together</title>
+  <desc id="accelerate-balance-desc">The book's four-metric lens groups change lead time and deployment frequency as flow, and change fail rate and recovery time as instability. The four measures are read together for one application over time to investigate the delivery system, not rank people.</desc>
+  <defs>
+    <marker id="accelerate-balance-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="130" y="16" width="940" height="72" rx="36" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="61" text-anchor="middle" font-weight="700">THE BOOK'S FOUR-METRIC LENS BALANCES FLOW AND INSTABILITY</text>
+
+  <rect class="card" x="45" y="122" width="520" height="415" rx="30" fill="#b8d5e5"/>
+  <text class="heading" x="305" y="170" text-anchor="middle">FLOW</text>
+  <text class="body" x="305" y="204" text-anchor="middle">How changes move to production</text>
+
+  <rect class="card" x="78" y="238" width="454" height="112" rx="22" fill="#fffdf8"/>
+  <text class="compact" x="305" y="280" text-anchor="middle">CHANGE LEAD TIME</text>
+  <text class="body" x="305" y="320" text-anchor="middle">Commit to running in production</text>
+
+  <rect class="card" x="78" y="382" width="454" height="112" rx="22" fill="#fffdf8"/>
+  <text class="compact" x="305" y="424" text-anchor="middle">DEPLOYMENT FREQUENCY</text>
+  <text class="body" x="305" y="464" text-anchor="middle">Releases during a period</text>
+
+  <rect class="card" x="635" y="122" width="520" height="415" rx="30" fill="#f5c79d"/>
+  <text class="heading" x="895" y="170" text-anchor="middle">INSTABILITY</text>
+  <text class="body" x="895" y="204" text-anchor="middle">How deployments create and recover risk</text>
+
+  <rect class="card" x="668" y="238" width="454" height="112" rx="22" fill="#fffdf8"/>
+  <text class="compact" x="895" y="280" text-anchor="middle">CHANGE FAIL RATE</text>
+  <text class="body" x="895" y="320" text-anchor="middle">Changes needing intervention</text>
+
+  <rect class="card" x="668" y="382" width="454" height="112" rx="22" fill="#fffdf8"/>
+  <text class="compact" x="895" y="424" text-anchor="middle">RECOVERY TIME</text>
+  <text class="body" x="895" y="464" text-anchor="middle">Recover a failed deployment</text>
+
+  <rect class="card" x="135" y="590" width="930" height="122" rx="28" fill="#bdd9bf"/>
+  <path class="line" d="M305 537V604" marker-end="url(#accelerate-balance-arrow)"/>
+  <path class="line" d="M895 537V604" marker-end="url(#accelerate-balance-arrow)"/>
+  <text class="heading" x="600" y="636" text-anchor="middle">READ THE SET AS ONE SERVICE TREND</text>
+  <text class="body" x="600" y="674" text-anchor="middle">Use the pattern to investigate waiting and rework</text>
+  <text class="small" x="600" y="703" text-anchor="middle">DO NOT RANK PEOPLE OR FORCE ONE UNIVERSAL TARGET</text>
+</svg>

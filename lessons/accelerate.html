@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html" />
+    <meta property="og:title" content="Accelerate | Daily Applied Wisdom" />
+    <meta property="og:description" content="Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-06-23" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Accelerate | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Accelerate","description":"Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help.","datePublished":"2026-06-23","about":{"@type":"Book","name":"Accelerate","author":[{"@type":"Person","name":"Nicole Forsgren"},{"@type":"Person","name":"Jez Humble"},{"@type":"Person","name":"Gene Kim"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-06-23">23 June 2026</time></p>
+          <h1>Accelerate</h1>
+          <p class="lesson-author">Nicole Forsgren, Jez Humble and Gene Kim</p>
+          <div class="lesson-meta"><span>2018 · first edition</span><span>Software engineering · Continuous delivery · Engineering performance</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Accelerate reports multi-year DORA survey research using validated constructs and statistical models. It found predictive associations among capabilities, software-delivery performance and organisational outcomes, not randomised causal proof for every team. Samples were self-selected, much of the evidence was cross-sectional and many measures relied on respondents. The book's original four delivery metrics remain in DORA Core, while DORA's January 2026 practitioner guide uses an evolved five-metric model. This lesson teaches the durable balanced-measurement mechanism rather than frozen benchmark bands.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Accelerate | Daily Applied Wisdom" data-share-text="Improve software delivery without turning measurement into theatre: read flow and instability together, change the capabilities behind the numbers and build a culture where bad news travels fast enough to help." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Measure flow and instability together</a><a href="#idea-2"><span>02</span>Improve the capability, not the target</a><a href="#idea-3"><span>03</span>Culture decides whether bad news can travel</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-purple" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Measure flow and instability together <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Forsgren, Humble and Kim organise software-delivery performance around two kinds of outcome. Deployment frequency and lead time for changes describe throughput, while change failure percentage and time to restore service describe stability. Their research challenges the assumption that faster delivery must be bought with worse stability: stronger performers tended to do well across both dimensions.</p>
+<p>These are system measures, not individual productivity scores. Their value comes from reading the set together for one application or service over time. A faster number can hide larger failures, while a safer-looking number can hide work trapped in queues. The tension makes a constraint visible without pretending one metric captures delivery performance.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Pair every speed signal with a failure or recovery signal, then use the pattern to ask where the delivery system is creating delay or rework. The dashboard should open an investigation, not pronounce a verdict on a person or team.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/accelerate-balanced-delivery.svg" alt="The book's four software-delivery measures are grouped into flow and instability for one application, then combined as a trend used to investigate the delivery system rather than rank people." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Balanced outcome measures reveal a delivery-system pattern that no single speed or stability number can show.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Teams can make deployment counts rise by slicing work mechanically, or make failure rates fall by avoiding releases. A balanced view makes those local victories harder to mistake for a healthier path from change to production.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one application or service. Write its current lead-time and deployment-frequency trend beside its failed-change and recovery trend, using rough ranges if exact data is costly.</p>
+<p>Circle the pair that appears to be moving in the wrong direction together. Ask which wait, handoff or source of rework could plausibly influence both.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Metric definitions and the delivery landscape evolve. DORA's current practitioner guide uses five metrics, while its conservative Core model retains four. Context also differs by service, so do not copy benchmark bands blindly, combine unlike systems, turn the measures into quotas or use them to rank individuals.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="accelerate-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="accelerate-idea-1" data-lesson-slug="accelerate" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulAccelerateIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-purple" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Improve the capability, not the target <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book separates performance outcomes from the technical and organisational capabilities that can improve them. Continuous delivery means keeping software deployable and being able to release changes on demand quickly, safely and sustainably. It is not the same as automatically deploying every commit.</p>
+<p>That ability emerges from a system of practices: small batches, fast test feedback, version control, deployment automation, trunk-based development, database-change discipline, security, observability and architecture that lets teams test and release without heavy coordination. Installing a dashboard or demanding more deployments changes the measure before it changes this system.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Work backward from a weak outcome to the value stream that produces it. Find one constraint, choose the smallest capability change that could affect it and re-measure. Improvement is a sequence of experiments, not a maturity label purchased with tooling.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/accelerate-capability-chain.svg" alt="A weak delivery outcome leads to one mapped constraint, then to a targeted capability experiment and a re-measurement loop instead of a direct command to improve the metric." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Metrics point to the investigation; capability experiments change the path that produces the outcome.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Teams often buy orchestration, test or dashboard tools while preserving large batches, slow approvals and fragile environments. The new tool then automates only a fragment and the original delay survives.</p></section>
+          <section><h3>Apply it today</h3><p>Take the weakest paired delivery signal from Idea 1 and draw the actual path of one change from commit to production, including waiting and rework.</p>
+<p>Mark the largest avoidable delay. Choose one bounded capability experiment, such as reliable test data on demand, a smaller batch or one automated deployment step, and state what trend should move if the hypothesis is right.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>DORA's relationships are predictive and context-dependent, not proof that copying one practice causes the same gain everywhere. Transformations can initially reduce performance while skills, architecture and process catch up. Preserve safety, regulation and domain constraints, and measure the whole change rather than declaring a tool installation successful.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="accelerate-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="accelerate-idea-2" data-lesson-slug="accelerate" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulAccelerateIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-purple" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Culture decides whether bad news can travel <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Accelerate uses Ron Westrum's organisational-culture model to focus on information flow. In a generative culture, cooperation is high, messengers are trained rather than punished, risks are shared, bridging between groups is encouraged and failure leads to inquiry. The research found this kind of culture predictive of software-delivery and organisational performance.</p>
+<p>Culture is therefore visible in what happens after someone reports a flaky test, security risk or failed change. If the messenger is blamed, information becomes slower and safer-looking dashboards conceal risk. If the signal triggers shared inquiry and a bounded improvement, the organisation learns before the same condition becomes a larger failure.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Trace bad news as an operational signal. Observe who can raise it, how quickly it reaches someone able to act, what response the messenger receives and whether the learning changes code, process or ownership.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/accelerate-information-flow.svg" alt="One bad-news signal splits into a blocked path where blame hides risk and a generative path where the messenger is supported, the risk is investigated and learning changes the system." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The response to an inconvenient signal determines whether risk becomes learning or goes underground.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Delivery systems depend on people surfacing weak signals before metrics fully register them. Punishing inconvenience improves the appearance of control while increasing the chance that defects, security concerns and workarounds remain hidden.</p></section>
+          <section><h3>Apply it today</h3><p>Recall one recent piece of inconvenient delivery news. Write how long it took to reach someone able to act and what happened to the person who raised it.</p>
+<p>Change one response for the next signal: thank the messenger, make the risk visible, assign shared inquiry and record one system-level learning rather than one person's fault.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A generative culture does not remove standards, accountability or difficult decisions, and psychological safety is not guaranteed by calling a review blameless. Local team behaviour is constrained by incentives, hierarchy and employment conditions. The DORA evidence is predictive and survey-based, so improve observable information practices and watch the result rather than claiming culture alone caused performance.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="accelerate-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="accelerate-idea-3" data-lesson-slug="accelerate" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulAccelerateIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="accelerate" data-quiz-revision="2026-06-23-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What is the strongest reason to read delivery flow and instability measures together?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-1-q1" value="0" required aria-describedby="accelerate-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>A high deployment count proves that the delivery process has little hidden rework.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-1-q1" value="1" required aria-describedby="accelerate-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>The paired signals expose trade-offs that one speed or failure measure can hide.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-1-q1" value="2" required aria-describedby="accelerate-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>A combined score lets leaders compare unlike services on one performance scale.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-1-q1" value="3" required aria-describedby="accelerate-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Stable recovery results make user and product outcomes unnecessary to measure.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Deployment count shows activity, not whether changes are useful or create rework. Failure and recovery signals are still needed.</p><p data-feedback-for="1" hidden>Reading flow beside instability makes it harder for one attractive number to hide delay, failed changes or slow recovery elsewhere.</p><p data-feedback-for="2" hidden>Combining unlike services erases important differences in users, risk and delivery model. Use the measures within a service and over time.</p><p data-feedback-for="3" hidden>Recovery is one delivery outcome, not a substitute for reliability, user experience or whether the product creates value.</p>
+                    <p class="quiz-feedback-context">Throughput and instability measures constrain each other's interpretation. Together they can reveal whether faster flow is also safe, but they still need service context and user outcomes.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-2-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>What best distinguishes continuous delivery from continuous deployment in this lesson?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-2-q1" value="0" required aria-describedby="accelerate-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Continuous delivery automates tests, while continuous deployment automates releases.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-2-q1" value="1" required aria-describedby="accelerate-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Continuous delivery is for regulated systems, while continuous deployment is for web services.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-2-q1" value="2" required aria-describedby="accelerate-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Continuous delivery keeps every branch releasable until a release window is approved.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-2-q1" value="3" required aria-describedby="accelerate-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Continuous delivery enables safe release on demand without requiring every change to ship.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Both approaches can automate tests and releases. The distinction is readiness on demand versus automatically releasing every qualifying change.</p><p data-feedback-for="1" hidden>Continuous delivery applies in web, firmware, mainframe and regulated contexts. The system and release policy shape how it is implemented.</p><p data-feedback-for="2" hidden>Long-lived branches and release windows can work against fast integration. The defining capability is safe release on demand from a deployable state.</p><p data-feedback-for="3" hidden>Continuous delivery preserves the ability to release safely when chosen, while continuous deployment applies that ability automatically to each change.</p>
+                    <p class="quiz-feedback-context">Continuous delivery is the capability to release safely and sustainably whenever needed. Continuous deployment is the separate choice to release each qualifying change automatically.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-3-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>Why is information flow part of software-delivery performance in the book's model?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-3-q1" value="0" required aria-describedby="accelerate-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Shared dashboards ensure every group interprets operational risk in the same way.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-3-q1" value="1" required aria-describedby="accelerate-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Frequent reporting lets leaders replace local judgement with standard responses.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-3-q1" value="2" required aria-describedby="accelerate-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Open channels prevent every failure by exposing its cause before deployment.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-3-q1" value="3" required aria-describedby="accelerate-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Usable bad news lets teams investigate risk and improve the system sooner.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Dashboards can distribute data, but people may interpret it differently and important weak signals may not yet appear in a metric.</p><p data-feedback-for="1" hidden>Standard responses can help routine cases, but generative information flow keeps local expertise and inquiry available for complex conditions.</p><p data-feedback-for="2" hidden>Open reporting improves detection and learning, but complex systems can still fail and causes may only become clear afterward.</p><p data-feedback-for="3" hidden>When bad news can travel without punishment, risk becomes available for shared inquiry and earlier system improvement.</p>
+                    <p class="quiz-feedback-context">Timely, usable information helps a team see risk and learn. It does not guarantee agreement or prevent every failure, but it shortens the path from signal to corrective action.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-1-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A service deploys more often, but failed changes and emergency rework are rising. What is the best next move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-1-q2" value="0" required aria-describedby="accelerate-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Raise the frequency target so smaller releases eventually dilute the failures.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-1-q2" value="1" required aria-describedby="accelerate-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Average all delivery measures into one score and compare nearby teams.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-1-q2" value="2" required aria-describedby="accelerate-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Trace the service's failed-change path and test its strongest constraint.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-1-q2" value="3" required aria-describedby="accelerate-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Pause every deployment until each recent incident has one permanent fix.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>More frequent small changes can help only when the process supports them. Raising a target alone may intensify the same failure mechanism.</p><p data-feedback-for="1" hidden>A single score hides the tension that revealed the problem, while comparing teams introduces context and incentive distortions.</p><p data-feedback-for="2" hidden>Following the failed-change path turns the metric pattern into a testable hypothesis about the delivery system.</p><p data-feedback-for="3" hidden>A short safety pause can be justified in a crisis, but a blanket freeze does not identify the mechanism and every incident may not have one permanent fix.</p>
+                    <p class="quiz-feedback-context">The paired trend is a diagnostic signal. Mapping the failed-change and recovery path can identify a capability or bottleneck to test without gaming frequency or imposing a universal freeze.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>Lead time is dominated by waiting for a fragile shared test environment. Which response best targets the capability?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-2-q2" value="0" required aria-describedby="accelerate-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Map the wait, then test isolated environments or reliable test data on demand.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-2-q2" value="1" required aria-describedby="accelerate-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Set a shorter lead-time objective so environment bookings receive more urgency.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-2-q2" value="2" required aria-describedby="accelerate-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Deploy smaller changes to the same queue and report their median wait separately.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-2-q2" value="3" required aria-describedby="accelerate-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Buy a delivery dashboard before changing how environments are created or shared.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The experiment addresses the source of waiting and can show whether faster access improves flow without harming stability.</p><p data-feedback-for="1" hidden>A target may create attention, but it does not add environment capacity, reduce fragility or change the booking mechanism.</p><p data-feedback-for="2" hidden>Smaller changes may reduce test effort, but every change still enters the same fragile queue and the system constraint remains.</p><p data-feedback-for="3" hidden>A dashboard can make waiting visible, but visibility alone does not change environment creation, isolation or test-data access.</p>
+                    <p class="quiz-feedback-context">The observed delay points to environment and test-data capability. A bounded experiment changes that mechanism and can be checked against the same lead-time and stability signals.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="accelerate-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A developer stops reporting a flaky release test after being blamed for delays. What response best rebuilds generative flow?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="accelerate-idea-3-q2" value="0" required aria-describedby="accelerate-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Require every flaky-test report to include a confirmed root cause before escalation.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="accelerate-idea-3-q2" value="1" required aria-describedby="accelerate-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Thank the reporter, expose the risk, and assign a shared system investigation.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="accelerate-idea-3-q2" value="2" required aria-describedby="accelerate-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Move test reporting to a manager so developers can focus on delivery work.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="accelerate-idea-3-q2" value="3" required aria-describedby="accelerate-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Track each reporter's false alarms so the team can filter unreliable signals.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="accelerate-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A confirmed cause is often unavailable when a weak signal first appears. Requiring it delays information and encourages silence.</p><p data-feedback-for="1" hidden>The response protects the information path, makes risk visible and places learning responsibility on the system rather than one messenger.</p><p data-feedback-for="2" hidden>A manager can coordinate action, but making reporting indirect adds delay and teaches developers that operational information is not their concern.</p><p data-feedback-for="3" hidden>Signal quality matters, but scoring messengers can punish uncertainty and suppress the early reports needed to discover intermittent risk.</p>
+                    <p class="quiz-feedback-context">Supporting the messenger and sharing investigation makes the weak signal usable. Requiring proof, centralising reporting or scoring reporters increases the cost of surfacing uncertainty.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Run one balanced delivery diagnosis</h2>
+          <ol><li>Choose one application or service and write rough trends for flow and instability, marking unknown data honestly.</li><li>Trace one recent change from commit to production, including its longest wait and any rework or recovery path.</li><li>Circle the strongest constraint and name one technical or process capability that could change it.</li><li>Name the bad-news signal this experiment needs and how the messenger will be supported.</li><li>Write one observable result to check next week without setting a quota or ranking a person.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with one balanced baseline, one constraint hypothesis, one capability experiment and one protected information path for learning.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From A Philosophy of Software Design: which complexity effect could be contributing to long delivery lead time, and what observation would distinguish it?</li><li>From Site Reliability Engineering: which user-facing reliability signal should remain beside delivery speed so faster change is not mistaken for better service?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://itrevolution.com/product/accelerate/" target="_blank" rel="noreferrer">IT Revolution: Accelerate publication details and official resources <span aria-hidden="true">↗</span></a></li><li><a href="https://doi.org/10.1145/3183519.3183549" target="_blank" rel="noreferrer">ACM Digital Library: A Valid and Reliable Measurement Model for Software Delivery Performance <span aria-hidden="true">↗</span></a></li><li><a href="https://dora.dev/research/" target="_blank" rel="noreferrer">DORA: conservative Core model of capabilities, performance and outcomes <span aria-hidden="true">↗</span></a></li><li><a href="https://dora.dev/guides/dora-metrics/" target="_blank" rel="noreferrer">DORA: current software-delivery performance metrics and safeguards <span aria-hidden="true">↗</span></a></li><li><a href="https://dora.dev/capabilities/continuous-delivery/" target="_blank" rel="noreferrer">DORA: continuous-delivery capability and implementation guidance <span aria-hidden="true">↗</span></a></li><li><a href="https://dora.dev/capabilities/generative-organizational-culture/" target="_blank" rel="noreferrer">DORA: generative organisational culture and information flow <span aria-hidden="true">↗</span></a></li><li><a href="https://cloud.google.com/resources/state-of-devops" target="_blank" rel="noreferrer">Google Cloud: 2021 DORA report methodology and limitations <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Sustainable delivery improves when balanced outcomes reveal the constraint, capability experiments change it and inconvenient information remains safe enough to reach the people who can learn from it.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="accelerate" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/accelerate.html" data-page-title="Accelerate | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="a-philosophy-of-software-design.html"><span>Previous</span>A Philosophy of Software Design</a>
+        <a class="next" href="team-topologies.html"><span>Next</span>Team Topologies</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

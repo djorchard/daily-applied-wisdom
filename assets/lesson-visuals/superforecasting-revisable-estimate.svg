@@ -8,6 +8,7 @@
     <style>
       text { font-family: Arial, sans-serif; fill: #18211d; }
       .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
       .number { font-size: 54px; font-weight: 700; }
       .body { font-size: 24px; }
       .small { font-size: 22px; font-weight: 700; }
@@ -48,7 +49,7 @@
   <text class="small" x="457.5" y="497" text-anchor="middle">+8 POINTS</text>
 
   <rect class="card" x="615" y="150" width="255" height="395" rx="22" fill="#d8cce8"/>
-  <text class="heading" x="742.5" y="205" text-anchor="middle">COUNTERSIGNAL</text>
+  <text class="compact" x="742.5" y="205" text-anchor="middle">COUNTERSIGNAL</text>
   <text class="number" x="742.5" y="280" text-anchor="middle">45%</text>
   <text class="body" x="742.5" y="325" text-anchor="middle">evidence pushes back</text>
   <line x1="645" y1="382" x2="840" y2="382" stroke="#18211d" stroke-width="5" stroke-linecap="round"/>
