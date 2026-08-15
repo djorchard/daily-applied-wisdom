@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="make-stick-retrieval-title make-stick-retrieval-desc">
+  <title id="make-stick-retrieval-title">Retrieve, compare, correct and return</title>
+  <desc id="make-stick-retrieval-desc">A passive rereading shortcut stops at familiarity and leaves the gap hidden. The stronger learning loop closes the source, retrieves from memory, compares with the source, corrects one gap and returns after a delay.</desc>
+  <defs>
+    <marker id="make-stick-retrieval-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="180" y="18" width="840" height="72" rx="36" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="62" text-anchor="middle" font-weight="700">LEARNING NEEDS AN ACCESS ATTEMPT, NOT JUST ANOTHER LOOK</text>
+
+  <text class="small" x="45" y="132">PASSIVE SHORTCUT</text>
+  <rect class="card" x="45" y="150" width="280" height="500" rx="30" fill="#f5c79d"/>
+  <rect x="80" y="202" width="210" height="82" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="185" y="238" text-anchor="middle">LOOK AGAIN</text>
+  <text class="body" x="185" y="268" text-anchor="middle">Source stays open</text>
+  <path class="line" d="M185 284V330" marker-end="url(#make-stick-retrieval-arrow)"/>
+  <rect x="80" y="340" width="210" height="82" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="185" y="376" text-anchor="middle">FEELS FLUENT</text>
+  <text class="body" x="185" y="406" text-anchor="middle">Familiar on sight</text>
+  <path class="line" d="M185 422V468" marker-end="url(#make-stick-retrieval-arrow)"/>
+  <rect x="80" y="478" width="210" height="108" rx="20" fill="#fffdf8" stroke="#d86136" stroke-width="4"/>
+  <text class="compact" x="185" y="518" text-anchor="middle">GAP HIDDEN</text>
+  <text class="body" x="185" y="551" text-anchor="middle">No independent</text>
+  <text class="body" x="185" y="580" text-anchor="middle">access was tested</text>
+
+  <text class="small" x="385" y="132">RETRIEVAL AND FEEDBACK LOOP</text>
+  <rect class="card" x="385" y="150" width="770" height="500" rx="30" fill="#bdd9bf"/>
+
+  <rect x="430" y="200" width="275" height="112" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="compact" x="567" y="242" text-anchor="middle">1 · CLOSE SOURCE</text>
+  <text class="body" x="567" y="279" text-anchor="middle">Remove the prompt</text>
+
+  <path class="line" d="M705 256H825" marker-end="url(#make-stick-retrieval-arrow)"/>
+
+  <rect x="840" y="200" width="270" height="112" rx="24" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="975" y="242" text-anchor="middle">2 · RETRIEVE</text>
+  <text class="body" x="975" y="279" text-anchor="middle">Produce from memory</text>
+
+  <path class="line" d="M975 312V392" marker-end="url(#make-stick-retrieval-arrow)"/>
+
+  <rect x="800" y="407" width="310" height="128" rx="24" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="955" y="449" text-anchor="middle">3 · COMPARE</text>
+  <text class="body" x="955" y="484" text-anchor="middle">Check against the source</text>
+  <text class="small" x="955" y="516" text-anchor="middle">CORRECT ONE GAP</text>
+
+  <path class="line" d="M800 471H690" marker-end="url(#make-stick-retrieval-arrow)"/>
+
+  <rect x="430" y="407" width="245" height="128" rx="24" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text class="compact" x="552" y="449" text-anchor="middle">4 · RETURN</text>
+  <text class="body" x="552" y="484" text-anchor="middle">Try again after</text>
+  <text class="body" x="552" y="516" text-anchor="middle">some forgetting</text>
+
+  <path class="line" d="M500 407V350H470V312" marker-end="url(#make-stick-retrieval-arrow)"/>
+
+  <rect x="230" y="688" width="925" height="54" rx="27" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="692" y="723" text-anchor="middle">ATTEMPT REVEALS THE GAP; FEEDBACK MAKES RETRIEVAL SAFE</text>
+</svg>

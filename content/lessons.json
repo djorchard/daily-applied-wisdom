@@ -1243,6 +1243,223 @@
       ]
     },
     {
+      "slug": "make-it-stick",
+      "discussionId": "make-it-stick",
+      "date": "2026-06-24",
+      "dateLabel": "24 June 2026",
+      "edition": "Daily lesson",
+      "title": "Make It Stick",
+      "authors": "Peter C. Brown, Henry L. Roediger III and Mark A. McDaniel",
+      "year": "2014 · first edition",
+      "category": "Learning and memory · Cognitive psychology · Skill development",
+      "summary": "Replace the comfort of fluent review with learning that survives delay: retrieve before looking, space and mix related practice, then use feedback to calibrate what you can actually produce.",
+      "evidenceNote": "Retrieval practice and spacing are supported by substantial laboratory and classroom evidence, including randomised experiments and research reviews. Effects vary with the material, prior knowledge, feedback, retention delay and alignment between practice and the eventual task. Interleaving is especially useful when learners must discriminate among related problem types, not as a universal instruction to switch topics constantly. The book is a research synthesis for general readers, and its stories illustrate mechanisms rather than prove them.",
+      "accent": "gold",
+      "quizRevision": "2026-06-24-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Retrieve before you review",
+          "argument": [
+            "Brown, Roediger and McDaniel distinguish exposure from retrieval. Rereading can make words look familiar, but familiarity is not the same as being able to reconstruct an idea when the source is absent. Trying to recall a concept, process or example makes the learner practise the access route that later performance requires.",
+            "The attempt also produces information. A blank, distortion or missing step exposes what fluent review can conceal. Checking the attempt against a reliable source then corrects the gap. The book therefore treats low-stakes testing as a learning event, not merely a final measurement of learning."
+          ],
+          "extension": "Turn passive review into a closed-source loop: make a small prediction about what you can reproduce, retrieve it without help, compare the result with the source and correct the specific gap. The useful unit is not time spent looking; it is a completed retrieval-and-feedback cycle.",
+          "image": "../assets/lesson-visuals/make-it-stick-retrieval-loop.svg",
+          "imageAlt": "A learning loop moves from a brief encounter to closing the source, retrieving from memory, comparing with the source, correcting one gap and returning later, while a rereading shortcut stops at familiarity.",
+          "imageCaption": "Retrieval plus corrective feedback practises access and reveals the gap that rereading can hide.",
+          "why": "A runbook, design rule or stakeholder detail is useful only if it can be produced when the document is not already prompting the answer. Retrieval tests that access under safe conditions before the real decision depends on it.",
+          "apply": [
+            "Choose one page, diagram or procedure you studied recently. Close it and write the three most important points or steps from memory.",
+            "Reopen the source, mark one omission or distortion and rewrite only that part correctly. Turn the correction into a question for a later attempt."
+          ],
+          "caveat": "Retrieval without accurate feedback can rehearse an error, and an unsupported free-recall task may be too difficult for a novice. Start with a cue or worked example when needed, keep the attempt low stakes and compare it promptly with a trustworthy source. Recognition practice also will not fully prepare someone for a task that requires explanation or production.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the strongest reason to retrieve an idea before rereading it?",
+              "options": [
+                "It extends exposure while preventing the memory from becoming uncertain.",
+                "It practises reconstructing the idea and reveals gaps for correction.",
+                "It keeps the source visible so mistakes cannot enter the first attempt.",
+                "It replaces later feedback with confidence gained from initial recall."
+              ],
+              "correctIndex": 1,
+              "feedback": "Retrieval practises access under the condition that later use requires and makes missing or distorted knowledge visible. Corrective feedback is still needed after the attempt.",
+              "feedbackByOption": [
+                "More exposure can increase familiarity, but preventing uncertainty removes the effort and diagnosis that make retrieval useful.",
+                "Correct. Reconstructing the idea practises access, while comparison with the source turns the revealed gap into corrected learning.",
+                "Keeping the source visible supports recognition and copying rather than testing whether the learner can produce the idea independently.",
+                "Initial recall can be confidently wrong. Feedback remains necessary to verify the attempt and correct its specific error."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You have just read a new incident runbook. Which next step best applies retrieval practice?",
+              "options": [
+                "Highlight every critical step, then reread the highlighted sequence twice.",
+                "Keep the runbook open while copying its steps into a shorter checklist.",
+                "Wait for a real incident so urgency makes the sequence easier to remember.",
+                "Close it, reconstruct the response steps, then compare and correct them."
+              ],
+              "correctIndex": 3,
+              "feedback": "A closed-source reconstruction tests access to the sequence. Immediate comparison keeps the exercise safe by catching omissions or wrong ordering before operational use.",
+              "feedbackByOption": [
+                "Highlighting and rereading may organise attention, but they do not show whether the response can be produced without the text.",
+                "A shorter checklist can be useful at work, but copying with the source visible does not yet practise independent retrieval.",
+                "A live incident makes errors costly and supplies no controlled correction cycle. Retrieval should be practised before the high-stakes event.",
+                "Correct. Closing the runbook creates a retrieval attempt, and comparison corrects the exact gaps before the procedure is needed."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Space practice and mix the decisions",
+          "argument": [
+            "The book argues that massed practice can create rapid improvement during one session while producing less durable learning than practice distributed over time. Allowing some forgetting makes the next retrieval harder, and that effort can strengthen later access. The best gap depends on how long the learning must last; spacing is a principle, not one universal timetable.",
+            "Interleaving adds a different challenge. Instead of completing a block of one known problem type, the learner mixes related types and must first diagnose which method fits. Practice may look slower because the selection decision is now part of the task. That discrimination can matter when real work does not announce which pattern or tool to use."
+          ],
+          "extension": "Design practice around the future decision. Return after a delay, then mix a few related cases so you must identify the pattern before applying the method. Track whether you selected the right approach, not how smooth the session felt.",
+          "image": "../assets/lesson-visuals/make-it-stick-space-and-mix.svg",
+          "imageAlt": "Two qualitative practice lanes compare one fluent blocked session with practice spread across later sessions and mixed among related cases, showing that the second lane includes the extra decision of choosing the method.",
+          "imageCaption": "Spacing renews retrieval effort; interleaving practises choosing the method instead of merely repeating it.",
+          "why": "Tutorials and grouped exercises tell the learner what kind of problem is present. Production faults, customer requests and design trade-offs arrive mixed. Durable skill includes recognising the case before executing a familiar response.",
+          "apply": [
+            "Take three related cases you need to distinguish, such as timeout, authentication and validation failures. Shuffle one example of each without its label.",
+            "For every example, name the diagnostic cue and choose the response before checking. Schedule the same mixed set for a short attempt on another day."
+          ],
+          "caveat": "Interleaving is not random context switching. It works best when related categories have meaningful features to discriminate and the learner has enough foundation to attempt them. A short blocked introduction can establish a new procedure, and urgent performance may need focused rehearsal. Mix deliberately, preserve feedback and avoid gaps so long that every attempt collapses into guessing.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why can interleaving related problem types improve later application?",
+              "options": [
+                "It practises selecting a method from the cues before executing it.",
+                "It removes retrieval effort by keeping every procedure equally active.",
+                "It guarantees faster performance during each mixed practice session.",
+                "It makes initial instruction unnecessary once examples are shuffled."
+              ],
+              "correctIndex": 0,
+              "feedback": "Interleaving can train discrimination: the learner must notice which features matter and select a fitting method. Practice may feel slower, and sufficient instruction and feedback still matter.",
+              "feedbackByOption": [
+                "Correct. Mixed cases require the learner to diagnose the problem and choose a method before carrying out familiar steps.",
+                "Interleaving usually increases retrieval and selection effort. That difficulty, within limits, is part of the mechanism.",
+                "Mixed practice can look slower during acquisition even when it supports better retention or transfer later.",
+                "Shuffling examples does not supply missing knowledge. Learners still need instruction, a workable foundation and corrective feedback."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A developer completes grouped SQL join exercises but chooses the wrong join in unfamiliar work. What practice is best?",
+              "options": [
+                "Repeat one join type until every example can be completed without pause.",
+                "Read the join definitions daily until their wording becomes familiar.",
+                "Revisit mixed join cases and explain the cue for each selection.",
+                "Switch among unrelated tools whenever the current exercise feels easy."
+              ],
+              "correctIndex": 2,
+              "feedback": "Mixed, delayed cases target the missing discrimination: selecting a join from the relationship the data requires. Explaining the cue makes the basis of that choice inspectable.",
+              "feedbackByOption": [
+                "Blocked repetition can improve execution of that join, but the work already shows that selecting among joins is the missing skill.",
+                "Familiar definitions support recognition, but they do not require choosing a join from an unfamiliar data relationship.",
+                "Correct. Mixed cases force selection, and naming the cue exposes whether the choice follows the relationship rather than a label.",
+                "Unrelated switching adds interruption without practising discrimination among the join types that are being confused."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Calibrate difficulty with feedback",
+          "argument": [
+            "Make It Stick describes several desirable difficulties, including generation, varied practice and reflection. The word desirable matters. A challenge helps when it engages the process the learner needs, can be overcome with suitable support and is followed by information that corrects or strengthens the attempt. Difficulty by itself is not a learning strategy.",
+            "The authors also warn that learners are poor judges of mastery. Smooth review can feel effective because the material is familiar in the moment. A prediction made before a low-stakes test, followed by the result and an error diagnosis, calibrates that feeling against performance. The next practice can then target the gap instead of repeating what already feels comfortable."
+          ],
+          "extension": "Use a prediction, test, feedback and adjustment loop. Before practice, state what you expect to produce. Afterward, classify the gap as missing knowledge, wrong discrimination or failed execution, then choose the smallest supported difficulty that addresses it.",
+          "image": "../assets/lesson-visuals/make-it-stick-calibration-loop.svg",
+          "imageAlt": "A calibration loop moves from a confidence prediction to a low-stakes no-notes attempt, corrective feedback, a classified gap and targeted practice, with a gate requiring the challenge to match the goal, remain achievable and include feedback.",
+          "imageCaption": "A challenge becomes useful when it targets the right process, remains achievable and returns corrective information.",
+          "why": "Without calibration, study time follows comfort: familiar material gets another pass while uncertain knowledge remains hidden. A small scored attempt directs effort toward the actual constraint and reduces surprise when the skill is needed.",
+          "apply": [
+            "Before a short practice, predict how many of three prompts you can answer correctly without help. Record the prediction rather than keeping it in your head.",
+            "Answer, check and classify each miss as missing knowledge, wrong method choice or execution error. Choose one next practice that matches the largest gap."
+          ],
+          "caveat": "One small score samples performance; it does not define a person's ability or prove broad competence. High-stakes tests can add anxiety and distort behaviour, while challenges beyond prior knowledge or accessibility needs can produce confusion rather than productive effort. Keep calibration low stakes, use multiple observations, provide appropriate support and align practice with the real outcome.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which condition makes a learning difficulty desirable rather than merely hard?",
+              "options": [
+                "It makes practice feel less fluent than the learner's usual routine.",
+                "It prevents mistakes by withholding tasks until mastery is certain.",
+                "It raises the score needed before the learner can receive feedback.",
+                "It targets the needed process, stays achievable and returns feedback."
+              ],
+              "correctIndex": 3,
+              "feedback": "Useful difficulty is goal-aligned, manageable with appropriate support and connected to corrective information. Effort alone does not guarantee learning.",
+              "feedbackByOption": [
+                "Reduced fluency can accompany productive learning, but discomfort alone does not show that the right process is being trained.",
+                "Generation may include mistakes. Withholding all attempts until mastery removes the practice and feedback needed to build it.",
+                "A tougher threshold changes evaluation, not whether the task targets learning or supplies useful correction.",
+                "Correct. Desirable difficulty engages the target skill, remains possible with support and provides information that improves the next attempt."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A learner predicts full mastery but scores one of three on a low-stakes check. What is the best response?",
+              "options": [
+                "Lower the passing score so the original confidence remains reasonable.",
+                "Diagnose each gap and schedule targeted retrieval with feedback.",
+                "Repeat the complete source until every section feels equally familiar.",
+                "Treat the result as proof that the learner lacks ability in the topic."
+              ],
+              "correctIndex": 1,
+              "feedback": "The prediction-result gap is calibration data. Classifying the misses identifies what to practise, and a later retrieval attempt tests whether the correction became accessible.",
+              "feedbackByOption": [
+                "Changing the threshold hides the mismatch between prediction and performance instead of using it to improve learning.",
+                "Correct. Error diagnosis directs the next supported challenge, and later retrieval checks whether the gap has actually closed.",
+                "Complete rereading spends equal effort on known and unknown material and can recreate the fluency that produced overconfidence.",
+                "One low-stakes result reveals a current gap, not a fixed limit on ability. It should guide practice rather than label the learner."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one calibrated retrieval cycle",
+        "steps": [
+          "Choose a topic you studied recently and write three questions whose answers matter in real use.",
+          "Predict how many you can answer correctly, then close the source and answer from memory.",
+          "Check each answer against the source and mark one missing fact, wrong choice or execution error.",
+          "Rewrite the weakest answer correctly and add one related case that requires choosing the method.",
+          "Schedule the four prompts for one short mixed attempt on another day."
+        ],
+        "result": "You finish with a prediction, an observed score, one diagnosed gap, a corrected response and a dated retrieval prompt for later practice."
+      },
+      "spacedRecall": [
+        "From Superforecasting: how could a recorded prediction and later score expose an illusion of confidence without revealing the answer in advance?",
+        "From A Philosophy of Software Design: which symptom of complexity could you retrieve without notes, and what example would distinguish it from the others?"
+      ],
+      "takeaway": "Learning becomes durable when you retrieve before looking, return after some forgetting and let feedback redirect effort toward the gap.",
+      "sources": [
+        { "label": "Make It Stick: official book overview and attributed learning principles", "url": "https://www.makeitstick.com/about-make-it-stick" },
+        { "label": "Peter C. Brown: publication year, publisher and ISBN", "url": "https://www.petercbrown.com/make_it_stick.php" },
+        { "label": "Washington University: authors and research basis of Make It Stick", "url": "https://source.washu.edu/2014/04/science-of-learning-book-offers-tips-to-make-it-stick/" },
+        { "label": "Science: The Critical Importance of Retrieval for Learning", "url": "https://doi.org/10.1126/science.1152408" },
+        { "label": "Psychological Science: Spacing Effects in Learning", "url": "https://pubmed.ncbi.nlm.nih.gov/19076480/" },
+        { "label": "Applied Cognitive Psychology: The Effects of Interleaved Practice", "url": "https://onlinelibrary.wiley.com/doi/10.1002/acp.1598" },
+        { "label": "Nature Reviews Psychology: spacing and retrieval practice review", "url": "https://doi.org/10.1038/s44159-022-00089-1" }
+      ]
+    },
+    {
       "slug": "accelerate",
       "discussionId": "accelerate",
       "date": "2026-06-23",
