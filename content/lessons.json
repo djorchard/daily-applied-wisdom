@@ -1243,6 +1243,243 @@
       ]
     },
     {
+      "slug": "the-staff-engineers-path",
+      "discussionId": "the-staff-engineers-path",
+      "date": "2026-06-29",
+      "dateLabel": "29 June 2026",
+      "edition": "Daily lesson",
+      "title": "The Staff Engineer’s Path",
+      "authors": "Tanya Reilly",
+      "year": "2022 · first edition",
+      "category": "Career development · Technical leadership · Staff engineering",
+      "summary": "Grow as a senior technical leader by defining the role in its real context, choosing a finite portfolio of worthwhile work and scaling good influence without becoming the permanent bottleneck.",
+      "evidenceNote": "Reilly presents a detailed practitioner framework built from two decades on the individual-contributor path, examples from other engineers and reflection on successes and failures. The role maps, finite-time choices and influence mechanisms are strongly attributable and practically testable, but they are not controlled evidence that one staff-engineering model improves every organisation. Titles, ladders, authority and expected scope vary substantially by company. Treat the book as a structured way to clarify expectations and run small career experiments, not as a universal promotion formula or a guarantee of recognition.",
+      "accent": "purple",
+      "quizRevision": "2026-06-29-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Define the role before proving yourself",
+          "argument": [
+            "Reilly argues that staff engineering is not one standard job. Organisations use the title for different scopes, reporting relationships, depths of technical work and primary focuses. A person can therefore work hard at a plausible version of the role while their manager and peers are judging a different one.",
+            "She recommends mapping where the role sits, how broadly it reaches, what shape it takes and what it primarily exists to change. The useful outcome is not a perfect title definition. It is explicit alignment with the leaders and collaborators who depend on the role."
+          ],
+          "extension": "Turn an ambiguous promotion goal into a role hypothesis. Describe the decisions, organisational scope, technical depth and outcomes expected now, then compare that description with what key leaders actually need.",
+          "image": "../assets/lesson-visuals/staff-engineers-path-role-map.svg",
+          "imageAlt": "An ambiguous staff engineer title enters a role map with four coordinates: organisational scope, technical depth, role shape and primary focus. The mapped coordinates lead to an aligned role statement shared with key leaders.",
+          "imageCaption": "A title becomes actionable only after its local expectations have coordinates.",
+          "why": "Career ambiguity creates invisible failure. Extra output cannot compensate when the organisation needs cross-team direction, and broad influence will not help if the role was hired for deep specialist work. Naming the local contract makes progress, support and trade-offs discussable.",
+          "apply": [
+            "Write one sentence for the role you are doing or pursuing: its scope, technical depth, primary focus and the outcome it should improve.",
+            "Ask one key collaborator which part matches their expectation and which part they would change. Record the disagreement rather than smoothing it away."
+          ],
+          "caveat": "A role map cannot create authority, a healthy ladder or promotion capacity that the organisation does not provide. Expectations can also conflict across leaders. Use the map to surface that constraint and negotiate priorities; do not treat every gap as a personal skill deficit.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which description best reflects Reilly's treatment of a staff engineer role?",
+              "options": [
+                "A universal title with the same duties in every company.",
+                "A context-specific role aligned on scope, shape and focus.",
+                "A senior coding position measured mainly by output volume.",
+                "A temporary project role assigned by the engineering manager."
+              ],
+              "correctIndex": 1,
+              "feedback": "Staff roles vary by organisation. Reilly makes the ambiguity workable by describing the role's scope, shape, focus and relationships, then aligning those expectations locally.",
+              "feedbackByOption": [
+                "Companies use staff titles differently. The correct approach is to map and align the local scope, shape and focus rather than assume a universal job.",
+                "Correct. The title is only a starting point; an actionable role is defined and aligned in the context where the engineer works.",
+                "Technical skill remains foundational, but output volume alone misses the wider direction, execution and influence expected in many staff roles.",
+                "A staff engineer may lead projects, but Reilly describes an ongoing technical-leadership path whose local form must be clarified."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A new staff engineer receives conflicting advice about what success means. What is the strongest first move?",
+              "options": [
+                "Take more delivery work until the title feels justified.",
+                "Copy a role description from a larger engineering company.",
+                "Map current scope, focus and expectations with key leaders.",
+                "Wait for the next review cycle to reveal how success is judged."
+              ],
+              "correctIndex": 2,
+              "feedback": "The conflict is evidence that the role contract is unclear. Mapping the role and comparing expectations makes the disagreement visible before more effort is invested in the wrong direction.",
+              "feedbackByOption": [
+                "More output may deepen the mismatch. First clarify which scope, focus and outcomes the organisation expects from the role.",
+                "Another company's ladder can offer vocabulary, but it cannot define this organisation's needs, authority or success conditions.",
+                "Correct. A shared map exposes where leaders agree and where the role needs an explicit priority or boundary.",
+                "Waiting leaves the engineer to absorb months of ambiguous signals. The role can be discussed and tested before a formal review."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Choose work as a finite portfolio",
+          "argument": [
+            "Reilly describes senior engineers as people who can see more worthwhile problems than they can possibly solve. Treating every visible flaw as a personal obligation creates an unsustainable queue and makes accidental priorities crowd out deliberate ones.",
+            "Finite time makes project choice part of the job. A candidate should matter to the organisation, fit the engineer's direction and have a realistic place among existing commitments. Choosing one path also means consciously walking past other useful work rather than quietly promising everything."
+          ],
+          "extension": "Manage commitments as a portfolio with a hard capacity boundary. Evaluate value, learning, reputation, energy and opportunity cost together, then make declined or deferred work visible instead of hiding it in an endless personal queue.",
+          "image": "../assets/lesson-visuals/staff-engineers-path-finite-portfolio.svg",
+          "imageAlt": "Four worthwhile project cards approach a finite capacity frame. A three-question filter checks organisational value, personal direction and real capacity. Two coherent commitments enter the portfolio while the others are explicitly deferred or declined.",
+          "imageCaption": "Senior judgement includes choosing which worthwhile problems will not enter the portfolio.",
+          "why": "Overcommitment does not merely exhaust the engineer. It fragments attention, delays feedback and makes every collaborator plan around capacity that never existed. Explicit selection protects both delivery credibility and room for growth.",
+          "apply": [
+            "List your three largest current commitments and one tempting new request. Mark what organisational outcome and personal direction each supports.",
+            "Choose the item that does not fit the real capacity boundary. Write a clear decline, deferral or replacement decision for it."
+          ],
+          "caveat": "Individual prioritisation cannot repair chronic understaffing, unsafe on-call demands or leaders who punish every refusal. Emergencies can also displace the portfolio. Make constraints and trade-offs visible to the people who allocate work instead of turning structural overload into private optimisation.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does finite time require from a senior technical leader?",
+              "options": [
+                "Accept every visible problem to demonstrate senior ownership.",
+                "Reserve most time for urgent requests from the loudest team.",
+                "Commit first, then recover capacity by delegating unfinished tasks.",
+                "Rank work by company value, personal direction and real capacity."
+              ],
+              "correctIndex": 3,
+              "feedback": "Reilly treats selection as part of senior work. Worthwhile opportunities must be compared with organisational value, career direction and the capacity already committed elsewhere.",
+              "feedbackByOption": [
+                "Seeing a problem does not make it sustainable to own. The stronger response is to choose deliberately inside finite capacity.",
+                "Urgency and volume are signals, not a complete priority model. They can displace more valuable work when accepted automatically.",
+                "Delegation cannot manufacture capacity after an incoherent commitment. Select the portfolio before promising the work.",
+                "Correct. A coherent portfolio joins organisational importance, the engineer's direction and an honest capacity boundary."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Three valuable projects compete for one remaining commitment slot. What is the strongest choice process?",
+              "options": [
+                "Join all three and reduce depth so each receives some attention.",
+                "Choose the work with best value, fit and capacity, then decline the rest.",
+                "Accept the incident role because urgent work always outranks planned work.",
+                "Select the highest-visibility project regardless of current commitments."
+              ],
+              "correctIndex": 1,
+              "feedback": "The constraint is real even when every project is useful. Comparing value, fit and capacity supports one credible commitment and makes the cost to the other work explicit.",
+              "feedbackByOption": [
+                "Fragmenting one slot across three projects creates nominal involvement without a credible delivery promise. Choose a coherent portfolio.",
+                "Correct. Selection means committing to the strongest overall fit and making the decline or deferral of other useful work explicit.",
+                "An incident role may be essential, but urgency is not universally dominant. Compare its consequences with the existing portfolio.",
+                "Visibility can support career goals, but ignoring capacity and organisational value produces a fragile, self-serving commitment."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Scale influence without becoming central",
+          "argument": [
+            "Reilly separates direct help from influence that continues without the senior engineer in every conversation. Advice can become teaching, repeated judgement can become a guardrail, and a one-off chance can become an opportunity that another engineer owns.",
+            "She also warns that seniority creates passive influence. People give extra weight to a staff engineer's unfinished ideas and copy the behaviour they observe. Scaling good influence therefore requires deliberate communication, reusable context and room for other people to exercise judgement, not simply more authority."
+          ],
+          "extension": "When the same question reaches you repeatedly, move one level up the leverage ladder. Explain the reasoning publicly, create a lightweight decision aid or give another person the supported opportunity to lead the next instance.",
+          "image": "../assets/lesson-visuals/staff-engineers-path-influence-scale.svg",
+          "imageAlt": "A comparison shows one senior engineer repeatedly answering individual questions on the left. On the right, the same insight becomes teaching, a guardrail and an owned opportunity that help several engineers make sound decisions without routing every choice back through one person.",
+          "imageCaption": "Influence scales when context and ownership travel farther than the expert.",
+          "why": "Being the person who always knows the answer can look valuable while making the organisation dependent on one queue. Reusable reasoning and distributed ownership increase capability, reduce repeated interruptions and create visible growth paths for others.",
+          "apply": [
+            "Choose one question or review comment you have answered at least twice. Write the decision principle behind the answer in two sentences.",
+            "Pick one scaling move: teach it to a group, add a lightweight guardrail or ask another engineer to own the next decision with your support."
+          ],
+          "caveat": "Guardrails can harden into bureaucracy, teaching can ignore local context and delegated opportunities can become abandonment without authority or support. Keep the mechanism proportionate, review whether it improves decisions and remain available for genuinely novel cases.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which action best scales a staff engineer's good influence?",
+              "options": [
+                "Increase reach through teaching, guardrails and opportunities.",
+                "Become the approval point for every important technical choice.",
+                "Keep expertise scarce so colleagues continue to seek direct advice.",
+                "Use seniority to standardise one personal method across all teams."
+              ],
+              "correctIndex": 0,
+              "feedback": "Reilly's scaling mechanisms help more people make better decisions without making the staff engineer the permanent route for every answer. They include teaching, guardrails and opportunities for others.",
+              "feedbackByOption": [
+                "Correct. These mechanisms extend useful reasoning and ownership beyond the staff engineer's direct conversations.",
+                "Universal approval centralises the queue and limits other engineers' judgement. The better goal is reusable context and distributed capability.",
+                "Scarcity protects dependence rather than raising the organisation's capability. Senior influence should make others stronger.",
+                "A personal method may not fit every context. Scaled influence should support sound judgement, not enforce the expert's preferences everywhere."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Several teams repeatedly ask the same architecture question. What is the strongest response?",
+              "options": [
+                "Review every change personally until all teams copy the same style.",
+                "Give the answer privately whenever a similar question appears.",
+                "Escalate the issue so managers can enforce the preferred solution.",
+                "Write a reusable guide, teach the reasoning and give others ownership."
+              ],
+              "correctIndex": 3,
+              "feedback": "A guide preserves context, teaching builds judgement and shared ownership prevents the staff engineer from remaining the only safe decision point.",
+              "feedbackByOption": [
+                "Personal review may ensure short-term consistency, but it preserves the bottleneck and does not build independent judgement.",
+                "Private repetition helps each requester once. The stronger move turns the recurring answer into shared capability and ownership.",
+                "Enforcement can spread a rule without its reasoning and may suppress valid exceptions. Start by building shared judgement and proportionate guardrails.",
+                "Correct. Reusable context plus teaching and ownership scales the decision quality without centralising every future choice."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draft a staff-level role and capacity card",
+        "steps": [
+          "Name one role you hold or want, then write its organisational scope, technical depth, primary focus and intended outcome.",
+          "List your three largest current commitments and mark which part of that role each one supports.",
+          "Circle the commitment with the weakest value, fit or capacity case and write decline, defer or replace beside it.",
+          "Choose one repeated question you can scale through teaching, a guardrail or an opportunity owned by someone else."
+        ],
+        "result": "You finish with one inspectable role hypothesis, one explicit portfolio trade-off and one influence move that can work without routing every decision through you."
+      },
+      "spacedRecall": [
+        "From Shape Up: how could an appetite expose whether a proposed staff-level initiative fits the time and attention it deserves?",
+        "From Getting to Yes: which interests might sit beneath two leaders' conflicting expectations for the same technical role?"
+      ],
+      "takeaway": "Senior technical growth comes from clarifying the role, choosing a credible portfolio and leaving more people able to make good decisions without you in the middle.",
+      "sources": [
+        {
+          "label": "O'Reilly: The Staff Engineer's Path edition, overview and contents",
+          "url": "https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/"
+        },
+        {
+          "label": "O'Reilly: Chapter 1 on defining and aligning the staff role",
+          "url": "https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/ch01.html"
+        },
+        {
+          "label": "O'Reilly: Chapter 4 on finite time and project choice",
+          "url": "https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/ch04.html"
+        },
+        {
+          "label": "O'Reilly: Chapter 7 on passive influence and role modelling",
+          "url": "https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/ch07.html"
+        },
+        {
+          "label": "O'Reilly: Chapter 8 on scaling good influence",
+          "url": "https://www.oreilly.com/library/view/the-staff-engineers/9781098118723/ch08.html"
+        },
+        {
+          "label": "Licensed publisher preview: introduction and three pillars",
+          "url": "https://api.pageplace.de/preview/DT0400.9781098118709_A49444966/preview-9781098118709_A49444966.pdf"
+        },
+        {
+          "label": "Open Library: 2022 O'Reilly edition record",
+          "url": "https://openlibrary.org/books/OL59615933M/The_Staff_Engineer%27s_Path"
+        }
+      ]
+    },
+    {
       "slug": "shape-up",
       "discussionId": "shape-up",
       "date": "2026-06-28",

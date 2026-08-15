@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="staff-influence-title staff-influence-desc">
+  <title id="staff-influence-title">Good influence scales when reasoning and ownership travel</title>
+  <desc id="staff-influence-desc">The left side shows a senior engineer repeatedly answering three separate questions and becoming a bottleneck. The right side turns one insight into teaching, a lightweight guardrail and an owned opportunity, allowing several engineers to decide without routing every choice back through the expert.</desc>
+  <defs>
+    <marker id="staff-influence-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .muted { fill: none; stroke: #53615a; stroke-width: 4; stroke-dasharray: 11 9; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="145" y="18" width="910" height="70" rx="35" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="600" y="61" text-anchor="middle">SCALE THE REASONING AND OWNERSHIP · NOT THE EXPERT'S QUEUE</text>
+
+  <text class="small" x="280" y="128" text-anchor="middle">DIRECT HELP ONLY</text>
+  <rect class="card" x="35" y="150" width="490" height="470" rx="32" fill="#fffdf8"/>
+  <circle cx="185" cy="372" r="76" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text class="small" x="185" y="360" text-anchor="middle">SENIOR</text>
+  <text class="small" x="185" y="390" text-anchor="middle">ENGINEER</text>
+  <rect class="card" x="350" y="205" width="135" height="72" rx="20" fill="#f5c79d"/>
+  <text class="body" x="417" y="250" text-anchor="middle">Question 1</text>
+  <rect class="card" x="350" y="336" width="135" height="72" rx="20" fill="#f5c79d"/>
+  <text class="body" x="417" y="381" text-anchor="middle">Question 2</text>
+  <rect class="card" x="350" y="467" width="135" height="72" rx="20" fill="#f5c79d"/>
+  <text class="body" x="417" y="512" text-anchor="middle">Question 3</text>
+  <path class="line" d="M260 338L338 260" marker-end="url(#staff-influence-arrow)"/>
+  <path class="line" d="M265 372H338" marker-end="url(#staff-influence-arrow)"/>
+  <path class="line" d="M260 406L338 484" marker-end="url(#staff-influence-arrow)"/>
+  <text class="small" x="280" y="580" text-anchor="middle">EVERY ANSWER RETURNS TO ONE QUEUE</text>
+
+  <path class="line" d="M525 382H590" marker-end="url(#staff-influence-arrow)"/>
+  <text class="small" x="920" y="128" text-anchor="middle">INFLUENCE THAT TRAVELS</text>
+  <rect class="card" x="615" y="150" width="550" height="470" rx="32" fill="#fffdf8"/>
+  <rect class="card" x="655" y="195" width="200" height="88" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="755" y="230" text-anchor="middle">TEACHING</text>
+  <text class="body" x="755" y="262" text-anchor="middle">Share reasoning</text>
+  <rect class="card" x="655" y="321" width="200" height="88" rx="22" fill="#e9d17f"/>
+  <text class="small" x="755" y="356" text-anchor="middle">GUARDRAIL</text>
+  <text class="body" x="755" y="388" text-anchor="middle">Guide repeats</text>
+  <rect class="card" x="655" y="447" width="200" height="88" rx="22" fill="#bdd9bf"/>
+  <text class="small" x="755" y="482" text-anchor="middle">OPPORTUNITY</text>
+  <text class="body" x="755" y="514" text-anchor="middle">Give ownership</text>
+
+  <circle cx="1010" cy="240" r="42" fill="#b8d5e5" stroke="#18211d" stroke-width="4"/>
+  <circle cx="1010" cy="365" r="42" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <circle cx="1010" cy="490" r="42" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <path class="line" d="M855 239H955" marker-end="url(#staff-influence-arrow)"/>
+  <path class="line" d="M855 365H955" marker-end="url(#staff-influence-arrow)"/>
+  <path class="line" d="M855 491H955" marker-end="url(#staff-influence-arrow)"/>
+  <path class="muted" d="M1010 282V323M1010 407V448"/>
+  <text class="small" x="1010" y="566" text-anchor="middle">OTHERS DECIDE</text>
+  <text class="small" x="1010" y="594" text-anchor="middle">AND GROW</text>
+
+  <rect class="card" x="125" y="655" width="950" height="78" rx="28" fill="#fffdf8"/>
+  <text class="compact" x="600" y="703" text-anchor="middle">THE GOAL IS MORE CAPABLE PEOPLE, NOT MORE DEPENDENCE</text>
+</svg>
