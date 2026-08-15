@@ -1243,6 +1243,247 @@
       ]
     },
     {
+      "slug": "shape-up",
+      "discussionId": "shape-up",
+      "date": "2026-06-28",
+      "dateLabel": "28 June 2026",
+      "edition": "Daily lesson",
+      "title": "Shape Up",
+      "authors": "Ryan Singer",
+      "year": "2019 · web edition",
+      "category": "Product development · Software delivery · Product strategy",
+      "summary": "Turn raw product requests into bounded bets: set the time appetite before the solution, shape enough to remove dangerous unknowns without prescribing every task, and report progress by what has become known.",
+      "evidenceNote": "Singer documents Basecamp's product-development system as an experienced practitioner, not a controlled comparison proving that Shape Up outperforms other methods. Attribution is unusually strong because the complete book and its examples are published by Basecamp. Fixed time, variable scope, shaping and hill charts are coherent mechanisms, but their outcomes depend on product context, team autonomy, technical risk and the ability to cut peripheral scope. Singer explicitly separates adaptable principles from Basecamp-specific practices such as six-week cycles. Treat the framework as a set of hypotheses to trial, not a universal replacement for discovery, estimation, safety controls or delivery evidence.",
+      "accent": "orange",
+      "quizRevision": "2026-06-28-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Set the appetite before designing the scope",
+          "argument": [
+            "Singer distinguishes an appetite from an estimate. An estimate starts with a proposed solution and predicts how long it may take. An appetite starts with how much time and attention the problem deserves, then uses that budget as a constraint for shaping a solution.",
+            "This reverses the normal conversation. Instead of treating every requested feature as fixed and moving the deadline, the team fixes time and varies peripheral scope. The time limit creates pressure to find the smallest coherent solution, protect the quality floor and leave lower-value detail out."
+          ],
+          "extension": "Before discussing implementation, state the team size, time budget and user problem. Compare solution shapes inside that envelope rather than asking for a precise forecast of an undefined request.",
+          "image": "../assets/lesson-visuals/shape-up-appetite-envelope.svg",
+          "imageAlt": "A raw product request enters an appetite envelope with a fixed time budget and quality floor. Three possible solution footprints are compared, and the coherent one that fits proceeds while excess scope is left out.",
+          "imageCaption": "An appetite turns time into a design constraint before a large solution hardens.",
+          "why": "Teams often spend heavily estimating a solution before deciding what the problem is worth. An explicit appetite reveals whether the conversation is about a small repair or a substantial bet and invites a different design while change is still cheap.",
+          "apply": [
+            "Choose one raw request. Write the user situation that is failing and the maximum team time it deserves before discussing features.",
+            "Sketch one solution that fits that appetite. Name one quality condition that cannot move and two peripheral details that can be left out."
+          ],
+          "caveat": "Fixed time does not make uncertain work predictable, and variable scope is unsafe when compliance, accessibility, security or data integrity is treated as optional. Six weeks is Basecamp's practice, not a universal constant. Keep genuine quality floors explicit and use spikes, staged delivery or another control when the core risk cannot fit the appetite.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "How does an appetite differ from an estimate in Shape Up?",
+              "options": [
+                "The team predicts duration after decomposing a finished solution.",
+                "The team sets a time budget first, then designs work to fit.",
+                "The team adds contingency after developers submit estimates.",
+                "The team fixes requested scope, then negotiates the deadline."
+              ],
+              "correctIndex": 1,
+              "feedback": "An appetite expresses how much the problem is worth before the solution is fixed. It constrains shaping, while an estimate predicts duration for an already imagined scope.",
+              "feedbackByOption": [
+                "That describes estimation from a proposed design. Shape Up first decides how much time the problem deserves, then shapes within it.",
+                "Correct. The appetite is a time budget chosen first, so the team can design a coherent solution whose scope fits that limit.",
+                "Contingency may improve an estimate, but it still begins with scope. An appetite begins with value and time before detailed scope exists.",
+                "Shape Up fixes the time budget and allows peripheral scope to change; it does not preserve every request by moving the deadline."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Stakeholders request a full reporting suite, but its value is uncertain. What is the strongest first move?",
+              "options": [
+                "Estimate the full suite and ask stakeholders to approve its cost.",
+                "Start the suite and cut quality if delivery runs beyond the quarter.",
+                "Collect every requested report before deciding which one to build.",
+                "Set a small appetite, find the failing workflow and shape only that."
+              ],
+              "correctIndex": 3,
+              "feedback": "A bounded appetite and a specific failing workflow create a useful design problem. The team can then find a small coherent intervention rather than inheriting the raw solution request.",
+              "feedbackByOption": [
+                "Estimating the whole request assumes the suite is the right solution before deciding how much the underlying problem is worth.",
+                "Quality should not become the pressure valve. Hold the quality floor and reduce peripheral scope within an explicit appetite.",
+                "More requests can enlarge the grab-bag without identifying the workflow whose failure would justify a product bet.",
+                "Correct. A small appetite and a concrete problem narrow the design space before the requested suite becomes a commitment."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make shaped work rough, solved and bounded",
+          "argument": [
+            "Singer places shaped work between two unhelpful extremes. A few abstract words leave builders guessing what problem and boundary were intended. Polished screens and exhaustive tickets decide too much too early and leave little room for designers and programmers to respond to what they discover.",
+            "Well-shaped work is rough enough to invite judgement, solved enough that its main elements connect, and bounded enough to say where to stop. Shapers inspect technical, design and dependency rabbit holes before commitment, then write a pitch containing the problem, appetite, solution outline, major risks and explicit no-gos."
+          ],
+          "extension": "Use the pitch as a risk boundary rather than a disguised task list. Give the building team a clear problem, macro-level solution and exclusions, then let it discover and sequence the detailed work.",
+          "image": "../assets/lesson-visuals/shape-up-shaped-zone.svg",
+          "imageAlt": "A three-zone comparison places shaped work between a vague raw request and an over-specified ticket stack. The shaped zone is marked rough, solved and bounded, with problem, appetite, elements, rabbit holes and no-gos feeding a pitch.",
+          "imageCaption": "Useful shaping removes dangerous ambiguity while preserving the team's design space.",
+          "why": "The largest delivery risks often exist before a task list can name them: a hard interaction, an untested dependency or a solution that cannot fit the budget. Shaping surfaces those risks without pretending that all implementation work is knowable in advance.",
+          "apply": [
+            "Take one candidate item and write five headings: problem, appetite, solution outline, rabbit holes and no-gos.",
+            "If the solution is only a slogan, add its main elements. If it dictates screens or tasks, remove detail until the builders still have meaningful choices."
+          ],
+          "caveat": "A small shaping group can miss user, operational, accessibility or security knowledge, and roughness can become vagueness when boundaries are weak. Bring the relevant expertise into risk review, preserve discovery where the problem itself is uncertain and do not use a confident pitch to hide dissent.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which description best identifies work that is ready to become a Shape Up pitch?",
+              "options": [
+                "Detailed enough that builders can follow it without making design choices.",
+                "Abstract enough that each builder may define the problem independently.",
+                "Rough, solved at the main level and bounded by explicit exclusions.",
+                "Complete enough to enumerate every task before the commitment is made."
+              ],
+              "correctIndex": 2,
+              "feedback": "Shaped work occupies a deliberate middle level. Its macro solution and boundaries are clear, while implementation detail remains open to the team doing the work.",
+              "feedbackByOption": [
+                "Removing builder judgement is over-specification. Shaped work leaves room for detailed design and implementation choices.",
+                "Independent problem definitions are too vague for a bounded bet. The pitch must establish the problem and main solution together.",
+                "Correct. Roughness preserves creative room, solved elements reduce known risk and boundaries show where the team should stop.",
+                "An exhaustive task list assumes discoveries can be known before building. The pitch specifies the macro shape, not every task."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A request says only, 'Add flexible approvals,' and a team may receive it next cycle. What should happen before commitment?",
+              "options": [
+                "Define the problem, appetite, rough solution, rabbit holes and no-gos.",
+                "Write a complete backlog with estimates, owners and acceptance details.",
+                "Produce polished screens so stakeholders approve the final interface.",
+                "Commit a team first and let it discover whether the request is feasible."
+              ],
+              "correctIndex": 0,
+              "feedback": "The raw request needs a bounded problem and a plausible macro solution before it becomes a bet. Risk review and exclusions reduce avoidable surprises while leaving detail to the builders.",
+              "feedbackByOption": [
+                "Correct. Those five parts turn the vague request into a bounded pitch whose main risks can be examined before a team is committed.",
+                "A complete backlog overstates what is knowable before the team enters the work and can hide the unresolved product and technical risks.",
+                "Polished screens can prematurely fix details and conceal implementation difficulty. The solution should remain rough but mechanically clear.",
+                "That transfers unshaped risk into the delivery cycle. The team should still discover details, but visible rabbit holes belong before the bet."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Track what is unknown, known and done",
+          "argument": [
+            "Singer argues that completed-task counts can misstate progress because real work reveals new tasks. Two items with the same time estimate can also have radically different uncertainty: one is familiar execution, while the other still lacks a viable approach.",
+            "A hill chart separates figuring out what to do from getting it done. A scope moves uphill while the team resolves unknowns, crosses the top when the approach becomes clear, then moves downhill through execution. A dot that remains uphill across updates makes hidden uncertainty discussable without pretending to know a percentage complete."
+          ],
+          "extension": "Report each coherent scope by its uncertainty state and movement. When a dot stalls, ask what remains unknown; if different parts have different states, split the scope until each can move honestly.",
+          "image": "../assets/lesson-visuals/shape-up-uncertainty-hill.svg",
+          "imageAlt": "A hill chart runs from start to finish. One scope is uphill among unknowns, one has crossed the crest where the approach is known and one is downhill in execution. A stalled uphill dot points to the question, what is still unknown?",
+          "imageCaption": "Progress becomes more honest when the report distinguishes problem solving from execution.",
+          "why": "A nearly empty task list can mean almost finished or simply not yet understood. Naming the uncertainty state helps leaders direct assistance to the stuck scope instead of asking for a confident percentage that the evidence cannot support.",
+          "apply": [
+            "Choose one active project and divide it into two or three independently meaningful scopes rather than roles or technical layers.",
+            "Place each scope as unknown, becoming known or executing. For the least-moving scope, write the question that must be answered to cross the hill."
+          ],
+          "caveat": "Hill position is a subjective team judgement, not a forecast, performance score or substitute for working software, user evidence and quality checks. It depends on coherent scope boundaries and psychological safety. A team that fears exposing uncertainty may move dots optimistically instead of raising risk.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does a hill chart primarily communicate about a scope?",
+              "options": [
+                "Whether a scope is still unknown, has become solved or is being executed.",
+                "How many planned tasks are complete compared with the original backlog.",
+                "How much calendar time remains against each task's original estimate.",
+                "Whether every contributor reports the same percentage for the project."
+              ],
+              "correctIndex": 0,
+              "feedback": "The hill distinguishes unresolved problem solving from known execution. It communicates the nature and movement of the work rather than a count of tasks or a numerical forecast.",
+              "feedbackByOption": [
+                "Correct. Uphill means the approach is still being figured out; after the crest it is known enough to execute toward done.",
+                "Task counts can grow as work is discovered, so the hill deliberately reports uncertainty and movement instead of backlog completion.",
+                "Time estimates can hide whether an approach is known. The hill asks what is unresolved before suggesting how long execution may take.",
+                "Agreement on a percentage can still be false precision. Hill position is a contextual judgement about the work's uncertainty state."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A scope remains uphill for several updates while other scopes move. What is the strongest response?",
+              "options": [
+                "Add more tasks to the scope so its remaining work becomes visible.",
+                "Move its dot downhill based on the percentage of tasks already closed.",
+                "Ask which unknown blocks the scope and split it if it hides separate work.",
+                "Increase its estimate and leave the current scope boundary unchanged."
+              ],
+              "correctIndex": 2,
+              "feedback": "A stalled uphill scope is a prompt to investigate uncertainty. The blocker may need help, a design change or a clearer split before progress can be represented honestly.",
+              "feedbackByOption": [
+                "More tasks can describe activity without resolving why the approach remains unknown. Start with the uncertainty holding the scope uphill.",
+                "Closed tasks do not prove the remaining approach is known. Moving the dot for appearances removes the risk signal the chart provides.",
+                "Correct. Name the unresolved question, then separate parts whose uncertainty states differ so each scope can move honestly.",
+                "A larger estimate records delay but does not expose the unknown or test whether the scope combines work that should move independently."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Shape one raw request into a bounded mini-pitch",
+        "steps": [
+          "Choose one request and write the specific user situation that is failing, without copying the requested solution.",
+          "Set a team-and-time appetite plus one quality condition that cannot be traded away.",
+          "Sketch three main solution elements, one rabbit hole and one explicit no-go.",
+          "Name one delivery scope, place it on the uncertainty hill and write the question that would move it over the crest."
+        ],
+        "result": "You finish with a compact, inspectable pitch that another person can challenge before the work becomes a commitment."
+      },
+      "spacedRecall": [
+        "From Designing Data-Intensive Applications: which workload and guarantee would most constrain the appetite for a proposed data feature?",
+        "From The Art of Game Design: what observable player evidence would test whether a shaped interaction produces the intended experience?"
+      ],
+      "takeaway": "Set the investment before the solution, remove the dangerous unknowns before commitment and report whether the remaining work is still being figured out or simply being done.",
+      "sources": [
+        {
+          "label": "Basecamp: Shape Up complete web book and contents",
+          "url": "https://basecamp.com/shapeup"
+        },
+        {
+          "label": "Basecamp: Shape Up introduction and scope of the method",
+          "url": "https://basecamp.com/shapeup/0.3-chapter-01"
+        },
+        {
+          "label": "Basecamp: principles of shaping",
+          "url": "https://basecamp.com/shapeup/1.1-chapter-02"
+        },
+        {
+          "label": "Basecamp: setting appetite and fixed time, variable scope",
+          "url": "https://basecamp.com/shapeup/1.2-chapter-03"
+        },
+        {
+          "label": "Basecamp: risks and rabbit holes",
+          "url": "https://basecamp.com/shapeup/1.4-chapter-05"
+        },
+        {
+          "label": "Basecamp: hill charts and progress through uncertainty",
+          "url": "https://basecamp.com/shapeup/3.4-chapter-13"
+        },
+        {
+          "label": "Basecamp: adapting principles to team size",
+          "url": "https://basecamp.com/shapeup/4.1-appendix-02"
+        },
+        {
+          "label": "Open Library: Shape Up 2019 web edition record",
+          "url": "https://openlibrary.org/books/OL40070984M/Shape_Up"
+        }
+      ]
+    },
+    {
       "slug": "designing-data-intensive-applications",
       "discussionId": "designing-data-intensive-applications",
       "date": "2026-06-27",
