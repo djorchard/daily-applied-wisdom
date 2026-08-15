@@ -1243,6 +1243,220 @@
       ]
     },
     {
+      "slug": "a-philosophy-of-software-design",
+      "discussionId": "a-philosophy-of-software-design",
+      "date": "2026-06-22",
+      "dateLabel": "22 June 2026",
+      "edition": "Daily lesson",
+      "title": "A Philosophy of Software Design",
+      "authors": "John Ousterhout",
+      "year": "2018 · second edition 2021",
+      "category": "Software engineering · Software design · Complexity",
+      "summary": "Make software easier to change by diagnosing how complexity is felt, hiding design decisions behind deep modules and investing briefly in competing designs before an interface hardens.",
+      "evidenceNote": "Ousterhout presents a practitioner design framework refined through systems work, teaching and code review, not a controlled causal study. Attribution is strong because the author publishes edition notes and course material covering the same concepts. Information hiding also has a durable foundation in Parnas's classic modularity paper. The three complexity symptoms are diagnostic lenses rather than validated metrics, and preferences for deep modules or strategic design remain context-dependent, especially for short-lived code, generated adapters and systems needing explicit operational control.",
+      "accent": "green",
+      "quizRevision": "2026-06-22-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Diagnose complexity by its effects",
+          "argument": [
+            "Ousterhout defines complexity as anything about a software system's structure that makes it hard to understand or modify. He describes three ways developers experience it: change amplification, where a small change requires edits in many places; cognitive load, where too much knowledge must be held at once; and unknown unknowns, where it is unclear what must change or what may break.",
+            "Dependencies and obscurity are recurring causes. Complexity usually accumulates through many locally convenient decisions rather than one dramatic mistake, so a system can keep working while each later change becomes harder to reason about."
+          ],
+          "extension": "Name the observed effect before prescribing a pattern. A scattered edit, an overloaded mental model and a surprise dependency are different signals, even when all three are casually called technical debt.",
+          "image": "../assets/lesson-visuals/philosophy-complexity-effects.svg",
+          "imageAlt": "Dependencies and obscurity feed a software design, which produces three diagnostic effects: change amplification, cognitive load and unknown unknowns.",
+          "imageCaption": "Complexity becomes actionable when its cause and experienced effect are made visible.",
+          "why": "A precise symptom turns a subjective complaint about messy code into evidence that can guide a bounded improvement and later show whether the burden actually moved.",
+          "apply": [
+            "Choose one recent change that felt disproportionately difficult. Record how many places changed, which facts had to stay in mind and what surprised the team.",
+            "Classify the dominant effect as change amplification, cognitive load or an unknown unknown. Then identify the dependency or obscure decision most likely to be creating it."
+          ],
+          "caveat": "Some complexity belongs to the problem domain, regulation or necessary distributed behaviour and cannot simply be designed away. Unfamiliarity can also mimic complexity. Use the symptoms as hypotheses supported by real changes, not as a score for blaming a module or its author.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which observation most clearly indicates an unknown unknown rather than ordinary cognitive load?",
+              "options": [
+                "A change requires developers to remember several documented business rules.",
+                "A change needs coordinated edits across many already known modules.",
+                "A change breaks distant behaviour nobody realised depended on it.",
+                "A new developer needs time to learn the system's existing vocabulary."
+              ],
+              "correctIndex": 2,
+              "feedback": "An unknown unknown is a dependency or required change that was not visible before the work began. Known but numerous facts create cognitive load, while known scattered edits indicate change amplification.",
+              "feedbackByOption": [
+                "The burden is real, but the rules are known and documented. This is primarily cognitive load rather than an unknown unknown.",
+                "The edits are dispersed, but the affected modules are already known. That is change amplification rather than a hidden surprise.",
+                "Correct. The distant dependency was outside the team's visible model, so the break reveals an unknown unknown.",
+                "Learning time may reflect unfamiliarity rather than structural complexity, and the vocabulary is already visible rather than unknown."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A small pricing-rule change requires the same edit in seven controllers and three reports. What is the best first response?",
+              "options": [
+                "Treat it as change amplification and find where the rule can have one owner.",
+                "Add a checklist naming all ten edit points so future changes stay consistent.",
+                "Split the work among several developers so the scattered edits finish sooner.",
+                "Rename the duplicated methods so each pricing variant is easier to recognise."
+              ],
+              "correctIndex": 0,
+              "feedback": "The repeated known edits are evidence of change amplification. Finding the dependency or leaked decision behind them can reduce the structural burden instead of merely managing it faster.",
+              "feedbackByOption": [
+                "Correct. The symptom is scattered change, and giving the rule a deliberate owner targets the dependency producing it.",
+                "A checklist reduces omission risk but preserves all ten edit points, so the change amplification remains.",
+                "Parallel work may reduce elapsed time once, but it preserves duplication and adds coordination to later pricing changes.",
+                "Clear names can reduce obscurity, but they do not remove the need to change the same rule in ten places."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make modules deep enough to hide decisions",
+          "argument": [
+            "Ousterhout describes a deep module as one that offers substantial useful behaviour through a comparatively simple interface. Its value comes from information hiding: callers do not need to understand the algorithms, policy choices, data structures or edge-case handling concealed inside.",
+            "A shallow module exposes almost as much complexity as it contains. Thin wrappers, pass-through methods and fragmented classes can add more interfaces without hiding meaningful decisions. Depth is a relationship between capability and interface burden, not a target number of methods or lines."
+          ],
+          "extension": "Treat caller attention as an interface budget. When one module author can absorb a difficult policy and give many callers a simpler, stable result, pulling complexity downward may reduce the total complexity of the system.",
+          "image": "../assets/lesson-visuals/philosophy-deep-modules.svg",
+          "imageAlt": "A shallow module exposes policy details through a large interface, while a deep module gives callers a small interface and hides substantial decisions inside.",
+          "imageCaption": "Module depth is the useful behaviour hidden behind the interface callers must understand.",
+          "why": "Every exposed option, ordering rule and failure detail becomes knowledge that callers may duplicate or depend on. Hiding a stable decision once can reduce both cognitive load and future change amplification.",
+          "apply": [
+            "Pick one helper, service or component used in several places. List the sequencing, retries, state transitions or configuration every caller must currently understand.",
+            "Choose one decision the module could own safely, then sketch the smaller intent-based interface callers would need if that decision moved inside."
+          ],
+          "caveat": "A deep module is not permission to create a hidden god object. Important cost, security, transactional and failure behaviour may need to remain explicit. Thin adapters can also be valuable at generated, vendor or platform boundaries. Judge depth by reduced caller burden and coherent responsibility, not size alone.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which description best fits a deep module in Ousterhout's sense?",
+              "options": [
+                "A large class that contains every operation for one business domain.",
+                "A reusable wrapper that exposes each underlying operation unchanged.",
+                "A service with many configuration switches for every caller preference.",
+                "A small stable interface that hides substantial behaviour and decisions."
+              ],
+              "correctIndex": 3,
+              "feedback": "Depth compares useful capability with the complexity exposed at the interface. Neither code size nor a wrapper layer establishes that the caller has less to understand.",
+              "feedbackByOption": [
+                "Large size does not establish depth. A broad class can expose many unrelated decisions and become harder to understand internally.",
+                "An unchanged wrapper adds another interface while hiding little, so it is a classic shallow-module risk.",
+                "Many switches move policy choices to callers and can enlarge the interface burden instead of hiding it.",
+                "Correct. A deep module provides significant capability while keeping the knowledge required by callers comparatively small."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Five callers each implement retry order, backoff and error mapping around one service. Which redesign best applies module depth?",
+              "options": [
+                "Publish a shared sequence diagram so every caller follows the same policy.",
+                "Move the policy behind an outcome-based interface and keep needed controls explicit.",
+                "Create separate retry, backoff and mapping helpers for callers to compose.",
+                "Add more service error codes so callers can handle each failure precisely."
+              ],
+              "correctIndex": 1,
+              "feedback": "A coherent service boundary can hide repeated policy while still exposing controls that genuinely affect caller intent or safety. Documentation or smaller helpers leave callers assembling the mechanism.",
+              "feedbackByOption": [
+                "Documentation can reduce obscurity, but each caller still owns the same sequencing and policy, so duplication and change amplification remain.",
+                "Correct. The module owns the repeated mechanism behind a simpler intent-based interface while preserving controls callers truly need.",
+                "Smaller helpers may improve local reuse, but callers still understand and compose the full policy, which keeps the interface burden high.",
+                "More error detail may help diagnosis, but it can also expose additional service internals without removing repeated retry decisions."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Invest strategically, one design at a time",
+          "argument": [
+            "Ousterhout contrasts tactical programming, which optimises for the fastest working change, with strategic programming, which makes a continuing investment in a design that will support later changes. Tactical choices can be rational during an emergency, but repeated without repair they accumulate complexity faster than visible features suggest.",
+            "His practical technique design it twice asks developers to sketch more than one plausible structure before committing. Comparing alternatives exposes assumptions and trade-offs while change is still cheap. The second edition's emphasis on deciding what matters keeps this from becoming exhaustive up-front design."
+          ],
+          "extension": "Before an interface, schema or workflow becomes expensive to reverse, time-box two designs and compare only the factors that matter: caller knowledge, hidden decisions, likely changes and failure behaviour.",
+          "image": "../assets/lesson-visuals/philosophy-strategic-design.svg",
+          "imageAlt": "A requirement can follow a tactical path straight to the first workable design and later patches, or a strategic path through two time-boxed sketches, comparison and a deliberate choice.",
+          "imageCaption": "A small comparison before commitment can reveal accidental complexity while alternatives are still cheap.",
+          "why": "The first workable design often becomes a long-lived contract. A brief second option can reveal that a seemingly necessary parameter, dependency or abstraction belongs somewhere else.",
+          "apply": [
+            "Choose the next interface, data shape or workflow decision that will be costly to reverse. Sketch the first plausible design in three minutes.",
+            "Spend three minutes on a structurally different option. Compare what each makes callers know, what it hides and which likely change it makes easier before choosing."
+          ],
+          "caveat": "Strategic programming is not gold-plating or predicting every future. Short-lived experiments, urgent recovery and highly reversible code justify lighter design effort. Time-box the comparison, focus on consequential commitments and record uncertainty instead of delaying delivery for an imagined perfect structure.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What distinguishes strategic programming from tactical programming in this lesson?",
+              "options": [
+                "It accepts a small present design cost to reduce avoidable future complexity.",
+                "It completes the architecture before implementation begins so rework is rare.",
+                "It delays urgent changes until the team can remove all nearby design debt.",
+                "It favours general-purpose modules even when only one use is understood."
+              ],
+              "correctIndex": 0,
+              "feedback": "Strategic programming keeps delivery moving while investing deliberately in future changeability. It does not require perfect up-front architecture, universal generality or debt removal before urgent work.",
+              "feedbackByOption": [
+                "Correct. Strategic programming pays a bounded design cost now to avoid repeatedly compounding accidental complexity later.",
+                "The approach is iterative and expects learning. It does not claim that complete up-front architecture can eliminate rework.",
+                "Urgent tactical action can be justified. The strategic obligation is to limit or repair the resulting complexity, not block every change.",
+                "Generality can deepen a reusable module, but speculative capability can add complexity when the relevant uses are not understood."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A public API is due tomorrow, and two interface shapes appear plausible. What best applies design it twice?",
+              "options": [
+                "Ship the first shape, then create the second only if users report confusion.",
+                "Delay the API until both shapes have complete implementations and benchmarks.",
+                "Time-box two sketches, compare important trade-offs and choose deliberately.",
+                "Ask each developer to vote for one shape without discussing implementation."
+              ],
+              "correctIndex": 2,
+              "feedback": "The technique is a bounded comparison before commitment. Sketches are enough to expose different assumptions; full implementations and indefinite delay are not required.",
+              "feedbackByOption": [
+                "Waiting for user confusion makes the published interface the experiment and may turn an avoidable design choice into a compatibility constraint.",
+                "Complete competing implementations may be disproportionate for tomorrow's decision. The comparison can be useful while both designs are still sketches.",
+                "Correct. A short comparison exposes the choices that matter while preserving the deadline and leaving uncertainty visible.",
+                "Independent views can reduce anchoring, but a vote without comparing caller burden, hidden decisions and likely change does not test the designs."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run a two-design complexity check",
+        "steps": [
+          "Choose one small interface or workflow decision that is about to become harder to reverse.",
+          "Write one risk under each symptom: scattered edits, facts callers must remember and a possible hidden dependency.",
+          "Sketch two structurally different designs, giving each no more than two minutes.",
+          "Mark which decisions each design hides and which knowledge remains with callers.",
+          "Choose the option with the clearest reduction in caller burden, then record one uncertainty and one check before implementation."
+        ],
+        "result": "You finish with two visible alternatives, one evidence-based choice and one uncertainty that still needs testing."
+      },
+      "spacedRecall": [
+        "From Working Effectively with Legacy Code: where is the enabling point that could let one hidden dependency vary without changing its caller?",
+        "From Site Reliability Engineering: which user-relevant signal would reveal that a simpler interface is hiding the wrong behaviour?"
+      ],
+      "takeaway": "Simple software is built by noticing how complexity is felt, hiding coherent decisions and spending a little time on alternatives before the first workable design becomes permanent.",
+      "sources": [
+        { "label": "John Ousterhout: A Philosophy of Software Design, second-edition notes", "url": "https://web.stanford.edu/~ouster/cgi-bin/aposd.php" },
+        { "label": "Stanford CS 190: Managing Complexity", "url": "https://web.stanford.edu/~ouster/cgi-bin/cs190-spring15/lecture.php?topic=complexity" },
+        { "label": "Stanford CS 190: Discussion of A Philosophy of Software Design", "url": "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter20/lecture.php?topic=bookReview" },
+        { "label": "Communications of the ACM: On the Criteria To Be Used in Decomposing Systems into Modules", "url": "https://doi.org/10.1145/361598.361623" }
+      ]
+    },
+    {
       "slug": "the-four-pillars-of-investing",
       "discussionId": "the-four-pillars-of-investing",
       "date": "2026-06-21",

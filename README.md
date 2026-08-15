@@ -26,6 +26,10 @@ node tools/check-content.mjs
 
 `--check` reports missing, stale or different generated files without changing the working tree. The content checker invokes that same generated-output check and also validates the three-idea learning structure, stable IDs, learning checks, service configuration, source notes, visuals, local fonts, internal links, assets, anchors and duplicate HTML IDs. CI runs the syntax and full release-integrity checks on every pull request and push to `main`.
 
+## Library browsing
+
+The homepage library progressively enhances the complete lesson archive. With JavaScript available, it shows the 10 newest matching lessons, supports text search across titles, authors, topics, summaries and idea names, filters by the category tags currently used by lessons, and paginates every result set. Without JavaScript, every lesson remains available in the page.
+
 ## Learning checks
 
 Each book has a six-question learning check after its three ideas: one concept question and one application scenario per idea. Questions are interleaved so one answer does not cue its paired scenario. The reader answers all six before receiving immediate corrective feedback. The first attempt is retained as a low-stakes browser-local result; **Practice again** clears only the displayed practice round and preserves that first attempt.

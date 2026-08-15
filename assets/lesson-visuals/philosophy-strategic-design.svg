@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="philosophy-strategy-title philosophy-strategy-desc">
+  <title id="philosophy-strategy-title">Compare tactical and strategic software design paths</title>
+  <desc id="philosophy-strategy-desc">A tactical path moves from a requirement to the first workable design, then repeated patches. A strategic path time-boxes two sketches, compares what matters, chooses deliberately and records uncertainty before shipping. The strategic path aims to avoid accidental commitments without promising a perfect design.</desc>
+  <defs>
+    <marker id="philosophy-strategy-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="250" y="22" width="700" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="60" text-anchor="middle" font-weight="700">COMPARE BEFORE A LONG-LIVED INTERFACE HARDENS</text>
+
+  <text class="small" x="45" y="122">TACTICAL PATH</text>
+  <rect class="card" x="45" y="145" width="195" height="120" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="142.5" y="193" text-anchor="middle">REQUIREMENT</text>
+  <text class="body" x="142.5" y="230" text-anchor="middle">Need it now</text>
+  <path class="line" d="M240 205H285" marker-end="url(#philosophy-strategy-arrow)"/>
+  <rect class="card" x="285" y="145" width="240" height="120" rx="22" fill="#f5c79d"/>
+  <text class="small" x="405" y="178" text-anchor="middle">FIRST WORKABLE</text>
+  <text class="small" x="405" y="206" text-anchor="middle">DESIGN</text>
+  <text class="body" x="405" y="233" text-anchor="middle" style="font-size:22px">
+    <tspan x="405" dy="0">One option</tspan>
+    <tspan x="405" dy="24">considered</tspan>
+  </text>
+  <path class="line" d="M525 205H570" marker-end="url(#philosophy-strategy-arrow)"/>
+  <rect class="card" x="570" y="145" width="185" height="120" rx="22" fill="#e9d17f"/>
+  <text class="compact" x="662.5" y="183" text-anchor="middle">SHIP</text>
+  <text class="small" x="662.5" y="221" text-anchor="middle">
+    <tspan x="662.5" dy="0">CONTRACT</tspan>
+    <tspan x="662.5" dy="26">HARDENS</tspan>
+  </text>
+  <path class="line" d="M755 205H800" marker-end="url(#philosophy-strategy-arrow)"/>
+  <rect class="card" x="800" y="145" width="355" height="120" rx="22" fill="#fffdf8" stroke="#d86136" stroke-width="4"/>
+  <text class="small" x="977.5" y="184" text-anchor="middle">PATCH THE</text>
+  <text class="small" x="977.5" y="214" text-anchor="middle">CONSEQUENCES</text>
+  <text class="body" x="977.5" y="248" text-anchor="middle">Fast once; harder next time</text>
+
+  <text class="small" x="45" y="354">STRATEGIC PATH</text>
+  <rect class="card" x="45" y="377" width="195" height="140" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="142.5" y="431" text-anchor="middle">REQUIREMENT</text>
+  <text class="small" x="142.5" y="465" text-anchor="middle">MARK WHAT</text>
+  <text class="small" x="142.5" y="493" text-anchor="middle">MATTERS</text>
+
+  <rect class="card" x="285" y="342" width="230" height="95" rx="22" fill="#d8cce8"/>
+  <text class="compact" x="400" y="382" text-anchor="middle">SKETCH A</text>
+  <text class="body" x="400" y="416" text-anchor="middle">First structure</text>
+  <rect class="card" x="285" y="457" width="230" height="95" rx="22" fill="#bdd9bf"/>
+  <text class="compact" x="400" y="497" text-anchor="middle">SKETCH B</text>
+  <text class="body" x="400" y="531" text-anchor="middle">Different structure</text>
+  <path class="line" d="M240 447H265V389H285" marker-end="url(#philosophy-strategy-arrow)"/>
+  <path class="line" d="M265 447V504H285" marker-end="url(#philosophy-strategy-arrow)"/>
+  <path class="line" d="M515 389H545V447H570" marker-end="url(#philosophy-strategy-arrow)"/>
+  <path class="line" d="M515 504H545V447H570"/>
+
+  <rect class="card" x="570" y="377" width="255" height="140" rx="22" fill="#e9d17f"/>
+  <text class="compact" x="697.5" y="414" text-anchor="middle">COMPARE</text>
+  <text class="small" x="697.5" y="449" text-anchor="middle">CALLER BURDEN</text>
+  <text class="small" x="697.5" y="479" text-anchor="middle">LIKELY CHANGE</text>
+  <text class="small" x="697.5" y="509" text-anchor="middle">HIDDEN DECISIONS</text>
+  <path class="line" d="M825 447H870" marker-end="url(#philosophy-strategy-arrow)"/>
+  <rect class="card" x="870" y="377" width="285" height="140" rx="22" fill="#bdd9bf"/>
+  <text class="compact" x="1012.5" y="420" text-anchor="middle">CHOOSE AND SHIP</text>
+  <text class="body" x="1012.5" y="458" text-anchor="middle">Record one uncertainty</text>
+  <text class="body" x="1012.5" y="490" text-anchor="middle">Test the important claim</text>
+
+  <rect class="card" x="120" y="625" width="960" height="92" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="600" y="667" text-anchor="middle">A SECOND SKETCH IS AN INVESTMENT, NOT A GUARANTEE</text>
+  <text class="body" x="600" y="703" text-anchor="middle">Time-box the comparison and stop when the consequential trade-off is visible</text>
+</svg>

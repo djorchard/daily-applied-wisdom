@@ -2,6 +2,145 @@ const CLARITY_PROJECT_ID = 'y1mr2l6g3q';
 const ANALYTICS_CONSENT_KEY = 'daw-clarity-consent';
 const clarityDisabledOnPage = document.body.classList.contains('saved-page');
 
+const libraryControls = document.querySelector('[data-library-controls]');
+if (libraryControls) {
+  const PAGE_SIZE = 10;
+  const cards = [...document.querySelectorAll('[data-library-card]')];
+  const searchInput = libraryControls.querySelector('[data-library-search]');
+  const categorySelect = libraryControls.querySelector('[data-library-category]');
+  const clearButton = libraryControls.querySelector('[data-library-clear]');
+  const resultsBar = document.querySelector('[data-library-results-bar]');
+  const status = document.querySelector('[data-library-status]');
+  const empty = document.querySelector('[data-library-empty]');
+  const emptyClear = document.querySelector('[data-library-empty-clear]');
+  const pagination = document.querySelector('[data-library-pagination]');
+  const previous = pagination?.querySelector('[data-library-previous]');
+  const next = pagination?.querySelector('[data-library-next]');
+  const pages = pagination?.querySelector('[data-library-pages]');
+  let currentPage = 1;
+
+  const normalizeLibraryText = (value) => String(value || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('en');
+
+  const libraryItems = cards.map((card) => {
+    let categories = [];
+    try { categories = JSON.parse(card.dataset.libraryCategories || '[]'); } catch { categories = []; }
+    return {
+      card,
+      categories: categories.map(normalizeLibraryText),
+      search: normalizeLibraryText(card.dataset.librarySearch)
+    };
+  });
+
+  const pageSequence = (totalPages) => {
+    if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
+    const numberedPages = [...new Set([1, currentPage - 1, currentPage, currentPage + 1, totalPages]
+      .filter((page) => page >= 1 && page <= totalPages))]
+      .sort((left, right) => left - right);
+    const sequence = [];
+    numberedPages.forEach((page, index) => {
+      if (index > 0 && page - numberedPages[index - 1] > 1) sequence.push('ellipsis');
+      sequence.push(page);
+    });
+    return sequence;
+  };
+
+  const renderPagination = (totalPages) => {
+    if (!pagination || !pages || !previous || !next) return;
+    pagination.hidden = totalPages <= 1;
+    previous.disabled = currentPage === 1;
+    next.disabled = currentPage === totalPages;
+    pages.replaceChildren();
+
+    pageSequence(totalPages).forEach((page) => {
+      const item = document.createElement('li');
+      if (page === 'ellipsis') {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '…';
+        ellipsis.setAttribute('aria-hidden', 'true');
+        item.append(ellipsis);
+      } else {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = String(page);
+        button.dataset.libraryPage = String(page);
+        button.setAttribute('aria-label', `Page ${page}`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        item.append(button);
+      }
+      pages.append(item);
+    });
+  };
+
+  const renderLibrary = ({ focusResults = false } = {}) => {
+    const query = normalizeLibraryText(searchInput?.value).trim();
+    const queryTerms = query.split(/\s+/).filter(Boolean);
+    const selectedCategory = normalizeLibraryText(categorySelect?.value);
+    const matches = libraryItems.filter((item) => (
+      queryTerms.every((term) => item.search.includes(term)) &&
+      (!selectedCategory || item.categories.includes(selectedCategory))
+    ));
+    const totalPages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
+    currentPage = Math.min(currentPage, totalPages);
+    const startIndex = (currentPage - 1) * PAGE_SIZE;
+    const visibleItems = new Set(matches.slice(startIndex, startIndex + PAGE_SIZE));
+
+    libraryItems.forEach((item) => { item.card.hidden = !visibleItems.has(item); });
+    const hasResults = matches.length > 0;
+    if (empty) empty.hidden = hasResults;
+    if (clearButton) clearButton.disabled = !query && !selectedCategory;
+
+    if (status) {
+      status.textContent = hasResults
+        ? `Showing ${startIndex + 1}–${Math.min(startIndex + PAGE_SIZE, matches.length)} of ${matches.length} ${matches.length === 1 ? 'lesson' : 'lessons'}.`
+        : 'No lessons found.';
+    }
+    renderPagination(hasResults ? totalPages : 0);
+    if (focusResults && status) {
+      status.focus({ preventScroll: true });
+      requestAnimationFrame(() => status.scrollIntoView({ block: 'start' }));
+    }
+  };
+
+  searchInput?.addEventListener('input', () => {
+    currentPage = 1;
+    renderLibrary();
+  });
+  categorySelect?.addEventListener('change', () => {
+    currentPage = 1;
+    renderLibrary();
+  });
+  libraryControls.addEventListener('reset', () => {
+    requestAnimationFrame(() => {
+      currentPage = 1;
+      renderLibrary();
+      searchInput?.focus();
+    });
+  });
+  emptyClear?.addEventListener('click', () => libraryControls.reset());
+  previous?.addEventListener('click', () => {
+    if (currentPage === 1) return;
+    currentPage -= 1;
+    renderLibrary({ focusResults: true });
+  });
+  next?.addEventListener('click', () => {
+    currentPage += 1;
+    renderLibrary({ focusResults: true });
+  });
+  pages?.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-library-page]');
+    if (!button) return;
+    currentPage = Number(button.dataset.libraryPage);
+    renderLibrary({ focusResults: true });
+  });
+
+  libraryControls.hidden = false;
+  if (resultsBar) resultsBar.hidden = false;
+  renderLibrary();
+}
+
 function safeStorageGet(key) {
   try { return localStorage.getItem(key); } catch { return null; }
 }

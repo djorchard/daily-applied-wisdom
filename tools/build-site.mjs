@@ -304,7 +304,18 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
 }
 
 function archiveCard(lesson, featured = false) {
-  return `<article class="library-card accent-${esc(lesson.accent)}${featured ? ' featured-card' : ''}">
+  const categories = lesson.category.split('·').map((category) => category.trim()).filter(Boolean);
+  const searchText = [
+    lesson.title,
+    lesson.authors,
+    lesson.category,
+    lesson.summary,
+    ...lesson.ideas.map((idea) => idea.title)
+  ].join(' ');
+  const libraryAttributes = featured
+    ? ''
+    : ` data-library-card data-library-categories="${esc(JSON.stringify(categories))}" data-library-search="${esc(searchText)}"`;
+  return `<article class="library-card accent-${esc(lesson.accent)}${featured ? ' featured-card' : ''}"${libraryAttributes}>
       <p class="eyebrow">${esc(lesson.edition)} · <time datetime="${lesson.date}">${esc(lesson.dateLabel)}</time></p>
       <p class="category">${esc(lesson.category)}</p>
       <h3><a href="lessons/${lesson.slug}.html">${esc(lesson.title)}</a></h3>
@@ -371,6 +382,11 @@ function renderTopicCoverage() {
 
 function renderIndex() {
   const latest = lessons[0];
+  const libraryCategories = [...new Set(lessons.flatMap((lesson) => lesson.category
+    .split('·')
+    .map((category) => category.trim())
+    .filter(Boolean)))]
+    .sort((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' }));
   return `<!doctype html>
 <html lang="en">
   <head>${head({ title: 'Daily Applied Wisdom', description: 'One excellent book, three practical ideas, and a better way to think.', url: `${siteUrl}/` })}
@@ -412,7 +428,35 @@ function renderIndex() {
 
       <section class="library" id="library" aria-labelledby="library-title">
         <div class="library-heading"><p class="eyebrow">The library · ${lessons.length} lessons</p><h2 id="library-title">Ideas to revisit,<br />not summaries to collect.</h2><p>Each lesson explains the author's argument, tests where it may fall short, and ends with questions plus a small experiment you can try.</p></div>
-        <div class="library-grid">${lessons.map((lesson) => archiveCard(lesson)).join('')}</div>
+        <form class="library-controls" data-library-controls role="search" hidden>
+          <div class="library-field">
+            <label for="library-search">Search the library</label>
+            <input id="library-search" type="search" autocomplete="off" aria-describedby="library-search-help" data-library-search />
+            <small id="library-search-help">Search titles, authors, topics and ideas.</small>
+          </div>
+          <div class="library-field">
+            <label for="library-category">Category</label>
+            <select id="library-category" data-library-category>
+              <option value="">All categories</option>
+              ${libraryCategories.map((category) => `<option value="${esc(category)}">${esc(category)}</option>`).join('')}
+            </select>
+          </div>
+          <button class="library-clear" type="reset" data-library-clear>Clear filters</button>
+        </form>
+        <div class="library-results-bar" data-library-results-bar hidden>
+          <p class="library-status" data-library-status tabindex="-1" aria-live="polite"></p>
+        </div>
+        <div class="library-grid" data-library-grid>${lessons.map((lesson) => archiveCard(lesson)).join('')}</div>
+        <div class="library-empty" data-library-empty tabindex="-1" hidden>
+          <h3>No lessons found</h3>
+          <p>Change your search or choose another category.</p>
+          <button type="button" data-library-empty-clear>Clear filters</button>
+        </div>
+        <nav class="library-pagination" data-library-pagination aria-label="Library pages" hidden>
+          <button type="button" data-library-previous>Previous</button>
+          <ol data-library-pages></ol>
+          <button type="button" data-library-next>Next</button>
+        </nav>
       </section>
 
       <section class="about" id="about" aria-labelledby="about-title">

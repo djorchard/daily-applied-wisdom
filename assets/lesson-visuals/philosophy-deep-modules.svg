@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="philosophy-depth-title philosophy-depth-desc">
+  <title id="philosophy-depth-title">Compare shallow and deep software modules</title>
+  <desc id="philosophy-depth-desc">A shallow module exposes ordering, retry and state details through a large interface while hiding little implementation. A deep module gives callers a smaller intent-and-result interface and hides policy, algorithms and edge cases inside. Depth is conceptual, not a class-size target.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .divider { stroke: #18211d; stroke-width: 4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="200" y="22" width="800" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="60" text-anchor="middle" font-weight="700">DEPTH COMPARES CAPABILITY WITH CALLER BURDEN</text>
+
+  <text class="small" x="45" y="124">SHALLOW MODULE</text>
+  <text class="body" x="45" y="156">Callers assemble the mechanism</text>
+  <rect class="card" x="45" y="185" width="495" height="410" rx="28" fill="#fffdf8"/>
+  <rect x="45" y="185" width="495" height="205" rx="28" fill="#f5c79d"/>
+  <path d="M45 362H540" class="divider"/>
+  <text class="small" x="292.5" y="225" text-anchor="middle">EXPOSED INTERFACE KNOWLEDGE</text>
+  <rect x="78" y="253" width="125" height="72" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="140.5" y="298" text-anchor="middle">ORDER</text>
+  <rect x="208" y="253" width="125" height="72" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="270.5" y="298" text-anchor="middle">RETRY</text>
+  <rect x="338" y="253" width="165" height="72" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="420.5" y="298" text-anchor="middle">STATE MAP</text>
+  <text class="body" x="292.5" y="350" text-anchor="middle">Many choices remain outside</text>
+  <text class="small" x="292.5" y="423" text-anchor="middle">HIDDEN IMPLEMENTATION</text>
+  <rect x="115" y="450" width="355" height="78" rx="20" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="292.5" y="499" text-anchor="middle">Thin pass-through behaviour</text>
+  <text class="small" x="292.5" y="574" text-anchor="middle">LITTLE COMPLEXITY HIDDEN</text>
+
+  <text class="small" x="660" y="124">DEEP MODULE</text>
+  <text class="body" x="660" y="156">Callers state intent and receive a result</text>
+  <rect class="card" x="660" y="185" width="495" height="410" rx="28" fill="#bdd9bf"/>
+  <rect x="660" y="185" width="495" height="105" rx="28" fill="#b8d5e5"/>
+  <path d="M660 262H1155" class="divider"/>
+  <text class="small" x="907.5" y="222" text-anchor="middle">SMALL, STABLE INTERFACE</text>
+  <text class="body" x="907.5" y="253" text-anchor="middle">Intent in · outcome out</text>
+  <text class="small" x="907.5" y="328" text-anchor="middle">COHERENT DECISIONS HIDDEN INSIDE</text>
+  <rect x="700" y="355" width="190" height="78" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="795" y="404" text-anchor="middle">POLICY</text>
+  <rect x="925" y="355" width="190" height="78" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="1020" y="404" text-anchor="middle">ALGORITHM</text>
+  <rect x="700" y="456" width="190" height="78" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="795" y="505" text-anchor="middle">EDGE CASES</text>
+  <rect x="925" y="456" width="190" height="78" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="1020" y="505" text-anchor="middle">STATE RULES</text>
+  <text class="small" x="907.5" y="574" text-anchor="middle">SUBSTANTIAL COMPLEXITY HIDDEN</text>
+
+  <rect x="125" y="632" width="950" height="88" rx="26" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text class="heading" x="600" y="673" text-anchor="middle">DEPTH IS A RELATIONSHIP, NOT A CLASS-SIZE TARGET</text>
+  <text class="body" x="600" y="707" text-anchor="middle">Keep cost, security and essential control explicit when callers truly need them</text>
+</svg>

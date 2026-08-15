@@ -427,6 +427,27 @@ if (
   !/<section class="quick-review"[^>]*data-clarity-mask="true"/.test(indexPage) ||
   !/<script id="daw-quick-review-data"[^>]*data-clarity-mask="true"/.test(indexPage)
 ) fail('The homepage has incomplete browser-local quick-review markup or disclosure.');
+const libraryCategories = [...new Set(lessons.flatMap((lesson) => lesson.category
+  .split('·')
+  .map((category) => category.trim())
+  .filter(Boolean)))];
+if (
+  !indexPage.includes('data-library-controls') ||
+  !indexPage.includes('data-library-search') ||
+  !indexPage.includes('data-library-category') ||
+  !indexPage.includes('data-library-status') ||
+  !indexPage.includes('data-library-empty') ||
+  !indexPage.includes('data-library-pagination') ||
+  (indexPage.match(/data-library-card/g) || []).length !== lessons.length ||
+  !clientScript.includes('const PAGE_SIZE = 10;') ||
+  !clientScript.includes('data-library-page') ||
+  !clientScript.includes('No lessons found.')
+) fail('The homepage has incomplete library search, category filter or pagination support.');
+for (const category of libraryCategories) {
+  if (!indexPage.includes(`<option value="${esc(category)}">${esc(category)}</option>`)) {
+    fail(`The library category filter is missing ${category}.`);
+  }
+}
 if (
   !indexPage.includes('id="topics"') ||
   !indexPage.includes('id="topic-chart-title"') ||
