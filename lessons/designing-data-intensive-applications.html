@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html" />
+    <meta property="og:title" content="Designing Data-Intensive Applications | Daily Applied Wisdom" />
+    <meta property="og:description" content="Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-06-27" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Designing Data-Intensive Applications | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Designing Data-Intensive Applications","description":"Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure.","datePublished":"2026-06-27","about":{"@type":"Book","name":"Designing Data-Intensive Applications","author":[{"@type":"Person","name":"Martin Kleppmann"},{"@type":"Person","name":"Chris Riccomini"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-06-27">27 June 2026</time></p>
+          <h1>Designing Data-Intensive Applications</h1>
+          <p class="lesson-author">Martin Kleppmann and Chris Riccomini</p>
+          <div class="lesson-meta"><span>2017 · second edition 2026</span><span>Software engineering · Data systems · Distributed systems</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Kleppmann and Riccomini compare mechanisms, research and production experience rather than prescribing one universal architecture. The models for compatibility and partial failure are technically strong; product choices, thresholds and operational trade-offs remain context-dependent. This lesson uses the substantially updated 2026 second edition and keeps tool-specific claims secondary to durable principles.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Designing Data-Intensive Applications | Daily Applied Wisdom" data-share-text="Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Define the workload before choosing the system</a><a href="#idea-2"><span>02</span>Design schema change for mixed-version reality</a><a href="#idea-3"><span>03</span>A timeout leaves the outcome unknown</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-blue" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Define the workload before choosing the system <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Kleppmann and Riccomini frame data-system architecture as a set of trade-offs among functional needs and qualities such as reliability, scalability, performance, maintainability and evolvability. A technology is not simply scalable or fast in the abstract; its behaviour depends on the operations, data volume, access pattern, failure tolerance and change rate it must support.</p>
+<p>They therefore begin with workload and nonfunctional requirements. Load parameters such as requests per second, read-to-write mix, item size, data growth and hot-key concentration make a design claim testable, while latency percentiles and failure semantics say what acceptable service actually means.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Replace product-first architecture debates with a requirements envelope. Record the critical operation, expected load shape, acceptable tail latency, required correctness and growth horizon before comparing tools.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/ddia-requirements-envelope.svg" alt="A workload card feeds a requirements envelope containing reliability, tail latency, scale and evolvability, which then narrows three technology options to one evidence-based fit." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A system choice becomes meaningful only after the workload and guarantees are visible.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Teams can spend days debating database brands while hiding the assumptions that would decide the question. Explicit parameters turn preference into a falsifiable design and reveal when a simpler single-node or existing system is sufficient.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one proposed data or integration component. Write its most important read or write operation and the peak load shape it must handle.</p>
+<p>Add one tail-latency target, one correctness guarantee and one expected change over the next year. Compare options only against that small envelope.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Early numbers are estimates, and requirements can conflict or change. Do not manufacture false precision or demand every desirable property at once; record uncertainty, test the sensitive assumptions and revise the envelope with production evidence.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="designing-data-intensive-applications-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="designing-data-intensive-applications-idea-1" data-lesson-slug="designing-data-intensive-applications" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulDesigningDataIntensiveApplicationsIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Design schema change for mixed-version reality <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>The authors argue that applications and their stored data inevitably evolve, while deployment is rarely instantaneous. Old records remain after new code ships, and rolling deployments leave old and new processes active together. A format change must therefore be judged by how different versions read one another's data, not only by whether the latest code works with itself.</p>
+<p>Backward compatibility lets newer code read data written by older code; forward compatibility lets older code read data written by newer code. Additive fields, explicit defaults, tolerant readers and staged rollouts can preserve both directions long enough for a safe transition.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Treat a schema rollout as a compatibility window, not one deployment event. Map which producer and consumer versions coexist, then order the change so every live edge remains readable.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/ddia-compatibility-window.svg" alt="Old and new writers send records through a compatibility window to old and new readers, with a staged path from tolerant readers to new writers and later cleanup." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Safe evolution keeps old and new code mutually understandable during the rollout window.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A change can pass unit tests and still fail when an old worker reads a new message, a new release encounters an old row, or a rollback restores code that no longer understands current data. Compatibility makes those temporal dependencies explicit.</p></section>
+          <section><h3>Apply it today</h3><p>For one upcoming field or event change, list every writer, reader and stored copy that may still use the old format during rollout or rollback.</p>
+<p>Choose an order: first make readers tolerate both forms, then introduce the new write, observe coexistence, migrate old data if needed and remove compatibility only after evidence shows it is unused.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Additive evolution is not free forever. Some semantic changes cannot be made safe with optional fields, and permanent tolerance creates ambiguity and maintenance cost. Define an observation period and a deliberate cleanup or translation boundary.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="designing-data-intensive-applications-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="designing-data-intensive-applications-idea-2" data-lesson-slug="designing-data-intensive-applications" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulDesigningDataIntensiveApplicationsIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">A timeout leaves the outcome unknown <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Kleppmann and Riccomini emphasise that distributed systems fail partially. A request can be lost, the server can be slow, the operation can complete while its response is lost, or the caller can pause. From a timeout alone, the caller cannot distinguish these cases.</p>
+<p>A timeout is therefore a limit on knowledge, not evidence that the operation was rolled back. Blindly retrying a non-idempotent action can duplicate a payment, order or message. Stable operation identifiers, idempotent handling, status checks and reconciliation turn uncertainty into a state the system can manage.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Give every side effect an uncertainty path. Decide what the caller shows, which identifier survives a retry, how completion is verified and who reconciles an operation that remains unresolved.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/ddia-timeout-unknown.svg" alt="One request branches into three indistinguishable timeout cases: request lost, server still working and response lost after commit, followed by a safe path using one operation ID, status check and reconciliation." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The same timeout can hide three different realities, so safe recovery must preserve identity and verify state.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Many severe duplicate-action bugs begin with the reasonable but false sentence, 'It timed out, so it failed.' Designing the unknown state explicitly protects users and makes recovery observable instead of depending on luck.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one remote action with a side effect, such as creating an order, sending a notification or updating a case. Ask what a timeout proves about its outcome.</p>
+<p>Write the stable operation ID, safe retry rule, status or reconciliation check and user-visible state for an unresolved result.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Idempotency is scoped, not magical. Keys can expire, downstream side effects may not share the guarantee, and indefinite retries can amplify overload. Bound retry timing, document key scope and retain a reconciliation path for ambiguous operations.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="designing-data-intensive-applications-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="designing-data-intensive-applications-idea-3" data-lesson-slug="designing-data-intensive-applications" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulDesigningDataIntensiveApplicationsIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="designing-data-intensive-applications" data-quiz-revision="2026-06-27-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What makes a claim that a data system is scalable meaningful in this lesson?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q1" value="0" required aria-describedby="designing-data-intensive-applications-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>The system has distributed storage and can add nodes without planned downtime.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q1" value="1" required aria-describedby="designing-data-intensive-applications-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Its behaviour is evaluated against a stated workload, growth path and service target.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q1" value="2" required aria-describedby="designing-data-intensive-applications-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>The vendor publishes benchmark results for workloads larger than the current one.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q1" value="3" required aria-describedby="designing-data-intensive-applications-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Its architecture uses the same scaling pattern as other systems across the organisation.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Distribution can support some growth patterns, but it also adds coordination and failure modes. It does not define the workload or required service.</p><p data-feedback-for="1" hidden>A stated workload, growth path and service target make the scalability claim specific enough to test and compare.</p><p data-feedback-for="2" hidden>A benchmark can supply evidence, but only when its operations, data shape and guarantees resemble the actual workload being designed.</p><p data-feedback-for="3" hidden>Organisational consistency can reduce operating cost, but copying a pattern does not show that it fits this workload and its guarantees.</p>
+                    <p class="quiz-feedback-context">Scalability is a relationship between a system and a changing load. The load parameters, required service and growth path must be visible before the claim can be evaluated.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-2-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Which condition best describes a schema change that supports a rolling deployment?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q1" value="0" required aria-describedby="designing-data-intensive-applications-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Every process changes its schema at the same scheduled deployment boundary.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q1" value="1" required aria-describedby="designing-data-intensive-applications-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>New code reads new records while old records are migrated before traffic resumes.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q1" value="2" required aria-describedby="designing-data-intensive-applications-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Old code ignores validation so it can accept any record written by new code.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q1" value="3" required aria-describedby="designing-data-intensive-applications-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>New code reads old data and old code safely handles data written by new code.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>An atomic boundary is often unavailable across services, workers, clients and stored records. The lesson designs for version overlap instead.</p><p data-feedback-for="1" hidden>Migrating all stored data before traffic resumes can be costly and still does not protect messages or processes that remain on the old version.</p><p data-feedback-for="2" hidden>Tolerant reading is useful, but disabling validation entirely can admit malformed or semantically unsafe data rather than defined compatibility.</p><p data-feedback-for="3" hidden>New readers accepting old data provide backward compatibility, while old readers safely handling new data provide forward compatibility.</p>
+                    <p class="quiz-feedback-context">During a rolling deployment, both versions may read data written by the other. The transition needs backward and forward compatibility across that coexistence window.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-3-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What can a caller conclude when a remote write reaches its timeout?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q1" value="0" required aria-describedby="designing-data-intensive-applications-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>The server rejected the write because no successful response arrived in time.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q1" value="1" required aria-describedby="designing-data-intensive-applications-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>The write is still running and will eventually return the original response.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q1" value="2" required aria-describedby="designing-data-intensive-applications-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>The outcome is unknown because request, processing or response may have failed.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q1" value="3" required aria-describedby="designing-data-intensive-applications-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>The write completed but the response was lost somewhere on the return path.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>No response does not prove rejection. The request may be delayed, lost, still running or already committed without its response reaching the caller.</p><p data-feedback-for="1" hidden>The server may still be working, but that is only one possible state and the original connection may never deliver a response.</p><p data-feedback-for="2" hidden>A timeout is an observation about elapsed time and knowledge, not a definitive statement about the remote side effect.</p><p data-feedback-for="3" hidden>A lost response after completion is possible, but so are a lost request and slow or failed processing. The caller cannot select one case from the timeout alone.</p>
+                    <p class="quiz-feedback-context">The caller observes only the absence of a timely response. Several realities can produce that observation, including no execution, ongoing execution and completed execution with a lost response.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-1-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A team says it needs a distributed database because traffic may grow. What is the best first step?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q2" value="0" required aria-describedby="designing-data-intensive-applications-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Prototype two distributed products and compare their default throughput benchmarks.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q2" value="1" required aria-describedby="designing-data-intensive-applications-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Write the critical operations, load shape, service guarantees and expected growth.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q2" value="2" required aria-describedby="designing-data-intensive-applications-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Select the product already operated elsewhere, then document its capacity limits.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-1-q2" value="3" required aria-describedby="designing-data-intensive-applications-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Split the service into smaller components so each database has less data to manage.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A product trial can come later. Default benchmarks do not first establish which operations and guarantees the system must support.</p><p data-feedback-for="1" hidden>These parameters expose what growth means and create a basis for testing whether distribution is necessary and which trade-offs fit.</p><p data-feedback-for="2" hidden>Operational familiarity is relevant, but selecting first risks fitting the requirements to the product rather than testing the product against them.</p><p data-feedback-for="3" hidden>Service splitting can add network and consistency problems before the original load, bottleneck or service target has even been defined.</p>
+                    <p class="quiz-feedback-context">The architecture should follow the actual pressure and required behaviour. A small requirements envelope may justify distribution, reveal a different bottleneck or show that a simpler system is enough.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A producer will add an optional field while old consumers remain active. Which rollout is safest?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q2" value="0" required aria-describedby="designing-data-intensive-applications-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Make consumers tolerate both forms, then add the field, observe coexistence and clean up later.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q2" value="1" required aria-describedby="designing-data-intensive-applications-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Add the field to producers first, then patch any consumer that reports a parsing failure.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q2" value="2" required aria-describedby="designing-data-intensive-applications-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Pause producers, deploy every consumer and writer together, then resume the message flow.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-2-q2" value="3" required aria-describedby="designing-data-intensive-applications-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Create a second event type and switch every producer and consumer to it on one date.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Tolerant consumers remove the dangerous edge first; new writes can then begin while both forms remain readable and observable.</p><p data-feedback-for="1" hidden>This makes production failures the compatibility test. An old consumer may reject the new record before a patch can be deployed.</p><p data-feedback-for="2" hidden>Coordinated downtime may be possible in a small system, but it removes rollback flexibility and often cannot cover clients, queues or stored data.</p><p data-feedback-for="3" hidden>A second type can help for a truly new meaning, but a simultaneous cutover recreates the same version-coordination risk.</p>
+                    <p class="quiz-feedback-context">Preparing readers before new writes creates a compatibility window in which old and new formats can coexist. Observation and later cleanup keep the temporary tolerance intentional.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="designing-data-intensive-applications-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A payment request times out after it is sent. What is the safest next action?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q2" value="0" required aria-describedby="designing-data-intensive-applications-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Retry with a new payment identifier so the gateway treats it as fresh work.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q2" value="1" required aria-describedby="designing-data-intensive-applications-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Keep the operation identifier, query status and reconcile before another charge.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q2" value="2" required aria-describedby="designing-data-intensive-applications-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Record the payment as failed and ask the customer to submit it once more.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="designing-data-intensive-applications-idea-3-q2" value="3" required aria-describedby="designing-data-intensive-applications-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Record the payment as successful because the request left the application.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="designing-data-intensive-applications-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A new identifier can turn one uncertain charge into two independent charges. Preserve the logical operation's identity across recovery.</p><p data-feedback-for="1" hidden>The stable identifier, status check and reconciliation path manage uncertainty without creating a second logical payment.</p><p data-feedback-for="2" hidden>Failure is only one possible outcome. Asking for another submission can duplicate a charge that already completed before its response was lost.</p><p data-feedback-for="3" hidden>Sending the request does not prove the gateway accepted or committed it. Recording success would replace uncertainty with an unsupported claim.</p>
+                    <p class="quiz-feedback-context">Preserving identity lets the system discover or repeat the same logical operation without inventing a second charge. A pending state is more honest than guessing success or failure.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Write a one-page data-system assumption card</h2>
+          <ol><li>Name one important operation and write its peak load shape plus one tail-latency or reliability target.</li><li>Describe one likely data-format change and list the old and new readers and writers that would coexist.</li><li>Choose one remote side effect and write what a timeout leaves unknown.</li><li>Add a stable operation ID, verification step or reconciliation owner, then circle the assumption you need to test first.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with one inspectable card connecting workload, evolution and partial-failure recovery to a real system decision.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From A Philosophy of Software Design: which design information should a deep module hide, and which data contract must remain visible to its consumers?</li><li>From Accelerate: which flow and instability measures would reveal a retry policy that improves speed by creating duplicate work?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/" target="_blank" rel="noreferrer">O'Reilly: Designing Data-Intensive Applications, second edition <span aria-hidden="true">↗</span></a></li><li><a href="https://dataintensive.net/" target="_blank" rel="noreferrer">Martin Kleppmann: official Designing Data-Intensive Applications site <span aria-hidden="true">↗</span></a></li><li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch01.html" target="_blank" rel="noreferrer">O'Reilly preview: Trade-Offs in Data Systems Architecture <span aria-hidden="true">↗</span></a></li><li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch02.html" target="_blank" rel="noreferrer">O'Reilly preview: Defining Nonfunctional Requirements <span aria-hidden="true">↗</span></a></li><li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch05.html" target="_blank" rel="noreferrer">O'Reilly preview: Encoding and Evolution <span aria-hidden="true">↗</span></a></li><li><a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch09.html" target="_blank" rel="noreferrer">O'Reilly preview: The Trouble with Distributed Systems <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Design the data system around explicit demands, planned coexistence and honest uncertainty, because the hardest failures live in assumptions that were never written down.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="designing-data-intensive-applications" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/designing-data-intensive-applications.html" data-page-title="Designing Data-Intensive Applications | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="the-art-of-statistics.html"><span>Previous</span>The Art of Statistics</a>
+        <a class="next" href="team-topologies.html"><span>Next</span>Team Topologies</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

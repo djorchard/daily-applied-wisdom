@@ -1243,6 +1243,221 @@
       ]
     },
     {
+      "slug": "designing-data-intensive-applications",
+      "discussionId": "designing-data-intensive-applications",
+      "date": "2026-06-27",
+      "dateLabel": "27 June 2026",
+      "edition": "Daily lesson",
+      "title": "Designing Data-Intensive Applications",
+      "authors": "Martin Kleppmann and Chris Riccomini",
+      "year": "2017 · second edition 2026",
+      "category": "Software engineering · Data systems · Distributed systems",
+      "summary": "Choose data systems from explicit workloads and guarantees, evolve formats for mixed-version reality, and treat a timeout as uncertainty rather than proof of failure.",
+      "evidenceNote": "Kleppmann and Riccomini compare mechanisms, research and production experience rather than prescribing one universal architecture. The models for compatibility and partial failure are technically strong; product choices, thresholds and operational trade-offs remain context-dependent. This lesson uses the substantially updated 2026 second edition and keeps tool-specific claims secondary to durable principles.",
+      "accent": "blue",
+      "quizRevision": "2026-06-27-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Define the workload before choosing the system",
+          "argument": [
+            "Kleppmann and Riccomini frame data-system architecture as a set of trade-offs among functional needs and qualities such as reliability, scalability, performance, maintainability and evolvability. A technology is not simply scalable or fast in the abstract; its behaviour depends on the operations, data volume, access pattern, failure tolerance and change rate it must support.",
+            "They therefore begin with workload and nonfunctional requirements. Load parameters such as requests per second, read-to-write mix, item size, data growth and hot-key concentration make a design claim testable, while latency percentiles and failure semantics say what acceptable service actually means."
+          ],
+          "extension": "Replace product-first architecture debates with a requirements envelope. Record the critical operation, expected load shape, acceptable tail latency, required correctness and growth horizon before comparing tools.",
+          "image": "../assets/lesson-visuals/ddia-requirements-envelope.svg",
+          "imageAlt": "A workload card feeds a requirements envelope containing reliability, tail latency, scale and evolvability, which then narrows three technology options to one evidence-based fit.",
+          "imageCaption": "A system choice becomes meaningful only after the workload and guarantees are visible.",
+          "why": "Teams can spend days debating database brands while hiding the assumptions that would decide the question. Explicit parameters turn preference into a falsifiable design and reveal when a simpler single-node or existing system is sufficient.",
+          "apply": [
+            "Choose one proposed data or integration component. Write its most important read or write operation and the peak load shape it must handle.",
+            "Add one tail-latency target, one correctness guarantee and one expected change over the next year. Compare options only against that small envelope."
+          ],
+          "caveat": "Early numbers are estimates, and requirements can conflict or change. Do not manufacture false precision or demand every desirable property at once; record uncertainty, test the sensitive assumptions and revise the envelope with production evidence.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a claim that a data system is scalable meaningful in this lesson?",
+              "options": [
+                "The system has distributed storage and can add nodes without planned downtime.",
+                "Its behaviour is evaluated against a stated workload, growth path and service target.",
+                "The vendor publishes benchmark results for workloads larger than the current one.",
+                "Its architecture uses the same scaling pattern as other systems across the organisation."
+              ],
+              "correctIndex": 1,
+              "feedback": "Scalability is a relationship between a system and a changing load. The load parameters, required service and growth path must be visible before the claim can be evaluated.",
+              "feedbackByOption": [
+                "Distribution can support some growth patterns, but it also adds coordination and failure modes. It does not define the workload or required service.",
+                "Correct. A stated workload, growth path and service target make the scalability claim specific enough to test and compare.",
+                "A benchmark can supply evidence, but only when its operations, data shape and guarantees resemble the actual workload being designed.",
+                "Organisational consistency can reduce operating cost, but copying a pattern does not show that it fits this workload and its guarantees."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team says it needs a distributed database because traffic may grow. What is the best first step?",
+              "options": [
+                "Prototype two distributed products and compare their default throughput benchmarks.",
+                "Write the critical operations, load shape, service guarantees and expected growth.",
+                "Select the product already operated elsewhere, then document its capacity limits.",
+                "Split the service into smaller components so each database has less data to manage."
+              ],
+              "correctIndex": 1,
+              "feedback": "The architecture should follow the actual pressure and required behaviour. A small requirements envelope may justify distribution, reveal a different bottleneck or show that a simpler system is enough.",
+              "feedbackByOption": [
+                "A product trial can come later. Default benchmarks do not first establish which operations and guarantees the system must support.",
+                "Correct. These parameters expose what growth means and create a basis for testing whether distribution is necessary and which trade-offs fit.",
+                "Operational familiarity is relevant, but selecting first risks fitting the requirements to the product rather than testing the product against them.",
+                "Service splitting can add network and consistency problems before the original load, bottleneck or service target has even been defined."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Design schema change for mixed-version reality",
+          "argument": [
+            "The authors argue that applications and their stored data inevitably evolve, while deployment is rarely instantaneous. Old records remain after new code ships, and rolling deployments leave old and new processes active together. A format change must therefore be judged by how different versions read one another's data, not only by whether the latest code works with itself.",
+            "Backward compatibility lets newer code read data written by older code; forward compatibility lets older code read data written by newer code. Additive fields, explicit defaults, tolerant readers and staged rollouts can preserve both directions long enough for a safe transition."
+          ],
+          "extension": "Treat a schema rollout as a compatibility window, not one deployment event. Map which producer and consumer versions coexist, then order the change so every live edge remains readable.",
+          "image": "../assets/lesson-visuals/ddia-compatibility-window.svg",
+          "imageAlt": "Old and new writers send records through a compatibility window to old and new readers, with a staged path from tolerant readers to new writers and later cleanup.",
+          "imageCaption": "Safe evolution keeps old and new code mutually understandable during the rollout window.",
+          "why": "A change can pass unit tests and still fail when an old worker reads a new message, a new release encounters an old row, or a rollback restores code that no longer understands current data. Compatibility makes those temporal dependencies explicit.",
+          "apply": [
+            "For one upcoming field or event change, list every writer, reader and stored copy that may still use the old format during rollout or rollback.",
+            "Choose an order: first make readers tolerate both forms, then introduce the new write, observe coexistence, migrate old data if needed and remove compatibility only after evidence shows it is unused."
+          ],
+          "caveat": "Additive evolution is not free forever. Some semantic changes cannot be made safe with optional fields, and permanent tolerance creates ambiguity and maintenance cost. Define an observation period and a deliberate cleanup or translation boundary.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which condition best describes a schema change that supports a rolling deployment?",
+              "options": [
+                "Every process changes its schema at the same scheduled deployment boundary.",
+                "New code reads new records while old records are migrated before traffic resumes.",
+                "Old code ignores validation so it can accept any record written by new code.",
+                "New code reads old data and old code safely handles data written by new code."
+              ],
+              "correctIndex": 3,
+              "feedback": "During a rolling deployment, both versions may read data written by the other. The transition needs backward and forward compatibility across that coexistence window.",
+              "feedbackByOption": [
+                "An atomic boundary is often unavailable across services, workers, clients and stored records. The lesson designs for version overlap instead.",
+                "Migrating all stored data before traffic resumes can be costly and still does not protect messages or processes that remain on the old version.",
+                "Tolerant reading is useful, but disabling validation entirely can admit malformed or semantically unsafe data rather than defined compatibility.",
+                "Correct. New readers accepting old data provide backward compatibility, while old readers safely handling new data provide forward compatibility."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A producer will add an optional field while old consumers remain active. Which rollout is safest?",
+              "options": [
+                "Make consumers tolerate both forms, then add the field, observe coexistence and clean up later.",
+                "Add the field to producers first, then patch any consumer that reports a parsing failure.",
+                "Pause producers, deploy every consumer and writer together, then resume the message flow.",
+                "Create a second event type and switch every producer and consumer to it on one date."
+              ],
+              "correctIndex": 0,
+              "feedback": "Preparing readers before new writes creates a compatibility window in which old and new formats can coexist. Observation and later cleanup keep the temporary tolerance intentional.",
+              "feedbackByOption": [
+                "Correct. Tolerant consumers remove the dangerous edge first; new writes can then begin while both forms remain readable and observable.",
+                "This makes production failures the compatibility test. An old consumer may reject the new record before a patch can be deployed.",
+                "Coordinated downtime may be possible in a small system, but it removes rollback flexibility and often cannot cover clients, queues or stored data.",
+                "A second type can help for a truly new meaning, but a simultaneous cutover recreates the same version-coordination risk."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "A timeout leaves the outcome unknown",
+          "argument": [
+            "Kleppmann and Riccomini emphasise that distributed systems fail partially. A request can be lost, the server can be slow, the operation can complete while its response is lost, or the caller can pause. From a timeout alone, the caller cannot distinguish these cases.",
+            "A timeout is therefore a limit on knowledge, not evidence that the operation was rolled back. Blindly retrying a non-idempotent action can duplicate a payment, order or message. Stable operation identifiers, idempotent handling, status checks and reconciliation turn uncertainty into a state the system can manage."
+          ],
+          "extension": "Give every side effect an uncertainty path. Decide what the caller shows, which identifier survives a retry, how completion is verified and who reconciles an operation that remains unresolved.",
+          "image": "../assets/lesson-visuals/ddia-timeout-unknown.svg",
+          "imageAlt": "One request branches into three indistinguishable timeout cases: request lost, server still working and response lost after commit, followed by a safe path using one operation ID, status check and reconciliation.",
+          "imageCaption": "The same timeout can hide three different realities, so safe recovery must preserve identity and verify state.",
+          "why": "Many severe duplicate-action bugs begin with the reasonable but false sentence, 'It timed out, so it failed.' Designing the unknown state explicitly protects users and makes recovery observable instead of depending on luck.",
+          "apply": [
+            "Choose one remote action with a side effect, such as creating an order, sending a notification or updating a case. Ask what a timeout proves about its outcome.",
+            "Write the stable operation ID, safe retry rule, status or reconciliation check and user-visible state for an unresolved result."
+          ],
+          "caveat": "Idempotency is scoped, not magical. Keys can expire, downstream side effects may not share the guarantee, and indefinite retries can amplify overload. Bound retry timing, document key scope and retain a reconciliation path for ambiguous operations.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What can a caller conclude when a remote write reaches its timeout?",
+              "options": [
+                "The server rejected the write because no successful response arrived in time.",
+                "The write is still running and will eventually return the original response.",
+                "The outcome is unknown because request, processing or response may have failed.",
+                "The write completed but the response was lost somewhere on the return path."
+              ],
+              "correctIndex": 2,
+              "feedback": "The caller observes only the absence of a timely response. Several realities can produce that observation, including no execution, ongoing execution and completed execution with a lost response.",
+              "feedbackByOption": [
+                "No response does not prove rejection. The request may be delayed, lost, still running or already committed without its response reaching the caller.",
+                "The server may still be working, but that is only one possible state and the original connection may never deliver a response.",
+                "Correct. A timeout is an observation about elapsed time and knowledge, not a definitive statement about the remote side effect.",
+                "A lost response after completion is possible, but so are a lost request and slow or failed processing. The caller cannot select one case from the timeout alone."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A payment request times out after it is sent. What is the safest next action?",
+              "options": [
+                "Retry with a new payment identifier so the gateway treats it as fresh work.",
+                "Keep the operation identifier, query status and reconcile before another charge.",
+                "Record the payment as failed and ask the customer to submit it once more.",
+                "Record the payment as successful because the request left the application."
+              ],
+              "correctIndex": 1,
+              "feedback": "Preserving identity lets the system discover or repeat the same logical operation without inventing a second charge. A pending state is more honest than guessing success or failure.",
+              "feedbackByOption": [
+                "A new identifier can turn one uncertain charge into two independent charges. Preserve the logical operation's identity across recovery.",
+                "Correct. The stable identifier, status check and reconciliation path manage uncertainty without creating a second logical payment.",
+                "Failure is only one possible outcome. Asking for another submission can duplicate a charge that already completed before its response was lost.",
+                "Sending the request does not prove the gateway accepted or committed it. Recording success would replace uncertainty with an unsupported claim."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Write a one-page data-system assumption card",
+        "steps": [
+          "Name one important operation and write its peak load shape plus one tail-latency or reliability target.",
+          "Describe one likely data-format change and list the old and new readers and writers that would coexist.",
+          "Choose one remote side effect and write what a timeout leaves unknown.",
+          "Add a stable operation ID, verification step or reconciliation owner, then circle the assumption you need to test first."
+        ],
+        "result": "You finish with one inspectable card connecting workload, evolution and partial-failure recovery to a real system decision."
+      },
+      "spacedRecall": [
+        "From A Philosophy of Software Design: which design information should a deep module hide, and which data contract must remain visible to its consumers?",
+        "From Accelerate: which flow and instability measures would reveal a retry policy that improves speed by creating duplicate work?"
+      ],
+      "takeaway": "Design the data system around explicit demands, planned coexistence and honest uncertainty, because the hardest failures live in assumptions that were never written down.",
+      "sources": [
+        { "label": "O'Reilly: Designing Data-Intensive Applications, second edition", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/" },
+        { "label": "Martin Kleppmann: official Designing Data-Intensive Applications site", "url": "https://dataintensive.net/" },
+        { "label": "O'Reilly preview: Trade-Offs in Data Systems Architecture", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch01.html" },
+        { "label": "O'Reilly preview: Defining Nonfunctional Requirements", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch02.html" },
+        { "label": "O'Reilly preview: Encoding and Evolution", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch05.html" },
+        { "label": "O'Reilly preview: The Trouble with Distributed Systems", "url": "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/ch09.html" }
+      ]
+    },
+    {
       "slug": "the-art-of-statistics",
       "discussionId": "the-art-of-statistics",
       "date": "2026-06-26",
