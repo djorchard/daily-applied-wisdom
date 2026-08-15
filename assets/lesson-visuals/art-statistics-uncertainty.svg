@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="art-statistics-uncertainty-title art-statistics-uncertainty-desc">
+  <title id="art-statistics-uncertainty-title">Point estimates, random uncertainty and systematic bias</title>
+  <desc id="art-statistics-uncertainty-desc">Three conceptual rows show a wide random interval with less information, a narrower interval with more information and a narrow estimate shifted away from a reference by systematic bias. A footer joins estimate, range, assumptions and decision threshold.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .range { stroke: #18211d; stroke-width: 7; stroke-linecap: round; }
+      .cap { stroke: #18211d; stroke-width: 5; }
+      .reference { stroke: #53615a; stroke-width: 4; stroke-dasharray: 12 10; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="130" y="18" width="940" height="70" rx="35" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="61" text-anchor="middle" font-weight="700">A POINT ESTIMATE IS THE CENTRE, NOT THE WHOLE CLAIM</text>
+
+  <line class="reference" x1="760" y1="120" x2="760" y2="570"/>
+  <rect x="645" y="105" width="230" height="42" rx="21" fill="#fffdf8" stroke="#53615a" stroke-width="3"/>
+  <text class="small" x="760" y="134" text-anchor="middle">REFERENCE</text>
+
+  <rect class="card" x="45" y="165" width="315" height="125" rx="28" fill="#e9d17f"/>
+  <text class="small" x="202" y="207" text-anchor="middle">LESS INFORMATION</text>
+  <text class="small" x="202" y="252" text-anchor="middle">WIDER RANDOM RANGE</text>
+  <line class="range" x1="500" y1="228" x2="1020" y2="228"/>
+  <line class="cap" x1="500" y1="206" x2="500" y2="250"/>
+  <line class="cap" x1="1020" y1="206" x2="1020" y2="250"/>
+  <circle cx="760" cy="228" r="18" fill="#d86136" stroke="#18211d" stroke-width="4"/>
+
+  <rect class="card" x="45" y="315" width="315" height="125" rx="28" fill="#b8d5e5"/>
+  <text class="small" x="202" y="350" text-anchor="middle">MORE INFORMATION</text>
+  <text class="small" x="202" y="386" text-anchor="middle">NARROWER</text>
+  <text class="small" x="202" y="414" text-anchor="middle">RANDOM RANGE</text>
+  <line class="range" x1="635" y1="378" x2="885" y2="378"/>
+  <line class="cap" x1="635" y1="356" x2="635" y2="400"/>
+  <line class="cap" x1="885" y1="356" x2="885" y2="400"/>
+  <circle cx="760" cy="378" r="18" fill="#d86136" stroke="#18211d" stroke-width="4"/>
+
+  <rect class="card" x="45" y="465" width="315" height="125" rx="28" fill="#f5c79d"/>
+  <text class="small" x="202" y="507" text-anchor="middle">SYSTEMATIC BIAS</text>
+  <text class="compact" x="202" y="552" text-anchor="middle">PRECISION CAN MISS</text>
+  <line class="range" x1="865" y1="528" x2="1075" y2="528"/>
+  <line class="cap" x1="865" y1="506" x2="865" y2="550"/>
+  <line class="cap" x1="1075" y1="506" x2="1075" y2="550"/>
+  <circle cx="970" cy="528" r="18" fill="#d86136" stroke="#18211d" stroke-width="4"/>
+  <path d="M789 528H844" fill="none" stroke="#53615a" stroke-width="4" stroke-dasharray="10 9"/>
+  <text class="small" x="815" y="500" text-anchor="middle">SHIFT</text>
+
+  <text class="body" x="1100" y="590" text-anchor="end">Conceptual, not to scale</text>
+
+  <rect class="card" x="85" y="630" width="1030" height="105" rx="32" fill="#fffdf8"/>
+  <text class="heading" x="600" y="672" text-anchor="middle">REPORT THE DECISION PACKAGE</text>
+  <text class="body" x="600" y="711" text-anchor="middle">ESTIMATE · RANGE · ASSUMPTIONS · LIMITS · PRACTICAL THRESHOLD</text>
+</svg>

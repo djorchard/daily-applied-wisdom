@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="art-statistics-denominator-title art-statistics-denominator-desc">
+  <title id="art-statistics-denominator-title">Five context checks for a percentage</title>
+  <desc id="art-statistics-denominator-desc">A central proportion shows 30 events among 100 eligible cases. Four connected cards add the seven-day time window, the opposite frame of 70 non-events, a prior or target comparator and the case mix of eligible people.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .number { font-size: 64px; font-weight: 700; }
+      .compact { font-size: 26px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #53615a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="155" y="18" width="890" height="70" rx="35" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="61" text-anchor="middle" font-weight="700">A PERCENTAGE IS A RELATION, NOT A COMPLETE STORY</text>
+
+  <path class="line" d="M335 210H430"/>
+  <path class="line" d="M335 464H430"/>
+  <path class="line" d="M770 210H865"/>
+  <path class="line" d="M770 464H865"/>
+
+  <rect class="card" x="40" y="130" width="295" height="160" rx="28" fill="#e9d17f"/>
+  <text class="small" x="187" y="173" text-anchor="middle">TIME WINDOW</text>
+  <text class="heading" x="187" y="222" text-anchor="middle">7 DAYS</text>
+  <text class="body" x="187" y="260" text-anchor="middle">Since which event?</text>
+
+  <rect class="card" x="40" y="384" width="295" height="160" rx="28" fill="#d8cce8"/>
+  <text class="small" x="187" y="427" text-anchor="middle">OPPOSITE FRAME</text>
+  <text class="heading" x="187" y="476" text-anchor="middle">70 DID NOT</text>
+  <text class="body" x="187" y="514" text-anchor="middle">Same evidence, new feel</text>
+
+  <rect class="card" x="865" y="130" width="295" height="160" rx="28" fill="#b8d5e5"/>
+  <text class="small" x="1012" y="173" text-anchor="middle">COMPARATOR</text>
+  <text class="heading" x="1012" y="222" text-anchor="middle">BEFORE? TARGET?</text>
+  <text class="body" x="1012" y="260" text-anchor="middle">Compared with what?</text>
+
+  <rect class="card" x="865" y="384" width="295" height="160" rx="28" fill="#f5c79d"/>
+  <text class="small" x="1012" y="427" text-anchor="middle">CASE MIX</text>
+  <text class="heading" x="1012" y="476" text-anchor="middle">WHO QUALIFIED?</text>
+  <text class="body" x="1012" y="514" text-anchor="middle">Did eligibility change?</text>
+
+  <rect class="card" x="430" y="120" width="340" height="435" rx="42" fill="#bdd9bf"/>
+  <text class="small" x="600" y="168" text-anchor="middle">EVENTS</text>
+  <text class="number" x="600" y="236" text-anchor="middle">30</text>
+  <line x1="500" y1="264" x2="700" y2="264" stroke="#18211d" stroke-width="5"/>
+  <text class="number" x="600" y="344" text-anchor="middle">100</text>
+  <text class="small" x="600" y="384" text-anchor="middle">ELIGIBLE</text>
+  <rect x="495" y="416" width="210" height="86" rx="28" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="number" x="600" y="482" text-anchor="middle">30%</text>
+
+  <rect class="card" x="120" y="625" width="960" height="100" rx="32" fill="#fffdf8"/>
+  <text class="heading" x="600" y="669" text-anchor="middle">KEEP THE CONTEXT STRIP ATTACHED</text>
+  <text class="body" x="600" y="705" text-anchor="middle">COUNT · DENOMINATOR · WINDOW · FRAME · COMPARATOR · CASE MIX</text>
+</svg>

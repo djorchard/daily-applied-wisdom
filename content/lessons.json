@@ -1243,6 +1243,240 @@
       ]
     },
     {
+      "slug": "the-art-of-statistics",
+      "discussionId": "the-art-of-statistics",
+      "date": "2026-06-26",
+      "dateLabel": "26 June 2026",
+      "edition": "Daily lesson",
+      "title": "The Art of Statistics",
+      "authors": "David Spiegelhalter",
+      "year": "2019 · 2020 paperback edition",
+      "category": "Applied mathematics · Statistics · Data literacy",
+      "summary": "Learn from data without letting a clean number outrun its evidence: begin with a decision-shaped question, give every proportion its denominator and frame, then carry uncertainty and rival explanations into the conclusion.",
+      "evidenceNote": "Spiegelhalter's book is a conceptual statistics primer built around real investigations and long professional experience, not controlled evidence that one workflow guarantees sound decisions. The PPDAC cycle is an investigation framework rather than a rigid sequence. Counts, percentages and intervals are only as credible as their definitions, sampling, measurement and model assumptions; a large dataset can reduce random variation while preserving systematic bias. Raw group comparisons do not establish causes when case mix or selection differs. The book's 2019 content is unchanged in the 2020 paperback. Treat the three ideas as disciplined questions for judging evidence, and seek statistical expertise for consequential inference.",
+      "accent": "blue",
+      "quizRevision": "2026-06-26-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Begin with the question, not the tool",
+          "argument": [
+            "Spiegelhalter organises statistical investigation around the PPDAC cycle: Problem, Plan, Data, Analysis, then Conclusion and communication. The order makes a practical point. Analysis is one part of learning from data, not the activity that should decide afterward what question the available numbers happened to answer.",
+            "A useful problem names the population, outcome and comparison. The plan decides what will be measured, how observations enter the data and which limitations matter before results become persuasive. Data may be found rather than purpose-built, so definitions, missingness and collection changes need inspection. The conclusion returns to the original question, states what the evidence does and does not support, and usually starts a better next cycle."
+          ],
+          "extension": "Before requesting a dashboard or model, write a six-line decision brief: the decision, target population, unit of observation, outcome, comparison and collection window. Add the result that would change the decision. This turns a metric request into a testable investigation and makes later scope changes visible.",
+          "image": "../assets/lesson-visuals/art-statistics-question-cycle.svg",
+          "imageAlt": "A five-stage PPDAC investigation moves from problem to plan, data, analysis and conclusion, then loops back. A lower panel shows that population, measure and comparison are fixed before collection, while limitations and communication travel with the conclusion.",
+          "imageCaption": "Analysis sits inside a cycle that begins with a real question and ends with a qualified conclusion.",
+          "why": "Teams can build an accurate dashboard that answers the wrong question because an available field, convenient date range or shifting eligibility rule quietly defines the problem after the fact.",
+          "apply": [
+            "Take one metric request and complete: We will decide ___ for ___ by comparing ___ over ___ because ___.",
+            "Write the population, outcome and exclusion rules before opening the data. Mark any rule you cannot verify as a limitation rather than silently improvising it."
+          ],
+          "caveat": "Real investigation is iterative. Exploration can reveal a better question, and urgent operational work may begin with imperfect found data. PPDAC should expose revisions, not turn them into procedural failure. Record when the question or plan changes so exploratory findings are not later presented as if they were predicted in advance.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main purpose of starting a statistical investigation with Problem and Plan?",
+              "options": [
+                "Fix the question, population and measures before results influence their definition.",
+                "Choose the most advanced method before checking what data is available.",
+                "Prevent the investigation from changing after an unexpected pattern, even when the question improves.",
+                "Guarantee that collected data will support a clear causal conclusion."
+              ],
+              "correctIndex": 0,
+              "feedback": "Problem and Plan connect the evidence to a defined question and decision before attractive results can reshape the target. They do not require a complex method or guarantee causality.",
+              "feedbackByOption": [
+                "Correct. Defining the question, population, outcome and comparison first makes later changes visible and keeps analysis tied to the decision.",
+                "Method follows the question and evidence. Choosing complexity first can optimise a tool rather than investigate the actual problem.",
+                "A better question can emerge, but the revision should be recorded. The framework supports iteration rather than forbidding learning.",
+                "A careful plan improves inference, but causal conclusions still depend on design, assumptions and possible alternative explanations."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A stakeholder asks for an adoption dashboard but has not defined an adopted user. What should happen first?",
+              "options": [
+                "Plot every available activity field and let the stakeholder choose the clearest trend.",
+                "Use login count as adoption because it is already available and easy to refresh.",
+                "Define the decision, eligible users, qualifying behaviour and time window together.",
+                "Delay all discussion until a data analyst has selected the strongest statistical model."
+              ],
+              "correctIndex": 2,
+              "feedback": "The unresolved definition belongs in Problem and Plan. Agreement on the decision, eligible population, behaviour and window should precede analysis of convenient activity fields.",
+              "feedbackByOption": [
+                "Exploring fields may be useful later, but asking the trend to define adoption after viewing it invites a result-shaped question.",
+                "Login count is measurable but may not represent value or sustained use. Availability does not establish that it answers the decision.",
+                "Correct. These definitions connect the metric to a decision and establish what must be measured before the dashboard is built.",
+                "A model cannot repair an undefined outcome. The team needs a clear question and plan before deciding whether modelling is useful."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Give every percentage its denominator and frame",
+          "argument": [
+            "A percentage is a relationship between an event count and an eligible total. Spiegelhalter shows that the same outcome can be described through positive or negative frames, such as survival or mortality, and that percentages feel different when converted back into counts. An honest presentation makes the numerator, denominator, time window and complementary frame available when they matter.",
+            "Comparison needs more than two percentages. Different group sizes create different random variation, and different case mixes can make a raw league table unfair. A rate can move because the underlying population changed even when the process did not. The statistical task is therefore to compare like with like, or state clearly why adjustment is incomplete."
+          ],
+          "extension": "Put a context strip under every product or delivery rate: event count, eligible count, window, prior or target comparator, and major case-mix change. Show the complementary frame when wording could steer emotion. A 30 percent completion claim becomes 30 of 100 eligible users completed within seven days; 70 did not.",
+          "image": "../assets/lesson-visuals/art-statistics-denominator-frame.svg",
+          "imageAlt": "A central proportion of 30 events among 100 eligible cases is surrounded by four context checks: time window, opposite frame of 70 non-events, relevant comparator and case mix. The diagram stresses that a percentage is a relation rather than a complete story.",
+          "imageCaption": "A rate becomes interpretable when the count, denominator, window, frame and comparator remain attached.",
+          "why": "Conversion, defect and incident rates can improve or worsen because eligibility, traffic mix or reporting changed. A naked percentage hides the mechanism that a product or engineering decision needs.",
+          "apply": [
+            "Choose one percentage in a dashboard and add its event count, eligible count and exact time window.",
+            "Write the opposite frame and one case-mix difference from the comparator. If either changes the story, revise the headline before sharing it."
+          ],
+          "caveat": "A complete denominator does not make a comparison causal or fair. Eligibility rules can still exclude inconvenient cases, administrative data can contain incompatible definitions and adjustment can omit important differences. Context improves interpretation, but it cannot rescue a measure that does not represent the decision.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why is a percentage alone often insufficient for a sound comparison?",
+              "options": [
+                "Percentages are less precise than counts whenever the event is uncommon.",
+                "The denominator, window and case mix may differ behind similar-looking rates.",
+                "A positive frame is always more informative than a negative frame.",
+                "Only raw counts can reveal whether a process has genuinely improved over time."
+              ],
+              "correctIndex": 1,
+              "feedback": "A percentage compresses an event count and eligible total, while its window and population composition may remain hidden. Similar rates can therefore describe different evidence.",
+              "feedbackByOption": [
+                "Counts and percentages answer different questions. Rarity alone does not make the percentage inherently less precise or the count sufficient.",
+                "Correct. Denominator size, observation window and case mix affect what a rate represents and how fairly it can be compared.",
+                "Positive and negative frames are mathematically equivalent but can feel different. Showing both can reduce framing bias; neither always wins.",
+                "Counts preserve volume but still need exposure or eligibility for comparison. A larger count may simply come from a larger population."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "One support team reports a higher escalation rate after it begins handling the most complex cases. What is the best first comparison?",
+              "options": [
+                "Compare escalation rates within similar case-severity groups and show each denominator.",
+                "Compare total escalations because raw volume is not affected by percentage framing or case mix.",
+                "Rank every team by its unadjusted rate so the size of the gap remains visible.",
+                "Use the company average as a target without separating the incoming case mix."
+              ],
+              "correctIndex": 0,
+              "feedback": "The assignment change alters case mix. Stratifying comparable severity groups and retaining denominators is a stronger first step than treating the raw rates as equivalent performance evidence.",
+              "feedbackByOption": [
+                "Correct. This compares more similar work and keeps the amount of evidence visible, while still leaving room for unmeasured differences.",
+                "Raw volume changes with team workload and eligibility. It does not neutralise the shift toward harder cases.",
+                "An unadjusted ranking may punish the team for its assignment. Visibility does not make the comparison fair.",
+                "The average may be a useful reference, but it is misleading if teams receive materially different kinds of cases."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Carry uncertainty into the conclusion",
+          "argument": [
+            "Spiegelhalter treats estimates as outputs of a data-generating and analytic process, not exact facts. Repeated samples or measurements would vary, so a point estimate needs an interval or another honest account of random uncertainty. More relevant information can narrow that component, but it does not automatically remove measurement error, selection bias or a misspecified model.",
+            "A statistical threshold is not the conclusion. A p-value does not state the probability that a hypothesis is true, and statistical significance does not measure practical importance. A responsible conclusion combines the estimated effect, its uncertainty, the assumptions and data limitations, plausible rival explanations and the decision threshold that makes a difference worth acting on."
+          ],
+          "extension": "Replace single-number status claims with a decision sentence: Our best estimate is ___, the plausible range under this method is ___, the main unmeasured risk is ___, and we will change course if ___. If no defensible range exists, label the uncertainty unknown instead of inventing precision.",
+          "image": "../assets/lesson-visuals/art-statistics-uncertainty.svg",
+          "imageAlt": "Three conceptual estimate lines show a wide interval, a narrower interval with more random information and a narrow but shifted estimate under systematic bias. A footer says to report the estimate, range, assumptions and practical threshold together.",
+          "imageCaption": "Random uncertainty may shrink with information; systematic error can leave a precise estimate confidently misplaced.",
+          "why": "Teams overreact to small weekly movements, declare ties when a threshold is missed or treat a precise model output as certain. Carrying uncertainty and practical importance prevents false urgency and false reassurance.",
+          "apply": [
+            "Take one performance change and write the estimate, available uncertainty range and smallest change that would alter the decision.",
+            "Name one source of random variation and one possible systematic bias. Decide whether to act, gather better evidence or keep the current course."
+          ],
+          "caveat": "An interval is conditional on its sampling and model assumptions and does not contain every uncertainty. Different methods support different interpretations, so do not describe a confidence interval as a probability that the fixed true value lies inside it. A narrow interval can still be centred on a biased estimate, and lack of decisive evidence does not prove that no meaningful effect exists.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does adding more observations most directly reduce when the design and measurement stay comparable?",
+              "options": [
+                "Every systematic bias caused by selection, definitions or measurement.",
+                "The practical importance required before a decision should change.",
+                "Random sampling uncertainty around an estimate, but not systematic error.",
+                "The need to state assumptions when the resulting interval becomes narrow."
+              ],
+              "correctIndex": 2,
+              "feedback": "More comparable observations usually reduce random sampling uncertainty. They do not automatically correct bias, choose a practical threshold or make assumptions unnecessary.",
+              "feedbackByOption": [
+                "A larger sample can reproduce the same selection or measurement bias more precisely. Design changes are needed to address systematic error.",
+                "Practical importance comes from the decision and consequences, not the sample size. More data does not choose what matters.",
+                "Correct. Added information can narrow random uncertainty while systematic errors and modelling limits remain.",
+                "A narrow interval is still conditional on definitions, sampling and model assumptions, which should travel with the estimate."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A large experiment finds a tiny effect with a very small p-value, below the product's action threshold. What is the strongest conclusion?",
+              "options": [
+                "The effect is important because the p-value makes a false result very unlikely.",
+                "The null hypothesis is probably true because the practical threshold was not reached.",
+                "The experiment failed, so the team should repeat it until the effect becomes useful.",
+                "The effect is precisely estimated but below the action threshold, subject to study limits."
+              ],
+              "correctIndex": 3,
+              "feedback": "A small p-value and precise estimate do not make a tiny effect practically important. The decision should use effect size, uncertainty, the prior action threshold and study limitations.",
+              "feedbackByOption": [
+                "A p-value is not the probability that the result is false, and statistical evidence does not establish practical importance.",
+                "Missing a practical threshold does not make the null hypothesis probably true. It says the estimated effect is not large enough for this decision.",
+                "Repeating until a preferred result appears invites selective reporting. A new study needs a justified uncertainty or design question.",
+                "Correct. The estimate can be statistically clear yet practically insufficient; the conclusion should still state assumptions and limitations."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Audit one dashboard claim",
+        "steps": [
+          "Choose one number used in a current decision and write the exact decision it is meant to inform.",
+          "Define the population, outcome, comparison and time window before looking at the chart again.",
+          "If it is a rate, record the event count and eligible count, then write the complementary frame.",
+          "Add the available uncertainty range. If none is defensible, write unknown and name what data would be needed.",
+          "Name one rival explanation or case-mix change, then decide whether the evidence supports acting, measuring or holding course."
+        ],
+        "result": "You finish with one decision-ready claim whose question, denominator, uncertainty and leading limitation are visible, plus one explicit next action."
+      },
+      "spacedRecall": [
+        "From Superforecasting: when would an outside-view base rate improve a local metric comparison before you inspect the special details?",
+        "From Accelerate: why should delivery flow and instability be interpreted together rather than turning one metric into the target?"
+      ],
+      "takeaway": "A statistic earns trust when its question, denominator, uncertainty and limits travel with the number.",
+      "sources": [
+        {
+          "label": "Penguin: The Art of Statistics, publication and edition details",
+          "url": "https://www.penguin.co.uk/books/294857/the-art-of-statistics-by-spiegelhalter-david/9780241733530"
+        },
+        {
+          "label": "Penguin: official sample including the PPDAC cycle and proportion examples",
+          "url": "https://cdn.penguin.co.uk/dam-assets/books/9780241258767/9780241258767-sample.pdf"
+        },
+        {
+          "label": "Numeracy: Spiegelhalter introduces the book's problem-driven approach",
+          "url": "https://doi.org/10.5038/1936-4660.13.1.7"
+        },
+        {
+          "label": "David Spiegelhalter: official code, data, errata and additions",
+          "url": "https://dspiegel29.github.io/ArtofStatistics/"
+        },
+        {
+          "label": "American Statistical Association: statement on statistical significance and p-values",
+          "url": "https://www.amstat.org/asa/files/pdfs/p-valuestatement.pdf"
+        },
+        {
+          "label": "Royal Society Open Science: communicating uncertainty about facts and numbers",
+          "url": "https://doi.org/10.1098/rsos.181870"
+        }
+      ]
+    },
+    {
       "slug": "the-art-of-game-design",
       "discussionId": "the-art-of-game-design",
       "date": "2026-06-25",
