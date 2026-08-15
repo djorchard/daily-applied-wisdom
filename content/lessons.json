@@ -1243,6 +1243,221 @@
       ]
     },
     {
+      "slug": "the-art-of-game-design",
+      "discussionId": "the-art-of-game-design",
+      "date": "2026-06-25",
+      "dateLabel": "25 June 2026",
+      "edition": "Daily lesson",
+      "title": "The Art of Game Design: A Book of Lenses",
+      "authors": "Jesse Schell",
+      "year": "2008 · third edition 2020",
+      "category": "Game design · Interactive systems · Playtesting",
+      "summary": "Design the experience rather than the feature list: state what the player should feel and do, keep mechanics, story, aesthetics and technology coherent, then use focused prototypes and playtests to replace attachment with evidence.",
+      "evidenceNote": "Schell presents a broad practitioner framework developed through game design, teaching and studio work, not controlled evidence that a lens, tetrad or playtest method guarantees a better game. The book's design vocabulary is clearly attributable and highly teachable, while player experience remains subjective and context-dependent. A playtest samples behaviour in one build, setting and audience; it does not prove universal appeal. The elemental tetrad is a coherence aid rather than a quantitative model, and the book's breadth has drawn criticism for making the lens set difficult to navigate. Use the third edition for current platform coverage and treat every design claim as a hypothesis to test with intended players, including accessibility needs.",
+      "accent": "orange",
+      "quizRevision": "2026-06-25-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Design an experience you can only observe indirectly",
+          "argument": [
+            "Schell starts by separating the game from the experience. A designer can create rules, interfaces, images, sounds and events, but the experience arises in the player's mind. The intended feeling is therefore the design goal, while the game is the constructed means used to invite it.",
+            "That gap makes listening and observation essential. The designer's own excitement, explanation or intention cannot establish what another player experiences. A prototype and playtest provide indirect evidence through choices, hesitation, attention, emotion and later description, even though none of those signals reveals the whole inner experience."
+          ],
+          "extension": "Write an experience hypothesis before a feature requirement. Name what the player should notice, decide or feel, then name one observable behaviour that would support or challenge that intention without requiring the player to repeat the designer's preferred wording.",
+          "image": "../assets/lesson-visuals/art-game-design-experience-evidence.svg",
+          "imageAlt": "A designer's intended experience passes through game rules and presentation to a player's private experience, while observable choices, pauses and descriptions return as partial evidence rather than direct access.",
+          "imageCaption": "The game is designed directly; the player's experience is inferred from imperfect but useful evidence.",
+          "why": "Teams can implement every requested feature and still produce confusion, boredom or pressure because the specification described the artefact rather than the human experience it was meant to create.",
+          "apply": [
+            "Choose one interaction you are designing. Complete: The player should notice ___, choose ___ and feel ___ because ___.",
+            "Add one observable signal for each blank. Replace any signal that merely asks whether the player agrees with your description."
+          ],
+          "caveat": "One player's action or comment is not a transparent readout of experience. People differ by skill, culture, context, access needs and expectations, while observation can change behaviour. Use several forms of evidence, sample the intended audience and preserve outliers that may expose harm or exclusion rather than averaging them away.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Schell distinguish the designed game from the player's experience?",
+              "options": [
+                "The game contains objective quality, while experience adds personal preference.",
+                "The experience can be specified fully before mechanics and presentation exist.",
+                "The designer builds the game, but experience arises privately in the player.",
+                "The player creates the rules, while the designer records the resulting feelings."
+              ],
+              "correctIndex": 2,
+              "feedback": "The designer controls the constructed game only indirectly as a means to an experience. The resulting experience occurs in the player and must be inferred from partial evidence.",
+              "feedbackByOption": [
+                "Rules and presentation are observable, but calling their quality objective does not explain why the intended experience can still fail to arise.",
+                "An experience goal can guide design, but the actual experience cannot be fully specified or known before players encounter the game.",
+                "Correct. The game is the artefact the designer can shape directly; the experience emerges in another mind and can only be observed indirectly.",
+                "Players act within or around the rules, but the designer normally creates those rules. Player feelings are not directly recorded as part of the game."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A puzzle is meant to create a fair aha moment, but testers solve it only after a strong hint. What is the best next move?",
+              "options": [
+                "Observe where reasoning stalls, revise one cue, and test the intended discovery again.",
+                "Keep the puzzle because every tester eventually reached the correct solution.",
+                "Explain the intended insight before the next test so players know what to notice.",
+                "Add a timer so players feel more urgency while searching for the hidden clue."
+              ],
+              "correctIndex": 0,
+              "feedback": "The observed stall challenges the intended experience of fair discovery. A focused cue change and another test create evidence about the mechanism without teaching the answer first.",
+              "feedbackByOption": [
+                "Correct. Locating the stall and changing one cue tests whether the design can invite the intended insight without replacing it with explanation.",
+                "Eventually finishing does not establish a fair aha moment. The strong hint may have supplied the key reasoning the puzzle was meant to support.",
+                "Pre-teaching the insight changes the experience and makes the next test unable to show whether the puzzle communicates it.",
+                "Urgency changes pacing but does not repair the missing cue, and it may turn uncertainty into pressure rather than fair discovery."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make the four elements support one experience",
+          "argument": [
+            "Schell's elemental tetrad names four interdependent parts of a game: mechanics are its rules and procedures; story is the sequence of events; aesthetics are the sensory qualities presented to the player; and technology is the medium and capability that make the game possible.",
+            "The point is not to divide the budget evenly or finish each part separately. A change in one element alters the possibilities and constraints of the others. Strong design makes the four elements support the same intended experience instead of letting a mechanic, narrative promise, visual signal or platform capability quietly contradict the rest."
+          ],
+          "extension": "Use the tetrad as a change-impact map. When one element moves, trace at least two consequences across the other elements and ask whether the combined result still serves the experience hypothesis from Idea 1.",
+          "image": "../assets/lesson-visuals/art-game-design-elemental-tetrad.svg",
+          "imageAlt": "Mechanics, story, aesthetics and technology surround a shared player experience, with two-way connections showing that a change in any element can reshape the other three.",
+          "imageCaption": "Coherence comes from relationships among the four elements, not excellence inside one isolated discipline.",
+          "why": "A technically impressive feature can fail when the controls resist the mechanic, the visual language implies the wrong action or the story promises agency that the rules do not permit.",
+          "apply": [
+            "Take one proposed game change and place it under mechanics, story, aesthetics or technology.",
+            "Write one consequence for each of the other three elements. Mark the first contradiction with the intended player experience and revise the smallest element that can restore coherence."
+          ],
+          "caveat": "The tetrad is a useful map, not a complete theory of production or player welfare. It does not automatically include accessibility, community norms, business models, labour, ethics or live operations. Other lenses and affected people must make those concerns visible, and internal coherence still does not prove that the experience is enjoyable or worthwhile.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the strongest use of Schell's elemental tetrad?",
+              "options": [
+                "Assign equal development effort to mechanics, story, aesthetics and technology.",
+                "Trace how the four elements interact to support one intended experience.",
+                "Choose which single element should lead every later design decision.",
+                "Separate creative decisions from technical constraints during production."
+              ],
+              "correctIndex": 1,
+              "feedback": "The tetrad makes cross-element relationships visible. It does not prescribe equal effort, one permanent leader or a separation between design and technology.",
+              "feedbackByOption": [
+                "The four elements matter, but coherence does not require equal cost or attention. Their needs differ by game and experience.",
+                "Correct. The tetrad helps designers see how mechanics, story, aesthetics and technology enable or contradict one another around the player experience.",
+                "One element may constrain a particular decision, but the framework does not install a permanent hierarchy among the four.",
+                "Technology is one of the design elements because its capabilities shape mechanics, story and aesthetics rather than sitting outside them."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A calm exploration game adds a precise rapid-tap mechanic that performs poorly on its target touch devices. What should the team do first?",
+              "options": [
+                "Keep the mechanic and intensify the story so difficulty feels narratively justified.",
+                "Improve the visual effects so successful taps feel more rewarding on every device.",
+                "Move the mechanic to an optional mode and leave the main experience unchanged.",
+                "Revisit mechanics, technology and aesthetics against the intended calm experience."
+              ],
+              "correctIndex": 3,
+              "feedback": "The mechanic, input technology and sensory pacing are misaligned with the intended experience. The tetrad directs the team to redesign the relationship rather than polish one element in isolation.",
+              "feedbackByOption": [
+                "Narrative justification may explain difficulty, but it does not repair poor touch performance or the conflict with calm exploration.",
+                "Feedback can improve clarity and feel, but visual reward alone cannot make an unsuitable input demand reliable or coherent.",
+                "An optional mode reduces exposure, but it assumes the same contradictory mechanic is worth preserving before the relationship is examined.",
+                "Correct. Rechecking the interacting elements exposes whether the input mechanic belongs, how technology constrains it and what pacing the aesthetics communicate."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Iterate with focused questions and playtest evidence",
+          "argument": [
+            "Schell presents iteration as the route by which a game improves: identify the problem, generate possible solutions, choose one, build enough to test it, evaluate the result and repeat. A prototype should answer an important design question as cheaply and quickly as its essential experience allows.",
+            "The book's lenses are sets of questions that redirect attention to a particular aspect of the game, such as challenge, choice, fairness or the player. They are prompts rather than laws. Playtesting closes the loop by exposing how real players act, but useful tests need a purpose, a relevant audience and observation that does not coach the desired result."
+          ],
+          "extension": "Run one-question iterations. Select a lens, state the uncertain assumption, build the cheapest honest test, observe a target player and change one thing. Keep the question and evidence beside the decision so a polished prototype cannot erase why the team changed direction.",
+          "image": "../assets/lesson-visuals/art-game-design-iteration-loop.svg",
+          "imageAlt": "A focused iteration loop moves from one lens question to an experience hypothesis, a cheap honest prototype, an uncoached target-player test and one recorded change before repeating.",
+          "imageCaption": "A short loop is useful when every prototype answers a named question and every change follows observed evidence.",
+          "why": "Teams become attached to features as implementation cost rises. Early, question-led tests make disagreement cheaper and convert taste arguments into evidence about what players actually notice and choose.",
+          "apply": [
+            "Choose one disputed design assumption and turn it into a question a ten-minute prototype could answer, such as whether players notice a risk before choosing it.",
+            "Decide the observation and change threshold before testing. Afterward, record what happened, one alternative explanation and the single next change."
+          ],
+          "caveat": "Iteration can become random thrashing when the question, audience or decision rule keeps changing. A crude prototype can also remove the timing, feel, social context or accessibility support essential to the real experience. Test the riskiest assumption at sufficient fidelity, sample beyond the design team and stop when further cycles are less valuable than shipping or learning in use.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a design lens useful during iteration?",
+              "options": [
+                "It asks focused questions that expose assumptions from one perspective.",
+                "It ranks design problems by the order in which the book presents them.",
+                "It supplies a rule that replaces player evidence when time is limited.",
+                "It identifies the solution most experienced designers would prefer."
+              ],
+              "correctIndex": 0,
+              "feedback": "A lens directs attention through questions. It helps form and inspect a hypothesis, but it does not rank every problem, dictate a solution or replace playtesting.",
+              "feedbackByOption": [
+                "Correct. A lens is a deliberate viewpoint expressed through questions, making a hidden assumption easier to discuss and test.",
+                "The book has a sequence, but lenses are selected for the current uncertainty rather than followed as a universal priority list.",
+                "A lens can sharpen a fast test, but its questions do not establish how players will respond without relevant evidence.",
+                "Experience may inform possible solutions, but the lens does not convert designer preference into the correct answer."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Two designers disagree about whether a warning makes a risky choice too obvious. Which iteration is strongest?",
+              "options": [
+                "Build both full versions, then let the design lead choose the more polished one.",
+                "Ask testers which designer's argument sounds more persuasive before they play.",
+                "Prototype the cue, observe uncoached choices, and compare with a preset threshold.",
+                "Remove the warning for launch, then restore it if enough players complain later."
+              ],
+              "correctIndex": 2,
+              "feedback": "The disputed assumption can be tested with a focused cue prototype, uncoached player behaviour and a decision threshold chosen before the result is known.",
+              "feedbackByOption": [
+                "Full production spends heavily before resolving the uncertain cue, and polish can bias the decision away from the actual question.",
+                "The designers' arguments are not the player experience. Priming testers also contaminates evidence about whether the cue is naturally understood.",
+                "Correct. A focused prototype and preset observation rule turn the disagreement into evidence while the design remains cheap to change.",
+                "Launching can provide evidence, but it exposes players to avoidable risk and gives no controlled comparison or agreed decision rule."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one lens-led paper playtest",
+        "steps": [
+          "Choose one tiny interaction and write the intended player experience in one sentence.",
+          "Pick one lens question, then draw a two-choice paper prototype that exposes the uncertain assumption.",
+          "Before testing, write the one action or pause that would challenge your hypothesis.",
+          "Give the prototype to one available person without explaining the intended choice. Ask them to think aloud while making one decision.",
+          "Record the action, one alternative explanation and one change you would test next. If no person is available, schedule the test rather than role-playing their evidence."
+        ],
+        "result": "You finish with one explicit experience hypothesis, one observed or scheduled player decision and one evidence-linked change instead of an untested preference."
+      },
+      "spacedRecall": [
+        "From Working Effectively with Legacy Code: how is a playtest like a characterization test, and why does one observed behaviour not prove the design is correct?",
+        "From Superforecasting: what reference class could help you judge whether one playtest result is surprising before you call the experience unique?"
+      ],
+      "takeaway": "Design the experience as a hypothesis, align every game element around it and let focused playtests change the design before sunk effort hardens opinion.",
+      "sources": [
+        { "label": "Routledge: The Art of Game Design, third edition", "url": "https://www.routledge.com/The-Art-of-Game-Design-A-Book-of-Lenses-Third-Edition/Schell/p/book/9781315208435" },
+        { "label": "Schell Games: official Book of Lenses overview", "url": "https://schellgames.com/art-of-game-design" },
+        { "label": "Schell Games: third-edition content and 116-lens ecosystem", "url": "https://schellgames.com/blog/art-of-game-design-audiobook-july-28" },
+        { "label": "Google Books: first-edition record, contents and chapter structure", "url": "https://books.google.com/books?id=ZHfMBQAAQBAJ" },
+        { "label": "American Journal of Play: critical review of the framework and elemental tetrad", "url": "https://www.museumofplay.org/app/uploads/2022/01/3-3-book-review-5.pdf" }
+      ]
+    },
+    {
       "slug": "make-it-stick",
       "discussionId": "make-it-stick",
       "date": "2026-06-24",
