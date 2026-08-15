@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html" />
+    <meta property="og:title" content="Threat Modeling: Designing for Security | Daily Applied Wisdom" />
+    <meta property="og:description" content="Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-06-30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Threat Modeling: Designing for Security | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Threat Modeling: Designing for Security","description":"Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked.","datePublished":"2026-06-30","about":{"@type":"Book","name":"Threat Modeling: Designing for Security","author":[{"@type":"Person","name":"Adam Shostack"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="../index.html#about">About</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-06-30">30 June 2026</time></p>
+          <h1>Threat Modeling: Designing for Security</h1>
+          <p class="lesson-author">Adam Shostack</p>
+          <div class="lesson-meta"><span>2014 · first edition</span><span>Software engineering · Security design · Threat modeling</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Shostack presents a field-tested practitioner method developed through software-security work at Microsoft and elsewhere, not a controlled demonstration that one technique prevents a known share of incidents. The four-question structure, data-flow diagrams and STRIDE are strongly attributable and widely documented, but coverage depends on scope, representation, participants and changing context. A completed threat model is evidence of structured analysis, not proof of security, and it complements rather than replaces secure implementation, testing, monitoring and incident learning.</aside>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Threat Modeling: Designing for Security | Daily Applied Wisdom" data-share-text="Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Model the system before naming its threats</a><a href="#idea-2"><span>02</span>Use STRIDE to make imagination systematic</a><a href="#idea-3"><span>03</span>Close every credible threat with a decision and a test</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-orange" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Model the system before naming its threats <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Shostack begins software-centric threat modeling with a deceptively simple question: What are we working on? A useful answer is often a data-flow diagram that shows external actors, processes, data stores, flows and the trust boundaries where control or assumptions change.</p>
+<p>The model is not decoration. It gives developers, testers, security specialists and product participants a shared object to challenge, while written assumptions expose beliefs that would otherwise remain invisible.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Treat the diagram as a testable account of one change, not as an architecture poster. Walk a real transaction from entry to storage and onward, then ask where the picture disagrees with deployment, ownership or data handling.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/threat-model-system-map.svg" alt="A payroll export is redrawn from a vague box into a focused data-flow model with an actor, application process, data store, external processor, labelled flows and a visible trust boundary." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A threat search can only inspect the system and boundaries the model makes visible.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Security failures often hide in hand-offs: a background job, export, administrator path, vendor call or store that nobody included in the first description. Making boundaries and flows explicit gives the team somewhere precise to ask what can go wrong.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one change small enough to explain in a minute. Draw its initiator, processing step, data store or destination, and the data moving between them.</p>
+<p>Mark each point where identity, ownership, network, privilege or data sensitivity changes. Write one assumption beside the boundary you trust least.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>No diagram is a complete or uniquely correct representation. A polished but stale model can create false confidence, and data-flow diagrams may understate business logic, human behaviour or lifecycle concerns. Keep the scope manageable and add another view when it reveals a different risk.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="threat-modeling-designing-for-security-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="threat-modeling-designing-for-security-idea-1" data-lesson-slug="threat-modeling-designing-for-security" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulThreatModelingDesigningForSecurityIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-orange" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Use STRIDE to make imagination systematic <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Shostack uses STRIDE as a structured prompt for what can go wrong: spoofing, tampering, repudiation, information disclosure, denial of service and elevation of privilege. Walking those categories across relevant elements and flows reduces reliance on whichever attack happens to occur first to the loudest person in the room.</p>
+<p>The technique connects each threat category to a security property, such as authentication, integrity, confidentiality or availability. It turns a broad request to think like an attacker into smaller questions that software teams can inspect and record.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Combine the checklist with varied viewpoints. STRIDE supplies repeatable coverage while developers, operators, product specialists and security practitioners contribute knowledge about code paths, failure modes, user value and credible misuse.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/threat-model-stride-scan.svg" alt="A single data flow passes through six STRIDE lenses, producing different security questions about identity, change, evidence, secrecy, availability and privilege before the findings enter one review list." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A structured scan broadens the search; it does not certify that every threat has been found.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Unstructured security reviews can fixate on data theft while overlooking replay, privilege escalation, denial of service or the inability to establish what happened. A common set of prompts makes omissions easier to notice and discussion easier to repeat.</p></section>
+          <section><h3>Apply it today</h3><p>Take one flow from your model and scan it once with each STRIDE category. Phrase every plausible finding as a specific failure, not merely the category name.</p>
+<p>Invite one person with a different role to challenge the list. Capture their added threat or the assumption that explains why it is out of scope.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>STRIDE is a discovery aid, not a proof of completeness or a numerical risk model. Its usefulness depends on the model and questions supplied; privacy harms, business-logic abuse, supply-chain compromise and domain-specific hazards may require other representations and expertise.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="threat-modeling-designing-for-security-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="threat-modeling-designing-for-security-idea-2" data-lesson-slug="threat-modeling-designing-for-security" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulThreatModelingDesigningForSecurityIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-orange" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Close every credible threat with a decision and a test <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Shostack's third question asks what the team will do about each threat. The available responses include mitigating it, eliminating the exposed feature or path, transferring responsibility through an appropriate arrangement, or explicitly accepting the risk. Findings should become trackable work rather than remain admiration for the problem.</p>
+<p>The fourth question asks whether the team did a good job. That means checking the model and threat coverage, recording assumptions and decisions, and validating that chosen mitigations can be measured or tested rather than merely named.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Give each credible threat a closure record: response, owner, evidence and revisit trigger. A mitigation becomes stronger when its expected behaviour is an acceptance criterion or security test, while an accepted risk names who accepted it and what change would reopen it.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/threat-model-close-loop.svg" alt="A credible replay threat enters a four-way decision gate for mitigate, eliminate, transfer or accept, then leaves only when it has an owner, evidence and a trigger for review, with a return arrow for system changes." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Finding a threat starts the decision; ownership and evidence close the loop.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A long threat list can create anxiety without improving the product. Linking each important finding to an owned decision and observable result converts design insight into implementation, testing or consciously governed risk.</p></section>
+          <section><h3>Apply it today</h3><p>Choose the most credible threat from your scan. Decide whether to mitigate, eliminate, transfer or accept it, and name the person or role authorised to own that decision.</p>
+<p>Write one observable check and one revisit trigger, such as a new data type, external exposure, privilege change, failed control or architecture revision.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Risk acceptance is not a synonym for ignoring work and transfer rarely removes accountability. Controls can introduce usability, reliability or operational risks of their own, so validation must inspect the resulting system and the model must change when its assumptions do.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-save" type="button" data-save-id="threat-modeling-designing-for-security-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="threat-modeling-designing-for-security-idea-3" data-lesson-slug="threat-modeling-designing-for-security" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulThreatModelingDesigningForSecurityIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="threat-modeling-designing-for-security" data-quiz-revision="2026-06-30-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>Which detail most turns a system sketch into a useful starting point for threat modeling?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q1" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Every component uses its official vendor icon and current product name.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q1" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Actors, stores, processes, data flows, trust changes and assumptions are visible.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q1" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>The diagram includes current production configuration values for each service.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q1" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Known attacker groups are ranked beside the components they might target.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Vendor icons can improve recognition, but visual fidelity does not reveal missing flows, stores, boundaries or assumptions.</p><p data-feedback-for="1" hidden>These elements make the system's security-relevant structure visible enough for the team to challenge and analyze.</p><p data-feedback-for="2" hidden>Configuration can matter later, but filling a design model with volatile detail may hide the structural flows and boundaries needed first.</p><p data-feedback-for="3" hidden>Attacker information can add a useful lens, but starting with named groups can miss ordinary design failures and does not define the system itself.</p>
+                    <p class="quiz-feedback-context">A useful model exposes what handles data and where trust or control changes. That shared representation makes concrete security questions possible without pretending the picture is complete.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-2-q1" data-question-type="concept" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>What is STRIDE's main contribution to a software threat-modeling session?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q1" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It supplies repeatable threat prompts for relevant system elements and data flows.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q1" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It ranks discovered threats by expected loss so the highest value is fixed first.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q1" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It proves a design secure when all six categories have a documented control.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q1" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It replaces specialist input with a checklist that any developer can complete alone.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>STRIDE turns a vague search for danger into a repeatable set of questions applied to the model's elements and flows.</p><p data-feedback-for="1" hidden>STRIDE classifies threat types; prioritisation still needs context such as impact, likelihood, exposure and organisational risk decisions.</p><p data-feedback-for="2" hidden>Documented coverage can improve review, but interactions, mistaken assumptions and omitted views mean the six categories cannot prove security.</p><p data-feedback-for="3" hidden>The checklist helps non-specialists participate, but diverse operational, domain and security knowledge still improves the threats found.</p>
+                    <p class="quiz-feedback-context">STRIDE makes threat discovery more systematic by supplying six kinds of failure to ask about. It supports judgement and collaboration but does not calculate risk or prove completeness.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-3-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What most clearly makes a discovered threat actionable rather than merely documented?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q1" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It is assigned a STRIDE category and placed in the threat model diagram.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q1" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It receives a severity label agreed by the developers and security specialist.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q1" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It is described with enough technical detail for a later penetration test.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q1" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It has an explicit response, accountable owner, observable evidence and review trigger.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A category helps organize discovery, but it does not decide whether or how the system will change or who owns the outcome.</p><p data-feedback-for="1" hidden>Severity can guide priority, but a label without a response, owner and evidence still leaves the threat unresolved.</p><p data-feedback-for="2" hidden>Technical detail can support later testing, but waiting for another activity does not establish the current response or accountability.</p><p data-feedback-for="3" hidden>This record links analysis to a decision, makes completion inspectable and states when changing conditions reopen the threat.</p>
+                    <p class="quiz-feedback-context">Action comes from a governed response that can be observed and revisited. Classification and detail support that decision but do not close the finding by themselves.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-1-q2" data-question-type="application" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A team is adding a payroll export to an external processor. What is the best first threat-modeling move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q2" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Choose an encryption standard before mapping where payroll data travels or rests.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q2" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Copy the previous integration's threat list and replace its component names.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q2" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Inventory security libraries in the repository and upgrade the oldest dependency.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-1-q2" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Draw the focused export flow, mark trust boundaries and record uncertain assumptions.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Encryption may be appropriate, but selecting a control before understanding flows, stores and endpoints risks protecting the wrong part of the system.</p><p data-feedback-for="1" hidden>A previous list can prompt later questions, but substituted names can preserve assumptions that do not hold for payroll data or the new processor.</p><p data-feedback-for="2" hidden>Dependency maintenance is valuable implementation work, but it does not first reveal the export's actors, flows, stores or trust changes.</p><p data-feedback-for="3" hidden>A scoped flow and explicit boundaries create the shared model needed to ask relevant security questions about this change.</p>
+                    <p class="quiz-feedback-context">The focused model establishes what is in scope and where sensitive data crosses control boundaries. Countermeasures and reused threats can then be evaluated against the actual design.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-2-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A new webhook crosses a trust boundary, but the review has listed only disclosure of its payload. What should the team do next?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q2" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Prioritise payload encryption because disclosure is already the team's most concrete concern.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q2" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Ask the security specialist to approve the flow before the development team continues.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q2" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Walk the flow through all six STRIDE prompts with varied participants and record assumptions.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-2-q2" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Run an automated vulnerability scanner and replace the threat list with its findings.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Encryption may address one disclosure path, but choosing it first leaves identity, integrity, evidence, availability and privilege questions unexplored.</p><p data-feedback-for="1" hidden>A specialist can contribute important knowledge, but handing off approval weakens the shared analysis and can leave implementation assumptions unchallenged.</p><p data-feedback-for="2" hidden>Applying each prompt to the actual flow and adding different viewpoints broadens coverage while keeping assumptions explicit.</p><p data-feedback-for="3" hidden>Scanning can find implementation weaknesses, but it does not replace design analysis of trust, misuse, business behaviour and unavailable code paths.</p>
+                    <p class="quiz-feedback-context">A systematic pass may reveal spoofed senders, tampered or replayed requests, missing audit evidence, service exhaustion or privilege effects that a disclosure-only discussion missed.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="threat-modeling-designing-for-security-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A team finds that an authenticated refund request can be replayed. Which response best closes the threat-modeling loop?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q2" value="0" required aria-describedby="threat-modeling-designing-for-security-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Accept the risk because authentication makes malicious replay unlikely, then note it in the diagram.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q2" value="1" required aria-describedby="threat-modeling-designing-for-security-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Add replay protection, assign its owner, test duplicate requests and define when to review it.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q2" value="2" required aria-describedby="threat-modeling-designing-for-security-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Require transport encryption and close the threat after confirming the certificate is valid.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="threat-modeling-designing-for-security-idea-3-q2" value="3" required aria-describedby="threat-modeling-designing-for-security-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Transfer responsibility to the payment provider without testing how repeated requests are handled.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="threat-modeling-designing-for-security-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Authentication identifies a caller but does not prevent reuse of a valid request. Acceptance also requires appropriate authority and an explicit basis.</p><p data-feedback-for="1" hidden>Replay protection mitigates the named threat, while ownership, a duplicate-request test and a review trigger make the decision verifiable and durable.</p><p data-feedback-for="2" hidden>Transport encryption protects data in transit but does not stop an authorised or captured valid request from being submitted more than once.</p><p data-feedback-for="3" hidden>A provider may own part of the control, but transfer does not establish the actual repeated-request behaviour or remove the team's responsibility to verify it.</p>
+                    <p class="quiz-feedback-context">The response addresses the specific replay behaviour and adds accountability, verification and a future review condition. Authentication or transport encryption alone does not make a valid request single-use.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Close one small threat-modeling loop</h2>
+          <ol><li>Pick one current change and draw its actor, process, store or destination, data flow and nearest trust boundary.</li><li>Scan one boundary-crossing flow with all six STRIDE prompts and write the single most credible failure.</li><li>Choose mitigate, eliminate, transfer or accept; then name the decision owner and one observable check.</li><li>Record one assumption and one system change that must reopen this threat model.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with a focused system model and one security decision that has an owner, evidence and a reason to be revisited.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From Working Effectively with Legacy Code: which seam would let you test a security response before changing the riskiest code path?</li><li>From Designing Data-Intensive Applications: how could a mixed-version deployment invalidate one trust or message-handling assumption in this model?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://adam.shostack.org/books/threat-modeling-book" target="_blank" rel="noreferrer">Adam Shostack: Threat Modeling book <span aria-hidden="true">↗</span></a></li><li><a href="https://search.worldcat.org/title/855043351" target="_blank" rel="noreferrer">WorldCat: Threat Modeling, Wiley 2014 edition <span aria-hidden="true">↗</span></a></li><li><a href="https://shostack.org/resources/whitepapers/threat-modeling-what-why-how" target="_blank" rel="noreferrer">Adam Shostack: Threat Modeling, What, Why, and How <span aria-hidden="true">↗</span></a></li><li><a href="https://shostack.org/files/essays/uncover" target="_blank" rel="noreferrer">Adam Shostack: Uncover Security Design Flaws Using STRIDE <span aria-hidden="true">↗</span></a></li><li><a href="https://www.threatmodelingmanifesto.org/" target="_blank" rel="noreferrer">Threat Modeling Manifesto <span aria-hidden="true">↗</span></a></li><li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html" target="_blank" rel="noreferrer">OWASP: Threat Modeling Cheat Sheet <span aria-hidden="true">↗</span></a></li><li><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" target="_blank" rel="noreferrer">Microsoft Learn: Threat Modeling Tool overview <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Security design improves when the team can see the system, search it systematically and turn every credible threat into an owned decision that reality can test.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="threat-modeling-designing-for-security" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/threat-modeling-designing-for-security.html" data-page-title="Threat Modeling: Designing for Security | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="the-staff-engineers-path.html"><span>Previous</span>The Staff Engineer’s Path</a>
+        <a class="next" href="team-topologies.html"><span>Next</span>Team Topologies</a>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

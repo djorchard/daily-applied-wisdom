@@ -1243,6 +1243,222 @@
       ]
     },
     {
+      "slug": "threat-modeling-designing-for-security",
+      "discussionId": "threat-modeling-designing-for-security",
+      "date": "2026-06-30",
+      "dateLabel": "30 June 2026",
+      "edition": "Daily lesson",
+      "title": "Threat Modeling: Designing for Security",
+      "authors": "Adam Shostack",
+      "year": "2014 · first edition",
+      "category": "Software engineering · Security design · Threat modeling",
+      "summary": "Make security design concrete by drawing the system that exists, scanning it with disciplined questions and closing each credible threat with an owned decision that can be checked.",
+      "evidenceNote": "Shostack presents a field-tested practitioner method developed through software-security work at Microsoft and elsewhere, not a controlled demonstration that one technique prevents a known share of incidents. The four-question structure, data-flow diagrams and STRIDE are strongly attributable and widely documented, but coverage depends on scope, representation, participants and changing context. A completed threat model is evidence of structured analysis, not proof of security, and it complements rather than replaces secure implementation, testing, monitoring and incident learning.",
+      "accent": "orange",
+      "quizRevision": "2026-06-30-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Model the system before naming its threats",
+          "argument": [
+            "Shostack begins software-centric threat modeling with a deceptively simple question: What are we working on? A useful answer is often a data-flow diagram that shows external actors, processes, data stores, flows and the trust boundaries where control or assumptions change.",
+            "The model is not decoration. It gives developers, testers, security specialists and product participants a shared object to challenge, while written assumptions expose beliefs that would otherwise remain invisible."
+          ],
+          "extension": "Treat the diagram as a testable account of one change, not as an architecture poster. Walk a real transaction from entry to storage and onward, then ask where the picture disagrees with deployment, ownership or data handling.",
+          "image": "../assets/lesson-visuals/threat-model-system-map.svg",
+          "imageAlt": "A payroll export is redrawn from a vague box into a focused data-flow model with an actor, application process, data store, external processor, labelled flows and a visible trust boundary.",
+          "imageCaption": "A threat search can only inspect the system and boundaries the model makes visible.",
+          "why": "Security failures often hide in hand-offs: a background job, export, administrator path, vendor call or store that nobody included in the first description. Making boundaries and flows explicit gives the team somewhere precise to ask what can go wrong.",
+          "apply": [
+            "Choose one change small enough to explain in a minute. Draw its initiator, processing step, data store or destination, and the data moving between them.",
+            "Mark each point where identity, ownership, network, privilege or data sensitivity changes. Write one assumption beside the boundary you trust least."
+          ],
+          "caveat": "No diagram is a complete or uniquely correct representation. A polished but stale model can create false confidence, and data-flow diagrams may understate business logic, human behaviour or lifecycle concerns. Keep the scope manageable and add another view when it reveals a different risk.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which detail most turns a system sketch into a useful starting point for threat modeling?",
+              "options": [
+                "Every component uses its official vendor icon and current product name.",
+                "Actors, stores, processes, data flows, trust changes and assumptions are visible.",
+                "The diagram includes current production configuration values for each service.",
+                "Known attacker groups are ranked beside the components they might target."
+              ],
+              "correctIndex": 1,
+              "feedback": "A useful model exposes what handles data and where trust or control changes. That shared representation makes concrete security questions possible without pretending the picture is complete.",
+              "feedbackByOption": [
+                "Vendor icons can improve recognition, but visual fidelity does not reveal missing flows, stores, boundaries or assumptions.",
+                "Correct. These elements make the system's security-relevant structure visible enough for the team to challenge and analyze.",
+                "Configuration can matter later, but filling a design model with volatile detail may hide the structural flows and boundaries needed first.",
+                "Attacker information can add a useful lens, but starting with named groups can miss ordinary design failures and does not define the system itself."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team is adding a payroll export to an external processor. What is the best first threat-modeling move?",
+              "options": [
+                "Choose an encryption standard before mapping where payroll data travels or rests.",
+                "Copy the previous integration's threat list and replace its component names.",
+                "Inventory security libraries in the repository and upgrade the oldest dependency.",
+                "Draw the focused export flow, mark trust boundaries and record uncertain assumptions."
+              ],
+              "correctIndex": 3,
+              "feedback": "The focused model establishes what is in scope and where sensitive data crosses control boundaries. Countermeasures and reused threats can then be evaluated against the actual design.",
+              "feedbackByOption": [
+                "Encryption may be appropriate, but selecting a control before understanding flows, stores and endpoints risks protecting the wrong part of the system.",
+                "A previous list can prompt later questions, but substituted names can preserve assumptions that do not hold for payroll data or the new processor.",
+                "Dependency maintenance is valuable implementation work, but it does not first reveal the export's actors, flows, stores or trust changes.",
+                "Correct. A scoped flow and explicit boundaries create the shared model needed to ask relevant security questions about this change."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Use STRIDE to make imagination systematic",
+          "argument": [
+            "Shostack uses STRIDE as a structured prompt for what can go wrong: spoofing, tampering, repudiation, information disclosure, denial of service and elevation of privilege. Walking those categories across relevant elements and flows reduces reliance on whichever attack happens to occur first to the loudest person in the room.",
+            "The technique connects each threat category to a security property, such as authentication, integrity, confidentiality or availability. It turns a broad request to think like an attacker into smaller questions that software teams can inspect and record."
+          ],
+          "extension": "Combine the checklist with varied viewpoints. STRIDE supplies repeatable coverage while developers, operators, product specialists and security practitioners contribute knowledge about code paths, failure modes, user value and credible misuse.",
+          "image": "../assets/lesson-visuals/threat-model-stride-scan.svg",
+          "imageAlt": "A single data flow passes through six STRIDE lenses, producing different security questions about identity, change, evidence, secrecy, availability and privilege before the findings enter one review list.",
+          "imageCaption": "A structured scan broadens the search; it does not certify that every threat has been found.",
+          "why": "Unstructured security reviews can fixate on data theft while overlooking replay, privilege escalation, denial of service or the inability to establish what happened. A common set of prompts makes omissions easier to notice and discussion easier to repeat.",
+          "apply": [
+            "Take one flow from your model and scan it once with each STRIDE category. Phrase every plausible finding as a specific failure, not merely the category name.",
+            "Invite one person with a different role to challenge the list. Capture their added threat or the assumption that explains why it is out of scope."
+          ],
+          "caveat": "STRIDE is a discovery aid, not a proof of completeness or a numerical risk model. Its usefulness depends on the model and questions supplied; privacy harms, business-logic abuse, supply-chain compromise and domain-specific hazards may require other representations and expertise.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is STRIDE's main contribution to a software threat-modeling session?",
+              "options": [
+                "It supplies repeatable threat prompts for relevant system elements and data flows.",
+                "It ranks discovered threats by expected loss so the highest value is fixed first.",
+                "It proves a design secure when all six categories have a documented control.",
+                "It replaces specialist input with a checklist that any developer can complete alone."
+              ],
+              "correctIndex": 0,
+              "feedback": "STRIDE makes threat discovery more systematic by supplying six kinds of failure to ask about. It supports judgement and collaboration but does not calculate risk or prove completeness.",
+              "feedbackByOption": [
+                "Correct. STRIDE turns a vague search for danger into a repeatable set of questions applied to the model's elements and flows.",
+                "STRIDE classifies threat types; prioritisation still needs context such as impact, likelihood, exposure and organisational risk decisions.",
+                "Documented coverage can improve review, but interactions, mistaken assumptions and omitted views mean the six categories cannot prove security.",
+                "The checklist helps non-specialists participate, but diverse operational, domain and security knowledge still improves the threats found."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A new webhook crosses a trust boundary, but the review has listed only disclosure of its payload. What should the team do next?",
+              "options": [
+                "Prioritise payload encryption because disclosure is already the team's most concrete concern.",
+                "Ask the security specialist to approve the flow before the development team continues.",
+                "Walk the flow through all six STRIDE prompts with varied participants and record assumptions.",
+                "Run an automated vulnerability scanner and replace the threat list with its findings."
+              ],
+              "correctIndex": 2,
+              "feedback": "A systematic pass may reveal spoofed senders, tampered or replayed requests, missing audit evidence, service exhaustion or privilege effects that a disclosure-only discussion missed.",
+              "feedbackByOption": [
+                "Encryption may address one disclosure path, but choosing it first leaves identity, integrity, evidence, availability and privilege questions unexplored.",
+                "A specialist can contribute important knowledge, but handing off approval weakens the shared analysis and can leave implementation assumptions unchallenged.",
+                "Correct. Applying each prompt to the actual flow and adding different viewpoints broadens coverage while keeping assumptions explicit.",
+                "Scanning can find implementation weaknesses, but it does not replace design analysis of trust, misuse, business behaviour and unavailable code paths."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Close every credible threat with a decision and a test",
+          "argument": [
+            "Shostack's third question asks what the team will do about each threat. The available responses include mitigating it, eliminating the exposed feature or path, transferring responsibility through an appropriate arrangement, or explicitly accepting the risk. Findings should become trackable work rather than remain admiration for the problem.",
+            "The fourth question asks whether the team did a good job. That means checking the model and threat coverage, recording assumptions and decisions, and validating that chosen mitigations can be measured or tested rather than merely named."
+          ],
+          "extension": "Give each credible threat a closure record: response, owner, evidence and revisit trigger. A mitigation becomes stronger when its expected behaviour is an acceptance criterion or security test, while an accepted risk names who accepted it and what change would reopen it.",
+          "image": "../assets/lesson-visuals/threat-model-close-loop.svg",
+          "imageAlt": "A credible replay threat enters a four-way decision gate for mitigate, eliminate, transfer or accept, then leaves only when it has an owner, evidence and a trigger for review, with a return arrow for system changes.",
+          "imageCaption": "Finding a threat starts the decision; ownership and evidence close the loop.",
+          "why": "A long threat list can create anxiety without improving the product. Linking each important finding to an owned decision and observable result converts design insight into implementation, testing or consciously governed risk.",
+          "apply": [
+            "Choose the most credible threat from your scan. Decide whether to mitigate, eliminate, transfer or accept it, and name the person or role authorised to own that decision.",
+            "Write one observable check and one revisit trigger, such as a new data type, external exposure, privilege change, failed control or architecture revision."
+          ],
+          "caveat": "Risk acceptance is not a synonym for ignoring work and transfer rarely removes accountability. Controls can introduce usability, reliability or operational risks of their own, so validation must inspect the resulting system and the model must change when its assumptions do.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What most clearly makes a discovered threat actionable rather than merely documented?",
+              "options": [
+                "It is assigned a STRIDE category and placed in the threat model diagram.",
+                "It receives a severity label agreed by the developers and security specialist.",
+                "It is described with enough technical detail for a later penetration test.",
+                "It has an explicit response, accountable owner, observable evidence and review trigger."
+              ],
+              "correctIndex": 3,
+              "feedback": "Action comes from a governed response that can be observed and revisited. Classification and detail support that decision but do not close the finding by themselves.",
+              "feedbackByOption": [
+                "A category helps organize discovery, but it does not decide whether or how the system will change or who owns the outcome.",
+                "Severity can guide priority, but a label without a response, owner and evidence still leaves the threat unresolved.",
+                "Technical detail can support later testing, but waiting for another activity does not establish the current response or accountability.",
+                "Correct. This record links analysis to a decision, makes completion inspectable and states when changing conditions reopen the threat."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team finds that an authenticated refund request can be replayed. Which response best closes the threat-modeling loop?",
+              "options": [
+                "Accept the risk because authentication makes malicious replay unlikely, then note it in the diagram.",
+                "Add replay protection, assign its owner, test duplicate requests and define when to review it.",
+                "Require transport encryption and close the threat after confirming the certificate is valid.",
+                "Transfer responsibility to the payment provider without testing how repeated requests are handled."
+              ],
+              "correctIndex": 1,
+              "feedback": "The response addresses the specific replay behaviour and adds accountability, verification and a future review condition. Authentication or transport encryption alone does not make a valid request single-use.",
+              "feedbackByOption": [
+                "Authentication identifies a caller but does not prevent reuse of a valid request. Acceptance also requires appropriate authority and an explicit basis.",
+                "Correct. Replay protection mitigates the named threat, while ownership, a duplicate-request test and a review trigger make the decision verifiable and durable.",
+                "Transport encryption protects data in transit but does not stop an authorised or captured valid request from being submitted more than once.",
+                "A provider may own part of the control, but transfer does not establish the actual repeated-request behaviour or remove the team's responsibility to verify it."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Close one small threat-modeling loop",
+        "steps": [
+          "Pick one current change and draw its actor, process, store or destination, data flow and nearest trust boundary.",
+          "Scan one boundary-crossing flow with all six STRIDE prompts and write the single most credible failure.",
+          "Choose mitigate, eliminate, transfer or accept; then name the decision owner and one observable check.",
+          "Record one assumption and one system change that must reopen this threat model."
+        ],
+        "result": "You finish with a focused system model and one security decision that has an owner, evidence and a reason to be revisited."
+      },
+      "spacedRecall": [
+        "From Working Effectively with Legacy Code: which seam would let you test a security response before changing the riskiest code path?",
+        "From Designing Data-Intensive Applications: how could a mixed-version deployment invalidate one trust or message-handling assumption in this model?"
+      ],
+      "takeaway": "Security design improves when the team can see the system, search it systematically and turn every credible threat into an owned decision that reality can test.",
+      "sources": [
+        { "label": "Adam Shostack: Threat Modeling book", "url": "https://adam.shostack.org/books/threat-modeling-book" },
+        { "label": "WorldCat: Threat Modeling, Wiley 2014 edition", "url": "https://search.worldcat.org/title/855043351" },
+        { "label": "Adam Shostack: Threat Modeling, What, Why, and How", "url": "https://shostack.org/resources/whitepapers/threat-modeling-what-why-how" },
+        { "label": "Adam Shostack: Uncover Security Design Flaws Using STRIDE", "url": "https://shostack.org/files/essays/uncover" },
+        { "label": "Threat Modeling Manifesto", "url": "https://www.threatmodelingmanifesto.org/" },
+        { "label": "OWASP: Threat Modeling Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html" },
+        { "label": "Microsoft Learn: Threat Modeling Tool overview", "url": "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool" }
+      ]
+    },
+    {
       "slug": "the-staff-engineers-path",
       "discussionId": "the-staff-engineers-path",
       "date": "2026-06-29",
