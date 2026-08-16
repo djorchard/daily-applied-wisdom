@@ -1,6 +1,231 @@
 {
   "lessons": [
     {
+      "slug": "working-identity",
+      "discussionId": "working-identity",
+      "date": "2026-08-17",
+      "dateLabel": "17 August 2026",
+      "edition": "Daily lesson",
+      "title": "Working Identity",
+      "authors": "Herminia Ibarra",
+      "year": "2003 · 2023 updated second edition",
+      "category": "Career development · Professional identity · Career transition",
+      "summary": "Treat a career change as a test-and-learn process: try possible selves in real work, widen the people who can imagine your future and build a story from evidence rather than wishful certainty.",
+      "evidenceNote": "Ibarra's model is grounded in qualitative studies of professionals in transition, longitudinal observation and practitioner case evidence. That makes it a well-supported interpretive framework, not a controlled causal guarantee that three practices will produce a successful career change. Opportunity, money, caregiving, health, discrimination, visas and labour-market access shape which experiments are safe and available.",
+      "accent": "purple",
+      "quizRevision": "2026-08-17-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Test possible selves in real work",
+          "argument": [
+            "Ibarra argues that substantial career change often follows an act-then-think sequence. A working identity was built through years of activity, relationships and feedback, so introspection alone tends to recycle the assumptions of the current role. Career changers learn more by crafting limited identity experiments: side projects, temporary assignments, volunteering or other small ways to perform part of a possible future.",
+            "A possible self is a hypothesis, not a promise. Testing several versions lets a person compare fantasy with lived experience, notice which skills and trade-offs are real, and use internal reactions plus external feedback before making a harder-to-reverse commitment."
+          ],
+          "extension": "Turn a career idea into an evidence question. Instead of asking whether a role sounds right, choose the smallest authentic piece of that work that can reveal something you do not already know.",
+          "image": "../assets/lesson-visuals/working-identity-experiments.svg",
+          "imageAlt": "Three possible professional selves move through small real-world experiments, producing evidence that makes one next step more informed without demanding an immediate career leap.",
+          "imageCaption": "Possible selves become useful when real work can support, weaken or reshape them.",
+          "why": "A polished job description cannot reveal the daily texture of the work, your appetite for its constraints or how others respond to you in the role. A small test can replace imagined certainty with specific evidence while preserving options.",
+          "apply": [
+            "Name one professional identity you are curious about, such as facilitator, architect, coach, analyst or independent maker.",
+            "Define one reversible sample of its real work that you could complete without resigning, then write the observation that would make the identity more or less plausible."
+          ],
+          "caveat": "An enjoyable trial can overrepresent novelty, autonomy or a friendly setting. Test routine and difficult parts as well as attractive ones, and do not treat one good afternoon as evidence that the economics or full role will fit.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes an identity experiment different from simply researching a career?",
+              "options": [
+                "It creates first-hand evidence by trying part of the role on a limited scale.",
+                "It estimates salary and demand before the person contacts anyone in the field.",
+                "It commits publicly to one destination so doubt cannot delay the transition.",
+                "It asks close colleagues which role best matches the person's established strengths."
+              ],
+              "correctIndex": 0,
+              "feedback": "An identity experiment samples authentic activity so a possible self can be compared with lived experience. Research can inform the test, but it cannot substitute for evidence about doing the work.",
+              "feedbackByOption": [
+                "Correct. A limited piece of authentic work produces direct evidence about the role, the person and the fit without requiring a full career leap.",
+                "Market research can expose constraints, but it does not test how performing the work changes or challenges the possible identity.",
+                "Public commitment can turn a hypothesis into a trap. Ibarra's approach keeps several possibilities open long enough to learn from them.",
+                "Close colleagues may offer useful observations, but their advice usually reflects the identity they already know rather than a tested future."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product owner wonders whether facilitation could become a larger part of their career. Which next step is the best identity experiment?",
+              "options": [
+                "Complete several personality tests and compare their career recommendations.",
+                "Ask current teammates whether facilitation fits the reputation they already know.",
+                "Facilitate one external workshop and record energy, skill gaps and feedback.",
+                "Rewrite the five-year plan around facilitation before accepting other projects."
+              ],
+              "correctIndex": 2,
+              "feedback": "A real but bounded workshop tests the activity, the identity and other people's response. The result can support, weaken or refine the career hypothesis without forcing a premature commitment.",
+              "feedbackByOption": [
+                "Tests can prompt reflection, but they keep the question inside analysis. The stronger next step samples the actual work and observes the result.",
+                "Teammates know the person's current identity and can offer useful context, but their opinion is not a substitute for performing the possible role.",
+                "Correct. The workshop is authentic enough to generate evidence and bounded enough to preserve options if the experience changes the hypothesis.",
+                "A five-year plan gives the untested identity more certainty than the evidence supports. Test first, then let the plan respond to what happened."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Change the people who can imagine you",
+          "argument": [
+            "Ibarra argues that career identities are social as well as personal. Friends, trusted colleagues and long-standing mentors often care deeply, yet they know and depend on the familiar version of us. Their advice can unintentionally pull a substantial change back toward safe variations of the existing path.",
+            "Career changers therefore interact with new networks, role models and communities connected to possible futures. These relationships reveal unfamiliar ways of working, supply language and examples for an emerging identity, and create settings where the new version of the person is not already constrained by an old reputation."
+          ],
+          "extension": "Do not abandon trusted relationships; add bridges. Seek people close enough to the possible work to correct your fantasies and distant enough from your current role to see alternatives.",
+          "image": "../assets/lesson-visuals/working-identity-new-connections.svg",
+          "imageAlt": "A person surrounded by a familiar network adds a bridge to a new professional community, gaining role models, information and a place to try a possible identity.",
+          "imageCaption": "New connections do more than supply vacancies; they expand who you can plausibly become.",
+          "why": "A career option stays abstract when nobody around you does the work or recognises you in it. New connections expose hidden routines and entry paths while giving an emerging identity a social place to develop.",
+          "apply": [
+            "Choose one possible self and identify one person, community or event just outside your normal professional circle where that work is already visible.",
+            "Ask one experience-seeking question, such as what the work feels like on an ordinary difficult week, or offer a small contribution that lets both sides observe fit."
+          ],
+          "caveat": "New networks can romanticise their field, reproduce exclusion or invite unpaid work that benefits others more than the learner. Compare perspectives, set boundaries and treat access barriers as real constraints rather than a failure of confidence.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why can advice from long-standing contacts slow a substantial career change?",
+              "options": [
+                "They know too little about the person's past achievements to judge any option.",
+                "They may reinforce the familiar identity and suggest moves that preserve its path.",
+                "They usually value financial security more than learning or professional fulfilment.",
+                "They cannot compare the skills required across occupations as well as recruiters can."
+              ],
+              "correctIndex": 1,
+              "feedback": "Long-standing contacts often see the person through a well-established role. Their care and knowledge remain valuable, but they may generate options that preserve the old trajectory rather than help a new identity form.",
+              "feedbackByOption": [
+                "Long-standing contacts often know past achievements very well. The limitation is that this knowledge can anchor their imagination to the established identity.",
+                "Correct. Existing relationships can unintentionally keep the person legible as who they have been, so new connections are needed to widen the possible future.",
+                "Some contacts may prioritise security, but that is not the general mechanism. The stronger issue is how shared history reinforces a familiar identity.",
+                "Recruiters can add market information, but the book's point is broader: established relationships often preserve the current trajectory regardless of expertise."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An engineer wants to explore public-interest technology, but every internal mentor suggests another platform role. What is the best next move?",
+              "options": [
+                "Resign now so the new identity is no longer constrained by established colleagues.",
+                "Ask the same mentors to rank public-interest organisations by prestige and stability.",
+                "Wait until an employer confirms the engineer is already a strong fit for the field.",
+                "Add conversations and a small collaboration with people already doing that work."
+              ],
+              "correctIndex": 3,
+              "feedback": "A bridge into the new field adds direct information, role models and a setting where the engineer can be experienced differently. It expands the network without discarding useful existing support or demanding a leap.",
+              "feedbackByOption": [
+                "Immediate resignation removes income and options before the new identity has evidence. Ibarra's model favours bridges and bounded trials over a forced leap.",
+                "The mentors may help evaluate organisations, but keeping the inquiry inside the same circle still limits exposure to people living the possible future.",
+                "Waiting for prior confirmation creates a circular barrier: the new identity often becomes credible through small participation, not before it.",
+                "Correct. New field relationships plus a bounded contribution reveal the work and let others encounter the engineer in the possible role."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Build a story from emerging evidence",
+          "argument": [
+            "Ibarra's third practice is making sense of what happens during transition. Experiments, new relationships, setbacks and small wins arrive as fragments. A transition story connects them into an account of what is changing, what still matters and why a next direction now deserves attention.",
+            "The story should be coherent enough to guide action and help other people understand the transition, but provisional enough to change when new evidence arrives. Sense-making is iterative: action changes the story, and the revised story helps choose the next experiment."
+          ],
+          "extension": "Use narrative as a working model, not a marketing verdict. Keep the evidence that supports and weakens each possible self visible, then let the story explain the next test rather than pretend the destination was obvious all along.",
+          "image": "../assets/lesson-visuals/working-identity-sensemaking.svg",
+          "imageAlt": "Evidence from experiments, relationships and reactions enters a revisable career story, which points to a next test and loops back when new evidence arrives.",
+          "imageCaption": "A useful career story creates direction without turning uncertainty into fiction.",
+          "why": "Without a story, experiments can feel like unrelated hobbies and a non-linear transition can look like failure. With a story that is too polished, disconfirming evidence disappears. A revisable account holds direction and honesty together.",
+          "apply": [
+            "After one career experiment, write three lines: what the result supported, what it weakened and what remains unknown.",
+            "Finish with one sentence linking the evidence to the next test: Because I observed ___, I will now test ___ before deciding ___."
+          ],
+          "caveat": "Humans can make almost any sequence sound inevitable after the fact. A compelling story may become personal branding that protects the preferred answer, so keep dates, observations and contradictory feedback beside the narrative and revise it explicitly.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What role does a transition story play in Ibarra's approach?",
+              "options": [
+                "It proves that a long-standing passion has been the correct destination all along.",
+                "It presents a polished identity before experiments can create conflicting evidence.",
+                "It makes evidence coherent enough to guide action while remaining open to revision.",
+                "It converts uncertainty into a fixed timetable for leaving the current position."
+              ],
+              "correctIndex": 2,
+              "feedback": "Sense-making connects scattered evidence into enough direction for another action. The story remains provisional because later experiments and relationships may change what the transition means.",
+              "feedbackByOption": [
+                "The model rejects the assumption that one true destination can be recovered from the past. The story develops from present evidence and remains revisable.",
+                "A polished identity can hide useful contradiction. The story should help interpret experiments, including evidence that weakens the preferred option.",
+                "Correct. A working story makes a non-linear transition intelligible and actionable without claiming that uncertainty has disappeared.",
+                "A timetable may support logistics, but narrative sense-making does not make the destination or timing fixed. It guides the next informative step."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Three career experiments produced mixed evidence. What is the best use of a transition story now?",
+              "options": [
+                "Select the experiment with the strongest first impression and make its story permanent.",
+                "Describe what each result supports or weakens, then name the next discriminating test.",
+                "Average the three reactions into one score and pursue whichever identity ranks highest.",
+                "Present only consistent evidence so contacts receive a confident professional narrative."
+              ],
+              "correctIndex": 1,
+              "feedback": "Mixed evidence is material for sense-making, not noise to remove. A useful story records how each possible self changed and points to a test that can reduce the most important remaining uncertainty.",
+              "feedbackByOption": [
+                "A strong first impression can reflect novelty or context. Making it permanent stops the iterative learning process before mixed evidence is understood.",
+                "Correct. The story integrates support and contradiction, then earns its value by guiding a test that can distinguish between remaining possibilities.",
+                "A single average erases differences in what was tested and why reactions occurred. Interpretation is needed before choosing the next action.",
+                "Removing contradiction turns sense-making into image management. Trusted contacts need a coherent direction, but the learner still needs the full evidence."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Turn three possible selves into one next test",
+        "steps": [
+          "Write three professional identities you could plausibly explore without deciding that any is your destination.",
+          "Beside each, name one reversible sample of its real work and one observable result that would change your view.",
+          "Circle the test that would reduce the most important uncertainty for the least irreversible cost.",
+          "Write its first action, who can help you enter the setting and when you will do it."
+        ],
+        "result": "You finish with three career hypotheses and one scheduled action capable of producing new evidence."
+      },
+      "spacedRecall": [
+        "From Continuous Discovery Habits: what makes a small test reduce uncertainty rather than merely confirm a preferred answer?",
+        "From The Staff Engineer's Path: which kind of influence grows through relationships rather than formal authority?"
+      ],
+      "takeaway": "Do not wait to discover a finished career identity: test possible selves, widen the people around them and let evidence earn the next step.",
+      "sources": [
+        {
+          "label": "Herminia Ibarra: Working Identity, updated second edition",
+          "url": "https://herminiaibarra.com/working-identity-book/"
+        },
+        {
+          "label": "Harvard Business Review Press: Working Identity, 2023 updated edition",
+          "url": "https://store.hbr.org/product/working-identity-updated-edition-with-a-new-preface-unconventional-strategies-for-reinventing-your-career/10659"
+        },
+        {
+          "label": "Herminia Ibarra: How to stay stuck in the wrong career",
+          "url": "https://herminiaibarra.com/how-to-stay-stuck-in-the-wrong-career/"
+        },
+        {
+          "label": "Administrative Science Quarterly: Provisional Selves",
+          "url": "https://journals.sagepub.com/doi/abs/10.2307/2667055"
+        }
+      ]
+    },
+    {
       "slug": "the-psychology-of-money",
       "discussionId": "the-psychology-of-money",
       "date": "2026-08-14",

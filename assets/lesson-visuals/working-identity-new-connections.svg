@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="working-identity-connections-title working-identity-connections-desc">
+  <title id="working-identity-connections-title">A bridge to a new network expands possible professional identities</title>
+  <desc id="working-identity-connections-desc">A familiar circle continues to support the current identity. A deliberate bridge reaches a new professional community, which adds role models, real routines and new language for a possible future.</desc>
+  <defs>
+    <marker id="working-identity-connections-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <rect class="card" x="340" y="30" width="520" height="64" rx="32" fill="#fffdf8"/>
+  <text class="heading" x="600" y="72" text-anchor="middle">KEEP SUPPORT · ADD BRIDGES</text>
+
+  <rect class="card" x="42" y="138" width="340" height="338" rx="26" fill="#b8d5e5"/>
+  <text class="heading" x="212" y="183" text-anchor="middle">FAMILIAR CIRCLE</text>
+  <text class="small" x="212" y="216" text-anchor="middle">knows who you have been</text>
+  <circle class="card" cx="122" cy="292" r="42" fill="#fffdf8"/>
+  <circle class="card" cx="212" cy="262" r="42" fill="#fffdf8"/>
+  <circle class="card" cx="302" cy="292" r="42" fill="#fffdf8"/>
+  <circle class="card" cx="167" cy="378" r="42" fill="#fffdf8"/>
+  <circle class="card" cx="257" cy="378" r="42" fill="#fffdf8"/>
+  <path class="line" d="M122 334L167 336M212 304L167 336M212 304L257 336M302 334L257 336"/>
+  <text class="body" x="212" y="446" text-anchor="middle">care · history · stability</text>
+
+  <rect class="card" x="418" y="218" width="264" height="184" rx="28" fill="#e4cf8e"/>
+  <circle cx="550" cy="268" r="28" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <path class="line" d="M498 352C498 308 602 308 602 352"/>
+  <text class="heading" x="550" y="382" text-anchor="middle">CURRENT SELF</text>
+  <text class="small" x="550" y="428" text-anchor="middle">with a possible future</text>
+
+  <path class="line" d="M382 307H402" marker-end="url(#working-identity-connections-arrow)"/>
+  <path class="line" d="M682 307H704" marker-end="url(#working-identity-connections-arrow)"/>
+  <rect class="card" x="718" y="245" width="160" height="124" rx="20" fill="#f5c79d"/>
+  <text class="small" x="798" y="290" text-anchor="middle">BRIDGE</text>
+  <text class="heading" x="798" y="333" text-anchor="middle">TRY + ASK</text>
+
+  <path class="line" d="M878 307H898" marker-end="url(#working-identity-connections-arrow)"/>
+  <rect class="card" x="912" y="118" width="246" height="390" rx="26" fill="#d8cce8"/>
+  <text class="heading" x="1035" y="163" text-anchor="middle">NEW</text>
+  <text class="heading" x="1035" y="197" text-anchor="middle">COMMUNITY</text>
+  <text class="small" x="1035" y="231" text-anchor="middle">sees possible</text>
+  <text class="small" x="1035" y="259" text-anchor="middle">contribution</text>
+  <circle class="card" cx="981" cy="318" r="36" fill="#fffdf8"/>
+  <circle class="card" cx="1089" cy="318" r="36" fill="#fffdf8"/>
+  <circle class="card" cx="981" cy="405" r="36" fill="#fffdf8"/>
+  <circle class="card" cx="1089" cy="405" r="36" fill="#fffdf8"/>
+  <path class="line" d="M981 354V369M1089 354V369M1017 318H1053M1017 405H1053"/>
+  <text class="small" x="1035" y="471" text-anchor="middle">practice · feedback</text>
+  <text class="small" x="1035" y="497" text-anchor="middle">access</text>
+
+  <path class="line" d="M1035 508V522H218V552"/>
+  <path class="line" d="M1035 522H600V552"/>
+  <path class="line" d="M1035 522V552"/>
+  <rect class="card" x="50" y="568" width="336" height="126" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="218" y="613" text-anchor="middle">ROLE MODELS</text>
+  <text class="body" x="218" y="654" text-anchor="middle">ways the work can look</text>
+
+  <rect class="card" x="432" y="568" width="336" height="126" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="613" text-anchor="middle">REAL ROUTINES</text>
+  <text class="body" x="600" y="654" text-anchor="middle">ordinary costs and rewards</text>
+
+  <rect class="card" x="814" y="568" width="336" height="126" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="982" y="613" text-anchor="middle">NEW LANGUAGE</text>
+  <text class="body" x="982" y="654" text-anchor="middle">a future others can discuss</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="working-identity-experiments-title working-identity-experiments-desc">
+  <title id="working-identity-experiments-title">Possible selves become evidence through small real-world tests</title>
+  <desc id="working-identity-experiments-desc">Three possible professional identities each lead to a bounded sample of real work. Observations support, weaken or reshape the hypotheses before one next test is chosen.</desc>
+  <defs>
+    <marker id="working-identity-experiments-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+
+  <rect class="card" x="238" y="30" width="724" height="64" rx="32" fill="#fffdf8"/>
+  <text class="heading" x="600" y="72" text-anchor="middle">POSSIBLE SELF → REAL WORK → EVIDENCE</text>
+
+  <rect class="card" x="44" y="126" width="344" height="112" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="216" y="164" text-anchor="middle">POSSIBLE SELF</text>
+  <text class="heading" x="216" y="207" text-anchor="middle">FACILITATOR</text>
+
+  <rect class="card" x="428" y="126" width="344" height="112" rx="22" fill="#e4cf8e"/>
+  <text class="small" x="600" y="164" text-anchor="middle">POSSIBLE SELF</text>
+  <text class="heading" x="600" y="207" text-anchor="middle">ARCHITECT</text>
+
+  <rect class="card" x="812" y="126" width="344" height="112" rx="22" fill="#d8cce8"/>
+  <text class="small" x="984" y="164" text-anchor="middle">POSSIBLE SELF</text>
+  <text class="heading" x="984" y="207" text-anchor="middle">COACH</text>
+
+  <path class="line" d="M216 238V286" marker-end="url(#working-identity-experiments-arrow)"/>
+  <path class="line" d="M600 238V286" marker-end="url(#working-identity-experiments-arrow)"/>
+  <path class="line" d="M984 238V286" marker-end="url(#working-identity-experiments-arrow)"/>
+
+  <rect class="card" x="44" y="302" width="344" height="130" rx="22" fill="#fffdf8"/>
+  <text class="small" x="216" y="343" text-anchor="middle">SMALL REAL TEST</text>
+  <text class="body" x="216" y="382" text-anchor="middle">Run one workshop</text>
+  <text class="small" x="216" y="414" text-anchor="middle">observe energy + feedback</text>
+
+  <rect class="card" x="428" y="302" width="344" height="130" rx="22" fill="#fffdf8"/>
+  <text class="small" x="600" y="343" text-anchor="middle">SMALL REAL TEST</text>
+  <text class="body" x="600" y="382" text-anchor="middle">Draft one decision</text>
+  <text class="small" x="600" y="414" text-anchor="middle">observe trade-offs + gaps</text>
+
+  <rect class="card" x="812" y="302" width="344" height="130" rx="22" fill="#fffdf8"/>
+  <text class="small" x="984" y="343" text-anchor="middle">SMALL REAL TEST</text>
+  <text class="body" x="984" y="382" text-anchor="middle">Coach one session</text>
+  <text class="small" x="984" y="414" text-anchor="middle">observe value + limits</text>
+
+  <path class="line" d="M216 432V478" marker-end="url(#working-identity-experiments-arrow)"/>
+  <path class="line" d="M600 432V478" marker-end="url(#working-identity-experiments-arrow)"/>
+  <path class="line" d="M984 432V478" marker-end="url(#working-identity-experiments-arrow)"/>
+
+  <rect class="card" x="44" y="494" width="344" height="92" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="216" y="534" text-anchor="middle">SUPPORTED?</text>
+  <text class="small" x="216" y="566" text-anchor="middle">more plausible than before</text>
+
+  <rect class="card" x="428" y="494" width="344" height="92" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="600" y="534" text-anchor="middle">WEAKENED?</text>
+  <text class="small" x="600" y="566" text-anchor="middle">a trade-off changes the fit</text>
+
+  <rect class="card" x="812" y="494" width="344" height="92" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="984" y="534" text-anchor="middle">RESHAPED?</text>
+  <text class="small" x="984" y="566" text-anchor="middle">a better variant appears</text>
+
+  <path class="line" d="M216 586V628H600"/>
+  <path class="line" d="M600 586V628"/>
+  <path class="line" d="M984 586V628H600"/>
+  <path class="line" d="M600 628V650" marker-end="url(#working-identity-experiments-arrow)"/>
+  <rect class="card" x="250" y="664" width="700" height="66" rx="22" fill="#d8cce8"/>
+  <text class="heading" x="600" y="706" text-anchor="middle">CHOOSE THE NEXT INFORMATIVE TEST</text>
+</svg>
