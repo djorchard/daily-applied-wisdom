@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="risk-protection-title risk-protection-desc">
+  <title id="risk-protection-title">Match the size of a possible loss with the right protection layer</title>
+  <desc id="risk-protection-desc">A three-level ladder routes routine expected costs to the budget, unexpected but absorbable losses to an emergency buffer and plan-breaking losses to an insurance review. The review checks existing cover, the defined event, limits and periods, exclusions and total cost before cover is added or cancelled.</desc>
+  <defs>
+    <marker id="risk-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .label { font-size: 25px; font-weight: 700; }
+      .body { font-size: 23px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="224" y="20" width="752" height="64" rx="32" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="600" y="61" text-anchor="middle">ROUTE THE CONSEQUENCE BEFORE SHOPPING FOR A PRODUCT</text>
+
+  <text class="small" x="310" y="130" text-anchor="middle">LOSS-SIZE LADDER</text>
+  <rect class="card" x="54" y="154" width="512" height="124" rx="28" fill="#fffdf8"/>
+  <rect x="76" y="176" width="154" height="80" rx="20" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="153" y="208" text-anchor="middle">EXPECTED</text>
+  <text class="body" x="153" y="239" text-anchor="middle">and routine</text>
+  <text class="label" x="388" y="205" text-anchor="middle">BUDGET LAYER</text>
+  <text class="body" x="388" y="242" text-anchor="middle">plan and pay from cash flow</text>
+
+  <path class="line" d="M310 278V318" marker-end="url(#risk-arrow)"/>
+  <rect class="card" x="54" y="332" width="512" height="124" rx="28" fill="#b8d5e5"/>
+  <rect x="76" y="354" width="154" height="80" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="153" y="386" text-anchor="middle">SURPRISE</text>
+  <text class="body" x="153" y="411" text-anchor="middle">absorbable</text>
+  <text class="label" x="388" y="383" text-anchor="middle">BUFFER LAYER</text>
+  <text class="body" x="388" y="416" text-anchor="middle">use emergency cash</text>
+  <text class="body" x="388" y="445" text-anchor="middle">for this surprise</text>
+
+  <path class="line" d="M310 456V496" marker-end="url(#risk-arrow)"/>
+  <rect class="card" x="54" y="510" width="512" height="142" rx="28" fill="#f8e0d2"/>
+  <rect x="76" y="534" width="154" height="94" rx="20" fill="#c35f43" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="153" y="568" text-anchor="middle" fill="#fffdf8">PLAN-</text>
+  <text class="small" x="153" y="596" text-anchor="middle" fill="#fffdf8">BREAKING</text>
+  <text class="label" x="388" y="566" text-anchor="middle">INSURANCE REVIEW</text>
+  <text class="body" x="388" y="604" text-anchor="middle">consider transferring the risk</text>
+  <text class="body" x="388" y="634" text-anchor="middle">before the loss arrives</text>
+
+  <path class="line" d="M566 580H626" marker-end="url(#risk-arrow)"/>
+
+  <rect class="card" x="640" y="132" width="510" height="520" rx="34" fill="#dcead9"/>
+  <rect x="674" y="156" width="442" height="54" rx="27" fill="#4f7d67"/>
+  <text class="small" x="895" y="191" text-anchor="middle" fill="#fffdf8">COVER REVIEW BEFORE A CHANGE</text>
+
+  <circle cx="704" cy="272" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="704" y="280" text-anchor="middle">1</text>
+  <text class="label" x="746" y="264">FIND EXISTING COVER</text>
+  <text class="body" x="746" y="298">including cover held through super</text>
+  <line x1="686" y1="326" x2="1104" y2="326" stroke="#86a294" stroke-width="3"/>
+
+  <circle cx="704" cy="376" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="704" y="384" text-anchor="middle">2</text>
+  <text class="label" x="746" y="368">DEFINE THE EVENT</text>
+  <text class="body" x="746" y="402">what must happen before it pays?</text>
+  <line x1="686" y1="430" x2="1104" y2="430" stroke="#86a294" stroke-width="3"/>
+
+  <circle cx="704" cy="480" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="704" y="488" text-anchor="middle">3</text>
+  <text class="label" x="746" y="472">CHECK LIMITS + PERIODS</text>
+  <text class="body" x="746" y="506">benefit · excess · waiting · duration</text>
+  <line x1="686" y1="534" x2="1104" y2="534" stroke="#86a294" stroke-width="3"/>
+
+  <circle cx="704" cy="584" r="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="704" y="592" text-anchor="middle">4</text>
+  <text class="label" x="746" y="576">READ EXCLUSIONS + COST</text>
+  <text class="body" x="746" y="610">use the current PDS and provider facts</text>
+
+  <rect class="card" x="188" y="692" width="824" height="50" rx="25" fill="#fffdf8"/>
+  <text class="small" x="600" y="725" text-anchor="middle">A PREMIUM IS NOT PROTECTION UNTIL THE RELEVANT LOSS IS COVERED</text>
+</svg>

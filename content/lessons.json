@@ -1243,6 +1243,248 @@
       ]
     },
     {
+      "slug": "the-index-card",
+      "discussionId": "the-index-card",
+      "date": "2026-07-03",
+      "dateLabel": "3 July 2026",
+      "edition": "Daily lesson",
+      "title": "The Index Card",
+      "authors": "Helaine Olen and Harold Pollack",
+      "year": "2016 · first edition",
+      "category": "Personal finance · Money systems · Risk protection",
+      "summary": "Turn personal finance from a stream of product decisions into a small visible system: write the rules, automate a survivable savings habit and protect the losses that could break the plan.",
+      "evidenceNote": "Olen and Pollack's rule set is an evidence-aware practitioner framework, not a controlled comparative study or an Australian product guide. Its broad mechanisms of automatic saving, emergency buffers and risk protection align with current ASIC Moneysmart guidance, but the book's percentages, retirement accounts, tax rules, adviser standards and health-insurance discussion are US-specific and dated. A small savings rate can still be meaningful when capacity is limited, and urgent debt or hardship may change the order of work. Use the card to expose a plan, not to shame a household or prescribe a product. This is general education, not personal financial advice.",
+      "accent": "orange",
+      "quizRevision": "2026-07-03-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Put the rules where noise cannot move them",
+          "argument": [
+            "Olen and Pollack argue that the durable core of personal finance is simple enough to fit on an index card. The point is not that every household is simple. It is that a short set of prior rules can stop each headline, sales pitch or market mood from becoming a fresh decision.",
+            "Their card makes the system inspectable. A rule can state the goal, the trigger for action, the evidence required and when to review it. That structure also exposes advice that mainly creates urgency, complexity or a reason to buy before the household's own constraints are clear."
+          ],
+          "extension": "Write a one-card decision policy before evaluating a product. Make every line specific enough to guide an action and open enough to change when evidence, income, dependants or goals change.",
+          "image": "../assets/lesson-visuals/index-card-decision-policy.svg",
+          "imageAlt": "Market headlines, product pitches and social pressure pass through a small decision card containing a goal, threshold, evidence requirement and review date before leading to act, defer or seek advice.",
+          "imageCaption": "A short written policy gives new information a stable test before it can move money.",
+          "why": "Financial noise is continuous, while attention and willpower are limited. A visible rule set reduces improvisation and makes it easier to notice when a persuasive message has quietly changed the decision criteria.",
+          "apply": [
+            "Choose one recurring money decision and write the goal it serves in one line.",
+            "Add three fields: the condition that would justify action, the evidence you would check and the date or event that should trigger review."
+          ],
+          "caveat": "A small card cannot calculate an appropriate product, solve hardship or replace licensed advice for complex tax, insurance, estate or investment needs. Simplicity is useful only when it makes important constraints visible rather than deleting them.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main decision advantage of putting financial rules on one card?",
+              "options": [
+                "It predicts which product will outperform before the next scheduled review.",
+                "It removes the need to revise the plan when household circumstances change.",
+                "It gives new claims stable criteria before they can trigger an action.",
+                "It turns general percentages into suitable targets for every household."
+              ],
+              "correctIndex": 2,
+              "feedback": "The card is a prior decision policy. It makes goals, thresholds, evidence and review conditions visible before a headline or pitch creates urgency.",
+              "feedbackByOption": [
+                "A written rule cannot predict product performance. It governs what evidence and constraints should be checked before acting.",
+                "A useful policy includes a review trigger because income, dependants, goals and evidence can change.",
+                "Correct. Stable criteria let a household test a new claim without letting the claim silently rewrite the decision process.",
+                "Percentages can be prompts, but capacity and priorities differ. The card should expose those differences rather than erase them."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A promotion says an investment opportunity closes tonight. What best applies the one-card policy?",
+              "options": [
+                "Check the existing goal, action threshold and evidence rule before deciding.",
+                "Invest a small amount so the closing time cannot remove the opportunity.",
+                "Replace the review date because a deadline counts as new market evidence.",
+                "Reject the product because every urgent financial offer is unsuitable."
+              ],
+              "correctIndex": 0,
+              "feedback": "The promotion is an input, not a reason to abandon the prior criteria. The card tests whether the opportunity serves the goal and meets the evidence threshold.",
+              "feedbackByOption": [
+                "Correct. The existing policy slows the urgency and makes the product earn a decision against the household's own criteria.",
+                "A smaller transaction still lets the seller's deadline set the process before suitability and evidence are checked.",
+                "A deadline is a feature of the offer, not evidence that the product serves the goal or deserves a changed review rule.",
+                "Urgency is a warning to slow down, but it does not prove every offer is unsuitable. Apply the stated criteria."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Automate a savings floor you can survive",
+          "argument": [
+            "The authors argue for regular saving and for controlling costly debt, but they also revised the original card's 20 percent saving line to a 10 to 20 percent long-term aim because the higher number is impossible for many households. The deeper mechanism is consistency, not moral virtue attached to one percentage.",
+            "Automation moves the chosen amount soon after income arrives, before repeated small decisions compete for it. A useful system still protects essential bills, minimum debt payments and a modest emergency buffer, then increases the transfer when real cash flow shows that the amount is sustainable."
+          ],
+          "extension": "Design a payday sequence rather than a heroic monthly intention. Start with an amount that can repeat without overdraft or missed essentials, record where higher-cost debt changes the order and review the amount after the system has produced evidence.",
+          "image": "../assets/lesson-visuals/index-card-savings-system.svg",
+          "imageAlt": "Payday flows through essential bills and minimum debt commitments into a small emergency buffer and an automatic goal transfer, with a review loop that adjusts the amount when cash flow changes.",
+          "imageCaption": "A survivable transfer can repeat; review evidence can raise, lower or pause it without turning the percentage into a verdict.",
+          "why": "A savings plan that depends on remembering what remains at month end competes with every intervening demand. A modest automatic floor creates a repeatable default and produces better evidence about capacity than an ambitious target that repeatedly fails.",
+          "apply": [
+            "Review one recent pay cycle and mark essentials, minimum debt commitments and the amount of readily available emergency cash.",
+            "Write one affordable transfer candidate and a review date. Do not activate it until you have checked that the sequence will not cause a missed bill, fee or avoidable high-cost debt."
+          ],
+          "caveat": "No saving percentage fits every income, debt load or life stage. People facing arrears, unsafe circumstances or financial hardship may need immediate support and a different sequence. Automation can also cause fees when timing or balances are wrong, so it needs monitoring rather than blind permanence.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does this lesson treat the savings percentage as adjustable?",
+              "options": [
+                "Higher percentages matter only after every non-mortgage debt has been cleared.",
+                "The correct percentage is the one that matches the average household budget.",
+                "A lower percentage should be temporary until investment returns cover expenses.",
+                "A repeatable amount matters more than a target that breaks essential cash flow."
+              ],
+              "correctIndex": 3,
+              "feedback": "The mechanism is a sustainable repeated default. A percentage is useful only inside the household's actual capacity and priorities.",
+              "feedbackByOption": [
+                "Debt cost can change the sequence, but there is no universal rule that all saving must wait for every debt to disappear.",
+                "An average cannot establish what one household can repeat safely. Income timing, obligations and buffers differ.",
+                "Investment returns are uncertain and should not be assumed to fund routine expenses or justify the savings rate.",
+                "Correct. A smaller stable floor creates progress and evidence, while an unaffordable target can trigger missed bills, fees or abandonment."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An automatic transfer repeatedly leaves too little for a bill due two days later. What is the strongest response?",
+              "options": [
+                "Keep the amount and use credit briefly so the savings habit remains unbroken.",
+                "Reduce or retime the transfer, protect the bill and review the pay-cycle evidence.",
+                "Cancel automation permanently because variable expenses make it unreliable.",
+                "Move the bill date without checking whether the provider charges a fee."
+              ],
+              "correctIndex": 1,
+              "feedback": "The system should serve essential cash flow. Adjusting the amount or timing preserves the mechanism without treating a missed bill as the price of consistency.",
+              "feedbackByOption": [
+                "Using costly credit to protect a savings streak can worsen the household's net position and hides evidence that the sequence is failing.",
+                "Correct. The transfer is a tool, so it should be changed when actual timing shows that essentials are at risk.",
+                "One failed configuration does not prove automation is unusable. A different amount, date or account may fit the cash flow.",
+                "A changed due date can help, but costs and terms must be checked before it becomes the solution."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Protect the loss that would break the plan",
+          "argument": [
+            "Olen and Pollack expanded the original card to include insurance because a savings and investment plan can be undone by a loss too large for ordinary cash flow. Insurance is most useful when it transfers a defined risk that would otherwise damage housing, income, dependants or the plan's ability to continue.",
+            "Protection still needs inspection. The policy has to cover the relevant event, for a useful amount and period, with exclusions, waiting periods, premiums and excesses the household understands. Existing cover, including cover held through Australian super, should be found before a duplicate product is added."
+          ],
+          "extension": "Sort risks by financial consequence and recoverability. Use routine cash flow for small expected costs, a buffer for absorbable surprises and a deliberate insurance review for losses that could break the plan.",
+          "image": "../assets/lesson-visuals/index-card-risk-protection.svg",
+          "imageAlt": "A loss-size ladder routes routine costs to the budget, absorbable surprises to an emergency buffer and plan-breaking losses to an insurance review that checks existing cover, exclusions, limits and cost.",
+          "imageCaption": "Protection begins by matching the size of the possible loss with the right layer, then checking what the layer actually covers.",
+          "why": "A premium can feel like protection while a duplicate policy, narrow definition or inadequate limit leaves the important loss exposed. Mapping the risk to the existing layer makes both gaps and unnecessary overlap visible.",
+          "apply": [
+            "Choose one large financial risk, such as loss of income, major property damage or harm to a dependant, and write the consequence the household could not absorb.",
+            "Locate the current policy or super statement and record only four facts: covered event, benefit or limit, major exclusion or waiting period and next review date. Do not buy or cancel cover during the audit."
+          ],
+          "caveat": "Insurance needs, definitions, underwriting and affordability are personal and can require licensed advice. A larger premium does not prove better cover, and self-insuring every loss can be dangerous when the possible consequence exceeds available resources. Read the current PDS and confirm details with the provider.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which risk is the strongest candidate for an insurance review in this framework?",
+              "options": [
+                "A defined loss that would exceed the household's available buffer.",
+                "Any purchase whose replacement would be annoying but affordable.",
+                "Every expense that occurs irregularly during an ordinary year.",
+                "A small known cost that can be included in the next monthly budget."
+              ],
+              "correctIndex": 0,
+              "feedback": "Insurance is most valuable for a defined consequence that ordinary cash flow and available reserves could not safely absorb.",
+              "feedbackByOption": [
+                "Correct. A plan-breaking loss is where risk transfer may protect the household's ability to continue, subject to product fit and cost.",
+                "An annoying but affordable replacement may be better handled through routine cash flow or a buffer after comparing costs.",
+                "Irregular does not automatically mean catastrophic. Predictable or absorbable costs can often be planned without transferring them.",
+                "A small known cost belongs in ordinary planning unless its wider consequence makes it materially different."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A household finds income protection inside super and is considering another policy. What should happen first?",
+              "options": [
+                "Keep both because two policies always double the benefit after a claim.",
+                "Cancel the super cover because separate policies provide broader protection.",
+                "Compare benefits, definitions, exclusions, waiting periods and total cost.",
+                "Choose the policy with the lower current premium before prices change."
+              ],
+              "correctIndex": 2,
+              "feedback": "Existing cover must be understood before a duplicate is added or removed. Policy definitions, limits and coordination matter as much as the headline product name.",
+              "feedbackByOption": [
+                "Benefits may be limited, coordinated or affected by policy terms. Two premiums do not guarantee twice the payment.",
+                "Cover inside super can have advantages and limitations. Its location alone does not establish that cancellation is suitable.",
+                "Correct. A side-by-side review reveals gaps, overlap and cost before an irreversible product decision is made.",
+                "Price matters, but a cheaper policy can still have the wrong benefit, definition, exclusion or waiting period."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draft a one-card money system",
+        "steps": [
+          "Divide one card or small page into three rows: Decide, Automate and Protect.",
+          "In Decide, write one recurring money choice plus its goal, evidence threshold and review trigger.",
+          "In Automate, write one affordable transfer candidate and the essential bill or costly debt that must remain protected.",
+          "In Protect, name one plan-breaking loss and the document that shows whether it is currently covered.",
+          "Circle one unanswered question and schedule a no-transaction check using an official source, current statement or PDS."
+        ],
+        "result": "You finish with one visible decision rule, one automation candidate, one protection check and one evidence task, without buying, selling or cancelling anything."
+      },
+      "spacedRecall": [
+        "From The Four Pillars of Investing: how do a goal's timing, liquidity need and affordable loss constrain a product choice?",
+        "From The Checklist Manifesto: where would a short monthly pause stop one important money-system check from being skipped?"
+      ],
+      "takeaway": "A useful money plan is small enough to see, sturdy enough to repeat and explicit about the loss it cannot afford to absorb.",
+      "sources": [
+        {
+          "label": "Penguin Random House: The Index Card publication details",
+          "url": "https://www.penguinrandomhouse.com/books/317640/the-index-card-by-helaine-olen-and-harold-pollack/"
+        },
+        {
+          "label": "Penguin Random House Canada: authorised excerpt and revision context",
+          "url": "https://www.penguinrandomhouse.ca/books/317640/the-index-card-by-helaine-olen-and-harold-pollack/9780143130529/excerpt"
+        },
+        {
+          "label": "Australian Government Moneysmart: How to do a budget and automate saving",
+          "url": "https://moneysmart.gov.au/budgeting/how-to-do-a-budget"
+        },
+        {
+          "label": "Australian Government Moneysmart: Save for an emergency fund",
+          "url": "https://moneysmart.gov.au/saving/save-for-an-emergency-fund"
+        },
+        {
+          "label": "Australian Government Moneysmart: Get debt under control",
+          "url": "https://moneysmart.gov.au/managing-debt/get-debt-under-control"
+        },
+        {
+          "label": "Australian Government Moneysmart: Insurance overview",
+          "url": "https://moneysmart.gov.au/insurance"
+        },
+        {
+          "label": "Australian Government Moneysmart: How life insurance works",
+          "url": "https://moneysmart.gov.au/how-life-insurance-works"
+        },
+        {
+          "label": "Australian Government Moneysmart: Insurance through super",
+          "url": "https://moneysmart.gov.au/how-life-insurance-works/insurance-through-super"
+        }
+      ]
+    },
+    {
       "slug": "the-happiness-trap",
       "discussionId": "the-happiness-trap",
       "date": "2026-07-02",
