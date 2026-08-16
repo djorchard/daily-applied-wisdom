@@ -32,7 +32,7 @@ The homepage library progressively enhances the complete lesson archive. With Ja
 
 ## Learned progress
 
-Each of the 3 idea sections can be marked learned or not learned. A book is learned exactly when all 3 ideas are learned, and library cards display that derived progress without a separate book control. After all 6 learning-check answers are correct, **Mark book as learned** appears beside the checked-answer state and marks all 3 ideas learned. The learned list is stored only in the current browser profile, does not sync across browsers or devices, and can be removed with **Clear learning history** on the privacy page.
+Each of the 3 idea sections can be marked learned or not learned. A book is learned exactly when all 3 ideas are learned. Lesson pages and library cards show no progress label at 0 of 3, show the idea count at 1 or 2 of 3, and show **LEARNED** at 3 of 3. After all 6 learning-check answers are correct, **Mark book as learned** appears beside the checked-answer state and marks all 3 ideas learned. The learned list is stored only in the current browser profile, does not sync across browsers or devices, and can be removed with **Clear learning history** on the privacy page.
 
 ## Learning checks
 

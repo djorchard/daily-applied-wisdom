@@ -250,11 +250,9 @@ function renderLesson(lesson, index) {
           <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>5–8 minute read</span></div>
           <p class="lesson-summary">${esc(lesson.summary)}</p>
           <aside class="evidence-note"><strong>Evidence lens.</strong> ${esc(lesson.evidenceNote)}</aside>
-          <div class="lesson-progress" data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(lesson.ideas.map((idea) => ideaKey(lesson, idea))))}" data-clarity-mask="true">
-            <div>
-              <span class="learning-state" data-learning-state>Not yet learned</span>
-              <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
-            </div>
+          <div class="lesson-progress" data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(lesson.ideas.map((idea) => ideaKey(lesson, idea))))}" data-clarity-mask="true" hidden>
+            <span class="learning-state" data-learning-state hidden>Learned</span>
+            <span class="learning-summary" data-learning-summary hidden></span>
           </div>
           <div class="share-row">
             <button class="share-button" type="button" data-share data-share-title="${esc(lesson.title)} | Daily Applied Wisdom" data-share-text="${esc(lesson.summary)}" data-share-url="${lessonUrl(lesson)}">Share this lesson <span aria-hidden="true">↗</span></button>
@@ -334,11 +332,9 @@ function archiveCard(lesson, featured = false) {
       <p class="card-author">${esc(lesson.authors)} · ${esc(lesson.year)}</p>
       <p>${esc(lesson.summary)}</p>
       <ol>${lesson.ideas.map((idea) => `<li>${esc(idea.title)}</li>`).join('')}</ol>
-      <div class="library-learning" data-clarity-mask="true">
-        <div>
-          <span class="learning-state" data-learning-state>Not yet learned</span>
-          <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
-        </div>
+      <div class="library-learning" data-clarity-mask="true" hidden>
+        <span class="learning-state" data-learning-state hidden>Learned</span>
+        <span class="learning-summary" data-learning-summary hidden></span>
       </div>
       <a class="text-link" href="lessons/${lesson.slug}.html">Read the lesson <span aria-hidden="true">→</span></a>
     </article>`;

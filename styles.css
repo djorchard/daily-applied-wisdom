@@ -192,9 +192,8 @@ h1, h2, h3 { text-wrap: balance; }
 .card-author { margin: .5rem 0 1.2rem; font: italic 1.05rem var(--serif); }
 .library-card ol { padding-left: 1.3rem; margin: 1rem 0 2rem; }
 .library-card li { margin: .38rem 0; }
-.library-learning, .lesson-progress { display: flex; align-items: center; gap: .8rem 1rem; flex-wrap: wrap; padding: 1rem; border: 1px solid #18211d4a; background: var(--paper); }
+.library-learning, .lesson-progress { font-family: var(--mono); }
 .library-learning { margin: auto 0 1.2rem; }
-.library-learning > div, .lesson-progress > div { display: grid; gap: .15rem; margin-right: auto; }
 .learning-state { font: 700 .75rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .learning-summary { color: var(--muted-ink); font-size: .78rem; }
 .is-learned .learning-state { color: var(--success-ink); }
@@ -222,7 +221,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .lesson-meta { display: flex; gap: .5rem 1.25rem; flex-wrap: wrap; margin: 1.6rem 0; font: 500 .72rem var(--mono); text-transform: uppercase; letter-spacing: .04em; }
 .lesson-meta span:not(:last-child)::after { content: '·'; margin-left: 1.25rem; }
 .lesson-summary { max-width: 780px; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; }
-.lesson-progress { max-width: 780px; margin: 2rem 0; background: var(--white); }
+.lesson-progress { max-width: 780px; margin: 1.5rem 0; }
 .evidence-note { max-width: 900px; margin: 2.5rem 0; padding: 1.1rem 1.25rem; border-left: 4px solid var(--red); background: #fff8; font-size: .91rem; }
 .share-row { display: flex; gap: .7rem; align-items: center; flex-wrap: wrap; margin: 2.2rem 0 3rem; }
 .share-status { min-width: 6rem; font-size: .78rem; }
@@ -412,7 +411,6 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
   .site-header nav { width: 100%; justify-content: space-between; gap: .5rem; }
   nav a { font-size: .75rem; }
   .idea-actions { align-items: stretch; flex-direction: column; }
-  .library-learning, .lesson-progress { align-items: stretch; flex-direction: column; }
   .idea-action-status { flex-basis: auto; }
   .quiz-question { padding: 1rem; }
   .quiz-option { grid-template-columns: 1.1rem 1.8rem minmax(0, 1fr); padding: .8rem .7rem; }

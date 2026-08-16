@@ -210,10 +210,18 @@ function renderBookProgress(progress) {
   const learned = learnedBookState(ideaIds);
   const state = progress.querySelector('[data-learning-state]');
   const summary = progress.querySelector('[data-learning-summary]');
+  const hasProgress = learnedIdeas > 0;
 
+  progress.hidden = !hasProgress;
   progress.classList.toggle('is-learned', learned);
-  if (state) state.textContent = learned ? 'Learned' : 'Not yet learned';
-  if (summary) summary.textContent = `${learnedIdeas} of ${ideaIds.length} ideas learned`;
+  if (state) {
+    state.hidden = !learned;
+    state.textContent = 'Learned';
+  }
+  if (summary) {
+    summary.hidden = learned || !hasProgress;
+    summary.textContent = `${learnedIdeas} of ${ideaIds.length} ideas learned`;
+  }
 }
 
 function renderIdeaLearnedButton(button) {

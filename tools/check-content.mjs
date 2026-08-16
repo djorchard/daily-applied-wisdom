@@ -404,6 +404,9 @@ if (
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-') ||
   !clientScript.includes('daw-learned-idea-') ||
+  !clientScript.includes('progress.hidden = !hasProgress') ||
+  !clientScript.includes('state.hidden = !learned') ||
+  !clientScript.includes('summary.hidden = learned || !hasProgress') ||
   !clientScript.includes("querySelector('[data-mark-book-learned]')") ||
   !clientScript.includes('daw-quiz-first-') ||
   !clientScript.includes('daw-quiz-review-') ||
@@ -431,8 +434,9 @@ if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) 
 if (
   !indexPage.includes('data-library-progress') ||
   !indexPage.includes('<option value="unlearned" selected>Not yet learned</option>') ||
-  !indexPage.includes('data-learning-state') ||
-  !indexPage.includes('data-learning-summary') ||
+  !indexPage.includes('class="library-learning" data-clarity-mask="true" hidden') ||
+  !indexPage.includes('data-learning-state hidden>Learned</span>') ||
+  !indexPage.includes('data-learning-summary hidden></span>') ||
   indexPage.includes('data-book-learned') ||
   !indexPage.includes('data-quick-review') ||
   !indexPage.includes('id="daw-quick-review-data"') ||
