@@ -72,7 +72,6 @@ function header(prefix = '') {
         <a href="${prefix}index.html#latest">Latest</a>
         <a href="${prefix}index.html#library">Library</a>
         <a href="${prefix}saved.html">Saved ideas</a>
-        <a href="${prefix}index.html#about">About</a>
         <a href="${contactFormUrl}" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
       </nav>
     </header>`;
@@ -85,7 +84,7 @@ function footer(prefix = '') {
       <a href="${prefix}feed.xml">RSS</a>
       <a href="${contactFormUrl}" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
       <a href="${prefix}privacy.html">Privacy and data use</a>
-      <span>© 2026</span>
+      <span>© 2026 Daniel Barnes</span>
     </footer>`;
 }
 
@@ -352,44 +351,35 @@ function topicPieSlices() {
     offset += family.share;
     const end = piePoint(offset);
     const largeArc = family.share > 50 ? 1 : 0;
-    return `<path d="M 260 260 L ${start.x.toFixed(3)} ${start.y.toFixed(3)} A 205 205 0 ${largeArc} 1 ${end.x.toFixed(3)} ${end.y.toFixed(3)} Z" fill="${esc(family.color)}" stroke="#faf7f0" stroke-width="5"><title>${esc(family.label)}: ${family.share}%</title></path>`;
+    return `<path class="topic-chart-slice" d="M 260 260 L ${start.x.toFixed(3)} ${start.y.toFixed(3)} A 205 205 0 ${largeArc} 1 ${end.x.toFixed(3)} ${end.y.toFixed(3)} Z" fill="${esc(family.color)}" stroke="#faf7f0" stroke-width="5" role="button" tabindex="0" aria-label="${esc(family.label)}: ${family.share}%. Show categories." aria-controls="topic-family-${esc(family.id)}" aria-expanded="false" data-topic-family="${esc(family.id)}"><title>${esc(family.label)}: ${family.share}%</title></path>`;
   }).join('');
 }
 
 function renderTopicCoverage() {
   const categoryCount = topicFamilies.reduce((sum, family) => sum + family.categories.length, 0);
-  const subtopicCount = topicFamilies.reduce((sum, family) => sum + family.categories.reduce((familySum, category) => familySum + category.subtopics.length, 0), 0);
   return `<section class="topic-coverage" id="topics" aria-labelledby="topics-title">
         <div class="topic-coverage-heading">
-          <p class="eyebrow">What you can explore</p>
-          <h2 id="topics-title">A technical centre of gravity,<br />with a much wider field of view.</h2>
-          <p>Software, product and AI are the main focus. You will also find lessons on people, finance, strategy, history, security, games, creativity and ideas.</p>
-          <p class="topic-method-note">The chart shows the balance planned as the library grows. It is a guide, not a quota, and every book must offer ideas worth understanding and applying.</p>
+          <h2 id="topics-title">Browse learning topics</h2>
         </div>
         <div class="topic-chart-layout">
           <figure class="topic-chart">
-            <svg class="topic-chart-svg" viewBox="0 0 520 520" role="img" aria-labelledby="topic-chart-title topic-chart-desc">
+            <svg class="topic-chart-svg" viewBox="0 0 520 520" role="group" aria-labelledby="topic-chart-title topic-chart-desc">
               <title id="topic-chart-title">Planned balance of future lessons</title>
               <desc id="topic-chart-desc">A pie chart showing the planned balance of future lessons. Engineering, product and AI is 45 percent; thinking, behaviour and learning is 15 percent; strategy, leadership and organisations and economics, finance and entrepreneurship are 10 percent each; four other families are 5 percent each.</desc>
               ${topicPieSlices()}
               <circle cx="260" cy="260" r="106" fill="#faf7f0" stroke="#18211d" stroke-width="4" />
               <text x="260" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${categoryCount} TOPIC</text>
               <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">AREAS</text>
-              <text x="260" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#53615a">${subtopicCount} subjects</text>
             </svg>
-            <figcaption>How the library aims to balance future topics.</figcaption>
           </figure>
-          <ul class="topic-legend" aria-label="Planned topic balance">
-            ${topicFamilies.map((family) => `<li><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span><b>${family.share}%</b></li>`).join('')}
-          </ul>
-        </div>
-        <div class="topic-family-list">
-          ${topicFamilies.map((family, index) => `<details class="topic-family-details"${index === 0 ? ' open' : ''}>
-            <summary><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span></summary>
-            <div class="topic-category-grid">
-              ${family.categories.map((category) => `<section><h3>${esc(category.label)}</h3><ul>${category.subtopics.map((subtopic) => `<li>${esc(subtopic)}</li>`).join('')}</ul></section>`).join('')}
-            </div>
-          </details>`).join('')}
+          <div class="topic-legend" aria-label="Planned topic balance">
+            ${topicFamilies.map((family) => `<details class="topic-family-details" id="topic-family-${esc(family.id)}" data-topic-family-details="${esc(family.id)}">
+              <summary><span class="topic-swatch" style="--topic-color:${esc(family.color)}" aria-hidden="true"></span><span><strong>${esc(family.label)}</strong><small>${family.categories.length} ${family.categories.length === 1 ? 'category' : 'categories'}</small></span><b>${family.share}%</b></summary>
+              <div class="topic-category-grid">
+                ${family.categories.map((category) => `<section><h3>${esc(category.label)}</h3><ul>${category.subtopics.map((subtopic) => `<li>${esc(subtopic)}</li>`).join('')}</ul></section>`).join('')}
+              </div>
+            </details>`).join('')}
+          </div>
         </div>
       </section>`;
 }
@@ -409,11 +399,10 @@ function renderIndex() {
   <body>
     ${header('')}
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title" data-home-intro>
         <p class="eyebrow">A daily learning practice</p>
         <h1 id="hero-title">One book.<br />Three ideas.<br /><em>Better thinking.</em></h1>
-        <p class="hero-copy">A small, rigorous reading room for ideas worth carrying into your work and life, designed for application, recall and healthy scepticism.</p>
-        <a class="button" href="#latest">Start with today's lesson <span aria-hidden="true">↓</span></a>
+        <a class="button" href="#latest" data-dismiss-home-intro>Start with today's lesson <span aria-hidden="true">↓</span></a>
       </section>
 
       <section class="quick-review" data-quick-review data-clarity-mask="true" aria-labelledby="quick-review-title" hidden>
@@ -434,19 +423,16 @@ function renderIndex() {
       <script id="daw-quick-review-data" type="application/json" data-clarity-mask="true">${quickReviewData()}</script>
 
       <section class="latest" id="latest" aria-labelledby="latest-title">
-        <div class="section-heading"><p class="eyebrow">Latest lesson</p><h2 id="latest-title">Today's book</h2></div>
+        <div class="section-heading"><p class="eyebrow">Latest lesson</p><h2 id="latest-title" tabindex="-1">Today's book</h2></div>
         ${archiveCard(latest, true)}
       </section>
 
-      ${renderTopicCoverage()}
-
       <section class="library" id="library" aria-labelledby="library-title">
-        <div class="library-heading"><p class="eyebrow">The library · ${lessons.length} lessons</p><h2 id="library-title">Ideas to revisit,<br />not summaries to collect.</h2><p>Each lesson explains the author's argument, tests where it may fall short, and ends with questions plus a small experiment you can try.</p></div>
+        <div class="library-heading"><h2 id="library-title">Search the catalogue</h2></div>
         <form class="library-controls" data-library-controls role="search" hidden>
           <div class="library-field">
-            <label for="library-search">Search the library</label>
-            <input id="library-search" type="search" autocomplete="off" placeholder="Title, author, topic or idea" aria-describedby="library-search-help" data-library-search />
-            <small id="library-search-help">Search titles, authors, topics and ideas.</small>
+            <label for="library-search">Title, author, topic or idea</label>
+            <input id="library-search" type="search" autocomplete="off" placeholder="Search" data-library-search />
           </div>
           <div class="library-field">
             <label for="library-category">Category</label>
@@ -481,11 +467,8 @@ function renderIndex() {
         </nav>
       </section>
 
-      <section class="about" id="about" aria-labelledby="about-title">
-        <p class="eyebrow">Why this exists</p>
-        <h2 id="about-title">Reading becomes useful when an idea survives contact with a real decision.</h2>
-        <div><p>Daily Applied Wisdom is built around three carefully chosen ideas rather than a whole-book summary. Each idea is explained, challenged, visualised and turned into something testable today.</p><p>Software development remains the centre of gravity, with deliberate room for career growth, finance, reasoning, memory, mathematics, game design and the wider work of living well. The goal is a growing library of mental models you can retrieve, question and use.</p></div>
-      </section>
+      ${renderTopicCoverage()}
+
     </main>
     ${footer('')}
     ${analyticsConsent('')}

@@ -429,37 +429,31 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
 
 /* Topic discovery catalog */
 .topic-coverage { padding: 8vw max(6vw, calc((100vw - 1320px) / 2)); background: var(--white); border-top: 1px solid var(--line); }
-.topic-coverage-heading { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); column-gap: 7vw; align-items: end; }
-.topic-coverage-heading .eyebrow { grid-column: 1 / -1; }
-.topic-coverage-heading h2 { max-width: 850px; margin: 1rem 0 2rem; font: 400 clamp(2.7rem, 5vw, 5.5rem)/1 var(--serif); letter-spacing: -.04em; }
-.topic-coverage-heading > p:not(.eyebrow) { max-width: 620px; margin: 0 0 1.25rem; }
-.topic-method-note { padding-left: 1rem; border-left: 4px solid var(--red); font-size: .88rem; }
-.topic-chart-layout { display: grid; grid-template-columns: minmax(300px, .85fr) minmax(390px, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; margin: 4rem 0; }
+.topic-coverage-heading h2 { max-width: 850px; margin: 0 0 2rem; font: 400 clamp(2.7rem, 5vw, 5.5rem)/1 var(--serif); letter-spacing: -.04em; }
+.topic-chart-layout { display: grid; grid-template-columns: minmax(300px, .85fr) minmax(390px, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; margin: 4rem 0; }
 .topic-chart { margin: 0; text-align: center; }
 .topic-chart-svg { display: block; width: min(100%, 520px); height: auto; margin: 0 auto; }
-.topic-chart figcaption { margin-top: 1rem; color: var(--muted-ink); font: 500 .72rem var(--mono); letter-spacing: .04em; text-transform: uppercase; }
-.topic-legend { display: grid; gap: .2rem; margin: 0; padding: 0; list-style: none; }
-.topic-legend li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr) auto; gap: .85rem; align-items: center; min-height: 62px; padding: .75rem 0; border-bottom: 1px solid var(--line); }
-.topic-legend strong, .topic-legend small { display: block; }
-.topic-legend strong { line-height: 1.25; }
-.topic-legend small { margin-top: .18rem; color: var(--muted-ink); font: 500 .68rem var(--mono); text-transform: uppercase; }
-.topic-legend b { font: 500 1rem var(--mono); }
+.topic-chart-slice { cursor: pointer; transition: filter .15s ease, stroke .15s ease; }
+.topic-chart-slice:hover { filter: brightness(.92); }
+.topic-chart-slice:focus, .topic-chart-slice[aria-expanded='true'] { outline: none; stroke: var(--ink); stroke-width: 7; }
+.topic-legend { border-top: 1px solid var(--line); }
 .topic-swatch { width: 1rem; height: 1rem; border: 1px solid var(--ink); border-radius: 50%; background: var(--topic-color); }
-.topic-family-list { border-top: 1px solid var(--ink); }
-.topic-family-details { border-bottom: 1px solid var(--ink); }
-.topic-family-details summary { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: .9rem; align-items: center; min-height: 76px; padding: 1rem .25rem; cursor: pointer; }
+.topic-family-details { border-bottom: 1px solid var(--line); }
+.topic-family-details summary { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr) auto; gap: .85rem; align-items: center; min-height: 62px; padding: .75rem 0; cursor: pointer; }
 .topic-family-details summary::marker { color: var(--red); }
 .topic-family-details summary strong, .topic-family-details summary small { display: block; }
+.topic-family-details summary strong { line-height: 1.25; }
 .topic-family-details summary small { margin-top: .2rem; color: var(--muted-ink); font: 500 .68rem var(--mono); letter-spacing: .03em; text-transform: uppercase; }
+.topic-family-details summary b { font: 500 1rem var(--mono); }
 .topic-category-grid { display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); }
-.topic-category-grid section { flex: 1 1 calc((100% - 2px) / 3); min-width: 0; padding: 1.35rem 1.5rem; background: var(--paper); }
+.topic-category-grid section { flex: 1 1 calc((100% - 1px) / 2); min-width: 0; padding: 1.35rem 1.5rem; background: var(--paper); }
 .topic-category-grid h3 { margin: 0 0 .8rem; font: 700 .82rem/1.35 var(--mono); }
 .topic-category-grid ul { margin: 0; padding-left: 1.1rem; }
 .topic-category-grid li { margin: .3rem 0; font-size: .86rem; }
 
 @media (max-width: 760px) {
   .topic-coverage { padding: 16vw 8vw; }
-  .topic-coverage-heading, .topic-chart-layout { grid-template-columns: 1fr; }
+  .topic-chart-layout { grid-template-columns: 1fr; }
   .topic-coverage-heading h2 { font-size: clamp(2.7rem, 13vw, 4.5rem); }
   .topic-chart-layout { gap: 2.5rem; margin: 3rem 0; }
   .topic-chart-svg { width: min(100%, 360px); }

@@ -1,6 +1,52 @@
 const CLARITY_PROJECT_ID = 'y1mr2l6g3q';
 const ANALYTICS_CONSENT_KEY = 'daw-clarity-consent';
+const HOME_INTRO_DISMISSED_KEY = 'daw-home-intro-dismissed';
 const clarityDisabledOnPage = document.body.classList.contains('saved-page');
+
+const homeIntro = document.querySelector('[data-home-intro]');
+const dismissHomeIntro = document.querySelector('[data-dismiss-home-intro]');
+const latestLesson = document.querySelector('#latest');
+const latestLessonTitle = document.querySelector('#latest-title');
+
+if (homeIntro && safeStorageGet(HOME_INTRO_DISMISSED_KEY) === 'true') homeIntro.hidden = true;
+dismissHomeIntro?.addEventListener('click', (event) => {
+  event.preventDefault();
+  safeStorageSet(HOME_INTRO_DISMISSED_KEY, 'true');
+  if (homeIntro) homeIntro.hidden = true;
+  latestLessonTitle?.focus({ preventScroll: true });
+  latestLesson?.scrollIntoView({ block: 'start' });
+});
+
+const topicFamilyDetails = [...document.querySelectorAll('[data-topic-family-details]')];
+const topicChartSlices = [...document.querySelectorAll('[data-topic-family]')];
+
+function syncTopicChartExpansion() {
+  topicChartSlices.forEach((slice) => {
+    const details = topicFamilyDetails.find((item) => item.dataset.topicFamilyDetails === slice.dataset.topicFamily);
+    slice.setAttribute('aria-expanded', String(Boolean(details?.open)));
+  });
+}
+
+function openTopicFamily(familyId) {
+  topicFamilyDetails.forEach((details) => { details.open = details.dataset.topicFamilyDetails === familyId; });
+  syncTopicChartExpansion();
+}
+
+topicFamilyDetails.forEach((details) => details.addEventListener('toggle', () => {
+  if (details.open) {
+    topicFamilyDetails.forEach((other) => { if (other !== details) other.open = false; });
+  }
+  syncTopicChartExpansion();
+}));
+
+topicChartSlices.forEach((slice) => {
+  slice.addEventListener('click', () => openTopicFamily(slice.dataset.topicFamily));
+  slice.addEventListener('keydown', (event) => {
+    if (!['Enter', ' '].includes(event.key)) return;
+    event.preventDefault();
+    openTopicFamily(slice.dataset.topicFamily);
+  });
+});
 
 const libraryControls = document.querySelector('[data-library-controls]');
 if (libraryControls) {
@@ -210,9 +256,12 @@ function renderBookProgress(progress) {
   const learned = learnedBookState(ideaIds);
   const state = progress.querySelector('[data-learning-state]');
   const summary = progress.querySelector('[data-learning-summary]');
+  const indicator = progress.matches('.lesson-progress')
+    ? progress
+    : progress.querySelector('.library-learning');
   const hasProgress = learnedIdeas > 0;
 
-  progress.hidden = !hasProgress;
+  if (indicator) indicator.hidden = !hasProgress;
   progress.classList.toggle('is-learned', learned);
   if (state) {
     state.hidden = !learned;

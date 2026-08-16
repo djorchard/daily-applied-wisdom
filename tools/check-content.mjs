@@ -404,7 +404,7 @@ if (
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-') ||
   !clientScript.includes('daw-learned-idea-') ||
-  !clientScript.includes('progress.hidden = !hasProgress') ||
+  !clientScript.includes('indicator.hidden = !hasProgress') ||
   !clientScript.includes('state.hidden = !learned') ||
   !clientScript.includes('summary.hidden = learned || !hasProgress') ||
   !clientScript.includes("querySelector('[data-mark-book-learned]')") ||
@@ -434,6 +434,7 @@ if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) 
 if (
   !indexPage.includes('data-library-progress') ||
   !indexPage.includes('<option value="unlearned" selected>Not yet learned</option>') ||
+  indexPage.includes('A small, rigorous reading room') ||
   !indexPage.includes('class="library-learning" data-clarity-mask="true" hidden') ||
   !indexPage.includes('data-learning-state hidden>Learned</span>') ||
   !indexPage.includes('data-learning-summary hidden></span>') ||
@@ -469,14 +470,21 @@ for (const category of libraryCategories) {
 if (
   !indexPage.includes('id="topics"') ||
   !indexPage.includes('id="topic-chart-title"') ||
-  !indexPage.includes('role="img" aria-labelledby="topic-chart-title topic-chart-desc"') ||
+  !indexPage.includes('role="group" aria-labelledby="topic-chart-title topic-chart-desc"') ||
   !indexPage.includes('29 TOPIC') ||
   !indexPage.includes('AREAS') ||
-  !indexPage.includes('The chart shows the balance planned as the library grows.') ||
+  indexPage.includes('175 subjects') ||
+  !indexPage.includes('<h2 id="topics-title">Browse learning topics</h2>') ||
+  indexPage.includes('A technical centre of gravity') ||
+  indexPage.includes('How the library aims to balance future topics.') ||
   indexPage.includes('candidate-discovery') ||
   indexPage.includes('quality gate') ||
   (indexPage.match(/class="topic-family-details"/g) || []).length !== topicCatalog.families.length ||
-  (indexPage.match(/class="topic-swatch"/g) || []).length !== topicCatalog.families.length * 2
+  (indexPage.match(/class="topic-swatch"/g) || []).length !== topicCatalog.families.length ||
+  (indexPage.match(/class="topic-chart-slice"/g) || []).length !== topicCatalog.families.length ||
+  (indexPage.match(/data-topic-family-details=/g) || []).length !== topicCatalog.families.length ||
+  !clientScript.includes('function openTopicFamily(familyId)') ||
+  !clientScript.includes("slice.addEventListener('keydown'")
 ) fail('The homepage has incomplete topic chart, legend or family details.');
 for (const family of topicCatalog.families) {
   if (!indexPage.includes(`<strong>${esc(family.label)}</strong>`) || !indexPage.includes(`<b>${family.share}%</b>`)) {
@@ -490,6 +498,20 @@ for (const family of topicCatalog.families) {
   }
 }
 await readRequiredFile(path.join(root, 'tools', 'randomize-topic.mjs'), 'The topic randomizer is missing');
+
+if (
+  !indexPage.includes('<h2 id="library-title">Search the catalogue</h2>') ||
+  indexPage.includes('Ideas to revisit,') ||
+  indexPage.includes('Why this exists') ||
+  indexPage.includes('index.html#about') ||
+  indexPage.includes('A small, rigorous reading room') ||
+  !indexPage.includes('© 2026 Daniel Barnes') ||
+  !indexPage.includes('data-home-intro') ||
+  !indexPage.includes('data-dismiss-home-intro') ||
+  !clientScript.includes("const HOME_INTRO_DISMISSED_KEY = 'daw-home-intro-dismissed';") ||
+  !clientScript.includes("safeStorageSet(HOME_INTRO_DISMISSED_KEY, 'true');") ||
+  indexPage.indexOf('id="library"') > indexPage.indexOf('id="topics"')
+) fail('The homepage contains outdated introductory copy or footer credit.');
 
 if (
   !privacyPage.includes('Learning progress') ||
