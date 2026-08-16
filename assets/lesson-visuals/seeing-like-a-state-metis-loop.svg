@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="sls-metis-title sls-metis-desc">
+  <title id="sls-metis-title">Formal knowledge and practical knowledge drive a reversible learning loop</title>
+  <desc id="sls-metis-desc">Formal rules and local practical knowledge enter a shared decision. The decision leads to a small reversible step, observation of surprises and revision before the next step. A one-shot blueprint followed by irreversible rollout is marked as the path to avoid.</desc>
+  <defs>
+    <marker id="sls-metis-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <filter id="sls-metis-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#18211d" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 44px; font-weight: 700; }
+      .subheading { font-size: 26px; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 1.8px; }
+      .label { font-size: 27px; font-weight: 700; }
+      .body { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#faf7f0"/>
+  <text class="heading" x="60" y="67">Plan for surprise, then let it change the plan</text>
+  <text class="subheading" x="60" y="108" fill="#4f5e57">Formal structure gives reach; metis supplies judgement inside the real conditions.</text>
+
+  <g filter="url(#sls-metis-shadow)">
+    <rect class="card" x="55" y="165" width="290" height="168" rx="26" fill="#b8d5e5"/>
+    <text class="eyebrow" x="200" y="207" text-anchor="middle">FORMAL VIEW</text>
+    <text class="label" x="200" y="249" text-anchor="middle">Rules and models</text>
+    <text class="body" x="200" y="287" text-anchor="middle">shared structure</text>
+    <text class="body" x="200" y="316" text-anchor="middle">comparable evidence</text>
+
+    <rect class="card" x="55" y="395" width="290" height="168" rx="26" fill="#e9d17f"/>
+    <text class="eyebrow" x="200" y="437" text-anchor="middle">LOCAL EXPERIENCE</text>
+    <text class="label" x="200" y="479" text-anchor="middle">Metis</text>
+    <text class="body" x="200" y="517" text-anchor="middle">situated judgement</text>
+    <text class="body" x="200" y="546" text-anchor="middle">exceptions and timing</text>
+
+    <rect class="card" x="450" y="275" width="250" height="180" rx="30" fill="#d8cce8"/>
+    <text class="eyebrow" x="575" y="320" text-anchor="middle">SHARED DECISION</text>
+    <text class="label" x="575" y="363" text-anchor="middle">What fits here?</text>
+    <text class="body" x="575" y="402" text-anchor="middle">rule + context</text>
+    <text class="body" x="575" y="432" text-anchor="middle">evidence + voice</text>
+
+    <rect class="card" x="805" y="150" width="330" height="120" rx="24" fill="#bdd9bf"/>
+    <text class="eyebrow" x="970" y="192" text-anchor="middle">1 · ACT</text>
+    <text class="label" x="970" y="233" text-anchor="middle">Small reversible step</text>
+
+    <rect class="card" x="805" y="320" width="330" height="120" rx="24" fill="#f5c79d"/>
+    <text class="eyebrow" x="970" y="362" text-anchor="middle">2 · OBSERVE</text>
+    <text class="label" x="970" y="403" text-anchor="middle">Surprise and adaptation</text>
+
+    <rect class="card" x="805" y="490" width="330" height="120" rx="24" fill="#b8d5e5"/>
+    <text class="eyebrow" x="970" y="532" text-anchor="middle">3 · REVISE</text>
+    <text class="label" x="970" y="573" text-anchor="middle">Change the next step</text>
+  </g>
+
+  <path class="line" d="M345 249H400C425 249 425 330 450 340" marker-end="url(#sls-metis-arrow)"/>
+  <path class="line" d="M345 479H400C425 479 425 400 450 390" marker-end="url(#sls-metis-arrow)"/>
+  <path class="line" d="M700 365H755V210H805" marker-end="url(#sls-metis-arrow)"/>
+  <path class="line" d="M970 270V320" marker-end="url(#sls-metis-arrow)"/>
+  <path class="line" d="M970 440V490" marker-end="url(#sls-metis-arrow)"/>
+  <path class="line" d="M805 550H750C725 550 725 430 700 415" marker-end="url(#sls-metis-arrow)"/>
+  <text class="body" x="742" y="650" text-anchor="middle" font-weight="700">repeat while the cost of correction stays small</text>
+
+  <rect x="120" y="675" width="960" height="58" rx="29" fill="#fffdf8" stroke="#c35f43" stroke-width="3"/>
+  <text class="body" x="600" y="712" text-anchor="middle" font-weight="700">AVOID: one-shot blueprint → irreversible rollout → surprises hidden as noncompliance</text>
+</svg>
