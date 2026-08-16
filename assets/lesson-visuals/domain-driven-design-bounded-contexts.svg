@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="ddd-boundaries-title ddd-boundaries-desc">
+  <title id="ddd-boundaries-title">A bounded context keeps one local meaning coherent</title>
+  <desc id="ddd-boundaries-desc">A sales context and a service context both use the word request but define different actors, states and deciding rules. Solid model boundaries preserve each local meaning, while a central translation contract carries only an agreed fact between them.</desc>
+  <defs>
+    <marker id="boundary-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .label { font-size: 25px; font-weight: 700; }
+      .body { font-size: 23px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="184" y="20" width="832" height="64" rx="32" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="600" y="61" text-anchor="middle">THE WORD CAN REPEAT; ITS BUSINESS MEANING STAYS LOCAL</text>
+
+  <rect class="card" x="38" y="128" width="430" height="500" rx="36" fill="#b8d5e5"/>
+  <rect x="72" y="156" width="362" height="58" rx="29" fill="#4f7185"/>
+  <text class="small" x="253" y="193" text-anchor="middle" fill="#fffdf8">SALES CONTEXT</text>
+  <text class="heading" x="253" y="274" text-anchor="middle">REQUEST</text>
+  <text class="body" x="253" y="310" text-anchor="middle">a proposal awaiting a choice</text>
+  <line x1="82" y1="340" x2="424" y2="340" stroke="#587488" stroke-width="3"/>
+  <text class="small" x="96" y="382">ACTOR</text>
+  <text class="body" x="218" y="382">account owner</text>
+  <text class="small" x="96" y="434">STATES</text>
+  <text class="body" x="218" y="434">draft · offered · won</text>
+  <text class="small" x="96" y="486">RULE</text>
+  <text class="body" x="218" y="486">value and authority</text>
+  <rect x="78" y="530" width="350" height="62" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="253" y="569" text-anchor="middle">ONE COHERENT MODEL</text>
+
+  <rect class="card" x="732" y="128" width="430" height="500" rx="36" fill="#f8e0d2"/>
+  <rect x="766" y="156" width="362" height="58" rx="29" fill="#c35f43"/>
+  <text class="small" x="947" y="193" text-anchor="middle" fill="#fffdf8">SERVICE CONTEXT</text>
+  <text class="heading" x="947" y="274" text-anchor="middle">REQUEST</text>
+  <text class="body" x="947" y="310" text-anchor="middle">a job requiring resolution</text>
+  <line x1="776" y1="340" x2="1118" y2="340" stroke="#9a6a59" stroke-width="3"/>
+  <text class="small" x="790" y="382">ACTOR</text>
+  <text class="body" x="912" y="382">case owner</text>
+  <text class="small" x="790" y="434">STATES</text>
+  <text class="body" x="912" y="434">queued · owned · closed</text>
+  <text class="small" x="790" y="486">RULE</text>
+  <text class="body" x="912" y="486">eligibility and evidence</text>
+  <rect x="772" y="530" width="350" height="62" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="947" y="569" text-anchor="middle">ONE COHERENT MODEL</text>
+
+  <path class="line" d="M468 316H488" marker-end="url(#boundary-arrow)"/>
+  <path class="line" d="M732 440H712" marker-end="url(#boundary-arrow)"/>
+  <rect class="card" x="488" y="226" width="224" height="330" rx="28" fill="#dcead9"/>
+  <text class="small" x="600" y="282" text-anchor="middle">TRANSLATE</text>
+  <path d="M552 318H648V382H552Z" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <path d="M552 318L600 354L648 318" fill="none" stroke="#18211d" stroke-width="4"/>
+  <text class="body" x="600" y="422" text-anchor="middle">agreed fact</text>
+  <text class="body" x="600" y="452" text-anchor="middle">new local name</text>
+  <text class="small" x="600" y="489" text-anchor="middle">NO UNIVERSAL</text>
+  <text class="small" x="600" y="514" text-anchor="middle">REQUEST OBJECT</text>
+
+  <rect class="card" x="150" y="676" width="900" height="58" rx="29" fill="#fffdf8"/>
+  <text class="small" x="600" y="713" text-anchor="middle">A SEMANTIC BOUNDARY MAY LIVE INSIDE A MONOLITH OR ACROSS SERVICES</text>
+</svg>

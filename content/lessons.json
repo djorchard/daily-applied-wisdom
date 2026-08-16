@@ -1243,6 +1243,223 @@
       ]
     },
     {
+      "slug": "domain-driven-design-distilled",
+      "discussionId": "domain-driven-design-distilled",
+      "date": "2026-07-04",
+      "dateLabel": "4 July 2026",
+      "edition": "Daily lesson",
+      "title": "Domain-Driven Design Distilled",
+      "authors": "Vaughn Vernon",
+      "year": "2016 · first edition",
+      "category": "Software engineering · Domain modeling · System design",
+      "summary": "Build software around meaning before machinery: refine a shared model language, protect each meaning inside a bounded context and make every crossing an explicit translation decision.",
+      "evidenceNote": "Vernon presents domain-driven design as a mature practitioner framework for complex business software, not as a controlled comparison that proves DDD outperforms simpler approaches. The publisher's edition record, authorised chapter material and Vernon's own technical explanations support the attributed mechanisms; Martin Fowler's pattern references corroborate the strategic vocabulary. Benefits remain context-dependent. DDD requires sustained access to domain expertise, careful modeling and revision, and its overhead may not be justified for a simple data-entry or commodity problem. Treat the diagrams as discovery tools and architectural hypotheses, then test them against real language, rules, change patterns and operational evidence.",
+      "accent": "purple",
+      "quizRevision": "2026-07-04-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Make the model speak the team's language",
+          "argument": [
+            "Vernon treats Ubiquitous Language as a language developed jointly by domain experts and software developers, not a glossary copied from the business or a naming scheme imposed after coding. The team tests words and phrases in conversation, examples, tests and source code, then refines them as its understanding changes.",
+            "The language earns its place by expressing real business behaviour precisely. An awkward phrase, two incompatible definitions or a rule that cannot be stated clearly is useful evidence that the model is still hiding a disagreement rather than representing shared understanding."
+          ],
+          "extension": "Use a short language probe before designing another field or status. Ask two people to complete the same domain sentence, compare the actor, action and rule they imply, then make the model and tests use the clearest agreed phrase.",
+          "image": "../assets/lesson-visuals/domain-driven-design-language-loop.svg",
+          "imageAlt": "A loop connects domain experts, a shared business phrase, examples and tests, and the software model. Ambiguity and failed examples return to the conversation for refinement instead of being hidden in code.",
+          "imageCaption": "Shared language is developed through a loop: say the rule, model it, test it and revise whatever does not fit.",
+          "why": "A team can agree on a label while disagreeing about the decision behind it. Making the same precise language appear in discussion, behaviour and tests exposes that mismatch before it becomes a confusing interface or a fragile branch in code.",
+          "apply": [
+            "Choose one active term such as request, approved, customer or complete, and write one sentence describing who does what and under which rule.",
+            "Compare the sentence with a domain expert, product owner or existing acceptance example. Record the first word or rule that does not survive the comparison."
+          ],
+          "caveat": "Renaming classes to business nouns is not DDD if behaviour and rules remain vague. Building the language takes expert access and continuing effort; a stale glossary can create false confidence when speech, tests and production behaviour have already moved on.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What most clearly distinguishes a Ubiquitous Language in Vernon's account?",
+              "options": [
+                "It is a standard glossary adopted by every business unit.",
+                "It is a shared model language refined by experts and developers.",
+                "It is a set of class names chosen after architecture is fixed.",
+                "It is a translation guide written only for technical documentation."
+              ],
+              "correctIndex": 1,
+              "feedback": "The language is a working part of the model. Experts and developers use and refine it together in speech, examples, tests and code.",
+              "feedbackByOption": [
+                "A company-wide glossary can help communication, but DDD's language is developed for a particular model and context rather than imposed universally.",
+                "Correct. Shared use and repeated refinement connect domain understanding to the software behaviour that represents it.",
+                "Class names can express the language, but choosing them after architectural decisions misses the collaborative modeling process.",
+                "Documentation can record discoveries, but a language used only there cannot test whether conversation, rules and code agree."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A page and its service use the term 'approved' for two different business outcomes. What is the strongest first response?",
+              "options": [
+                "Add one enum value and let each group explain its local interpretation in guidance.",
+                "Replace approved with processed across every screen and service.",
+                "Trace real decisions with experts and refine words, rules and tests together.",
+                "Keep both meanings in comments while preserving one model behaviour."
+              ],
+              "correctIndex": 2,
+              "feedback": "The conflict is evidence about the model. Trace the actual decisions, then align language, behaviour and examples instead of hiding the disagreement behind a generic label.",
+              "feedbackByOption": [
+                "One enum value preserves the ambiguity in executable form. First establish whether the outcomes are one concept or two.",
+                "A neutral replacement can erase useful distinctions without resolving the rules that make the outcomes different.",
+                "Correct. Jointly examining real decisions lets the team discover language that the model and its tests can express precisely.",
+                "Comments document the collision but leave clients dependent on one behaviour whose meaning changes by caller or screen."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Keep each meaning inside a boundary",
+          "argument": [
+            "Vernon pairs Ubiquitous Language with Bounded Context. A model can stay internally coherent only within a boundary where its terms and rules have a specific meaning. The same word may legitimately describe a different concept elsewhere, so DDD does not demand one universal enterprise model.",
+            "A boundary is discovered by changes in language, responsibility, rules and business purpose. Making it explicit lets each model remain precise while forcing the team to acknowledge that data crossing the boundary may need translation rather than silent reuse."
+          ],
+          "extension": "Before splitting services or tables, draw two candidate contexts and write the local meaning, owner and rule for one shared-looking term in each. Let the semantic difference justify the boundary rather than using deployment topology as the starting answer.",
+          "image": "../assets/lesson-visuals/domain-driven-design-bounded-contexts.svg",
+          "imageAlt": "Two bounded contexts both use the word request but attach different actors, states and rules to it. Solid boundaries keep each model coherent, and a labelled translation contract connects them without creating one universal request object.",
+          "imageCaption": "The same word can support two valid models when each meaning is local and the crossing is translated deliberately.",
+          "why": "A universal object often accumulates optional fields, contradictory states and ownership disputes because it is carrying several business concepts under one name. Local models make the differences visible and reduce the pressure to make every team change in lockstep.",
+          "apply": [
+            "Pick one object shared across two workflows and list its actor, lifecycle and deciding rule in each workflow.",
+            "If any of those differ, name the two candidate contexts and write the minimum fact that must cross between them."
+          ],
+          "caveat": "A Bounded Context is not an automatic instruction to create a microservice, database or team. Too few boundaries muddle meaning; too many create translation and operational overhead. Validate the boundary with stable business distinctions and change patterns before hardening it in infrastructure.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does DDD place one Ubiquitous Language inside a Bounded Context?",
+              "options": [
+                "To guarantee every context uses one set of identical data definitions.",
+                "To keep all integrations inside one deployable application.",
+                "To assign one database engine to each business capability.",
+                "To keep a model coherent where its terms have local meaning."
+              ],
+              "correctIndex": 3,
+              "feedback": "The boundary defines where a particular model and its language apply. Other contexts may use the same word differently without corrupting either local model.",
+              "feedbackByOption": [
+                "Bounded contexts allow different definitions when the business meanings differ; they do not enforce one data model everywhere.",
+                "A context is a semantic boundary and may exist within a monolith or across deployments. It does not prescribe one application shape.",
+                "Database choice can follow architectural needs, but it neither defines nor proves a coherent domain boundary.",
+                "Correct. Local scope lets the model remain internally consistent while other contexts keep their own valid language and rules."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Sales and service use the term 'case' for different actors, states and rules. What best applies Bounded Context?",
+              "options": [
+                "Model the meanings locally and define an explicit translation between them.",
+                "Rename both concepts record so their technical schema can be shared.",
+                "Merge every state into one superset object used by both workflows.",
+                "Adopt the definition used by the group with wider organisational authority."
+              ],
+              "correctIndex": 0,
+              "feedback": "The differing language and rules are evidence for separate models. An explicit translation preserves what each context means when information crosses.",
+              "feedbackByOption": [
+                "Correct. Local models can stay precise, while the translation states which facts cross and how their meaning changes.",
+                "A generic noun makes the collision less visible but does not reconcile actors, states or business rules.",
+                "A superset object spreads optional fields and contradictory rules, recreating the ambiguity the boundary should contain.",
+                "Organisational reach does not make one local meaning universally correct. Each workflow needs a model that fits its own purpose."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Map the relationship before the integration",
+          "argument": [
+            "Vernon describes Context Mapping as a way to model the relationship between Bounded Contexts. The map captures more than boxes and data flow: it makes inter-team dependency and the technical collaboration between models visible together.",
+            "Once the relationship is explicit, the team can decide who owns meaning, which direction change pressure travels and where translation belongs. An API, event, shared table or manual hand-off is then a chosen mechanism with stated obligations rather than an apparently neutral connection."
+          ],
+          "extension": "Put an owner, dependency direction, translation responsibility and compatibility check on every important crossing. Use the map to ask what happens when either side changes or becomes unavailable before selecting another integration technology.",
+          "image": "../assets/lesson-visuals/domain-driven-design-context-map.svg",
+          "imageAlt": "An upstream policy context and a downstream fulfilment context are connected through a translation boundary. A relationship card records meaning ownership, change direction, translation responsibility and compatibility evidence before a transport is chosen.",
+          "imageCaption": "A useful context map records the social and semantic contract of a crossing, then lets technology serve that relationship.",
+          "why": "Hidden model coupling surfaces later as breaking changes, duplicated interpretation and arguments over who must adapt. Mapping the relationship exposes those costs while the team can still choose ownership, translation and tests deliberately.",
+          "apply": [
+            "Choose one integration and draw its two contexts with an arrow showing which side currently sets the meaning or contract.",
+            "Add who translates, how a breaking change is detected and what the dependent side does when the source is unavailable."
+          ],
+          "caveat": "A context map is a current hypothesis, not a permanent architecture or proof of loose coupling. Team relationships, business ownership and system constraints can change. Keep the map small, revisit it after real failures or major changes, and back the stated contract with observable tests and operational behaviour.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the central job of a Context Map in this lesson?",
+              "options": [
+                "Make model and team relationships explicit before choosing the crossing.",
+                "Replace integration and compatibility tests with a stable architecture diagram.",
+                "Ensure every context publishes the same canonical data object.",
+                "Select a message broker from the direction of each dependency."
+              ],
+              "correctIndex": 0,
+              "feedback": "A Context Map exposes ownership, dependency and collaboration between models so the integration mechanism can reflect an understood relationship.",
+              "feedbackByOption": [
+                "Correct. The map makes semantic and team obligations visible before transport or storage is treated as the design itself.",
+                "A map explains intent but cannot prove compatibility, failure handling or behaviour; tests and operations still supply evidence.",
+                "Contexts may need different local models. The crossing should translate deliberately rather than export one object everywhere.",
+                "Dependency direction informs the design, but it cannot by itself select a technology or define the business relationship."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A downstream team is repeatedly broken by upstream model changes. What is the strongest first design move?",
+              "options": [
+                "Copy the upstream tables so the downstream team can postpone every model upgrade.",
+                "Add retries because most model changes eventually become consistent.",
+                "Ask both teams to share one release calendar and one domain model.",
+                "Map ownership, translation and compatibility duties, then test the boundary."
+              ],
+              "correctIndex": 3,
+              "feedback": "The repeated breakage signals an unclear relationship. Make ownership and translation duties explicit, then put compatibility evidence at the crossing before changing transport or cadence.",
+              "feedbackByOption": [
+                "Copied tables create another contract and can preserve stale meaning. They do not decide who owns interpretation or change.",
+                "Retries address temporary failure, not a semantic change that makes the downstream model incompatible.",
+                "A shared calendar may coordinate releases, but one universal model can erase valid local differences and retain the coupling.",
+                "Correct. The map exposes who must adapt and where translation belongs; a compatibility test turns that agreement into evidence."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run a domain-language boundary probe",
+        "steps": [
+          "Choose one overloaded term from an active product or workflow, such as request, status, customer or complete.",
+          "Write one sentence using the term from each of two real screens, teams or business processes.",
+          "Under each sentence, note the actor, decision, lifecycle and rule that give the term meaning there.",
+          "If the meanings differ, name two candidate contexts and write one sentence describing the fact that must cross between them. If they match, record the evidence that supports one model.",
+          "Circle one uncertainty and name the expert, example or compatibility test that could resolve it next."
+        ],
+        "result": "You finish with two testable meanings, a candidate boundary and one explicit translation question, without changing a service, schema or team structure."
+      },
+      "spacedRecall": [
+        "From A Philosophy of Software Design: which complexity symptoms would show that a proposed boundary is leaking decisions rather than hiding them?",
+        "From Designing Data-Intensive Applications: which compatibility assumption must be explicit when two mapped contexts evolve at different times?"
+      ],
+      "takeaway": "A model becomes useful when its words are shared locally, its boundaries protect meaning and every crossing makes translation explicit.",
+      "sources": [
+        { "label": "InformIT: Domain-Driven Design Distilled publication and first-edition details", "url": "https://www.informit.com/store/domain-driven-design-distilled-9780134434988" },
+        { "label": "InformIT: authorised Domain-Driven Design Distilled sample chapter", "url": "https://www.informit.com/content/images/9780134434421/samplepages/9780134434421.pdf" },
+        { "label": "InformIT: Vaughn Vernon on Ubiquitous Language and Bounded Context", "url": "https://www.informit.com/articles/article.aspx?p=1944876&seqNum=3" },
+        { "label": "InformIT: Vaughn Vernon on the costs and fit of DDD", "url": "https://www.informit.com/articles/article.aspx?p=1944876&seqNum=5" },
+        { "label": "InformIT: Vaughn Vernon interview on Context Mapping", "url": "https://www.informit.com/articles/article.aspx?p=2023702" },
+        { "label": "Martin Fowler: Bounded Context pattern", "url": "https://martinfowler.com/bliki/BoundedContext.html" },
+        { "label": "Martin Fowler: Ubiquitous Language pattern", "url": "https://martinfowler.com/bliki/UbiquitousLanguage.html" }
+      ]
+    },
+    {
       "slug": "the-index-card",
       "discussionId": "the-index-card",
       "date": "2026-07-03",
