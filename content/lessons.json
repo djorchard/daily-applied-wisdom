@@ -1243,6 +1243,244 @@
       ]
     },
     {
+      "slug": "the-checklist-manifesto",
+      "discussionId": "the-checklist-manifesto",
+      "date": "2026-07-01",
+      "dateLabel": "1 July 2026",
+      "edition": "Daily lesson",
+      "title": "The Checklist Manifesto",
+      "authors": "Atul Gawande",
+      "year": "2009 · first edition",
+      "category": "Problem-solving · Reliability · Team coordination",
+      "summary": "Protect complex work from avoidable omissions by placing a short, tested checklist at the moment of risk and using the pause to coordinate the people who hold different parts of the truth.",
+      "evidenceNote": "Gawande builds his argument from aviation, construction and health-care cases, including his work on the World Health Organization surgical checklist. The checklist mechanisms are strongly attributable, but outcome evidence is context-dependent. A 2009 eight-hospital before-and-after study associated implementation with lower complication and death rates, while a later Ontario population study found no significant reduction after mandatory adoption. Treat a checklist as a sociotechnical intervention that protects critical steps and team dialogue, not as a magic form, proof of compliance or replacement for expertise.",
+      "accent": "purple",
+      "quizRevision": "2026-07-01-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Use a checklist for the execution gap",
+          "argument": [
+            "Gawande distinguishes failures caused by missing knowledge from failures that occur when people know the necessary steps but do not apply them reliably. In complex work, expertise can coexist with omissions because attention is divided across urgency, variation, interruptions and hand-offs.",
+            "A checklist protects a small set of critical steps at the point where memory is vulnerable. It does not encode the whole craft or make every case routine. By securing the minimum, it leaves experts more attention for the judgement that the unusual case still requires."
+          ],
+          "extension": "Use a checklist where the consequence of an omitted known step is meaningful and the workflow is repeatable enough to name a pause. Keep investigation, diagnosis and novel design outside the boxes; the checklist should support expert thinking rather than imitate it.",
+          "image": "../assets/lesson-visuals/checklist-execution-gap.svg",
+          "imageAlt": "Two routes cross a high-pressure execution gap. Memory alone loses a known critical step among interruptions and hand-offs, while expertise supported by three checklist checkpoints carries the same knowledge into reliable action.",
+          "imageCaption": "A checklist is most useful when the knowledge exists but execution can still drop a critical step.",
+          "why": "Teams often respond to a missed step with more training or a longer procedure even when the knowledge was already present. Diagnosing an execution gap points to a lighter control: a brief prompt at the moment it can change the action.",
+          "apply": [
+            "Choose one recurring task where a known omission could cause rollback, rework, data loss or a poor hand-off. Name the exact moment just before the risk becomes hard to reverse.",
+            "Separate steps that require expert judgement from critical actions that are known, observable and easy to miss. Only the second group belongs on the first checklist draft."
+          ],
+          "caveat": "A checklist cannot repair missing knowledge, weak system design, impossible workload or incentives that reward bypassing the process. It can also distract during genuinely novel work if every situation is forced into a routine script.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which failure is the strongest candidate for a checklist?",
+              "options": [
+                "A team has never learned how to diagnose an unfamiliar failure mode.",
+                "A team knows a critical step but sometimes misses it during a busy hand-off.",
+                "A researcher must invent a method for a problem nobody has solved before.",
+                "A harmless preference varies because each expert uses a different style."
+              ],
+              "correctIndex": 1,
+              "feedback": "Checklists target reliable execution of known critical actions under complexity. They do not supply absent expertise or turn open-ended discovery into a routine.",
+              "feedbackByOption": [
+                "A checklist can later preserve a learned response, but it cannot create the missing diagnostic knowledge needed for an unfamiliar failure.",
+                "Correct. The knowledge exists, the omission matters and a recurring hand-off offers a useful point for a short prompt.",
+                "Novel research needs exploration and judgement. A fixed list may constrain the discovery before a dependable method exists.",
+                "Variation without meaningful consequence does not justify another control and may be a healthy expression of expert judgement."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A monthly database failover uses a well-understood runbook, but teams occasionally omit a precondition under time pressure. What is the best response?",
+              "options": [
+                "Add another training session that walks through every line of the runbook.",
+                "Automate the entire failover immediately and remove people from the decision.",
+                "Require a manager to approve the runbook before every failover begins.",
+                "Add a brief pause that confirms critical preconditions, rollback and monitoring."
+              ],
+              "correctIndex": 3,
+              "feedback": "The failure is a known-step execution gap at a repeatable high-risk moment. A focused confirmation protects the essentials while leaving operators responsible for situational judgement.",
+              "feedbackByOption": [
+                "More training repeats knowledge the team already has and may not protect attention at the actual moment of omission.",
+                "Automation may later remove some failure paths, but rushing to automate every judgement creates a different and larger change.",
+                "Approval adds authority and delay but does not ensure the operators confirm the critical conditions when they act.",
+                "Correct. The pause protects the small set of known conditions that make the failover safer without replacing operator expertise."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Put the checklist at the moment of risk",
+          "argument": [
+            "Gawande argues that a useful checklist has a clear pause point and contains only the critical actions or confirmations most worth protecting. An exhaustive procedure competes with the work, so users skim it, resent it or perform the document instead of the task.",
+            "He distinguishes read-do lists, where people act step by step, from do-confirm lists, where trained people complete a segment from memory and then pause to verify the essentials. The right mode depends on the workflow, and the draft must be tested in real conditions and revised."
+          ],
+          "extension": "Design from the workflow outward. Observe where commitment becomes costly, select items that are essential, missable and answerable, choose read-do or do-confirm deliberately, then watch one real use before standardising the list.",
+          "image": "../assets/lesson-visuals/checklist-pause-point.svg",
+          "imageAlt": "A workflow reaches a clearly marked pause before release. Candidate items pass through essential, missable and answerable filters into a four-item checklist, which can be used in read-do or do-confirm mode and then revised after observation.",
+          "imageCaption": "Placement, selection and operating mode matter more than the number of boxes on the page.",
+          "why": "A long checklist stored in a wiki does not change behaviour at the point of consequence. A deliberate pause and a small number of discriminating items make the prompt usable when attention and time are scarce.",
+          "apply": [
+            "Mark one pause point in the actual flow: before data migration, before external release, before a hand-off or before an irreversible command.",
+            "For each proposed item ask three questions: Is it essential? Is it plausibly missed? Can the user answer or act now? Remove anything that fails the filter."
+          ],
+          "caveat": "Brevity is not a reason to omit a necessary safeguard, and a checklist copied from another team may encode the wrong hazards. If users repeatedly work around an item, investigate the workflow and the control instead of blaming compliance.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What most clearly distinguishes a usable checklist from a condensed procedure manual?",
+              "options": [
+                "It records every approved step so new staff can perform the task unaided.",
+                "It uses formal policy language so completion can be audited consistently.",
+                "It protects selected critical items at a defined pause using a chosen mode.",
+                "It assigns every item to a manager who can certify that work was completed."
+              ],
+              "correctIndex": 2,
+              "feedback": "A checklist is a focused control embedded in a workflow. Its pause point, critical-item selection and read-do or do-confirm mode make it different from a full procedure.",
+              "feedbackByOption": [
+                "A procedure or training guide may teach the whole task. A checklist deliberately avoids trying to contain all required expertise.",
+                "Auditability can be useful, but formal language does not make the prompt timely, selective or usable under pressure.",
+                "Correct. These design choices place a brief protection around the most important omissions without scripting the whole craft.",
+                "Manager certification can create delay and symbolic compliance while the people doing the work remain disconnected from the pause."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A forty-item release checklist is routinely clicked through after deployment. What is the best redesign move?",
+              "options": [
+                "Observe the release, choose the real pause and retain only essential missable checks.",
+                "Keep all items but require a written reason whenever one is marked not applicable.",
+                "Move the same list into a faster form that preselects the usual responses.",
+                "Ask a separate governance team to complete the list after each deployment."
+              ],
+              "correctIndex": 0,
+              "feedback": "The current list is detached from consequence and overloaded. Redesign begins with the workflow, then keeps only items that can change the decision at the chosen pause.",
+              "feedbackByOption": [
+                "Correct. Observation reveals where the checklist can influence action and which known critical checks deserve scarce attention.",
+                "Extra justification increases documentation work without fixing timing, overload or the weak relationship between items and risk.",
+                "Preselected answers make completion faster but can hide whether anyone actually verified the conditions in the current release.",
+                "Moving ownership away from the operators delays feedback and turns a live safety prompt into retrospective paperwork."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Make the pause a team conversation",
+          "argument": [
+            "Gawande's strongest checklists do more than cue individual memory. They create a moment when people with different roles identify themselves, share expected difficulties, confirm the common plan and make concerns speakable before action becomes hard to reverse.",
+            "The form alone is not the intervention. World Health Organization guidance emphasises participation, local adaptation, leadership, coaching and feedback. The later Ontario study, which found no significant outcome improvement after mandatory adoption, reinforces the limit: distribution and compliance do not guarantee meaningful use."
+          ],
+          "extension": "Use the checklist to route information, not merely collect ticks. Give each role a prompt to contribute a risk or confirmation, make disagreement safe, name the owner of any action and revise the checklist with the people who use it.",
+          "image": "../assets/lesson-visuals/checklist-team-pause.svg",
+          "imageAlt": "An operator, product owner and support lead bring different information into a shared pre-release pause. The board turns their facts into one plan with named actions, contrasting active coordination with a paper-only tick-box exercise.",
+          "imageCaption": "The pause earns its value when distributed knowledge becomes a shared plan before commitment.",
+          "why": "Complex failures often cross role boundaries. No individual sees the deployment condition, customer impact, support load and recovery path at once, so a structured conversation can expose contradictions that an individually completed form cannot.",
+          "apply": [
+            "Add one role-specific prompt to the pause, such as the operator's recovery concern, the product owner's user impact or the support lead's communication risk.",
+            "End with a named action owner and a decision: proceed, change the plan or stop. After the first use, ask which prompt produced information and which only produced a tick."
+          ],
+          "caveat": "A scripted pause can become theatre when hierarchy silences concerns, time pressure makes the outcome predetermined or leaders measure completion instead of learning. Psychological safety and authority to stop remain design requirements outside the checklist itself.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why can a verbal team pause add value beyond individual checklist completion?",
+              "options": [
+                "It combines role-specific information into a shared plan before commitment.",
+                "It transfers responsibility for the final decision from experts to the group.",
+                "It guarantees that junior participants will challenge senior participants.",
+                "It proves that every relevant risk has been identified and assigned."
+              ],
+              "correctIndex": 0,
+              "feedback": "The team pause exposes distributed knowledge and creates a common picture at a decision point. It supports accountability but cannot guarantee voice, completeness or safety by itself.",
+              "feedbackByOption": [
+                "Correct. Different roles can surface conditions and concerns that no single person holds, allowing the team to coordinate before action.",
+                "The pause clarifies contributions and ownership; it does not erase the accountable expert or decision-maker's responsibility.",
+                "A prompt creates an opportunity to speak, but hierarchy and local culture can still suppress disagreement unless leaders address them.",
+                "The conversation can reveal more risk, but no checklist proves completeness or that every assigned control will work."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A cross-team feature hand-off often discovers support and rollback concerns after launch. Which checklist practice best addresses the problem?",
+              "options": [
+                "Have the delivery lead complete every team section before the launch meeting.",
+                "Add more detailed policy references beside the existing approval boxes.",
+                "Pause before launch, invite each role's concern and assign actions by name.",
+                "Record the late concerns after launch so they can improve the next template."
+              ],
+              "correctIndex": 2,
+              "feedback": "The failure is distributed information arriving too late. A shared pause makes each role's knowledge available while the plan can still change and gives resulting actions an owner.",
+              "feedbackByOption": [
+                "One person completing all sections recreates the information bottleneck and may guess at concerns held by other roles.",
+                "References can support decisions, but more text does not bring the missing role-specific knowledge into the launch plan.",
+                "Correct. The timed conversation surfaces different concerns before commitment and converts them into owned changes or an explicit proceed decision.",
+                "Retrospective learning is useful, but recording the concern after launch misses the available chance to change this decision."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Build one pause-point checklist",
+        "steps": [
+          "Choose one recurring hand-off or irreversible action where a known omission has a meaningful consequence.",
+          "Mark the exact pause before commitment, then list the critical steps or facts people sometimes miss.",
+          "Keep only items that are essential, plausibly missed and answerable at that moment.",
+          "Choose read-do or do-confirm, and ask one person from another role to run the list against a recent case.",
+          "Rewrite the first ambiguous item and record one observation that should trigger another revision."
+        ],
+        "result": "You finish with a short checklist anchored to a real pause, one tested wording improvement and evidence about whether it prompts action or conversation."
+      },
+      "spacedRecall": [
+        "From Threat Modeling: which trust boundary in a current change would benefit from a named pause before data or authority crosses it?",
+        "From Make It Stick: why might recalling the critical checks before looking at the list improve both learning and checklist design?"
+      ],
+      "takeaway": "A checklist earns its place when it protects a few critical steps at the moment of risk and turns distributed expertise into coordinated action.",
+      "sources": [
+        {
+          "label": "Macmillan: The Checklist Manifesto book and excerpt",
+          "url": "https://us.macmillan.com/books/9780312430009/thechecklistmanifesto/"
+        },
+        {
+          "label": "WorldCat: The Checklist Manifesto, Metropolitan Books edition",
+          "url": "https://search.worldcat.org/title/699554882"
+        },
+        {
+          "label": "Atul Gawande in The New Yorker: The Checklist",
+          "url": "https://www.newyorker.com/magazine/2007/12/10/the-checklist"
+        },
+        {
+          "label": "World Health Organization: Surgical Safety Checklist tools and implementation",
+          "url": "https://www.who.int/teams/integrated-health-services/patient-safety/research/safe-surgery/tool-and-resources"
+        },
+        {
+          "label": "New England Journal of Medicine: eight-hospital surgical checklist study",
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMsa0810119"
+        },
+        {
+          "label": "New England Journal of Medicine: Ontario checklist implementation study",
+          "url": "https://www.nejm.org/doi/full/10.1056/NEJMsa1308261"
+        },
+        {
+          "label": "AHRQ Patient Safety Network: What Makes a Good Checklist",
+          "url": "https://psnet.ahrq.gov/perspective/what-makes-good-checklist"
+        }
+      ]
+    },
+    {
       "slug": "threat-modeling-designing-for-security",
       "discussionId": "threat-modeling-designing-for-security",
       "date": "2026-06-30",
