@@ -198,9 +198,6 @@ h1, h2, h3 { text-wrap: balance; }
 .learning-state { font: 700 .75rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .learning-summary { color: var(--muted-ink); font-size: .78rem; }
 .is-learned .learning-state { color: var(--success-ink); }
-.book-learned-button { min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 .76rem var(--mono); }
-.book-learned-button[aria-pressed='true'] { background: var(--ink); color: var(--white); }
-.learned-action-status { flex-basis: 100%; min-height: 1.3em; font-size: .76rem; }
 .text-link { margin-top: auto; font-weight: 700; text-decoration: none; }
 .featured-card { min-height: 540px; }
 .library-empty { padding: clamp(2rem, 5vw, 4rem); border: 1px solid #18211d4a; background: var(--white); text-align: center; }
@@ -294,9 +291,10 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .quiz-correct-answer { margin-bottom: .5rem !important; font-weight: 700; }
 .quiz-feedback-context { margin-top: .6rem !important; padding-top: .6rem; border-top: 1px solid #18211d2b; font-size: .88rem; }
 .learning-check-actions { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; margin-top: 1.5rem; }
-.quiz-submit, .quiz-practice-again { min-height: 48px; padding: .78rem 1.05rem; border: 1px solid var(--ink); font: 700 .82rem var(--sans); cursor: pointer; }
+.quiz-submit, .quiz-mark-book-learned, .quiz-practice-again { min-height: 48px; padding: .78rem 1.05rem; border: 1px solid var(--ink); font: 700 .82rem var(--sans); cursor: pointer; }
 .quiz-submit { background: var(--ink); color: var(--white); }
-.quiz-practice-again { background: transparent; color: var(--ink); }
+.quiz-mark-book-learned, .quiz-practice-again { background: transparent; color: var(--ink); }
+.quiz-mark-book-learned[aria-pressed='true'] { background: var(--ink); color: var(--white); cursor: default; }
 .learning-check-action-status { flex-basis: 100%; min-height: 1.5em; font-size: .82rem; }
 .experiment { background: var(--ink); color: var(--paper); }
 .experiment h2, .recall h2, .takeaway h2 { font-size: clamp(3rem, 6vw, 6rem); margin: .4rem 0 2rem; }
@@ -368,7 +366,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 /* Shared interaction states */
 button, .button, .share-button, .copy-button, summary, input, select, textarea { transition: background-color .16s ease, border-color .16s ease, color .16s ease, outline-color .16s ease; }
 :is(.button, .share-button, .quiz-submit):hover { border-color: var(--red-deep); background: var(--red-deep); color: var(--white); }
-:is(.copy-button, .library-clear, .library-empty button, .library-pagination button, .book-learned-button, .idea-learned, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button, [data-cusdis-retry], .quiz-practice-again, .confirmation-dialog-actions button:not(.destructive-button)):not(:disabled):hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+:is(.copy-button, .library-clear, .library-empty button, .library-pagination button, .idea-learned, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button, [data-cusdis-retry], .quiz-mark-book-learned, .quiz-practice-again, .confirmation-dialog-actions button:not(.destructive-button)):not(:disabled):hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
 .confirmation-dialog-actions .destructive-button:hover { border-color: var(--red); background: var(--red); color: var(--white); }
 .analytics-consent [data-analytics-allow]:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); }
 .analytics-consent [data-analytics-reject]:hover { background: var(--white); color: var(--ink); }
@@ -415,7 +413,6 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
   nav a { font-size: .75rem; }
   .idea-actions { align-items: stretch; flex-direction: column; }
   .library-learning, .lesson-progress { align-items: stretch; flex-direction: column; }
-  .book-learned-button { width: 100%; }
   .idea-action-status { flex-basis: auto; }
   .quiz-question { padding: 1rem; }
   .quiz-option { grid-template-columns: 1.1rem 1.8rem minmax(0, 1fr); padding: .8rem .7rem; }

@@ -150,8 +150,9 @@ function orderedQuizQuestions(lesson) {
 
 function renderLearningCheck(lesson) {
   const questions = orderedQuizQuestions(lesson);
+  const stableIdeaKeys = lesson.ideas.map((idea) => ideaKey(lesson, idea));
 
-  return `<section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="${esc(lesson.slug)}" data-quiz-revision="${esc(lesson.quizRevision)}" data-clarity-mask="true">
+  return `<section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(stableIdeaKeys))}" data-quiz-revision="${esc(lesson.quizRevision)}" data-clarity-mask="true">
           <div class="learning-check-intro">
           <p class="eyebrow">Knowledge check · 6 questions</p>
             <h2 id="learning-check-title">Learning check</h2>
@@ -184,6 +185,7 @@ function renderLearningCheck(lesson) {
             </div>
             <div class="learning-check-actions">
               <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-mark-book-learned" type="button" data-mark-book-learned aria-pressed="false" hidden>Mark book as learned</button>
               <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
               <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
             </div>
@@ -253,8 +255,6 @@ function renderLesson(lesson, index) {
               <span class="learning-state" data-learning-state>Not yet learned</span>
               <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
             </div>
-            <button class="book-learned-button" type="button" data-book-learned aria-pressed="false">Mark book learned</button>
-            <span class="learned-action-status" data-learned-status aria-live="polite"></span>
           </div>
           <div class="share-row">
             <button class="share-button" type="button" data-share data-share-title="${esc(lesson.title)} | Daily Applied Wisdom" data-share-text="${esc(lesson.summary)}" data-share-url="${lessonUrl(lesson)}">Share this lesson <span aria-hidden="true">↗</span></button>
@@ -339,8 +339,6 @@ function archiveCard(lesson, featured = false) {
           <span class="learning-state" data-learning-state>Not yet learned</span>
           <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
         </div>
-        <button class="book-learned-button" type="button" data-book-learned aria-pressed="false">Mark book learned</button>
-        <span class="learned-action-status" data-learned-status aria-live="polite"></span>
       </div>
       <a class="text-link" href="lessons/${lesson.slug}.html">Read the lesson <span aria-hidden="true">→</span></a>
     </article>`;
@@ -565,7 +563,7 @@ function renderPrivacy() {
       </section>
       <section>
         <h2>Learning progress</h2>
-        <p>Book and idea learned markers, learning-check answers, scores and completion times stay in this browser. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your learned list, answers or score to Clarity, and it masks learning content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
+        <p>Idea learned markers, learning-check answers, scores and completion times stay in this browser. A book is shown as learned when all 3 of its ideas are learned. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your learned list, answers or score to Clarity, and it masks learning content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
         <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
         <p data-learning-history-status aria-live="polite"></p>
         <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">

@@ -346,7 +346,9 @@ for (const lesson of lessons) {
   }
   if (
     !generatedLesson.includes(`data-book-slug="${lesson.slug}"`) ||
-    !generatedLesson.includes('data-book-learned') ||
+    !generatedLesson.includes('data-mark-book-learned') ||
+    (generatedLesson.match(/data-mark-book-learned/g) || []).length !== 1 ||
+    generatedLesson.includes('data-book-learned') ||
     !generatedLesson.includes('id="learning-check"') ||
     !generatedLesson.includes(`data-quiz-revision="${lesson.quizRevision}"`) ||
     !generatedLesson.includes('Answer all 6, then check your answers.') ||
@@ -399,8 +401,8 @@ if (
   !clientScript.includes("style.id = 'daw-cusdis-theme'") ||
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-') ||
-  !clientScript.includes('daw-learned-book-') ||
   !clientScript.includes('daw-learned-idea-') ||
+  !clientScript.includes("querySelector('[data-mark-book-learned]')") ||
   !clientScript.includes('daw-quiz-first-') ||
   !clientScript.includes('daw-quiz-review-') ||
   !clientScript.includes('data-quiz-form') ||
@@ -426,7 +428,9 @@ if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) 
 
 if (
   !indexPage.includes('data-library-progress') ||
-  !indexPage.includes('data-book-learned') ||
+  !indexPage.includes('data-learning-state') ||
+  !indexPage.includes('data-learning-summary') ||
+  indexPage.includes('data-book-learned') ||
   !indexPage.includes('data-quick-review') ||
   !indexPage.includes('id="daw-quick-review-data"') ||
   !indexPage.includes('Quick review') ||
@@ -482,6 +486,7 @@ await readRequiredFile(path.join(root, 'tools', 'randomize-topic.mjs'), 'The top
 
 if (
   !privacyPage.includes('Learning progress') ||
+  !privacyPage.includes('A book is shown as learned when all 3 of its ideas are learned') ||
   !privacyPage.includes('does not intentionally send your learned list, answers or score to Clarity') ||
   !privacyPage.includes('Cusdis and Clarity run on some pages') ||
   !privacyPage.includes('Your progress stays until you clear learning history') ||

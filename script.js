@@ -30,7 +30,7 @@ if (libraryControls) {
     try { categories = JSON.parse(card.dataset.libraryCategories || '[]'); } catch { categories = []; }
     return {
       card,
-      slug: card.dataset.librarySlug,
+      ideaIds: readBookIdeaIds(card),
       categories: categories.map(normalizeLibraryText),
       search: normalizeLibraryText(card.dataset.librarySearch)
     };
@@ -84,7 +84,7 @@ if (libraryControls) {
     const matches = libraryItems.filter((item) => (
       queryTerms.every((term) => item.search.includes(term)) &&
       (!selectedCategory || item.categories.includes(selectedCategory)) &&
-      (!selectedProgress || (learnedBookState(item.slug) ? 'learned' : 'unlearned') === selectedProgress)
+      (!selectedProgress || (learnedBookState(item.ideaIds) ? 'learned' : 'unlearned') === selectedProgress)
     ));
     const totalPages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
     currentPage = Math.min(currentPage, totalPages);
@@ -181,10 +181,6 @@ function safeStorageGetJson(key) {
   try { return JSON.parse(value); } catch { return null; }
 }
 
-function learnedBookState(slug) {
-  return safeStorageGet(`daw-learned-book-${slug}`) === 'true';
-}
-
 function learnedIdeaState(id) {
   return safeStorageGet(`daw-learned-idea-${id}`) === 'true';
 }
@@ -193,20 +189,12 @@ function readBookIdeaIds(progress) {
   try { return JSON.parse(progress?.dataset.bookIdeaIds || '[]'); } catch { return []; }
 }
 
-function bookIdeaIds(slug) {
-  const progress = [...document.querySelectorAll('[data-book-progress]')]
-    .find((item) => item.dataset.bookSlug === slug);
-  return readBookIdeaIds(progress);
+function learnedBookState(ideaIds) {
+  return ideaIds.length > 0 && ideaIds.every(learnedIdeaState);
 }
 
-function writeBookLearned(slug, ideaIds, learned) {
-  const writes = [
-    learned ? safeStorageSet(`daw-learned-book-${slug}`, 'true') : safeStorageRemove(`daw-learned-book-${slug}`),
-    ...ideaIds.map((id) => learned
-      ? safeStorageSet(`daw-learned-idea-${id}`, 'true')
-      : safeStorageRemove(`daw-learned-idea-${id}`))
-  ];
-  return writes.every(Boolean);
+function writeIdeasLearned(ideaIds) {
+  return ideaIds.map((id) => safeStorageSet(`daw-learned-idea-${id}`, 'true')).every(Boolean);
 }
 
 function writeIdeaLearned(id, learned) {
@@ -215,34 +203,16 @@ function writeIdeaLearned(id, learned) {
     : safeStorageRemove(`daw-learned-idea-${id}`);
 }
 
-function syncBookLearnedFromIdeas(slug, ideaIds) {
-  const allIdeasLearned = ideaIds.length > 0 && ideaIds.every(learnedIdeaState);
-  return allIdeasLearned
-    ? safeStorageSet(`daw-learned-book-${slug}`, 'true')
-    : safeStorageRemove(`daw-learned-book-${slug}`);
-}
-
 function renderBookProgress(progress) {
-  const slug = progress.dataset.bookSlug;
   const ideaIds = readBookIdeaIds(progress);
   const learnedIdeas = ideaIds.filter(learnedIdeaState).length;
-  const learned = learnedBookState(slug);
+  const learned = learnedBookState(ideaIds);
   const state = progress.querySelector('[data-learning-state]');
   const summary = progress.querySelector('[data-learning-summary]');
-  const button = progress.querySelector('[data-book-learned]');
 
   progress.classList.toggle('is-learned', learned);
   if (state) state.textContent = learned ? 'Learned' : 'Not yet learned';
   if (summary) summary.textContent = `${learnedIdeas} of ${ideaIds.length} ideas learned`;
-  if (button) {
-    button.setAttribute('aria-pressed', String(learned));
-    button.setAttribute('aria-label', learned
-      ? 'Mark this book and its ideas as not learned in this browser'
-      : 'Mark this book and all its ideas as learned in this browser');
-    button.innerHTML = learned
-      ? '<span aria-hidden="true">✓</span> Book learned'
-      : '<span aria-hidden="true">○</span> Mark book learned';
-  }
 }
 
 function renderIdeaLearnedButton(button) {
@@ -262,31 +232,11 @@ function renderLearnedProgress() {
   document.querySelectorAll('[data-idea-learned-id]').forEach(renderIdeaLearnedButton);
 }
 
-document.querySelectorAll('[data-book-learned]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const progress = button.closest('[data-book-progress]');
-    const slug = progress?.dataset.bookSlug;
-    const ideaIds = readBookIdeaIds(progress);
-    const next = !learnedBookState(slug);
-    const status = progress?.querySelector('[data-learned-status]');
-    if (!slug || !writeBookLearned(slug, ideaIds, next)) {
-      if (status) status.textContent = 'Learning progress was not saved because browser storage is unavailable.';
-      return;
-    }
-    renderLearnedProgress();
-    if (status) status.textContent = next
-      ? 'Book and all 3 ideas marked learned.'
-      : 'Book and all 3 ideas marked not learned.';
-    document.dispatchEvent(new CustomEvent('daw:learned-change'));
-  });
-});
-
 document.querySelectorAll('[data-idea-learned-id]').forEach((button) => {
   button.addEventListener('click', () => {
     const id = button.dataset.ideaLearnedId;
-    const slug = button.dataset.bookSlug;
     const next = !learnedIdeaState(id);
-    if (!writeIdeaLearned(id, next) || !syncBookLearnedFromIdeas(slug, bookIdeaIds(slug))) {
+    if (!writeIdeaLearned(id, next)) {
       ideaActionStatus(button, 'Learning progress was not saved because browser storage is unavailable.');
       return;
     }
@@ -298,7 +248,10 @@ document.querySelectorAll('[data-idea-learned-id]').forEach((button) => {
 
 renderLearnedProgress();
 window.addEventListener('storage', (event) => {
-  if (event.key === null || event.key?.startsWith('daw-learned-')) renderLearnedProgress();
+  if (event.key === null || event.key?.startsWith('daw-learned-')) {
+    renderLearnedProgress();
+    document.dispatchEvent(new CustomEvent('daw:learned-change'));
+  }
 });
 
 function savedIdeaState(id) {
@@ -486,9 +439,35 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
   const summary = learningCheck.querySelector('[data-quiz-summary]');
   const actionStatus = learningCheck.querySelector('[data-quiz-action-status]');
   const submitButton = learningCheck.querySelector('.quiz-submit');
+  const markBookLearnedButton = learningCheck.querySelector('[data-mark-book-learned]');
   const practiceAgainButton = learningCheck.querySelector('[data-practice-again]');
+  const ideaIds = readBookIdeaIds(learningCheck);
   const firstAttemptKey = `daw-quiz-first-${learningCheck.dataset.lessonSlug}-${learningCheck.dataset.quizRevision}`;
   let firstAttempt = safeStorageGetJson(firstAttemptKey);
+
+  function renderMarkBookLearnedButton() {
+    if (!markBookLearnedButton) return;
+    const learned = learnedBookState(ideaIds);
+    markBookLearnedButton.disabled = learned;
+    markBookLearnedButton.setAttribute('aria-pressed', String(learned));
+    markBookLearnedButton.innerHTML = learned
+      ? '<span aria-hidden="true">✓</span> Book learned'
+      : 'Mark book as learned';
+  }
+
+  function showCompletedActions(score) {
+    const perfectScore = score === questions.length;
+    if (submitButton) {
+      submitButton.hidden = !perfectScore;
+      submitButton.disabled = perfectScore;
+      if (perfectScore) submitButton.textContent = 'Answers checked';
+    }
+    if (markBookLearnedButton) {
+      markBookLearnedButton.hidden = !perfectScore;
+      renderMarkBookLearnedButton();
+    }
+    if (practiceAgainButton) practiceAgainButton.hidden = false;
+  }
 
   function setQuestionResult(question, selectedIndex, reveal) {
     const correctIndex = Number(question.dataset.correctIndex);
@@ -529,8 +508,7 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
     questions.forEach((question, index) => setQuestionResult(question, Number(answers[index]), true));
     const score = answers.reduce((total, answer, index) => total + (Number(answer) === Number(questions[index].dataset.correctIndex) ? 1 : 0), 0);
     if (summary) summary.textContent = `First attempt: ${score} of ${questions.length} remembered.`;
-    if (submitButton) submitButton.hidden = true;
-    if (practiceAgainButton) practiceAgainButton.hidden = false;
+    showCompletedActions(score);
     learningCheck.classList.add('is-complete');
     if (announce && actionStatus) actionStatus.textContent = `Answers checked. You remembered ${score} of ${questions.length} on your first attempt.`;
     return true;
@@ -548,8 +526,10 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
     }
     if (submitButton) {
       submitButton.hidden = false;
+      submitButton.disabled = false;
       submitButton.textContent = 'Check practice answers';
     }
+    if (markBookLearnedButton) markBookLearnedButton.hidden = true;
     if (practiceAgainButton) practiceAgainButton.hidden = true;
     if (actionStatus) actionStatus.textContent = firstAttempt
       ? 'Practice answers cleared. Your first attempt is preserved.'
@@ -599,8 +579,7 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
       : isFirstSubmission
         ? `First attempt: ${score} of ${questions.length} remembered.`
         : `Practice result: ${score} of ${questions.length}. Your first attempt is preserved.`;
-    if (submitButton) submitButton.hidden = true;
-    if (practiceAgainButton) practiceAgainButton.hidden = false;
+    showCompletedActions(score);
     learningCheck.classList.add('is-complete');
     if (actionStatus) actionStatus.textContent = firstAttemptSaveFailed
       ? `Answers checked: ${score} of ${questions.length}. Browser storage is unavailable, so no first attempt or next-day review was saved.`
@@ -620,6 +599,17 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
     question.querySelectorAll('input[type="radio"]').forEach((input) => input.removeAttribute('aria-invalid'));
   });
   practiceAgainButton?.addEventListener('click', startPracticeAgain);
+  markBookLearnedButton?.addEventListener('click', () => {
+    if (!writeIdeasLearned(ideaIds)) {
+      if (actionStatus) actionStatus.textContent = 'Learning progress was not saved because browser storage is unavailable.';
+      return;
+    }
+    renderLearnedProgress();
+    renderMarkBookLearnedButton();
+    if (actionStatus) actionStatus.textContent = `Book marked learned. All ${ideaIds.length} ideas are learned.`;
+    document.dispatchEvent(new CustomEvent('daw:learned-change'));
+  });
+  document.addEventListener('daw:learned-change', renderMarkBookLearnedButton);
   window.addEventListener('storage', (event) => {
     if (event.key !== firstAttemptKey) return;
     const incomingAttempt = safeStorageGetJson(firstAttemptKey);
@@ -644,8 +634,10 @@ document.querySelectorAll('[data-learning-check]').forEach((learningCheck) => {
       });
       if (submitButton) {
         submitButton.hidden = false;
+        submitButton.disabled = false;
         submitButton.textContent = 'Check answers';
       }
+      if (markBookLearnedButton) markBookLearnedButton.hidden = true;
       if (practiceAgainButton) practiceAgainButton.hidden = true;
       learningCheck.classList.remove('is-complete');
     }
