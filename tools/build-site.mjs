@@ -356,7 +356,6 @@ function topicPieSlices() {
 }
 
 function renderTopicCoverage() {
-  const categoryCount = topicFamilies.reduce((sum, family) => sum + family.categories.length, 0);
   return `<section class="topic-coverage" id="topics" aria-labelledby="topics-title">
         <div class="topic-coverage-heading">
           <h2 id="topics-title">Browse learning topics</h2>
@@ -369,8 +368,7 @@ function renderTopicCoverage() {
               ${topicPieSlices()}
               <path class="topic-chart-selection" data-topic-chart-selection aria-hidden="true" />
               <circle cx="260" cy="260" r="106" fill="#faf7f0" stroke="#18211d" stroke-width="4" />
-              <text x="260" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${categoryCount} TOPIC</text>
-              <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">AREAS</text>
+              <text x="260" y="260" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${topicFamilies.length} TOPICS</text>
             </svg>
           </figure>
           <div class="topic-legend" aria-label="Planned topic balance">

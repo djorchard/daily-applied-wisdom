@@ -471,8 +471,9 @@ if (
   !indexPage.includes('id="topics"') ||
   !indexPage.includes('id="topic-chart-title"') ||
   !indexPage.includes('role="group" aria-labelledby="topic-chart-title topic-chart-desc"') ||
-  !indexPage.includes('29 TOPIC') ||
-  !indexPage.includes('AREAS') ||
+  !indexPage.includes(`>${topicCatalog.families.length} TOPICS</text>`) ||
+  indexPage.includes('29 TOPIC') ||
+  indexPage.includes('>AREAS</text>') ||
   indexPage.includes('175 subjects') ||
   !indexPage.includes('<h2 id="topics-title">Browse learning topics</h2>') ||
   indexPage.includes('A technical centre of gravity') ||
