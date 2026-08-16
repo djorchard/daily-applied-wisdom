@@ -258,8 +258,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .practice-grid .caveat { grid-column: 1 / -1; background: #18211d0d; }
 .idea-actions { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin-top: 2rem; }
 .idea-learned, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button { min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--ink); color: var(--ink); font: 600 .76rem var(--mono); cursor: pointer; }
-.idea-learned, .idea-save { background: transparent; }
-.idea-useful { background: #fff8; }
+.idea-learned, .idea-save, .idea-useful { background: transparent; }
 .idea-learned[aria-pressed='true'], .idea-save[aria-pressed='true'], .idea-useful[aria-pressed='true'] { background: var(--ink); color: white; }
 .idea-learned[aria-pressed='true'] span { color: var(--green); }
 .idea-save[aria-pressed='true'] span { color: #ff997b; }
