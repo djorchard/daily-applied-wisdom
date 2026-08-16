@@ -1243,6 +1243,244 @@
       ]
     },
     {
+      "slug": "continuous-discovery-habits",
+      "discussionId": "continuous-discovery-habits",
+      "date": "2026-07-05",
+      "dateLabel": "5 July 2026",
+      "edition": "Daily lesson",
+      "title": "Continuous Discovery Habits",
+      "authors": "Teresa Torres",
+      "year": "2021 · first edition",
+      "category": "Product development · Continuous discovery · Customer research",
+      "summary": "Make product discovery a decision rhythm: connect a desired outcome to real customer opportunities, learn from recent stories and test the riskiest belief before building the whole solution.",
+      "evidenceNote": "Torres presents continuous discovery as a structured practitioner framework developed through coaching product teams, not as a controlled comparison proving that its full method causes better product outcomes. Her official book material and later technical articles provide strong attribution for the outcome, interviewing and assumption-testing mechanisms. The evidence each team collects remains local and fallible. Qualitative interviews reveal variation and mechanisms rather than population prevalence, and a small assumption test reduces uncertainty without proving that a shipped product will create the intended outcome. Treat the framework as a repeatable way to expose and compare beliefs, then check decisions against behavioural, delivery and outcome evidence in the team's actual context.",
+      "accent": "blue",
+      "quizRevision": "2026-07-05-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Map opportunities before choosing solutions",
+          "argument": [
+            "Torres starts discovery with a desired product outcome that the team can influence. An opportunity solution tree then connects that outcome to customer needs, pain points and desires, before branching from a chosen opportunity into several possible solutions and the assumptions those solutions depend on.",
+            "The tree preserves the reasoning between what the team wants to change and what it might build. It is not a fixed requirements hierarchy or an opportunity backlog to finish. As interviews and tests produce evidence, the opportunity space, target and solution branches can be redrawn."
+          ],
+          "extension": "Before accepting a feature request as the problem, write the observable outcome it is meant to influence and place the customer opportunity between them. Generate at least two credible solution branches so the requested feature has to compete with an alternative.",
+          "image": "../assets/lesson-visuals/continuous-discovery-opportunity-tree.svg",
+          "imageAlt": "An opportunity solution tree begins with one desired product outcome, branches into three customer opportunities, focuses on one target opportunity and compares three possible solutions before testing their assumptions.",
+          "imageCaption": "The tree keeps a visible chain from outcome to opportunity to competing solutions, while evidence can revise every branch.",
+          "why": "Teams often debate a requested solution without agreeing on the change it should create or the customer experience it addresses. Keeping those links visible exposes solution fixation and gives new evidence somewhere useful to change the decision.",
+          "apply": [
+            "Choose one active feature request and write one observable customer behaviour or product outcome it is intended to influence.",
+            "Name the customer need, pain or desire between that outcome and the request, then sketch one materially different solution for the same opportunity."
+          ],
+          "caveat": "A neat tree can make weak research look certain. It does not choose the right outcome, prove that an opportunity is common or calculate which branch will work. Keep the structure provisional, distinguish observed evidence from team inference and revise it when customer or outcome data disagrees.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main decision value of an opportunity solution tree in Torres's framework?",
+              "options": [
+                "It converts every customer request into an ordered delivery backlog.",
+                "It predicts which feature will produce the largest financial return.",
+                "It links an outcome, customer opportunities and competing solutions.",
+                "It fixes one discovery plan so later evidence cannot change scope."
+              ],
+              "correctIndex": 2,
+              "feedback": "The tree makes the reasoning chain visible, from the desired product outcome through customer opportunities to alternative solutions and their assumptions.",
+              "feedbackByOption": [
+                "A request is evidence to examine, not automatically a backlog item. The tree separates opportunities from proposed solutions.",
+                "The structure does not forecast financial returns. It organises choices and evidence so the team can compare them.",
+                "Correct. The visible links let the team test whether each solution addresses a real opportunity that can influence the outcome.",
+                "The tree is deliberately revised as interviews and tests change the team's understanding of the opportunity space."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A stakeholder asks the team to build a new dashboard, but nobody can state what should change. What is the strongest first move?",
+              "options": [
+                "Define the intended outcome and customer opportunity, then compare solution branches.",
+                "Estimate the dashboard so its expected effort can determine whether it is valuable.",
+                "Interview users about preferred dashboard layouts before clarifying the outcome.",
+                "Add the dashboard to the roadmap and measure adoption after the full release."
+              ],
+              "correctIndex": 0,
+              "feedback": "The request should become one candidate solution. First expose the outcome and customer opportunity it is meant to serve, then compare it with alternatives.",
+              "feedbackByOption": [
+                "Correct. This restores the missing reasoning chain and lets the dashboard compete with other ways to address the same opportunity.",
+                "Effort can inform a later trade-off, but it cannot establish customer value when the intended change is still undefined.",
+                "Layout preferences evaluate one proposed solution. They do not reveal whether a dashboard addresses the right opportunity.",
+                "Building the whole request postpones the central discovery question until after the largest investment has already been made."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Interview for a recent story, every week",
+          "argument": [
+            "Torres defines continuous discovery as at least weekly customer touchpoints by the team building the product, using small research activities in pursuit of a desired product outcome. Frequent direct contact is a keystone habit because it keeps product decisions connected to recent customer evidence rather than occasional reports or remembered anecdotes.",
+            "Her story-based interview anchors the conversation in a specific past event. The interviewer traces what happened, what the person tried, where the experience became difficult and what they wanted, instead of asking whether they like an imagined feature. Across interviews, the team seeks variation in experiences; it does not claim that a small qualitative sample estimates population frequency."
+          ],
+          "extension": "Replace one future-tense preference question with a recent-event prompt. Ask about the last time the situation occurred, walk the sequence in order and record needs, pains or desires separately from the customer's suggested solution.",
+          "image": "../assets/lesson-visuals/continuous-discovery-story-cadence.svg",
+          "imageAlt": "A weekly discovery loop moves from a recent customer story through specific moments, actions and friction to an opportunity map, then returns the updated questions to the product trio for the next week.",
+          "imageCaption": "A recent story supplies concrete moments and friction; the weekly cadence keeps that evidence close to the next product decision.",
+          "why": "Hypothetical preference questions invite politeness, prediction and solution bias. A specific recent story gives the team a sequence it can inspect, while regular contact prevents one memorable interview from becoming permanent truth.",
+          "apply": [
+            "Choose one decision and ask a relevant person, 'Tell me about the last time you tried to do this.'",
+            "Trace the trigger, steps, workarounds and outcome. Write one observed opportunity and one claim that still needs another source of evidence."
+          ],
+          "caveat": "A past story is still a self-report shaped by memory, framing and who agreed to speak. Weekly interviews do not make a sample representative or replace observation, accessibility research, product data, support evidence or quantitative measurement. Interview for variation and match the method to the decision.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which practice best matches continuous discovery as Torres defines it?",
+              "options": [
+                "A quarterly research report delivered to the team before roadmap planning.",
+                "A standing survey that asks customers to rank proposed features each month.",
+                "A research phase completed by specialists before the delivery team begins.",
+                "Small weekly customer touchpoints by the team, tied to a product outcome."
+              ],
+              "correctIndex": 3,
+              "feedback": "The defining cadence is direct, frequent and small enough to sit beside delivery, with the team building the product learning in pursuit of an outcome.",
+              "feedbackByOption": [
+                "A quarterly report can inform decisions, but it lacks the direct weekly cadence and ongoing connection to current choices.",
+                "A recurring survey may add evidence, but ranking proposed features is not the direct, varied research practice Torres defines.",
+                "Specialist research remains valuable, but continuous discovery keeps the product-building team directly involved rather than using a hand-off phase.",
+                "Correct. Weekly direct contact and small research activities keep recent customer evidence close to outcome-focused decisions."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team wants to understand why users abandon a complex request. Which opening prompt is strongest?",
+              "options": [
+                "Which new feature would make the request process easier for you?",
+                "Tell me about the last request you started but did not finish.",
+                "Would you use a guided request wizard if the team built one?",
+                "How satisfied are you with the request process on a ten-point scale?"
+              ],
+              "correctIndex": 1,
+              "feedback": "A specific recent event can be traced for triggers, actions, friction and workarounds without making the participant evaluate the team's preferred solution.",
+              "feedbackByOption": [
+                "This asks the participant to design a solution and predict what would help, before the team understands the actual abandonment story.",
+                "Correct. The prompt anchors the interview in a real event whose sequence and obstacles can be explored in detail.",
+                "This tests stated interest in one imagined solution. It can hide the opportunity and overstate future behaviour.",
+                "A rating measures sentiment at a coarse level but does not reveal the concrete sequence in which the request was abandoned."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Test the risky belief, not the whole solution",
+          "argument": [
+            "Torres asks teams to decompose each solution into assumptions that need to be true for it to succeed. The categories of desirability, viability, feasibility, usability and ethics act as prompts for finding hidden risk, not as boxes worth debating for their own sake.",
+            "The riskiest assumptions are both important to the solution and weakly supported. A focused prototype, one-question survey, data check or engineering spike can examine one such belief more quickly than building the entire idea. Evidence should compare several solutions, and one passing test is not proof that a complete product will create the outcome."
+          ],
+          "extension": "Turn a confident solution statement into a need-to-be-true belief with an observable signal. Define success before collecting evidence, use the smallest test that still represents the risk and compare what the result means for at least two candidate solutions.",
+          "image": "../assets/lesson-visuals/continuous-discovery-assumption-test.svg",
+          "imageAlt": "Three candidate solutions are decomposed into assumptions. An importance and evidence screen selects one risky belief, which moves through a small test and produces evidence for comparing, revising or discarding solutions.",
+          "imageCaption": "Decomposing solutions lets the team spend a small test on the belief most capable of breaking the decision.",
+          "why": "Whole-solution tests are slow and can produce an ambiguous verdict. A specific assumption makes the uncertainty and the required evidence visible, so the team can learn before implementation effort turns one idea into a commitment.",
+          "apply": [
+            "Take one preferred solution and complete the sentence, 'For this to succeed, it must be true that...' five times across customer, business, technical, use and harm concerns.",
+            "Choose the important belief with the weakest evidence. Write one observable signal, a small test and the decision that each plausible result would change."
+          ],
+          "caveat": "A cheap test can be cheaply misleading when its participants, context, fidelity or success threshold do not represent the real risk. Avoid treating a positive signal as validation of the whole idea. Combine tests, look for disconfirming evidence and measure the shipped outcome after delivery.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which assumption should a product team generally test first in this framework?",
+              "options": [
+                "The easiest belief to measure with the team's current analytics.",
+                "A critical belief that has little trustworthy supporting evidence.",
+                "The technical belief owned by the most experienced engineer.",
+                "A broad belief that can stand in for the complete product idea."
+              ],
+              "correctIndex": 1,
+              "feedback": "Risk comes from importance combined with weak evidence. That combination identifies a belief capable of breaking the idea and worth testing early.",
+              "feedbackByOption": [
+                "Measurement convenience can direct effort away from the belief most capable of making the solution fail.",
+                "Correct. A critical, weakly supported assumption offers the greatest useful uncertainty reduction when tested well.",
+                "Expert ownership may improve a test, but expertise does not by itself determine which assumption carries the most risk.",
+                "Broad beliefs are harder to test and can produce ambiguous results. The method favours a specific need-to-be-true statement."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team proposes automatic reminders and assumes users will act on them. What is the strongest next step?",
+              "options": [
+                "Build every reminder channel, then compare monthly adoption with the old process.",
+                "Ask users whether reminders sound useful and count favourable responses.",
+                "Define the required action and run a small behavioural test before full delivery.",
+                "Estimate the implementation so effort can stand in for the idea's uncertainty."
+              ],
+              "correctIndex": 2,
+              "feedback": "The behavioural assumption should be made specific and tested with an observable action before the team invests in the complete reminder system.",
+              "feedbackByOption": [
+                "Building every channel tests the whole solution after substantial investment and makes a weak result difficult to diagnose.",
+                "Stated usefulness is weaker than observing the action the solution depends on, especially for future behaviour.",
+                "Correct. A focused behavioural test examines the critical belief directly and can change the solution before full implementation.",
+                "Effort affects the trade-off, but it does not provide evidence that users will take the action needed for the solution to work."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Turn one feature request into a discovery decision",
+        "steps": [
+          "Choose one active feature request and write the observable product outcome it is supposed to influence.",
+          "Write one customer need, pain or desire supported by a recent story or other evidence. If none exists, mark that gap explicitly.",
+          "Sketch the requested solution and one materially different alternative for the same opportunity.",
+          "For each solution, write one critical assumption that currently has weak evidence.",
+          "Choose the riskiest assumption and define one small test, one observable success signal and the decision that either result would change."
+        ],
+        "result": "You finish with a visible outcome-to-opportunity chain, two competing solutions and one testable belief instead of an unexamined feature commitment."
+      },
+      "spacedRecall": [
+        "From Shape Up: how could an explicit appetite bound a discovery test without turning one solution into fixed scope?",
+        "From Domain-Driven Design Distilled: which disagreement in domain language should be clarified before it is treated as a customer opportunity?"
+      ],
+      "takeaway": "Keep discovery continuous by tracing decisions from outcomes to observed opportunities, then test the belief most likely to break a solution before building the whole thing.",
+      "sources": [
+        {
+          "label": "Product Talk: official Continuous Discovery Habits book announcement and scope",
+          "url": "https://www.producttalk.org/continuous-discovery-habits/"
+        },
+        {
+          "label": "Open Library: 2021 first-edition publication record and ISBN",
+          "url": "https://openlibrary.org/books/OL32480798M/Continuous_Discovery_Habits"
+        },
+        {
+          "label": "Product Talk: continuous discovery definition and cadence",
+          "url": "https://www.producttalk.org/glossary-discovery-continuous-discovery/"
+        },
+        {
+          "label": "Product Talk: opportunity solution tree structure and limits",
+          "url": "https://www.producttalk.org/opportunity-solution-trees/"
+        },
+        {
+          "label": "Product Talk: story-based interviewing and interviewing for variation",
+          "url": "https://www.producttalk.org/selecting-customers-for-customer-interviews/"
+        },
+        {
+          "label": "Product Talk: assumption types, test methods and evidence cautions",
+          "url": "https://www.producttalk.org/assumption-testing/"
+        },
+        {
+          "label": "Product Talk: case study on the learning tax and local adaptation",
+          "url": "https://www.producttalk.org/adopting-discovery-habits-is-iterative/"
+        }
+      ]
+    },
+    {
       "slug": "domain-driven-design-distilled",
       "discussionId": "domain-driven-design-distilled",
       "date": "2026-07-04",
