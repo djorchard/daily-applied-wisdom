@@ -463,7 +463,7 @@ function renderIndex() {
             <label for="library-progress">Learning status</label>
             <select id="library-progress" data-library-progress>
               <option value="">All lessons</option>
-              <option value="unlearned">Not yet learned</option>
+              <option value="unlearned" selected>Not yet learned</option>
               <option value="learned">Learned</option>
             </select>
           </div>

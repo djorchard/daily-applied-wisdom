@@ -28,7 +28,7 @@ node tools/check-content.mjs
 
 ## Library browsing
 
-The homepage library progressively enhances the complete lesson archive. With JavaScript available, it shows the 10 newest matching lessons, supports text search across titles, authors, topics, summaries and idea names, filters by category and browser-local learned status, and paginates every result set. Without JavaScript, every lesson remains available in the page.
+The homepage library progressively enhances the complete lesson archive. With JavaScript available, it initially shows not-yet-learned lessons, displays the 10 newest matching results, supports text search across titles, authors, topics, summaries and idea names, filters by category and browser-local learned status, and paginates every result set. Clearing filters shows every lesson. Without JavaScript, every lesson remains available in the page.
 
 ## Learned progress
 

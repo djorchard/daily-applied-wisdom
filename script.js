@@ -122,6 +122,7 @@ if (libraryControls) {
   });
   libraryControls.addEventListener('reset', () => {
     requestAnimationFrame(() => {
+      if (progressSelect) progressSelect.value = '';
       currentPage = 1;
       renderLibrary();
       searchInput?.focus();
@@ -1000,7 +1001,12 @@ if (comments) {
   const cusdisTheme = `
     :root { color-scheme: light; }
     *, *::before, *::after { box-sizing: border-box; }
-    body { color: #18211d !important; font-family: Manrope, Arial, sans-serif !important; }
+    body {
+      margin: 0 !important;
+      padding: 24px !important;
+      color: #18211d !important;
+      font-family: Manrope, Arial, sans-serif !important;
+    }
     input[type="text"], input[type="email"], textarea {
       min-height: 48px;
       background: #fffdf8 !important;
@@ -1036,6 +1042,9 @@ if (comments) {
       outline-offset: 3px !important;
     }
     a { color: #79301d !important; text-underline-offset: 3px; }
+    @media (max-width: 600px) {
+      body { padding: 16px !important; }
+    }
   `;
 
   const prepareCommentsFrame = (frame) => {

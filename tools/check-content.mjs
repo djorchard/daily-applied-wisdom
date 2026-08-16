@@ -399,6 +399,8 @@ if (
   !clientScript.includes("if (choice === 'granted') loadClarity('granted').catch(() => {});") ||
   !clientScript.includes("ad_Storage: 'denied'") ||
   !clientScript.includes("style.id = 'daw-cusdis-theme'") ||
+  !clientScript.includes('padding: 24px !important;') ||
+  !clientScript.includes('body { padding: 16px !important; }') ||
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-') ||
   !clientScript.includes('daw-learned-idea-') ||
@@ -428,6 +430,7 @@ if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) 
 
 if (
   !indexPage.includes('data-library-progress') ||
+  !indexPage.includes('<option value="unlearned" selected>Not yet learned</option>') ||
   !indexPage.includes('data-learning-state') ||
   !indexPage.includes('data-learning-summary') ||
   indexPage.includes('data-book-learned') ||
