@@ -8,6 +8,7 @@ if (libraryControls) {
   const cards = [...document.querySelectorAll('[data-library-card]')];
   const searchInput = libraryControls.querySelector('[data-library-search]');
   const categorySelect = libraryControls.querySelector('[data-library-category]');
+  const progressSelect = libraryControls.querySelector('[data-library-progress]');
   const clearButton = libraryControls.querySelector('[data-library-clear]');
   const resultsBar = document.querySelector('[data-library-results-bar]');
   const status = document.querySelector('[data-library-status]');
@@ -29,6 +30,7 @@ if (libraryControls) {
     try { categories = JSON.parse(card.dataset.libraryCategories || '[]'); } catch { categories = []; }
     return {
       card,
+      slug: card.dataset.librarySlug,
       categories: categories.map(normalizeLibraryText),
       search: normalizeLibraryText(card.dataset.librarySearch)
     };
@@ -78,9 +80,11 @@ if (libraryControls) {
     const query = normalizeLibraryText(searchInput?.value).trim();
     const queryTerms = query.split(/\s+/).filter(Boolean);
     const selectedCategory = normalizeLibraryText(categorySelect?.value);
+    const selectedProgress = progressSelect?.value || '';
     const matches = libraryItems.filter((item) => (
       queryTerms.every((term) => item.search.includes(term)) &&
-      (!selectedCategory || item.categories.includes(selectedCategory))
+      (!selectedCategory || item.categories.includes(selectedCategory)) &&
+      (!selectedProgress || (learnedBookState(item.slug) ? 'learned' : 'unlearned') === selectedProgress)
     ));
     const totalPages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
     currentPage = Math.min(currentPage, totalPages);
@@ -90,7 +94,7 @@ if (libraryControls) {
     libraryItems.forEach((item) => { item.card.hidden = !visibleItems.has(item); });
     const hasResults = matches.length > 0;
     if (empty) empty.hidden = hasResults;
-    if (clearButton) clearButton.disabled = !query && !selectedCategory;
+    if (clearButton) clearButton.disabled = !query && !selectedCategory && !selectedProgress;
 
     if (status) {
       status.textContent = hasResults
@@ -109,6 +113,10 @@ if (libraryControls) {
     renderLibrary();
   });
   categorySelect?.addEventListener('change', () => {
+    currentPage = 1;
+    renderLibrary();
+  });
+  progressSelect?.addEventListener('change', () => {
     currentPage = 1;
     renderLibrary();
   });
@@ -138,6 +146,10 @@ if (libraryControls) {
 
   libraryControls.hidden = false;
   if (resultsBar) resultsBar.hidden = false;
+  document.addEventListener('daw:learned-change', () => renderLibrary());
+  window.addEventListener('storage', (event) => {
+    if (event.key === null || event.key?.startsWith('daw-learned-')) renderLibrary();
+  });
   renderLibrary();
 }
 
@@ -168,6 +180,126 @@ function safeStorageGetJson(key) {
   if (!value) return null;
   try { return JSON.parse(value); } catch { return null; }
 }
+
+function learnedBookState(slug) {
+  return safeStorageGet(`daw-learned-book-${slug}`) === 'true';
+}
+
+function learnedIdeaState(id) {
+  return safeStorageGet(`daw-learned-idea-${id}`) === 'true';
+}
+
+function readBookIdeaIds(progress) {
+  try { return JSON.parse(progress?.dataset.bookIdeaIds || '[]'); } catch { return []; }
+}
+
+function bookIdeaIds(slug) {
+  const progress = [...document.querySelectorAll('[data-book-progress]')]
+    .find((item) => item.dataset.bookSlug === slug);
+  return readBookIdeaIds(progress);
+}
+
+function writeBookLearned(slug, ideaIds, learned) {
+  const writes = [
+    learned ? safeStorageSet(`daw-learned-book-${slug}`, 'true') : safeStorageRemove(`daw-learned-book-${slug}`),
+    ...ideaIds.map((id) => learned
+      ? safeStorageSet(`daw-learned-idea-${id}`, 'true')
+      : safeStorageRemove(`daw-learned-idea-${id}`))
+  ];
+  return writes.every(Boolean);
+}
+
+function writeIdeaLearned(id, learned) {
+  return learned
+    ? safeStorageSet(`daw-learned-idea-${id}`, 'true')
+    : safeStorageRemove(`daw-learned-idea-${id}`);
+}
+
+function syncBookLearnedFromIdeas(slug, ideaIds) {
+  const allIdeasLearned = ideaIds.length > 0 && ideaIds.every(learnedIdeaState);
+  return allIdeasLearned
+    ? safeStorageSet(`daw-learned-book-${slug}`, 'true')
+    : safeStorageRemove(`daw-learned-book-${slug}`);
+}
+
+function renderBookProgress(progress) {
+  const slug = progress.dataset.bookSlug;
+  const ideaIds = readBookIdeaIds(progress);
+  const learnedIdeas = ideaIds.filter(learnedIdeaState).length;
+  const learned = learnedBookState(slug);
+  const state = progress.querySelector('[data-learning-state]');
+  const summary = progress.querySelector('[data-learning-summary]');
+  const button = progress.querySelector('[data-book-learned]');
+
+  progress.classList.toggle('is-learned', learned);
+  if (state) state.textContent = learned ? 'Learned' : 'Not yet learned';
+  if (summary) summary.textContent = `${learnedIdeas} of ${ideaIds.length} ideas learned`;
+  if (button) {
+    button.setAttribute('aria-pressed', String(learned));
+    button.setAttribute('aria-label', learned
+      ? 'Mark this book and its ideas as not learned in this browser'
+      : 'Mark this book and all its ideas as learned in this browser');
+    button.innerHTML = learned
+      ? '<span aria-hidden="true">✓</span> Book learned'
+      : '<span aria-hidden="true">○</span> Mark book learned';
+  }
+}
+
+function renderIdeaLearnedButton(button) {
+  const learned = learnedIdeaState(button.dataset.ideaLearnedId);
+  const ideaNumber = button.dataset.ideaNumber;
+  button.setAttribute('aria-pressed', String(learned));
+  button.setAttribute('aria-label', learned
+    ? `Mark Idea ${ideaNumber} as not learned in this browser`
+    : `Mark Idea ${ideaNumber} as learned in this browser`);
+  button.innerHTML = learned
+    ? '<span aria-hidden="true">✓</span> Idea learned'
+    : '<span aria-hidden="true">○</span> Mark idea learned';
+}
+
+function renderLearnedProgress() {
+  document.querySelectorAll('[data-book-progress]').forEach(renderBookProgress);
+  document.querySelectorAll('[data-idea-learned-id]').forEach(renderIdeaLearnedButton);
+}
+
+document.querySelectorAll('[data-book-learned]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const progress = button.closest('[data-book-progress]');
+    const slug = progress?.dataset.bookSlug;
+    const ideaIds = readBookIdeaIds(progress);
+    const next = !learnedBookState(slug);
+    const status = progress?.querySelector('[data-learned-status]');
+    if (!slug || !writeBookLearned(slug, ideaIds, next)) {
+      if (status) status.textContent = 'Learning progress was not saved because browser storage is unavailable.';
+      return;
+    }
+    renderLearnedProgress();
+    if (status) status.textContent = next
+      ? 'Book and all 3 ideas marked learned.'
+      : 'Book and all 3 ideas marked not learned.';
+    document.dispatchEvent(new CustomEvent('daw:learned-change'));
+  });
+});
+
+document.querySelectorAll('[data-idea-learned-id]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const id = button.dataset.ideaLearnedId;
+    const slug = button.dataset.bookSlug;
+    const next = !learnedIdeaState(id);
+    if (!writeIdeaLearned(id, next) || !syncBookLearnedFromIdeas(slug, bookIdeaIds(slug))) {
+      ideaActionStatus(button, 'Learning progress was not saved because browser storage is unavailable.');
+      return;
+    }
+    renderLearnedProgress();
+    ideaActionStatus(button, next ? 'Idea marked learned.' : 'Idea marked not learned.');
+    document.dispatchEvent(new CustomEvent('daw:learned-change'));
+  });
+});
+
+renderLearnedProgress();
+window.addEventListener('storage', (event) => {
+  if (event.key === null || event.key?.startsWith('daw-learned-')) renderLearnedProgress();
+});
 
 function savedIdeaState(id) {
   const key = `daw-saved-${id}`;
@@ -745,7 +877,7 @@ document.querySelector('[data-clear-learning-history]')?.addEventListener('click
   let cleared = true;
   try {
     Object.keys(localStorage)
-      .filter((key) => key.startsWith('daw-quiz-first-') || key.startsWith('daw-quiz-review-'))
+      .filter((key) => key.startsWith('daw-quiz-first-') || key.startsWith('daw-quiz-review-') || key.startsWith('daw-learned-'))
       .forEach((key) => localStorage.removeItem(key));
   } catch {
     cleared = false;

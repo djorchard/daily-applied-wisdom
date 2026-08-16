@@ -329,12 +329,13 @@ for (const lesson of lessons) {
     const stableIdeaKey = `${lesson.slug}-${idea.id}`;
     if (
       !generatedLesson.includes(`id="${idea.id}"`) ||
+      !generatedLesson.includes(`data-idea-learned-id="${stableIdeaKey}"`) ||
       !generatedLesson.includes(`data-save-id="${stableIdeaKey}"`) ||
       !generatedLesson.includes(`data-idea-number="${index + 1}"`) ||
       !generatedLesson.includes(`data-useful-id="${stableIdeaKey}"`) ||
       !generatedLesson.includes(`data-clarity-event="${clarityEventName(lesson, idea)}"`)
     ) {
-      fail(`${lesson.title}, idea ${index + 1} has incomplete save or useful-reaction controls.`);
+      fail(`${lesson.title}, idea ${index + 1} has incomplete learned, save or useful-reaction controls.`);
     }
     for (const question of idea.quiz) {
       const stableQuestionKey = `${lesson.slug}-${idea.id}-${question.id}`;
@@ -344,6 +345,8 @@ for (const lesson of lessons) {
     }
   }
   if (
+    !generatedLesson.includes(`data-book-slug="${lesson.slug}"`) ||
+    !generatedLesson.includes('data-book-learned') ||
     !generatedLesson.includes('id="learning-check"') ||
     !generatedLesson.includes(`data-quiz-revision="${lesson.quizRevision}"`) ||
     !generatedLesson.includes('Answer all 6, then check your answers.') ||
@@ -396,6 +399,8 @@ if (
   !clientScript.includes("style.id = 'daw-cusdis-theme'") ||
   !clientScript.includes('daw-saved-') ||
   !clientScript.includes('daw-useful-') ||
+  !clientScript.includes('daw-learned-book-') ||
+  !clientScript.includes('daw-learned-idea-') ||
   !clientScript.includes('daw-quiz-first-') ||
   !clientScript.includes('daw-quiz-review-') ||
   !clientScript.includes('data-quiz-form') ||
@@ -420,6 +425,8 @@ for (const stableIdeaKey of stableIdeaKeys) {
 if ((savedPage.match(/data-saved-card/g) || []).length !== stableIdeaKeys.size) fail('Saved ideas must contain one card per idea.');
 
 if (
+  !indexPage.includes('data-library-progress') ||
+  !indexPage.includes('data-book-learned') ||
   !indexPage.includes('data-quick-review') ||
   !indexPage.includes('id="daw-quick-review-data"') ||
   !indexPage.includes('Quick review') ||
@@ -475,7 +482,7 @@ await readRequiredFile(path.join(root, 'tools', 'randomize-topic.mjs'), 'The top
 
 if (
   !privacyPage.includes('Learning progress') ||
-  !privacyPage.includes('does not intentionally send your answers or score to Clarity') ||
+  !privacyPage.includes('does not intentionally send your learned list, answers or score to Clarity') ||
   !privacyPage.includes('Cusdis and Clarity run on some pages') ||
   !privacyPage.includes('Your progress stays until you clear learning history') ||
   !privacyPage.includes('data-learning-history-dialog') ||

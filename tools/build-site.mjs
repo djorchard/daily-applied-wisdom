@@ -127,6 +127,9 @@ function renderIdea(lesson, idea, index) {
           <section class="caveat"><h3>Caveat or failure mode</h3><p>${esc(idea.caveat)}</p></section>
         </div>
         <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="${esc(stableIdeaKey)}" data-book-slug="${esc(lesson.slug)}" data-idea-number="${ideaNumber}" aria-pressed="false" aria-label="Mark Idea ${ideaNumber} as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
           <button class="idea-save" type="button" data-save-id="${esc(stableIdeaKey)}" data-idea-number="${ideaNumber}" aria-pressed="false" aria-label="Save Idea ${ideaNumber} for later in this browser">
             <span aria-hidden="true">♡</span> Save idea for later
           </button>
@@ -245,6 +248,14 @@ function renderLesson(lesson, index) {
           <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>5–8 minute read</span></div>
           <p class="lesson-summary">${esc(lesson.summary)}</p>
           <aside class="evidence-note"><strong>Evidence lens.</strong> ${esc(lesson.evidenceNote)}</aside>
+          <div class="lesson-progress" data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(lesson.ideas.map((idea) => ideaKey(lesson, idea))))}" data-clarity-mask="true">
+            <div>
+              <span class="learning-state" data-learning-state>Not yet learned</span>
+              <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
+            </div>
+            <button class="book-learned-button" type="button" data-book-learned aria-pressed="false">Mark book learned</button>
+            <span class="learned-action-status" data-learned-status aria-live="polite"></span>
+          </div>
           <div class="share-row">
             <button class="share-button" type="button" data-share data-share-title="${esc(lesson.title)} | Daily Applied Wisdom" data-share-text="${esc(lesson.summary)}" data-share-url="${lessonUrl(lesson)}">Share this lesson <span aria-hidden="true">↗</span></button>
             <button class="copy-button" type="button" data-copy-url="${lessonUrl(lesson)}">Copy link</button>
@@ -305,6 +316,7 @@ ${lesson.spacedRecall.length ? `        <section class="recall" aria-labelledby=
 
 function archiveCard(lesson, featured = false) {
   const categories = lesson.category.split('·').map((category) => category.trim()).filter(Boolean);
+  const stableIdeaKeys = lesson.ideas.map((idea) => ideaKey(lesson, idea));
   const searchText = [
     lesson.title,
     lesson.authors,
@@ -314,14 +326,22 @@ function archiveCard(lesson, featured = false) {
   ].join(' ');
   const libraryAttributes = featured
     ? ''
-    : ` data-library-card data-library-categories="${esc(JSON.stringify(categories))}" data-library-search="${esc(searchText)}"`;
-  return `<article class="library-card accent-${esc(lesson.accent)}${featured ? ' featured-card' : ''}"${libraryAttributes}>
+    : ` data-library-card data-library-slug="${esc(lesson.slug)}" data-library-categories="${esc(JSON.stringify(categories))}" data-library-search="${esc(searchText)}"`;
+  return `<article class="library-card accent-${esc(lesson.accent)}${featured ? ' featured-card' : ''}"${libraryAttributes} data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(stableIdeaKeys))}">
       <p class="eyebrow">${esc(lesson.edition)} · <time datetime="${lesson.date}">${esc(lesson.dateLabel)}</time></p>
       <p class="category">${esc(lesson.category)}</p>
       <h3><a href="lessons/${lesson.slug}.html">${esc(lesson.title)}</a></h3>
       <p class="card-author">${esc(lesson.authors)} · ${esc(lesson.year)}</p>
       <p>${esc(lesson.summary)}</p>
       <ol>${lesson.ideas.map((idea) => `<li>${esc(idea.title)}</li>`).join('')}</ol>
+      <div class="library-learning" data-clarity-mask="true">
+        <div>
+          <span class="learning-state" data-learning-state>Not yet learned</span>
+          <span class="learning-summary" data-learning-summary>0 of 3 ideas learned</span>
+        </div>
+        <button class="book-learned-button" type="button" data-book-learned aria-pressed="false">Mark book learned</button>
+        <span class="learned-action-status" data-learned-status aria-live="polite"></span>
+      </div>
       <a class="text-link" href="lessons/${lesson.slug}.html">Read the lesson <span aria-hidden="true">→</span></a>
     </article>`;
 }
@@ -441,6 +461,14 @@ function renderIndex() {
               ${libraryCategories.map((category) => `<option value="${esc(category)}">${esc(category)}</option>`).join('')}
             </select>
           </div>
+          <div class="library-field">
+            <label for="library-progress">Learning status</label>
+            <select id="library-progress" data-library-progress>
+              <option value="">All lessons</option>
+              <option value="unlearned">Not yet learned</option>
+              <option value="learned">Learned</option>
+            </select>
+          </div>
           <button class="library-clear" type="reset" data-library-clear>Clear filters</button>
         </form>
         <div class="library-results-bar" data-library-results-bar hidden>
@@ -449,7 +477,7 @@ function renderIndex() {
         <div class="library-grid" data-library-grid>${lessons.map((lesson) => archiveCard(lesson)).join('')}</div>
         <div class="library-empty" data-library-empty tabindex="-1" hidden>
           <h3>No lessons found</h3>
-          <p>Change your search or choose another category.</p>
+          <p>Change your search, category or learning status.</p>
           <button type="button" data-library-empty-clear>Clear filters</button>
         </div>
         <nav class="library-pagination" data-library-pagination aria-label="Library pages" hidden>
@@ -537,13 +565,13 @@ function renderPrivacy() {
       </section>
       <section>
         <h2>Learning progress</h2>
-        <p>Learning checks keep your first answers, score and completion time in this browser. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your answers or score to Clarity, and it masks question content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
+        <p>Book and idea learned markers, learning-check answers, scores and completion times stay in this browser. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your learned list, answers or score to Clarity, and it masks learning content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
         <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
         <p data-learning-history-status aria-live="polite"></p>
         <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
           <form method="dialog">
             <h3 id="clear-learning-history-title">Clear learning history?</h3>
-            <p>This removes first attempts and quick-review progress from this browser. Saved ideas and useful markers remain.</p>
+            <p>This removes learned markers, first attempts and quick-review progress from this browser. Saved ideas and useful markers remain.</p>
             <div class="confirmation-dialog-actions">
               <button type="submit" value="cancel">Cancel</button>
               <button class="destructive-button" type="button" data-clear-learning-history>Clear history</button>

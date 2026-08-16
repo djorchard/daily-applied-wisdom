@@ -28,7 +28,11 @@ node tools/check-content.mjs
 
 ## Library browsing
 
-The homepage library progressively enhances the complete lesson archive. With JavaScript available, it shows the 10 newest matching lessons, supports text search across titles, authors, topics, summaries and idea names, filters by the category tags currently used by lessons, and paginates every result set. Without JavaScript, every lesson remains available in the page.
+The homepage library progressively enhances the complete lesson archive. With JavaScript available, it shows the 10 newest matching lessons, supports text search across titles, authors, topics, summaries and idea names, filters by category and browser-local learned status, and paginates every result set. Without JavaScript, every lesson remains available in the page.
+
+## Learned progress
+
+Every library card and lesson page can mark a whole book learned, while each of the three idea sections can be marked separately. Marking a book updates all its ideas; marking or unmarking an idea keeps the book status consistent. The learned list is stored only in the current browser profile, does not sync across browsers or devices, and can be removed with **Clear learning history** on the privacy page.
 
 ## Learning checks
 
@@ -36,7 +40,7 @@ Each book has a six-question learning check after its three ideas: one concept q
 
 From the next local calendar day, the homepage can offer one **Quick review** of up to three questions per day. Questions missed on the first attempt are prioritised, choices are shown in a stable shuffled order for that day, missed review questions remain eligible for a later visit, and remembered questions leave the queue. This is intentionally a small spaced-retrieval loop rather than a notification or account-based scheduler.
 
-Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four plausible options, one correct index, an overall explanation and an explanation for every selected option. Scores, answers and review state do not sync across browsers or devices. The privacy page can clear all learning history without removing saved ideas or useful markers. Daily Applied Wisdom does not deliberately send an answer or score as a Clarity event or tag, and it masks learning content from Clarity's recording. Allowed analytics can still record ordinary page interactions, and browser-local storage is not technical isolation from third-party scripts running on the page; the privacy page explains that boundary.
+Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four plausible options, one correct index, an overall explanation and an explanation for every selected option. Learned markers, scores, answers and review state do not sync across browsers or devices. The privacy page can clear all learning history without removing saved ideas or useful markers. Daily Applied Wisdom does not deliberately send a learned list, answer or score as a Clarity event or tag, and it masks learning content from Clarity's recording. Allowed analytics can still record ordinary page interactions, and browser-local storage is not technical isolation from third-party scripts running on the page; the privacy page explains that boundary.
 
 ## Book selection
 

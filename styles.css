@@ -154,10 +154,11 @@ h1, h2, h3 { text-wrap: balance; }
 .library-heading .eyebrow { grid-column: 1 / -1; }
 .library-heading h2 { font-size: clamp(3rem, 6vw, 6rem); margin: 0; }
 .library-heading > p:last-child { max-width: 520px; }
-.library-controls { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, .7fr) auto; grid-template-rows: auto 50px auto; column-gap: 1rem; row-gap: .45rem; align-items: start; margin: 0 0 1.5rem; padding: 1.35rem; border: 1px solid #18211d4a; background: var(--white); }
+.library-controls { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(190px, .7fr) minmax(190px, .7fr) auto; grid-template-rows: auto 50px auto; column-gap: 1rem; row-gap: .45rem; align-items: start; margin: 0 0 1.5rem; padding: 1.35rem; border: 1px solid #18211d4a; background: var(--white); }
 .library-field { display: grid; grid-row: 1 / 4; grid-template-rows: subgrid; row-gap: .45rem; }
 .library-field:first-child { grid-column: 1; }
 .library-field:nth-child(2) { grid-column: 2; }
+.library-field:nth-child(3) { grid-column: 3; }
 .library-field label { font: 700 .78rem var(--sans); }
 .library-field input, .library-field select { width: 100%; height: 50px; padding: .7rem .8rem; border: 2px solid var(--muted-ink); border-radius: 0; background-color: var(--paper); color: var(--ink); font: 500 1rem var(--sans); }
 .library-field select { appearance: none; padding-right: 2.7rem; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 1rem) calc(50% - .12rem), calc(100% - .65rem) calc(50% - .12rem); background-repeat: no-repeat; background-size: .38rem .38rem, .38rem .38rem; }
@@ -169,7 +170,7 @@ h1, h2, h3 { text-wrap: balance; }
 .library-field:focus-within label { color: var(--red-ink); }
 .library-field small { color: var(--muted-ink); font-size: .75rem; }
 .library-clear, .library-empty button, .library-pagination button { min-height: 44px; padding: .7rem 1rem; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font: 700 .78rem var(--sans); cursor: pointer; }
-.library-clear { grid-column: 3; grid-row: 2; min-height: 50px; }
+.library-clear { grid-column: 4; grid-row: 2; min-height: 50px; }
 .library-clear:hover:not(:disabled), .library-empty button:hover, .library-pagination button:hover:not(:disabled) { background: var(--ink); color: var(--white); }
 .library-clear:focus-visible, .library-empty button:focus-visible, .library-pagination button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
 .library-clear:disabled { border-color: var(--line-strong); background: var(--paper-deep); color: var(--muted-ink); cursor: default; }
@@ -191,6 +192,15 @@ h1, h2, h3 { text-wrap: balance; }
 .card-author { margin: .5rem 0 1.2rem; font: italic 1.05rem var(--serif); }
 .library-card ol { padding-left: 1.3rem; margin: 1rem 0 2rem; }
 .library-card li { margin: .38rem 0; }
+.library-learning, .lesson-progress { display: flex; align-items: center; gap: .8rem 1rem; flex-wrap: wrap; padding: 1rem; border: 1px solid #18211d4a; background: var(--paper); }
+.library-learning { margin: auto 0 1.2rem; }
+.library-learning > div, .lesson-progress > div { display: grid; gap: .15rem; margin-right: auto; }
+.learning-state { font: 700 .75rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.learning-summary { color: var(--muted-ink); font-size: .78rem; }
+.is-learned .learning-state { color: var(--success-ink); }
+.book-learned-button { min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 .76rem var(--mono); }
+.book-learned-button[aria-pressed='true'] { background: var(--ink); color: var(--white); }
+.learned-action-status { flex-basis: 100%; min-height: 1.3em; font-size: .76rem; }
 .text-link { margin-top: auto; font-weight: 700; text-decoration: none; }
 .featured-card { min-height: 540px; }
 .library-empty { padding: clamp(2rem, 5vw, 4rem); border: 1px solid #18211d4a; background: var(--white); text-align: center; }
@@ -215,6 +225,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .lesson-meta { display: flex; gap: .5rem 1.25rem; flex-wrap: wrap; margin: 1.6rem 0; font: 500 .72rem var(--mono); text-transform: uppercase; letter-spacing: .04em; }
 .lesson-meta span:not(:last-child)::after { content: '·'; margin-left: 1.25rem; }
 .lesson-summary { max-width: 780px; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.55; }
+.lesson-progress { max-width: 780px; margin: 2rem 0; background: var(--white); }
 .evidence-note { max-width: 900px; margin: 2.5rem 0; padding: 1.1rem 1.25rem; border-left: 4px solid var(--red); background: #fff8; font-size: .91rem; }
 .share-row { display: flex; gap: .7rem; align-items: center; flex-wrap: wrap; margin: 2.2rem 0 3rem; }
 .share-status { min-width: 6rem; font-size: .78rem; }
@@ -246,10 +257,11 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .practice-grid h3 { margin-top: 0; }
 .practice-grid .caveat { grid-column: 1 / -1; background: #18211d0d; }
 .idea-actions { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin-top: 2rem; }
-.idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button { min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--ink); color: var(--ink); font: 600 .76rem var(--mono); cursor: pointer; }
-.idea-save { background: transparent; }
+.idea-learned, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button { min-height: 44px; padding: .65rem .9rem; border: 1px solid var(--ink); color: var(--ink); font: 600 .76rem var(--mono); cursor: pointer; }
+.idea-learned, .idea-save { background: transparent; }
 .idea-useful { background: #fff8; }
-.idea-save[aria-pressed='true'], .idea-useful[aria-pressed='true'] { background: var(--ink); color: white; }
+.idea-learned[aria-pressed='true'], .idea-save[aria-pressed='true'], .idea-useful[aria-pressed='true'] { background: var(--ink); color: white; }
+.idea-learned[aria-pressed='true'] span { color: var(--green); }
 .idea-save[aria-pressed='true'] span { color: #ff997b; }
 .idea-useful:disabled { cursor: default; opacity: 1; }
 .idea-action-status { flex-basis: 100%; min-height: 1.4em; font-size: .78rem; }
@@ -357,7 +369,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 /* Shared interaction states */
 button, .button, .share-button, .copy-button, summary, input, select, textarea { transition: background-color .16s ease, border-color .16s ease, color .16s ease, outline-color .16s ease; }
 :is(.button, .share-button, .quiz-submit):hover { border-color: var(--red-deep); background: var(--red-deep); color: var(--white); }
-:is(.copy-button, .library-clear, .library-empty button, .library-pagination button, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button, [data-cusdis-retry], .quiz-practice-again, .confirmation-dialog-actions button:not(.destructive-button)):not(:disabled):hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+:is(.copy-button, .library-clear, .library-empty button, .library-pagination button, .book-learned-button, .idea-learned, .idea-save, .idea-useful, .saved-card-actions button, .privacy-choice-button, [data-cusdis-retry], .quiz-practice-again, .confirmation-dialog-actions button:not(.destructive-button)):not(:disabled):hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
 .confirmation-dialog-actions .destructive-button:hover { border-color: var(--red); background: var(--red); color: var(--white); }
 .analytics-consent [data-analytics-allow]:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); }
 .analytics-consent [data-analytics-reject]:hover { background: var(--white); color: var(--ink); }
@@ -374,7 +386,7 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
   .saved-grid { grid-template-columns: 1fr; }
   .library-heading h2 { margin-bottom: 1.5rem; }
   .library-controls { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1rem; padding: 1rem; }
-  .library-field, .library-field:first-child, .library-field:nth-child(2) { grid-column: 1; grid-row: auto; grid-template-rows: auto; gap: .45rem; }
+  .library-field, .library-field:first-child, .library-field:nth-child(2), .library-field:nth-child(3) { grid-column: 1; grid-row: auto; grid-template-rows: auto; gap: .45rem; }
   .library-clear { grid-column: 1; grid-row: auto; width: 100%; }
   .library-card { min-height: auto; margin-bottom: 1rem; }
   .library-pagination { flex-wrap: wrap; }
@@ -403,6 +415,8 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
   .site-header nav { width: 100%; justify-content: space-between; gap: .5rem; }
   nav a { font-size: .75rem; }
   .idea-actions { align-items: stretch; flex-direction: column; }
+  .library-learning, .lesson-progress { align-items: stretch; flex-direction: column; }
+  .book-learned-button { width: 100%; }
   .idea-action-status { flex-basis: auto; }
   .quiz-question { padding: 1rem; }
   .quiz-option { grid-template-columns: 1.1rem 1.8rem minmax(0, 1fr); padding: .8rem .7rem; }
