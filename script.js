@@ -19,12 +19,28 @@ dismissHomeIntro?.addEventListener('click', (event) => {
 
 const topicFamilyDetails = [...document.querySelectorAll('[data-topic-family-details]')];
 const topicChartSlices = [...document.querySelectorAll('[data-topic-family]')];
+const topicChartSelection = document.querySelector('[data-topic-chart-selection]');
+let focusedTopicSlice = null;
+
+function updateTopicChartSelection() {
+  if (!topicChartSelection) return;
+  const selectedSlice = topicChartSlices.find((slice) => slice.getAttribute('aria-expanded') === 'true')
+    || focusedTopicSlice;
+
+  if (!selectedSlice) {
+    topicChartSelection.removeAttribute('d');
+    return;
+  }
+
+  topicChartSelection.setAttribute('d', selectedSlice.getAttribute('d'));
+}
 
 function syncTopicChartExpansion() {
   topicChartSlices.forEach((slice) => {
     const details = topicFamilyDetails.find((item) => item.dataset.topicFamilyDetails === slice.dataset.topicFamily);
     slice.setAttribute('aria-expanded', String(Boolean(details?.open)));
   });
+  updateTopicChartSelection();
 }
 
 function openTopicFamily(familyId) {
@@ -40,6 +56,14 @@ topicFamilyDetails.forEach((details) => details.addEventListener('toggle', () =>
 }));
 
 topicChartSlices.forEach((slice) => {
+  slice.addEventListener('focus', () => {
+    focusedTopicSlice = slice;
+    updateTopicChartSelection();
+  });
+  slice.addEventListener('blur', () => {
+    if (focusedTopicSlice === slice) focusedTopicSlice = null;
+    updateTopicChartSelection();
+  });
   slice.addEventListener('click', () => openTopicFamily(slice.dataset.topicFamily));
   slice.addEventListener('keydown', (event) => {
     if (!['Enter', ' '].includes(event.key)) return;

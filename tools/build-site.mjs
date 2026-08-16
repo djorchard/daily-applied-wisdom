@@ -367,6 +367,7 @@ function renderTopicCoverage() {
               <title id="topic-chart-title">Planned balance of future lessons</title>
               <desc id="topic-chart-desc">A pie chart showing the planned balance of future lessons. Engineering, product and AI is 45 percent; thinking, behaviour and learning is 15 percent; strategy, leadership and organisations and economics, finance and entrepreneurship are 10 percent each; four other families are 5 percent each.</desc>
               ${topicPieSlices()}
+              <path class="topic-chart-selection" data-topic-chart-selection aria-hidden="true" />
               <circle cx="260" cy="260" r="106" fill="#faf7f0" stroke="#18211d" stroke-width="4" />
               <text x="260" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">${categoryCount} TOPIC</text>
               <text x="260" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#18211d">AREAS</text>

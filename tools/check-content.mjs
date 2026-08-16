@@ -483,7 +483,11 @@ if (
   (indexPage.match(/class="topic-swatch"/g) || []).length !== topicCatalog.families.length ||
   (indexPage.match(/class="topic-chart-slice"/g) || []).length !== topicCatalog.families.length ||
   (indexPage.match(/data-topic-family-details=/g) || []).length !== topicCatalog.families.length ||
+  !indexPage.includes('<path class="topic-chart-selection" data-topic-chart-selection aria-hidden="true" />') ||
   !clientScript.includes('function openTopicFamily(familyId)') ||
+  !clientScript.includes('function updateTopicChartSelection()') ||
+  !clientScript.includes("topicChartSelection.setAttribute('d', selectedSlice.getAttribute('d'))") ||
+  !styles.includes('.topic-chart-selection { fill: none; stroke: var(--ink); stroke-width: 7;') ||
   !clientScript.includes("slice.addEventListener('keydown'")
 ) fail('The homepage has incomplete topic chart, legend or family details.');
 for (const family of topicCatalog.families) {
