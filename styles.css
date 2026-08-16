@@ -258,7 +258,7 @@ footer { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wr
 .idea-learned[aria-pressed='true'], .idea-save[aria-pressed='true'], .idea-useful[aria-pressed='true'] { background: var(--ink); color: white; }
 .idea-learned[aria-pressed='true'] span { color: var(--green); }
 .idea-save[aria-pressed='true'] span { color: #ff997b; }
-.idea-useful:disabled { cursor: default; opacity: 1; }
+.idea-useful:disabled { cursor: default; opacity: 1; background: var(--ink); color: var(--white); }
 .idea-action-status { flex-basis: 100%; min-height: 1.4em; font-size: .78rem; }
 .learning-check, .experiment, .recall, .sources, .takeaway, .reader-feedback { padding: 8vw max(9vw, calc((100vw - 1100px) / 2)); border-top: 1px solid var(--line); }
 .learning-check { background: var(--paper); }
