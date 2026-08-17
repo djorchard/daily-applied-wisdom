@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="dmls-moving-title dmls-moving-desc">
+  <title id="dmls-moving-title">Layered monitoring compares reference and live machine learning data</title>
+  <desc id="dmls-moving-desc">A reference window and a live production window feed four monitoring layers for system health, inputs and features, predictions and delayed outcomes. Differences enter an investigation gate that distinguishes pipeline fault, harmless shift and harmful performance change before choosing a response.</desc>
+  <defs>
+    <marker id="dmls-moving-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <filter id="dmls-moving-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#18211d" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 44px; font-weight: 700; }
+      .subheading { font-size: 26px; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 1.6px; }
+      .label { font-size: 25px; font-weight: 700; }
+      .body { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#faf7f0"/>
+  <text class="heading" x="60" y="67">Change is a signal, not a diagnosis</text>
+  <text class="subheading" x="60" y="108" fill="#4f5e57">Compare windows, then connect each layer to consequence and response.</text>
+
+  <g filter="url(#dmls-moving-shadow)">
+    <rect class="card" x="65" y="155" width="410" height="174" rx="28" fill="#b8d5e5"/>
+    <text class="eyebrow" x="270" y="199" text-anchor="middle">REFERENCE WINDOW</text>
+    <text class="label" x="270" y="244" text-anchor="middle">What the model learned from</text>
+    <text class="body" x="270" y="283" text-anchor="middle">population · schema · labels · period</text>
+
+    <rect class="card" x="725" y="155" width="410" height="174" rx="28" fill="#f5c79d"/>
+    <text class="eyebrow" x="930" y="199" text-anchor="middle">LIVE WINDOW</text>
+    <text class="label" x="930" y="244" text-anchor="middle">What the system sees now</text>
+    <text class="body" x="930" y="283" text-anchor="middle">users · inputs · context · outcomes</text>
+
+    <path class="card" d="M600 165L690 242L600 319L510 242Z" fill="#e9d17f"/>
+    <text class="eyebrow" x="600" y="226" text-anchor="middle">COMPARE</text>
+    <text class="label" x="600" y="267" text-anchor="middle">What moved?</text>
+  </g>
+  <path class="line" d="M475 242H510" marker-end="url(#dmls-moving-arrow)"/>
+  <path class="line" d="M725 242H690" marker-end="url(#dmls-moving-arrow)"/>
+
+  <text class="eyebrow" x="60" y="380">FOUR MONITORING LAYERS</text>
+  <g filter="url(#dmls-moving-shadow)">
+    <rect class="card" x="60" y="430" width="245" height="126" rx="24" fill="#bdd9bf"/>
+    <text class="eyebrow" x="182" y="470" text-anchor="middle">1 · SERVICE</text>
+    <text class="label" x="182" y="510" text-anchor="middle">Health + latency</text>
+    <text class="body" x="182" y="540" text-anchor="middle">ordinary failures</text>
+
+    <rect class="card" x="338" y="430" width="245" height="126" rx="24" fill="#b8d5e5"/>
+    <text class="eyebrow" x="460" y="470" text-anchor="middle">2 · DATA</text>
+    <text class="label" x="460" y="510" text-anchor="middle">Inputs + features</text>
+    <text class="body" x="460" y="540" text-anchor="middle">schema and slices</text>
+
+    <rect class="card" x="616" y="430" width="245" height="126" rx="24" fill="#d8cce8"/>
+    <text class="eyebrow" x="738" y="470" text-anchor="middle">3 · MODEL</text>
+    <text class="label" x="738" y="510" text-anchor="middle">Predictions</text>
+    <text class="body" x="738" y="540" text-anchor="middle">range and mix</text>
+
+    <rect class="card" x="894" y="430" width="245" height="126" rx="24" fill="#e9d17f"/>
+    <text class="eyebrow" x="1016" y="470" text-anchor="middle">4 · OUTCOME</text>
+    <text class="label" x="1016" y="510" text-anchor="middle">Decision quality</text>
+    <text class="body" x="1016" y="540" text-anchor="middle">delayed consequence</text>
+  </g>
+  <path class="line" d="M600 319V405H182V430" marker-end="url(#dmls-moving-arrow)"/>
+  <path class="line" d="M600 405H460V430" marker-end="url(#dmls-moving-arrow)"/>
+  <path class="line" d="M600 405H738V430" marker-end="url(#dmls-moving-arrow)"/>
+  <path class="line" d="M600 405H1016V430" marker-end="url(#dmls-moving-arrow)"/>
+
+  <rect x="80" y="615" width="1040" height="100" rx="30" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="eyebrow" x="120" y="650">INVESTIGATE BEFORE ACTION</text>
+  <text class="body" x="120" y="688" font-weight="700">pipeline fault</text>
+  <text class="body" x="315" y="688" font-weight="700">harmless change</text>
+  <text class="body" x="550" y="688" font-weight="700">harmful shift</text>
+  <path class="line" d="M705 679H790" marker-end="url(#dmls-moving-arrow)"/>
+  <text class="body" x="940" y="652" text-anchor="middle" font-weight="700">diagnose · adapt</text>
+  <text class="body" x="940" y="688" text-anchor="middle" font-weight="700">retrain · rollback</text>
+</svg>

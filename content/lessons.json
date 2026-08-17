@@ -1468,6 +1468,223 @@
       ]
     },
     {
+      "slug": "designing-machine-learning-systems",
+      "discussionId": "designing-machine-learning-systems",
+      "date": "2026-07-07",
+      "dateLabel": "7 July 2026",
+      "edition": "Daily lesson",
+      "title": "Designing Machine Learning Systems",
+      "authors": "Chip Huyen",
+      "year": "2022 · first edition",
+      "category": "AI engineering · Machine learning systems · MLOps",
+      "summary": "Design the decision system around the model: connect its proxy to the real objective, watch the data and outcomes move, and prevent predictions from quietly manufacturing their own evidence.",
+      "evidenceNote": "Huyen presents a holistic practitioner framework for production machine learning, supported by published case studies, technical literature and experience with large-scale systems. The book's treatment of objectives, distribution shifts, monitoring and feedback loops is strongly attributable and consistent with peer-reviewed and industry research on production ML. The strength of a specific monitoring test, retraining cadence or mitigation remains context-dependent, and many examples come from medium-to-large technology organisations rather than controlled comparisons across all settings. Use the mechanisms as design questions and testable safeguards, not as a claim that every product needs machine learning or a large MLOps platform.",
+      "accent": "purple",
+      "quizRevision": "2026-07-07-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Start with the decision, not the model",
+          "argument": [
+            "Huyen begins machine-learning systems design with the reason the system exists. A business or user objective must be translated into an ML objective, then into a task, evaluation measures and system requirements such as reliability, scalability, maintainability and adaptability. The model is one component in that chain, not the final purpose.",
+            "An offline score is therefore a proxy rather than a finish line. A model can improve accuracy, loss or another technical measure while the product decision stays no better, becomes too slow or costly, or shifts harm onto a poorly represented group. The design needs an explicit baseline and a link from model performance to an observable outcome that matters."
+          ],
+          "extension": "Write an objective ladder before choosing a model: user outcome, decision, ML task, offline measure, production measure and guardrail. Compare the proposed system with the simplest non-ML baseline at the decision level, not only on a benchmark.",
+          "image": "../assets/lesson-visuals/designing-ml-systems-objective-ladder.svg",
+          "imageAlt": "An objective ladder connects a user outcome to a product decision, machine-learning task, offline measure and production evidence. A side rail carries reliability, latency, cost and fairness guardrails through every level, while a simple non-ML baseline provides a comparison path.",
+          "imageCaption": "A model metric earns its place only when the full ladder connects it to a better decision and keeps important constraints visible.",
+          "why": "Teams can optimise a measurable proxy long after it stops improving the real outcome. Making the ladder explicit exposes missing assumptions early, clarifies what success means in production and creates a fair comparison with a simpler rule or workflow.",
+          "apply": [
+            "Choose one proposed AI feature and write the user outcome and the decision it is meant to improve without naming a model.",
+            "Add the ML task, one offline measure, one production outcome, one guardrail and the simplest non-ML baseline. Circle any link that currently depends only on hope."
+          ],
+          "caveat": "A business objective is not automatically a good objective. Revenue, engagement or throughput can hide delayed harm, unequal errors and work pushed onto other people. Define the outcome with affected stakeholders, use multiple guardrails where necessary and retain a way to stop the system even when its headline metric rises.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Huyen place business and user objectives before the ML objective?",
+              "options": [
+                "They determine which cloud platform can train the largest model.",
+                "They remove the need to compare the system with a simple baseline.",
+                "They connect model optimisation to the decision the system must improve.",
+                "They guarantee that one offline score captures every product constraint."
+              ],
+              "correctIndex": 2,
+              "feedback": "The objective chain keeps the model subordinate to a real decision and makes proxy measures, requirements and guardrails testable.",
+              "feedbackByOption": [
+                "Platform choice follows the problem and requirements. Starting with infrastructure can lock the design around a tool before the decision is clear.",
+                "A baseline remains essential because the simplest workable rule may create more value at lower cost and risk.",
+                "Correct. The ML objective is useful only when improvement on it can be tested against the user or business decision that justified the system.",
+                "Offline measures are proxies. Reliability, latency, cost, fairness and delayed outcomes can require separate production evidence."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A ranking model gains offline accuracy but customer completion does not improve. What is the strongest next move?",
+              "options": [
+                "Recheck the objective ladder and compare the decision with a simple baseline.",
+                "Train a larger model because accuracy gains usually reach users after scale.",
+                "Replace completion with offline accuracy so both teams share one measure.",
+                "Keep the model and wait until another quarter supplies more production data."
+              ],
+              "correctIndex": 0,
+              "feedback": "The broken link may sit between prediction quality and the product decision. Test that link and the baseline before spending more on the same proxy.",
+              "feedbackByOption": [
+                "Correct. This tests whether the ML task and product use actually serve the outcome, and whether a simpler decision rule performs as well or better.",
+                "More capacity can improve the same proxy without changing the decision path that is failing to help customers.",
+                "Renaming success does not create customer value. Offline accuracy should inform, not replace, the outcome that justified the system.",
+                "More data may help diagnosis, but passive waiting leaves the central objective link untested and keeps an unproven system in place."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Production data is a moving target",
+          "argument": [
+            "Huyen treats deployment as the beginning of a changing relationship between a model and the world. Training data is finite and historical, while production inputs, user populations, interfaces, policies and meanings continue to change. Differences can appear as train-serving skew, covariate shift, label shift or concept drift, and ordinary pipeline defects can imitate those patterns.",
+            "Monitoring therefore needs layers. System health, raw inputs, features and predictions can produce early signals, while outcome measures reveal whether the decision is still useful. A changed distribution is an investigation cue, not automatic proof of model failure, and a stable aggregate can still hide a damaged slice or a delayed label."
+          ],
+          "extension": "For every production model, keep a reference window and a live window. Monitor data contracts and selected slices alongside predictions, delayed outcomes and ordinary service health, then attach each alert to a named diagnostic or rollback response.",
+          "image": "../assets/lesson-visuals/designing-ml-systems-moving-data.svg",
+          "imageAlt": "A reference data window and a live production window flow through four monitoring layers: system health, inputs and features, predictions and delayed outcomes. Differences lead to an investigation gate that separates pipeline faults, harmless shifts and harmful performance changes before action.",
+          "imageCaption": "Layered monitoring turns change into a diagnosis: first establish what moved, then whether it harmed the decision, before retraining or rolling back.",
+          "why": "Model code can remain unchanged while its operating assumptions decay. A layered view shortens diagnosis, avoids treating every anomaly as drift and makes it harder for a healthy service dashboard to conceal deteriorating decisions.",
+          "apply": [
+            "Pick one model or data-driven rule and name its training reference period, current production population and the outcome label that arrives last.",
+            "Add one signal at each layer: service, input, prediction and outcome. For the most important alert, write the first diagnostic action instead of only a threshold."
+          ],
+          "caveat": "Distribution tests can be noisy, sensitive to window choice and weakly related to actual harm. Labels may arrive late or never, and monitoring every feature creates alert fatigue. Prioritise consequential slices and decision outcomes, validate alerts against incidents and keep human review for ambiguous or high-stakes changes.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does a detected input-distribution shift establish by itself?",
+              "options": [
+                "The model has already caused unacceptable harm to every user group.",
+                "The newest model version must be rolled back before diagnosis begins.",
+                "The training data was invalid and should be permanently discarded.",
+                "The live inputs changed enough to investigate their effect and cause."
+              ],
+              "correctIndex": 3,
+              "feedback": "A shift signal identifies change, not its cause or consequence. Link it to pipeline checks, slices, predictions and outcomes before choosing a response.",
+              "feedbackByOption": [
+                "Input change can be harmless or affect only certain slices. Harm needs evidence from performance, outcomes and impact analysis.",
+                "Rollback may be appropriate when impact is clear, but the shift alone does not identify whether model, data pipeline or environment changed.",
+                "Production change does not prove the historical data was invalid. It may show that a once-useful reference no longer represents current use.",
+                "Correct. The signal is a prompt to diagnose what changed, why it changed and whether the decision quality deteriorated."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Predictions change sharply after a release while server health stays green. Which check is most informative first?",
+              "options": [
+                "Retrain immediately on the latest predictions so the model matches itself.",
+                "Compare live inputs and feature transforms with the reference and serving path.",
+                "Raise the prediction alert threshold because infrastructure remains healthy.",
+                "Wait for quarterly outcomes because early production signals are unreliable."
+              ],
+              "correctIndex": 1,
+              "feedback": "The release timing and healthy servers point toward the data or serving path as an early diagnostic boundary, while outcomes can confirm impact later.",
+              "feedbackByOption": [
+                "Training on the model's own unexplained outputs can preserve the fault and create a feedback loop rather than diagnose it.",
+                "Correct. This can distinguish a changed population from schema, transform or train-serving defects before a costly response.",
+                "Healthy infrastructure says little about feature correctness. Raising the threshold hides the symptom before its cause is understood.",
+                "Delayed outcomes are valuable, but ignoring timely input and feature evidence allows a release defect to continue unnecessarily."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "The model changes the data it learns from",
+          "argument": [
+            "Huyen describes a degenerate feedback loop when a model's outputs influence the interactions later treated as evidence for that same model. A recommender exposes highly ranked items more often, those items receive more clicks, and the next model reads the clicks as proof that the ranking was right. Exposure and preference become difficult to separate.",
+            "These loops can narrow choices, amplify popularity or reproduce a biased selection process even while measured engagement improves. The system needs evidence that is not fully manufactured by its current policy, such as logged exposure, bounded exploration, comparison groups, independent labels or human review, plus a safe route to interrupt the loop."
+          ],
+          "extension": "Draw the full path from prediction to exposure, behaviour, label and retraining. Mark where the system controls what can be observed, then preserve a small independent evidence lane and a rollback condition before automating the next update.",
+          "image": "../assets/lesson-visuals/designing-ml-systems-feedback-loop.svg",
+          "imageAlt": "A circular model loop runs from prediction to exposure, behaviour, observed label and retraining, with exposure bias making the loop narrower on each pass. A separate evidence lane uses logged exposure, bounded exploration and independent review to compare reality and interrupt the loop when needed.",
+          "imageCaption": "When predictions choose which evidence becomes visible, the learning loop needs an independent observation lane or it can reward its own past choices.",
+          "why": "Product behaviour is not passive data. Once a model controls exposure, its labels describe both user response and the policy that shaped the opportunity to respond. Recording and testing that mechanism prevents self-confirmation from masquerading as learning.",
+          "apply": [
+            "For one ranking, routing or triage system, draw prediction, exposure, response, label and update as a loop.",
+            "Circle every place the current model controls what can be observed. Add one safe independent signal, one diversity or slice check and one condition that pauses automated learning."
+          ],
+          "caveat": "Random exploration is not automatically safe or ethical, especially in health, employment, credit, safety or other high-stakes decisions. Independent evidence can require causal design, consent, fairness review and domain expertise. Use the least harmful valid method and never withhold necessary service merely to improve an experiment.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes an ML feedback loop degenerate in Huyen's account?",
+              "options": [
+                "The model's outputs shape the observations used to confirm future outputs.",
+                "The training job runs more often than the production service can deploy.",
+                "The model uses both human labels and naturally occurring behaviour data.",
+                "The prediction service logs every response before the label is available."
+              ],
+              "correctIndex": 0,
+              "feedback": "The loop becomes self-reinforcing when the model influences which actions or items receive exposure, then treats the resulting behaviour as neutral evidence.",
+              "feedbackByOption": [
+                "Correct. The system partly creates its next training signal, so apparent preference can reflect earlier exposure rather than independent quality.",
+                "A deployment backlog is an operational problem, but it does not define a loop in which outputs manufacture their own labels.",
+                "Multiple label sources can improve evidence. Degeneration depends on whether the current policy shapes what those labels can reveal.",
+                "Logging is useful for diagnosis. The problem is not the delay itself but the causal path from output to observed evidence."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A recommender increasingly shows only already-popular items. What is the strongest diagnostic safeguard?",
+              "options": [
+                "Optimise clicks more aggressively so small preference differences become clear.",
+                "Remove item popularity from dashboards so reviewers focus on relevance.",
+                "Log exposure and compare a safe exploration sample with the current ranking.",
+                "Retrain more often on clicks so new preferences enter the model sooner."
+              ],
+              "correctIndex": 2,
+              "feedback": "Exposure logging and bounded comparison help separate what users prefer from what the current policy gave them a chance to choose.",
+              "feedbackByOption": [
+                "Stronger click optimisation can accelerate the same self-reinforcing exposure pattern and reduce what the system learns about alternatives.",
+                "Hiding popularity removes a warning signal. Reviewers need exposure and coverage evidence to diagnose whether the loop is narrowing.",
+                "Correct. The comparison creates evidence outside the dominant ranking path while keeping exploration bounded by product and safety constraints.",
+                "Faster retraining can make the loop turn faster because the new clicks were still produced by the current exposure policy."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draw one production learning loop",
+        "steps": [
+          "Choose one AI-assisted decision and write the user outcome it should improve.",
+          "Draw the ladder from decision to ML task, offline measure and production outcome, then add one non-ML baseline.",
+          "Write the reference data window and one live signal for inputs, predictions and delayed outcomes.",
+          "Draw how the prediction changes exposure or behaviour before the next label is collected.",
+          "Add one independent evidence lane, one guardrail and one condition that pauses or rolls back the system."
+        ],
+        "result": "You finish with one inspectable objective ladder, one moving-data check and one feedback-loop safeguard instead of treating the model as an isolated artefact."
+      },
+      "spacedRecall": [
+        "From Seeing Like a State: what important behaviour could an ML dashboard omit while still making the system look legible and healthy?",
+        "From Continuous Discovery Habits: which risky belief about the user's decision should be tested before investing in a more complex model?"
+      ],
+      "takeaway": "A production ML system succeeds when its proxy improves a real decision, its changing data stays observable and its own outputs cannot quietly become self-confirming evidence.",
+      "sources": [
+        { "label": "O'Reilly: Designing Machine Learning Systems, May 2022 first edition and full contents", "url": "https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/" },
+        { "label": "Chip Huyen: official book repository with chapter summaries and resources", "url": "https://github.com/chiphuyen/dmls-book" },
+        { "label": "O'Reilly chapter 2: objectives, requirements and ML problem framing", "url": "https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/ch02.html" },
+        { "label": "Chip Huyen: data distribution shifts, monitoring and degenerate feedback loops", "url": "https://huyenchip.com/2022/02/07/data-distribution-shifts-and-monitoring.html" },
+        { "label": "NeurIPS 2015: Hidden Technical Debt in Machine Learning Systems", "url": "https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html" },
+        { "label": "Google Research: What's Your ML Test Score? production-readiness rubric", "url": "https://research.google/pubs/whats-your-ml-test-score-a-rubric-for-ml-production-systems/" },
+        { "label": "Google Research: Data Validation for Machine Learning", "url": "https://research.google/pubs/data-validation-for-machine-learning/" }
+      ]
+    },
+    {
       "slug": "seeing-like-a-state",
       "discussionId": "seeing-like-a-state",
       "date": "2026-07-06",

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="dmls-objective-title dmls-objective-desc">
+  <title id="dmls-objective-title">An objective ladder connects a model metric to a real decision</title>
+  <desc id="dmls-objective-desc">Five linked cards move from user outcome through product decision and machine learning task to offline measure and production evidence. A guardrail rail carries reliability, latency, cost and fairness across the chain. A simple non-machine-learning baseline provides a separate comparison path.</desc>
+  <defs>
+    <marker id="dmls-objective-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <filter id="dmls-objective-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#18211d" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 44px; font-weight: 700; }
+      .subheading { font-size: 26px; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 1.6px; }
+      .label { font-size: 24px; font-weight: 700; }
+      .body { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#faf7f0"/>
+  <text class="heading" x="60" y="67">Make the metric earn its place</text>
+  <text class="subheading" x="60" y="108" fill="#4f5e57">Trace one testable path from the outcome to the model and back to production.</text>
+
+  <g filter="url(#dmls-objective-shadow)">
+    <rect class="card" x="43" y="165" width="205" height="158" rx="24" fill="#bdd9bf"/>
+    <text class="eyebrow" x="145" y="205" text-anchor="middle">USER OUTCOME</text>
+    <text class="label" x="145" y="250" text-anchor="middle">Better for whom?</text>
+    <text class="body" x="145" y="289" text-anchor="middle">observable value</text>
+
+    <rect class="card" x="270" y="165" width="205" height="158" rx="24" fill="#b8d5e5"/>
+    <text class="eyebrow" x="372" y="205" text-anchor="middle">DECISION</text>
+    <text class="label" x="372" y="250" text-anchor="middle">Change what?</text>
+    <text class="body" x="372" y="289" text-anchor="middle">product action</text>
+
+    <rect class="card" x="497" y="165" width="205" height="158" rx="24" fill="#d8cce8"/>
+    <text class="eyebrow" x="599" y="205" text-anchor="middle">ML TASK</text>
+    <text class="label" x="599" y="250" text-anchor="middle">Predict what?</text>
+    <text class="body" x="599" y="289" text-anchor="middle">learnable proxy</text>
+
+    <rect class="card" x="724" y="165" width="205" height="158" rx="24" fill="#e9d17f"/>
+    <text class="eyebrow" x="826" y="205" text-anchor="middle">OFFLINE</text>
+    <text class="label" x="826" y="250" text-anchor="middle">Score what?</text>
+    <text class="body" x="826" y="289" text-anchor="middle">held-out test</text>
+
+    <rect class="card" x="951" y="165" width="205" height="158" rx="24" fill="#f5c79d"/>
+    <text class="eyebrow" x="1053" y="205" text-anchor="middle">PRODUCTION</text>
+    <text class="label" x="1053" y="250" text-anchor="middle">Prove what?</text>
+    <text class="body" x="1053" y="289" text-anchor="middle">real outcome</text>
+  </g>
+
+  <path class="line" d="M248 244H270" marker-end="url(#dmls-objective-arrow)"/>
+  <path class="line" d="M475 244H497" marker-end="url(#dmls-objective-arrow)"/>
+  <path class="line" d="M702 244H724" marker-end="url(#dmls-objective-arrow)"/>
+  <path class="line" d="M929 244H951" marker-end="url(#dmls-objective-arrow)"/>
+
+  <rect x="60" y="385" width="1080" height="145" rx="28" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="eyebrow" x="95" y="425">GUARDRAIL RAIL · CARRIED THROUGH EVERY LEVEL</text>
+  <g>
+    <rect x="95" y="452" width="220" height="54" rx="27" fill="#b8d5e5"/>
+    <text class="body" x="205" y="487" text-anchor="middle" font-weight="700">Reliability</text>
+    <rect x="358" y="452" width="220" height="54" rx="27" fill="#bdd9bf"/>
+    <text class="body" x="468" y="487" text-anchor="middle" font-weight="700">Latency</text>
+    <rect x="621" y="452" width="220" height="54" rx="27" fill="#e9d17f"/>
+    <text class="body" x="731" y="487" text-anchor="middle" font-weight="700">Cost</text>
+    <rect x="884" y="452" width="220" height="54" rx="27" fill="#d8cce8"/>
+    <text class="body" x="994" y="487" text-anchor="middle" font-weight="700">Fairness and harm</text>
+  </g>
+
+  <g filter="url(#dmls-objective-shadow)">
+    <rect class="card" x="130" y="595" width="940" height="105" rx="28" fill="#fffdf8"/>
+    <rect x="155" y="619" width="300" height="58" rx="24" fill="#b8d5e5"/>
+    <text class="body" x="305" y="656" text-anchor="middle" font-weight="700">Simple non-ML baseline</text>
+    <path class="line" d="M480 648H680" marker-end="url(#dmls-objective-arrow)"/>
+    <text class="eyebrow" x="580" y="624" text-anchor="middle">COMPARE</text>
+    <rect x="675" y="619" width="370" height="58" rx="24" fill="#bdd9bf"/>
+    <text class="body" x="860" y="656" text-anchor="middle" font-weight="700">Decision outcome, cost and risk</text>
+  </g>
+</svg>

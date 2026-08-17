@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="dmls-feedback-title dmls-feedback-desc">
+  <title id="dmls-feedback-title">A model feedback loop needs an independent evidence lane</title>
+  <desc id="dmls-feedback-desc">A circular path runs from prediction to exposure, behaviour, observed label and retraining. The loop narrows because exposure bias makes the model see more evidence for choices it already favours. A separate evidence lane uses exposure logs, bounded exploration and independent review to compare reality and interrupt the loop.</desc>
+  <defs>
+    <marker id="dmls-feedback-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#18211d"/>
+    </marker>
+    <filter id="dmls-feedback-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#18211d" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 44px; font-weight: 700; }
+      .subheading { font-size: 26px; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 1.5px; }
+      .label { font-size: 27px; font-weight: 700; }
+      .body { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .warning { fill: none; stroke: #c35f43; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="#faf7f0"/>
+  <text class="heading" x="60" y="67">Do not let the model grade its own choices</text>
+  <text class="subheading" x="60" y="108" fill="#4f5e57">Exposure changes behaviour, so preserve evidence outside the dominant policy.</text>
+
+  <g filter="url(#dmls-feedback-shadow)">
+    <rect class="card" x="75" y="178" width="245" height="120" rx="24" fill="#d8cce8"/>
+    <text class="eyebrow" x="197" y="220" text-anchor="middle">1 · PREDICT</text>
+    <text class="label" x="197" y="262" text-anchor="middle">Rank or route</text>
+
+    <rect class="card" x="430" y="145" width="245" height="120" rx="24" fill="#f5c79d"/>
+    <text class="eyebrow" x="552" y="187" text-anchor="middle">2 · EXPOSE</text>
+    <text class="label" x="552" y="229" text-anchor="middle">Choose visibility</text>
+
+    <rect class="card" x="430" y="375" width="245" height="120" rx="24" fill="#bdd9bf"/>
+    <text class="eyebrow" x="552" y="417" text-anchor="middle">3 · BEHAVE</text>
+    <text class="label" x="552" y="459" text-anchor="middle">Click or respond</text>
+
+    <rect class="card" x="75" y="408" width="245" height="120" rx="24" fill="#e9d17f"/>
+    <text class="eyebrow" x="197" y="450" text-anchor="middle">4 · LABEL</text>
+    <text class="label" x="197" y="492" text-anchor="middle">Record evidence</text>
+
+    <rect class="card" x="75" y="600" width="600" height="96" rx="26" fill="#fffdf8"/>
+    <text class="eyebrow" x="105" y="634">5 · RETRAIN</text>
+    <text class="body" x="375" y="660" text-anchor="middle" font-weight="700">The next model learns from evidence</text>
+    <text class="body" x="375" y="688" text-anchor="middle" font-weight="700">shaped by the current policy.</text>
+  </g>
+
+  <path class="line" d="M320 228H430" marker-end="url(#dmls-feedback-arrow)"/>
+  <path class="line" d="M552 265V375" marker-end="url(#dmls-feedback-arrow)"/>
+  <path class="line" d="M430 435H320" marker-end="url(#dmls-feedback-arrow)"/>
+  <path class="line" d="M197 528V600" marker-end="url(#dmls-feedback-arrow)"/>
+  <path class="line" d="M75 648H38V238H75" marker-end="url(#dmls-feedback-arrow)"/>
+
+  <text class="eyebrow" x="350" y="328" text-anchor="middle" fill="#c35f43">EXPOSURE BIAS</text>
+  <text class="body" x="350" y="360" text-anchor="middle" fill="#c35f43">shown more → clicked more</text>
+
+  <g filter="url(#dmls-feedback-shadow)">
+    <rect class="card" x="720" y="145" width="430" height="430" rx="30" fill="#b8d5e5"/>
+    <text class="eyebrow" x="935" y="188" text-anchor="middle">INDEPENDENT EVIDENCE</text>
+    <text class="eyebrow" x="935" y="220" text-anchor="middle">OBSERVATION LANE</text>
+
+    <rect x="790" y="250" width="290" height="70" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+    <text class="body" x="935" y="293" text-anchor="middle" font-weight="700">Log who saw what</text>
+
+    <rect x="790" y="350" width="290" height="70" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+    <text class="body" x="935" y="393" text-anchor="middle" font-weight="700">Bounded exploration</text>
+
+    <rect x="790" y="450" width="290" height="70" rx="24" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+    <text class="body" x="935" y="493" text-anchor="middle" font-weight="700">Independent review</text>
+  </g>
+  <path class="line" d="M675 205H720" marker-end="url(#dmls-feedback-arrow)"/>
+  <path class="line" d="M720 490H695V648H675" marker-end="url(#dmls-feedback-arrow)"/>
+
+  <rect x="720" y="610" width="430" height="86" rx="28" fill="#fffdf8" stroke="#c35f43" stroke-width="4"/>
+  <text class="body" x="935" y="646" text-anchor="middle" font-weight="700">COMPARE · PAUSE · ROLLBACK</text>
+  <text class="body" x="935" y="680" text-anchor="middle">when self-confirmation outruns reality</text>
+</svg>
