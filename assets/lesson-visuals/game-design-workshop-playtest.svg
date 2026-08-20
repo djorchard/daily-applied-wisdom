@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="gdw-playtest-title gdw-playtest-desc">
+  <title id="gdw-playtest-title">A diagnostic playtest separates prediction, observation and interpretation</title>
+  <desc id="gdw-playtest-desc">A written behavioural prediction leads to silent observation. Notes separate what happened, what the player said and what the designer inferred. One change is selected and retested.</desc>
+  <defs>
+    <marker id="gdw-playtest-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="238" y="28" width="724" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="71" text-anchor="middle">PLAYTEST TO LEARN, NOT TO DEFEND</text>
+
+  <rect class="card" x="42" y="138" width="264" height="156" rx="22" fill="#e4cf8e"/>
+  <text class="small" x="174" y="178" text-anchor="middle">1 · PREDICT</text>
+  <text class="heading" x="174" y="221" text-anchor="middle">When ___</text>
+  <text class="body" x="174" y="259" text-anchor="middle">players will do ___</text>
+  <path class="line" d="M306 216H338" marker-end="url(#gdw-playtest-arrow)"/>
+
+  <rect class="card" x="358" y="138" width="264" height="156" rx="22" fill="#bdd9bf"/>
+  <text class="small" x="490" y="178" text-anchor="middle">2 · OBSERVE</text>
+  <text class="heading" x="490" y="221" text-anchor="middle">Watch choices</text>
+  <text class="body" x="490" y="259" text-anchor="middle">do not repair with hints</text>
+  <path class="line" d="M622 216H654" marker-end="url(#gdw-playtest-arrow)"/>
+
+  <rect class="card" x="674" y="138" width="264" height="156" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="806" y="178" text-anchor="middle">3 · COMPARE</text>
+  <text class="heading" x="806" y="221" text-anchor="middle">Held or failed?</text>
+  <text class="body" x="806" y="259" text-anchor="middle">include the surprise</text>
+  <path class="line" d="M938 216H970" marker-end="url(#gdw-playtest-arrow)"/>
+
+  <rect class="card" x="990" y="138" width="168" height="156" rx="22" fill="#f5c79d"/>
+  <text class="small" x="1074" y="178" text-anchor="middle">4 · CHANGE</text>
+  <text class="heading" x="1074" y="221" text-anchor="middle">One cause</text>
+  <text class="body" x="1074" y="259" text-anchor="middle">then retest</text>
+
+  <rect class="card" x="114" y="366" width="972" height="252" rx="28" fill="#fffdf8"/>
+  <text class="heading" x="600" y="411" text-anchor="middle">KEEP THREE KINDS OF NOTE SEPARATE</text>
+  <rect class="card" x="158" y="454" width="270" height="112" rx="20" fill="#b8d5e5"/>
+  <text class="small" x="293" y="492" text-anchor="middle">BEHAVIOUR</text>
+  <text class="body" x="293" y="532" text-anchor="middle">what happened</text>
+  <rect class="card" x="465" y="454" width="270" height="112" rx="20" fill="#bdd9bf"/>
+  <text class="small" x="600" y="492" text-anchor="middle">PLAYER WORDS</text>
+  <text class="body" x="600" y="532" text-anchor="middle">what they reported</text>
+  <rect class="card" x="772" y="454" width="270" height="112" rx="20" fill="#d8cce8"/>
+  <text class="small" x="907" y="492" text-anchor="middle">INTERPRETATION</text>
+  <text class="body" x="907" y="532" text-anchor="middle">what might explain it</text>
+
+  <path class="line" d="M1074 294V312H174V296" marker-end="url(#gdw-playtest-arrow)"/>
+  <rect class="card" x="112" y="668" width="976" height="56" rx="20" fill="#f5c79d"/>
+  <text class="small" x="600" y="704" text-anchor="middle">One session is a clue; repeated patterns across suitable players are evidence.</text>
+</svg>

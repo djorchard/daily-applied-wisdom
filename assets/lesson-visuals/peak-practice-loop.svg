@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="peak-practice-loop-title peak-practice-loop-desc">
+  <title id="peak-practice-loop-title">Focused practice turns one visible weakness into repeated correction</title>
+  <desc id="peak-practice-loop-desc">Four connected stages show a specific stretch target, an attentive attempt, diagnostic feedback and one adjustment. The loop repeats around an observable error rather than counting undifferentiated hours.</desc>
+  <defs>
+    <marker id="peak-practice-loop-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="248" y="30" width="704" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="73" text-anchor="middle">ONE WEAKNESS, MANY CORRECTIVE LOOPS</text>
+
+  <rect class="card" x="70" y="166" width="410" height="150" rx="24" fill="#b8d5e5"/>
+  <text class="small" x="275" y="207" text-anchor="middle">1 · SPECIFIC STRETCH TARGET</text>
+  <text class="heading" x="275" y="251" text-anchor="middle">Name the visible error</text>
+  <text class="body" x="275" y="288" text-anchor="middle">just beyond reliable performance</text>
+
+  <rect class="card" x="720" y="166" width="410" height="150" rx="24" fill="#e4cf8e"/>
+  <text class="small" x="925" y="207" text-anchor="middle">2 · ATTENTIVE ATTEMPT</text>
+  <text class="heading" x="925" y="251" text-anchor="middle">Perform the hard part</text>
+  <text class="body" x="925" y="288" text-anchor="middle">without hiding it in the whole task</text>
+
+  <rect class="card" x="720" y="448" width="410" height="150" rx="24" fill="#f5c79d"/>
+  <text class="small" x="925" y="489" text-anchor="middle">3 · DIAGNOSTIC FEEDBACK</text>
+  <text class="heading" x="925" y="533" text-anchor="middle">Compare with a standard</text>
+  <text class="body" x="925" y="570" text-anchor="middle">locate the gap, not the blame</text>
+
+  <rect class="card" x="70" y="448" width="410" height="150" rx="24" fill="#bdd9bf"/>
+  <text class="small" x="275" y="489" text-anchor="middle">4 · ONE ADJUSTMENT</text>
+  <text class="heading" x="275" y="533" text-anchor="middle">Change the next attempt</text>
+  <text class="body" x="275" y="570" text-anchor="middle">keep what helped observable</text>
+
+  <path class="line" d="M480 241H700" marker-end="url(#peak-practice-loop-arrow)"/>
+  <path class="line" d="M925 316V428" marker-end="url(#peak-practice-loop-arrow)"/>
+  <path class="line" d="M720 523H500" marker-end="url(#peak-practice-loop-arrow)"/>
+  <path class="line" d="M275 448V336H255V326" marker-end="url(#peak-practice-loop-arrow)"/>
+
+  <circle class="card" cx="600" cy="382" r="104" fill="#d8cce8"/>
+  <text class="heading" x="600" y="369" text-anchor="middle">PROGRESS</text>
+  <text class="body" x="600" y="408" text-anchor="middle">fewer or smaller</text>
+  <text class="body" x="600" y="441" text-anchor="middle">target errors</text>
+
+  <rect class="card" x="184" y="658" width="832" height="64" rx="22" fill="#fffdf8"/>
+  <text class="body" x="600" y="699" text-anchor="middle">Measure corrected attempts, not hours of comfortable repetition.</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="algorithms-scheduling-title algorithms-scheduling-desc">
+  <title id="algorithms-scheduling-title">Different queue objectives require different scheduling rules</title>
+  <desc id="algorithms-scheduling-desc">The same four tasks are ordered by shortest processing time to reduce average completion and by earliest due date to reduce maximum lateness. A final row shows excessive switching consuming capacity without finishing tasks.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="232" y="28" width="736" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="71" text-anchor="middle">NAME THE COST BEFORE YOU ORDER THE QUEUE</text>
+
+  <rect class="card" x="44" y="126" width="1112" height="164" rx="26" fill="#b8d5e5"/>
+  <text class="small" x="74" y="166">OBJECTIVE 1 · REDUCE AVERAGE COMPLETION TIME</text>
+  <text class="body" x="74" y="202">Shortest estimated processing first</text>
+  <rect class="card" x="74" y="224" width="124" height="48" rx="12" fill="#bdd9bf"/><text class="small" x="136" y="256" text-anchor="middle">B · 1h</text>
+  <rect class="card" x="214" y="224" width="176" height="48" rx="12" fill="#e4cf8e"/><text class="small" x="302" y="256" text-anchor="middle">D · 2h</text>
+  <rect class="card" x="406" y="224" width="250" height="48" rx="12" fill="#f5c79d"/><text class="small" x="531" y="256" text-anchor="middle">A · 4h</text>
+  <rect class="card" x="672" y="224" width="350" height="48" rx="12" fill="#d8cce8"/><text class="small" x="847" y="256" text-anchor="middle">C · 7h</text>
+
+  <rect class="card" x="44" y="314" width="1112" height="164" rx="26" fill="#e4cf8e"/>
+  <text class="small" x="74" y="354">OBJECTIVE 2 · REDUCE MAXIMUM LATENESS</text>
+  <text class="body" x="74" y="390">Earliest due date first</text>
+  <rect class="card" x="74" y="412" width="250" height="48" rx="12" fill="#f5c79d"/><text class="small" x="199" y="444" text-anchor="middle">A · due first</text>
+  <rect class="card" x="340" y="412" width="124" height="48" rx="12" fill="#bdd9bf"/><text class="small" x="402" y="444" text-anchor="middle">B</text>
+  <rect class="card" x="480" y="412" width="350" height="48" rx="12" fill="#d8cce8"/><text class="small" x="655" y="444" text-anchor="middle">C</text>
+  <rect class="card" x="846" y="412" width="176" height="48" rx="12" fill="#b8d5e5"/><text class="small" x="934" y="444" text-anchor="middle">D · due last</text>
+
+  <rect class="card" x="44" y="502" width="1112" height="172" rx="26" fill="#f5c79d"/>
+  <text class="small" x="74" y="542">FAILURE MODE · THRASHING</text>
+  <text class="body" x="74" y="578">Too many starts spend capacity on switching instead of finishing</text>
+  <rect class="card" x="74" y="606" width="180" height="48" rx="12" fill="#fffdf8"/><text class="small" x="164" y="638" text-anchor="middle">start A</text>
+  <text class="heading" x="276" y="639">↔</text>
+  <rect class="card" x="314" y="606" width="180" height="48" rx="12" fill="#fffdf8"/><text class="small" x="404" y="638" text-anchor="middle">start B</text>
+  <text class="heading" x="516" y="639">↔</text>
+  <rect class="card" x="554" y="606" width="180" height="48" rx="12" fill="#fffdf8"/><text class="small" x="644" y="638" text-anchor="middle">start C</text>
+  <text class="heading" x="756" y="639">↔</text>
+  <rect class="card" x="794" y="606" width="326" height="48" rx="12" fill="#18211d"/>
+  <text class="small" x="957" y="638" text-anchor="middle" fill="#faf7f0" style="fill:#faf7f0">little completed output</text>
+
+  <rect class="card" x="150" y="696" width="900" height="48" rx="18" fill="#bdd9bf"/>
+  <text class="small" x="600" y="728" text-anchor="middle">Choose an objective, limit simultaneous work and review the harms omitted.</text>
+</svg>

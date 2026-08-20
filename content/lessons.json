@@ -1,6 +1,681 @@
 {
   "lessons": [
     {
+      "slug": "algorithms-to-live-by",
+      "discussionId": "algorithms-to-live-by-christian-griffiths",
+      "date": "2026-08-20",
+      "dateLabel": "20 August 2026",
+      "edition": "Daily lesson",
+      "title": "Algorithms to Live By",
+      "authors": "Brian Christian and Tom Griffiths",
+      "year": "2016 · first edition",
+      "category": "Applied mathematics and quantitative reasoning · Algorithms · Decisions under uncertainty",
+      "summary": "Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce.",
+      "evidenceNote": "Christian and Griffiths translate established results from computer science, operations research and decision theory into everyday heuristics. The mathematics is strong inside each model's assumptions; the everyday application is a practitioner interpretation and becomes context-dependent when options are not random, values change, choices can be revisited or human costs resist a single objective. Use the models to expose structure and trade-offs, not as precision theatre.",
+      "accent": "gold",
+      "quizRevision": "2026-08-20-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Separate learning from choosing",
+          "argument": [
+            "The book uses the secretary problem to teach optimal stopping. Under strict conditions, a known number of options arrives in random order, each rejected option is gone, only relative rank matters and the goal is to maximise the chance of choosing the single best. The optimal rule samples roughly the first 37 per cent without selecting, then chooses the next option better than every sampled option.",
+            "The durable idea is not that every search ends at 37 per cent. It is that search has two jobs: learn the distribution and act before opportunity disappears. Naming the assumptions prevents a clean result from being copied into decisions with recall, changing quality, unknown horizons or several acceptable outcomes."
+          ],
+          "extension": "Before a bounded search, reserve an explicit calibration phase and define a threshold for the choice phase. Write which real conditions violate the classical model and adjust the rule rather than hiding the mismatch.",
+          "image": "../assets/lesson-visuals/algorithms-optimal-stopping.svg",
+          "imageAlt": "A sequence of options is divided into a calibration phase that sets a benchmark and a choice phase that accepts the first later option above it, alongside the assumptions required for the 37 percent result.",
+          "imageCaption": "Optimal stopping balances information gained by waiting against opportunities lost while waiting.",
+          "why": "Without a planned learning phase, the first plausible option can anchor the search. Without a stopping rule, every new option preserves doubt and delays value. A threshold makes the trade-off explicit.",
+          "apply": [
+            "Choose one upcoming search with a real deadline and estimate how many comparable options you can inspect.",
+            "Reserve an early sample for calibration, define what later option would beat its benchmark and list any reason rejected options could be revisited."
+          ],
+          "caveat": "The 37 per cent rule is optimal only for a narrow objective and harsh no-recall assumptions. Hiring, housing and relationships involve ethics, thresholds, unequal information, negotiation and repeat opportunities. Do not turn a mathematical thought experiment into an automatic human policy.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the most transferable lesson of the book's optimal-stopping example?",
+              "options": [
+                "Always reject exactly 37 per cent of options before considering their quality.",
+                "Keep searching until no plausible option could be better than the current leader, regardless of delay or cost.",
+                "Choose the first acceptable option because later search mainly increases regret.",
+                "Plan a calibration phase and a choice threshold while checking the model's assumptions."
+              ],
+              "correctIndex": 3,
+              "feedback": "The secretary result makes the learn-versus-act trade-off concrete. Its useful transfer is a deliberate calibration phase and stopping threshold, accompanied by an honest check of horizon, recall and objective assumptions.",
+              "feedbackByOption": [
+                "The exact proportion belongs to the classical model. Real searches need an assumption check before any numerical rule is borrowed.",
+                "Searching for proof that nothing better exists can consume the horizon. Optimal stopping accepts that waiting also has a cost.",
+                "Early commitment may be rational in some contexts, but it sacrifices information without first establishing a benchmark.",
+                "Correct. The structure separates learning from choosing and keeps the elegant number conditional on its assumptions."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team will review twelve vendor proposals in random order and cannot revisit a rejected proposal. Which plan best uses the model cautiously?",
+              "options": [
+                "Accept the fourth proposal regardless of its quality because four is near 37 per cent.",
+                "Score all proposals mentally and decide only after the twelfth has expired.",
+                "Use an early sample to set a benchmark, then select the first later proposal that clearly exceeds it.",
+                "Reject every proposal below a perfect score so the stopping rule cannot choose second best."
+              ],
+              "correctIndex": 2,
+              "feedback": "The plan uses early options to calibrate and later options to act, which matches the model's structure. The numerical cut-off remains approximate, and real procurement still requires minimum standards, due diligence and ethical process.",
+              "feedbackByOption": [
+                "The model does not select at the end of the sample automatically. It uses the sample to set a threshold for later options.",
+                "Waiting until every proposal expires defeats the no-recall problem: the information arrives, but no opportunity remains to choose.",
+                "Correct. Calibration establishes a comparison threshold, and the choice phase acts when a later option beats it.",
+                "A perfect-score threshold may leave no selection and optimises a different objective. Minimum standards should be explicit but realistic."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Let the horizon price exploration",
+          "argument": [
+            "The explore-exploit trade-off appears in multi-armed bandit problems. Exploitation chooses the option with the best observed reward; exploration tries an uncertain option that might teach enough to improve later choices. The value of information depends on how many decisions remain.",
+            "With a long horizon, learning about an uncertain alternative can repay its short-term cost many times. Near the end, there are fewer future choices through which to recover that cost, so using the best-supported option becomes more attractive. Uncertainty is therefore not automatically a reason to avoid an option; it can be the source of information value."
+          ],
+          "extension": "For a repeated decision, record the estimated value, uncertainty and remaining opportunities. Explore when the decision recurs enough for learning to matter; exploit when the horizon is short or failure cost exceeds the information gained.",
+          "image": "../assets/lesson-visuals/algorithms-explore-exploit.svg",
+          "imageAlt": "A long decision horizon gives uncertain options more information value and favours exploration, while a short horizon gives known performance more weight and favours exploitation.",
+          "imageCaption": "The same uncertain option can be worth testing early and not worth testing late.",
+          "why": "Teams often argue about innovation as a personality preference. Horizon and information value turn part of that argument into a decision model: how many future choices can use what this experiment teaches?",
+          "apply": [
+            "List one repeated choice, the current favourite and one uncertain alternative whose result would change later decisions.",
+            "Estimate how many uses remain and choose a small exploration only if the learning can be reused enough to justify its risk and cost."
+          ],
+          "caveat": "Bandit models simplify changing environments, dependent choices, delayed feedback and unequal harms. Exploration is not permission to impose risk on others without consent or safeguards, and a long horizon does not make every experiment worthwhile.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does a longer horizon usually make exploration more valuable?",
+              "options": [
+                "Information from an uncertain choice can improve more decisions that follow.",
+                "The known option's observed performance becomes less trustworthy over time.",
+                "Exploration guarantees a higher reward once enough choices remain available.",
+                "A long horizon removes the cost of trying options that perform poorly."
+              ],
+              "correctIndex": 0,
+              "feedback": "Exploration pays by producing information, and that information has more opportunities to affect later choices when the horizon is long. It remains costly and uncertain, so the model does not guarantee a better immediate or eventual reward.",
+              "feedbackByOption": [
+                "Correct. The possible learning can be reused across more future decisions, increasing its expected value.",
+                "Known performance may drift, but the general horizon effect comes from how many later choices can benefit from new information.",
+                "Exploration can reveal that the uncertain option is worse. Its value is expected information, not guaranteed reward.",
+                "A longer horizon spreads potential benefit across more choices, but the exploratory attempt still consumes time and can fail."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product team will make the same deployment choice fifty times this year. An untested method might cut recovery time. What is the best first move?",
+              "options": [
+                "Run a bounded low-risk trial now because its result can inform many later deployments.",
+                "Keep the known method all year because uncertainty always makes exploitation safer.",
+                "Switch every deployment to the new method so learning accumulates as fast as possible.",
+                "Delay the trial until the final deployment so current performance remains comparable."
+              ],
+              "correctIndex": 0,
+              "feedback": "A long repeated horizon gives an early, bounded trial high information value. Safeguards keep exploration proportionate; a full switch would expose every deployment before the team has learned whether the method works.",
+              "feedbackByOption": [
+                "Correct. An early controlled trial can repay its learning across many future uses while limiting the cost of being wrong.",
+                "Exploitation protects known value, but avoiding every uncertain option gives up information that could improve a long sequence of choices.",
+                "A full switch confuses exploration with commitment. The point is to buy information with a bounded amount of risk.",
+                "Late information has almost no remaining decisions to improve, so the horizon makes the same trial less valuable."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Choose the scheduling rule for the cost",
+          "argument": [
+            "Scheduling theory shows that there is no universally best order without an objective. If the aim is to minimise average completion time for available jobs, shortest processing time first performs well. If the aim is to minimise maximum lateness against due dates, earliest due date first fits that objective. A priority rule is an optimisation claim, whether or not it is named as one.",
+            "The book also describes thrashing: when switching and coordination consume so much capacity that little useful work completes. In overloaded systems, restricting work in progress or batching related tasks can improve throughput even when every waiting item appears urgent."
+          ],
+          "extension": "Before ordering work, name the cost: lateness, average waiting, missed value, risk or context switching. Apply one rule for that cost, protect completion and review whether the metric creates harms the model omitted.",
+          "image": "../assets/lesson-visuals/algorithms-scheduling-objectives.svg",
+          "imageAlt": "The same four tasks are ordered differently by shortest processing time and earliest due date, while a third panel shows excessive switching consuming capacity before tasks finish.",
+          "imageCaption": "A queue changes when the objective changes; a busy schedule can still complete very little.",
+          "why": "Arguments about priority often hide different definitions of success. Making the objective explicit reveals why two sensible people choose different orders and whether constant switching is preventing either rule from working.",
+          "apply": [
+            "Take four current tasks and write duration, due date and cost of delay for each.",
+            "Order them once for average completion and once for lateness, then choose the objective that matters now and limit simultaneous starts."
+          ],
+          "caveat": "Durations and costs are estimates, urgent safety work may override a queue and human tasks are not interchangeable jobs. Optimising one metric can starve large work, neglect fairness or reward gaming, so use ageing, review points and explicit exceptions.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why can two mathematically sensible scheduling rules produce different task orders?",
+              "options": [
+                "Each rule assumes task estimates are exact enough to remove uncertainty.",
+                "They minimise different costs, such as average completion time or maximum lateness.",
+                "One rule applies to people while the other applies only to computer processors.",
+                "They use different definitions of whether a task has started rather than finished."
+              ],
+              "correctIndex": 1,
+              "feedback": "A schedule is evaluated against an objective. Shortest processing time and earliest due date solve different cost problems, so disagreement about order may really be disagreement about what the system should minimise.",
+              "feedbackByOption": [
+                "Both rules can operate with estimates, and estimation error matters. Their central difference is the objective each order serves.",
+                "Correct. Different target costs yield different optimal or useful priority rules for the same queue.",
+                "The underlying scheduling ideas apply to both human and machine work, with extra human constraints requiring care.",
+                "Start and finish definitions matter operationally, but they do not explain the main difference between these priority rules."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A support team starts every newly urgent ticket and now finishes almost nothing. Which intervention best addresses the scheduling failure?",
+              "options": [
+                "Add a second urgency label so more tickets can be started in the correct order.",
+                "Limit work in progress, finish a small set and use an explicit rule for the waiting queue.",
+                "Ask each specialist to switch tickets more quickly when another request arrives.",
+                "Measure staff utilisation by counting how many tickets receive activity each day."
+              ],
+              "correctIndex": 1,
+              "feedback": "The symptom is thrashing: switching and coordination are consuming capacity while completion collapses. A work-in-progress limit protects finishing, and a named queue objective handles waiting work more coherently.",
+              "feedbackByOption": [
+                "More labels can describe the queue but do not restore capacity lost to too many simultaneous starts.",
+                "Correct. Restricting active work reduces switching overhead, while an explicit queue rule makes the cost trade-off visible.",
+                "Faster switching still pays setup and attention costs and can deepen the pattern of activity without completion.",
+                "Touch counts reward visible busyness and may make thrashing look successful even as customers wait longer for completed work."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one decision through three algorithms",
+        "steps": [
+          "Choose a bounded search or repeated decision and write its horizon, recall rules and success objective.",
+          "Mark what an early calibration sample would teach and the threshold that would trigger action.",
+          "Name one uncertain option and how many later choices could use information from a small trial.",
+          "List four waiting tasks, order them for average completion and for lateness, then circle the objective you actually need today."
+        ],
+        "result": "You finish with one explicit stopping threshold, one priced exploration and a queue order tied to a named cost."
+      },
+      "spacedRecall": [
+        "From The Art of Statistics: which assumptions must hold before a numerical summary can answer the decision you care about?",
+        "From The Goal: how can local busyness increase while the system's completed output gets worse?"
+      ],
+      "takeaway": "Do not copy a clever number: identify the decision structure, state the cost and assumptions, then use the simplest algorithm that makes the trade-off visible.",
+      "sources": [
+        {
+          "label": "Brian Christian: Algorithms to Live By",
+          "url": "https://brianchristian.org/algorithms-to-live-by/"
+        },
+        {
+          "label": "Official book site: Algorithms to Live By",
+          "url": "https://algorithmstoliveby.com/"
+        },
+        {
+          "label": "University of Texas: secretary problem model and optimal strategy",
+          "url": "https://www.cs.utexas.edu/~byoung/cs303e/project3-SecretaryProblem.html"
+        },
+        {
+          "label": "Princeton Computer Science: multi-armed bandits and explore-exploit",
+          "url": "https://www.cs.princeton.edu/courses/archive/spring16/cos511/lec18.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "game-design-workshop",
+      "discussionId": "game-design-workshop-fullerton",
+      "date": "2026-08-19",
+      "dateLabel": "19 August 2026",
+      "edition": "Daily lesson",
+      "title": "Game Design Workshop",
+      "authors": "Tracy Fullerton",
+      "year": "2004 · 2024 fifth edition",
+      "category": "Game design and interactive systems · Playcentric design · Playtesting",
+      "summary": "Design from an intended player experience, express it through interacting rules and discover the actual game through cheap prototypes, observed play and disciplined iteration.",
+      "evidenceNote": "Fullerton presents a practitioner framework refined through game-design teaching and production rather than a controlled causal theory. The playcentric loop, formal elements and observational playtesting are durable design methods, but their effectiveness is context-dependent: player samples, genre knowledge, production constraints and the designer's interpretation all shape what a test reveals. The 2024 fifth edition updates examples and techniques while preserving the core process.",
+      "accent": "orange",
+      "quizRevision": "2026-08-19-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Start with the experience, then test the system",
+          "argument": [
+            "Fullerton's playcentric process begins with player experience goals: concise descriptions of what players should think, feel or do during play. A goal such as tense cooperation despite incomplete trust is different from a feature list. It gives the designer a criterion for choosing mechanics and a claim that can be tested with players.",
+            "The designer cannot directly manufacture an experience. The designer creates rules, procedures, resources and information; players interact with that system and produce an experience. Prototypes close the gap between intention and effect by showing whether the system reliably invites the targeted behaviour."
+          ],
+          "extension": "Write an experience goal as an observable tension or behaviour, then identify the smallest rule interaction that could create it. Treat the goal as a test criterion, not promotional copy.",
+          "image": "../assets/lesson-visuals/game-design-workshop-experience-loop.svg",
+          "imageAlt": "An intended player experience guides a small set of mechanics into a prototype; observed player behaviour is compared with the goal and loops back into the next design change.",
+          "imageCaption": "The game system is the intervention; observed play is the evidence about the intended experience.",
+          "why": "Teams can agree on a feature while imagining different player experiences. An experience goal makes the hidden disagreement discussable and lets a prototype answer a sharper question than whether the game is generally fun.",
+          "apply": [
+            "Choose one interaction and complete this sentence: players should feel or do ___ because they must choose between ___ and ___.",
+            "Name the one rule or information constraint most responsible for that tension and the behaviour you would watch for in a five-minute test."
+          ],
+          "caveat": "A stated experience goal can become a story the team uses to reinterpret any result. Define observable signals before the test, include reactions that would weaken the goal and allow players to create valuable experiences the designer did not predict.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a player experience goal useful in Fullerton's process?",
+              "options": [
+                "It specifies the complete feature set and production sequence before the first prototype is built.",
+                "It describes the market segment most likely to buy the finished game.",
+                "It states an intended player response that mechanics and playtests can examine.",
+                "It guarantees that different players will interpret the game in the same way."
+              ],
+              "correctIndex": 2,
+              "feedback": "An experience goal describes a target response or situation for players. It guides mechanic choices and supplies a question for playtesting, but it neither fixes every feature nor guarantees a uniform reaction.",
+              "feedbackByOption": [
+                "A feature list names implementation, not the experience those features are meant to create. The goal should guide rather than freeze the design.",
+                "Audience knowledge matters, but a market segment does not state what the system should cause players to think, feel or do.",
+                "Correct. The goal connects design intention to observable play without claiming the designer can control every response.",
+                "Players bring different skills and interpretations. The goal is a testable intention, not a promise of identical experience."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A cooperative game should create tension because players need one another but cannot share every clue. Which next step best follows playcentric design?",
+              "options": [
+                "Add more character art so cooperation feels emotionally important before testing.",
+                "Prototype the information limits and observe whether players coordinate while managing mistrust.",
+                "Write a longer narrative explaining why the characters cannot reveal their clues.",
+                "Survey players about cooperative games without showing the proposed rule interaction."
+              ],
+              "correctIndex": 1,
+              "feedback": "The information rule is the proposed mechanism for the experience, so a cheap prototype should expose it to player behaviour. Art, story and surveys may contribute later, but they do not yet test whether the interaction creates the intended tension.",
+              "feedbackByOption": [
+                "Art can support emotion, but it does not test whether the information structure produces cooperation and mistrust during play.",
+                "Correct. The prototype tests the smallest system likely to create the goal and looks for the behaviour that would support or weaken it.",
+                "Narrative may justify the rule, but explanation is not evidence that players will experience its tension in the game.",
+                "Stated preferences provide context, but they cannot reveal how players behave inside this specific interaction."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Tune relationships among formal elements",
+          "argument": [
+            "Fullerton breaks a game's formal core into elements including players, objectives, procedures, rules, resources, conflict, boundaries and outcomes. The value of the vocabulary is relational. A resource is meaningful because rules make it scarce, procedures let players spend it and objectives make the timing consequential.",
+            "Dynamic play emerges from those interactions rather than from an isolated mechanic. Changing one rule can alter incentives, information, pacing and viable strategies elsewhere in the system. Designers therefore analyse loops, trade-offs and dominant patterns, not only whether each component works alone."
+          ],
+          "extension": "Map one important decision across objective, available action, resource cost, information and consequence. If the preferred action is obvious in every state, adjust a relationship rather than adding decorative complexity.",
+          "image": "../assets/lesson-visuals/game-design-workshop-formal-system.svg",
+          "imageAlt": "Objectives, procedures, rules, resources, conflict and outcomes connect as a formal system, producing repeated player decisions and emergent play in the centre.",
+          "imageCaption": "A mechanic gains meaning from the incentives, constraints and consequences around it.",
+          "why": "A feature can be individually elegant yet damage the game by removing a trade-off or creating one dominant strategy. A system map makes second-order consequences easier to anticipate and investigate.",
+          "apply": [
+            "Choose one recurring player decision and write its objective, allowed actions, resource costs, known information and outcome.",
+            "Change one relationship on paper and predict which behaviour, strategy or pacing effect should increase and which should decrease."
+          ],
+          "caveat": "A formal map is a model, not the play experience. It can miss emotion, social meaning, accessibility, culture and improvisation. Use it to generate predictions, then let diverse players reveal relationships the diagram omitted.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Fullerton analyse formal elements as a connected system?",
+              "options": [
+                "Their relationships create incentives and dynamics that no isolated element explains.",
+                "Every successful game must contain the same number of rules and resources.",
+                "Formal analysis predicts emotional responses accurately enough to replace playtesting.",
+                "Each mechanic should be balanced independently before players see the complete game."
+              ],
+              "correctIndex": 0,
+              "feedback": "Objectives, rules, resources, information and outcomes give one another meaning. Their interaction produces strategies and dynamics, so local changes must be considered in the larger system and then tested in play.",
+              "feedbackByOption": [
+                "Correct. A cost, action or objective matters because of its relationship to the rest of the formal system.",
+                "The framework is a vocabulary for analysing different games, not a required inventory or fixed count.",
+                "Formal analysis supports predictions, but players can respond socially and emotionally in ways the map does not contain.",
+                "Independent tuning can hide a system effect. Mechanics must be examined in the context that gives them incentives and consequences."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A strategy game's healing item is always the best use of currency. What is the strongest first design analysis?",
+              "options": [
+                "Increase the item's visual rarity so its power feels more justified.",
+                "Add several new currencies before examining why the current healing choice dominates every situation.",
+                "Ask whether players like healing items more than offensive equipment.",
+                "Map its cost, timing, alternatives and objective consequences to find the missing trade-off."
+              ],
+              "correctIndex": 3,
+              "feedback": "The dominant choice is a relationship problem. Mapping cost, timing, alternatives and outcomes can reveal why one action wins in every relevant state and which connection a prototype should change.",
+              "feedbackByOption": [
+                "Visual treatment can communicate importance, but it does not restore a strategic trade-off in the currency system.",
+                "More currencies add complexity without explaining why the existing decision is dominated by one option.",
+                "Preference may inform theme, but the design problem is that system incentives make one action mechanically superior.",
+                "Correct. The map examines the connected elements that make healing the dominant strategy and points to a testable relationship change."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Observe play before defending the design",
+          "argument": [
+            "Fullerton treats playtesting as a structured design activity, not simply letting friends play and asking whether they liked it. The designer chooses a question, recruits relevant players, watches what they actually do and records moments of confusion, strategy, emotion and breakdown before explaining the intended solution.",
+            "Iteration compares the prediction with observed play, changes the prototype and tests again. Early prototypes should be cheap because their purpose is to make assumptions disposable. A useful result may invalidate a favourite mechanic before production effort turns it into a commitment."
+          ],
+          "extension": "Before a test, write one behavioural prediction and one observation that would contradict it. During play, separate what happened, what the player later said and what you infer; change one important variable when possible.",
+          "image": "../assets/lesson-visuals/game-design-workshop-playtest.svg",
+          "imageAlt": "A playtest compares a written prediction with observed player actions, separates observation from interpretation, selects one design change and loops into a retest.",
+          "imageCaption": "Playtesting becomes diagnostic when prediction, observation and interpretation stay distinct.",
+          "why": "Designers know the rules, intended strategy and unfinished context, so they cannot experience the prototype like a new player. Silent observation exposes gaps that an explanation would accidentally repair.",
+          "apply": [
+            "Write one prediction for a prototype in the form: when players encounter ___, most will do ___ because ___.",
+            "Define one contradicting observation, then prepare a note with separate columns for behaviour, player words and your interpretation."
+          ],
+          "caveat": "One session can reflect an unrepresentative player, unclear facilitation or novelty. Observation is not self-interpreting, and changing one variable is not always possible in a connected system. Look for repeated patterns across suitable players and keep alternative explanations alive.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What turns a casual play session into a diagnostic playtest?",
+              "options": [
+                "The designer explains each mechanic so players can judge the intended experience fairly.",
+                "Players give an overall fun score after enough content has been polished.",
+                "The prototype includes production-quality art so presentation cannot distort feedback.",
+                "A prior question and prediction are compared with recorded behaviour and later interpretation."
+              ],
+              "correctIndex": 3,
+              "feedback": "A diagnostic test begins with a design question, observes behaviour without repairing the experience through explanation and separates evidence from interpretation. Polish and overall opinion can be useful later but often hide the mechanism being tested.",
+              "feedbackByOption": [
+                "Explanation can make the test measure the designer's tutorial rather than whether the game communicates and behaves as intended.",
+                "An overall score says little about which interaction produced the response or what to change next.",
+                "High fidelity can make some tests realistic, but early polish also raises cost and can distract from the rule under investigation.",
+                "Correct. Prediction and structured observation make the result comparable and useful for a specific iteration."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Players repeatedly miss a route the designer considers obvious. What is the best response during the current test?",
+              "options": [
+                "Record where attention and choices diverge, avoid explaining, then test one navigation change.",
+                "Tell each player the intended cue so the remaining systems receive a fair evaluation.",
+                "Conclude that the recruited players lack the genre knowledge the game requires.",
+                "Add every suggested sign and marker before observing another player."
+              ],
+              "correctIndex": 0,
+              "feedback": "The missed route is evidence about the current system. Recording the divergence preserves the finding; one targeted change and a retest can show whether the proposed cue addresses it without introducing unnecessary fixes.",
+              "feedbackByOption": [
+                "Correct. Observation comes first, and a controlled iteration tests a plausible cause without explaining away the failure.",
+                "Instruction may be needed in a later test, but during this question it repairs the exact communication problem being examined.",
+                "Genre knowledge may be an alternative explanation, yet it should be tested against the intended audience rather than assumed defensively.",
+                "Applying every suggestion confounds the result and may solve symptoms with added clutter rather than identify the important cue."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run a paper playtest of one decision",
+        "steps": [
+          "Write one experience goal and the player behaviour that would support it.",
+          "Represent only the essential objective, choice, resource and consequence with paper, cards or a short verbal rule.",
+          "Ask one person to make three decisions while you observe without explaining the preferred strategy.",
+          "Record one prediction that held, one surprise and one rule relationship to change before the next test."
+        ],
+        "result": "You finish with observed behaviour and one evidence-linked iteration, not a general opinion about an imagined game."
+      },
+      "spacedRecall": [
+        "From The Art of Game Design: how does changing the lens alter what a designer notices without automatically choosing the answer?",
+        "From Continuous Discovery Habits: what separates evidence that reduces uncertainty from feedback collected without a decision in mind?"
+      ],
+      "takeaway": "Name the experience, express it through connected rules and let observed play, not design intention, decide what the next prototype must change.",
+      "sources": [
+        {
+          "label": "Game Design Workshop: official fifth-edition site",
+          "url": "https://www.gamedesignworkshop.com/"
+        },
+        {
+          "label": "Routledge: Game Design Workshop, fifth edition",
+          "url": "https://www.routledge.com/Game-Design-Workshop-A-Playcentric-Approach-to-Creating-Innovative-Gam/Fullerton/p/book/9781032607009"
+        },
+        {
+          "label": "Tracy Fullerton: fifth-edition notes and writing",
+          "url": "https://www.tracyfullerton.com/writing/"
+        },
+        {
+          "label": "Carnegie Mellon ETC Press: play-centric design as a second-order design problem",
+          "url": "https://press.etc.cmu.edu/file/download/455/7d9b5a2a-bd20-4cbe-af05-3a0ca0766f9a"
+        }
+      ]
+    },
+    {
+      "slug": "peak",
+      "discussionId": "peak-ericsson-pool",
+      "date": "2026-08-18",
+      "dateLabel": "18 August 2026",
+      "edition": "Daily lesson",
+      "title": "Peak",
+      "authors": "Anders Ericsson and Robert Pool",
+      "year": "2016 · first edition",
+      "category": "Learning and memory · Skill development · Expertise",
+      "summary": "Improve a skill by isolating a stretch target, using fast feedback and building better mental representations, rather than repeating comfortable performance and calling the hours practice.",
+      "evidenceNote": "Ericsson's account draws on decades of expertise research and gives a precise definition of deliberate practice. Evidence strongly supports focused, task-specific practice as an important contributor to skilled performance, but the size of its contribution is contested and varies by domain. Practice does not erase differences in opportunity, coaching, health, motivation, prior knowledge or other constraints, and the book's strongest claims should not be read as a universal talent-is-irrelevant theorem.",
+      "accent": "blue",
+      "quizRevision": "2026-08-18-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Practise the hard part",
+          "argument": [
+            "Ericsson and Pool distinguish ordinary repetition from purposeful and deliberate practice. Purposeful practice has a specific goal, full attention, a task just beyond current reliable performance and feedback that reveals what to change. Deliberate practice adds a well-developed field, established training methods and guidance from a teacher or coach who can diagnose the next weakness.",
+            "The unit of progress is not another hour spent doing the whole activity. It is a feedback loop around one difficult component: attempt, compare with a clear standard, adjust and attempt again. Work that feels fluent may maintain a skill while producing little further adaptation."
+          ],
+          "extension": "Turn a vague improvement wish into one observable error. Design a short drill where that error appears often enough to correct, and stop judging the session by time spent or output completed.",
+          "image": "../assets/lesson-visuals/peak-practice-loop.svg",
+          "imageAlt": "A focused practice loop moves from a specific stretch target through an attempt and diagnostic feedback to one adjustment, then repeats around a measurable error.",
+          "imageCaption": "Productive practice concentrates attempts and feedback around the next correctable weakness.",
+          "why": "A person can accumulate years of experience while automating the same mistakes. A narrow loop makes the gap visible and gives each repetition a reason to differ from the last one.",
+          "apply": [
+            "Choose one skill you use at work and name a failure you can observe, such as a decision summary that hides the trade-off or a test that misses one boundary.",
+            "Create a five-minute drill that produces three attempts at that component, with a checklist, example or reviewer supplying immediate comparison."
+          ],
+          "caveat": "Continuous work is not always a safe practice field. Some tasks are too costly to rehearse in production, and novice learners may not know which error matters. Use simulation, examples or coaching, and protect recovery because difficult focused practice is tiring.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which feature most clearly separates purposeful practice from comfortable repetition?",
+              "options": [
+                "Completing the full activity often enough that it begins to feel automatic.",
+                "Targeting a specific weakness with stretch, attention and usable feedback.",
+                "Recording the total hours spent so effort can be compared over time.",
+                "Changing several techniques at once to increase the chance of improvement."
+              ],
+              "correctIndex": 1,
+              "feedback": "Purposeful practice is organised around a specific performance gap, a demanding attempt and feedback that guides the next change. Repetition and time can support practice, but neither guarantees that the learner is correcting anything.",
+              "feedbackByOption": [
+                "Automatic performance can preserve a routine, but it may also automate an error. The stronger distinction is a targeted stretch task with feedback.",
+                "Correct. A specific weakness, full attention, a task beyond current reliability and feedback form the improvement loop.",
+                "Hours measure exposure rather than the quality of the learning activity. The relevant test is whether attempts diagnose and reduce a gap.",
+                "Changing several variables obscures which adjustment helped. Purposeful practice usually narrows the task and feedback."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A developer wants to improve incident diagnosis. Which session best follows the book's practice mechanism?",
+              "options": [
+                "Read three incident reports and highlight every unfamiliar term.",
+                "Join more live incidents and rely on experience to reveal a pattern.",
+                "Diagnose one timed simulation, compare with an expert trace, then retry the weak step.",
+                "Build a larger troubleshooting checklist covering every known failure before testing any part of it."
+              ],
+              "correctIndex": 2,
+              "feedback": "The simulation creates a safe, specific performance attempt, an expert comparison and an immediate retry of the weak step. That loop is more diagnostic than passive reading or accumulating undifferentiated experience.",
+              "feedbackByOption": [
+                "Reading can build vocabulary, but highlighting terms does not test or correct the target performance of diagnosis.",
+                "Live experience may help, but it is irregular, costly and weakly controlled. A focused simulation supplies more attempts and clearer feedback.",
+                "Correct. The learner attempts the real reasoning, receives diagnostic comparison and immediately practises the component that failed.",
+                "A checklist may become useful feedback, but designing it without a performance attempt does not reveal which diagnostic step needs work."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Build mental models that reveal patterns",
+          "argument": [
+            "The authors argue that expert performance depends heavily on domain-specific mental representations: organised structures that let a person recognise meaningful patterns, anticipate what comes next and choose an action without treating every detail as separate. A chess expert sees configurations and threats; a musician hears structure and predicts how a passage should sound.",
+            "Practice and representation reinforce each other. Better representations make an error easier to notice, while attempts and feedback refine the representation. This is not a claim for a general memory upgrade. The advantage is tied to knowledge and repeated discrimination inside a domain."
+          ],
+          "extension": "After solving a problem, capture the cue that should trigger recognition next time, the pattern it indicates and the action or question that follows. Build a compact decision structure rather than a longer pile of facts.",
+          "image": "../assets/lesson-visuals/peak-mental-representations.svg",
+          "imageAlt": "Scattered surface details are grouped into meaningful chunks that connect cues to a prediction and an action, showing how domain-specific representations improve recognition.",
+          "imageCaption": "Expertise compresses relevant detail into patterns that support prediction and action.",
+          "why": "A checklist can remind you what to inspect, but a representation helps you interpret the relationship between observations. It turns experience into faster recognition without pretending intuition is reliable outside the conditions that trained it.",
+          "apply": [
+            "Take one recently solved problem and write three columns: cue observed, pattern inferred and action that tested the inference.",
+            "Compress the row into one if-then question you could use when a similar situation appears, then keep the evidence that would disconfirm it."
+          ],
+          "caveat": "A representation can become a confident stereotype when the environment changes or the learner ignores disconfirming cues. Keep it linked to observable evidence, test it against varied cases and revise it after surprises.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main performance value of a domain-specific mental representation?",
+              "options": [
+                "It replaces feedback once enough facts have been stored in long-term memory.",
+                "It transfers expert intuition reliably to unfamiliar fields with similar language.",
+                "It removes the need to attend to details during difficult performance.",
+                "It organises cues into patterns that support prediction and a suitable action."
+              ],
+              "correctIndex": 3,
+              "feedback": "A useful representation connects relevant cues, relationships, expected behaviour and possible action. Its power comes from domain structure and experience, so it neither eliminates feedback nor transfers automatically to another field.",
+              "feedbackByOption": [
+                "Representations make feedback more interpretable; they do not make it unnecessary. Surprises are important revision signals.",
+                "The advantage is domain-specific. Similar vocabulary does not guarantee that the same cues and causal relationships apply.",
+                "Experts may process details efficiently, but their representation helps select and relate the important details rather than ignore them.",
+                "Correct. The representation compresses meaningful relationships so the learner can recognise, anticipate and act."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "After resolving a recurring data fault, which note best strengthens a useful mental representation?",
+              "options": [
+                "The cue-to-pattern link, the prediction it made and the check that could disprove it.",
+                "A complete timeline of every command, message and conversation from the incident.",
+                "A rule that the same symptom should always receive the same fix immediately.",
+                "A list of technical terms ordered by how frequently they appeared in the logs."
+              ],
+              "correctIndex": 0,
+              "feedback": "A compact cue, pattern, prediction and disconfirming check preserves the structure needed for later recognition. A transcript stores detail, while a rigid symptom-to-fix rule hides uncertainty and context.",
+              "feedbackByOption": [
+                "Correct. The note records a meaningful structure and protects it with a test that can reveal when the pattern does not fit.",
+                "A timeline may support audit, but it leaves the learner to reconstruct the important relationships every time.",
+                "The rule overgeneralises from one case. A representation should include conditions and evidence that can weaken the inference.",
+                "Term frequency may describe the record, but it does not connect cues to a prediction or decision."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Treat a plateau as a design problem",
+          "argument": [
+            "Ericsson and Pool describe improvement as adaptation. A task beyond current capacity creates strain; focused training followed by recovery produces changes that make the task more manageable. Once the activity becomes comfortable, the same load may maintain the new level without creating the conditions for another improvement.",
+            "A plateau therefore calls for diagnosis, not simply more willpower. Break the performance into components, identify the limiting step, adjust difficulty or feedback and seek a method that has helped skilled performers cross a similar barrier."
+          ],
+          "extension": "When progress stalls, change the learning design before increasing the volume. Find the smallest component that predicts the outcome, make its failure observable and create a challenge that is hard enough to demand a new strategy but safe enough to repeat.",
+          "image": "../assets/lesson-visuals/peak-plateau-redesign.svg",
+          "imageAlt": "Comfortable repetition reaches a flat plateau, then diagnosis isolates a limiting component and a targeted challenge with recovery creates a new adaptation step.",
+          "imageCaption": "A plateau often needs a redesigned challenge and feedback loop, not more identical repetitions.",
+          "why": "More effort feels virtuous, but volume aimed at the wrong component can deepen fatigue while leaving the bottleneck untouched. Diagnosis makes effort more selective and recovery part of the learning system.",
+          "apply": [
+            "Name one skill whose result has stopped improving and split the performance into three components you can observe separately.",
+            "Circle the component with the clearest gap, then choose one harder but repeatable version and one feedback source for the next session."
+          ],
+          "caveat": "Not every plateau is a training problem. Sleep, workload, pain, unsafe conditions, weak incentives, missing tools or a hard biological constraint can dominate. Do not interpret every limit as evidence that the learner failed to practise correctly.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "How does the book suggest responding when repeated practice stops improving performance?",
+              "options": [
+                "Diagnose the limiting component and redesign difficulty, method or feedback around it.",
+                "Double the practice duration while keeping the task and success measure unchanged.",
+                "Return only to comfortable versions so confidence can replace the missing progress.",
+                "Abandon the skill because a plateau demonstrates a fixed performance ceiling."
+              ],
+              "correctIndex": 0,
+              "feedback": "A plateau can mean the current activity no longer demands a useful adaptation. The response is to isolate the bottleneck and alter the challenge or feedback, while also checking whether recovery or external constraints explain the stall.",
+              "feedbackByOption": [
+                "Correct. Diagnosis and a targeted redesign create a better chance of adaptation than more identical volume.",
+                "Extra time can increase fatigue without changing the bottleneck. First determine what the repetitions need to correct.",
+                "Comfortable work can maintain fluency, but it removes the stretch required to address the limiting component.",
+                "A plateau is evidence about the current method and conditions, not proof of an immutable ceiling."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team lead's stakeholder briefings remain unclear despite delivering one every week. What is the best next practice change?",
+              "options": [
+                "Add two more full briefings each week without changing how clarity is assessed.",
+                "Copy the most polished previous briefing and keep its structure fixed for a month.",
+                "Ask stakeholders for a general satisfaction score after the next several meetings.",
+                "Isolate the decision sentence, compare three rewrites with a clear model and get immediate feedback."
+              ],
+              "correctIndex": 3,
+              "feedback": "The targeted drill isolates a likely bottleneck, supplies a standard and produces several corrective attempts quickly. More complete briefings would repeat the whole performance while yielding fewer learning cycles.",
+              "feedbackByOption": [
+                "More full performances add volume but do not expose or correct the component that makes the decision unclear.",
+                "A template can reduce effort, but freezing it before diagnosis may preserve the exact weakness that created the plateau.",
+                "A general score is delayed and weakly diagnostic. The learner needs feedback tied to the specific decision sentence.",
+                "Correct. The drill creates concentrated attempts, a comparison standard and immediate evidence about the limiting component."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Build one five-attempt practice loop",
+        "steps": [
+          "Choose a skill and write one error that a second person or a clear standard could observe.",
+          "Design an attempt that takes no more than one minute and makes that error likely to appear.",
+          "Complete three attempts, compare each with the standard and change only one thing before the next.",
+          "Write the cue or pattern you can now recognise and the next difficulty increase you would test."
+        ],
+        "result": "You finish with three comparable attempts, one observable correction and a specific next stretch target."
+      },
+      "spacedRecall": [
+        "From Make It Stick: why can a practice session that feels fluent produce weaker later retrieval than a more effortful one?",
+        "From Working Identity: what makes a small experiment capable of changing a hypothesis rather than merely expressing interest?"
+      ],
+      "takeaway": "Skill grows when a hard attempt exposes one gap, feedback changes the next try and a better mental model makes the gap easier to see.",
+      "sources": [
+        {
+          "label": "Penguin: Peak by Anders Ericsson and Robert Pool",
+          "url": "https://www.penguin.co.uk/books/421170/peak-by-anders-ericsson/9780099598473"
+        },
+        {
+          "label": "Cambridge Handbook: The influence of experience and deliberate practice",
+          "url": "https://doi.org/10.1017/CBO9780511816796.038"
+        },
+        {
+          "label": "Frontiers in Psychology: Why the original deliberate-practice definition matters",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6824411/"
+        },
+        {
+          "label": "Frontiers in Psychology: Review of evidence and limits for deliberate practice",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7461852/"
+        }
+      ]
+    },
+    {
       "slug": "working-identity",
       "discussionId": "working-identity",
       "date": "2026-08-17",

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="gdw-formal-title gdw-formal-desc">
+  <title id="gdw-formal-title">Formal elements create play through their relationships</title>
+  <desc id="gdw-formal-desc">Objectives and procedures shape player actions. Rules, information and resources change their cost and meaning. Conflict and outcomes feed repeated decisions and emergent play.</desc>
+  <defs>
+    <marker id="gdw-formal-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="222" y="28" width="756" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="71" text-anchor="middle">A MECHANIC GETS MEANING FROM THE SYSTEM</text>
+
+  <rect class="card" x="52" y="132" width="330" height="118" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="217" y="172" text-anchor="middle">OBJECTIVE</text>
+  <text class="body" x="217" y="207" text-anchor="middle">What counts</text>
+  <text class="body" x="217" y="237" text-anchor="middle">as progress?</text>
+  <rect class="card" x="435" y="132" width="330" height="118" rx="22" fill="#e4cf8e"/>
+  <text class="small" x="600" y="172" text-anchor="middle">PROCEDURES</text>
+  <text class="body" x="600" y="220" text-anchor="middle">What can players do?</text>
+  <rect class="card" x="818" y="132" width="330" height="118" rx="22" fill="#bdd9bf"/>
+  <text class="small" x="983" y="172" text-anchor="middle">OUTCOME</text>
+  <text class="body" x="983" y="207" text-anchor="middle">What follows</text>
+  <text class="body" x="983" y="237" text-anchor="middle">the choice?</text>
+  <path class="line" d="M382 191H415" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M765 191H798" marker-end="url(#gdw-formal-arrow)"/>
+
+  <rect class="card" x="52" y="320" width="330" height="128" rx="22" fill="#f5c79d"/>
+  <text class="small" x="217" y="360" text-anchor="middle">RULES + BOUNDARIES</text>
+  <text class="body" x="217" y="395" text-anchor="middle">What is</text>
+  <text class="body" x="217" y="425" text-anchor="middle">constrained?</text>
+  <rect class="card" x="435" y="320" width="330" height="128" rx="22" fill="#d8cce8"/>
+  <text class="small" x="600" y="360" text-anchor="middle">RESOURCES + INFORMATION</text>
+  <text class="body" x="600" y="395" text-anchor="middle">What is scarce</text>
+  <text class="body" x="600" y="425" text-anchor="middle">or known?</text>
+  <rect class="card" x="818" y="320" width="330" height="128" rx="22" fill="#f5c79d"/>
+  <text class="small" x="983" y="360" text-anchor="middle">CONFLICT + TRADE-OFF</text>
+  <text class="body" x="983" y="395" text-anchor="middle">Why is the choice</text>
+  <text class="body" x="983" y="425" text-anchor="middle">hard?</text>
+  <path class="line" d="M382 384H415" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M765 384H798" marker-end="url(#gdw-formal-arrow)"/>
+
+  <path class="line" d="M217 250V300" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M600 250V300" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M983 250V300" marker-end="url(#gdw-formal-arrow)"/>
+
+  <path class="line" d="M217 448V520H414" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M600 448V500" marker-end="url(#gdw-formal-arrow)"/>
+  <path class="line" d="M983 448V520H786" marker-end="url(#gdw-formal-arrow)"/>
+  <rect class="card" x="434" y="516" width="332" height="132" rx="26" fill="#b8d5e5"/>
+  <text class="small" x="600" y="557" text-anchor="middle">DYNAMIC PLAY</text>
+  <text class="heading" x="600" y="600" text-anchor="middle">Strategies emerge</text>
+  <text class="body" x="600" y="634" text-anchor="middle">from repeated relationships</text>
+
+  <path class="line" d="M434 582H170V278H197" marker-end="url(#gdw-formal-arrow)"/>
+  <rect class="card" x="306" y="684" width="588" height="50" rx="20" fill="#fffdf8"/>
+  <text class="small" x="600" y="717" text-anchor="middle">Change one relationship, then predict the system effect.</text>
+</svg>

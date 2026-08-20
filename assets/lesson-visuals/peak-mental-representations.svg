@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="peak-mental-representations-title peak-mental-representations-desc">
+  <title id="peak-mental-representations-title">Domain knowledge turns scattered cues into patterns for prediction and action</title>
+  <desc id="peak-mental-representations-desc">Scattered observations on the left are organised into linked chunks in the centre. The representation supports a prediction, an action and a disconfirming check on the right.</desc>
+  <defs>
+    <marker id="peak-representations-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="227" y="30" width="746" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="73" text-anchor="middle">FROM SURFACE DETAILS TO DECISION STRUCTURE</text>
+
+  <rect class="card" x="42" y="140" width="310" height="486" rx="26" fill="#fffdf8"/>
+  <text class="heading" x="197" y="185" text-anchor="middle">SCATTERED CUES</text>
+  <circle class="card" cx="114" cy="258" r="48" fill="#b8d5e5"/>
+  <text class="body" x="114" y="267" text-anchor="middle">A</text>
+  <circle class="card" cx="248" cy="242" r="48" fill="#f5c79d"/>
+  <text class="body" x="248" y="251" text-anchor="middle">B</text>
+  <circle class="card" cx="174" cy="374" r="48" fill="#e4cf8e"/>
+  <text class="body" x="174" y="383" text-anchor="middle">C</text>
+  <circle class="card" cx="272" cy="482" r="48" fill="#d8cce8"/>
+  <text class="body" x="272" y="491" text-anchor="middle">D</text>
+  <circle class="card" cx="108" cy="530" r="48" fill="#bdd9bf"/>
+  <text class="body" x="108" y="539" text-anchor="middle">E</text>
+  <text class="small" x="197" y="600" text-anchor="middle">facts without relationships</text>
+
+  <path class="line" d="M352 383H418" marker-end="url(#peak-representations-arrow)"/>
+  <rect class="card" x="438" y="140" width="326" height="486" rx="26" fill="#b8d5e5"/>
+  <text class="heading" x="601" y="185" text-anchor="middle">REPRESENTATION</text>
+  <rect class="card" x="488" y="234" width="226" height="86" rx="20" fill="#fffdf8"/>
+  <text class="small" x="601" y="270" text-anchor="middle">CUES A + C</text>
+  <text class="body" x="601" y="303" text-anchor="middle">one pattern</text>
+  <rect class="card" x="488" y="356" width="226" height="86" rx="20" fill="#fffdf8"/>
+  <text class="small" x="601" y="392" text-anchor="middle">B changes D</text>
+  <text class="body" x="601" y="425" text-anchor="middle">one relationship</text>
+  <rect class="card" x="488" y="478" width="226" height="86" rx="20" fill="#fffdf8"/>
+  <text class="small" x="601" y="514" text-anchor="middle">E is absent</text>
+  <text class="body" x="601" y="547" text-anchor="middle">one warning</text>
+  <path class="line" d="M601 320V344" marker-end="url(#peak-representations-arrow)"/>
+  <path class="line" d="M601 442V466" marker-end="url(#peak-representations-arrow)"/>
+
+  <path class="line" d="M764 383H830" marker-end="url(#peak-representations-arrow)"/>
+  <rect class="card" x="850" y="140" width="308" height="486" rx="26" fill="#fffdf8"/>
+  <text class="heading" x="1004" y="185" text-anchor="middle">USE THE PATTERN</text>
+  <rect class="card" x="896" y="234" width="216" height="82" rx="20" fill="#e4cf8e"/>
+  <text class="small" x="1004" y="268" text-anchor="middle">PREDICT</text>
+  <text class="body" x="1004" y="300" text-anchor="middle">what should follow</text>
+  <path class="line" d="M1004 316V346" marker-end="url(#peak-representations-arrow)"/>
+  <rect class="card" x="896" y="360" width="216" height="82" rx="20" fill="#bdd9bf"/>
+  <text class="small" x="1004" y="394" text-anchor="middle">ACT</text>
+  <text class="body" x="1004" y="426" text-anchor="middle">test the inference</text>
+  <path class="line" d="M1004 442V472" marker-end="url(#peak-representations-arrow)"/>
+  <rect class="card" x="896" y="486" width="216" height="82" rx="20" fill="#f5c79d"/>
+  <text class="small" x="1004" y="520" text-anchor="middle">DISCONFIRM</text>
+  <text class="body" x="1004" y="552" text-anchor="middle">revise after surprise</text>
+
+  <rect class="card" x="178" y="668" width="844" height="58" rx="20" fill="#d8cce8"/>
+  <text class="body" x="600" y="706" text-anchor="middle">The advantage is domain-specific: it must stay answerable to evidence.</text>
+</svg>

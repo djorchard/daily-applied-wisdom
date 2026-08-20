@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="gdw-experience-title gdw-experience-desc">
+  <title id="gdw-experience-title">Playcentric design compares an intended experience with observed play</title>
+  <desc id="gdw-experience-desc">An experience goal guides formal mechanics into a cheap prototype. Player behaviour is observed, compared with the goal and used to revise the next system.</desc>
+  <defs>
+    <marker id="gdw-experience-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="222" y="28" width="756" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="71" text-anchor="middle">INTENTION BECOMES A QUESTION FOR PLAY</text>
+
+  <rect class="card" x="286" y="126" width="628" height="112" rx="24" fill="#f5c79d"/>
+  <text class="small" x="600" y="166" text-anchor="middle">PLAYER EXPERIENCE GOAL</text>
+  <text class="heading" x="600" y="207" text-anchor="middle">What should players think, feel or do?</text>
+
+  <path class="line" d="M600 238V286" marker-end="url(#gdw-experience-arrow)"/>
+  <rect class="card" x="54" y="302" width="316" height="152" rx="24" fill="#e4cf8e"/>
+  <text class="small" x="212" y="343" text-anchor="middle">FORMAL SYSTEM</text>
+  <text class="heading" x="212" y="386" text-anchor="middle">Rules + resources</text>
+  <text class="body" x="212" y="424" text-anchor="middle">create the proposed tension</text>
+
+  <path class="line" d="M370 378H426" marker-end="url(#gdw-experience-arrow)"/>
+  <rect class="card" x="446" y="302" width="308" height="152" rx="24" fill="#b8d5e5"/>
+  <text class="small" x="600" y="343" text-anchor="middle">CHEAP PROTOTYPE</text>
+  <text class="heading" x="600" y="386" text-anchor="middle">Expose the decision</text>
+  <text class="body" x="600" y="424" text-anchor="middle">before polish hardens it</text>
+
+  <path class="line" d="M754 378H810" marker-end="url(#gdw-experience-arrow)"/>
+  <rect class="card" x="830" y="302" width="316" height="152" rx="24" fill="#bdd9bf"/>
+  <text class="small" x="988" y="343" text-anchor="middle">OBSERVED PLAY</text>
+  <text class="heading" x="988" y="386" text-anchor="middle">What players do</text>
+  <text class="body" x="988" y="424" text-anchor="middle">including surprises</text>
+
+  <path class="line" d="M988 454V504H760" marker-end="url(#gdw-experience-arrow)"/>
+  <rect class="card" x="400" y="520" width="400" height="128" rx="24" fill="#d8cce8"/>
+  <text class="small" x="600" y="560" text-anchor="middle">COMPARE WITH THE GOAL</text>
+  <text class="heading" x="600" y="603" text-anchor="middle">Support, weaken, revise</text>
+  <path class="line" d="M400 584H212V474" marker-end="url(#gdw-experience-arrow)"/>
+
+  <rect class="card" x="170" y="682" width="860" height="52" rx="20" fill="#fffdf8"/>
+  <text class="small" x="600" y="716" text-anchor="middle">The system is designed; the experience is discovered with players.</text>
+</svg>

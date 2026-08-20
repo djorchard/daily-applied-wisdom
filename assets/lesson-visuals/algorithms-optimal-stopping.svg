@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="algorithms-stopping-title algorithms-stopping-desc">
+  <title id="algorithms-stopping-title">Optimal stopping separates calibration from choice</title>
+  <desc id="algorithms-stopping-desc">A sequence of ten options uses the first four only to establish a benchmark. In the later choice phase, the first option above the benchmark is selected. A panel lists the strict assumptions behind the classical result.</desc>
+  <defs>
+    <marker id="algorithms-stopping-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#18211d"/></marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect class="card" x="150" y="28" width="900" height="66" rx="30" fill="#fffdf8"/>
+  <text class="heading" x="600" y="71" text-anchor="middle">LEARN A BENCHMARK, THEN ACT BEFORE TIME RUNS OUT</text>
+
+  <rect class="card" x="52" y="122" width="432" height="112" rx="22" fill="#b8d5e5"/>
+  <text class="small" x="268" y="170" text-anchor="middle">CALIBRATION PHASE · ABOUT 37%</text>
+  <text class="small" x="268" y="202" text-anchor="middle">observe only · set the</text>
+  <text class="small" x="268" y="226" text-anchor="middle">best-so-far benchmark</text>
+  <rect class="card" x="516" y="122" width="632" height="112" rx="22" fill="#bdd9bf"/>
+  <text class="small" x="832" y="170" text-anchor="middle">CHOICE PHASE</text>
+  <text class="body" x="832" y="207" text-anchor="middle">take the first later option that beats the benchmark</text>
+
+  <line class="line" x1="77" y1="502" x2="1124" y2="502"/>
+  <line class="line" x1="77" y1="502" x2="77" y2="286"/>
+  <text class="small" x="62" y="414" text-anchor="middle" transform="rotate(-90 62 414)">RELATIVE QUALITY</text>
+  <line class="line" x1="92" y1="372" x2="1124" y2="372" stroke-dasharray="12 10"/>
+
+  <g>
+    <rect class="card" x="112" y="420" width="70" height="82" rx="12" fill="#b8d5e5"/><text class="small" x="147" y="542" text-anchor="middle">1</text>
+    <rect class="card" x="212" y="334" width="70" height="168" rx="12" fill="#b8d5e5"/><text class="small" x="247" y="542" text-anchor="middle">2</text>
+    <rect class="card" x="312" y="390" width="70" height="112" rx="12" fill="#b8d5e5"/><text class="small" x="347" y="542" text-anchor="middle">3</text>
+    <rect class="card" x="412" y="372" width="70" height="130" rx="12" fill="#b8d5e5"/><text class="small" x="447" y="542" text-anchor="middle">4</text>
+    <rect class="card" x="542" y="400" width="70" height="102" rx="12" fill="#fffdf8"/><text class="small" x="577" y="542" text-anchor="middle">5</text>
+    <rect class="card" x="642" y="350" width="70" height="152" rx="12" fill="#fffdf8"/><text class="small" x="677" y="542" text-anchor="middle">6</text>
+    <rect class="card" x="742" y="278" width="70" height="224" rx="12" fill="#e4cf8e"/><text class="small" x="777" y="542" text-anchor="middle">7</text>
+    <rect class="card" x="842" y="322" width="70" height="180" rx="12" fill="#fffdf8"/><text class="small" x="877" y="542" text-anchor="middle">8</text>
+    <rect class="card" x="942" y="302" width="70" height="200" rx="12" fill="#fffdf8"/><text class="small" x="977" y="542" text-anchor="middle">9</text>
+    <rect class="card" x="1042" y="254" width="70" height="248" rx="12" fill="#fffdf8"/><text class="small" x="1077" y="542" text-anchor="middle">10</text>
+  </g>
+  <text class="heading" x="777" y="252" text-anchor="middle">SELECT</text>
+  <path class="line" d="M777 258V272" marker-end="url(#algorithms-stopping-arrow)"/>
+
+  <rect class="card" x="72" y="592" width="1056" height="132" rx="24" fill="#f5c79d"/>
+  <text class="small" x="600" y="629" text-anchor="middle">THE CLASSICAL RESULT NEEDS ALL THESE ASSUMPTIONS</text>
+  <text class="body" x="600" y="670" text-anchor="middle">known horizon · random order · no recall · relative rank · one best option</text>
+  <text class="small" x="600" y="704" text-anchor="middle">If the real search differs, keep the trade-off and change the rule.</text>
+</svg>

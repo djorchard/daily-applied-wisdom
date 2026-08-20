@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html" />
+    <meta property="og:title" content="Algorithms to Live By | Daily Applied Wisdom" />
+    <meta property="og:description" content="Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-08-20" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Algorithms to Live By | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Algorithms to Live By","description":"Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce.","datePublished":"2026-08-20","about":{"@type":"Book","name":"Algorithms to Live By","author":[{"@type":"Person","name":"Brian Christian"},{"@type":"Person","name":"Tom Griffiths"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-08-20">20 August 2026</time></p>
+          <h1>Algorithms to Live By</h1>
+          <p class="lesson-author">Brian Christian and Tom Griffiths</p>
+          <div class="lesson-meta"><span>2016 · first edition</span><span>Applied mathematics and quantitative reasoning · Algorithms · Decisions under uncertainty</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Christian and Griffiths translate established results from computer science, operations research and decision theory into everyday heuristics. The mathematics is strong inside each model's assumptions; the everyday application is a practitioner interpretation and becomes context-dependent when options are not random, values change, choices can be revisited or human costs resist a single objective. Use the models to expose structure and trade-offs, not as precision theatre.</aside>
+          <div class="lesson-progress" data-book-progress data-book-slug="algorithms-to-live-by" data-book-idea-ids="[&quot;algorithms-to-live-by-idea-1&quot;,&quot;algorithms-to-live-by-idea-2&quot;,&quot;algorithms-to-live-by-idea-3&quot;]" data-clarity-mask="true" hidden>
+            <span class="learning-state" data-learning-state hidden>Learned</span>
+            <span class="learning-summary" data-learning-summary hidden></span>
+          </div>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Algorithms to Live By | Daily Applied Wisdom" data-share-text="Use mathematical problem structure to decide when to stop searching, how much uncertainty to explore and which scheduling rule fits the cost you actually want to reduce." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Separate learning from choosing</a><a href="#idea-2"><span>02</span>Let the horizon price exploration</a><a href="#idea-3"><span>03</span>Choose the scheduling rule for the cost</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-gold" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Separate learning from choosing <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>The book uses the secretary problem to teach optimal stopping. Under strict conditions, a known number of options arrives in random order, each rejected option is gone, only relative rank matters and the goal is to maximise the chance of choosing the single best. The optimal rule samples roughly the first 37 per cent without selecting, then chooses the next option better than every sampled option.</p>
+<p>The durable idea is not that every search ends at 37 per cent. It is that search has two jobs: learn the distribution and act before opportunity disappears. Naming the assumptions prevents a clean result from being copied into decisions with recall, changing quality, unknown horizons or several acceptable outcomes.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Before a bounded search, reserve an explicit calibration phase and define a threshold for the choice phase. Write which real conditions violate the classical model and adjust the rule rather than hiding the mismatch.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/algorithms-optimal-stopping.svg" alt="A sequence of options is divided into a calibration phase that sets a benchmark and a choice phase that accepts the first later option above it, alongside the assumptions required for the 37 percent result." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Optimal stopping balances information gained by waiting against opportunities lost while waiting.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Without a planned learning phase, the first plausible option can anchor the search. Without a stopping rule, every new option preserves doubt and delays value. A threshold makes the trade-off explicit.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one upcoming search with a real deadline and estimate how many comparable options you can inspect.</p>
+<p>Reserve an early sample for calibration, define what later option would beat its benchmark and list any reason rejected options could be revisited.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>The 37 per cent rule is optimal only for a narrow objective and harsh no-recall assumptions. Hiring, housing and relationships involve ethics, thresholds, unequal information, negotiation and repeat opportunities. Do not turn a mathematical thought experiment into an automatic human policy.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="algorithms-to-live-by-idea-1" data-book-slug="algorithms-to-live-by" data-idea-number="1" aria-pressed="false" aria-label="Mark Idea 1 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="algorithms-to-live-by-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="algorithms-to-live-by-idea-1" data-lesson-slug="algorithms-to-live-by" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulAlgorithmsToLiveByIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-gold" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Let the horizon price exploration <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>The explore-exploit trade-off appears in multi-armed bandit problems. Exploitation chooses the option with the best observed reward; exploration tries an uncertain option that might teach enough to improve later choices. The value of information depends on how many decisions remain.</p>
+<p>With a long horizon, learning about an uncertain alternative can repay its short-term cost many times. Near the end, there are fewer future choices through which to recover that cost, so using the best-supported option becomes more attractive. Uncertainty is therefore not automatically a reason to avoid an option; it can be the source of information value.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> For a repeated decision, record the estimated value, uncertainty and remaining opportunities. Explore when the decision recurs enough for learning to matter; exploit when the horizon is short or failure cost exceeds the information gained.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/algorithms-explore-exploit.svg" alt="A long decision horizon gives uncertain options more information value and favours exploration, while a short horizon gives known performance more weight and favours exploitation." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The same uncertain option can be worth testing early and not worth testing late.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Teams often argue about innovation as a personality preference. Horizon and information value turn part of that argument into a decision model: how many future choices can use what this experiment teaches?</p></section>
+          <section><h3>Apply it today</h3><p>List one repeated choice, the current favourite and one uncertain alternative whose result would change later decisions.</p>
+<p>Estimate how many uses remain and choose a small exploration only if the learning can be reused enough to justify its risk and cost.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Bandit models simplify changing environments, dependent choices, delayed feedback and unequal harms. Exploration is not permission to impose risk on others without consent or safeguards, and a long horizon does not make every experiment worthwhile.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="algorithms-to-live-by-idea-2" data-book-slug="algorithms-to-live-by" data-idea-number="2" aria-pressed="false" aria-label="Mark Idea 2 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="algorithms-to-live-by-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="algorithms-to-live-by-idea-2" data-lesson-slug="algorithms-to-live-by" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulAlgorithmsToLiveByIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-gold" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Choose the scheduling rule for the cost <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Scheduling theory shows that there is no universally best order without an objective. If the aim is to minimise average completion time for available jobs, shortest processing time first performs well. If the aim is to minimise maximum lateness against due dates, earliest due date first fits that objective. A priority rule is an optimisation claim, whether or not it is named as one.</p>
+<p>The book also describes thrashing: when switching and coordination consume so much capacity that little useful work completes. In overloaded systems, restricting work in progress or batching related tasks can improve throughput even when every waiting item appears urgent.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Before ordering work, name the cost: lateness, average waiting, missed value, risk or context switching. Apply one rule for that cost, protect completion and review whether the metric creates harms the model omitted.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/algorithms-scheduling-objectives.svg" alt="The same four tasks are ordered differently by shortest processing time and earliest due date, while a third panel shows excessive switching consuming capacity before tasks finish." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A queue changes when the objective changes; a busy schedule can still complete very little.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Arguments about priority often hide different definitions of success. Making the objective explicit reveals why two sensible people choose different orders and whether constant switching is preventing either rule from working.</p></section>
+          <section><h3>Apply it today</h3><p>Take four current tasks and write duration, due date and cost of delay for each.</p>
+<p>Order them once for average completion and once for lateness, then choose the objective that matters now and limit simultaneous starts.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Durations and costs are estimates, urgent safety work may override a queue and human tasks are not interchangeable jobs. Optimising one metric can starve large work, neglect fairness or reward gaming, so use ageing, review points and explicit exceptions.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="algorithms-to-live-by-idea-3" data-book-slug="algorithms-to-live-by" data-idea-number="3" aria-pressed="false" aria-label="Mark Idea 3 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="algorithms-to-live-by-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="algorithms-to-live-by-idea-3" data-lesson-slug="algorithms-to-live-by" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulAlgorithmsToLiveByIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="algorithms-to-live-by" data-book-idea-ids="[&quot;algorithms-to-live-by-idea-1&quot;,&quot;algorithms-to-live-by-idea-2&quot;,&quot;algorithms-to-live-by-idea-3&quot;]" data-quiz-revision="2026-08-20-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-1-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What is the most transferable lesson of the book's optimal-stopping example?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q1" value="0" required aria-describedby="algorithms-to-live-by-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Always reject exactly 37 per cent of options before considering their quality.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q1" value="1" required aria-describedby="algorithms-to-live-by-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Keep searching until no plausible option could be better than the current leader, regardless of delay or cost.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q1" value="2" required aria-describedby="algorithms-to-live-by-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Choose the first acceptable option because later search mainly increases regret.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q1" value="3" required aria-describedby="algorithms-to-live-by-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Plan a calibration phase and a choice threshold while checking the model's assumptions.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The exact proportion belongs to the classical model. Real searches need an assumption check before any numerical rule is borrowed.</p><p data-feedback-for="1" hidden>Searching for proof that nothing better exists can consume the horizon. Optimal stopping accepts that waiting also has a cost.</p><p data-feedback-for="2" hidden>Early commitment may be rational in some contexts, but it sacrifices information without first establishing a benchmark.</p><p data-feedback-for="3" hidden>The structure separates learning from choosing and keeps the elegant number conditional on its assumptions.</p>
+                    <p class="quiz-feedback-context">The secretary result makes the learn-versus-act trade-off concrete. Its useful transfer is a deliberate calibration phase and stopping threshold, accompanied by an honest check of horizon, recall and objective assumptions.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-2-q1" data-question-type="concept" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Why does a longer horizon usually make exploration more valuable?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q1" value="0" required aria-describedby="algorithms-to-live-by-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Information from an uncertain choice can improve more decisions that follow.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q1" value="1" required aria-describedby="algorithms-to-live-by-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>The known option's observed performance becomes less trustworthy over time.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q1" value="2" required aria-describedby="algorithms-to-live-by-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Exploration guarantees a higher reward once enough choices remain available.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q1" value="3" required aria-describedby="algorithms-to-live-by-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>A long horizon removes the cost of trying options that perform poorly.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The possible learning can be reused across more future decisions, increasing its expected value.</p><p data-feedback-for="1" hidden>Known performance may drift, but the general horizon effect comes from how many later choices can benefit from new information.</p><p data-feedback-for="2" hidden>Exploration can reveal that the uncertain option is worse. Its value is expected information, not guaranteed reward.</p><p data-feedback-for="3" hidden>A longer horizon spreads potential benefit across more choices, but the exploratory attempt still consumes time and can fail.</p>
+                    <p class="quiz-feedback-context">Exploration pays by producing information, and that information has more opportunities to affect later choices when the horizon is long. It remains costly and uncertain, so the model does not guarantee a better immediate or eventual reward.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-3-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>Why can two mathematically sensible scheduling rules produce different task orders?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q1" value="0" required aria-describedby="algorithms-to-live-by-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Each rule assumes task estimates are exact enough to remove uncertainty.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q1" value="1" required aria-describedby="algorithms-to-live-by-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>They minimise different costs, such as average completion time or maximum lateness.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q1" value="2" required aria-describedby="algorithms-to-live-by-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>One rule applies to people while the other applies only to computer processors.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q1" value="3" required aria-describedby="algorithms-to-live-by-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>They use different definitions of whether a task has started rather than finished.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Both rules can operate with estimates, and estimation error matters. Their central difference is the objective each order serves.</p><p data-feedback-for="1" hidden>Different target costs yield different optimal or useful priority rules for the same queue.</p><p data-feedback-for="2" hidden>The underlying scheduling ideas apply to both human and machine work, with extra human constraints requiring care.</p><p data-feedback-for="3" hidden>Start and finish definitions matter operationally, but they do not explain the main difference between these priority rules.</p>
+                    <p class="quiz-feedback-context">A schedule is evaluated against an objective. Shortest processing time and earliest due date solve different cost problems, so disagreement about order may really be disagreement about what the system should minimise.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-1-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A team will review twelve vendor proposals in random order and cannot revisit a rejected proposal. Which plan best uses the model cautiously?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q2" value="0" required aria-describedby="algorithms-to-live-by-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Accept the fourth proposal regardless of its quality because four is near 37 per cent.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q2" value="1" required aria-describedby="algorithms-to-live-by-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Score all proposals mentally and decide only after the twelfth has expired.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q2" value="2" required aria-describedby="algorithms-to-live-by-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Use an early sample to set a benchmark, then select the first later proposal that clearly exceeds it.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-1-q2" value="3" required aria-describedby="algorithms-to-live-by-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Reject every proposal below a perfect score so the stopping rule cannot choose second best.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The model does not select at the end of the sample automatically. It uses the sample to set a threshold for later options.</p><p data-feedback-for="1" hidden>Waiting until every proposal expires defeats the no-recall problem: the information arrives, but no opportunity remains to choose.</p><p data-feedback-for="2" hidden>Calibration establishes a comparison threshold, and the choice phase acts when a later option beats it.</p><p data-feedback-for="3" hidden>A perfect-score threshold may leave no selection and optimises a different objective. Minimum standards should be explicit but realistic.</p>
+                    <p class="quiz-feedback-context">The plan uses early options to calibrate and later options to act, which matches the model's structure. The numerical cut-off remains approximate, and real procurement still requires minimum standards, due diligence and ethical process.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A product team will make the same deployment choice fifty times this year. An untested method might cut recovery time. What is the best first move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q2" value="0" required aria-describedby="algorithms-to-live-by-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Run a bounded low-risk trial now because its result can inform many later deployments.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q2" value="1" required aria-describedby="algorithms-to-live-by-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Keep the known method all year because uncertainty always makes exploitation safer.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q2" value="2" required aria-describedby="algorithms-to-live-by-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Switch every deployment to the new method so learning accumulates as fast as possible.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-2-q2" value="3" required aria-describedby="algorithms-to-live-by-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Delay the trial until the final deployment so current performance remains comparable.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>An early controlled trial can repay its learning across many future uses while limiting the cost of being wrong.</p><p data-feedback-for="1" hidden>Exploitation protects known value, but avoiding every uncertain option gives up information that could improve a long sequence of choices.</p><p data-feedback-for="2" hidden>A full switch confuses exploration with commitment. The point is to buy information with a bounded amount of risk.</p><p data-feedback-for="3" hidden>Late information has almost no remaining decisions to improve, so the horizon makes the same trial less valuable.</p>
+                    <p class="quiz-feedback-context">A long repeated horizon gives an early, bounded trial high information value. Safeguards keep exploration proportionate; a full switch would expose every deployment before the team has learned whether the method works.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="algorithms-to-live-by-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A support team starts every newly urgent ticket and now finishes almost nothing. Which intervention best addresses the scheduling failure?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q2" value="0" required aria-describedby="algorithms-to-live-by-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Add a second urgency label so more tickets can be started in the correct order.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q2" value="1" required aria-describedby="algorithms-to-live-by-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Limit work in progress, finish a small set and use an explicit rule for the waiting queue.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q2" value="2" required aria-describedby="algorithms-to-live-by-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Ask each specialist to switch tickets more quickly when another request arrives.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="algorithms-to-live-by-idea-3-q2" value="3" required aria-describedby="algorithms-to-live-by-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Measure staff utilisation by counting how many tickets receive activity each day.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="algorithms-to-live-by-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>More labels can describe the queue but do not restore capacity lost to too many simultaneous starts.</p><p data-feedback-for="1" hidden>Restricting active work reduces switching overhead, while an explicit queue rule makes the cost trade-off visible.</p><p data-feedback-for="2" hidden>Faster switching still pays setup and attention costs and can deepen the pattern of activity without completion.</p><p data-feedback-for="3" hidden>Touch counts reward visible busyness and may make thrashing look successful even as customers wait longer for completed work.</p>
+                    <p class="quiz-feedback-context">The symptom is thrashing: switching and coordination are consuming capacity while completion collapses. A work-in-progress limit protects finishing, and a named queue objective handles waiting work more coherently.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-mark-book-learned" type="button" data-mark-book-learned aria-pressed="false" hidden>Mark book as learned</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Run one decision through three algorithms</h2>
+          <ol><li>Choose a bounded search or repeated decision and write its horizon, recall rules and success objective.</li><li>Mark what an early calibration sample would teach and the threshold that would trigger action.</li><li>Name one uncertain option and how many later choices could use information from a small trial.</li><li>List four waiting tasks, order them for average completion and for lateness, then circle the objective you actually need today.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with one explicit stopping threshold, one priced exploration and a queue order tied to a named cost.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From The Art of Statistics: which assumptions must hold before a numerical summary can answer the decision you care about?</li><li>From The Goal: how can local busyness increase while the system's completed output gets worse?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://brianchristian.org/algorithms-to-live-by/" target="_blank" rel="noreferrer">Brian Christian: Algorithms to Live By <span aria-hidden="true">↗</span></a></li><li><a href="https://algorithmstoliveby.com/" target="_blank" rel="noreferrer">Official book site: Algorithms to Live By <span aria-hidden="true">↗</span></a></li><li><a href="https://www.cs.utexas.edu/~byoung/cs303e/project3-SecretaryProblem.html" target="_blank" rel="noreferrer">University of Texas: secretary problem model and optimal strategy <span aria-hidden="true">↗</span></a></li><li><a href="https://www.cs.princeton.edu/courses/archive/spring16/cos511/lec18.pdf" target="_blank" rel="noreferrer">Princeton Computer Science: multi-armed bandits and explore-exploit <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Do not copy a clever number: identify the decision structure, state the cost and assumptions, then use the simplest algorithm that makes the trade-off visible.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="algorithms-to-live-by-christian-griffiths" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/algorithms-to-live-by.html" data-page-title="Algorithms to Live By | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="game-design-workshop.html"><span>Previous</span>Game Design Workshop</a>
+        <span></span>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026 Daniel Barnes</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>
