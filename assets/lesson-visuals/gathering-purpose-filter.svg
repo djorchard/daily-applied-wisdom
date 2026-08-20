@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="gathering-purpose-title gathering-purpose-desc">
+  <title id="gathering-purpose-title">A specific purpose filters a default event into a designed gathering</title>
+  <desc id="gathering-purpose-desc">On the left, venue, agenda and habit form a default event package. In the centre, a specific-purpose filter asks what should change because these people gathered. On the right, that purpose shapes the people, form and invitation.</desc>
+  <defs>
+    <marker id="gathering-purpose-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 32px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="48" y="42" width="340" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="218" y="79" text-anchor="middle">DEFAULT PACKAGE</text>
+  <rect class="card" x="48" y="146" width="340" height="116" rx="20" fill="#f5c79d"/>
+  <text class="heading" x="218" y="196" text-anchor="middle">VENUE</text>
+  <text class="body" x="218" y="234" text-anchor="middle">chosen by habit</text>
+  <rect class="card" x="48" y="290" width="340" height="116" rx="20" fill="#e9d17f"/>
+  <text class="heading" x="218" y="340" text-anchor="middle">AGENDA</text>
+  <text class="body" x="218" y="378" text-anchor="middle">copied from last time</text>
+  <rect class="card" x="48" y="434" width="340" height="116" rx="20" fill="#d8cce8"/>
+  <text class="heading" x="218" y="484" text-anchor="middle">GUEST LIST</text>
+  <text class="body" x="218" y="522" text-anchor="middle">everyone expected</text>
+  <path class="line" d="M388 348H418" marker-end="url(#gathering-purpose-arrow)"/>
+  <path d="M430 130H770L690 610H510z" fill="#b8d5e5" stroke="#18211d" stroke-width="5" stroke-linejoin="round"/>
+  <text class="label" x="600" y="190" text-anchor="middle">SPECIFIC PURPOSE</text>
+  <text x="600" y="252" text-anchor="middle" font-size="28" font-weight="700">WHAT SHOULD</text>
+  <text x="600" y="288" text-anchor="middle" font-size="28" font-weight="700">CHANGE</text>
+  <text x="600" y="324" text-anchor="middle" font-size="28" font-weight="700">BECAUSE THESE</text>
+  <text x="600" y="360" text-anchor="middle" font-size="28" font-weight="700">PEOPLE</text>
+  <text x="600" y="396" text-anchor="middle" font-size="28" font-weight="700">GATHERED?</text>
+  <line x1="548" y1="430" x2="652" y2="430" stroke="#18211d" stroke-width="4"/>
+  <text class="body" x="600" y="476" text-anchor="middle">Specific enough</text>
+  <text class="body" x="600" y="512" text-anchor="middle">to make choices</text>
+  <path class="line" d="M782 348H812" marker-end="url(#gathering-purpose-arrow)"/>
+  <rect x="812" y="42" width="340" height="58" rx="29" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="982" y="79" text-anchor="middle">DESIGNED GATHERING</text>
+  <rect class="card" x="812" y="146" width="340" height="116" rx="20" fill="#bdd9bf"/>
+  <text class="heading" x="982" y="196" text-anchor="middle">PEOPLE</text>
+  <text class="body" x="982" y="234" text-anchor="middle">needed for the work</text>
+  <rect class="card" x="812" y="290" width="340" height="116" rx="20" fill="#bdd9bf"/>
+  <text class="heading" x="982" y="340" text-anchor="middle">FORM</text>
+  <text class="body" x="982" y="378" text-anchor="middle">built for participation</text>
+  <rect class="card" x="812" y="434" width="340" height="116" rx="20" fill="#bdd9bf"/>
+  <text class="heading" x="982" y="484" text-anchor="middle">INVITATION</text>
+  <text class="body" x="982" y="522" text-anchor="middle">prepares the role</text>
+  <rect x="196" y="646" width="808" height="64" rx="32" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="687" text-anchor="middle" font-weight="700">PURPOSE DECIDES WHAT BELONGS AND WHAT STAYS OUT</text>
+</svg>

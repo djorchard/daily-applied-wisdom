@@ -1,6 +1,231 @@
 {
   "lessons": [
     {
+      "slug": "the-art-of-gathering",
+      "discussionId": "the-art-of-gathering-priya-parker",
+      "date": "2026-08-21",
+      "dateLabel": "21 August 2026",
+      "edition": "Daily lesson",
+      "title": "The Art of Gathering",
+      "authors": "Priya Parker",
+      "year": "2018 · paperback edition 2020",
+      "category": "Better life and relationships · Gatherings · Facilitation",
+      "summary": "Make time together more meaningful by defining a specific purpose, using host authority in service of the group and designing the gathering's entry and exit rather than leaving connection to chance.",
+      "evidenceNote": "Parker's framework is practitioner interpretation drawn from facilitation cases, not controlled evidence that a particular format causes connection. The ideas about purpose, host authority and thresholds are accurately attributable and operationally testable; their effects are context-dependent. Culture, disability, trauma, hierarchy, group size and whether participation is voluntary change what safe participation requires. Treat the examples as design hypotheses, not universal prescriptions.",
+      "accent": "purple",
+      "quizRevision": "2026-08-21-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Let purpose choose the form",
+          "argument": [
+            "Parker argues that familiar labels such as meeting, dinner, conference or birthday can smuggle in a complete format before anyone asks why the people should gather. The result may be competently organised yet unable to meet the need that justified bringing people together.",
+            "She recommends finding a specific, disputable purpose, then using it to decide whom to invite, where to meet, how people participate and what to leave out. A purpose such as reviewing progress is too broad; identifying the decision, relationship or transition that needs attention gives the host something that can shape the event."
+          ],
+          "extension": "Write the human change or decision the gathering should make possible before choosing the agenda. Use that sentence as a filter: every person, activity and constraint must help the purpose or earn an explicit exception.",
+          "image": "../assets/lesson-visuals/gathering-purpose-filter.svg",
+          "imageAlt": "A familiar event package of venue, agenda and habit passes through a specific-purpose filter, which then shapes the people, form and invitation of a designed gathering.",
+          "imageCaption": "Purpose is a design constraint: it selects the form instead of decorating a default format.",
+          "why": "Without a purpose strong enough to make choices, agendas accumulate inherited activities and participants cannot tell what their presence is meant to contribute. A sharper purpose makes inclusion, preparation and success discussable.",
+          "apply": [
+            "Choose one upcoming meeting or social event and finish this sentence: We are gathering so that this group can...",
+            "Test each planned activity against that sentence. Remove, replace or shorten one element that serves convention more than purpose."
+          ],
+          "caveat": "A sharp purpose can become a pretext for excluding inconvenient people or predetermining the outcome. Check who defines the purpose, whose interests it serves and whether affected people need representation even when their presence complicates the format.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which planning sequence best represents Parker's purpose-first argument?",
+              "options": [
+                "Choose the familiar event format, then add activities that feel more personal.",
+                "Define a specific purpose first, then let it govern the format and invitation.",
+                "Invite the broadest possible group first, then discover the purpose together.",
+                "Start with venue and timing because constraints reveal what the gathering can mean."
+              ],
+              "correctIndex": 1,
+              "feedback": "Parker treats purpose as the constraint that should shape the guest list, setting, invitation and agenda. Logistics still matter, but they follow a clear account of why these people need to gather.",
+              "feedbackByOption": [
+                "A familiar format can carry assumptions that have nothing to do with the present need. Personal touches do not repair a purpose mismatch.",
+                "Correct. A specific purpose supplies the test that the form, people and invitation must pass.",
+                "Broad participation can be valuable, but choosing it before the purpose may produce a group unable to do the gathering's work.",
+                "Constraints can inspire design, yet letting logistics define meaning reverses Parker's sequence. Purpose should explain which constraints matter."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A weekly project meeting covers every status item but resolves nothing. What is the strongest redesign?",
+              "options": [
+                "Keep the status agenda and shorten every speaker's update to protect the timebox.",
+                "Move to a more informal room so participants feel comfortable raising concerns.",
+                "Name the decision the group must make, then invite and structure around that purpose.",
+                "Add a retrospective round so everyone can discuss why previous meetings felt slow."
+              ],
+              "correctIndex": 2,
+              "feedback": "A decision-specific purpose changes who needs to attend, what information is prepared and how time is used. Timeboxes, setting and reflection can help, but they do not replace a reason for gathering.",
+              "feedbackByOption": [
+                "Shorter updates make the existing format more efficient but may preserve the mismatch between reporting and deciding.",
+                "A different room may change tone, yet comfort alone does not identify the work that needs collective attention.",
+                "Correct. The named decision becomes a filter for attendance, preparation and the meeting sequence.",
+                "Reflection may reveal useful evidence, but adding another round to a purposeless agenda can deepen the same problem."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Practise generous authority",
+          "argument": [
+            "Parker rejects the idea that a generous host should simply step back and let the gathering run itself. Every gathering already contains power: someone chose the people, time, place and acceptable behaviour. When the host refuses to use that authority, dominant guests, inherited status and unclear norms often take over.",
+            "Her alternative is generous authority: use the host's power for the good of the group and its purpose. She describes three responsibilities in particular: protect guests from harmful or monopolising behaviour, connect them to one another and temporarily equalise participation where ordinary hierarchy would otherwise decide whose voice counts."
+          ],
+          "extension": "Before the gathering, name one predictable participation risk and one visible host intervention. Explain the boundary early enough that guests know how the host will protect the purpose and what choice they retain.",
+          "image": "../assets/lesson-visuals/gathering-generous-authority.svg",
+          "imageAlt": "A host uses purpose as the centre of authority, directing three clear responsibilities outward: protect guests, connect guests and temporarily equalise participation.",
+          "imageCaption": "Generous authority is active stewardship of the group's purpose, not control for the host's comfort.",
+          "why": "Silence from the host does not create neutrality. It can leave quieter participants to manage interruption, insiders to cluster together and formal rank to determine the conversation. Visible stewardship makes responsibility inspectable.",
+          "apply": [
+            "For one upcoming gathering, predict where one person, role or topic could crowd out the rest of the group.",
+            "Write a proportionate intervention, such as a turn-taking rule, a direct introduction or a stated boundary, and decide how you will explain its purpose."
+          ],
+          "caveat": "Authority described as generous can still be coercive, culturally narrow or self-serving. A host should not force disclosure, manufacture false equality or silence legitimate disagreement. State boundaries, offer meaningful ways to decline and remain open to challenge from the people affected.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What distinguishes generous authority from either control or host withdrawal?",
+              "options": [
+                "The host avoids intervention unless guests formally request a change in the rules.",
+                "The host controls discussion tightly enough that conflict cannot interrupt the plan.",
+                "The host delegates authority to the most experienced guests for the entire event.",
+                "The host uses visible power to protect, connect and equalise in service of purpose."
+              ],
+              "correctIndex": 3,
+              "feedback": "Generous authority is neither abdication nor control for its own sake. The host acts transparently to help the group achieve its purpose by protecting participation, building connection and limiting the automatic effects of status.",
+              "feedbackByOption": [
+                "Waiting for a formal request can make participants bear the cost of correcting behaviour that the host allowed to dominate.",
+                "Conflict can serve a gathering's purpose. Generous authority manages conditions for useful participation rather than eliminating disagreement.",
+                "Experience can help, but handing the gathering to insiders may intensify the hierarchy that temporary equalisation is meant to interrupt.",
+                "Correct. The authority is active, visible and justified by the group's purpose rather than the host's preference."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "During a workshop, a senior participant answers every question before others can speak. What should the host do?",
+              "options": [
+                "Let the pattern continue because interrupting a senior guest would make the host less neutral.",
+                "Name the participation problem and introduce a turn structure that serves the workshop's purpose.",
+                "Ask quieter participants privately to speak faster before the senior person enters the discussion.",
+                "Remove the senior participant immediately so the rest of the group can contribute freely."
+              ],
+              "correctIndex": 1,
+              "feedback": "The host should own the intervention and connect it to the group's work. A proportionate turn structure protects participation without pretending status is absent or escalating straight to exclusion.",
+              "feedbackByOption": [
+                "Non-intervention is not neutral when one person's status is already controlling access to the conversation.",
+                "Correct. A visible, purpose-linked structure uses host authority to protect and temporarily equalise participation.",
+                "This transfers the burden to quieter participants and leaves the host's responsibility and the status dynamic untouched.",
+                "Removal may be necessary after serious or repeated harm, but it is disproportionate before a clear boundary and workable structure are tried."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Design the thresholds",
+          "argument": [
+            "Parker treats a gathering as a temporary world with thresholds, not just a block of scheduled content. Preparation and invitation help people leave ordinary roles behind; the opening establishes why this group is here and how it will be together. Starting with housekeeping spends the moment of greatest attention on logistics instead of entry.",
+            "The ending deserves equal design. A strong close helps participants notice what happened, acknowledge the temporary world is ending and carry something back into ordinary life. Allowing the gathering to dissolve into departures and practical notices can waste the meaning the group created."
+          ],
+          "extension": "Give the first and final minutes explicit jobs. Open by naming the purpose and inviting the form of participation it needs; close by helping people reflect, choose what travels with them and recognise that the shared time is complete.",
+          "image": "../assets/lesson-visuals/gathering-thresholds.svg",
+          "imageAlt": "A deliberate path moves from ordinary life through invitation, opening and a temporary shared world, then through an intentional close back to ordinary life with one thing carried forward.",
+          "imageCaption": "Entry and exit turn scheduled time into a bounded shared experience with a meaningful return.",
+          "why": "Attention and emotion do not automatically align with the calendar. Clear thresholds reduce uncertainty at the start and keep the gathering's final impression from becoming a rush of logistics or scattered departures.",
+          "apply": [
+            "Write the first sentence for one upcoming gathering so it names why these people are here before giving logistics.",
+            "Write one closing prompt that asks participants to identify a decision, connection or insight they will carry out of the room."
+          ],
+          "caveat": "Ritualised openings or reflective endings can feel manipulative, compulsory or culturally unfamiliar. Keep participation proportionate, explain unusual forms, provide accessible alternatives and let people leave safely without turning the close into a loyalty test.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Parker treat openings and endings as thresholds rather than logistics?",
+              "options": [
+                "They help people enter a temporary shared world and return with meaning made visible.",
+                "They give the host time to explain every rule before informal interaction can begin.",
+                "They separate important guests from late arrivals and people who need to leave early.",
+                "They keep the emotional tone consistent so disagreement does not disrupt the gathering."
+              ],
+              "correctIndex": 0,
+              "feedback": "Thresholds mark movement into and out of a bounded social experience. They orient participation at the start and help the group recognise and carry meaning at the end; they are not tools for status sorting or emotional control.",
+              "feedbackByOption": [
+                "Correct. Deliberate entry and exit frame the shared world and connect it back to ordinary life.",
+                "Some guidance may be needed, but front-loading every rule can bury the purpose and exhaust the opening's attention.",
+                "Thresholds should orient the group, not rank people by status or punish those with access and caring constraints.",
+                "A gathering can include useful disagreement. The threshold clarifies purpose and transition rather than enforcing one mood."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A community discussion ends with people packing up while the organiser reads parking notices. Which change best applies threshold design?",
+              "options": [
+                "Move the notices to the opening so every participant hears them before discussion starts.",
+                "Extend the discussion until participants naturally become quiet and ready to leave.",
+                "Email a full transcript later so participants can decide privately what the event meant.",
+                "Reserve a closing minute for reflection and a next step, then send logistics separately."
+              ],
+              "correctIndex": 3,
+              "feedback": "An intentional close helps the group recognise what happened and what follows. Moving practical notices outside that moment protects the exit without pretending every participant will take away the same meaning.",
+              "feedbackByOption": [
+                "Moving all logistics to the opening still spends a high-attention threshold on administration rather than entry into purpose.",
+                "Waiting for energy to disappear is the same unplanned dissolution. A close should arrive while attention can still make meaning.",
+                "A transcript can support recall, but private reading cannot replace the group's shared recognition that the gathering is ending.",
+                "Correct. The reserved close marks completion and outward movement, while separate logistics avoid diluting it."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Redesign one real gathering on paper",
+        "steps": [
+          "Choose one gathering in the next seven days and write a specific purpose beginning: We are gathering so that...",
+          "Circle the people and one activity essential to that purpose, then cross out one inherited element that does not help it.",
+          "Write one host intervention that will protect, connect or temporarily equalise participation, including how you will explain it.",
+          "Draft the first purpose-setting sentence and one final question that helps people carry something outward."
+        ],
+        "result": "You finish with a one-page gathering design containing a purpose, a deliberate inclusion choice, a transparent host intervention and clear entry and exit lines."
+      },
+      "spacedRecall": [
+        "From The Good Life: what qualities distinguish dependable connection from a large contact list?",
+        "From Working Identity: how could a new social setting let someone test a possible self through action rather than private reflection?"
+      ],
+      "takeaway": "A meaningful gathering is not a polished container; it is a purpose-built temporary world that a responsible host helps people enter, inhabit and leave well.",
+      "sources": [
+        {
+          "label": "Penguin Random House: The Art of Gathering editions and official description",
+          "url": "https://www.penguinrandomhouse.com/books/319055/the-art-of-gathering-by-priya-parker/"
+        },
+        {
+          "label": "Priya Parker: The New Rules of Gathering",
+          "url": "https://www.priyaparker.com/the-new-rules-of-gathering"
+        },
+        {
+          "label": "TED: Priya Parker on purpose, rules and generous authority",
+          "url": "https://www.ted.com/podcasts/www.ted.com/podcasts/throwing-good-parties-and-building-community-transcript"
+        },
+        {
+          "label": "Federal Judicial Center: Priya Parker on generous authority",
+          "url": "https://www.fjc.gov/sites/default/files/Transcript_In-Session-36.pdf"
+        }
+      ]
+    },
+    {
       "slug": "algorithms-to-live-by",
       "discussionId": "algorithms-to-live-by-christian-griffiths",
       "date": "2026-08-20",
