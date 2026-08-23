@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="release-propagation-title release-propagation-desc">
+  <title id="release-propagation-title">Isolation stops a slow dependency from exhausting healthy work</title>
+  <desc id="release-propagation-desc">The left panel shows checkout and reporting sharing one finite caller pool while a slow reporting dependency fills every slot and blocks checkout. The right panel gives checkout and reporting separate pools, so reporting degrades inside its boundary while checkout retains capacity.</desc>
+  <defs>
+    <marker id="release-propagation-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="54" y="34" width="470" height="62" rx="31" fill="#f5c79d" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="289" y="74" text-anchor="middle">SHARED FAILURE CAPACITY</text>
+  <rect x="676" y="34" width="470" height="62" rx="31" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="911" y="74" text-anchor="middle">ISOLATED FAILURE CAPACITY</text>
+  <line x1="600" y1="34" x2="600" y2="712" stroke="#18211d" stroke-width="3" stroke-dasharray="10 12"/>
+
+  <rect class="card" x="44" y="150" width="170" height="102" rx="20" fill="#b8d5e5"/>
+  <text class="heading" x="129" y="194" text-anchor="middle">CHECKOUT</text>
+  <text class="body" x="129" y="228" text-anchor="middle">healthy work</text>
+  <rect class="card" x="44" y="340" width="170" height="102" rx="20" fill="#e9d17f"/>
+  <text class="heading" x="129" y="384" text-anchor="middle">REPORTS</text>
+  <text class="body" x="129" y="418" text-anchor="middle">slow calls</text>
+  <path class="line" d="M214 201H272" marker-end="url(#release-propagation-arrow)"/>
+  <path class="line" d="M214 391H244V292H272" marker-end="url(#release-propagation-arrow)"/>
+  <rect class="card" x="276" y="190" width="178" height="240" rx="24" fill="#fffdf8"/>
+  <text class="small" x="365" y="230" text-anchor="middle">SHARED POOL</text>
+  <rect x="310" y="258" width="48" height="62" rx="8" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <rect x="372" y="258" width="48" height="62" rx="8" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <rect x="310" y="334" width="48" height="62" rx="8" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <rect x="372" y="334" width="48" height="62" rx="8" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="365" y="465" text-anchor="middle">ALL SLOTS WAIT</text>
+  <path class="line" d="M454 310H500" marker-end="url(#release-propagation-arrow)"/>
+  <rect class="card" x="498" y="218" width="78" height="184" rx="20" fill="#f3a8a0"/>
+  <text class="small" x="537" y="278" text-anchor="middle" transform="rotate(90 537 278)">SLOW DEPENDENCY</text>
+  <rect x="64" y="522" width="492" height="118" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="310" y="566" text-anchor="middle">ONE POOL, WIDER FAILURE</text>
+  <text class="body" x="310" y="606" text-anchor="middle">Checkout cannot obtain a free slot</text>
+
+  <rect class="card" x="632" y="150" width="170" height="102" rx="20" fill="#b8d5e5"/>
+  <text class="heading" x="717" y="194" text-anchor="middle">CHECKOUT</text>
+  <text class="body" x="717" y="228" text-anchor="middle">healthy work</text>
+  <rect class="card" x="632" y="368" width="170" height="102" rx="20" fill="#e9d17f"/>
+  <text class="heading" x="717" y="412" text-anchor="middle">REPORTS</text>
+  <text class="body" x="717" y="446" text-anchor="middle">slow calls</text>
+  <path class="line" d="M802 201H850" marker-end="url(#release-propagation-arrow)"/>
+  <path class="line" d="M802 419H850" marker-end="url(#release-propagation-arrow)"/>
+  <rect class="card" x="854" y="136" width="174" height="154" rx="22" fill="#fffdf8"/>
+  <text class="small" x="941" y="176" text-anchor="middle">CHECKOUT</text>
+  <rect x="878" y="202" width="38" height="54" rx="7" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <rect x="926" y="202" width="38" height="54" rx="7" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <rect x="974" y="202" width="38" height="54" rx="7" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <rect class="card" x="854" y="354" width="174" height="154" rx="22" fill="#fffdf8"/>
+  <text class="small" x="941" y="394" text-anchor="middle">REPORTS</text>
+  <rect x="878" y="420" width="58" height="54" rx="7" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <rect x="950" y="420" width="58" height="54" rx="7" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <path class="line" d="M1028 431H1072" marker-end="url(#release-propagation-arrow)"/>
+  <rect class="card" x="1070" y="338" width="86" height="186" rx="20" fill="#f3a8a0"/>
+  <text class="small" x="1113" y="402" text-anchor="middle" transform="rotate(90 1113 402)">SLOW DEPENDENCY</text>
+  <rect x="650" y="560" width="486" height="118" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="893" y="604" text-anchor="middle">BOUNDARY STOPS THE CRACK</text>
+  <text class="body" x="893" y="644" text-anchor="middle">Reports degrade; checkout keeps capacity</text>
+</svg>

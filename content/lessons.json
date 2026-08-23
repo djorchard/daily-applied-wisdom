@@ -1,6 +1,235 @@
 {
   "lessons": [
     {
+      "slug": "release-it",
+      "discussionId": "release-it-michael-nygard",
+      "date": "2026-08-24",
+      "dateLabel": "24 August 2026",
+      "edition": "Daily lesson",
+      "title": "Release It!",
+      "authors": "Michael T. Nygard",
+      "year": "2007 · second edition 2018",
+      "category": "Software engineering · Production reliability · Distributed systems",
+      "summary": "Keep a local fault from becoming a system-wide outage by making integration risks visible, combining stability patterns deliberately and treating production behaviour as part of the design.",
+      "evidenceNote": "Nygard's stability patterns are durable practitioner mechanisms grounded in production cases, not controlled evidence that one pattern guarantees a reliability outcome. The claims about remote-call failure, resource exhaustion and failure propagation are technically well established, while thresholds, isolation boundaries and fallback choices are context-dependent. The second edition updates the production environment for cloud, containers and service-heavy systems, but implementation details still need current platform guidance and measured workload evidence.",
+      "accent": "blue",
+      "quizRevision": "2026-08-24-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Stop cracks at integration boundaries",
+          "argument": [
+            "Nygard argues that production failures often spread through integration points. A remote call can be slow, fail partially or leave its outcome uncertain. While callers wait, they hold threads, connections, memory or queue capacity; enough waiting work can exhaust the caller and carry the failure into otherwise healthy parts of the system.",
+            "The useful unit of analysis is therefore not only the component that first breaks, but the chain that can amplify the fault. Stable systems make dependencies and finite resources explicit, then arrange for a failing or overloaded component to be cut off before it consumes every caller that depends on it."
+          ],
+          "extension": "For one critical dependency, trace the failure path in both directions: what the caller holds while waiting, what load repeated calls add to the supplier and which user outcome is still possible when the call cannot complete.",
+          "image": "../assets/lesson-visuals/release-it-failure-propagation.svg",
+          "imageAlt": "A slow remote dependency causes waiting calls to consume a finite caller resource pool and threatens other healthy work, while an isolation boundary stops the crack before it crosses into the rest of the service.",
+          "imageCaption": "The first fault is not always the outage; the outage grows when waiting work carries the fault across a finite resource pool.",
+          "why": "Teams that inspect only the failing dependency may restart it without removing the amplification path. Seeing held resources, retries and shared pools exposes how a partial failure can become a cascade and where a boundary can protect useful work.",
+          "apply": [
+            "Choose one outbound database, HTTP, queue or file-system call on a user-critical path.",
+            "Write what the caller holds while waiting, the maximum useful wait and what other work shares those resources.",
+            "Name the smallest boundary that could stop this dependency from exhausting unrelated work."
+          ],
+          "caveat": "Isolation can move pressure rather than remove it. Rejecting work, filling a queue or serving stale data still has a user and operational cost. Trace displaced load and make the degraded outcome explicit instead of labelling every fast failure resilient.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which explanation best captures how one slow dependency can create a cascading failure?",
+              "options": [
+                "The dependency returns incorrect data, so every caller repeats the same business decision.",
+                "The dependency changes its interface, so callers fail compilation during the next deployment.",
+                "Waiting calls hold finite caller resources until healthy work can no longer obtain them.",
+                "Monitoring records extra latency, so alert processing consumes the dependency's remaining capacity."
+              ],
+              "correctIndex": 2,
+              "feedback": "Nygard focuses on the amplification path: slow or failed calls can retain threads, connections and queue space until the caller fails too. The original fault matters, but the shared finite resource is what carries it outward.",
+              "feedbackByOption": [
+                "Incorrect data can cause harm, but this option does not describe the resource-exhaustion cascade at an integration point.",
+                "A breaking interface is a delivery problem. The production cascade occurs when live callers keep resources tied up behind a slow or unavailable supplier.",
+                "Correct. Held threads, connections or queue slots let a slow dependency consume the caller's finite capacity and block healthy work.",
+                "Alerting has a cost, but observability is not the primary mechanism here. Waiting production work exhausts the caller's shared resources."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A reporting API slows down and now checkout requests are also timing out because both workloads share one connection pool. What is the strongest first design move?",
+              "options": [
+                "Increase the shared pool so both workloads can wait longer before requests are rejected.",
+                "Isolate reporting capacity from checkout and define a bounded degraded result for reports.",
+                "Retry every reporting call immediately so transient failures clear before users notice them.",
+                "Disable checkout monitoring so the reporting incident produces fewer simultaneous alerts."
+              ],
+              "correctIndex": 1,
+              "feedback": "A separate resource boundary prevents the lower-priority reporting path from consuming checkout's capacity. The degraded reporting result still needs an explicit user and recovery plan; isolation is not a claim that the report succeeded.",
+              "feedbackByOption": [
+                "A larger shared pool can delay exhaustion while increasing pressure on the same slow dependency. It preserves the coupling between reporting and checkout.",
+                "Correct. Separate capacity limits the blast radius, and a bounded degraded response makes the cost of isolation visible.",
+                "Immediate retries add load during the failure and can accelerate the same exhaustion unless they are bounded and coordinated.",
+                "Removing monitoring hides evidence without changing the shared pool or protecting checkout capacity."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Give each stability pattern one job",
+          "argument": [
+            "Nygard presents stability patterns as a set of cooperating controls rather than one magic wrapper. A timeout limits how long an attempt may consume resources. A circuit breaker stops sending calls that are likely to fail and later allows controlled probes. A bulkhead partitions capacity so one damaged dependency or workload cannot consume everything.",
+            "The patterns answer different questions: how long will this attempt wait, when should repeated attempts stop and which work is allowed to share failure capacity? Combining them around an explicit failure policy can reduce propagation while preserving a route to recovery."
+          ],
+          "extension": "Write the dependency policy as three separate decisions: an attempt budget, a breaker rule with observable states and a resource boundary. Then state what the caller does when any control refuses the call.",
+          "image": "../assets/lesson-visuals/release-it-stability-patterns.svg",
+          "imageAlt": "Three coordinated controls protect a remote call: a timeout bounds one attempt, a circuit breaker stops repeated likely failures and a bulkhead limits the capacity the dependency may consume.",
+          "imageCaption": "Timeout, circuit breaker and bulkhead protect different dimensions of the same dependency failure.",
+          "why": "Treating all failures as retries or all resilience as a circuit breaker leaves gaps. A breaker without a useful fallback only changes the error's speed; a timeout without isolation can still let many simultaneous waits consume the pool; a bulkhead without signals can fail silently.",
+          "apply": [
+            "For the dependency from Idea 1, write the useful deadline for one attempt and how cancellation reaches the underlying work.",
+            "Define which outcomes count toward opening a breaker, when a trial request is safe and which signal records every state change.",
+            "Allocate a pool, concurrency limit or queue boundary that preserves capacity for unrelated work."
+          ],
+          "caveat": "Thresholds copied from a library default can oscillate, reject healthy work or hide a slow recovery. Fallbacks can return unsafe or stale answers. Tune from service objectives and observed distributions, test the open and recovery paths, and distinguish business rejection from technical failure.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which mapping assigns the three stability patterns to their primary jobs?",
+              "options": [
+                "Timeout bounds one wait; circuit breaker suppresses likely failures; bulkhead partitions capacity.",
+                "Timeout partitions capacity; circuit breaker bounds one wait; bulkhead retries failed calls.",
+                "Timeout detects bad data; circuit breaker allocates threads; bulkhead restores a dependency.",
+                "Timeout provides fallback data; circuit breaker logs latency; bulkhead cancels one request."
+              ],
+              "correctIndex": 0,
+              "feedback": "The controls are complementary. Timeouts bound individual waiting, breakers stop repeated calls during an unhealthy period and bulkheads keep failure capacity from being shared without limit.",
+              "feedbackByOption": [
+                "Correct. Each pattern controls a different route by which dependency failure can consume the caller.",
+                "The jobs are misplaced. A bulkhead isolates resources, while a timeout bounds an attempt and a breaker suppresses repeated calls.",
+                "These patterns do not validate business data or restore a supplier. They manage waiting, repeated calls and shared capacity.",
+                "Fallback, logging and cancellation matter, but they are policies or implementation details rather than the primary mapping of the three patterns."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A payment client has a two-second timeout, yet a supplier outage still consumes every request thread with simultaneous waits. Which addition addresses the missing control most directly?",
+              "options": [
+                "Raise the timeout so fewer attempts are cancelled while the supplier recovers.",
+                "Cache every payment response so live supplier calls are no longer required.",
+                "Retry timed-out payments on the same request threads with a fixed short delay.",
+                "Add an isolated concurrency limit and a breaker with an explicit refusal path."
+              ],
+              "correctIndex": 3,
+              "feedback": "The timeout bounds each wait but not the number of simultaneous waits or repeated calls. Isolation limits concurrent resource use, and the breaker stops sending work during a known unhealthy period; the refusal path must preserve payment correctness.",
+              "feedbackByOption": [
+                "A longer timeout keeps threads occupied for more time and does not limit concurrency, so it can worsen the resource problem.",
+                "Payment results often have correctness and freshness constraints. Universal caching is not a safe substitute for an explicit failure policy.",
+                "Retries on the same finite pool add work while the supplier is unhealthy and still leave concurrency unbounded.",
+                "Correct. The concurrency boundary protects the caller's pool, while the breaker suppresses likely failures and makes refusal explicit."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Make production behaviour part of the design",
+          "argument": [
+            "Release It! widens software design beyond functional code. A production-ready system must reveal what it is doing, accept controlled configuration, survive version overlap and deployment, and provide operators with signals and controls before the first serious incident.",
+            "Nygard's second edition moves from processes and networks through interconnects and the control plane, then into deployment and systemic adaptation. The recurring point is that production is not a final environment where finished code is placed; its topology, demand, operations and feedback are design inputs."
+          ],
+          "extension": "Add an operability slice to feature design: name the runtime signal, safe control, version-overlap condition and degraded user outcome that let people understand and change the feature while it is live.",
+          "image": "../assets/lesson-visuals/release-it-production-feedback.svg",
+          "imageAlt": "A feature moves through deployment into live demand, where runtime signals and safe controls feed evidence back into the next design decision instead of leaving production outside the design loop.",
+          "imageCaption": "Production readiness closes the loop between design intent, live behaviour, human control and the next change.",
+          "why": "A feature can pass its functional tests and still be impossible to diagnose, throttle, roll back or run beside an older version. Designing the operational feedback path early turns an outage from blind improvisation into a bounded decision with evidence.",
+          "apply": [
+            "Choose one feature approaching release and name the user-visible success signal plus one early warning of degradation.",
+            "Write the safest live control available to an operator, such as a rate limit, feature switch, breaker or rollback, including who may use it.",
+            "State how old and new versions coexist during deployment and what a user receives if the dependency path is unavailable."
+          ],
+          "caveat": "More dashboards, flags and controls can create their own complexity, privilege risks and stale configuration. Prefer a small tested control surface tied to real decisions, assign ownership and remove temporary mechanisms after they stop earning their cost.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What most clearly distinguishes production-ready design from merely functionally correct code?",
+              "options": [
+                "It uses a distributed architecture so every component can be deployed independently.",
+                "It removes operator intervention by automating every response to abnormal behaviour.",
+                "It delays configuration choices until deployment reveals the available infrastructure.",
+                "It includes runtime visibility, controlled change and degraded behaviour in the design."
+              ],
+              "correctIndex": 3,
+              "feedback": "Nygard treats topology, deployment, version coexistence, signals and operational controls as software design concerns. A particular architecture or total automation does not by itself make the system diagnosable or safely changeable.",
+              "feedbackByOption": [
+                "Independent deployment can help, but distributed systems also add failure modes. Architecture style alone does not provide production readiness.",
+                "Automation needs observable limits and human control. Removing every intervention can turn a faulty rule into a faster incident.",
+                "Infrastructure evidence matters, but postponing every decision can leave the feature without tested configuration and failure behaviour.",
+                "Correct. Production-ready design makes live state visible, change controllable and failure outcomes explicit before release."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A new search feature passes tests, but the team cannot tell whether slow results come from demand, a dependency or the new version. What should the release plan add first?",
+              "options": [
+                "Add user-outcome and dependency signals by version, plus a tested throttle or rollback control.",
+                "Increase every dependency timeout so the feature has more time to return complete results.",
+                "Deploy to all instances together so version differences cannot complicate diagnosis.",
+                "Record only application exceptions because successful requests do not help incident analysis."
+              ],
+              "correctIndex": 0,
+              "feedback": "Versioned outcome and dependency signals separate demand, integration and deployment hypotheses. A tested control then gives the team a bounded response while it learns; neither a longer wait nor an all-at-once deployment creates that evidence.",
+              "feedbackByOption": [
+                "Correct. Decision-shaped signals reveal where degradation lives, and a tested control makes the live response safer.",
+                "Longer timeouts can retain resources and mask the source of latency. They add waiting without diagnostic separation.",
+                "An all-at-once release removes comparison and increases blast radius. Version coexistence should be designed and observable.",
+                "Exceptions miss slow successes, saturation and changed user outcomes. Production evidence needs more than failures that throw."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Write one dependency isolation contract",
+        "steps": [
+          "Pick one remote dependency on a user-critical path and draw the caller, its finite resource pool and the supplier.",
+          "Write the useful attempt deadline, the breaker condition and the bulkhead or concurrency boundary beside the connection.",
+          "Add the exact degraded user outcome and one signal for waiting, breaker state or rejected work.",
+          "Circle the assumption you have not measured and name the smallest failure test that could check it."
+        ],
+        "result": "You finish with a one-page dependency contract that shows the failure path, three distinct controls, the user-visible degraded outcome and one assumption to test."
+      },
+      "spacedRecall": [
+        "From Site Reliability Engineering: what decision does an error budget make possible when reliability is within its objective?",
+        "From Designing Data-Intensive Applications: after a remote timeout, which outcomes remain possible from the caller's point of view?",
+        "From Thinking in Systems: how could a reinforcing loop turn a small latency increase into a larger capacity problem?"
+      ],
+      "takeaway": "Production-ready software makes failure propagation visible, gives each stability control a clear job and closes the loop between live evidence and the next design decision.",
+      "sources": [
+        {
+          "label": "O'Reilly Learning: Release It! second edition details and contents",
+          "url": "https://www.oreilly.com/library/view/release-it-2nd/9781680504552/f_0001.xhtml"
+        },
+        {
+          "label": "Michael T. Nygard: Availability and Stability",
+          "url": "https://www.michaelnygard.com/blog/2016/11/availability-and-stability/"
+        },
+        {
+          "label": "Michael T. Nygard: why the second edition changed",
+          "url": "https://www.michaelnygard.com/blog/2017/08/release-it-second-edition-in-beta/"
+        },
+        {
+          "label": "Martin Fowler: Circuit Breaker mechanism and operational caveats",
+          "url": "https://martinfowler.com/bliki/CircuitBreaker.html"
+        }
+      ]
+    },
+    {
       "slug": "the-art-of-gathering",
       "discussionId": "the-art-of-gathering-priya-parker",
       "date": "2026-08-21",

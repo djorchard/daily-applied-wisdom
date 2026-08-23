@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="release-production-title release-production-desc">
+  <title id="release-production-title">Production evidence and controls form a design feedback loop</title>
+  <desc id="release-production-desc">A clockwise loop connects design intent, versioned deployment, live demand, outcome and dependency signals, a safe control, and a measured next change. User outcome sits at the centre, showing that production is a design input rather than a final destination.</desc>
+  <defs>
+    <marker id="release-production-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 28px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="348" y="28" width="504" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">PRODUCTION IS A DESIGN INPUT</text>
+
+  <path class="line" d="M342 204H426" marker-end="url(#release-production-arrow)"/>
+  <path class="line" d="M774 204H858" marker-end="url(#release-production-arrow)"/>
+  <path class="line" d="M1034 294V432" marker-end="url(#release-production-arrow)"/>
+  <path class="line" d="M858 534H774" marker-end="url(#release-production-arrow)"/>
+  <path class="line" d="M426 534H342" marker-end="url(#release-production-arrow)"/>
+  <path class="line" d="M166 432V294" marker-end="url(#release-production-arrow)"/>
+
+  <rect class="card" x="76" y="126" width="266" height="168" rx="24" fill="#d8cce8"/>
+  <text class="heading" x="209" y="176" text-anchor="middle">DESIGN INTENT</text>
+  <text class="body" x="209" y="220" text-anchor="middle">success + degraded</text>
+  <text class="small" x="209" y="258" text-anchor="middle">DEFINE OUTCOMES</text>
+
+  <rect class="card" x="426" y="126" width="348" height="168" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="600" y="176" text-anchor="middle">SAFE DEPLOYMENT</text>
+  <text class="body" x="600" y="220" text-anchor="middle">versions coexist</text>
+  <text class="small" x="600" y="258" text-anchor="middle">LIMIT THE BLAST RADIUS</text>
+
+  <rect class="card" x="858" y="126" width="266" height="168" rx="24" fill="#e9d17f"/>
+  <text class="heading" x="991" y="176" text-anchor="middle">LIVE DEMAND</text>
+  <text class="body" x="991" y="220" text-anchor="middle">load + faults</text>
+  <text class="small" x="991" y="258" text-anchor="middle">REAL CONDITIONS</text>
+
+  <rect class="card" x="858" y="432" width="266" height="190" rx="24" fill="#f5c79d"/>
+  <text class="heading" x="991" y="480" text-anchor="middle">SIGNALS</text>
+  <text class="body" x="991" y="522" text-anchor="middle">user outcomes</text>
+  <text class="body" x="991" y="558" text-anchor="middle">dependency state</text>
+  <text class="small" x="991" y="598" text-anchor="middle">SEPARATE CAUSES</text>
+
+  <rect class="card" x="426" y="448" width="348" height="158" rx="24" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="494" text-anchor="middle">SAFE CONTROL</text>
+  <text class="body" x="600" y="536" text-anchor="middle">throttle · isolate · rollback</text>
+  <text class="small" x="600" y="576" text-anchor="middle">BOUNDED HUMAN DECISION</text>
+
+  <rect class="card" x="76" y="432" width="266" height="190" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="209" y="480" text-anchor="middle">NEXT CHANGE</text>
+  <text class="body" x="209" y="522" text-anchor="middle">measured correction</text>
+  <text class="body" x="209" y="558" text-anchor="middle">remove stale controls</text>
+  <text class="small" x="209" y="598" text-anchor="middle">CLOSE THE LOOP</text>
+
+  <rect x="408" y="326" width="384" height="96" rx="48" fill="#fffdf8" stroke="#18211d" stroke-width="5"/>
+  <text class="small" x="600" y="362" text-anchor="middle">CENTRE THE USER OUTCOME</text>
+  <text class="body" x="600" y="398" text-anchor="middle">not component health alone</text>
+  <rect x="288" y="666" width="624" height="60" rx="30" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="704" text-anchor="middle" font-weight="700">OBSERVE, CONTROL, LEARN, REDESIGN</text>
+</svg>
