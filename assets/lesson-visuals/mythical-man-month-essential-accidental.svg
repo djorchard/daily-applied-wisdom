@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="mmm-complexity-title mmm-complexity-desc">
+  <title id="mmm-complexity-title">Diagnose the kind of difficulty before choosing the intervention</title>
+  <desc id="mmm-complexity-desc">A software bottleneck reaches a diagnostic fork. Repeated transformations, build friction and known checks follow the accidental-difficulty path to tools and automation. Unclear rules, unresolved trade-offs and disputed models follow the essential-difficulty path to examples, prototypes and accountable decisions. Both paths rejoin at a measured delivery change.</desc>
+  <defs>
+    <marker id="mmm-complexity-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="346" y="28" width="508" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">DIAGNOSE BEFORE YOU ACCELERATE</text>
+  <rect class="card" x="370" y="120" width="460" height="104" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="600" y="164" text-anchor="middle">SOFTWARE BOTTLENECK</text>
+  <text class="body" x="600" y="204" text-anchor="middle">What kind of difficulty is this?</text>
+  <path class="line" d="M544 224C480 268 380 278 306 304" marker-end="url(#mmm-complexity-arrow)"/>
+  <path class="line" d="M656 224C720 268 820 278 894 304" marker-end="url(#mmm-complexity-arrow)"/>
+
+  <rect class="card" x="56" y="308" width="500" height="266" rx="28" fill="#b8d5e5"/>
+  <text class="label" x="306" y="354" text-anchor="middle">ACCIDENTAL DIFFICULTY</text>
+  <text class="body" x="306" y="402" text-anchor="middle">repeated transformation</text>
+  <text class="body" x="306" y="440" text-anchor="middle">build or representation friction</text>
+  <text class="body" x="306" y="478" text-anchor="middle">known checks done by hand</text>
+  <rect x="130" y="508" width="352" height="74" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="heading" x="306" y="555" text-anchor="middle">TOOLS + AUTOMATION</text>
+
+  <rect class="card" x="644" y="308" width="500" height="266" rx="28" fill="#f5c79d"/>
+  <text class="label" x="894" y="354" text-anchor="middle">ESSENTIAL DIFFICULTY</text>
+  <text class="body" x="894" y="402" text-anchor="middle">rule or purpose unclear</text>
+  <text class="body" x="894" y="440" text-anchor="middle">trade-off still unresolved</text>
+  <text class="body" x="894" y="478" text-anchor="middle">model disputed by evidence</text>
+  <rect x="718" y="508" width="352" height="74" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="heading" x="894" y="555" text-anchor="middle">DISCOVER + DESIGN</text>
+
+  <path class="line" d="M306 582V628H500" marker-end="url(#mmm-complexity-arrow)"/>
+  <path class="line" d="M894 582V628H700" marker-end="url(#mmm-complexity-arrow)"/>
+  <rect class="card" x="442" y="612" width="316" height="112" rx="26" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="656" text-anchor="middle">MEASURED CHANGE</text>
+  <text class="body" x="600" y="696" text-anchor="middle">less toil or less uncertainty</text>
+  <rect x="24" y="640" width="392" height="60" rx="30" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="220" y="678" text-anchor="middle">REMOVE REPEATABLE FRICTION</text>
+  <rect x="784" y="640" width="392" height="60" rx="30" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="980" y="678" text-anchor="middle">REDUCE MODEL UNCERTAINTY</text>
+</svg>

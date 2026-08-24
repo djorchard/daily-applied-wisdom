@@ -1,6 +1,240 @@
 {
   "lessons": [
     {
+      "slug": "the-mythical-man-month",
+      "discussionId": "the-mythical-man-month-frederick-brooks",
+      "date": "2026-08-25",
+      "dateLabel": "25 August 2026",
+      "edition": "Daily lesson",
+      "title": "The Mythical Man-Month",
+      "authors": "Frederick P. Brooks Jr.",
+      "year": "1975 · 20th anniversary edition 1995",
+      "category": "Software engineering · Project coordination · System design",
+      "summary": "Treat schedule pressure as a coordination problem, protect a coherent design across many contributors and distinguish work that tools can remove from complexity the team still has to understand.",
+      "evidenceNote": "Brooks derives these essays mainly from leading IBM's System/360 and OS/360 work, so they are influential practitioner arguments and historical case evidence rather than universal laws. Communication and onboarding costs are technically credible and supported by later modelling and mixed empirical work, but the effect of adding people depends on timing, task structure and team conditions. Conceptual integrity is a durable design lens with context-dependent governance choices. The essential-versus-accidental complexity distinction is primarily analytical, and the original ten-year no-silver-bullet forecast is dated rather than a current prediction about AI or any specific tool.",
+      "accent": "orange",
+      "quizRevision": "2026-08-25-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "People and months are not interchangeable",
+          "argument": [
+            "Brooks argues that effort and elapsed time cannot be exchanged freely. Some work can be divided among independent contributors, but tightly connected software work also requires learning, sequencing and communication. When a project is already late, new people consume experienced teammates' time before they contribute and add more coordination paths to the group.",
+            "His famous staffing warning is therefore a mechanism, not magic arithmetic. The schedule response depends on how much work is safely partitionable, how long useful onboarding takes and whether the remaining work needs shared understanding. Treating every person-month as identical hides those conditions precisely when pressure is highest."
+          ],
+          "extension": "Before adding people to a late effort, split the remaining work into independent, sequential and high-coordination parts. Estimate the onboarding and communication load, then assign newcomers only where the calendar can absorb it and the interfaces are stable enough to preserve useful parallelism.",
+          "image": "../assets/lesson-visuals/mythical-man-month-coordination-cost.svg",
+          "imageAlt": "A comparison shows a divisible workstream gaining useful parallel capacity while a tightly coupled late project gains onboarding time and a denser communication network before new contributors can help.",
+          "imageCaption": "Extra capacity helps only after the work can be partitioned and the team can pay the learning and coordination costs.",
+          "why": "A headcount response can feel decisive while making the critical path longer. Exposing task dependencies, onboarding time and communication load gives leaders a better choice among narrowing scope, removing a blocker, stabilising an interface, pairing temporarily or adding genuinely independent capacity.",
+          "apply": [
+            "Choose one pressured delivery and list the remaining tasks under independent, sequential or shared-context work.",
+            "For one proposed new contributor, write who must teach them, when they could first change the critical path and which stable boundary lets them work independently.",
+            "Compare that plan with one non-staffing response such as reducing scope, removing a dependency or protecting the current team's focus."
+          ],
+          "caveat": "Adding people does not always make a project later. Early staffing, experienced contributors, modular work or a separate bottleneck can improve the date. Brooks's law is most useful as a warning against unexamined late staffing, not as a reason to deny help or overload a small team indefinitely.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which mechanism best explains Brooks's warning about adding people to a late software project?",
+              "options": [
+                "New contributors often prefer different tools, so the project must replace its entire technical stack.",
+                "Onboarding and extra coordination can consume time before added capacity changes the critical path.",
+                "Late projects always contain too little work for another contributor to complete independently.",
+                "Project estimates become invalid whenever the number of contributors changes after planning."
+              ],
+              "correctIndex": 1,
+              "feedback": "Brooks's mechanism combines learning, sequencing and communication costs. Added capacity can help, but only after those costs are paid and only where the remaining work can use the capacity.",
+              "feedbackByOption": [
+                "A tool change can create delay, but Brooks's central mechanism does not depend on newcomers choosing another stack.",
+                "Correct. Training and communication initially consume experienced capacity, so late staffing can extend the critical path before it helps.",
+                "Some late projects contain independent work. The warning is conditional on task structure and timing, not a claim that parallel work never exists.",
+                "A staffing change should update the estimate, but estimation bookkeeping does not itself create the delay Brooks describes."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A release is late because one tightly coupled migration remains. What is the strongest first response to a proposal for four new engineers?",
+              "options": [
+                "Assign all four immediately so the remaining person-months are spread evenly across the larger team.",
+                "Pause the migration while every current engineer prepares complete onboarding documentation.",
+                "Move the current migration team aside so the new engineers can form a fresh implementation plan.",
+                "Map the critical path and isolate any stable work newcomers can own without expanding coordination."
+              ],
+              "correctIndex": 3,
+              "feedback": "The decision should start with the work's structure. Stable independent tasks may use new capacity, while tightly coupled critical work may be better served by focus, scope reduction or blocker removal.",
+              "feedbackByOption": [
+                "Person-months are not interchangeable when the work requires shared context, sequencing and interface decisions.",
+                "Documentation may help, but stopping everyone to produce it can deepen the delay without proving that four parallel assignments exist.",
+                "Replacing the informed team discards context and adds a second planning delay before anyone changes the critical path.",
+                "Correct. This tests where added capacity can create real parallelism and protects the critical path from unnecessary learning and communication load."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Protect conceptual integrity",
+          "argument": [
+            "Brooks argues that a system is easier to learn and use when its parts express one coherent set of design ideas. A collection of individually clever features can still feel arbitrary if commands, concepts and exceptions follow different rules. He calls this unity conceptual integrity and treats it as more important than including every locally attractive idea.",
+            "His original governance proposal concentrates architectural decisions in a small group while implementation scales across a larger team. The durable argument is about a coherent decision model, not unquestioned authority: someone must reconcile conflicts, preserve shared principles and make the whole system intelligible across many contributions."
+          ],
+          "extension": "Keep a short set of user-facing and technical design principles, a decision record for exceptions and a clear owner for resolving conflicts. Invite broad evidence and dissent before the decision, then apply the chosen model consistently until new evidence justifies changing it.",
+          "image": "../assets/lesson-visuals/mythical-man-month-conceptual-integrity.svg",
+          "imageAlt": "Many feature proposals pass through a shared set of design principles and an explicit exception decision before becoming one coherent interface, contrasted with individually good features forming an inconsistent patchwork.",
+          "imageCaption": "Conceptual integrity does not remove contributions; it gives them a common model and a visible path for justified exceptions.",
+          "why": "Without a shared model, every feature can be reasonable in isolation while users and maintainers must learn a new rule each time. Explicit principles and exception decisions reduce accidental variation, reveal real trade-offs and let many people contribute without making the product feel designed by unrelated committees.",
+          "apply": [
+            "Choose one product surface and write three rules a user should be able to predict across every feature on that surface.",
+            "Find one current exception and record whether it reflects a real domain difference, a delivery shortcut or an unresolved design conflict.",
+            "Name who will decide the conflict after affected users, engineers and operators provide evidence."
+          ],
+          "caveat": "Brooks's language of design aristocracy is dated, and central control can suppress domain knowledge, accessibility needs or legitimate disagreement. Coherence should come from transparent principles, inclusive review and reversible decisions, not status. A single architect can also become a bottleneck or preserve a flawed model too long.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does Brooks mean by conceptual integrity in a software system?",
+              "options": [
+                "The system's parts follow a coherent set of design ideas that users can learn and predict.",
+                "Every feature is implemented by the same small group that created the first release.",
+                "The system includes all valuable proposals so no contributor's design work is discarded.",
+                "Each component chooses the conventions best suited to its own local performance requirements."
+              ],
+              "correctIndex": 0,
+              "feedback": "Conceptual integrity is unity in the system's ideas and rules. Brooks values a coherent whole over a larger collection of unrelated local improvements.",
+              "feedbackByOption": [
+                "Correct. A coherent model lets people transfer understanding from one part of the system to another.",
+                "A small design group is Brooks's proposed governance mechanism, not the definition of conceptual integrity or a requirement that it implement everything.",
+                "Including every proposal can weaken coherence when good local ideas express incompatible concepts or interaction rules.",
+                "Local optimisation can be necessary, but unexplained convention changes make the whole system harder to understand."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Three teams propose different meanings for the same status label across one customer workflow. Which response best protects conceptual integrity?",
+              "options": [
+                "Let each team ship its preferred meaning and document the differences after release.",
+                "Choose the proposal from the most senior team so the decision is made without delay.",
+                "Agree on the user model, record one shared rule and require evidence for any exception.",
+                "Remove the label from all three features so no inconsistent wording remains visible."
+              ],
+              "correctIndex": 2,
+              "feedback": "A shared user model and explicit exception path reconcile the conflict at the system level. The response can use evidence from every team without allowing status or local convenience to define three incompatible meanings.",
+              "feedbackByOption": [
+                "Documentation does not remove the cognitive cost of three meanings inside one workflow; it merely records the inconsistency.",
+                "Seniority may settle ownership, but it does not establish that the chosen meaning fits the user's model or the rest of the system.",
+                "Correct. One visible rule makes the workflow predictable while an evidence-based exception path preserves legitimate domain differences.",
+                "Removal avoids this symptom but may discard useful information without resolving the underlying model or workflow need."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Remove accident, face essence",
+          "argument": [
+            "In the anniversary edition's No Silver Bullet essay, Brooks separates accidental difficulties of software production from essential difficulties in the problem itself. Better languages, tools and automation can remove representation, build and testing friction, but software still has to embody complex rules, conform to its environment, change with its world and make an invisible structure understandable.",
+            "Brooks did not argue that tools are useless. He argued against expecting one technique to deliver an order-of-magnitude improvement across all software work within the forecast period. After accidental toil falls, progress depends more visibly on discovering what to build, modelling the domain, testing assumptions and revising the design."
+          ],
+          "extension": "Classify a bottleneck before buying or building a solution. Automate repeated mechanical work aggressively, but use prototypes, examples, user conversations and model criticism when the uncertainty is about meaning, behaviour or trade-offs rather than representation.",
+          "image": "../assets/lesson-visuals/mythical-man-month-essential-accidental.svg",
+          "imageAlt": "A software bottleneck passes through a diagnostic fork: repeated representation and verification toil goes to tools and automation, while uncertain rules, trade-offs and system meaning go to discovery, modelling and design feedback. Both paths rejoin in measured delivery.",
+          "imageCaption": "The right intervention depends on whether the bottleneck is mechanical friction or unresolved understanding.",
+          "why": "A powerful tool can accelerate the wrong model, while a design workshop can waste time on work a script should remove. Naming the kind of difficulty helps teams use automation where it compounds and reserve human attention for decisions whose meaning cannot be generated from a faster build alone.",
+          "apply": [
+            "Choose one recurring delay and write the exact evidence that would show it is mechanical toil or unresolved problem understanding.",
+            "If it is mechanical, name one repeatable transformation or check to automate. If it is conceptual, name one example, prototype or stakeholder decision that would reduce uncertainty.",
+            "Set one observable result for the intervention, such as minutes removed, an assumption decided or a smaller set of plausible models."
+          ],
+          "caveat": "The boundary between essential and accidental difficulty is not fixed. New representations can change how a problem is understood, and AI can produce large gains on particular tasks without resolving product intent or correctness. Treat Brooks's distinction as a diagnostic lens, not proof that current tools cannot transform software work.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which distinction is central to Brooks's no-silver-bullet argument?",
+              "options": [
+                "Essential work creates customer value, while accidental work serves only internal engineering goals.",
+                "Essential features ship in the first release, while accidental features are scheduled after launch.",
+                "Essential difficulty lies in the problem model, while accidental difficulty comes from producing the software.",
+                "Essential systems require custom code, while accidental systems can be assembled from standard products."
+              ],
+              "correctIndex": 2,
+              "feedback": "Brooks distinguishes the inherent difficulty of specifying and designing a complex conceptual construct from removable friction in representing, building and checking it.",
+              "feedbackByOption": [
+                "Customer value does not define Brooks's distinction. Internal design decisions can express essential complexity, while customer-facing work can contain accidental toil.",
+                "Release order is a planning choice. Essential and accidental describe kinds of difficulty, not when a feature is scheduled.",
+                "Correct. Tools can reduce production friction, while the team still has to understand and test the problem's rules, interactions and changes.",
+                "Reuse can remove work, but custom versus standard software does not determine whether the remaining difficulty is essential or accidental."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team generates code quickly but repeatedly rebuilds the wrong approval rules. What is the strongest next intervention?",
+              "options": [
+                "Generate more alternatives so the correct rule set is likely to appear among the implementations.",
+                "Model disputed examples with decision owners before generating the next implementation.",
+                "Replace the generation tool because fast code should also determine the intended policy.",
+                "Add more automated formatting checks so every generated version follows one code style."
+              ],
+              "correctIndex": 1,
+              "feedback": "The bottleneck is unresolved meaning, not code production. Concrete examples and accountable decisions reduce essential uncertainty before automation accelerates another implementation.",
+              "feedbackByOption": [
+                "More implementations multiply output without deciding which approval behaviour is correct or who owns the policy.",
+                "Correct. Disputed examples expose the domain rules, and decision ownership turns that evidence into a model the tool can implement.",
+                "A different tool may change output quality, but no generator can infer an unstated policy decision reliably from speed alone.",
+                "Consistent formatting improves representation, not the approval model that the team keeps getting wrong."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one delivery-pressure diagnostic",
+        "steps": [
+          "Choose one delayed or uncertain delivery and list its independent, sequential and shared-context work.",
+          "Draw the current contributors as dots and add a line wherever two people must coordinate before the critical work can move.",
+          "Write one design principle that every contribution must preserve and identify the owner of a disputed exception.",
+          "Label the main bottleneck mechanical toil or unresolved understanding, then choose one matching intervention.",
+          "Record the observable result you expect by tomorrow: a removed task, a decided rule, a stable boundary or a changed critical path."
+        ],
+        "result": "You finish with a one-page pressure map that shows whether extra staffing helps, which design rule protects coherence and whether the bottleneck needs automation or learning."
+      },
+      "spacedRecall": [
+        "From Release It!: which finite resource can turn a slow dependency into a failure that spreads beyond its original boundary?",
+        "From Team Topologies: which interaction mode best fits a short period of joint discovery before teams return to clearer ownership?",
+        "From Thinking in Systems: where could a well-intended staffing response create a reinforcing loop that increases delay?"
+      ],
+      "takeaway": "Software delivery improves when staffing respects coordination costs, many contributions preserve one coherent model and tools are matched to the kind of difficulty actually blocking progress.",
+      "sources": [
+        {
+          "label": "Pearson: The Mythical Man-Month anniversary edition details and contents",
+          "url": "https://www.pearson.com/en-gb/subject-catalog/p/mythical-man-month-the-essays-on-software-engineering-anniversary-edition/P200000000149?view=educator"
+        },
+        {
+          "label": "UNC Computer Science: Frederick Brooks, No Silver Bullet",
+          "url": "https://www.cs.unc.edu/techreports/86-020.pdf"
+        },
+        {
+          "label": "IEEE Computer Society: Frederick P. Brooks Jr. and the OS/360 context",
+          "url": "https://history.computer.org/brooks.html"
+        },
+        {
+          "label": "Simulation: system dynamics and conditional limits of Brooks's Law",
+          "url": "https://doi.org/10.1177/0037549710382423"
+        },
+        {
+          "label": "IEEE Computer Society: Brooks's architecture metaphor and user-centred constraints",
+          "url": "https://www.computer.org/publications/tech-news/research/computer-architecture-metaphor-origins-ibm"
+        }
+      ]
+    },
+    {
       "slug": "release-it",
       "discussionId": "release-it-michael-nygard",
       "date": "2026-08-24",

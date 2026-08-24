@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="mmm-integrity-title mmm-integrity-desc">
+  <title id="mmm-integrity-title">Shared principles turn many contributions into one coherent system</title>
+  <desc id="mmm-integrity-desc">The left panel shows three individually reasonable features using incompatible actions and status models. The right panel sends proposals through three shared principles and an explicit exception decision, producing a predictable interface while preserving a visible path for legitimate differences.</desc>
+  <defs>
+    <marker id="mmm-integrity-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="342" y="28" width="516" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">MANY VOICES, ONE SYSTEM MODEL</text>
+  <line x1="600" y1="118" x2="600" y2="724" stroke="#18211d" stroke-width="3" stroke-dasharray="10 12"/>
+
+  <rect x="48" y="118" width="504" height="60" rx="30" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="300" y="157" text-anchor="middle">LOCAL IDEAS, MIXED RULES</text>
+  <rect class="card" x="72" y="224" width="214" height="122" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="179" y="268" text-anchor="middle">START</text>
+  <text class="body" x="179" y="310" text-anchor="middle">status: open</text>
+  <rect class="card" x="314" y="224" width="214" height="122" rx="22" fill="#e9d17f"/>
+  <text class="heading" x="421" y="268" text-anchor="middle">BEGIN</text>
+  <text class="body" x="421" y="310" text-anchor="middle">status: active</text>
+  <rect class="card" x="72" y="386" width="214" height="122" rx="22" fill="#d8cce8"/>
+  <text class="heading" x="179" y="430" text-anchor="middle">RUN</text>
+  <text class="body" x="179" y="472" text-anchor="middle">status: started</text>
+  <rect class="card" x="314" y="386" width="214" height="122" rx="22" fill="#f5c79d"/>
+  <text class="heading" x="421" y="430" text-anchor="middle">LAUNCH</text>
+  <text class="body" x="421" y="472" text-anchor="middle">status: live</text>
+  <path class="line" d="M179 346V378" marker-end="url(#mmm-integrity-arrow)"/>
+  <path class="line" d="M421 346V378" marker-end="url(#mmm-integrity-arrow)"/>
+  <rect x="92" y="572" width="416" height="104" rx="26" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="300" y="616" text-anchor="middle">FOUR GOOD FEATURES</text>
+  <text class="body" x="300" y="656" text-anchor="middle">four rules to remember</text>
+
+  <rect x="648" y="118" width="504" height="60" rx="30" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="900" y="157" text-anchor="middle">SHARED MODEL + EXCEPTIONS</text>
+  <rect class="card" x="642" y="222" width="174" height="84" rx="20" fill="#b8d5e5"/>
+  <rect class="card" x="642" y="338" width="174" height="84" rx="20" fill="#e9d17f"/>
+  <rect class="card" x="642" y="454" width="174" height="84" rx="20" fill="#d8cce8"/>
+  <text class="heading" x="729" y="274" text-anchor="middle">TEAM A</text>
+  <text class="heading" x="729" y="390" text-anchor="middle">TEAM B</text>
+  <text class="heading" x="729" y="506" text-anchor="middle">TEAM C</text>
+  <path class="line" d="M816 264H852" marker-end="url(#mmm-integrity-arrow)"/>
+  <path class="line" d="M816 380H852" marker-end="url(#mmm-integrity-arrow)"/>
+  <path class="line" d="M816 496H852" marker-end="url(#mmm-integrity-arrow)"/>
+
+  <rect class="card" x="856" y="204" width="278" height="352" rx="26" fill="#fffdf8"/>
+  <text class="label" x="995" y="248" text-anchor="middle">DESIGN PRINCIPLES</text>
+  <rect x="884" y="278" width="222" height="62" rx="16" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <rect x="884" y="358" width="222" height="62" rx="16" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <rect x="884" y="438" width="222" height="62" rx="16" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="995" y="318" text-anchor="middle">same user terms</text>
+  <text class="body" x="995" y="398" text-anchor="middle">same action rule</text>
+  <text class="body" x="995" y="478" text-anchor="middle">same state model</text>
+  <path class="line" d="M995 556V570" marker-end="url(#mmm-integrity-arrow)"/>
+  <rect class="card" x="820" y="578" width="344" height="128" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="992" y="616" text-anchor="middle">ONE PREDICTABLE</text>
+  <text class="heading" x="992" y="650" text-anchor="middle">SYSTEM</text>
+  <text class="body" x="992" y="688" text-anchor="middle">evidence for exceptions</text>
+  <path class="line" d="M856 522H840V642H796" marker-end="url(#mmm-integrity-arrow)"/>
+  <rect class="card" x="620" y="604" width="176" height="76" rx="20" fill="#f5c79d"/>
+  <text class="small" x="708" y="636" text-anchor="middle">EXCEPTION</text>
+  <text class="body" x="708" y="666" text-anchor="middle">real difference?</text>
+</svg>
