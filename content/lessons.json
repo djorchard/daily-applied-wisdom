@@ -1,6 +1,239 @@
 {
   "lessons": [
     {
+      "slug": "thanks-for-the-feedback",
+      "discussionId": "thanks-for-the-feedback-stone-heen",
+      "date": "2026-08-26",
+      "dateLabel": "26 August 2026",
+      "edition": "Daily lesson",
+      "title": "Thanks for the Feedback",
+      "authors": "Douglas Stone and Sheila Heen",
+      "year": "2014 · paperback edition 2015",
+      "category": "Career development · Feedback · Communication",
+      "summary": "Receive feedback as a decision process: identify the kind of help needed, diagnose what is making the message hard to hear and turn broad judgments into observable information before choosing what to use.",
+      "evidenceNote": "Stone and Heen present a practitioner framework built from negotiation teaching, consulting and cases rather than a validated clinical or organisational diagnostic. Their distinctions among feedback purposes, triggers and clarification questions are clearly attributable and useful for structuring conversations. Evidence on feedback outcomes is mixed and context-dependent: a major meta-analysis found a positive average effect while more than a third of the studied interventions reduced performance, and later research links receptivity to useful outcomes without proving that openness alone causes them. Treat the framework as a way to investigate and choose, not as a promise that every message is fair, accurate or beneficial.",
+      "accent": "blue",
+      "quizRevision": "2026-08-26-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Name the job of the feedback",
+          "argument": [
+            "Stone and Heen argue that the single word feedback hides three different purposes. Appreciation recognises effort or contribution and helps people feel seen. Coaching supports learning or change. Evaluation says where someone stands against a standard and often carries a decision or consequence.",
+            "Confusion follows when the receiver needs one purpose and hears another. Praise does not answer a request for improvement, coaching can feel like a verdict when evaluation is unresolved, and a rating can drown out useful advice. Receiving well starts by identifying which job the message is trying to do and which job is actually needed."
+          ],
+          "extension": "Before a feedback conversation, name the purpose you need now: recognition, help improving or clarity about standing and consequences. If the message serves a different purpose, acknowledge it and ask explicitly for the missing one instead of arguing about feedback as one undifferentiated thing.",
+          "image": "../assets/lesson-visuals/thanks-feedback-three-purposes.svg",
+          "imageAlt": "Three parallel feedback lanes connect a receiver's need to appreciation, coaching or evaluation, then to a matching question. A mismatch arrow shows how praise, advice and a rating fail when they answer a different need.",
+          "imageCaption": "A feedback conversation becomes clearer when both people know whether its immediate job is recognition, improvement or standing.",
+          "why": "Career conversations often fail while both people believe they gave or received feedback. Separating the purposes makes a vague exchange diagnosable, lets appreciation remain genuine and gives coaching or evaluation enough space to be understood on its own terms.",
+          "apply": [
+            "Choose one upcoming one-to-one or review and write the feedback purpose you need most from it.",
+            "Prepare one matching request: what contribution should be recognised, what one change would help, or what standard and decision determine where you stand.",
+            "If another purpose appears first, acknowledge it before asking for the missing information."
+          ],
+          "caveat": "The three purposes can overlap, and forcing every sentence into one box can make a natural conversation mechanical. Formal evaluation may also require documented criteria, procedural fairness and a clear decision, not merely better wording. Appreciation should not be used to soften or conceal consequences that the receiver needs to understand.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which distinction best captures Stone and Heen's three feedback purposes?",
+              "options": [
+                "Appreciation ranks performance, coaching records consequences, and evaluation expresses thanks.",
+                "Appreciation protects feelings, coaching fixes character, and evaluation ends the conversation.",
+                "Appreciation recognises, coaching supports improvement, and evaluation locates standing.",
+                "Appreciation starts reviews, coaching handles peers, and evaluation is reserved for managers."
+              ],
+              "correctIndex": 2,
+              "feedback": "The purposes answer different needs: appreciation recognises, coaching helps someone improve and evaluation locates performance against a standard or decision. They can coexist, but clarity about the current job prevents one from impersonating another.",
+              "feedbackByOption": [
+                "This reverses the purposes. Evaluation locates standing, while appreciation recognises contribution and coaching supports improvement.",
+                "Appreciation is genuine recognition, not protection from reality. Coaching addresses learnable behaviour or skill, and evaluation need not end discussion.",
+                "Correct. These three jobs explain why praise, advice and a rating can each be useful yet still fail to answer the receiver's immediate need.",
+                "The purposes are defined by the information they provide, not by review timing, peer status or managerial authority."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product owner asks how to become ready for a broader role. The manager replies, 'We really value your effort.' What is the strongest next move?",
+              "options": [
+                "Acknowledge the appreciation, then ask for coaching and the criteria used to evaluate readiness.",
+                "Treat the praise as proof of readiness and wait for the promotion decision to confirm it.",
+                "Reject the response because appreciation has no useful place in a career conversation.",
+                "Ask the manager to remove evaluation from the discussion and provide encouragement only."
+              ],
+              "correctIndex": 0,
+              "feedback": "The praise may be sincere appreciation, but it does not yet supply coaching or evaluation. Naming the missing purposes preserves the recognition while obtaining actionable and decision-relevant information.",
+              "feedbackByOption": [
+                "Correct. This accepts the purpose that was offered and then asks for the improvement guidance and standing information the career decision requires.",
+                "Appreciation does not establish readiness. The receiver still needs coaching about change and evaluation against the role's criteria.",
+                "Appreciation matters, but it is doing a different job. The stronger response keeps it and asks directly for the missing purposes.",
+                "Encouragement alone would repeat the mismatch. A broader-role decision requires explicit coaching and evaluative criteria as well as recognition."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Diagnose the trigger",
+          "argument": [
+            "Stone and Heen group common feedback reactions into three triggers. A truth trigger says the content seems wrong, unfair or unhelpful. A relationship trigger centres on who delivered it and the history between the people. An identity trigger makes the message feel like a threat to the receiver's sense of competence, goodness or stability.",
+            "Naming the trigger creates a pause for diagnosis. The receiver can examine the claim, separate the message from the messenger where possible and steady an identity reaction before deciding. The point is not to suppress emotion or accept the feedback; it is to stop three different problems collapsing into one automatic rejection or surrender."
+          ],
+          "extension": "When feedback produces a strong reaction, write three short lines: what claim may be disputed, what relationship history is active and what story about yourself feels threatened. Ask one question about the dominant trigger, then choose whether to use, test, decline or seek support around the feedback.",
+          "image": "../assets/lesson-visuals/thanks-feedback-trigger-triage.svg",
+          "imageAlt": "A feedback message reaches a triage point with three branches: truth examines the claim and evidence, relationship separates the message from the history and identity steadies the threatened self-story. The branches rejoin at a choice to use, test, decline or seek support.",
+          "imageCaption": "A trigger is diagnostic information about what needs attention before the receiver can make a fair decision.",
+          "why": "Without a diagnosis, a valid concern can be lost because its source is difficult, or a damaging message can be accepted because the receiver mistakes distress for proof. Distinguishing content, relationship and identity makes the next question more precise and preserves the right to decide.",
+          "apply": [
+            "Recall one piece of feedback that still creates heat and label the strongest trigger: truth, relationship or identity.",
+            "Write one question matched to it: ask for evidence, name the relationship concern or describe the self-story that is being threatened.",
+            "Choose a next step that remains available after the pause: use it, test it, decline it or involve a trusted support person."
+          ],
+          "caveat": "Some feedback is discriminatory, coercive, abusive or tied to an unsafe power imbalance. A trigger is not proof that the receiver is the problem, and separating the message from the messenger is not always wise. Document serious concerns and use appropriate support or formal channels rather than treating every harmful interaction as a personal learning exercise.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Someone thinks criticism may be accurate but cannot hear it because the giver has repeatedly taken credit for their work. Which trigger is most active?",
+              "options": [
+                "A truth trigger, because the factual content has already been shown to be false.",
+                "An identity trigger, because any criticism permanently changes the receiver's self-worth.",
+                "A coaching mismatch, because useful content must always come from a trusted person.",
+                "A relationship trigger, because history with the giver is crowding out the content."
+              ],
+              "correctIndex": 3,
+              "feedback": "The receiver's main obstacle is the relationship history, even though the content may contain something useful. That history can be addressed without pretending it is irrelevant or letting it decide the truth of the claim by itself.",
+              "feedbackByOption": [
+                "A truth trigger disputes the content. Here the receiver suspects the content may be accurate, while the giver's past conduct dominates the reaction.",
+                "An identity trigger threatens the receiver's self-story. The described obstacle is distrust created by this particular relationship.",
+                "Coaching is a feedback purpose, not one of the three triggers. Difficult sources can still hold useful data, although trust and safety remain relevant.",
+                "Correct. The giver's history is active enough to crowd out a message that the receiver otherwise thinks may have merit."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A reviewer delivers a useful customer concern in a contemptuous tone. Which response best applies the trigger framework without excusing the delivery?",
+              "options": [
+                "Accept the entire review immediately so discomfort cannot block a potentially useful lesson.",
+                "Name the relationship reaction, ask for the observed customer example, then decide what to use.",
+                "Dismiss the customer concern because disrespect makes the underlying observation unreliable.",
+                "Debate the reviewer's motives first, then return to the work only after an apology is secured."
+              ],
+              "correctIndex": 1,
+              "feedback": "The response separates two real issues: the relationship and delivery problem, and the customer observation. Clarifying the evidence preserves a choice about the content without treating contempt as acceptable.",
+              "feedbackByOption": [
+                "Immediate acceptance collapses content and delivery into surrender. The receiver can investigate the useful part while keeping a boundary around the tone.",
+                "Correct. This names the relationship trigger, requests concrete evidence and preserves the receiver's decision about what to use.",
+                "Disrespect is relevant to trust and safety, but it does not by itself establish that the customer observation is false. Ask for the evidence.",
+                "An apology may be warranted, but making it a precondition can leave the customer concern unexplored. Address the boundary and the evidence separately."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Understand before you decide",
+          "argument": [
+            "Stone and Heen show how feedback often arrives as a label or conclusion while the observations and intended change remain hidden. The giver knows the incidents they noticed and the rule they used to interpret them; the receiver knows different incidents and their own intentions. Both can therefore feel certain while telling different stories.",
+            "They advise understanding the feedback before accepting or rejecting it. Ask where it is coming from: what was observed and how was that interpreted? Then ask where it is going: what should happen differently and what result is expected? Difference spotting replaces a quick right-versus-wrong contest with a map of the information and assumptions each person holds."
+          ],
+          "extension": "Translate a broad label into four fields: observed event, inferred meaning, requested behaviour and expected effect. Confirm the map with the giver, then decide whether to adopt the change, run a small experiment, seek another perspective or explain a boundary.",
+          "image": "../assets/lesson-visuals/thanks-feedback-understand-first.svg",
+          "imageAlt": "Two people begin with different stories about the same event. Their views pass through four shared fields: observation, interpretation, requested change and expected effect. The resulting map leads to a choice to adopt, test, seek another view or set a boundary.",
+          "imageCaption": "Labels become usable when the receiver can trace the observed data and the future change the giver has in mind.",
+          "why": "A label such as not strategic or poor communicator is easy to defend against and hard to act on. A concrete observation and requested future behaviour can reveal a real blind spot, an assumption worth testing or a disagreement that needs an explicit decision rather than a personality verdict.",
+          "apply": [
+            "Choose one broad piece of feedback and ask what specific event or behaviour the giver observed.",
+            "Ask what they inferred from it, what they would have preferred you to do and what effect they expect that change to produce.",
+            "Write the smallest safe test that could generate new evidence, or state the boundary that explains why you will not act on it."
+          ],
+          "caveat": "Understanding does not require agreement. One person's observations can be incomplete, standards can be inconsistent and repeated labels can reflect shared bias rather than independent truth. For consequential evaluation, compare examples across time and sources, make criteria explicit and keep decisions open to correction.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does 'understand before you decide' require when feedback arrives as a broad label?",
+              "options": [
+                "Trace the observation and interpretation behind it, then clarify the change being requested.",
+                "Agree with the label provisionally so the giver feels heard before discussing any evidence.",
+                "Collect similar labels and use their frequency as the sole test of whether they are true.",
+                "Translate the label into a personal trait so the receiver knows which identity must change."
+              ],
+              "correctIndex": 0,
+              "feedback": "Understanding means reconstructing both the path into the feedback and the path forward: the data, interpretation, requested behaviour and intended effect. Agreement remains a later decision.",
+              "feedbackByOption": [
+                "Correct. This exposes the giver's data and reasoning, then turns the conclusion into a future action the receiver can evaluate.",
+                "Listening does not require provisional agreement. The receiver can acknowledge the message while asking for the evidence and intended change.",
+                "Frequency can be informative, but it cannot reveal shared assumptions, duplicated sources or the specific behaviour that should change.",
+                "A trait label deepens the identity threat and remains hard to test. The stronger move translates it into observations and future behaviour."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A stakeholder says, 'You need to be more strategic.' What is the strongest receiver question?",
+              "options": [
+                "Would you prefer that I use the word strategy more often in updates and planning notes?",
+                "Who else agrees with that label, and how many people must agree before it becomes valid?",
+                "What did you observe, and what would I do differently in a similar situation next time?",
+                "Can we replace this feedback with a rating so I know exactly where I stand against peers?"
+              ],
+              "correctIndex": 2,
+              "feedback": "The question asks where the label came from and where the feedback should go. A concrete event and preferred future behaviour create information that can be understood, tested and discussed.",
+              "feedbackByOption": [
+                "Repeating the label does not reveal the observed behaviour or the decision quality the stakeholder wants to improve.",
+                "More votes do not make a broad label actionable. Start with concrete observations, interpretation and a requested change.",
+                "Correct. This moves from a personality-like judgment to the event, the expected behaviour and a testable next action.",
+                "A rating would provide evaluation but still leave the coaching question unanswered: what should change in a comparable situation?"
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "8 minutes",
+        "title": "Ask for one useful thing",
+        "steps": [
+          "Choose one recent meeting, decision or written update where another person's perspective could help you improve.",
+          "Ask one specific coaching question: What is one thing I could change next time that would make this work better for you?",
+          "Classify the response as appreciation, coaching or evaluation and notice whether a truth, relationship or identity trigger appears.",
+          "Ask for the observed example and the future behaviour they would prefer, then write one small action you will test or one boundary you need to explain."
+        ],
+        "result": "You finish with one feedback statement linked to a specific observation and future action, plus a conscious decision to test, use or decline it."
+      },
+      "spacedRecall": [
+        "From Working Identity: why can a small real-world experiment teach more about a possible career self than extended private reflection?",
+        "From The Mythical Man-Month: what cost appears before a new contributor can change the critical path of tightly coupled work?",
+        "From The Art of Gathering: how does a specific purpose help a host decide what belongs in a gathering?"
+      ],
+      "takeaway": "Receive feedback well by naming the help you need, diagnosing what is being triggered and understanding the observation and requested change before deciding what to use.",
+      "sources": [
+        {
+          "label": "Penguin Random House: book description, authors and edition details",
+          "url": "https://www.penguinrandomhouse.com/books/313485/thanks-for-the-feedback-by-douglas-stone-and-sheila-heen/"
+        },
+        {
+          "label": "Harvard Business Review: Find the Coaching in Criticism, adapted from the book",
+          "url": "https://hbr.org/2014/01/find-the-coaching-in-criticism"
+        },
+        {
+          "label": "Stone and Heen: feedback conversation learning resources",
+          "url": "https://www.stoneandheen.com/learning-resources"
+        },
+        {
+          "label": "Harvard Law School: Sheila Heen on wrong spotting and finding what may be right",
+          "url": "https://hls.harvard.edu/today/negotiation-expert-sheila-heen-on-why-we-all-need-a-reality-check/"
+        },
+        {
+          "label": "Psychological Bulletin: meta-analysis of feedback interventions",
+          "url": "https://doi.org/10.1037/0033-2909.119.2.254"
+        }
+      ]
+    },
+    {
       "slug": "the-mythical-man-month",
       "discussionId": "the-mythical-man-month-frederick-brooks",
       "date": "2026-08-25",

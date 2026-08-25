@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="tff-purpose-title tff-purpose-desc">
+  <title id="tff-purpose-title">Match the feedback purpose to the receiver's current need</title>
+  <desc id="tff-purpose-desc">Three parallel lanes connect a receiver need to the matching feedback purpose and a useful question. Appreciation connects recognition to what mattered, coaching connects improvement to one change and evaluation connects standing to a standard and decision. A bottom band warns that a useful message can still answer the wrong need.</desc>
+  <defs>
+    <marker id="tff-purpose-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .question { font-size: 24px; font-weight: 700; }
+      .banner { font-size: 27px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="304" y="28" width="592" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">FIRST, NAME THE JOB OF THE FEEDBACK</text>
+
+  <text class="small" x="178" y="132" text-anchor="middle">RECEIVER NEEDS</text>
+  <text class="small" x="600" y="132" text-anchor="middle">FEEDBACK PURPOSE</text>
+  <text class="small" x="1018" y="132" text-anchor="middle">MATCHING QUESTION</text>
+
+  <rect class="card" x="38" y="160" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="178" y="210" text-anchor="middle">RECOGNITION</text>
+  <text class="body" x="178" y="252" text-anchor="middle">See the contribution</text>
+  <path class="line" d="M318 226H446" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="450" y="160" width="300" height="132" rx="24" fill="#bdd9bf"/>
+  <text class="heading" x="600" y="210" text-anchor="middle">APPRECIATION</text>
+  <text class="body" x="600" y="252" text-anchor="middle">acknowledge + connect</text>
+  <path class="line" d="M750 226H878" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="882" y="160" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="question" x="1022" y="210" text-anchor="middle">WHAT MATTERED?</text>
+  <text class="body" x="1022" y="252" text-anchor="middle">Be specific</text>
+
+  <rect class="card" x="38" y="324" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="178" y="374" text-anchor="middle">IMPROVEMENT</text>
+  <text class="body" x="178" y="416" text-anchor="middle">Learn the next move</text>
+  <path class="line" d="M318 390H446" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="450" y="324" width="300" height="132" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="600" y="374" text-anchor="middle">COACHING</text>
+  <text class="body" x="600" y="416" text-anchor="middle">develop + change</text>
+  <path class="line" d="M750 390H878" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="882" y="324" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="question" x="1022" y="374" text-anchor="middle">WHAT ONE CHANGE?</text>
+  <text class="body" x="1022" y="416" text-anchor="middle">Make it actionable</text>
+
+  <rect class="card" x="38" y="488" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="heading" x="178" y="538" text-anchor="middle">STANDING</text>
+  <text class="body" x="178" y="580" text-anchor="middle">Know the decision</text>
+  <path class="line" d="M318 554H446" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="450" y="488" width="300" height="132" rx="24" fill="#e9d17f"/>
+  <text class="heading" x="600" y="538" text-anchor="middle">EVALUATION</text>
+  <text class="body" x="600" y="580" text-anchor="middle">standard + consequence</text>
+  <path class="line" d="M750 554H878" marker-end="url(#tff-purpose-arrow)"/>
+  <rect class="card" x="882" y="488" width="280" height="132" rx="24" fill="#fffdf8"/>
+  <text class="question" x="1022" y="538" text-anchor="middle">WHERE DO I STAND?</text>
+  <text class="body" x="1022" y="580" text-anchor="middle">Name the criteria</text>
+
+  <rect x="132" y="656" width="936" height="76" rx="26" fill="#f5c79d" stroke="#18211d" stroke-width="4"/>
+  <text class="banner" x="600" y="688" text-anchor="middle">MISMATCH: USEFUL MESSAGE, WRONG JOB</text>
+  <text class="body" x="600" y="718" text-anchor="middle">Acknowledge what arrived, then ask for what is missing.</text>
+</svg>
