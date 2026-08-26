@@ -1,6 +1,243 @@
 {
   "lessons": [
     {
+      "slug": "four-thousand-weeks",
+      "discussionId": "four-thousand-weeks-oliver-burkeman",
+      "date": "2026-08-27",
+      "dateLabel": "27 August 2026",
+      "edition": "Daily lesson",
+      "title": "Four Thousand Weeks",
+      "authors": "Oliver Burkeman",
+      "year": "2021 · paperback edition 2022",
+      "category": "Better life and relationships · Time · Fulfilment",
+      "summary": "Use finite time deliberately by choosing what to neglect, refusing the treadmill of unlimited throughput and protecting activities whose value is in the doing rather than a future payoff.",
+      "evidenceNote": "Burkeman offers a philosophical and practitioner interpretation of time, productivity and meaning, drawing on history, psychology, philosophy and personal experience rather than testing one unified intervention. The book's central mechanisms are clearly attributable and useful for examining choices, but claims that accepting finitude will make a life more meaningful or joyful are context-dependent, not guaranteed outcomes. Four thousand weeks is an illustrative estimate for an 80-year life, not a prediction or target. Workload, disability, care, income and power constrain people's choices unequally, so personal acceptance must not be used to excuse preventable structural overload.",
+      "accent": "purple",
+      "quizRevision": "2026-08-27-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Finitude makes the choice real",
+          "argument": [
+            "Burkeman argues that the core time-management problem is not a missing technique but the fact that a finite life cannot contain every worthwhile possibility. Trying to keep all options open postpones the losses built into choosing, yet it also prevents full commitment to the work, people or places that receive the time.",
+            "Facing finitude changes selection from a temporary scheduling problem into a value decision. A meaningful yes spends time that cannot also be spent elsewhere. The resulting discomfort is not proof that the choice is wrong; it is often the felt cost of making any real commitment."
+          ],
+          "extension": "Treat the list of things that will not happen now as part of the plan. Choose one commitment worthy of a limited block, name the competing use you are declining and judge the decision by what it protects rather than by whether every option remains available.",
+          "image": "../assets/lesson-visuals/four-thousand-weeks-finite-choice.svg",
+          "imageAlt": "Many worthwhile possibilities enter a narrow gate labelled finite time. One chosen commitment continues into lived attention while other options are explicitly released rather than left pretending to be active.",
+          "imageCaption": "A real commitment gives one possibility time by allowing other possibilities to remain undone.",
+          "why": "An uncapped project list can disguise avoidance as ambition. At work and at home, naming the trade-off makes priorities credible, reduces half-started commitments and lets attention reach something that matters before another demand claims it.",
+          "apply": [
+            "Write the three most worthwhile things competing for your next uninterrupted block.",
+            "Choose one and state why this block belongs to it.",
+            "Write not now beside the other two, including when or whether you will reconsider them."
+          ],
+          "caveat": "Choice is never distributed equally. Caring duties, insecure work, illness and financial pressure can consume time without reflecting freely chosen values. Accepting finitude can clarify the remaining discretion, but it must not turn exploitation or inadequate support into an individual's failure to prioritise.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What changes when finitude is taken seriously rather than treated as a scheduling defect?",
+              "options": [
+                "The right system can preserve every important option until more information arrives.",
+                "A meaningful choice requires declining other uses of the same limited time.",
+                "Urgent demands become reliable evidence of which commitments matter most.",
+                "Long-term planning becomes unnecessary because future time cannot be guaranteed."
+              ],
+              "correctIndex": 1,
+              "feedback": "Finitude means choosing one worthwhile use of time necessarily excludes others. The aim is not to abolish planning, urgency or uncertainty, but to make the trade-off visible enough for genuine commitment.",
+              "feedbackByOption": [
+                "No system can preserve every option indefinitely. Taking finitude seriously means choosing among worthwhile uses of limited time.",
+                "Correct. Commitment becomes real when one use receives time and competing uses are deliberately declined or deferred.",
+                "Urgency may reflect importance, poor planning or another person's incentives. Finitude requires a value choice rather than treating urgency as the answer.",
+                "Limited future time makes planning selective, not pointless. The correct distinction is that a meaningful choice excludes other uses of the same time."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Four worthwhile projects are active and each receives fragments of attention. Which response best applies the limit-embracing approach?",
+              "options": [
+                "Assign every project a future date so none has to be consciously declined.",
+                "Finish the smallest tasks first until the difficult priority becomes easier to choose.",
+                "Shorten every work block so all four projects can keep showing visible movement.",
+                "Choose one current commitment, name what will not happen now and accept the trade-off."
+              ],
+              "correctIndex": 3,
+              "feedback": "The limit-embracing move is to cap commitment and acknowledge what the choice excludes. Scheduling, quick wins and thinner slices can help execution, but they do not resolve which work deserves the finite block.",
+              "feedbackByOption": [
+                "Future dates can still preserve a fictional promise to do everything. The stronger move chooses one current commitment and names what will not happen now.",
+                "Small completions may create momentum, but they can also postpone the value decision. Choose the commitment first and accept its trade-off.",
+                "Keeping all four active protects optionality at the cost of focus. The limit-embracing response selects one and explicitly releases the others for now.",
+                "Correct. The choice becomes credible because one project receives the block and the cost to the other projects is stated rather than hidden."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Efficiency can feed the queue",
+          "argument": [
+            "Burkeman calls it the efficiency trap: increasing the rate at which you handle demands often encourages more demands to arrive or makes a larger backlog visible. Faster email can produce more email, a responsive colleague can receive more requests and saved time can be filled with additional work. Throughput rises without delivering the lasting state of being done that the efficiency was meant to create.",
+            "His practical alternative is a fixed-volume approach. Limit how much work can be active, keep one bounded queue and resist replacing every completed item immediately. Efficiency then serves choices already made instead of silently expanding the number of commitments."
+          ],
+          "extension": "Pair any speed improvement with an intake rule. Decide the maximum active work, the criteria for admission and where recovered capacity will go before making the process faster; otherwise demand can absorb the gain without improving the life or work around it.",
+          "image": "../assets/lesson-visuals/four-thousand-weeks-efficiency-trap.svg",
+          "imageAlt": "Two flows compare an efficiency treadmill, where faster output pulls an even larger queue into active work, with a fixed-volume system, where an admission gate caps work in progress and preserves recovered capacity.",
+          "imageCaption": "Speed creates room only when a boundary stops new demand from immediately consuming it.",
+          "why": "Teams can automate, batch and accelerate while remaining permanently overloaded. A visible intake boundary turns capacity into a decision: it can shorten lead time, improve quality, create recovery space or serve a chosen priority instead of becoming an invitation for more work.",
+          "apply": [
+            "Choose one queue that never feels finished, such as requests, messages or personal tasks.",
+            "Set a small maximum for active items and define what qualifies to enter today.",
+            "When one item finishes, pause before replacing it and decide where the released capacity should go."
+          ],
+          "caveat": "Efficiency is valuable in a genuinely bounded process and can remove waste, delay or drudgery. The trap is not speed itself but using speed without a demand boundary or purpose. Fixed limits also need an explicit path for emergencies, care obligations and work whose delay would cause disproportionate harm.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which mechanism best describes Burkeman's efficiency trap?",
+              "options": [
+                "Higher throughput attracts or reveals more demand, so faster completion does not create a lasting sense of done.",
+                "Faster methods always reduce quality, so efficient work should be avoided whenever a task matters.",
+                "Planning consumes more time than execution, so only unplanned work can remain genuinely valuable.",
+                "Every repeated task expands to fill the day, regardless of demand, incentives or available capacity."
+              ],
+              "correctIndex": 0,
+              "feedback": "The trap occurs when increased capacity is absorbed by increased or newly visible demand. Efficiency can remain useful, but it needs a limit on intake and a decision about what the saved capacity is for.",
+              "feedbackByOption": [
+                "Correct. Faster throughput can pull more work into the system, leaving the person or team efficient but still unable to feel finished.",
+                "Efficiency does not always reduce quality and need not be rejected. The trap is that more demand can absorb the gained capacity.",
+                "Planning can support valuable choices. The defining mechanism is demand expanding into higher throughput, not a contrast between plans and value.",
+                "Some work expands, but not regardless of context. Burkeman's trap specifically links greater efficiency with more incoming or newly exposed demand."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A support team automates triage, clears requests faster and immediately receives a larger stream of work. What is the strongest next move?",
+              "options": [
+                "Raise the throughput target again so the team can outrun the larger stream before it grows.",
+                "Stop measuring flow because any performance measure will inevitably create more demand.",
+                "Cap active requests, define admission rules and reserve recovered capacity for a chosen purpose.",
+                "Distribute every new request across the team so no single queue appears overloaded."
+              ],
+              "correctIndex": 2,
+              "feedback": "The automation created capacity but did not choose what should consume it. A work-in-progress cap, admission rule and named purpose for the gain prevent faster service from becoming an unlimited invitation.",
+              "feedbackByOption": [
+                "Another speed target leaves intake unlimited and repeats the trap. Cap active work and decide what recovered capacity should protect.",
+                "Flow measures can reveal useful constraints. The correct response is to limit admission and allocate the gain, not abandon measurement.",
+                "Correct. The cap and admission rule bound demand, while the named purpose turns efficiency into lead time, quality, recovery or chosen work.",
+                "Distribution can hide the queue without limiting it. The stronger move caps active requests and makes admission and capacity choices explicit."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Let some time be an end in itself",
+          "argument": [
+            "Burkeman argues that modern time pressure encourages an instrumental relationship with nearly everything: work is endured for advancement, exercise for health data and leisure for recovery that will improve later output. When each present activity is merely a step toward a future result, life can feel like something to finish rather than something being lived.",
+            "He defends atelic activities, which do not aim at a final state after which they are complete. Walking, talking with a friend, playing music or tending a garden can be worth doing while they are happening. Their value does not depend on making the participant more productive afterward."
+          ],
+          "extension": "Protect one modest activity whose success condition is participation, not optimisation. Give it a clear boundary, remove scorekeeping for that interval and notice whether you can remain with the experience without converting it into evidence for a future self.",
+          "image": "../assets/lesson-visuals/four-thousand-weeks-atelic-time.svg",
+          "imageAlt": "A ladder of instrumental activities points toward a future payoff that keeps moving away, while a circular atelic path shows walking, music and conversation returning value during the activity itself.",
+          "imageCaption": "Some time matters because of where it leads; some matters because being there is already the point.",
+          "why": "A life composed only of preparation can postpone satisfaction indefinitely. Activities valued in the present can restore attention to relationships, play, rest and craft without demanding that every hour justify itself through a later result.",
+          "apply": [
+            "Choose one activity you value but usually measure by an outcome, such as a walk, music, gardening or conversation.",
+            "Give it ten or fewer minutes with no distance, output, streak, post or improvement target.",
+            "At the end, record only whether you were present for the activity, not whether it advanced another goal."
+          ],
+          "caveat": "Goals and measurement are not enemies of meaning, and many necessary activities are unavoidably instrumental. Atelic time can also be hard to access amid care, pain, unsafe work or scarcity. The distinction is a lens for protecting some present value, not a demand to enjoy every moment or abandon useful ambition.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which activity best represents Burkeman's defence of atelic time?",
+              "options": [
+                "A walk tracked mainly to improve the next quarterly set of fitness metrics.",
+                "A hobby selected because it can strengthen evidence for a future promotion.",
+                "A dinner shortened so preparation for tomorrow's work can begin sooner.",
+                "Playing music because the playing itself is worth part of the evening."
+              ],
+              "correctIndex": 3,
+              "feedback": "An atelic activity is valuable during the doing rather than because it reaches a final state or improves a later score. The same walk, hobby or music session can be atelic or instrumental depending on its governing purpose.",
+              "feedbackByOption": [
+                "The walk is being used primarily as an instrument for a later metric. The atelic example is music played because the activity itself is worthwhile.",
+                "Promotion evidence makes the hobby a means to a later end. Atelic time is represented by playing music for the value of playing now.",
+                "The dinner is treated as an obstacle before future productivity. The atelic example lets the present activity carry its own value.",
+                "Correct. The music does not need to produce fitness, status or future efficiency for the time spent playing to matter."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "After a demanding week, someone feels guilty unless leisure improves health or career. Which experiment best applies this idea?",
+              "options": [
+                "Rank leisure options by measurable return and choose the one with the highest future benefit.",
+                "Choose a modest activity worth doing even if it produces no later advantage.",
+                "Delay leisure until the inbox is empty enough to prevent unfinished work from intruding.",
+                "Turn the activity into a public challenge so social accountability protects the time."
+              ],
+              "correctIndex": 1,
+              "feedback": "The experiment is to let a bounded activity be worthwhile in itself. Measurement, inbox completion and public accountability can all convert the present back into a tool for a future result.",
+              "feedbackByOption": [
+                "Ranking by future return preserves the instrumental frame. The stronger experiment chooses something worth doing without a later payoff.",
+                "Correct. A modest bounded activity can carry present value even when it does not improve a metric, reputation or future output.",
+                "An inbox may never become empty, making leisure conditional on an unreachable state. Choose a bounded activity that is worthwhile now.",
+                "Accountability can protect time, but a public challenge adds performance and future validation. The atelic experiment removes that requirement."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "8 minutes",
+        "title": "Make one finite-time commitment",
+        "steps": [
+          "List five worthwhile demands competing for your attention today.",
+          "Circle one that deserves the next finite block and write the value it protects.",
+          "Cross out or defer one demand explicitly instead of leaving all five psychologically active.",
+          "Use the remaining minutes to begin the chosen commitment, then stop with the boundary intact."
+        ],
+        "result": "You finish with one visible commitment, one deliberate non-priority and observable progress made without expanding the active queue."
+      },
+      "spacedRecall": [
+        "From The Psychology of Money: how does defining enough change the risk you are willing to take for a larger score?",
+        "From The Art of Gathering: how does a specific purpose help decide what must be excluded from an event?",
+        "From The Mythical Man-Month: why can adding capacity fail to shorten tightly coupled work?"
+      ],
+      "takeaway": "A finite life becomes more deliberate when you choose what to leave undone, bound the demand that follows efficiency and let some time be worth living before it produces anything else.",
+      "sources": [
+        {
+          "label": "Penguin: Four Thousand Weeks, 2022 paperback details and book description",
+          "url": "https://www.penguin.co.uk/books/433471/four-thousand-weeks-by-burkeman-oliver/9781784704001"
+        },
+        {
+          "label": "Macmillan: official book page and Limit-Embracing Life excerpt",
+          "url": "https://us.macmillan.com/books/9780374159122/fourthousandweeks/"
+        },
+        {
+          "label": "Oliver Burkeman: official book page",
+          "url": "https://www.oliverburkeman.com/books"
+        },
+        {
+          "label": "Oliver Burkeman: You don't need to fight time",
+          "url": "https://www.oliverburkeman.com/time"
+        },
+        {
+          "label": "Penguin: book extract on a purposeless walk and atelic value",
+          "url": "https://www.penguin.co.uk/discover/articles/four-thousand-weeks-oliver-burkeman-walking-mental-health"
+        },
+        {
+          "label": "The Guardian: author extract on attention, distraction and limitation",
+          "url": "https://www.theguardian.com/books/2021/aug/07/on-earth-4000-weeks-so-why-lose-time-online-distraction-oliver-burkeman"
+        }
+      ]
+    },
+    {
       "slug": "thanks-for-the-feedback",
       "discussionId": "thanks-for-the-feedback-stone-heen",
       "date": "2026-08-26",

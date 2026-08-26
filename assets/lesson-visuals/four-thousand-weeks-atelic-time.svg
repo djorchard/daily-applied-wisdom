@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="ftw-atelic-title ftw-atelic-desc">
+  <title id="ftw-atelic-title">Instrumental time and atelic time create value differently</title>
+  <desc id="ftw-atelic-desc">On the left, a ladder of activities points toward a future payoff that moves farther away, showing life treated as preparation. On the right, a circular path connects walking, music and conversation around a centre labelled worth in the doing, showing activities valued while they happen.</desc>
+  <defs>
+    <marker id="ftw-atelic-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 32px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="312" y="26" width="576" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="66" text-anchor="middle">TWO WAYS AN ACTIVITY CAN MATTER</text>
+
+  <rect x="40" y="126" width="520" height="520" rx="34" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="label" x="300" y="170" text-anchor="middle">INSTRUMENTAL TIME</text>
+  <text class="body" x="300" y="202" text-anchor="middle">valuable because it leads elsewhere</text>
+  <path class="line" d="M142 548L422 260" marker-end="url(#ftw-atelic-arrow)"/>
+  <rect class="card" x="88" y="508" width="210" height="70" rx="20" fill="#b8d5e5"/>
+  <text class="body" x="193" y="552" text-anchor="middle">finish this</text>
+  <rect class="card" x="190" y="406" width="210" height="70" rx="20" fill="#e9d17f"/>
+  <text class="body" x="295" y="450" text-anchor="middle">to improve that</text>
+  <rect class="card" x="292" y="304" width="210" height="70" rx="20" fill="#f5c79d"/>
+  <text class="body" x="397" y="348" text-anchor="middle">for future payoff</text>
+  <path class="line" d="M440 272L500 212" stroke-dasharray="10 10" marker-end="url(#ftw-atelic-arrow)"/>
+  <text class="small" x="462" y="244" text-anchor="middle" transform="rotate(-45 462 244)">THEN WHAT?</text>
+  <text class="small" x="300" y="614" text-anchor="middle">THE PRESENT BECOMES PREPARATION</text>
+
+  <rect x="640" y="126" width="520" height="520" rx="34" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text class="label" x="900" y="170" text-anchor="middle">ATELIC TIME</text>
+  <text class="body" x="900" y="202" text-anchor="middle">valuable while it is happening</text>
+  <circle cx="900" cy="404" r="152" fill="#d7c4e8" stroke="#18211d" stroke-width="4"/>
+  <circle cx="900" cy="404" r="78" fill="#faf7f0" stroke="#18211d" stroke-width="4"/>
+  <text class="heading" x="900" y="392" text-anchor="middle">WORTH</text>
+  <text class="body" x="900" y="428" text-anchor="middle">in the doing</text>
+  <rect class="card" x="808" y="234" width="184" height="64" rx="20" fill="#bdd9bf"/>
+  <text class="body" x="900" y="275" text-anchor="middle">WALKING</text>
+  <rect class="card" x="976" y="372" width="164" height="64" rx="20" fill="#b8d5e5"/>
+  <text class="body" x="1058" y="413" text-anchor="middle">MUSIC</text>
+  <rect class="card" x="668" y="372" width="150" height="64" rx="20" fill="#e9d17f"/>
+  <text class="body" x="743" y="413" text-anchor="middle">TALKING</text>
+  <path class="line" d="M986 294C1044 324 1068 352 1072 370" marker-end="url(#ftw-atelic-arrow)"/>
+  <path class="line" d="M1044 440C1016 500 970 530 938 542" marker-end="url(#ftw-atelic-arrow)"/>
+  <path class="line" d="M844 542C780 520 744 478 732 438" marker-end="url(#ftw-atelic-arrow)"/>
+  <path class="line" d="M732 368C750 322 792 286 812 278" marker-end="url(#ftw-atelic-arrow)"/>
+  <text class="small" x="900" y="614" text-anchor="middle">PARTICIPATION IS THE SUCCESS CONDITION</text>
+
+  <rect x="220" y="676" width="760" height="58" rx="24" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <text class="label" x="600" y="713" text-anchor="middle">NOT EVERY HOUR NEEDS A LATER PAYOFF</text>
+</svg>
