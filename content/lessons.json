@@ -1,6 +1,243 @@
 {
   "lessons": [
     {
+      "slug": "the-little-book-of-common-sense-investing",
+      "discussionId": "little-book-common-sense-investing-john-bogle",
+      "date": "2026-08-28",
+      "dateLabel": "28 August 2026",
+      "edition": "Daily lesson",
+      "title": "The Little Book of Common Sense Investing",
+      "authors": "John C. Bogle",
+      "year": "2007 · 10th Anniversary Edition 2017",
+      "category": "Personal finance · Index investing · Fund costs",
+      "summary": "Keep more of the market's return by treating costs as certain subtraction, diversifying instead of trying to identify winners and using a risk-fit plan sturdy enough to survive bad markets.",
+      "evidenceNote": "Bogle's central arithmetic is strong: investors collectively receive the market's gross return, while fees, trading costs and taxes reduce what they retain. Broad diversification strongly reduces company-specific risk, but it cannot remove market loss. The stronger claim that passive funds will beat every active approach is false; some active funds outperform, and index products differ in cost, breadth, construction and tracking. Bogle's examples are mainly US-focused, and product and tax details are dated and jurisdiction-specific. Australian investors should check the current PDS, target market determination, fees, liquidity, currency exposure, tax consequences, goals and risk capacity. This lesson is general education, not personal financial advice.",
+      "accent": "gold",
+      "quizRevision": "2026-08-28-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Costs compound in reverse",
+          "argument": [
+            "Bogle begins with what he calls the relentless arithmetic of investing. Investors as a group own the market, so before costs they collectively earn the market's gross return. After management fees, transaction costs and other frictions, the aggregate investor return must be lower by those costs. Skill may change who wins, but it cannot make the industry's total cost disappear.",
+            "A recurring fee is deducted not once but from a balance that could otherwise remain invested. The visible charge is therefore only part of the effect: the investor also gives up future returns on each amount removed. Bogle's practical conclusion is to compare the full cost of obtaining a chosen exposure and keep avoidable friction low."
+          ],
+          "extension": "Treat cost as a design constraint, not a prediction. First define the investment job and risk exposure; then compare products doing substantially the same job using ongoing fees, transaction costs, spreads, advice charges and any layered fund costs.",
+          "image": "../assets/lesson-visuals/common-sense-cost-subtraction.svg",
+          "imageAlt": "Two paths begin with the same gross market return. A low-friction path loses a small portion to costs and retains more return, while a high-friction path loses more through fees and trading and retains less.",
+          "imageCaption": "When the underlying exposure is comparable, every avoidable cost is return the investor cannot keep compounding.",
+          "why": "Future returns are uncertain, but a disclosed fee is a known subtraction. Focusing on cost does not require forecasting which manager or market style will win, and small recurring differences can become material over a long horizon.",
+          "apply": [
+            "Choose one fund, ETF or super investment option you already hold or are considering; do not buy or sell anything for this exercise.",
+            "Find its PDS or official product page and record the management fees and costs, transaction costs and any brokerage or advice layer.",
+            "Compare those costs only with an option that performs a genuinely similar job and carries comparable risk."
+          ],
+          "caveat": "The cheapest product is not automatically the best. Two funds can track different markets, take different risks, offer different liquidity or tax treatment and provide different services. A useful comparison starts with purpose and exposure, then asks which avoidable costs remain.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Two funds hold the same assets and earn the same gross return. Which conclusion follows from Bogle's cost arithmetic?",
+              "options": [
+                "The higher-fee fund should recover its charge through stronger market returns.",
+                "The lower all-in cost leaves more of the shared gross return with investors.",
+                "Both funds deliver the same net return because their holdings are identical.",
+                "The disclosed fee matters only when the fund records a negative return."
+              ],
+              "correctIndex": 1,
+              "feedback": "With comparable holdings and the same gross result, costs are the differentiator: the lower-cost path retains more. Cost does not determine the market return, but it directly reduces the portion investors receive.",
+              "feedbackByOption": [
+                "A higher charge does not create a higher market return. With the same holdings and gross result, the lower all-in cost leaves more for investors.",
+                "Correct. The funds receive the same gross result, so the fund subtracting less cost delivers the higher net result.",
+                "Identical holdings establish the same gross return, not the same net return. The lower all-in cost leaves more with investors.",
+                "Fees reduce positive and negative returns alike. The correct conclusion is that lower comparable cost preserves more of the gross result."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You are comparing two funds intended to provide the same broad market exposure. What is the strongest first comparison?",
+              "options": [
+                "Choose the fund with the better return during the most recent calendar year.",
+                "Prefer the provider with the stronger brand before checking product documents.",
+                "Compare their exposure, risks and full cost layers in the current disclosures.",
+                "Choose the ETF structure because exchange trading always makes it cheaper."
+              ],
+              "correctIndex": 2,
+              "feedback": "Bogle's principle applies after confirming that the products do the same job. Current disclosures reveal exposure, risk and the cost layers that can make a fair comparison; recent performance, branding or structure alone cannot.",
+              "feedbackByOption": [
+                "One recent return can reflect temporary market movements. First compare the intended exposure, risks and full cost layers in current disclosures.",
+                "A provider's brand does not establish fit or net cost. Compare the products' exposure, risks and disclosed cost layers first.",
+                "Correct. Cost is meaningful only beside the investment job, exposure and risk described in the current PDS and related disclosures.",
+                "ETFs can include management costs, brokerage, spreads and tracking differences. Compare the exposure, risks and all cost layers rather than assuming a structure wins."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Buy the haystack, not the needle",
+          "argument": [
+            "Bogle argues that identifying tomorrow's winning company or manager in advance is an unreliable basis for a whole plan. His alternative is broad ownership: hold a large cross-section of the productive market so the portfolio does not depend on finding the few exceptional winners before their success is reflected in prices.",
+            "The haystack metaphor is about removing avoidable selection risk, not promising safety. A broad index can spread exposure across many companies and industries at low cost, while an appropriate mix of asset classes can address a different layer of risk. The rules and holdings of the chosen index still determine what the investor actually owns."
+          ],
+          "extension": "Audit the exposure underneath product labels. Map the major asset classes, countries, sectors and largest holdings across the whole portfolio; several funds can create the appearance of breadth while repeatedly owning the same concentrated positions.",
+          "image": "../assets/lesson-visuals/common-sense-haystack.svg",
+          "imageAlt": "A narrow needle-search path concentrates the result on one guessed winner, while a broad-ownership path holds many companies across several groups and receives the market result without needing to predict the winner.",
+          "imageCaption": "Broad ownership replaces a fragile winner prediction with exposure to many possible sources of return.",
+          "why": "A single company, sector or manager can fail for reasons the investor did not foresee. Breadth lowers the damage from being wrong about one selection and reduces the number of predictions the plan needs to survive.",
+          "apply": [
+            "List the funds and direct shares in one investment account.",
+            "Check each product's official holdings and note the largest companies, countries, sectors and asset classes.",
+            "Circle repeated exposures and write one question about whether the overlap is deliberate."
+          ],
+          "caveat": "Diversification cannot prevent a broad market fall, and a fund is not diversified merely because it owns many securities. A narrow sector index, repeated top holdings, home-country concentration, currency exposure and poorly chosen asset allocation can leave substantial risk in place.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Bogle prefer broad ownership to searching for the next winning stock?",
+              "options": [
+                "It spreads company-specific outcomes without requiring a correct winner prediction.",
+                "It prevents the portfolio from falling when the overall share market declines.",
+                "It guarantees every holding contributes an equal amount to the final return.",
+                "It lets an investor ignore which market and index rules the fund follows."
+              ],
+              "correctIndex": 0,
+              "feedback": "Broad ownership reduces dependence on selecting a particular winner. It does not remove market risk, equalise every holding or make the construction of the index irrelevant.",
+              "feedbackByOption": [
+                "Correct. The result can draw on many companies, reducing the plan's dependence on identifying one future winner in advance.",
+                "A broad equity portfolio can still fall with the market. Its advantage is reducing company-specific selection risk, not preventing all loss.",
+                "Market-weighted holdings contribute differently. The correct principle is to spread company-specific outcomes without predicting one winner.",
+                "Index rules determine the actual exposure. Broad ownership reduces winner-selection risk, but the investor must still inspect what is owned."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An investor owns four funds, but each is dominated by the same large Australian companies. What best applies the haystack principle?",
+              "options": [
+                "Add another fund with a different name so the product count becomes five.",
+                "Keep every fund because multiple providers automatically remove concentration.",
+                "Replace the weakest recent performer with last year's leading sector fund.",
+                "Map the underlying holdings and address unintended market, sector and asset overlap."
+              ],
+              "correctIndex": 3,
+              "feedback": "Diversification depends on underlying exposure, not the number or names of products. Mapping holdings and asset classes reveals repeated concentration and supports a deliberate response without performance chasing.",
+              "feedbackByOption": [
+                "Another label may repeat the same holdings. Apply the principle by mapping underlying exposure and addressing unintended overlap.",
+                "Provider count is not exposure breadth. The correct move is to inspect holdings, markets, sectors and asset classes across the portfolio.",
+                "Chasing the recent winner replaces one prediction with another. Map the underlying exposure and address unintended overlap instead.",
+                "Correct. The map tests whether the portfolio is genuinely broad or merely holds several wrappers around the same concentration."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Build a plan that can stay the course",
+          "argument": [
+            "Bogle's low-cost, broad-ownership strategy depends on discipline. Switching after a fall can lock in losses, while chasing recent winners can buy an exposure only after its price and popularity have risen. Because short-term market direction is unknowable, he urges investors to define a suitable allocation and remain invested through inevitable discomfort.",
+            "Staying the course is not refusing to think. The course must first fit the investor's goals, time horizon, need for liquidity and capacity for loss. A target mix and a rebalancing rule create a reasoned response to market movement before fear or excitement supplies a different one."
+          ],
+          "extension": "Write a one-page investment decision rule while calm. State the job of the money, target allocation, review interval, rebalancing trigger and the life changes that justify reconsideration. Separate those signals from headlines and recent performance, which do not by themselves change the job.",
+          "image": "../assets/lesson-visuals/common-sense-stay-course.svg",
+          "imageAlt": "Goals, horizon, liquidity and risk capacity feed a target mix and rebalancing rule. That policy continues through boom, fear and recovery, while a separate change gate opens only when life, goals or the product materially change.",
+          "imageCaption": "A durable course is set by the job and risk of the money, then revised for changed facts rather than changed market mood.",
+          "why": "A theoretically efficient portfolio fails if its owner abandons it at the worst moment. Precommitted rules reduce the number of high-pressure decisions and make a market move an input to a policy, not an instruction to improvise.",
+          "apply": [
+            "Choose one long-term investment goal and write its time horizon and likely need for cash.",
+            "Write the current target mix and the rule, if any, for reviewing or rebalancing it.",
+            "Name one life change that would justify a review and one market headline that would not."
+          ],
+          "caveat": "Staying the course can become harmful stubbornness when goals, income, health, dependants, liquidity needs, product terms or risk capacity change. Risk tolerance estimated in calm markets may also prove optimistic during a severe fall. A licensed adviser may help where the consequences or choices are complex.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes staying the course a reasoned policy rather than passive stubbornness?",
+              "options": [
+                "It treats every market fall as evidence that the original assets are now cheaper.",
+                "It avoids all portfolio changes so transaction costs can never be incurred.",
+                "It assumes a diversified portfolio will recover before any cash is required.",
+                "It links allocation and review rules to goals, horizon, liquidity and risk capacity."
+              ],
+              "correctIndex": 3,
+              "feedback": "A defensible course is anchored to the money's job and the investor's capacity, with explicit review rules. It is not a promise never to change or an assumption that recovery will arrive on schedule.",
+              "feedbackByOption": [
+                "A lower price alone does not prove the plan still fits. A reasoned course links allocation and review rules to goals, horizon, liquidity and risk capacity.",
+                "Some changes, including rebalancing or responding to changed needs, may be justified. The policy is anchored to goals and risk, not zero transactions.",
+                "Recovery timing is uncertain and cash needs matter. The correct policy connects allocation and review rules to horizon, liquidity and risk capacity.",
+                "Correct. Those anchors explain both why the plan should survive ordinary market noise and when changed circumstances deserve a review."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "After a sharp market fall, an investor wants to sell a long-term holding because the news feels frightening. What is the best first response?",
+              "options": [
+                "Wait for several positive trading days before deciding whether confidence has returned.",
+                "Check the written goal, cash needs, target allocation and precommitted review rule.",
+                "Sell part of every holding so the emotional relief is spread evenly across the portfolio.",
+                "Buy more immediately because every broad market decline must be a temporary bargain."
+              ],
+              "correctIndex": 1,
+              "feedback": "The first move is to test the situation against the policy written for the goal, liquidity and risk. That review can support holding, rebalancing or a justified change, but it does not let fear or optimism become the rule.",
+              "feedbackByOption": [
+                "A few positive days are more market mood, not evidence about the goal. First check cash needs, allocation and the precommitted review rule.",
+                "Correct. The written policy distinguishes an expected uncomfortable market move from a genuine change in the investor's circumstances or plan.",
+                "Emotional relief is understandable, but proportional selling is not a decision rule. Check the goal, liquidity, allocation and review policy first.",
+                "A broad market can fall further or recover slowly. The correct first response is to review the written goal, cash needs, allocation and policy."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run a cost, breadth and fit audit",
+        "steps": [
+          "Choose one fund, ETF or super investment option you already hold or are considering; this is an inspection, not a trade.",
+          "Open its current PDS or official product page and record the index or mandate, major exposures, management fees and costs and any visible transaction layer.",
+          "Write one sentence for each test: what does it cost, how broad is the underlying exposure and what goal and horizon is it meant to serve?",
+          "Mark one fact you still need to verify before making any financial decision."
+        ],
+        "result": "You finish with a three-part evidence card for one real product and one clearly named uncertainty, without buying, selling or relying on recent performance."
+      },
+      "spacedRecall": [
+        "From The Psychology of Money: how can room for error help a financial plan survive the person and circumstances using it?",
+        "From Algorithms to Live By: how should a finite horizon change the balance between exploring alternatives and using a satisfactory choice?",
+        "From Thinking in Systems: how can a small recurring outflow change a compounding stock over a long period?"
+      ],
+      "takeaway": "Capture your fair share by subtracting avoidable costs, spreading bets widely and choosing a plan you can follow when markets test your discipline.",
+      "sources": [
+        {
+          "label": "WorldCat: 10th Anniversary Edition, updated and revised, 2017",
+          "url": "https://search.worldcat.org/title/1015201956"
+        },
+        {
+          "label": "John C. Bogle archive: The Relentless Rules of Humble Arithmetic and the Cost Matters Hypothesis",
+          "url": "https://boglecenter.net/wp-content/uploads/FAJ-Relentless-Rules-11-05.pdf"
+        },
+        {
+          "label": "John C. Bogle archive: costs, diversification, prudent allocation and staying the course",
+          "url": "https://boglecenter.net/wp-content/uploads/JCB_AAII0505.pdf"
+        },
+        {
+          "label": "Investor.gov: index fund costs, tracking differences and risks",
+          "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-4"
+        },
+        {
+          "label": "ASIC Moneysmart: choosing a managed fund using goals, risk, fees and current disclosures",
+          "url": "https://moneysmart.gov.au/managed-funds-and-etfs/choosing-a-managed-fund"
+        },
+        {
+          "label": "ASIC Moneysmart: Australian ETF diversification, costs, market risk and tracking error",
+          "url": "https://moneysmart.gov.au/managed-funds-and-etfs/exchange-traded-funds-etfs"
+        }
+      ]
+    },
+    {
       "slug": "four-thousand-weeks",
       "discussionId": "four-thousand-weeks-oliver-burkeman",
       "date": "2026-08-27",

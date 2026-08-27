@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="cs-course-title cs-course-desc">
+  <title id="cs-course-title">A precommitted policy separates changed facts from market noise</title>
+  <desc id="cs-course-desc">Goals, horizon, liquidity and risk capacity feed a target mix and rebalancing rule. The policy continues through boom, fear and recovery. A separate change gate reviews the course only when life, goals or product facts materially change.</desc>
+  <defs>
+    <marker id="cs-course-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="284" y="28" width="632" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">SET THE POLICY BEFORE THE HEADLINE</text>
+
+  <text class="small" x="160" y="138" text-anchor="middle">FACTS ABOUT THE JOB</text>
+  <rect class="card" x="42" y="164" width="236" height="82" rx="20" fill="#b8d5e5"/>
+  <text class="heading" x="160" y="216" text-anchor="middle">GOAL</text>
+  <rect class="card" x="42" y="264" width="236" height="82" rx="20" fill="#bdd9bf"/>
+  <text class="heading" x="160" y="316" text-anchor="middle">HORIZON</text>
+  <rect class="card" x="42" y="364" width="236" height="82" rx="20" fill="#e9d17f"/>
+  <text class="heading" x="160" y="416" text-anchor="middle">LIQUIDITY</text>
+  <rect class="card" x="42" y="464" width="236" height="82" rx="20" fill="#d7c4e8"/>
+  <text class="heading" x="160" y="516" text-anchor="middle">RISK CAPACITY</text>
+
+  <path class="line" d="M278 205H332V355H382" marker-end="url(#cs-course-arrow)"/>
+  <path class="line" d="M278 305H332"/>
+  <path class="line" d="M278 405H332"/>
+  <path class="line" d="M278 505H332V355"/>
+
+  <rect class="card" x="394" y="236" width="322" height="238" rx="30" fill="#fffdf8"/>
+  <text class="small" x="555" y="282" text-anchor="middle">WRITTEN POLICY</text>
+  <text class="heading" x="555" y="338" text-anchor="middle">TARGET MIX</text>
+  <line x1="440" y1="364" x2="670" y2="364" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="555" y="414" text-anchor="middle">REBALANCE RULE</text>
+  <text class="body" x="555" y="452" text-anchor="middle">review on purpose</text>
+
+  <path class="line" d="M716 355H786" marker-end="url(#cs-course-arrow)"/>
+  <text class="small" x="966" y="138" text-anchor="middle">MARKET WEATHER</text>
+  <rect class="card" x="806" y="178" width="320" height="94" rx="22" fill="#bdd9bf"/>
+  <text class="heading" x="966" y="220" text-anchor="middle">BOOM</text>
+  <text class="body" x="966" y="252" text-anchor="middle">excitement rises</text>
+  <rect class="card" x="806" y="308" width="320" height="94" rx="22" fill="#f3a8a0"/>
+  <text class="heading" x="966" y="350" text-anchor="middle">FEAR</text>
+  <text class="body" x="966" y="382" text-anchor="middle">prices fall</text>
+  <rect class="card" x="806" y="438" width="320" height="94" rx="22" fill="#b8d5e5"/>
+  <text class="heading" x="966" y="480" text-anchor="middle">RECOVERY</text>
+  <text class="body" x="966" y="512" text-anchor="middle">timing unknown</text>
+  <path class="line" d="M966 272V300" marker-end="url(#cs-course-arrow)"/>
+  <path class="line" d="M966 402V430" marker-end="url(#cs-course-arrow)"/>
+
+  <rect x="70" y="612" width="1060" height="116" rx="28" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="212" y="656" text-anchor="middle">CHANGE GATE</text>
+  <text class="body" x="212" y="696" text-anchor="middle">What changed?</text>
+  <path class="line" d="M334 670H418" marker-end="url(#cs-course-arrow)"/>
+  <rect x="438" y="634" width="300" height="72" rx="20" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="588" y="664" text-anchor="middle">life · goal · product</text>
+  <text class="small" x="588" y="694" text-anchor="middle">REVIEW THE COURSE</text>
+  <rect x="770" y="634" width="320" height="72" rx="20" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="930" y="664" text-anchor="middle">headline · recent return</text>
+  <text class="small" x="930" y="694" text-anchor="middle">FOLLOW THE POLICY</text>
+</svg>

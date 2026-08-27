@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="cs-cost-title cs-cost-desc">
+  <title id="cs-cost-title">Costs split the same gross return into different retained returns</title>
+  <desc id="cs-cost-desc">One gross market return enters two comparable investment paths. The lower-friction path subtracts fewer fees and trading costs and retains more return. The higher-friction path subtracts more cost and retains less. No numeric return is implied.</desc>
+  <defs>
+    <marker id="cs-cost-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 32px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="244" y="28" width="712" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">COST IS A CERTAIN SUBTRACTION</text>
+
+  <rect class="card" x="54" y="228" width="260" height="260" rx="28" fill="#b8d5e5"/>
+  <text class="small" x="184" y="278" text-anchor="middle">SAME EXPOSURE</text>
+  <text class="heading" x="184" y="344" text-anchor="middle">GROSS</text>
+  <text class="heading" x="184" y="384" text-anchor="middle">MARKET</text>
+  <text class="heading" x="184" y="424" text-anchor="middle">RETURN</text>
+
+  <path class="line" d="M314 358H390V238H458" marker-end="url(#cs-cost-arrow)"/>
+  <path class="line" d="M390 358V518H458" marker-end="url(#cs-cost-arrow)"/>
+
+  <rect class="card" x="470" y="126" width="300" height="226" rx="28" fill="#bdd9bf"/>
+  <text class="small" x="620" y="174" text-anchor="middle">LOWER FRICTION</text>
+  <rect x="512" y="212" width="216" height="54" rx="14" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="620" y="247" text-anchor="middle">fees + trading</text>
+  <text class="heading" x="620" y="316" text-anchor="middle">LESS SUBTRACTED</text>
+
+  <rect class="card" x="470" y="406" width="300" height="226" rx="28" fill="#f5c79d"/>
+  <text class="small" x="620" y="454" text-anchor="middle">HIGHER FRICTION</text>
+  <rect x="500" y="492" width="240" height="54" rx="14" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="620" y="527" text-anchor="middle">fees + trading</text>
+  <text class="heading" x="620" y="596" text-anchor="middle">MORE SUBTRACTED</text>
+
+  <path class="line" d="M770 239H842" marker-end="url(#cs-cost-arrow)"/>
+  <path class="line" d="M770 519H842" marker-end="url(#cs-cost-arrow)"/>
+
+  <rect class="card" x="856" y="154" width="290" height="170" rx="28" fill="#e9d17f"/>
+  <text class="small" x="1001" y="202" text-anchor="middle">NET RESULT</text>
+  <text class="heading" x="1001" y="252" text-anchor="middle">MORE RETURN</text>
+  <text class="heading" x="1001" y="292" text-anchor="middle">RETAINED</text>
+
+  <rect class="card" x="856" y="434" width="290" height="170" rx="28" fill="#d7c4e8"/>
+  <text class="small" x="1001" y="482" text-anchor="middle">NET RESULT</text>
+  <text class="heading" x="1001" y="532" text-anchor="middle">LESS RETURN</text>
+  <text class="heading" x="1001" y="572" text-anchor="middle">RETAINED</text>
+
+  <rect x="176" y="676" width="848" height="52" rx="26" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="710" text-anchor="middle">Compare costs only after confirming the products do the same job</text>
+</svg>
