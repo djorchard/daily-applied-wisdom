@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html" />
+    <meta property="og:title" content="Refactoring | Daily Applied Wisdom" />
+    <meta property="og:description" content="Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-09-01" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Refactoring | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Refactoring","description":"Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs.","datePublished":"2026-09-01","about":{"@type":"Book","name":"Refactoring","author":[{"@type":"Person","name":"Martin Fowler"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-09-01">1 September 2026</time></p>
+          <h1>Refactoring</h1>
+          <p class="lesson-author">Martin Fowler</p>
+          <div class="lesson-meta"><span>1999 · 2nd Edition 2018</span><span>Software engineering · Refactoring · Maintainability</span><span>5–8 minute read</span></div>
+          <p class="lesson-summary">Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Fowler's definition, catalog and workflows are authoritative practitioner guidance for disciplined refactoring. Evidence that refactoring universally improves quality or delivery speed is mixed and context-dependent: outcomes depend on the chosen target, tests, tooling, change size, public interfaces and team skill. Behavior preservation is the intended constraint, not a guarantee; recent empirical research has documented faults in popular automated refactoring engines. Treat tool support and green tests as safeguards, not proof, and review observable contracts beyond the test suite. The applications in this lesson are practitioner interpretations rather than universal performance claims.</aside>
+          <div class="lesson-progress" data-book-progress data-book-slug="refactoring" data-book-idea-ids="[&quot;refactoring-idea-1&quot;,&quot;refactoring-idea-2&quot;,&quot;refactoring-idea-3&quot;]" data-clarity-mask="true" hidden>
+            <span class="learning-state" data-learning-state hidden>Learned</span>
+            <span class="learning-summary" data-learning-summary hidden></span>
+          </div>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Refactoring | Daily Applied Wisdom" data-share-text="Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Change structure in verified small steps</a><a href="#idea-2"><span>02</span>Wear one hat at a time</a><a href="#idea-3"><span>03</span>Prepare the path of the next change</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-blue" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Change structure in verified small steps <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Fowler defines refactoring as changing the internal structure of software without changing its observable behavior. The goal is not a rewrite with the same requirements; it is a sequence of named transformations, each small enough to understand and verify before the next one begins.</p>
+<p>Small steps create a tight feedback loop. Establish a green baseline, make one structural move, then compile and test. If behavior changes, the recent step is a narrow place to investigate. The cumulative design improvement can be substantial even when each individual edit looks modest.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Shrink the diagnostic distance. Prefer one rename, extraction or move followed by the cheapest relevant verification over a broad cleanup whose first broken behavior could have many causes.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/refactoring-small-steps.svg" alt="A loop moves from a green baseline to one small structural transformation and then to a behavior check. A passing check continues to the next step, while a changed result returns immediately for diagnosis or reversal." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A small-step loop keeps the last structural change close to the evidence that checks it.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>When edits are narrow and the baseline is known, failures carry more information. Reviewers can also reason about intent more easily, and the code need not remain broken while a large restructuring is completed.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one small area you expect to edit and record the focused test or observable output that currently passes.</p>
+<p>Make one behavior-preserving transformation, such as a local rename or a short function extraction.</p>
+<p>Run the same check immediately and inspect the diff before taking another step.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Small does not mean safe by definition. Weak tests can miss changed timing, exceptions, serialization, reflection, public API use or side effects, and automated refactoring tools can contain bugs. Match verification to the real observable contract and stop when the change cannot be checked confidently.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="refactoring-idea-1" data-book-slug="refactoring" data-idea-number="1" aria-pressed="false" aria-label="Mark Idea 1 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="refactoring-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="refactoring-idea-1" data-lesson-slug="refactoring" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulRefactoringIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Wear one hat at a time <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Fowler passes on Kent Beck's two-hats metaphor. Under the refactoring hat, every step is intended to preserve observable behavior and the existing tests should stay green. Under the adding-function hat, behavior changes, so tests may be added or changed to describe the new result.</p>
+<p>A developer may switch hats every few minutes, but one edit should have one intent. The separation makes a failing test easier to interpret: during refactoring it signals that structure work probably changed behavior, while during feature work it may describe the gap being implemented.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Make intent visible in the working rhythm. Before an edit, state whether behavior should remain the same or change; shape the diff, tests and review explanation around that answer.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/refactoring-two-hats.svg" alt="A central intent switch points left to a refactoring hat where behavior stays the same and tests remain green, and right to an adding-function hat where behavior changes and tests describe the new result. A footer says one step, one intent." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>The hats may alternate quickly, but each step has one behavioral intent and one meaning for its evidence.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Mixed-intent edits force a reviewer to separate accidental behavior changes from deliberate ones. Clear hats reduce that ambiguity, simplify rollback and make test failures more diagnostic.</p></section>
+          <section><h3>Apply it today</h3><p>Before the next code edit, write either REFRACTOR or ADD FUNCTION in a scratch note.</p>
+<p>If the intent changes, finish or revert the current small step and verify the code before switching hats.</p>
+<p>Keep the final diff or commits separable enough that a reviewer can see which behavior was meant to change.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>The metaphor is a reasoning aid, not a demand for bureaucracy or a separate pull request for every rename. Some tools and framework migrations blur the boundary, and tests sometimes need restructuring too. The useful discipline is explicit behavioral intent, not ceremonial labels.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="refactoring-idea-2" data-book-slug="refactoring" data-idea-number="2" aria-pressed="false" aria-label="Mark Idea 2 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="refactoring-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="refactoring-idea-2" data-lesson-slug="refactoring" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulRefactoringIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Prepare the path of the next change <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Fowler describes preparatory refactoring as reshaping existing code when its current structure makes an imminent feature awkward. First make a behavior-preserving change that exposes the right seam or moves responsibility; then add the feature through that easier path.</p>
+<p>The scope comes from a real change, not a general desire for cleaner code. The preparation can pay for itself by reducing branching, duplication or coupling in the feature step, while the two hats keep the structural move and the new behavior separately verifiable.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Let friction nominate the refactoring. Trace the exact path the next requirement must cross, remove the smallest structural obstacle on that path and defer unrelated cleanup.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/refactoring-preparatory-path.svg" alt="A direct route from the current code shape to a feature is blocked by branching, duplication and coupling. A lower route identifies the blocking seam, reshapes it while behavior stays the same, then reaches a simpler feature change." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Preparatory refactoring takes a deliberate structural step only where it makes the imminent behavior change easier.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A concrete requirement supplies a stopping rule and exposes which structure actually resists change. This avoids both forcing a feature through the wrong seam and launching an open-ended cleanup programme.</p></section>
+          <section><h3>Apply it today</h3><p>Name one change you expect to make soon and trace the functions or modules it must cross.</p>
+<p>Mark the first point where the current structure would force duplication, a special case or an unrelated dependency.</p>
+<p>Write the smallest behavior-preserving move that would expose a cleaner seam before the feature is added.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Preparation is waste when the requirement is speculative, the obstacle is cheap to tolerate or the proposed refactor spreads across unverified boundaries. Time-box discovery, preserve public contracts and stop once the imminent change has a clear, testable path.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="refactoring-idea-3" data-book-slug="refactoring" data-idea-number="3" aria-pressed="false" aria-label="Mark Idea 3 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="refactoring-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="refactoring-idea-3" data-lesson-slug="refactoring" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulRefactoringIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="refactoring" data-book-idea-ids="[&quot;refactoring-idea-1&quot;,&quot;refactoring-idea-2&quot;,&quot;refactoring-idea-3&quot;]" data-quiz-revision="2026-09-01-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>Which change best fits Fowler's definition of refactoring?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-1-q1" value="0" required aria-describedby="refactoring-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Replace a module because its internal design looks untidy.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-1-q1" value="1" required aria-describedby="refactoring-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Improve internal structure through small behavior-preserving changes.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-1-q1" value="2" required aria-describedby="refactoring-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Add new behavior and reorganise the same code in one step.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-1-q1" value="3" required aria-describedby="refactoring-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Optimise runtime speed before checking the program's outputs.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Replacement may change many structures and behaviors at once. Refactoring improves internal structure through small behavior-preserving changes.</p><p data-feedback-for="1" hidden>The defining constraint is structural improvement through changes intended to preserve observable behavior.</p><p data-feedback-for="2" hidden>Adding behavior uses a different mode of work. Refactoring keeps observable behavior stable while internal structure changes.</p><p data-feedback-for="3" hidden>Performance optimisation may alter observable characteristics and needs its own evidence. Refactoring is structural change intended to preserve behavior.</p>
+                    <p class="quiz-feedback-context">Refactoring changes internal structure while preserving observable behavior. A rewrite, a feature addition or an unverified optimisation may be valuable work, but it is not the controlled activity Fowler defines.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-2-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Which practice captures the purpose of Fowler's two-hats metaphor?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-2-q1" value="0" required aria-describedby="refactoring-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Delay all design work until the complete feature has shipped.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-2-q1" value="1" required aria-describedby="refactoring-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Treat green tests as permission to change behavior without new evidence.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-2-q1" value="2" required aria-describedby="refactoring-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Combine cleanup and feature logic so both intentions share one edit.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-2-q1" value="3" required aria-describedby="refactoring-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Separate behavior-preserving and behavior-changing steps, then verify.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The hats can switch frequently; design work need not wait for a large phase. The key is to distinguish behavior-preserving from behavior-changing steps.</p><p data-feedback-for="1" hidden>Green tests support a behavior-preserving step, not untested behavior change. Label the intent and verify with evidence suited to that intent.</p><p data-feedback-for="2" hidden>Combining intentions makes failures and review harder to interpret. Keep each step behavior-preserving or behavior-changing and verify it accordingly.</p><p data-feedback-for="3" hidden>The explicit intent gives tests and failures a clearer meaning, even when the developer switches hats often.</p>
+                    <p class="quiz-feedback-context">The two hats distinguish the behavioral intent of a step. Refactoring should preserve behavior; adding function deliberately changes it. Clear intent determines what the tests mean and makes failures easier to interpret.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-3-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What distinguishes preparatory refactoring from general cleanup?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-3-q1" value="0" required aria-describedby="refactoring-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It tidies every nearby smell before requirements are understood.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-3-q1" value="1" required aria-describedby="refactoring-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It improves runtime performance before feature behavior is designed.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-3-q1" value="2" required aria-describedby="refactoring-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It reshapes the obstacle on an imminent change path, then adds the feature.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-3-q1" value="3" required aria-describedby="refactoring-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It replaces a difficult dependency so future changes need no tests.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Open-ended tidying lacks the requirement-based scope and stopping rule. Preparatory refactoring targets the obstacle on an imminent change path.</p><p data-feedback-for="1" hidden>Performance work is a different objective unless it is the explicit requirement. Preparatory refactoring reshapes structure for a known upcoming change.</p><p data-feedback-for="2" hidden>A real upcoming change identifies the obstacle, scope and stopping point for the behavior-preserving preparation.</p><p data-feedback-for="3" hidden>Replacing a dependency may be much broader and does not remove the need for tests. Preparation targets the smallest verified obstacle to the imminent change.</p>
+                    <p class="quiz-feedback-context">Preparatory refactoring is anchored to an imminent behavior change. It removes a specific structural obstacle first, while preserving behavior, and then uses the easier path to add the feature.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-1-q2" data-question-type="application" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A long function has unclear names and repeated logic. What is the strongest first refactoring move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-1-q2" value="0" required aria-describedby="refactoring-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Rewrite the whole function, then compare its final output manually.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-1-q2" value="1" required aria-describedby="refactoring-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Delete brittle tests so structural edits can proceed without interruption.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-1-q2" value="2" required aria-describedby="refactoring-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Verify a baseline, make one rename or extraction, then rerun it.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-1-q2" value="3" required aria-describedby="refactoring-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Fix a nearby bug inside the cleanup so the diff delivers more value.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A whole-function rewrite creates a wide diagnostic surface. Establish a baseline, make one narrow transformation and verify it immediately.</p><p data-feedback-for="1" hidden>Removing tests discards evidence when it is most useful. Keep a green baseline, make one small step and rerun the relevant check.</p><p data-feedback-for="2" hidden>The baseline and immediate rerun keep the structural step close to evidence about preserved behavior.</p><p data-feedback-for="3" hidden>A bug fix intentionally changes behavior and obscures the refactoring diff. Keep the structural step separate and verify it first.</p>
+                    <p class="quiz-feedback-context">A known baseline, one narrow transformation and immediate verification create the short feedback loop Fowler advocates. Rewriting, removing evidence or mixing a bug fix into the structural edit makes any failure harder to locate.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-2-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A focused test fails immediately after a rename made under the refactoring hat. What should happen next?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-2-q2" value="0" required aria-describedby="refactoring-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Stop and restore or diagnose the rename before another structural step.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-2-q2" value="1" required aria-describedby="refactoring-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Continue adding the feature because later code may make the test pass.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-2-q2" value="2" required aria-describedby="refactoring-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Change the expected result so the rename can remain behavior-preserving.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-2-q2" value="3" required aria-describedby="refactoring-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Batch several more renames before investigating the shared failure.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>The failure is close to one known structural step, so restore green or understand that step before proceeding.</p><p data-feedback-for="1" hidden>Feature work adds a second intent and more possible causes. Diagnose or reverse the rename while the failure surface is still narrow.</p><p data-feedback-for="2" hidden>Changing the expected result turns the step into a behavior change. First determine why a behavior-preserving rename broke the baseline.</p><p data-feedback-for="3" hidden>More renames widen the diagnostic surface. Stop while the failing evidence still points closely to one structural change.</p>
+                    <p class="quiz-feedback-context">Under the refactoring hat, a failing baseline check is evidence that the last structural step may have altered behavior or its verification. Restore green or diagnose that narrow step before adding more causes.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="refactoring-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A regional pricing feature would add a fourth branch to repeated calculation code. What is the strongest preparatory move?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="refactoring-idea-3-q2" value="0" required aria-describedby="refactoring-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Add the fourth branch in every copy, then schedule consolidation later.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="refactoring-idea-3-q2" value="1" required aria-describedby="refactoring-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Extract a verified pricing seam, then add the regional rule there.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="refactoring-idea-3-q2" value="2" required aria-describedby="refactoring-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Rewrite the pricing module around a new framework before adding the rule.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="refactoring-idea-3-q2" value="3" required aria-describedby="refactoring-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Postpone the feature until every pricing smell has been removed.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="refactoring-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Repeating the branch multiplies the obstacle. Extract the smallest verified pricing seam first, then add the rule through it.</p><p data-feedback-for="1" hidden>The seam is a scoped behavior-preserving preparation that gives the regional rule one clear place to enter.</p><p data-feedback-for="2" hidden>A framework rewrite is broader than the named obstacle and weakens the requirement-based stopping rule. Extract the smallest verified seam instead.</p><p data-feedback-for="3" hidden>The feature need not wait for unrelated cleanup. Prepare only the structural path the regional rule actually needs.</p>
+                    <p class="quiz-feedback-context">A verified seam addresses the concrete duplication blocking the imminent rule, while keeping the structural step separate from new behavior. Repetition, a broad rewrite or exhaustive cleanup creates more risk or delay than the requirement justifies.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-mark-book-learned" type="button" data-mark-book-learned aria-pressed="false" hidden>Mark book as learned</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Run one verified refactoring loop</h2>
+          <ol><li>Choose a small function you expect to touch soon and run one focused test or capture one observable baseline.</li><li>State the hat: behavior must stay the same.</li><li>Make one local rename or short extraction using the IDE when appropriate.</li><li>Rerun the same check and inspect the diff; revert if the result changed or the contract is unclear.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> You finish with either one green, reviewable structural improvement or a clean reversal plus a precise note about the missing evidence.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From A Philosophy of Software Design: which form of complexity makes a small requirement spread across many places?</li><li>From Working Effectively with Legacy Code: where could a test seam reduce the risk of changing behavior you cannot yet observe?</li><li>From The Mythical Man-Month: how might a local structural improvement support conceptual integrity without creating a competing design?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://martinfowler.com/books/refactoring.html" target="_blank" rel="noreferrer">Martin Fowler: Refactoring, definition, scope and 2nd Edition details <span aria-hidden="true">↗</span></a></li><li><a href="https://www.informit.com/store/refactoring-improving-the-design-of-existing-code-9780134757599" target="_blank" rel="noreferrer">Addison-Wesley Professional: Refactoring, 2nd Edition publication record <span aria-hidden="true">↗</span></a></li><li><a href="https://martinfowler.com/articles/workflowsOfRefactoring/" target="_blank" rel="noreferrer">Martin Fowler: Workflows of Refactoring, two hats and preparatory refactoring <span aria-hidden="true">↗</span></a></li><li><a href="https://martinfowler.com/articles/preparatory-refactoring-example.html" target="_blank" rel="noreferrer">Martin Fowler: worked example of preparatory refactoring <span aria-hidden="true">↗</span></a></li><li><a href="https://refactoring.com/catalog/index.html" target="_blank" rel="noreferrer">Refactoring.com: catalog supporting the 2nd Edition <span aria-hidden="true">↗</span></a></li><li><a href="https://arxiv.org/abs/2409.14610" target="_blank" rel="noreferrer">Wang et al. 2024: empirical study of bugs in automated refactoring engines <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Make the next change safer by separating intent, reshaping code in small verified steps and stopping when the real path is clear.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="refactoring-martin-fowler" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/refactoring.html" data-page-title="Refactoring | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="the-little-book-of-common-sense-investing.html"><span>Previous</span>The Little Book of Common Sense Investing</a>
+        <span></span>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026 Daniel Barnes</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,6 +1,243 @@
 {
   "lessons": [
     {
+      "slug": "refactoring",
+      "discussionId": "refactoring-martin-fowler",
+      "date": "2026-09-01",
+      "dateLabel": "1 September 2026",
+      "edition": "Daily lesson",
+      "title": "Refactoring",
+      "authors": "Martin Fowler",
+      "year": "1999 · 2nd Edition 2018",
+      "category": "Software engineering · Refactoring · Maintainability",
+      "summary": "Improve code without changing what it does by making small verified transformations, separating structural work from feature work and reshaping only the path that an imminent change needs.",
+      "evidenceNote": "Fowler's definition, catalog and workflows are authoritative practitioner guidance for disciplined refactoring. Evidence that refactoring universally improves quality or delivery speed is mixed and context-dependent: outcomes depend on the chosen target, tests, tooling, change size, public interfaces and team skill. Behavior preservation is the intended constraint, not a guarantee; recent empirical research has documented faults in popular automated refactoring engines. Treat tool support and green tests as safeguards, not proof, and review observable contracts beyond the test suite. The applications in this lesson are practitioner interpretations rather than universal performance claims.",
+      "accent": "blue",
+      "quizRevision": "2026-09-01-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Change structure in verified small steps",
+          "argument": [
+            "Fowler defines refactoring as changing the internal structure of software without changing its observable behavior. The goal is not a rewrite with the same requirements; it is a sequence of named transformations, each small enough to understand and verify before the next one begins.",
+            "Small steps create a tight feedback loop. Establish a green baseline, make one structural move, then compile and test. If behavior changes, the recent step is a narrow place to investigate. The cumulative design improvement can be substantial even when each individual edit looks modest."
+          ],
+          "extension": "Shrink the diagnostic distance. Prefer one rename, extraction or move followed by the cheapest relevant verification over a broad cleanup whose first broken behavior could have many causes.",
+          "image": "../assets/lesson-visuals/refactoring-small-steps.svg",
+          "imageAlt": "A loop moves from a green baseline to one small structural transformation and then to a behavior check. A passing check continues to the next step, while a changed result returns immediately for diagnosis or reversal.",
+          "imageCaption": "A small-step loop keeps the last structural change close to the evidence that checks it.",
+          "why": "When edits are narrow and the baseline is known, failures carry more information. Reviewers can also reason about intent more easily, and the code need not remain broken while a large restructuring is completed.",
+          "apply": [
+            "Choose one small area you expect to edit and record the focused test or observable output that currently passes.",
+            "Make one behavior-preserving transformation, such as a local rename or a short function extraction.",
+            "Run the same check immediately and inspect the diff before taking another step."
+          ],
+          "caveat": "Small does not mean safe by definition. Weak tests can miss changed timing, exceptions, serialization, reflection, public API use or side effects, and automated refactoring tools can contain bugs. Match verification to the real observable contract and stop when the change cannot be checked confidently.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which change best fits Fowler's definition of refactoring?",
+              "options": [
+                "Replace a module because its internal design looks untidy.",
+                "Improve internal structure through small behavior-preserving changes.",
+                "Add new behavior and reorganise the same code in one step.",
+                "Optimise runtime speed before checking the program's outputs."
+              ],
+              "correctIndex": 1,
+              "feedback": "Refactoring changes internal structure while preserving observable behavior. A rewrite, a feature addition or an unverified optimisation may be valuable work, but it is not the controlled activity Fowler defines.",
+              "feedbackByOption": [
+                "Replacement may change many structures and behaviors at once. Refactoring improves internal structure through small behavior-preserving changes.",
+                "Correct. The defining constraint is structural improvement through changes intended to preserve observable behavior.",
+                "Adding behavior uses a different mode of work. Refactoring keeps observable behavior stable while internal structure changes.",
+                "Performance optimisation may alter observable characteristics and needs its own evidence. Refactoring is structural change intended to preserve behavior."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A long function has unclear names and repeated logic. What is the strongest first refactoring move?",
+              "options": [
+                "Rewrite the whole function, then compare its final output manually.",
+                "Delete brittle tests so structural edits can proceed without interruption.",
+                "Verify a baseline, make one rename or extraction, then rerun it.",
+                "Fix a nearby bug inside the cleanup so the diff delivers more value."
+              ],
+              "correctIndex": 2,
+              "feedback": "A known baseline, one narrow transformation and immediate verification create the short feedback loop Fowler advocates. Rewriting, removing evidence or mixing a bug fix into the structural edit makes any failure harder to locate.",
+              "feedbackByOption": [
+                "A whole-function rewrite creates a wide diagnostic surface. Establish a baseline, make one narrow transformation and verify it immediately.",
+                "Removing tests discards evidence when it is most useful. Keep a green baseline, make one small step and rerun the relevant check.",
+                "Correct. The baseline and immediate rerun keep the structural step close to evidence about preserved behavior.",
+                "A bug fix intentionally changes behavior and obscures the refactoring diff. Keep the structural step separate and verify it first."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Wear one hat at a time",
+          "argument": [
+            "Fowler passes on Kent Beck's two-hats metaphor. Under the refactoring hat, every step is intended to preserve observable behavior and the existing tests should stay green. Under the adding-function hat, behavior changes, so tests may be added or changed to describe the new result.",
+            "A developer may switch hats every few minutes, but one edit should have one intent. The separation makes a failing test easier to interpret: during refactoring it signals that structure work probably changed behavior, while during feature work it may describe the gap being implemented."
+          ],
+          "extension": "Make intent visible in the working rhythm. Before an edit, state whether behavior should remain the same or change; shape the diff, tests and review explanation around that answer.",
+          "image": "../assets/lesson-visuals/refactoring-two-hats.svg",
+          "imageAlt": "A central intent switch points left to a refactoring hat where behavior stays the same and tests remain green, and right to an adding-function hat where behavior changes and tests describe the new result. A footer says one step, one intent.",
+          "imageCaption": "The hats may alternate quickly, but each step has one behavioral intent and one meaning for its evidence.",
+          "why": "Mixed-intent edits force a reviewer to separate accidental behavior changes from deliberate ones. Clear hats reduce that ambiguity, simplify rollback and make test failures more diagnostic.",
+          "apply": [
+            "Before the next code edit, write either REFRACTOR or ADD FUNCTION in a scratch note.",
+            "If the intent changes, finish or revert the current small step and verify the code before switching hats.",
+            "Keep the final diff or commits separable enough that a reviewer can see which behavior was meant to change."
+          ],
+          "caveat": "The metaphor is a reasoning aid, not a demand for bureaucracy or a separate pull request for every rename. Some tools and framework migrations blur the boundary, and tests sometimes need restructuring too. The useful discipline is explicit behavioral intent, not ceremonial labels.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which practice captures the purpose of Fowler's two-hats metaphor?",
+              "options": [
+                "Delay all design work until the complete feature has shipped.",
+                "Treat green tests as permission to change behavior without new evidence.",
+                "Combine cleanup and feature logic so both intentions share one edit.",
+                "Separate behavior-preserving and behavior-changing steps, then verify."
+              ],
+              "correctIndex": 3,
+              "feedback": "The two hats distinguish the behavioral intent of a step. Refactoring should preserve behavior; adding function deliberately changes it. Clear intent determines what the tests mean and makes failures easier to interpret.",
+              "feedbackByOption": [
+                "The hats can switch frequently; design work need not wait for a large phase. The key is to distinguish behavior-preserving from behavior-changing steps.",
+                "Green tests support a behavior-preserving step, not untested behavior change. Label the intent and verify with evidence suited to that intent.",
+                "Combining intentions makes failures and review harder to interpret. Keep each step behavior-preserving or behavior-changing and verify it accordingly.",
+                "Correct. The explicit intent gives tests and failures a clearer meaning, even when the developer switches hats often."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A focused test fails immediately after a rename made under the refactoring hat. What should happen next?",
+              "options": [
+                "Stop and restore or diagnose the rename before another structural step.",
+                "Continue adding the feature because later code may make the test pass.",
+                "Change the expected result so the rename can remain behavior-preserving.",
+                "Batch several more renames before investigating the shared failure."
+              ],
+              "correctIndex": 0,
+              "feedback": "Under the refactoring hat, a failing baseline check is evidence that the last structural step may have altered behavior or its verification. Restore green or diagnose that narrow step before adding more causes.",
+              "feedbackByOption": [
+                "Correct. The failure is close to one known structural step, so restore green or understand that step before proceeding.",
+                "Feature work adds a second intent and more possible causes. Diagnose or reverse the rename while the failure surface is still narrow.",
+                "Changing the expected result turns the step into a behavior change. First determine why a behavior-preserving rename broke the baseline.",
+                "More renames widen the diagnostic surface. Stop while the failing evidence still points closely to one structural change."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Prepare the path of the next change",
+          "argument": [
+            "Fowler describes preparatory refactoring as reshaping existing code when its current structure makes an imminent feature awkward. First make a behavior-preserving change that exposes the right seam or moves responsibility; then add the feature through that easier path.",
+            "The scope comes from a real change, not a general desire for cleaner code. The preparation can pay for itself by reducing branching, duplication or coupling in the feature step, while the two hats keep the structural move and the new behavior separately verifiable."
+          ],
+          "extension": "Let friction nominate the refactoring. Trace the exact path the next requirement must cross, remove the smallest structural obstacle on that path and defer unrelated cleanup.",
+          "image": "../assets/lesson-visuals/refactoring-preparatory-path.svg",
+          "imageAlt": "A direct route from the current code shape to a feature is blocked by branching, duplication and coupling. A lower route identifies the blocking seam, reshapes it while behavior stays the same, then reaches a simpler feature change.",
+          "imageCaption": "Preparatory refactoring takes a deliberate structural step only where it makes the imminent behavior change easier.",
+          "why": "A concrete requirement supplies a stopping rule and exposes which structure actually resists change. This avoids both forcing a feature through the wrong seam and launching an open-ended cleanup programme.",
+          "apply": [
+            "Name one change you expect to make soon and trace the functions or modules it must cross.",
+            "Mark the first point where the current structure would force duplication, a special case or an unrelated dependency.",
+            "Write the smallest behavior-preserving move that would expose a cleaner seam before the feature is added."
+          ],
+          "caveat": "Preparation is waste when the requirement is speculative, the obstacle is cheap to tolerate or the proposed refactor spreads across unverified boundaries. Time-box discovery, preserve public contracts and stop once the imminent change has a clear, testable path.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What distinguishes preparatory refactoring from general cleanup?",
+              "options": [
+                "It tidies every nearby smell before requirements are understood.",
+                "It improves runtime performance before feature behavior is designed.",
+                "It reshapes the obstacle on an imminent change path, then adds the feature.",
+                "It replaces a difficult dependency so future changes need no tests."
+              ],
+              "correctIndex": 2,
+              "feedback": "Preparatory refactoring is anchored to an imminent behavior change. It removes a specific structural obstacle first, while preserving behavior, and then uses the easier path to add the feature.",
+              "feedbackByOption": [
+                "Open-ended tidying lacks the requirement-based scope and stopping rule. Preparatory refactoring targets the obstacle on an imminent change path.",
+                "Performance work is a different objective unless it is the explicit requirement. Preparatory refactoring reshapes structure for a known upcoming change.",
+                "Correct. A real upcoming change identifies the obstacle, scope and stopping point for the behavior-preserving preparation.",
+                "Replacing a dependency may be much broader and does not remove the need for tests. Preparation targets the smallest verified obstacle to the imminent change."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A regional pricing feature would add a fourth branch to repeated calculation code. What is the strongest preparatory move?",
+              "options": [
+                "Add the fourth branch in every copy, then schedule consolidation later.",
+                "Extract a verified pricing seam, then add the regional rule there.",
+                "Rewrite the pricing module around a new framework before adding the rule.",
+                "Postpone the feature until every pricing smell has been removed."
+              ],
+              "correctIndex": 1,
+              "feedback": "A verified seam addresses the concrete duplication blocking the imminent rule, while keeping the structural step separate from new behavior. Repetition, a broad rewrite or exhaustive cleanup creates more risk or delay than the requirement justifies.",
+              "feedbackByOption": [
+                "Repeating the branch multiplies the obstacle. Extract the smallest verified pricing seam first, then add the rule through it.",
+                "Correct. The seam is a scoped behavior-preserving preparation that gives the regional rule one clear place to enter.",
+                "A framework rewrite is broader than the named obstacle and weakens the requirement-based stopping rule. Extract the smallest verified seam instead.",
+                "The feature need not wait for unrelated cleanup. Prepare only the structural path the regional rule actually needs."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one verified refactoring loop",
+        "steps": [
+          "Choose a small function you expect to touch soon and run one focused test or capture one observable baseline.",
+          "State the hat: behavior must stay the same.",
+          "Make one local rename or short extraction using the IDE when appropriate.",
+          "Rerun the same check and inspect the diff; revert if the result changed or the contract is unclear."
+        ],
+        "result": "You finish with either one green, reviewable structural improvement or a clean reversal plus a precise note about the missing evidence."
+      },
+      "spacedRecall": [
+        "From A Philosophy of Software Design: which form of complexity makes a small requirement spread across many places?",
+        "From Working Effectively with Legacy Code: where could a test seam reduce the risk of changing behavior you cannot yet observe?",
+        "From The Mythical Man-Month: how might a local structural improvement support conceptual integrity without creating a competing design?"
+      ],
+      "takeaway": "Make the next change safer by separating intent, reshaping code in small verified steps and stopping when the real path is clear.",
+      "sources": [
+        {
+          "label": "Martin Fowler: Refactoring, definition, scope and 2nd Edition details",
+          "url": "https://martinfowler.com/books/refactoring.html"
+        },
+        {
+          "label": "Addison-Wesley Professional: Refactoring, 2nd Edition publication record",
+          "url": "https://www.informit.com/store/refactoring-improving-the-design-of-existing-code-9780134757599"
+        },
+        {
+          "label": "Martin Fowler: Workflows of Refactoring, two hats and preparatory refactoring",
+          "url": "https://martinfowler.com/articles/workflowsOfRefactoring/"
+        },
+        {
+          "label": "Martin Fowler: worked example of preparatory refactoring",
+          "url": "https://martinfowler.com/articles/preparatory-refactoring-example.html"
+        },
+        {
+          "label": "Refactoring.com: catalog supporting the 2nd Edition",
+          "url": "https://refactoring.com/catalog/index.html"
+        },
+        {
+          "label": "Wang et al. 2024: empirical study of bugs in automated refactoring engines",
+          "url": "https://arxiv.org/abs/2409.14610"
+        }
+      ]
+    },
+    {
       "slug": "the-little-book-of-common-sense-investing",
       "discussionId": "little-book-common-sense-investing-john-bogle",
       "date": "2026-08-28",
