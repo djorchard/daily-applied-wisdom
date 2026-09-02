@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="cd-pipeline-title cd-pipeline-desc">
+  <title id="cd-pipeline-title">One candidate gains evidence through the deployment pipeline</title>
+  <desc id="cd-pipeline-desc">A single versioned candidate moves from commit through build, acceptance and release readiness. Evidence accumulates at each gate, failed checks stop promotion for diagnosis, and the artifact identity remains constant.</desc>
+  <defs>
+    <marker id="cd-pipeline-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="326" y="28" width="548" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">ONE CANDIDATE, GROWING EVIDENCE</text>
+
+  <rect class="card" x="54" y="188" width="230" height="250" rx="26" fill="#d8cce8"/>
+  <text class="label" x="169" y="236" text-anchor="middle">COMMIT</text>
+  <rect x="94" y="270" width="150" height="66" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="169" y="313" text-anchor="middle">v42</text>
+  <text class="body" x="169" y="374" text-anchor="middle">source identified</text>
+  <text class="small" x="169" y="410" text-anchor="middle">START</text>
+
+  <path class="line" d="M284 314H338" marker-end="url(#cd-pipeline-arrow)"/>
+  <rect class="card" x="344" y="150" width="238" height="326" rx="26" fill="#b8d5e5"/>
+  <text class="label" x="463" y="200" text-anchor="middle">BUILD</text>
+  <rect x="388" y="236" width="150" height="66" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="463" y="279" text-anchor="middle">v42</text>
+  <text class="body" x="463" y="344" text-anchor="middle">compile + unit</text>
+  <text class="body" x="463" y="380" text-anchor="middle">signed artifact</text>
+  <text class="small" x="463" y="432" text-anchor="middle">FAST EVIDENCE</text>
+
+  <path class="line" d="M582 314H636" marker-end="url(#cd-pipeline-arrow)"/>
+  <rect class="card" x="642" y="150" width="238" height="326" rx="26" fill="#e9d17f"/>
+  <text class="label" x="761" y="200" text-anchor="middle">ACCEPT</text>
+  <rect x="686" y="236" width="150" height="66" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="761" y="279" text-anchor="middle">v42</text>
+  <text class="body" x="761" y="344" text-anchor="middle">user behaviour</text>
+  <text class="body" x="761" y="380" text-anchor="middle">system evidence</text>
+  <text class="small" x="761" y="432" text-anchor="middle">DEEPER EVIDENCE</text>
+
+  <path class="line" d="M880 314H934" marker-end="url(#cd-pipeline-arrow)"/>
+  <rect class="card" x="940" y="188" width="206" height="250" rx="26" fill="#bdd9bf"/>
+  <text class="label" x="1043" y="236" text-anchor="middle">READY</text>
+  <rect x="968" y="270" width="150" height="66" rx="16" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="1043" y="313" text-anchor="middle">v42</text>
+  <text class="body" x="1043" y="374" text-anchor="middle">release choice</text>
+  <text class="small" x="1043" y="410" text-anchor="middle">VISIBLE STATE</text>
+
+  <path class="line" d="M761 476V568H463V484" marker-end="url(#cd-pipeline-arrow)"/>
+  <rect x="516" y="536" width="192" height="58" rx="29" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="612" y="573" text-anchor="middle">FAIL: DIAGNOSE</text>
+
+  <rect x="220" y="646" width="760" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="686" text-anchor="middle" font-weight="700">PROMOTE THE IDENTIFIED ARTIFACT, NOT A REBUILD</text>
+</svg>

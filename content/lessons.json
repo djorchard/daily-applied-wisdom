@@ -1,6 +1,243 @@
 {
   "lessons": [
     {
+      "slug": "continuous-delivery",
+      "discussionId": "continuous-delivery-humble-farley",
+      "date": "2026-09-03",
+      "dateLabel": "3 September 2026",
+      "edition": "Daily lesson",
+      "title": "Continuous Delivery",
+      "authors": "Jez Humble and David Farley",
+      "year": "2010 · first edition",
+      "category": "Software engineering · Continuous delivery · Release engineering",
+      "summary": "Make releases routine by turning the path from commit to production into a visible evidence pipeline, integrating in small batches and deciding separately when deployed capability becomes available to users.",
+      "evidenceNote": "Humble and Farley's book, publisher extracts and the authors' maintained site are authoritative practitioner sources for the deployment-pipeline model and continuous-delivery discipline. The mechanisms are durable, but many tools and platform examples from 2010 are dated. Evidence that these practices improve delivery performance is supportive but context-dependent rather than a guarantee: safety depends on test quality, architecture, observability, security controls, regulatory constraints and team behaviour. Feature flags can separate deployment from release, but they also create extra states and operational debt. Treat the applications in this lesson as practitioner interpretations to test in the local delivery system.",
+      "accent": "green",
+      "quizRevision": "2026-09-03-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Make the path to release executable",
+          "argument": [
+            "Humble and Farley place the deployment pipeline at the centre of continuous delivery. It models the value stream from a version-control change to a release candidate, then automates the build, tests, environment promotion and deployment steps that can be repeated reliably.",
+            "Each stage adds evidence about the same candidate. Fast checks reject obvious problems early; slower acceptance, performance, security and exploratory work follow when appropriate. The pipeline makes the state of a change visible, including which version passed which checks and what is running in each environment."
+          ],
+          "extension": "Treat the pipeline as the team's shared release model, not a folder of unrelated jobs. Name the evidence each stage contributes, preserve artifact identity between stages and make a failed gate point to the next human decision.",
+          "image": "../assets/lesson-visuals/continuous-delivery-pipeline.svg",
+          "imageAlt": "One versioned release candidate moves through commit, build, acceptance and production-readiness stages. Each stage adds evidence while the candidate identity remains unchanged, and a failed check stops promotion for diagnosis.",
+          "imageCaption": "A deployment pipeline promotes one identified candidate as evidence accumulates; it does not rebuild a different candidate at every stage.",
+          "why": "A visible, repeatable path reduces release-day improvisation. Developers, testers, operations and product people can discuss the same candidate and see which uncertainty remains instead of relying on hand-offs or memory.",
+          "apply": [
+            "Choose one recent production version and trace the exact jobs, approvals and manual steps it crossed after commit.",
+            "Write the evidence produced by each step, such as a signed artifact, acceptance result or deployment record.",
+            "Circle the first step that can silently rebuild, mutate or lose the identity of the candidate."
+          ],
+          "caveat": "A green pipeline is evidence, not proof. It can automate weak tests, hide flaky gates or omit accessibility, data migration, security and operational checks. Keep exploratory judgement where uncertainty remains, and retire stages that add delay without useful information.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the deployment pipeline's central role in Continuous Delivery?",
+              "options": [
+                "Replace every release decision with an automatic production deployment.",
+                "Model and automate the path that adds evidence to a release candidate.",
+                "Give each environment a separately rebuilt version of the application.",
+                "Move all testing to the final stage immediately before release."
+              ],
+              "correctIndex": 1,
+              "feedback": "The deployment pipeline makes the path from commit to release visible and repeatable while evidence accumulates around an identified candidate. It need not remove every decision, rebuild per environment or delay testing until the end.",
+              "feedbackByOption": [
+                "Continuous delivery keeps software releasable; it does not require every successful change to deploy automatically. The pipeline models and automates an evidence path for a candidate.",
+                "Correct. The pipeline is an executable model of the route to release, with each stage adding evidence about an identified candidate.",
+                "Separate rebuilds weaken confidence that the tested candidate is the deployed one. Preserve candidate identity while stages add evidence.",
+                "Late testing lengthens feedback and concentrates risk. The pipeline should reject cheap failures early and add deeper evidence progressively."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A service is rebuilt separately in test and production. What is the strongest first pipeline improvement?",
+              "options": [
+                "Add a release meeting to compare the two build logs before deployment.",
+                "Run the production build first so its artifact becomes the newest one.",
+                "Build once, identify the artifact and promote that candidate through checks.",
+                "Keep both builds but give them matching file names for easier comparison."
+              ],
+              "correctIndex": 2,
+              "feedback": "Building once and promoting the identified artifact keeps the evidence attached to the candidate that will be deployed. Meetings, ordering or matching names do not establish binary identity.",
+              "feedbackByOption": [
+                "A meeting can compare records but cannot make two outputs identical. Build once, identify the artifact and promote that candidate through the pipeline.",
+                "Build order does not connect test evidence to the production binary. The stronger move is one build promoted through successive checks.",
+                "Correct. One identified artifact preserves the chain between the evidence gathered and the candidate eventually deployed.",
+                "Matching names can conceal different bytes. Build once and promote the same identified candidate rather than relying on labels."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Keep change batches small and releasable",
+          "argument": [
+            "Continuous delivery extends continuous integration beyond a successful build. Team members integrate frequently into a shared mainline, fix a broken build immediately and keep the application in a state that could be released when the business chooses.",
+            "Small batches shorten the distance between a change and its feedback. When a check fails, fewer interacting edits compete as possible causes. This discipline depends on tests, configuration and database changes evolving with the code rather than being assembled during a late release phase."
+          ],
+          "extension": "Use releasability as a daily constraint. Slice work so an incomplete capability can coexist safely, then integrate the smallest coherent change before its assumptions drift away from the rest of the system.",
+          "image": "../assets/lesson-visuals/continuous-delivery-small-batches.svg",
+          "imageAlt": "A comparison shows a large delayed batch accumulating several interacting changes before one distant feedback point, while a small-batch loop integrates one coherent change, checks it and either repairs it or continues.",
+          "imageCaption": "Small batches keep a failing signal close to fewer recent changes; they do not make an individual change automatically safe.",
+          "why": "Frequent integration exposes incompatibility while the relevant context is still fresh. The team spends less time reconstructing a large merge or release, and product decisions are not forced to wait for a technical batching event.",
+          "apply": [
+            "Look at one item currently expected to stay on a branch or behind a hand-off for several days.",
+            "Identify the smallest coherent change that can reach main while preserving current user behaviour.",
+            "Write the check or containment mechanism that would make integrating that slice responsible today."
+          ],
+          "caveat": "Small batches reduce diagnostic scope but do not remove system coupling or coordination needs. Hardware, regulated evidence packs, shared schemas and long-running migrations can impose real batch boundaries. Shrink what can be shrunk and make the remaining boundary explicit rather than declaring every domain identical.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Continuous Delivery favour frequent integration in small batches?",
+              "options": [
+                "It keeps feedback close to fewer interacting changes while preserving releasability.",
+                "It guarantees every integrated change is immediately valuable to every user.",
+                "It removes the need to coordinate database, configuration and code changes.",
+                "It allows teams to postpone fixing mainline failures until the batch is complete."
+              ],
+              "correctIndex": 0,
+              "feedback": "Small, frequent integration narrows the diagnostic surface and keeps the shared system releasable. It does not guarantee product value, erase cross-layer coordination or justify leaving mainline broken.",
+              "feedbackByOption": [
+                "Correct. A short change-to-feedback distance leaves fewer recent interactions to investigate and supports an always-releasable mainline.",
+                "A technically safe increment may remain hidden or await a product decision. The benefit is tighter feedback and releasability, not guaranteed universal value.",
+                "Configuration, schema and code still need coordinated evolution. Small batches make that coordination more frequent and visible rather than unnecessary.",
+                "A broken mainline blocks trustworthy feedback for everyone. Continuous integration requires restoring it promptly, not waiting for a larger batch."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A feature branch has grown for eight days and now conflicts with main. What best restores small-batch discipline?",
+              "options": [
+                "Find a behaviour-preserving slice, integrate it with checks and repeat.",
+                "Freeze main until the whole branch can be merged in one coordinated event.",
+                "Add more developers to finish every remaining branch task before integration.",
+                "Remove acceptance checks temporarily so the large merge completes sooner."
+              ],
+              "correctIndex": 0,
+              "feedback": "A safely contained slice reduces the batch and resumes short feedback loops. Freezing main, expanding the batch or removing evidence preserves the underlying integration risk.",
+              "feedbackByOption": [
+                "Correct. A coherent, checked slice makes the next integration smaller and begins returning the work to a releasable mainline.",
+                "Freezing main shifts delay and conflict to other work. Slice the branch into checked, behaviour-preserving increments instead.",
+                "More people may increase throughput, but finishing everything preserves one large integration event. Reduce the batch through coherent slices.",
+                "Removing acceptance evidence makes the large merge less trustworthy. Keep the checks and integrate a smaller safe slice."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Separate deployment from release",
+          "argument": [
+            "Humble and Farley distinguish making a tested version available in an environment from choosing when users receive its behaviour. A repeatable deployment can place capability in production without exposing it immediately, while configuration or a release control governs availability.",
+            "This separation gives product and operations people choices beyond a single high-stakes launch. A team can deploy during a calm window, verify the dormant path, enable it for a bounded cohort and reverse exposure without rebuilding the application."
+          ],
+          "extension": "Design two explicit controls: one answers which version is installed, and the other answers who can experience the capability. Give each control an owner, an observation and a reversal path.",
+          "image": "../assets/lesson-visuals/continuous-delivery-deploy-release.svg",
+          "imageAlt": "Two coordinated lanes separate technical deployment from user release. A version is deployed dark and verified, then a release control exposes it to a bounded cohort before widening access, with independent rollback and disable paths.",
+          "imageCaption": "Deployment changes the installed version; release changes user exposure. Separating them creates two smaller, reversible decisions.",
+          "why": "When installation and exposure are one irreversible event, technical and product uncertainty arrive together. Separate controls can limit blast radius, schedule user communication deliberately and make a rollback target clearer.",
+          "apply": [
+            "Name one upcoming capability and write the technical event that would deploy it.",
+            "Separately write the rule that would expose it to a user or cohort.",
+            "For both controls, record one observable check and the fastest responsible reversal."
+          ],
+          "caveat": "Release controls add paths that must be tested, observed and removed. Long-lived flags become configuration debt, can expose forbidden combinations and may not protect irreversible data changes. Use them deliberately, secure the control plane and set an owner and removal condition.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does separating deployment from release make possible?",
+              "options": [
+                "Rebuild the application differently for every user cohort.",
+                "Avoid testing inactive paths because users cannot reach them yet.",
+                "Replace deployment rollback with a permanent set of release-control flags.",
+                "Install a version, verify it and control user exposure independently."
+              ],
+              "correctIndex": 3,
+              "feedback": "Deployment can establish and verify the technical version while a separate release control governs exposure. The pattern does not require per-user builds, excuse testing or justify permanent flags.",
+              "feedbackByOption": [
+                "Per-cohort builds fragment artifact identity. Deploy one identified version and control exposure separately.",
+                "Dormant paths still need testing and observation because configuration can change. Separation controls exposure; it does not prove safety.",
+                "Flags complement rather than replace technical rollback, and stale flags create debt. The benefit is independent installation and exposure decisions.",
+                "Correct. The installed version and the audience receiving its capability become two observable, reversible decisions."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A new checkout calculation is ready but product wants a cautious launch. Which plan best separates deployment from release?",
+              "options": [
+                "Keep the code on a branch until every customer can receive it together.",
+                "Deploy it behind an owned control, verify it, then enable a monitored cohort.",
+                "Deploy a special build to each cohort so exposure matches installation.",
+                "Enable it globally after deployment and rely on a later hotfix if needed."
+              ],
+              "correctIndex": 1,
+              "feedback": "A single identified deployment plus a governed release control permits verification and bounded exposure. Long branches, cohort-specific builds or immediate global exposure collapse feedback into a larger event.",
+              "feedbackByOption": [
+                "A long branch delays integration and keeps installation tied to the launch date. Deploy a tested version behind an owned exposure control instead.",
+                "Correct. The version can be verified in production before a monitored cohort receives the behaviour, with clear disable and rollback paths.",
+                "Cohort-specific builds weaken artifact identity and multiply states. Deploy one candidate and control user exposure explicitly.",
+                "Global exposure combines technical and product risk. Begin with an owned, observable control and a bounded cohort."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Draw one release path",
+        "steps": [
+          "Choose the most recent production change and write its commit or artifact identifier at the left of a page.",
+          "Draw every automated gate, manual hand-off and rebuild it crossed before users received it.",
+          "Mark where evidence was added, where candidate identity could change and where deployment was coupled to user release.",
+          "Choose one gap that the team could make visible or repeatable in the next release."
+        ],
+        "result": "You finish with a concrete release-path map and one named improvement whose effect can be observed on the next candidate."
+      },
+      "spacedRecall": [
+        "From Release It!: which control would limit the blast radius if a newly released path overloads a dependency?",
+        "From Refactoring: how could one verified structural step make a pending pipeline change easier to review?",
+        "From Accelerate: which delivery measures would reveal whether a smaller-batch experiment improved both speed and stability?"
+      ],
+      "takeaway": "Make release routine by moving one identified candidate through useful evidence, integrating small changes and controlling deployment separately from user exposure.",
+      "sources": [
+        {
+          "label": "Jez Humble: Continuous Delivery book announcement and deployment-pipeline overview",
+          "url": "https://continuousdelivery.com/2010/02/continuous-delivery/"
+        },
+        {
+          "label": "Addison-Wesley Professional: Continuous Delivery publication and edition record",
+          "url": "https://www.informit.com/store/continuous-delivery-reliable-software-releases-through-9780321770424"
+        },
+        {
+          "label": "Humble and Farley: Anatomy of the Deployment Pipeline",
+          "url": "https://www.informit.com/articles/article.aspx?p=1621865"
+        },
+        {
+          "label": "Martin Fowler: Continuous Delivery and the path from integration to production",
+          "url": "https://martinfowler.com/books/continuousDelivery.html"
+        },
+        {
+          "label": "Continuous Delivery: continuous integration foundations",
+          "url": "https://continuousdelivery.com/foundations/continuous-integration/"
+        },
+        {
+          "label": "Martin Fowler: feature toggles and separating release from deployment",
+          "url": "https://martinfowler.com/articles/feature-toggles.html"
+        }
+      ]
+    },
+    {
       "slug": "refactoring",
       "discussionId": "refactoring-martin-fowler",
       "date": "2026-09-01",

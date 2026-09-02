@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="cd-release-title cd-release-desc">
+  <title id="cd-release-title">Deployment and release are coordinated but separate decisions</title>
+  <desc id="cd-release-desc">A technical lane deploys one version dark and verifies it, while a user-exposure lane enables a bounded cohort and then widens access. Independent controls can roll back the version or disable exposure.</desc>
+  <defs>
+    <marker id="cd-release-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="330" y="28" width="540" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">TWO CONTROLS, TWO REVERSAL PATHS</text>
+
+  <rect x="46" y="152" width="196" height="132" rx="24" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text class="label" x="144" y="196" text-anchor="middle">DEPLOY</text>
+  <text class="body" x="144" y="238" text-anchor="middle">installed version</text>
+  <path class="line" d="M242 218H332" marker-end="url(#cd-release-arrow)"/>
+  <rect class="card" x="338" y="132" width="264" height="172" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="470" y="180" text-anchor="middle">DEPLOY DARK</text>
+  <text class="body" x="470" y="222" text-anchor="middle">v42 installed</text>
+  <text class="small" x="470" y="264" text-anchor="middle">OLD PATH ACTIVE</text>
+  <path class="line" d="M602 218H692" marker-end="url(#cd-release-arrow)"/>
+  <rect class="card" x="698" y="132" width="264" height="172" rx="24" fill="#e9d17f"/>
+  <text class="heading" x="830" y="180" text-anchor="middle">VERIFY</text>
+  <text class="body" x="830" y="222" text-anchor="middle">health + contract</text>
+  <text class="small" x="830" y="264" text-anchor="middle">TECHNICAL EVIDENCE</text>
+  <path class="line" d="M962 218H1090" marker-end="url(#cd-release-arrow)"/>
+  <rect x="986" y="306" width="174" height="56" rx="28" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="1073" y="342" text-anchor="middle">ROLL BACK v42</text>
+  <path class="line" d="M1090 218V298" marker-end="url(#cd-release-arrow)"/>
+
+  <path class="line" d="M830 304V420" marker-end="url(#cd-release-arrow)"/>
+  <rect x="46" y="456" width="196" height="132" rx="24" fill="#d8cce8" stroke="#18211d" stroke-width="4"/>
+  <text class="label" x="144" y="500" text-anchor="middle">RELEASE</text>
+  <text class="body" x="144" y="542" text-anchor="middle">user exposure</text>
+  <path class="line" d="M242 522H332" marker-end="url(#cd-release-arrow)"/>
+  <rect class="card" x="338" y="436" width="264" height="172" rx="24" fill="#bdd9bf"/>
+  <text class="heading" x="470" y="484" text-anchor="middle">FIRST COHORT</text>
+  <text class="body" x="470" y="526" text-anchor="middle">owned release rule</text>
+  <text class="small" x="470" y="568" text-anchor="middle">OBSERVE OUTCOMES</text>
+  <path class="line" d="M602 522H692" marker-end="url(#cd-release-arrow)"/>
+  <rect class="card" x="698" y="436" width="264" height="172" rx="24" fill="#b8d5e5"/>
+  <text class="heading" x="830" y="484" text-anchor="middle">WIDEN ACCESS</text>
+  <text class="body" x="830" y="526" text-anchor="middle">deliberate decision</text>
+  <text class="small" x="830" y="568" text-anchor="middle">PRODUCT EVIDENCE</text>
+  <path class="line" d="M962 522H1090" marker-end="url(#cd-release-arrow)"/>
+  <rect x="986" y="610" width="174" height="56" rx="28" fill="#f3a8a0" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="1073" y="646" text-anchor="middle">DISABLE PATH</text>
+  <path class="line" d="M1090 522V602" marker-end="url(#cd-release-arrow)"/>
+
+  <rect x="338" y="684" width="524" height="52" rx="26" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="718" text-anchor="middle" font-weight="700">DEPLOY CODE; RELEASE EXPERIENCE</text>
+</svg>
