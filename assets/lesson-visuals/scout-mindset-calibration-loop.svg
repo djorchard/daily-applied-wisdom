@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="scout-calibration-title scout-calibration-desc">
+  <title id="scout-calibration-title">Calibration is a repeated forecast-to-outcome loop</title>
+  <desc id="scout-calibration-desc">A forecast is paired with a confidence level, many comparable forecasts are grouped, stated confidence is compared with observed frequency, and future confidence language is adjusted when a gap appears.</desc>
+  <defs>
+    <marker id="scout-calibration-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M0 0L12 6L0 12z" fill="#18211d"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+      .heading { font-size: 30px; font-weight: 700; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; font-weight: 700; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #18211d; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <rect x="306" y="28" width="588" height="62" rx="31" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="label" x="600" y="68" text-anchor="middle">CONFIDENCE NEEDS A SCOREBOARD</text>
+
+  <rect class="card" x="42" y="214" width="234" height="286" rx="26" fill="#b8d5e5"/>
+  <text class="label" x="159" y="258" text-anchor="middle">1 · FORECAST</text>
+  <rect x="82" y="292" width="154" height="72" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="heading" x="159" y="338" text-anchor="middle">70%</text>
+  <text class="body" x="159" y="408" text-anchor="middle">clear outcome</text>
+  <text class="body" x="159" y="442" text-anchor="middle">review date</text>
+
+  <path class="line" d="M276 357H324" marker-end="url(#scout-calibration-arrow)"/>
+  <rect class="card" x="330" y="170" width="242" height="374" rx="26" fill="#d8cce8"/>
+  <text class="label" x="451" y="216" text-anchor="middle">2 · GROUP</text>
+  <text class="body" x="451" y="247" text-anchor="middle">comparable</text>
+  <text class="body" x="451" y="279" text-anchor="middle">forecasts</text>
+  <g fill="#fffdf8" stroke="#18211d" stroke-width="3">
+    <circle cx="390" cy="318" r="28"/><circle cx="451" cy="318" r="28"/><circle cx="512" cy="318" r="28"/>
+    <circle cx="390" cy="385" r="28"/><circle cx="451" cy="385" r="28"/><circle cx="512" cy="385" r="28"/>
+    <circle cx="390" cy="452" r="28"/><circle cx="451" cy="452" r="28"/><circle cx="512" cy="452" r="28"/>
+  </g>
+  <text class="small" x="451" y="510" text-anchor="middle">MANY CASES</text>
+
+  <path class="line" d="M572 357H620" marker-end="url(#scout-calibration-arrow)"/>
+  <rect class="card" x="626" y="170" width="252" height="374" rx="26" fill="#e9d17f"/>
+  <text class="label" x="752" y="216" text-anchor="middle">3 · COMPARE</text>
+  <text class="body" x="752" y="254" text-anchor="middle">stated vs observed</text>
+  <line x1="694" y1="454" x2="822" y2="454" stroke="#18211d" stroke-width="4"/>
+  <rect x="704" y="314" width="42" height="140" rx="8" fill="#b8d5e5" stroke="#18211d" stroke-width="3"/>
+  <rect x="770" y="350" width="42" height="104" rx="8" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+  <text class="small" x="725" y="490" text-anchor="middle">SAID</text>
+  <text class="small" x="791" y="518" text-anchor="middle">SAW</text>
+
+  <path class="line" d="M878 357H926" marker-end="url(#scout-calibration-arrow)"/>
+  <rect class="card" x="932" y="214" width="226" height="286" rx="26" fill="#bdd9bf"/>
+  <text class="label" x="1045" y="258" text-anchor="middle">4 · ADJUST</text>
+  <path d="M997 347A50 50 0 1 1 1088 376" fill="none" stroke="#18211d" stroke-width="6" stroke-linecap="round" marker-end="url(#scout-calibration-arrow)"/>
+  <text class="body" x="1045" y="422" text-anchor="middle">future labels</text>
+  <text class="small" x="1045" y="458" text-anchor="middle">LEARN FROM GAP</text>
+
+  <path class="line" d="M1045 500V616H159V508" marker-end="url(#scout-calibration-arrow)"/>
+  <rect x="180" y="584" width="840" height="64" rx="32" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text class="body" x="600" y="625" text-anchor="middle" font-weight="700">ONE OUTCOME CANNOT CALIBRATE A CONFIDENCE LEVEL</text>
+  <text class="small" x="600" y="704" text-anchor="middle">THE BARS SHOW THE COMPARISON MECHANISM, NOT A MEASURED RESULT</text>
+</svg>

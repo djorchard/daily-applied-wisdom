@@ -1,6 +1,243 @@
 {
   "lessons": [
     {
+      "slug": "the-scout-mindset",
+      "discussionId": "the-scout-mindset-julia-galef",
+      "date": "2026-09-11",
+      "dateLabel": "11 September 2026",
+      "edition": "Daily lesson",
+      "title": "The Scout Mindset",
+      "authors": "Julia Galef",
+      "year": "2021 · first edition",
+      "category": "Thinking and decision-making · Motivated reasoning · Calibration",
+      "summary": "Reason more like a scout than a soldier: notice when a preferred conclusion is steering the search, express confidence in testable degrees and make belief revision a sign of good judgement rather than defeat.",
+      "evidenceNote": "Galef's book, official site, author calibration exercise, TED talk and publisher record are authoritative practitioner sources for her framework. The wider claim that directional motives can bias which evidence people access, construct and evaluate has strong support in the motivated-reasoning literature. The book's techniques are a practitioner synthesis, not a proven universal debiasing treatment: calibration requires repeated comparable outcomes, transfers only partly between domains, and social incentives can make candid updating costly. Treat the applications here as context-dependent practices to test, not guarantees of objectivity.",
+      "accent": "purple",
+      "quizRevision": "2026-09-08-1",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Ask what would change your map",
+          "argument": [
+            "Galef contrasts two motivations for reasoning. Soldier mindset tries to defend a belief or reach a preferred conclusion; scout mindset tries to form the most accurate available picture of the terrain, including facts that are inconvenient or disappointing.",
+            "These are modes, not fixed types of people. The practical question is not whether someone is intelligent or informed, but what their reasoning is trying to accomplish in this moment. A scout looks for signs that would raise or lower confidence instead of collecting only material that supports the starting position."
+          ],
+          "extension": "Before advocating for a plan, write one observation that would make it less attractive and seek that observation deliberately. This changes the task from winning the argument to improving the decision map.",
+          "image": "../assets/lesson-visuals/scout-mindset-map-motive.svg",
+          "imageAlt": "The same inconvenient evidence enters two reasoning paths. A defend-the-position goal filters for support and preserves a preferred story, while an improve-the-map goal inspects both fit and conflict and produces a revised map.",
+          "imageCaption": "Evidence does not inspect itself; the goal of the reasoning process influences which parts receive attention.",
+          "why": "A team can perform careful analysis and still search in only one direction. Naming the desired conclusion and its possible falsifier makes hidden advocacy visible before it hardens into a delivery commitment.",
+          "apply": [
+            "Choose one decision for which you strongly prefer a particular answer.",
+            "Finish the sentence: I would lower my confidence if I observed...",
+            "Ask for the strongest available evidence about that observation before presenting your recommendation."
+          ],
+          "caveat": "Scout mindset does not require endless doubt, equal weight for weak claims or passivity in conflict. Emergencies, negotiation and adversarial work can require decisive advocacy. Use scouting to improve the map and then act; also remember that calling yourself a scout can become its own flattering identity.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which behaviour best represents scout mindset as Galef defines it?",
+              "options": [
+                "Gather arguments that make your preferred position more persuasive to others.",
+                "Seek evidence that could redraw your view even when it is unwelcome.",
+                "Delay judgement until every remaining uncertainty has been removed.",
+                "Give each competing claim the same credibility to remain neutral."
+              ],
+              "correctIndex": 1,
+              "feedback": "Scout mindset is a motivation to improve the accuracy of the map, including by seeking unwelcome evidence. It does not mean stronger advocacy, impossible certainty or equal treatment of unequal claims.",
+              "feedbackByOption": [
+                "This is skilled advocacy, but it still searches in the preferred direction. Scout mindset seeks evidence that could redraw the view even when the result is unwelcome.",
+                "Correct. A scout values a more accurate map enough to inspect evidence that could weaken the preferred conclusion.",
+                "Action rarely waits for complete certainty. Scout mindset improves the available map and expresses remaining uncertainty rather than requiring its elimination.",
+                "Accuracy does not require false balance. Scout mindset weighs claims by evidence while remaining willing to revise the weighting."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product owner strongly prefers Option A. What is the strongest scout move before approval?",
+              "options": [
+                "Ask the team to make Option A's benefits easier to present.",
+                "List Option A's risks after commitment so delivery can start.",
+                "Poll stakeholders and follow whichever option is most popular with the group.",
+                "Name evidence that would lower confidence in A, then look for it."
+              ],
+              "correctIndex": 3,
+              "feedback": "The strongest scout move makes the preferred conclusion testable before commitment, then searches for potentially disconfirming evidence. Better presentation, delayed risk review and popularity do not improve the decision map.",
+              "feedbackByOption": [
+                "Clear presentation can help communication, but it strengthens advocacy for the preferred choice. First name and seek evidence that could lower confidence in A.",
+                "Risk review after commitment arrives when identity and sunk-cost pressures are stronger. Test what could weaken A before approval.",
+                "Stakeholder views are useful evidence, but popularity is not a substitute for evaluating the option. Seek the observation that would lower confidence in A.",
+                "Correct. Naming a possible confidence-lowering observation makes the preference testable and directs attention toward evidence the advocate might otherwise miss."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Match confidence to the evidence",
+          "argument": [
+            "Galef treats confidence as something that can vary by degree rather than a switch between certain and uncertain. Calibration asks whether claims made with a given confidence level prove correct at roughly that rate across many comparable cases.",
+            "Her practice exercise pairs each answer with a stated confidence, groups repeated judgements by confidence level and compares them with outcomes. The goal is not to know everything; it is to notice how much you know and to update the language of confidence when the scoreboard disagrees."
+          ],
+          "extension": "Turn an important forecast into a record with a resolvable outcome, a confidence estimate and a review date. Compare patterns across similar forecasts before changing how the team interprets labels such as likely or almost certain.",
+          "image": "../assets/lesson-visuals/scout-mindset-calibration-loop.svg",
+          "imageAlt": "A calibration loop starts with a forecast and confidence, groups many comparable forecasts, compares stated confidence with observed frequency and adjusts future confidence labels when a gap appears.",
+          "imageCaption": "Calibration is a repeated forecast-to-outcome loop; one correct answer cannot show whether a confidence level is reliable.",
+          "why": "Untracked words such as likely can hide large differences between people. A scored history exposes systematic overconfidence or underconfidence and supports clearer risk, schedule and stakeholder decisions.",
+          "apply": [
+            "Choose one outcome that will resolve within the next two weeks.",
+            "Record the outcome, your current confidence and the evidence behind that level.",
+            "Set a review date and keep it with comparable forecasts so a pattern can emerge."
+          ],
+          "caveat": "A percentage can create fake precision. Calibration needs enough comparable forecasts with clear resolution rules, and performance in trivia or one technical domain will not transfer completely to another. For rare or shifting events, explain assumptions and ranges rather than trusting a neat score.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What does calibration mean in this lesson?",
+              "options": [
+                "Knowing more relevant facts than other people in the same domain.",
+                "Expressing every uncertain claim as one exact numerical percentage.",
+                "Matching stated confidence to success rates across comparable claims.",
+                "Reducing confidence whenever any new information becomes available."
+              ],
+              "correctIndex": 2,
+              "feedback": "Calibration compares expressed confidence with observed frequencies across comparable judgements. It is not relative knowledge, compulsory numerical precision or automatic doubt after every update.",
+              "feedbackByOption": [
+                "Expertise may improve forecasts, but calibration concerns whether stated confidence matches outcomes across comparable claims, not who knows the most.",
+                "Numbers can help make confidence testable, but an exact percentage can be false precision. Calibration is the match between confidence bands and observed results.",
+                "Correct. A calibrated set of judgements succeeds at about the rate implied by its stated confidence, within the limits of the sample and domain.",
+                "New evidence can raise, lower or preserve confidence. Calibration evaluates whether the resulting confidence levels match outcomes over time."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Several estimates called almost certain have failed. What is the best next step?",
+              "options": [
+                "Log comparable forecasts with confidence, score outcomes and adjust the label.",
+                "Stop estimating until the domain becomes substantially more predictable.",
+                "Keep the wording but add more detail to each supporting explanation.",
+                "Lower every future forecast by the same fixed amount immediately."
+              ],
+              "correctIndex": 0,
+              "feedback": "A forecast log creates the comparison needed to learn whether almost certain is systematically overconfident in that domain. Avoiding estimates, adding rationale without scoring or applying one arbitrary discount does not calibrate the label.",
+              "feedbackByOption": [
+                "Correct. Comparable predictions, confidence levels and resolved outcomes create a scoreboard that can recalibrate what the label means.",
+                "Uncertainty is a reason to improve forecasting discipline, not to abandon estimates. Record resolvable forecasts and compare confidence with outcomes.",
+                "More explanation may reveal assumptions, but it does not show whether the confidence label is reliable. Score comparable outcomes and adjust from the pattern.",
+                "A fixed reduction may replace one bias with another. Use the observed gap across comparable forecasts to revise future confidence."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Make changing your mind a win",
+          "argument": [
+            "Galef argues that a belief becomes harder to examine when accepting contrary evidence threatens a valued identity, group membership or self-image. In that state, revising the claim can feel like admitting disloyalty, weakness or personal failure.",
+            "Her alternative is to hold specific beliefs more lightly and take pride in noticing error, understanding opposing views and changing course for good reasons. Social confidence can remain steady while epistemic confidence changes; composure does not require pretending that the evidence is settled."
+          ],
+          "extension": "In reviews and decision records, treat a well-explained update as evidence of judgement. Name what changed, preserve the learning and reward the person who revised early enough to improve the outcome.",
+          "image": "../assets/lesson-visuals/scout-mindset-identity-update.svg",
+          "imageAlt": "Two lanes show contrary evidence meeting different identity incentives. When a belief is fused to identity, evidence feels like a threat and triggers defence. When identity rewards truth-seeking, evidence becomes a signal, the claim is revised and credibility can grow when the group values updating.",
+          "imageCaption": "Updating becomes easier when status comes from responding well to evidence rather than performing certainty.",
+          "why": "Leaders shape the social price of correction. If public consistency earns status and revision earns ridicule, teams will hide weak signals; if evidence-based updates earn respect, problems can surface while choices are still reversible.",
+          "apply": [
+            "Find one decision record whose assumptions have changed since it was approved.",
+            "Write what the earlier view got right, what new evidence changed and the revised judgement.",
+            "Credit the person who surfaced the change before discussing the next action."
+          ],
+          "caveat": "Identity also supplies values, belonging and the courage to act. Holding a belief lightly does not mean abandoning principles, tolerating bad-faith claims or pretending every dispute is merely factual. In unsafe workplaces, admitting error may carry real costs that individual mindset practice cannot remove.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which identity stance best supports updating according to Galef?",
+              "options": [
+                "Tie self-respect to defending the group's most important belief.",
+                "Keep every identity private so disagreement cannot take place.",
+                "Treat changing your mind as evidence that you lacked principles.",
+                "Value being someone who notices error and revises beliefs."
+              ],
+              "correctIndex": 3,
+              "feedback": "Galef recommends putting status on truth-seeking and correction rather than on defending a specific claim. Updating does not require secrecy, lack of principles or disloyalty to a group.",
+              "feedbackByOption": [
+                "When self-respect depends on one belief, contrary evidence threatens identity and invites defence. Reward noticing error and revising instead.",
+                "Avoiding visible identity may suppress useful disagreement without improving reasoning. The stronger stance values evidence-based revision.",
+                "A principled person can change a factual judgement when evidence changes. Treating revision as failure raises the social cost of accuracy.",
+                "Correct. An identity built around noticing error makes a justified update a success rather than a personal defeat."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "New evidence weakens an architecture a senior engineer publicly backed. What response best lowers the identity cost of updating?",
+              "options": [
+                "Defend the original choice until a replacement is fully proven.",
+                "Frame revision as good judgement, name the evidence and change course.",
+                "Quietly switch direction without acknowledging what has changed.",
+                "Ask a junior engineer to own the reversal and absorb criticism."
+              ],
+              "correctIndex": 1,
+              "feedback": "The team lowers identity cost by making transparent, evidence-based revision a mark of sound judgement. Continued defence, hidden change or shifted blame teaches people to protect status instead of surfacing evidence.",
+              "feedbackByOption": [
+                "Waiting for complete proof can preserve a weakening choice and make later reversal costlier. Name the evidence and treat a responsible update as good judgement.",
+                "Correct. Publicly connecting the revision to new evidence rewards accurate updating while preserving the engineer's professional dignity.",
+                "A silent switch hides the learning and signals that changing one's mind is embarrassing. Explain the evidence and make the revision legitimate.",
+                "Transferring blame protects senior status by increasing someone else's risk. Credit the update and let the original decision-maker revise openly."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "10 minutes",
+        "title": "Run one map check",
+        "steps": [
+          "Choose a live decision where you prefer one answer, then record your current judgement and confidence.",
+          "Write one observable fact that would lower that confidence and one that would raise it.",
+          "Spend five minutes seeking the strongest available evidence or stakeholder view against your preferred answer.",
+          "Record your confidence again and name the next observation that would justify another update."
+        ],
+        "result": "You finish with a before-and-after confidence record, one explicit falsifier and a concrete next check instead of an untested preference."
+      },
+      "spacedRecall": [
+        "From Continuous Delivery: what property lets a team know which evidence applies to the candidate that may be released?",
+        "From Thanks for the Feedback: which trigger can make corrective information feel like a threat to the self?",
+        "From Superforecasting: what practice turns a vague expectation into a judgement that can later be evaluated?"
+      ],
+      "takeaway": "Improve the map by seeking what could change it, matching confidence to outcomes and rewarding yourself and others for revising when the evidence moves.",
+      "sources": [
+        {
+          "label": "Julia Galef: official overview of The Scout Mindset and its techniques",
+          "url": "https://juliagalef.com/"
+        },
+        {
+          "label": "Julia Galef: Chapter 6 calibration exercise and transfer caveat",
+          "url": "https://juliagalef.com/calibration/"
+        },
+        {
+          "label": "Portfolio and Penguin Random House: publication record and book description",
+          "url": "https://www.penguinrandomhouse.com/books/555240/the-scout-mindset-by-julia-galef/"
+        },
+        {
+          "label": "Julia Galef at TED: soldier and scout motivations for interpreting evidence",
+          "url": "https://www.ted.com/talks/julia_galef_why_you_think_you_re_right_even_if_you_re_wrong"
+        },
+        {
+          "label": "Kunda in Psychological Bulletin: review of the motivated-reasoning evidence",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2270237/"
+        },
+        {
+          "label": "Julia Galef interview: identity, charitable understanding and scout practice",
+          "url": "https://spn.org/an-interview-with-julia-galef/"
+        }
+      ]
+    },
+    {
       "slug": "continuous-delivery",
       "discussionId": "continuous-delivery-humble-farley",
       "date": "2026-09-03",
