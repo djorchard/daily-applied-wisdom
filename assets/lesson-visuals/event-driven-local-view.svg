@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="event-driven-local-view-title event-driven-local-view-desc">
+  <title id="event-driven-local-view-title">Separate the update path from the local read path</title>
+  <desc id="event-driven-local-view-desc">An owning service sends updates to a local read view. A user query reads the view without contacting the owner. The view represents the last applied version and does not grant write authority.</desc>
+  <defs><marker id="event-driven-local-view-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#18211d"/></marker><style>text {font-family: Arial, sans-serif; fill: #18211d;}</style></defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <text x="600" y="75" text-anchor="middle" font-size="34" font-weight="700">TWO PATHS, TWO RESPONSIBILITIES</text>
+  <rect x="75" y="132" width="440" height="128" rx="22" fill="#a9c7df" stroke="#18211d" stroke-width="4"/>
+  <text x="295" y="185" text-anchor="middle" font-size="32" font-weight="700">OWNING SERVICE</text>
+  <text x="295" y="230" text-anchor="middle" font-size="28" font-weight="400">authoritative facts</text>
+  <path d="M295 260V420" fill="none" stroke="#18211d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#event-driven-local-view-arrow)"/>
+  <text x="585" y="323" text-anchor="middle" font-size="30" font-weight="700">Change events</text>
+  <text x="585" y="365" text-anchor="middle" font-size="28" font-weight="400">maintain the copy</text>
+  <rect x="75" y="435" width="440" height="145" rx="22" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <text x="295" y="492" text-anchor="middle" font-size="32" font-weight="700">LOCAL READ VIEW</text>
+  <text x="295" y="537" text-anchor="middle" font-size="28" font-weight="400">last applied version</text>
+  <rect x="785" y="435" width="340" height="145" rx="22" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text x="955" y="492" text-anchor="middle" font-size="30" font-weight="700">READ REQUEST</text>
+  <text x="955" y="537" text-anchor="middle" font-size="28" font-weight="400">screen or report</text>
+  <path d="M775 507H532" fill="none" stroke="#18211d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#event-driven-local-view-arrow)"/>
+  <text x="647" y="472" text-anchor="middle" font-size="28" font-weight="400">query</text>
+  <rect x="705" y="132" width="420" height="128" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="4"/>
+  <text x="915" y="185" text-anchor="middle" font-size="32" font-weight="700">Fresh enough?</text>
+  <text x="915" y="230" text-anchor="middle" font-size="28" font-weight="400">depends on the decision</text>
+  <text x="600" y="656" text-anchor="middle" font-size="30" font-weight="700">A displayed stock count is not a reservation.</text>
+  <text x="600" y="708" text-anchor="middle" font-size="28" font-weight="400">Writes still enforce the owner’s rules.</text>
+</svg>

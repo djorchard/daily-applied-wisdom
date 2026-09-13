@@ -1,6 +1,244 @@
 {
   "lessons": [
     {
+      "slug": "designing-event-driven-systems",
+      "discussionId": "designing-event-driven-systems-ben-stopford",
+      "date": "2026-09-14",
+      "dateLabel": "14 September 2026",
+      "edition": "Daily lesson",
+      "title": "Designing Event-Driven Systems",
+      "authors": "Ben Stopford",
+      "year": "2018 · first edition",
+      "category": "Software engineering · Event-driven architecture · Data ownership",
+      "accent": "blue",
+      "quizRevision": "2026-09-14-1",
+      "summary": "Use events as retained facts that different services can read, turn those facts into purpose-built local views, and design replay so rebuilding data does not repeat real-world actions.",
+      "evidenceNote": "Stopford’s 2018 book and author articles explain the architectural mechanisms; they are practitioner guidance, not controlled evidence that an event-driven design improves every system. The book was produced with Confluent and uses Kafka throughout. Its older APIs and operational defaults are dated. Current Apache Kafka documentation supports the distinctions about offsets, retention, compaction and the boundary of exactly-once processing. Fowler’s event-sourcing analysis supports the caution about replaying external effects. The applications below are context-dependent interpretations: keep a simpler transactional design when replay, independent consumers or local read models do not justify the extra operations.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Keep facts beyond their first reader",
+          "argument": [
+            "Stopford treats the retained event log as part of the data architecture. An event can remain available after one consumer reads it, allowing another consumer to catch up or start later without asking the producer to recreate the past.",
+            "Separate the retained records from each consumer’s position. That separation makes independent reading possible; it does not require every reader to progress together. Kafka orders records within a partition, so a multi-partition topic is not one universal business timeline."
+          ],
+          "extension": "For a proposed integration, ask two questions separately: who needs the next event, and who might need the retained history? An answer to the first does not settle retention, access or recovery requirements for the second.",
+          "image": "../assets/lesson-visuals/event-driven-retained-log.svg",
+          "imageAlt": "One partition contains four retained events. Reader A has consumed the first two and Reader B the first four. Their separate positions do not remove the events from the shared log.",
+          "imageCaption": "Readers advance independently through the records still available in the log.",
+          "why": "A new reporting view can be built from existing facts instead of a bespoke export from each producer. A delayed consumer can catch up if the history it needs has survived. These are concrete capabilities to weigh against storage and operational cost.",
+          "apply": [
+            "Choose one event your product emits. Write the named consumers, their maximum tolerable delay and whether a new consumer needs older records.",
+            "Write a retention and recovery requirement in plain language: which facts must remain available, for how long, and where a rebuild starts if they are gone."
+          ],
+          "caveat": "A retained log is not automatically a complete audit archive. Time or size retention can delete records; compaction can remove older values for a key. Retention must also fit privacy and deletion requirements. Do not promise a historical reconstruction from a stream that preserves only enough data to restore current state.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Two independent consumers read a retained event log. What lets the slower consumer continue after the faster one advances?",
+              "options": [
+                "The producer republishes older records whenever a consumer falls behind.",
+                "Each consumer tracks its position while the required records remain retained.",
+                "The broker holds both consumers at the position of the slower reader.",
+                "The faster consumer forwards its acknowledged records to the slower one."
+              ],
+              "correctIndex": 1,
+              "feedback": "Separate read positions allow consumers to progress independently, provided the needed records have not expired or been compacted away.",
+              "feedbackByOption": [
+                "Republishing may be a recovery workaround, but independent positions over retained records make it unnecessary for ordinary catch-up.",
+                "Correct. A reader’s progress is separate from retention, so advancing one reader does not consume another reader’s copy of the history.",
+                "Keeping readers together would remove their independence. Each can advance at its own pace within the available retention window.",
+                "Forwarding creates a dependency on the faster consumer. The slower reader instead resumes from its own position in the log."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A new report needs every order-status change from the last year. Its source keeps only the latest value for each order. Which next step is best?",
+              "options": [
+                "Start at the earliest offset and count each retained order as its full history.",
+                "Extend retention now and rebuild last year’s transitions from the same topic.",
+                "Pause compaction and ask existing consumers to restart from their offsets.",
+                "Find a complete historical source before promising the transition report."
+              ],
+              "correctIndex": 3,
+              "feedback": "A latest-value stream may restore current state without preserving every transition. Check for a complete historical source; changing retention cannot recreate records already removed.",
+              "feedbackByOption": [
+                "The earliest available record is not necessarily the first event. Latest values do not reveal all earlier transitions.",
+                "Longer retention can protect future data, but it cannot restore historical versions already removed.",
+                "Stopping future compaction does not reconstruct missing versions, and consumer offsets contain positions rather than payload history.",
+                "Correct. Establish whether the required transitions exist in an archive or source system before committing to a historical result."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Move the query to a local view",
+          "argument": [
+            "Stopford distinguishes an event that merely announces a change from one that transfers enough state for another service to maintain a local view. With that view, the consumer can answer selected queries without calling the source service on every request.",
+            "This changes the dependency: the source still owns its facts, while the consumer owns a derived representation for its own questions. Confluent’s accompanying orders example makes this concrete with a queryable view built from events."
+          ],
+          "extension": "Draw both the update path and the read path before saying an integration is decoupled. An event handler that immediately calls three other services may still depend on all three being available at processing time.",
+          "image": "../assets/lesson-visuals/event-driven-local-view.svg",
+          "imageAlt": "An owning service sends change events to a consumer’s local read view. A separate read request goes directly to that view. A freshness boundary distinguishes the last applied version from the latest source state.",
+          "imageCaption": "Local reads trade a runtime lookup dependency for responsibility for a derived copy.",
+          "why": "A service can shape an index or summary around its own workload, and keep serving suitable reads through a temporary source outage. The practical question becomes whether the view is fresh enough for this decision, not simply whether it is fast.",
+          "apply": [
+            "Pick a screen that repeatedly fetches the same reference data from another service. List the smallest set of fields its local view would need.",
+            "Name the owner, update event and acceptable staleness. Identify one decision that must still use an authoritative operation instead of the copied view."
+          ],
+          "caveat": "A local availability display does not reserve stock or enforce a credit limit. Two readers can act on the same stale value. Keep such invariants behind an authoritative write or reservation protocol. A local view also adds catch-up, schema evolution, deletion and reconciliation work; occasional remote queries may be cheaper.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which design best illustrates event-carried state transfer for a catalogue screen?",
+              "options": [
+                "A change notice invalidates the screen’s cache so its next read calls the source.",
+                "A broker forwards each screen query to the source service and returns its reply.",
+                "Change events update a local catalogue view that answers the screen’s reads.",
+                "A screen stores source record identifiers and fetches their fields when displayed."
+              ],
+              "correctIndex": 2,
+              "feedback": "The consumer receives the state needed to maintain a useful local read model. A notification or brokered request alone still leaves the read dependent on a remote lookup.",
+              "feedbackByOption": [
+                "Invalidation is useful but the next read still depends on the source. State transfer lets the consumer answer from its derived view.",
+                "Putting the query on a broker changes transport. The source is still required to answer it at read time.",
+                "Correct. Events maintain the consumer’s derived data, allowing suitable reads to be answered locally.",
+                "Identifiers locate data but do not supply the fields needed for the read. This still requires the source service."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A local stock view shows one item available, and two customers try to buy it. Which design best preserves the stock invariant?",
+              "options": [
+                "Use the view for browsing and have the owning service accept or reject reservations.",
+                "Let each checkout decrement its own copy and reconcile the accepted orders later.",
+                "Refresh both copies immediately before checkout and accept based on those reads.",
+                "Give the local view a shorter update interval and keep acceptance inside each reader."
+              ],
+              "correctIndex": 0,
+              "feedback": "A derived read does not make competing writes atomic. The owner must decide reservations through a mechanism that enforces the invariant.",
+              "feedbackByOption": [
+                "Correct. The view supports browsing, while the authoritative reservation operation arbitrates competing claims on the same stock.",
+                "Independent decrements can accept both orders. Reconciliation may repair records later but does not preserve the promised stock invariant.",
+                "Fresh reads can both observe the same item before either writes. A reservation must enforce the invariant across competing attempts.",
+                "Faster updates reduce staleness but do not eliminate the race. The acceptance decision still needs authoritative coordination."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Replay data without repeating actions",
+          "argument": [
+            "Stopford separates recording accepted state changes from recording incoming commands. Replaying state changes can rebuild a derived view; reprocessing commands can run decision logic again. Those are different recovery operations.",
+            "The log makes another pass possible, but the recovery design decides what that pass means. Rebuilding an order total and sending an order-confirmation email are not equivalent consequences of reading the same event."
+          ],
+          "extension": "Treat replay as a separate operational mode with an explicit destination. Rebuild into an isolated view, compare the result, and switch readers only after checking it. Put external effects behind a boundary that can suppress replay or recognise an already-completed operation.",
+          "image": "../assets/lesson-visuals/event-driven-safe-replay.svg",
+          "imageAlt": "Retained facts pass through a replay projector to a candidate view and a comparison step. A separate side-effect boundary blocks sending email during the rebuild.",
+          "imageCaption": "A second pass over facts should rebuild the intended data, not repeat an external action.",
+          "why": "A corrected projector or new read model can recover value from stored facts. Without a side-effect boundary, the same recovery can resend notifications or repeat a request to another system. A technically repeatable job can still have non-repeatable consequences.",
+          "apply": [
+            "Choose one consumer you might replay. Split its outputs into derived data and external actions, including emails, charges and downstream commands.",
+            "Write how a replay selects its input range, isolates its output and handles each external effect. If one effect has no safe rule, mark that as a recovery gap."
+          ],
+          "caveat": "Exactly-once processing inside a transactional streaming boundary does not automatically cover an email provider or payment API. An idempotency key helps only if the destination honours it with suitable scope and retention. Changed code, old schemas and historical lookups can also change replay results; preserved accepted events should not silently become newly invented business decisions.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which replay goal calls for applying recorded accepted events rather than rerunning original requests through today’s business rules?",
+              "options": [
+                "Reconstruct a read model of the state changes the system actually accepted.",
+                "Estimate which historical requests would pass a newly introduced eligibility rule.",
+                "Produce a new decision for each request under a revised pricing policy.",
+                "Compare current validation rules with the rules used when requests arrived."
+              ],
+              "correctIndex": 0,
+              "feedback": "Accepted events record the outcomes that happened. Reprocessing requests under different rules answers a counterfactual question and can produce different outcomes.",
+              "feedbackByOption": [
+                "Correct. Apply the accepted facts to reconstruct a view of what happened, while preserving their meaning and required ordering.",
+                "Testing a new eligibility rule is a counterfactual exercise using requests and appropriate historical context, not reconstruction of accepted outcomes.",
+                "Repricing makes new decisions. It must be separated from rebuilding the record of the decisions originally accepted.",
+                "Comparing validators evaluates decision logic. Reconstructing an accepted-state view instead applies the recorded outcomes."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A corrected order projector must rebuild six months of totals. Its handler also sends confirmation emails. What is the best recovery approach?",
+              "options": [
+                "Replay the original handler slowly so the email provider can handle the traffic.",
+                "Rebuild an isolated view with email effects suppressed, then compare the totals.",
+                "Enable broker transactions and replay the handler against its normal destinations.",
+                "Rewind only the latest month so fewer customers receive repeated confirmations."
+              ],
+              "correctIndex": 1,
+              "feedback": "The recovery target is the derived totals. Isolating that output and controlling external effects allows verification without resending historical confirmations.",
+              "feedbackByOption": [
+                "Rate limiting changes the pace of duplicate emails, not whether they occur. Recovery needs an explicit boundary around those effects.",
+                "Correct. A candidate view and suppressed email path target the faulty data while making comparison possible before switching readers.",
+                "Broker transactions do not automatically make calls to an email provider exactly-once. That external effect needs its own safe replay rule.",
+                "A shorter range can leave incorrect totals and still repeat emails. Choose the range from the defect and control effects explicitly."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "duration": "8 minutes",
+        "title": "Rebuild a tiny view twice",
+        "steps": [
+          "On paper, write three accepted events for order A: Created with total $40; TotalCorrected to $35; Cancelled. Keep this order fixed.",
+          "Apply them to an empty current-state table with columns order, total and status. Separately list any external action a handler might attempt.",
+          "Start with a second empty table and replay the same events. Compare the two final rows. Count how many confirmations a naive handler would attempt across both passes.",
+          "Write one replay rule that keeps the rebuilt row while suppressing the second pass’s external actions. Add one missing fact that would prevent a reliable rebuild in a real system."
+        ],
+        "result": "Two matching rows show what the projection can reproduce. Your action count and replay rule expose whether doing the calculation twice would also do something to a customer twice."
+      },
+      "spacedRecall": [
+        "From Release It!: how could a consumer’s remote lookup create a failure chain even when its input arrives asynchronously?",
+        "From Continuous Delivery: what evidence would you require before switching readers from an old view to a rebuilt one?",
+        "From The Scout Mindset: what observation would make you abandon the belief that an event log is needed for your current integration?"
+      ],
+      "takeaway": "Retain the facts you will need, own the freshness of each derived view, and make a replay repeat the intended calculation rather than the customer’s experience.",
+      "sources": [
+        {
+          "label": "Ben Stopford: free 2018 book and edition record; chapters 4, 5 and 7 ground the three ideas",
+          "url": "https://benstopford.com/2018/04/27/book-designing-event-driven-systems/"
+        },
+        {
+          "label": "Ben Stopford: Designing Event-Driven Systems, full book; retained logs, state transfer and event versus command sourcing",
+          "url": "https://benstopford.com/uploads/Designing-Event-Driven-Systems.pdf"
+        },
+        {
+          "label": "Ben Stopford: Build Services on a Backbone of Events; local views, ownership and coupling trade-offs",
+          "url": "https://www.confluent.io/blog/build-services-backbone-events/"
+        },
+        {
+          "label": "Ben Stopford: Event Driven 2.0; retained history for new consumers, with vendor context",
+          "url": "https://www.confluent.io/blog/event-driven-2-0/"
+        },
+        {
+          "label": "Confluent: accompanying orders tutorial; derived read views and asynchronous workflow example, older APIs",
+          "url": "https://www.confluent.io/blog/stream-processing-part-1-tutorial-developing-streaming-applications/"
+        },
+        {
+          "label": "Apache Kafka current design documentation: consumer positions, compaction and exactly-once boundaries",
+          "url": "https://kafka.apache.org/design/"
+        },
+        {
+          "label": "Martin Fowler: Event Sourcing; reconstruction, historical queries and external-system replay hazards",
+          "url": "https://martinfowler.com/eaaDev/EventSourcing.html"
+        }
+      ]
+    },
+    {
       "slug": "the-scout-mindset",
       "discussionId": "the-scout-mindset-julia-galef",
       "date": "2026-09-11",
