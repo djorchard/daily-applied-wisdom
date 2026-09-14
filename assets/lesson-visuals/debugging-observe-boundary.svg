@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="debugging-observe-boundary-title debugging-observe-boundary-desc">
+  <title id="debugging-observe-boundary-title">Observe the formatter input to separate two explanations</title>
+  <desc id="debugging-observe-boundary-desc">A calculation feeds a probed value into a formatter that displays zero. If the input is zero, investigate upstream; if it is twelve, investigate the formatter and display path. Both refer to the same failing request.</desc>
+  <defs><marker id="debugging-observe-boundary-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="16" markerHeight="16" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#18211d"/></marker><style>text {font-family: Arial, sans-serif; fill: #18211d;}</style></defs>
+  <rect width="1200" height="760" fill="#faf7f0"/>
+  <text x="600" y="74" text-anchor="middle" font-size="34" font-weight="700">ONE SYMPTOM, TWO EXPLANATIONS</text>
+  <rect x="60" y="150" width="280" height="180" rx="20" fill="#a9c7df" stroke="#18211d" stroke-width="4"/>
+  <text x="200" y="215" text-anchor="middle" font-size="30" font-weight="700">CALCULATION</text>
+  <text x="200" y="275" text-anchor="middle" font-size="27" font-weight="400">produces a value</text>
+  <path d="M350 240H445" fill="none" stroke="#18211d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#debugging-observe-boundary-arrow)"/>
+  <rect x="460" y="150" width="280" height="180" rx="20" fill="#e9d17f" stroke="#18211d" stroke-width="4"/>
+  <text x="600" y="210" text-anchor="middle" font-size="30" font-weight="700">INPUT PROBE</text>
+  <text x="600" y="283" text-anchor="middle" font-size="54" font-weight="700">?</text>
+  <path d="M750 240H845" fill="none" stroke="#18211d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#debugging-observe-boundary-arrow)"/>
+  <rect x="860" y="150" width="280" height="180" rx="20" fill="#e8b89c" stroke="#18211d" stroke-width="4"/>
+  <text x="1000" y="215" text-anchor="middle" font-size="30" font-weight="700">FORMATTER</text>
+  <text x="1000" y="275" text-anchor="middle" font-size="28" font-weight="400">display shows 0</text>
+  <path d="M600 342V408" fill="none" stroke="#18211d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#debugging-observe-boundary-arrow)"/>
+  <text x="600" y="461" text-anchor="middle" font-size="30" font-weight="700">WHAT DOES THE PROBE SHOW?</text>
+  <rect x="110" y="498" width="980" height="82" rx="20" fill="#bdd9bf" stroke="#18211d" stroke-width="4"/>
+  <text x="315" y="550" text-anchor="middle" font-size="32" font-weight="700">Input = 0</text>
+  <text x="740" y="550" text-anchor="middle" font-size="32" font-weight="400">Investigate upstream</text>
+  <rect x="110" y="608" width="980" height="82" rx="20" fill="#a9c7df" stroke="#18211d" stroke-width="4"/>
+  <text x="315" y="660" text-anchor="middle" font-size="32" font-weight="700">Input = 12</text>
+  <text x="740" y="660" text-anchor="middle" font-size="32" font-weight="400">Inspect the display path</text>
+  <text x="600" y="736" text-anchor="middle" font-size="26" font-weight="400">Match the observation to the same failing request.</text>
+</svg>

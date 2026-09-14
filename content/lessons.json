@@ -1,6 +1,240 @@
 {
   "lessons": [
     {
+      "slug": "debugging",
+      "discussionId": "debugging-david-agans",
+      "date": "2026-09-15",
+      "dateLabel": "15 September 2026",
+      "edition": "Daily lesson",
+      "title": "Debugging",
+      "authors": "David J. Agans",
+      "year": "2002 · AMACOM edition, ISBN 9780814474570",
+      "category": "Software engineering · Debugging · Fault isolation",
+      "accent": "orange",
+      "quizRevision": "2026-09-15-1",
+      "summary": "Observe the failure at a useful boundary, narrow the region where behaviour first goes wrong, and show that the proposed repair changes the original failing case.",
+      "evidenceNote": "Agans’s Debugging: The 9 Indispensable Rules for Finding Even the Most Elusive Software and Hardware Problems presents experience-based methods illustrated by engineering stories. The three arguments below come from its observation, divide-and-conquer and repair-verification chapters. This is practitioner guidance, not controlled evidence that the rules guarantee a fast diagnosis. The author says the later edition retains the same content. Hardware examples and tool details are dated; the diagnostic mechanisms remain useful. Google’s troubleshooting chapter independently supports hypothesis-driven observation, while current Git documentation gives a concrete bisection mechanism. The examples and applications here are our interpretations, with explicit limits for intermittent failures and production incidents.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Observe the boundary",
+          "argument": [
+            "Agans asks the debugger to inspect what the system actually did. His observation rule includes adding instrumentation and using a guess to decide where to look. A plausible explanation should guide the next measurement rather than stand in for it.",
+            "The useful observation is often inside the system: a value, message or state transition between stages. Looking only at the final symptom can leave several different causes consistent with the same evidence."
+          ],
+          "extension": "Before adding a log or breakpoint, name two competing explanations and write what each predicts at one boundary. Capture the input or output that distinguishes them, along with enough context to match it to the failing run.",
+          "image": "../assets/lesson-visuals/debugging-observe-boundary.svg",
+          "imageAlt": "A displayed zero could arise from a zero entering the formatter or from the formatter turning twelve into zero. A probe on the formatter input distinguishes those two explanations for the same run.",
+          "imageCaption": "Choose a measurement whose possible results lead to different next steps.",
+          "why": "Teams can spend hours debating a calculation bug when the display layer discarded a valid result. One well-placed observation can make that disagreement testable without changing the behaviour under investigation.",
+          "apply": [
+            "For one defect, write the expected and actual output. Then list two places that could plausibly produce the discrepancy.",
+            "Pick a boundary between those places. Record the actual value and the request or test case it belongs to; compare it with your predictions before editing code."
+          ],
+          "caveat": "Instrumentation can alter timing, and a log can describe a different request or an earlier state. For a race, prefer existing traces or low-impact capture and check whether probing changes reproduction. Record only the data needed; do not log credentials or personal payloads to make a trace convenient.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "A screen shows zero. Either the calculation returned zero or the formatter discarded a valid result. Which observation best separates those explanations?",
+              "options": [
+                "Count how often the screen shows zero during a fixed test window.",
+                "Read the formatter code and compare it with the team’s style guide.",
+                "Capture the value entering the formatter for the failing request.",
+                "Compare the total duration of a failing request with a passing one."
+              ],
+              "correctIndex": 2,
+              "feedback": "The formatter input lies between the two proposed causes. Its value distinguishes them for that execution, provided the observation belongs to the failing request.",
+              "feedbackByOption": [
+                "Frequency measures recurrence, but either explanation could produce it. The formatter input distinguishes where the wrong value first appears.",
+                "Code inspection can generate a hypothesis, but style compliance does not show what happened. Capture the formatter input for the failure.",
+                "Correct. Zero at the input points upstream; a valid input with a wrong display points to the formatter or its downstream path.",
+                "Duration may identify a separate clue, but these explanations need not have different timings. Observe the value at their shared boundary."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An intermittent failure disappears when a breakpoint pauses a worker. Which next step best preserves the value of observation?",
+              "options": [
+                "Keep the breakpoint and collect more successful paused executions.",
+                "Use a low-impact trace and check whether the failure still occurs.",
+                "Treat the pause as a repair and add a matching delay to the worker.",
+                "Classify the failure as tooling noise and close the investigation."
+              ],
+              "correctIndex": 1,
+              "feedback": "Pausing changes scheduling and may hide a race. Use an observation method that disturbs execution less, then establish whether the original failure remains observable.",
+              "feedbackByOption": [
+                "More paused successes still describe changed timing. A lower-impact trace is more useful for observing the failing execution.",
+                "Correct. Reduce the observer effect and verify that the captured run still represents the original failure conditions.",
+                "A delay may mask one schedule while leaving the cause present. First observe the unpaused failure with less intrusive instrumentation.",
+                "A breakpoint-dependent outcome is evidence about timing, not grounds to dismiss the report. Capture a representative failure before concluding."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Shrink the suspect interval",
+          "argument": [
+            "Agans’s divide-and-conquer rule turns a large search into a smaller one. Find where behaviour is still as expected and where it has become wrong, then inspect an intermediate boundary to decide which region deserves the next investigation.",
+            "The point is to reduce the remaining possibilities with each observation. A useful split follows the system’s actual path; a visually central box on an architecture diagram may reveal very little."
+          ],
+          "extension": "Keep an explicit bracket: last boundary known good, first boundary known bad, and the next probe between them. Git bisect applies a related idea to revisions: classify an intermediate commit against the same regression test and narrow the history interval.",
+          "image": "../assets/lesson-visuals/debugging-narrow-interval.svg",
+          "imageAlt": "Four stages process one record. The output of stage A is known good and the output of D is bad. A new good observation after B shrinks the suspect interval to stages C and D.",
+          "imageCaption": "A passing midpoint narrows this investigation; it does not certify the earlier stages.",
+          "why": "A written bracket prevents aimless movement between components. It also makes a handover useful: the next engineer sees which boundaries were checked, under what conditions, and what remains uncertain.",
+          "apply": [
+            "Draw the path of one failing record or request as four to six stages. Mark only boundaries for which you have an actual observation from that case.",
+            "Choose an informative, affordable probe inside the remaining interval. After running it, move one endpoint and write the smaller region that still needs inspection."
+          ],
+          "caveat": "This works only if the observed property and path support the split. A stage can appear correct while carrying hidden corrupt state; multiple faults can mask each other. Revision bisection also needs reliable classifications and a suitable good-to-bad transition. An unbuildable revision is unknown, not evidence that the target regression exists.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "For the same input and checked property, a linear path has a good output after A and a bad output after D. A probe after B is good. Where should the next search focus?",
+              "options": [
+                "Inspect stages C through D within the remaining observed interval.",
+                "Inspect stages A through B because the midpoint result was good.",
+                "Inspect only D because it is the first place the user sees failure.",
+                "Inspect every stage again because a passing midpoint adds no clue."
+              ],
+              "correctIndex": 0,
+              "feedback": "The new good boundary is after B. For the property being tracked, the remaining observed transition to bad lies between that boundary and the output of D.",
+              "feedbackByOption": [
+                "Correct. The good observation after B moves the left endpoint, leaving C through D to inspect for this discrepancy.",
+                "The good midpoint moves the search toward the known bad endpoint. Revisit A through B if later evidence challenges the assumptions.",
+                "D is where bad output was observed, but C may have created it. Keep the full remaining interval until another probe separates them.",
+                "The midpoint reduces the interval under the stated assumptions. Rechecking every stage discards that evidence instead of using it."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "During revision bisection for a report regression, an intermediate revision cannot build because an old dependency is unavailable. How should that revision be classified?",
+              "options": [
+                "Mark it bad because the build failure makes the revision unusable.",
+                "Mark it good because the target report failure was not observed.",
+                "Skip it as untestable and retain uncertainty about the transition.",
+                "Use the nearest tested revision’s result as its classification."
+              ],
+              "correctIndex": 2,
+              "feedback": "An unrelated build problem prevents this test from classifying the target regression. Git supports skipping untestable revisions, though skipped revisions can leave the exact introducing commit unresolved.",
+              "feedbackByOption": [
+                "Bad must mean the report regression is present, not that anything failed. Skip this untestable revision instead of changing the predicate.",
+                "Absence of a test result is not a passing result. Skip the revision and preserve the uncertainty.",
+                "Correct. Skipping keeps an unrelated build failure from corrupting the regression search; the final answer may remain a set of candidates.",
+                "Nearby commits can differ on the target behaviour. Borrowing a result invents evidence; mark the revision untestable instead."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Make the repair earn its name",
+          "argument": [
+            "Agans distinguishes a symptom disappearing from a cause being repaired. His verification rule asks both whether the system is fixed and whether the change you made is what fixed it.",
+            "A restart, a quieter workload or a coincidental environment change can make a problem stop appearing. That may restore service, but it does not by itself explain the failure or establish a durable correction."
+          ],
+          "extension": "In a safe test environment, preserve the failing case and compare it before and after the smallest proposed repair. Where practical, remove that repair and confirm the failure returns, then reapply it. Keep other relevant conditions stable and retain a regression test.",
+          "image": "../assets/lesson-visuals/debugging-verify-repair.svg",
+          "imageAlt": "The same failing case is run on original code, repaired code, code with the repair removed, and repaired code again. Expected results alternate fail, pass, fail, pass, while input and environment remain fixed.",
+          "imageCaption": "A controlled reversal strengthens the link between a repair and a result.",
+          "why": "The evidence behind a fix matters when the defect returns or another engineer changes the same code. A captured failing case and a specific behavioural comparison are more informative than a ticket saying it worked after deployment.",
+          "apply": [
+            "For your next repair, keep the original failing input and write the observed assertion before changing the code. Confirm that the test fails for the intended reason.",
+            "Apply the focused change and rerun the same case, then check nearby behaviour. Record what was controlled, what changed, and which uncertainty remains."
+          ],
+          "caveat": "Do not recreate an outage or undo a security repair in production to prove causality. Mitigate first and perform controlled comparisons in isolation. Intermittent defects need representative repeated runs and an explanation of the mechanism; a single fail-pass pair does not prove that a race is gone.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which result gives the strongest evidence that a particular repair resolves a reproducible defect?",
+              "options": [
+                "The production alert stays quiet after the release and a service restart.",
+                "The normal workload passes after the patch and a dependency upgrade.",
+                "A fresh example passes after the patch with revised test expectations.",
+                "The original case tracks repair removal and reapplication in isolation."
+              ],
+              "correctIndex": 3,
+              "feedback": "Holding the case and relevant conditions stable while changing the repair provides stronger causal evidence than success after several changes. It still does not prove every possible behaviour correct.",
+              "feedbackByOption": [
+                "The restart or changed workload may suppress the symptom. Compare the original case with and without the repair in isolation.",
+                "The dependency upgrade is a competing explanation, and the normal workload may miss the defect. Isolate the repair on the failing case.",
+                "Changing both the example and expectations weakens the comparison. Preserve the original failure criterion while testing the repair.",
+                "Correct. If the original failure follows removal and disappears on reapplication under controlled conditions, the repair has earned stronger support."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A restart restores a service during an incident, but the cause is unknown. Which status best supports the next engineering decision?",
+              "options": [
+                "Record service restored and preserve evidence for diagnosis in isolation.",
+                "Record defect fixed and use the next outage to decide whether to reopen it.",
+                "Undo the restart immediately so the failure can be measured in production.",
+                "Schedule regular restarts and classify the suspected cause as confirmed."
+              ],
+              "correctIndex": 0,
+              "feedback": "Restoration is valuable mitigation. Keep the distinction between restoring service and establishing a cause, then investigate using preserved evidence and a safe reproduction.",
+              "feedbackByOption": [
+                "Correct. Report the recovery accurately while keeping the causal question open and moving disruptive experiments into isolation.",
+                "The symptom stopped, but the restart has not established a durable correction. Record mitigation and retain the investigation evidence.",
+                "Recreating customer impact is unnecessary. Preserve the recovery and investigate the failure in a safe environment.",
+                "Periodic restarts may be a temporary mitigation, but they do not confirm a cause. State the uncertainty and continue diagnosis."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Turn a trace into a narrower question",
+        "duration": "8 minutes",
+        "steps": [
+          "Minutes 0–2: use this synthetic case or an existing safe test trace. Three items cost 20 dollars each, with a 10% discount. The display should show 54.00 dollars. The trace records quantity 3, subtotal 60.00, discounted total 54.00, and displayed total 5.40.",
+          "Minutes 2–4: draw the calculation-to-display path. Mark the last observed value that matches its expectation and the first that does not. Write two different transformations inside that interval that could explain the discrepancy.",
+          "Minutes 4–6: specify one additional boundary value that would distinguish those explanations. Write the expected observation under each explanation before inspecting code or more logs.",
+          "Minutes 6–8: write a regression assertion for the original case and the before/after comparison a proposed repair must pass. Stop at eight minutes; a narrower suspect interval is the goal, not an invented diagnosis."
+        ],
+        "result": "One annotated trace, a bounded suspect region, two competing explanations, and a discriminating next probe. You can point to the evidence that narrowed the search and to the evidence still missing."
+      },
+      "spacedRecall": [
+        "From Designing Event-Driven Systems: what boundary would let you rebuild a view without repeating an external action?",
+        "From Refactoring: how would you keep a structure change separate from a behaviour change while preparing a difficult repair?",
+        "From Thanks for the Feedback: when a colleague disputes your diagnosis, which job might their feedback be trying to do, and how would you clarify it?"
+      ],
+      "takeaway": "Observe where the failure crosses a boundary, shrink the search, and make the original case distinguish a repair from a coincidence.",
+      "sources": [
+        {
+          "label": "Agans’s official book site: original publication and unchanged core content across editions; practitioner framing",
+          "url": "https://debuggingrules.com/about-the-book/"
+        },
+        {
+          "label": "AMACOM book on O’Reilly: publication metadata and chapter 6 contents on narrowing the search",
+          "url": "https://www.oreilly.com/library/view/debugging/9780814474570/"
+        },
+        {
+          "label": "Agans, chapter 5 preview and contents: observing failure, instrumentation and observer effects",
+          "url": "https://www.oreilly.com/library/view/debugging/9780814474570/xhtml/Chapter05.html"
+        },
+        {
+          "label": "Agans, chapter 11 preview and contents: checking the fix and whether the repair caused the improvement",
+          "url": "https://www.oreilly.com/library/view/debugging/9780814474570/xhtml/Chapter11.html"
+        },
+        {
+          "label": "Google SRE: Effective Troubleshooting; independent practitioner guidance on hypotheses, evidence and incident triage",
+          "url": "https://sre.google/sre-book/effective-troubleshooting/"
+        },
+        {
+          "label": "Official Git bisect manual: narrowing revision history and skipping untestable commits; current tool behaviour",
+          "url": "https://git-scm.com/docs/git-bisect"
+        }
+      ]
+    },
+    {
       "slug": "designing-event-driven-systems",
       "discussionId": "designing-event-driven-systems-ben-stopford",
       "date": "2026-09-14",
