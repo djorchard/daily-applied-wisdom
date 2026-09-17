@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="first-90-success-agreement-title first-90-success-agreement-desc">
+<title id="first-90-success-agreement-title">A commitment depends on aligned expectations and support</title><desc id="first-90-success-agreement-desc">Three connected cards show result, deadline and support as parts of one commitment. A missing analyst is a dependency gap. The parties can reduce scope, move the date or secure support, then confirm a revised commitment together.</desc>
+<defs><style>text {font-family: Arial, sans-serif; fill: #18211d;}</style><marker id="first-90-success-agreement-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#18211d"/></marker></defs>
+<rect width="1200" height="760" fill="#faf7f0"/>
+<text x="600" y="66" text-anchor="middle" font-size="32" font-weight="700">ONE COMMITMENT, THREE CONNECTED PARTS</text>
+<rect x="60" y="114" width="310" height="156" rx="18" fill="#a9c7df" stroke="#18211d" stroke-width="3"/>
+<text x="215" y="160" text-anchor="middle" font-size="25" font-weight="700">RESULT</text>
+<text x="215" y="207" text-anchor="middle" font-size="30" font-weight="400">New reporting</text>
+<text x="215" y="244" text-anchor="middle" font-size="30" font-weight="400">process</text>
+<rect x="445" y="114" width="310" height="156" rx="18" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+<text x="600" y="160" text-anchor="middle" font-size="25" font-weight="700">DEADLINE</text>
+<text x="600" y="215" text-anchor="middle" font-size="32" font-weight="400">Six weeks</text>
+<rect x="830" y="114" width="310" height="156" rx="18" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+<text x="985" y="160" text-anchor="middle" font-size="25" font-weight="700">SUPPORT</text>
+<text x="985" y="207" text-anchor="middle" font-size="30" font-weight="400">Analyst time</text>
+<text x="985" y="244" text-anchor="middle" font-size="28" font-weight="400">confirmed?</text>
+<path d="M370 194H445M755 194H830" stroke="#18211d" stroke-width="4"/>
+<path d="M985 280V311" fill="none" stroke="#18211d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#first-90-success-agreement-arrow)"/>
+<rect x="150" y="325" width="900" height="86" rx="18" fill="#e8b89c" stroke="#18211d" stroke-width="3"/>
+<text x="600" y="378" text-anchor="middle" font-size="30" font-weight="700">DEPENDENCY GAP: analyst unavailable</text>
+<path d="M600 422V457" fill="none" stroke="#18211d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#first-90-success-agreement-arrow)"/>
+<text x="600" y="502" text-anchor="middle" font-size="28" font-weight="700">CHOOSE THE TRADE-OFF TOGETHER</text>
+<rect x="60" y="535" width="330" height="75" rx="18" fill="#c9b9da" stroke="#18211d" stroke-width="3"/>
+<text x="225" y="583" text-anchor="middle" font-size="30" font-weight="400">Reduce scope</text>
+<rect x="435" y="535" width="330" height="75" rx="18" fill="#c9b9da" stroke="#18211d" stroke-width="3"/>
+<text x="600" y="583" text-anchor="middle" font-size="30" font-weight="400">Move the date</text>
+<rect x="810" y="535" width="330" height="75" rx="18" fill="#c9b9da" stroke="#18211d" stroke-width="3"/>
+<text x="975" y="583" text-anchor="middle" font-size="30" font-weight="400">Secure support</text>
+<path d="M600 621V656" fill="none" stroke="#18211d" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#first-90-success-agreement-arrow)"/>
+<text x="600" y="702" text-anchor="middle" font-size="32" font-weight="700">Confirm the revised commitment.</text>
+</svg>

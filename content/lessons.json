@@ -1,6 +1,244 @@
 {
   "lessons": [
     {
+      "slug": "the-first-90-days",
+      "discussionId": "the-first-90-days-michael-watkins",
+      "date": "2026-09-18",
+      "dateLabel": "18 September 2026",
+      "edition": "Daily lesson",
+      "title": "The First 90 Days",
+      "authors": "Michael D. Watkins",
+      "year": "2003 · Updated and expanded 10th-anniversary edition, 2013",
+      "category": "Career development · Role transitions · Leadership",
+      "accent": "blue",
+      "quizRevision": "2026-09-18-1",
+      "summary": "Turn a new responsibility into a learning plan, match your approach to the situation you inherited, and agree what success requires before promises harden.",
+      "evidenceNote": "Watkins offers a practitioner framework for leadership transitions, informed by cases, teaching and advisory work. This lesson uses the 2013 updated edition, especially chapters 2–4, and checks the mechanisms against the author’s own articles and interview. Attribution is strong; the effectiveness of any particular transition plan is context-dependent. These sources do not establish a universal 90-day deadline or a guaranteed improvement rate. Our examples extend the framework to a new role, product or area of responsibility; they are applied interpretations, not reported research findings.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Give your learning a decision to serve",
+          "argument": [
+            "Watkins treats learning as planned work. A newcomer should identify what they need to understand, then choose ways to learn it. Collecting every available report can consume the transition without revealing how decisions actually get made.",
+            "His warning about arriving with a ready-made answer has a social consequence: people may stop offering information when they think the newcomer has already decided. Inquiry needs both a clear agenda and contact with the people who know the work."
+          ],
+          "extension": "Build a small learning agenda around one impending decision. For each uncertainty, name a source, a question and a date when the answer will affect your plan. Treat the first explanation as a lead to check, not as the organisation’s agreed truth.",
+          "image": "../assets/lesson-visuals/first-90-learning-agenda.svg",
+          "imageAlt": "A decision about the first priority leads to a question about the largest delay, two evidence sources, and a dated update to the plan. A return arrow shows that the next uncertainty starts another learning pass.",
+          "imageCaption": "A useful learning agenda connects an uncertainty to a decision and a next step.",
+          "why": "A packed induction calendar can create familiarity without judgement. A decision-linked agenda makes a gap visible: you can know the reporting structure while still not knowing who can approve the change you intend to make.",
+          "apply": [
+            "Choose one decision you must make in the next fortnight. Write the two unknowns most likely to change it.",
+            "For one unknown, pair a person close to the work with a concrete record or example. Ask what happened last time, note where their accounts disagree, and give the next check a date."
+          ],
+          "caveat": "Learning can become a respectable way to postpone action. If a service is failing or people are at risk, contain the immediate problem while learning. Also avoid turning conversations into interrogations: explain the decision you are trying to make and share what you have understood.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "A newcomer has many induction meetings but little clarity about the first decision. Which change best turns information gathering into a learning agenda?",
+              "options": [
+                "Attend the remaining meetings before ranking what needs attention.",
+                "Link the decision’s main unknowns to sources and a review date.",
+                "Read the longest reports first to build a thorough shared vocabulary.",
+                "Ask the most senior colleague to select the initial improvement."
+              ],
+              "correctIndex": 1,
+              "feedback": "A learning agenda gives inquiry a purpose and a point at which it informs action; it does not require complete knowledge first.",
+              "feedbackByOption": [
+                "Finishing the calendar may add information without resolving the decision. Identify the unknowns that could change your choice.",
+                "Correct. The decision, sources and review date make learning purposeful while leaving room to revise the plan.",
+                "Report length is a weak guide to relevance. Start with the decision’s unknowns, then choose evidence that can resolve them.",
+                "A senior view is useful input, but delegating the choice skips your diagnosis. Use that view as one source in a learning plan."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You inherit a product and hear conflicting accounts of slow delivery. You must choose next week’s improvement. Which first step best fits a learning agenda?",
+              "options": [
+                "Adopt the process that shortened delivery in your previous team.",
+                "Survey everyone’s preferred process and implement the top choice.",
+                "Read each project archive before discussing a specific delay.",
+                "Trace one delayed item with its owner and check the recorded dates."
+              ],
+              "correctIndex": 3,
+              "feedback": "A concrete case connects people’s accounts with observable work. It can expose a useful next question without pretending one case proves the whole pattern.",
+              "feedbackByOption": [
+                "The old process may solve a different problem. First inspect a current delay to learn what this situation needs.",
+                "Preferences reveal what people want, but may not locate the delay. Trace a real item before choosing the improvement.",
+                "An exhaustive archive review may miss the decision deadline. Start with one relevant case and expand if it is unrepresentative.",
+                "Correct. The item gives you a bounded inquiry and evidence to compare. Check further cases before generalising from it."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Match the move to the situation",
+          "argument": [
+            "Watkins’s STARS framework distinguishes startup, turnaround, accelerated growth, realignment and sustaining success. These situations call for different emphases: building capability, addressing acute trouble, coping with expansion, correcting drift or preserving and renewing strong performance.",
+            "A role can contain a mix. A healthy business may still have an area needing realignment. The label is a prompt to examine the task, not a reason to force the entire organisation into one category."
+          ],
+          "extension": "Compare the action you are tempted to take with the problem it assumes. An urgent reset, a capacity investment and a careful correction may each be sensible, but for different conditions. Write down the evidence for your diagnosis before choosing the intervention.",
+          "image": "../assets/lesson-visuals/first-90-situation-fit.svg",
+          "imageAlt": "Five equal rows pair startup with building essentials, turnaround with stabilising urgent trouble, accelerated growth with expanding capacity, realignment with correcting drift, and sustaining success with renewing what works. The rows are alternatives, not a maturity ladder.",
+          "imageCaption": "STARS is a set of diagnostic lenses, not a sequence every team must follow.",
+          "why": "A new leader can damage a capable team by performing a rescue it does not need. The reverse error is also costly: slowly building consensus while a genuine crisis worsens. The diagnosis changes both the intervention and its pace.",
+          "apply": [
+            "Pick one area you now own. Write the closest STARS situation and one observed fact supporting it.",
+            "Name a plausible alternative diagnosis and the evidence that would favour it. Compare your provisional view with someone accountable for the outcome before announcing a sweeping change."
+          ],
+          "caveat": "The categories simplify reality and are not a validated scoring system. Do not diagnose a turnaround from one bad week or infer that sustaining success means leaving everything alone. Different parts of the work may need different approaches, and the diagnosis can change.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "A healthy business has rising demand while its support function is quietly losing service quality. How should a newcomer use STARS?",
+              "options": [
+                "Assign the whole business the category that best fits its revenue.",
+                "Treat support decline as proof that the whole business needs rescue.",
+                "Diagnose the different areas and choose a fitting approach for each.",
+                "Move each function through the five categories in the listed order."
+              ],
+              "correctIndex": 2,
+              "feedback": "A STARS mix recognises that different parts of a role may face different situations. The categories are neither a single company score nor a sequence.",
+              "feedbackByOption": [
+                "Revenue can hide local problems. Diagnose support as well as the wider business before choosing how to intervene.",
+                "A local decline needs attention but does not establish an organisation-wide crisis. Examine the areas separately.",
+                "Correct. Growth and local drift can coexist, so capacity work and realignment may both be needed in different places.",
+                "The labels describe situations rather than stages of a required journey. Match action to the evidence in each area."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team still meets its targets, but repeat customers increasingly leave and colleagues dismiss the trend. Which opening move best fits a provisional realignment diagnosis?",
+              "options": [
+                "Build a shared case for change using customer losses and their causes.",
+                "Replace the operating model immediately to signal turnaround urgency.",
+                "Expand capacity first so higher volumes compensate for the departures.",
+                "Keep the plan intact until the current targets also begin to decline."
+              ],
+              "correctIndex": 0,
+              "feedback": "Realignment addresses drift before visible success disappears. A shared diagnosis can make a hidden problem credible without inventing an acute crisis.",
+              "feedbackByOption": [
+                "Correct. Investigating the losses with colleagues makes the emerging problem visible and helps test the realignment diagnosis.",
+                "An immediate reset assumes an established crisis and a known remedy. First build evidence about the customer losses.",
+                "Expansion addresses demand pressure, which is not the stated problem. Diagnose why customers leave before adding capacity.",
+                "Current targets may lag the problem. Investigate the losses now rather than treating target achievement as complete evidence."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Agree the conditions of success",
+          "argument": [
+            "Watkins proposes conversations with a new manager about the situation, expectations, resources, working style and personal development. Agreement about a job title does not establish agreement about what to deliver, when, with what support, or how to work together.",
+            "These conversations can reveal a mismatch before it becomes a performance dispute. Expectations also need revisiting as the newcomer learns more; an initial mandate is not automatically a feasible final plan."
+          ],
+          "extension": "For one promised outcome, connect the result, deadline and available support in a short written recap. Include the dependency that most threatens the promise and the date for reviewing it. Ask the other person to correct the recap rather than treating silence as agreement.",
+          "image": "../assets/lesson-visuals/first-90-success-agreement.svg",
+          "imageAlt": "A result, deadline and support are connected as one commitment. When required support is unavailable, a decision branch asks the parties to change the scope, time or support and then confirm a revised commitment.",
+          "imageCaption": "A missing dependency is a reason to revisit the promise, not quietly absorb it.",
+          "why": "People can use the same word, such as faster, while expecting different outcomes. A short agreement exposes whether speed means a shorter approval queue, an earlier release or less customer waiting. It also makes a resource gap discussable.",
+          "apply": [
+            "Take one current commitment and write the observable result, the date and the support you are assuming. Underline anything the other person has not confirmed.",
+            "Use the next existing check-in to resolve the most consequential gap. If a dependency is unavailable, propose a specific change to scope, timing or support and record the revised agreement."
+          ],
+          "caveat": "A conversation cannot create authority, budget or a reasonable manager. Record unresolved disagreements plainly, use appropriate escalation where needed, and do not present an unconfirmed assumption as a commitment. Revisit the agreement when facts change rather than turning the recap into a weapon.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "A manager and new lead agree on an outcome and date, but assume different staffing. What is the most useful next step?",
+              "options": [
+                "Treat the date as settled and leave staffing choices to the new lead.",
+                "Record the outcome again in language both people already recognise.",
+                "Wait for the first progress report to reveal whether staffing matters.",
+                "Resolve the resource assumption and revise the commitment if needed."
+              ],
+              "correctIndex": 3,
+              "feedback": "Negotiating success connects expectations with the means to meet them. Restating a target does not resolve a resource mismatch.",
+              "feedbackByOption": [
+                "Autonomy does not supply missing capacity. Clarify staffing before treating the promise as feasible.",
+                "Shared wording can help, but the disagreement here is about support. Resolve that dependency and its effect on the promise.",
+                "Waiting spends time under incompatible assumptions. Surface the resource gap while there is still room to adjust.",
+                "Correct. Align the support with the outcome and date, or explicitly renegotiate what can be delivered."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You promised a new reporting process in six weeks, assuming analyst time that is now unavailable. Which response best protects a credible agreement?",
+              "options": [
+                "Keep the date and quietly take on the analyst work after hours.",
+                "Offer a smaller first release or later date for an explicit decision.",
+                "Keep the scope and wait for the next staffing round to resolve it.",
+                "Choose a later date yourself and report the change once work starts."
+              ],
+              "correctIndex": 1,
+              "feedback": "A changed dependency should trigger a visible trade-off. Agreement requires the relevant parties to choose, rather than one person silently absorbing or changing the promise.",
+              "feedbackByOption": [
+                "Extra personal effort hides the changed assumption and may be unsustainable. Make the scope or timing trade-off explicit.",
+                "Correct. Concrete alternatives let the parties choose a feasible commitment in light of the missing analyst time.",
+                "The original plan depends on support you no longer have. Revisit it now instead of assuming the staffing round will rescue it.",
+                "A later date may be sensible, but changing it unilaterally leaves expectations misaligned. Seek an explicit decision."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Write a one-page transition brief",
+        "duration": "8 minutes",
+        "steps": [
+          "Minutes 0–2: choose a real new responsibility, or an existing one whose expectations feel unclear. Write one decision you must make in the next fortnight.",
+          "Minutes 2–4: name your largest unknown, a person or record that could inform it, and a date for checking. Add a provisional STARS diagnosis with one supporting observation.",
+          "Minutes 4–6: write one promised result, its deadline and its most important resource assumption. Mark each as confirmed or unconfirmed.",
+          "Minutes 6–8: draft one question for your next check-in that would resolve the biggest gap. Do not send anything as part of the experiment; finish with a brief you can inspect."
+        ],
+        "result": "One page with a decision, a dated learning task, a provisional situation diagnosis and a commitment whose unconfirmed dependency is visible. Count the unconfirmed assumptions; that is your starting point, not a score of personal competence."
+      },
+      "spacedRecall": [
+        "From Thanks for the Feedback: how would you distinguish a request for coaching from a request for evaluation in a new role?",
+        "From Working Identity: what small experiment could test whether a possible role fits you before you commit to it?",
+        "From The Mythical Man-Month: what coordination costs could make an apparently generous staffing promise less useful than it looks?"
+      ],
+      "takeaway": "Enter a responsibility by learning for a decision, diagnosing the situation, and agreeing the conditions under which success is possible.",
+      "sources": [
+        {
+          "label": "Harvard Business Review Press: 2013 updated and expanded edition, publication details and scope",
+          "url": "https://store.hbr.org/product/the-first-90-days-updated-and-expanded-proven-strategies-for-getting-up-to-speed-faster-and-smarter/11323"
+        },
+        {
+          "label": "IMD book record: tenth-anniversary edition and the original 2003 publication",
+          "url": "https://www.imd.org/research-knowledge/leadership/books/first-90-days/"
+        },
+        {
+          "label": "Watkins, chapter 2 preview: Accelerate Your Learning; primary book attribution and chapter structure",
+          "url": "https://www.oreilly.com/library/view/the-first-90/9781422191392/xhtml/chapter2.xhtml"
+        },
+        {
+          "label": "Watkins at IMD: Transition traps; practitioner guidance on systematic inquiry and revisiting expectations",
+        "url": "https://www.imd.org/research-knowledge/organizational-behavior/articles/the-seven-biggest-traps-in-the-first-90-days-and-how-to-avoid-them/"
+        },
+        {
+          "label": "Watkins and colleagues at IMD: situational diagnosis and the STARS mix; contextual leadership guidance",
+          "url": "https://www.imd.org/research-knowledge/organizational-behavior/articles/hit-the-ground-running-transitioning-to-new-leadership-roles/"
+        },
+        {
+          "label": "Watkins interview on Genesis Advisers: five conversations about success; primary explanation, not a guarantee",
+        "url": "https://news.genesisadvisers.com/5-conversations-you-need-to-have-with-your-boss"
+        },
+        {
+          "label": "Genesis Advisers: the author’s learning, situation and alignment modules; commercial practitioner material",
+          "url": "https://genesisadvisers.com/solutions/the-first-90-days-resources/"
+        }
+      ]
+    },
+    {
       "slug": "debugging",
       "discussionId": "debugging-david-agans",
       "date": "2026-09-15",
