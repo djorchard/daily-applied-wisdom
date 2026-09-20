@@ -1,6 +1,245 @@
 {
   "lessons": [
     {
+      "slug": "the-programmers-brain",
+      "discussionId": "the-programmers-brain-felienne-hermans",
+      "date": "2026-09-21",
+      "dateLabel": "21 September 2026",
+      "edition": "Daily lesson",
+      "title": "The Programmer’s Brain",
+      "authors": "Felienne Hermans",
+      "year": "2021 · First edition",
+      "category": "Software engineering · Program comprehension · Cognitive load",
+      "accent": "purple",
+      "quizRevision": "2026-09-21-1",
+      "summary": "Read difficult code by naming the kind of confusion, using meaningful cues to build larger chunks, and moving a crowded execution trace out of working memory.",
+      "evidenceNote": "Hermans connects cognitive science with program-comprehension practice. This lesson follows the book's distinctions among long-term memory, short-term memory and working memory, plus its guidance on chunking, beacons, dependency graphs and state tables. Attribution is strong. Limited working memory and the role of prior knowledge are well established, while the effectiveness of any one code-reading technique is context-dependent and the software-specific evidence base is smaller. The three diagnostic labels and the suggested reading routine are practitioner interpretations, not a clinical assessment or a guaranteed productivity method.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Name the kind of confusion",
+          "argument": [
+            "Hermans separates three reasons code can feel confusing. You may lack stored knowledge, such as the meaning of an unfamiliar language feature. You may lack information that is present but not yet held, such as the value assigned several lines earlier. Or you may have the facts but lack enough working-memory capacity to process all their interactions at once.",
+            "The distinction matters because each problem calls for different help. Learning a concept addresses a knowledge gap. Locating a value addresses an information gap. Drawing the relationships or reducing incidental complexity addresses a processing gap. Reading the same lines again is not a universal remedy."
+          ],
+          "extension": "When progress stalls, state one testable diagnosis before reaching for a tool. Ask whether you need to learn a term, retrieve a fact, or reduce the number of relationships being juggled. Then choose one action that fits that diagnosis and check whether your explanation improves.",
+          "image": "../assets/lesson-visuals/programmers-brain-confusion-diagnosis.svg",
+          "imageAlt": "A confusing code fragment splits into three diagnostic paths: missing knowledge leads to learning one concept, missing information leads to locating one fact, and too many interactions leads to externalising the relationships. Each path ends with a check of whether the code can now be explained.",
+          "imageCaption": "Different sources of confusion need different interventions.",
+          "why": "A generic feeling of being stuck can trigger random searching, premature rewriting or self-blame. A specific diagnosis turns the stall into a smaller question and makes it easier to tell whether the next action actually helped.",
+          "apply": [
+            "Choose one line in current code that you cannot confidently explain. Write K for missing knowledge, I for missing information, or P for processing overload, and add one sentence of evidence for the label.",
+            "Take one matching action: look up one construct, trace one value to its source, or sketch the interacting parts. Then explain the line again without copying the source you used."
+          ],
+          "caveat": "The categories are a useful reading aid, not a precise measurement of memory. More than one cause can be present, and stress, fatigue, poor naming or missing domain context can change what feels difficult. If the first action does not improve your explanation, revise the diagnosis rather than forcing the label.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "A developer knows every language construct and can locate each variable's value, but loses track when five conditions interact. Which diagnosis best fits?",
+              "options": [
+                "A knowledge gap that calls for learning another syntax rule.",
+                "An information gap that calls for searching the repository.",
+                "A processing gap that calls for externalising relationships.",
+                "A motivation gap that calls for extending the work session."
+              ],
+              "correctIndex": 2,
+              "feedback": "The needed facts are available, but their interactions exceed what the reader can comfortably manipulate at once. External representation addresses that processing burden.",
+              "feedbackByOption": [
+                "The constructs are already known, so another syntax rule does not address the stated difficulty. The best diagnosis is processing overload.",
+                "The values can already be located, so more repository search does not address the stated difficulty. The best diagnosis is processing overload.",
+                "Correct. Drawing the conditions or recording their states reduces the relationships that must be held and manipulated mentally.",
+                "Longer effort does not distinguish the source of confusion and may worsen fatigue. The best diagnosis is processing overload."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You understand a function except for an unfamiliar pattern-matching expression. What is the best first response?",
+              "options": [
+                "Isolate the expression, learn its rule, then restate its effect.",
+                "Draw every dependency in the function before checking the syntax.",
+                "Rename surrounding variables until the expression appears clearer.",
+                "Step through all callers to collect more runtime values first."
+              ],
+              "correctIndex": 0,
+              "feedback": "An unfamiliar construct is primarily a knowledge gap. A bounded lookup followed by recall tests whether the missing concept was the real blocker.",
+              "feedbackByOption": [
+                "Correct. A focused lookup supplies the missing knowledge, and restating the effect checks that the rule is now usable.",
+                "A dependency graph helps when relationships overload working memory, but the stated blocker is one unknown construct.",
+                "Clearer names can help comprehension, but they do not teach the semantics of an unfamiliar expression.",
+                "Runtime values can answer an information question, but they do not explain the language rule that is missing."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Build meaning from chunks and beacons",
+          "argument": [
+            "Hermans describes chunking as grouping small code elements into a meaningful unit held as one idea. Experienced programmers can recognise familiar structures, so a loop that searches for a matching record can become one mental chunk instead of many tokens competing for attention.",
+            "Beacons are semantic cues that suggest a program's purpose or structure, such as a well-chosen name, a familiar API call or a characteristic control pattern. They help the reader form a hypothesis, but the hypothesis still needs to be checked against the surrounding code and behaviour."
+          ],
+          "extension": "Read for a provisional story before narrating every token. Circle two or three cues, group the lines they appear to organise, and give each group a short behavioural label. Then test the labels with an input, a caller or a nearby condition.",
+          "image": "../assets/lesson-visuals/programmers-brain-chunks-beacons.svg",
+          "imageAlt": "Individual code tokens are grouped into three meaningful chunks. Beacons such as a method name, a guard condition and an emit call point to a provisional story: reject invalid input, transform the record, then publish the result. A verification loop checks the story against the code.",
+          "imageCaption": "Cues help compress code into a story, but the story remains a hypothesis to test.",
+          "why": "Token-by-token reading consumes attention without guaranteeing understanding. Meaningful chunks let prior knowledge carry more of the load, while explicit verification prevents a familiar name or pattern from becoming an unchecked assumption.",
+          "apply": [
+            "Open a method you did not write. Mark three possible beacons, then divide the method into no more than four behavioural chunks.",
+            "Write one verb phrase for each chunk. Use a sample input, test or caller to find one fact that supports or contradicts your proposed story."
+          ],
+          "caveat": "Beacons can mislead when names are stale, conventions are violated or a familiar pattern hides an unusual side effect. Chunking is also knowledge-dependent: difficulty recognising a chunk is not evidence of low ability. Verify the inferred story and update it when the code disagrees.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a beacon useful during code comprehension?",
+              "options": [
+                "It proves the code follows the convention suggested by its name.",
+                "It suggests a semantic hypothesis that nearby evidence can test.",
+                "It replaces the need to inspect conditions inside a familiar method.",
+                "It marks the longest expression as the method's central purpose."
+              ],
+              "correctIndex": 1,
+              "feedback": "A beacon is a cue, not proof. It helps the reader propose a purpose or structure and then look for confirming or conflicting evidence.",
+              "feedbackByOption": [
+                "A name or familiar pattern can be stale or misleading. A beacon suggests a hypothesis; it does not prove the convention holds.",
+                "Correct. The cue compresses attention around a plausible meaning, which the reader must still verify against behaviour and context.",
+                "Familiarity can guide attention but does not remove the need to inspect consequential conditions and side effects.",
+                "Expression length is not a reliable signal of purpose. Semantic cues are useful when they support a testable account of behaviour."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A method named SaveDraft also sends a notification in one branch. Which reading move best uses beacons without trusting them too much?",
+              "options": [
+                "Treat SaveDraft as the whole story because names encode intent.",
+                "Ignore all names and translate every token into plain English.",
+                "Rename the method immediately before tracing the notification.",
+                "Use the name as a starting hypothesis, then trace each exit path."
+              ],
+              "correctIndex": 3,
+              "feedback": "The name is a useful cue, but the branch shows that the behaviour may be broader. Tracing exits tests the provisional story before any change is proposed.",
+              "feedbackByOption": [
+                "The notification is evidence that the name is incomplete. Use the name as a hypothesis, then inspect the paths that can add behaviour.",
+                "Discarding every cue makes reading unnecessarily expensive. Use names provisionally and verify them against control flow.",
+                "Renaming before understanding risks encoding another incomplete story. Trace the behaviour first, then decide whether a rename helps.",
+                "Correct. The name provides an initial chunk, while tracing the branches checks whether that chunk accounts for the method's effects."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Move the trace onto the page",
+          "argument": [
+            "For code that overloads working memory, Hermans recommends external aids. A dependency graph records which parts rely on which others. A state table records how relevant values change over steps. Together they preserve relationships that a reader would otherwise repeatedly reconstruct.",
+            "The book also discusses refactoring or replacing unfamiliar constructs to reduce cognitive load. Externalising first separates a comprehension aid from a production change: you can learn how the code behaves before deciding whether the code itself should change."
+          ],
+          "extension": "Create the smallest representation that answers the current question. Use a dependency graph for structural influence, a state table for change over time, or both when control and state interact. End with a one-sentence behaviour claim and one case that could falsify it.",
+          "image": "../assets/lesson-visuals/programmers-brain-external-trace.svg",
+          "imageAlt": "A dense method is externalised into a dependency graph and a three-row state table. Both lead to a one-sentence behaviour claim and a test case that could disprove it, followed by a separate decision about whether refactoring is warranted.",
+          "imageCaption": "An external trace supports understanding before it becomes a refactoring proposal.",
+          "why": "Notes stop the reader paying the same mental cost on every pass. They also make reasoning reviewable: a colleague can challenge a missing edge or an incorrect state transition instead of debating an invisible mental model.",
+          "apply": [
+            "Pick one question about a difficult method. If it concerns influence, draw nodes and arrows. If it concerns change over time, make columns for step, condition and value.",
+            "Write one behaviour claim from the diagram and one input that might disprove it. Only after that decide whether a code change, a test or better documentation is justified."
+          ],
+          "caveat": "A diagram can become another source of error or busywork. Keep it tied to one question, compare it with executable behaviour, and discard it when it no longer helps. Some complexity belongs to the domain; reducing visual complexity must not erase important rules or silently change behaviour.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why externalise a difficult trace before proposing a refactor?",
+              "options": [
+                "It makes the current behaviour inspectable before a change is chosen.",
+                "It proves every dependency in the code is necessary and correct.",
+                "It converts domain complexity into removable presentation detail.",
+                "It guarantees a smaller implementation with fewer execution paths."
+              ],
+              "correctIndex": 0,
+              "feedback": "The graph or table is first a comprehension aid. It records a model that can be checked, then informs whether any production change is warranted.",
+              "feedbackByOption": [
+                "Correct. Externalising the trace exposes assumptions and behaviour so a later change can be judged against something concrete.",
+                "A diagram can contain mistakes and does not prove necessity. It must be checked against the code and observed behaviour.",
+                "Some complexity is intrinsic to the domain. Externalising it helps reasoning but does not automatically make it removable.",
+                "The representation does not guarantee a smaller design. Its first purpose is to make current behaviour inspectable."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You need to learn why a status changes across four branches and two retries. Which aid best fits the question?",
+              "options": [
+                "A glossary of unfamiliar syntax used inside each branch.",
+                "A list of method names sorted by their file position.",
+                "A state table of steps, conditions and resulting status values.",
+                "A class diagram showing every type in the surrounding module."
+              ],
+              "correctIndex": 2,
+              "feedback": "The question is about state over time. A focused table keeps the relevant condition and resulting value visible across branches and retries.",
+              "feedbackByOption": [
+                "A glossary helps with missing knowledge, but the stated question concerns how a known value changes over execution.",
+                "File order does not preserve the conditions and values that drive the status changes. A state table fits the question.",
+                "Correct. Recording each step, condition and status makes the temporal trace visible without holding every transition mentally.",
+                "A full class diagram is broader than the question and may add load. Track the status transitions directly."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Read one method with a cognitive map",
+        "duration": "9 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose a method of roughly 15 to 40 lines that you did not write. Write one question you want the method to answer.",
+          "Minutes 2 to 4: mark your main confusion K, I or P, write one reason, and take one matching action.",
+          "Minutes 4 to 6: circle up to three beacons and divide the method into no more than four behavioural chunks. Give each chunk a verb phrase.",
+          "Minutes 6 to 8: draw either a dependency graph or a state table for the original question. Keep it to the relationships that affect the answer.",
+          "Minute 8 to 9: write one sentence explaining the behaviour and one input or path that could prove your explanation wrong."
+        ],
+        "result": "An annotated method, a small external trace, one behaviour claim and one falsifying case. Compare your explanation before and after; the observable result is whether you can now answer the original question without rereading the whole method."
+      },
+      "spacedRecall": [
+        "From Debugging: where would you place a boundary observation if your external trace contains one uncertain transition?",
+        "From Refactoring: what must stay true when a comprehension-driven cleanup changes code structure?",
+        "From The First 90 Days: which real decision should determine what you learn about an unfamiliar codebase first?"
+      ],
+      "takeaway": "Understand difficult code by diagnosing what is missing, compressing familiar meaning into verified chunks, and putting complex relationships somewhere your eyes can inspect.",
+      "sources": [
+        {
+          "label": "Manning: The Programmer's Brain, first-edition details, scope and author biography",
+          "url": "https://www.manning.com/books/the-programmers-brain"
+        },
+        {
+          "label": "O'Reilly catalogue: complete contents, including confusion, chunking, beacons, cognitive load, dependency graphs and state tables",
+          "url": "https://www.oreilly.com/library/view/the-programmers-brain/9781617298677/Text/HermansTOC.htm"
+        },
+        {
+          "label": "Felienne Hermans: official book page and author-selected talks and interviews",
+          "url": "https://www.felienne.com/book"
+        },
+        {
+          "label": "InfoQ: Hermans's presentation and transcript on cognitive processes and techniques for reading code",
+          "url": "https://www.infoq.com/presentations/reading-code/"
+        },
+        {
+          "label": "Siegmund and colleagues: replicated fMRI study of program comprehension, working memory, attention and language processing",
+          "url": "https://ieeexplore.ieee.org/document/8425769/"
+        },
+        {
+          "label": "Peitek and colleagues: evidence of semantic chunking and reduced neural effort from meaningful code cues",
+          "url": "https://doi.org/10.1145/3106237.3106268"
+        },
+        {
+          "label": "Baum and colleagues: context-dependent evidence on cognitive load and explicit strategies during code review",
+          "url": "https://link.springer.com/article/10.1007/s10664-022-10123-8"
+        }
+      ]
+    },
+    {
       "slug": "the-first-90-days",
       "discussionId": "the-first-90-days-michael-watkins",
       "date": "2026-09-18",

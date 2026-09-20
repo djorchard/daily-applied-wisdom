@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="programmers-brain-chunks-title programmers-brain-chunks-desc">
+<title id="programmers-brain-chunks-title">Beacons help turn tokens into verified chunks</title>
+<desc id="programmers-brain-chunks-desc">Code cues such as a method name, guard condition, and emit call organise tokens into three behavioural chunks. The chunks form a provisional story that must be verified against a caller, input, or test.</desc>
+<defs>
+  <style>text {font-family: Arial, sans-serif; fill: #18211d;}</style>
+  <marker id="programmers-brain-chunks-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#18211d"/></marker>
+</defs>
+<rect width="1200" height="760" fill="#faf7f0"/>
+<text x="600" y="62" text-anchor="middle" font-size="34" font-weight="700">FROM TOKENS TO A TESTABLE STORY</text>
+<text x="88" y="118" font-size="23" font-weight="700">CODE CUES</text>
+<rect x="70" y="140" width="330" height="470" rx="18" fill="#f5f1e8" stroke="#18211d" stroke-width="3"/>
+<rect x="100" y="180" width="270" height="86" rx="12" fill="#a9c7df" stroke="#18211d" stroke-width="2"/>
+<text x="235" y="215" text-anchor="middle" font-size="23" font-weight="700">BEACON</text>
+<text x="235" y="247" text-anchor="middle" font-size="24">ProcessOrder</text>
+<text x="105" y="312" font-size="23">if invalid</text>
+<text x="105" y="352" font-size="23">return rejected</text>
+<rect x="100" y="382" width="270" height="86" rx="12" fill="#e9d17f" stroke="#18211d" stroke-width="2"/>
+<text x="235" y="417" text-anchor="middle" font-size="23" font-weight="700">BEACON</text>
+<text x="235" y="449" text-anchor="middle" font-size="24">MapToRecord</text>
+<text x="105" y="514" font-size="23">record = map(order)</text>
+<rect x="100" y="536" width="270" height="52" rx="12" fill="#e8b89c" stroke="#18211d" stroke-width="2"/>
+<text x="235" y="570" text-anchor="middle" font-size="23" font-weight="700">emit(record)</text>
+<path d="M414 223H486" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<path d="M414 425H486" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<path d="M414 562H486" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<text x="626" y="118" text-anchor="middle" font-size="23" font-weight="700">MEANINGFUL CHUNKS</text>
+<rect x="500" y="164" width="250" height="118" rx="18" fill="#a9c7df" stroke="#18211d" stroke-width="3"/>
+<text x="625" y="211" text-anchor="middle" font-size="26" font-weight="700">REJECT</text>
+<text x="625" y="248" text-anchor="middle" font-size="24">invalid input</text>
+<rect x="500" y="366" width="250" height="118" rx="18" fill="#e9d17f" stroke="#18211d" stroke-width="3"/>
+<text x="625" y="413" text-anchor="middle" font-size="26" font-weight="700">TRANSFORM</text>
+<text x="625" y="450" text-anchor="middle" font-size="24">the order</text>
+<rect x="500" y="520" width="250" height="86" rx="18" fill="#e8b89c" stroke="#18211d" stroke-width="3"/>
+<text x="625" y="573" text-anchor="middle" font-size="26" font-weight="700">PUBLISH</text>
+<path d="M765 223H835" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<path d="M765 425H805V350H835" fill="none" stroke="#18211d" stroke-width="4" stroke-linejoin="round" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<path d="M765 563H805V477H835" fill="none" stroke="#18211d" stroke-width="4" stroke-linejoin="round" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<text x="992" y="118" text-anchor="middle" font-size="23" font-weight="700">PROVISIONAL STORY</text>
+<rect x="850" y="164" width="290" height="338" rx="20" fill="#d7c4df" stroke="#18211d" stroke-width="3"/>
+<circle cx="900" cy="233" r="22" fill="#faf7f0" stroke="#18211d" stroke-width="3"/><text x="900" y="241" text-anchor="middle" font-size="24" font-weight="700">1</text>
+<text x="940" y="241" font-size="25">Reject invalid</text>
+<path d="M900 266V309" fill="none" stroke="#18211d" stroke-width="3" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<circle cx="900" cy="348" r="22" fill="#faf7f0" stroke="#18211d" stroke-width="3"/><text x="900" y="356" text-anchor="middle" font-size="24" font-weight="700">2</text>
+<text x="940" y="356" font-size="25">Transform valid</text>
+<path d="M900 381V424" fill="none" stroke="#18211d" stroke-width="3" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<circle cx="900" cy="463" r="22" fill="#faf7f0" stroke="#18211d" stroke-width="3"/><text x="900" y="471" text-anchor="middle" font-size="24" font-weight="700">3</text>
+<text x="940" y="471" font-size="25">Publish result</text>
+<path d="M995 518V566" fill="none" stroke="#18211d" stroke-width="4" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<rect x="820" y="580" width="350" height="112" rx="18" fill="#bdd9bf" stroke="#18211d" stroke-width="3"/>
+<text x="995" y="623" text-anchor="middle" font-size="26" font-weight="700">VERIFY THE STORY</text>
+<text x="995" y="661" text-anchor="middle" font-size="23">Caller, input or test</text>
+<path d="M805 636H40V380H55" fill="none" stroke="#18211d" stroke-width="3" stroke-dasharray="10 9" stroke-linejoin="round" marker-end="url(#programmers-brain-chunks-arrow)"/>
+<text x="600" y="735" text-anchor="middle" font-size="22">A cue saves attention only when the resulting story survives a check.</text>
+</svg>
