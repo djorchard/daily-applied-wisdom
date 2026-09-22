@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "noise",
+      "discussionId": "noise-kahneman-sibony-sunstein",
+      "date": "2026-09-23",
+      "dateLabel": "23 September 2026",
+      "edition": "Daily lesson",
+      "title": "Noise",
+      "authors": "Daniel Kahneman, Olivier Sibony and Cass R. Sunstein",
+      "year": "2021 · First edition",
+      "category": "Thinking and decision-making · Judgement · Organisational consistency",
+      "accent": "blue",
+      "readTime": "5 to 8 minute read",
+      "quizRevision": "2026-09-23-1",
+      "summary": "Improve repeated professional judgements by separating unwanted variability from bias, measuring disagreement on shared cases, and designing a process that makes independent evidence visible before intuition takes over.",
+      "evidenceNote": "Kahneman, Sibony and Sunstein define noise as unwanted variability in judgements that should be similar, distinguish it from average bias, and propose noise audits and decision hygiene. Attribution is strong. The mathematical point that both bias and random error increase mean squared error is strong. Evidence that structured interviews and independent aggregation can improve reliability is substantial but context-dependent. What counts as unwanted variation depends on the task and its values, and the costs of reducing noise can exceed the benefits. The ten-minute review and the suggested team routine are practitioner interpretations, not guarantees that greater consistency produces a correct or fair decision.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Separate noise from bias",
+          "argument": [
+            "The authors distinguish two kinds of error. Bias moves judgements systematically away from a target, while noise spreads judgements around even when their average is close to the target. A team can therefore look unbiased on average while still giving sharply different answers to equivalent cases.",
+            "They focus on system noise: unwanted variation among people, or within the same person at different times, when the organisation expects comparable judgements. Because opposite errors can cancel in an average, reviewing only the mean can hide a costly and unfair process."
+          ],
+          "extension": "When a repeated decision looks healthy in aggregate, inspect its spread as well as its average. Ask whether equivalent cases receive similar treatment, then investigate both any common directional error and the unexplained variation around it.",
+          "image": "../assets/lesson-visuals/noise-bias-spread.svg",
+          "imageAlt": "Three targets compare accurate and consistent judgements, biased but consistent judgements grouped away from the centre, and noisy judgements scattered around the centre. A note shows that an acceptable average can conceal inconsistent individual outcomes.",
+          "imageCaption": "Bias shifts the centre; noise widens the spread. A process can suffer from either or both.",
+          "why": "If a review looks only for one shared mistake, it may miss inconsistent treatment across users, incidents, estimates or candidates. Naming noise makes reliability a visible design concern rather than dismissing disagreement as ordinary professional style.",
+          "apply": [
+            "Choose five recent decisions of the same kind, such as severity ratings, effort estimates or approval outcomes. Write the decision rule you expected each case to follow.",
+            "Compare both the average result and the range. Mark one difference that reflects a legitimate case distinction and one that appears to come from who judged it or when it was judged."
+          ],
+          "caveat": "Variation is not automatically error. Different cases can deserve different treatment, and plural values may justify more than one answer. Define which decisions should be comparable before treating their spread as noise, and do not confuse consistency with truth or fairness.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Two assessors rate identical cases very differently, but their average rating matches the benchmark. What problem is still present?",
+              "options": [
+                "A shared bias, because the average matches the benchmark.",
+                "System noise from inconsistent judgements on equivalent cases.",
+                "A data shortage, because two assessors cannot form an average.",
+                "A calibration success, because opposite errors cancel completely."
+              ],
+              "correctIndex": 1,
+              "feedback": "A correct average can conceal wide disagreement. The system is noisy because equivalent cases depend too much on which assessor handles them.",
+              "feedbackByOption": [
+                "Matching the benchmark argues against a shared directional shift in this example. The remaining problem is inconsistent judgement across assessors.",
+                "Correct. Opposite errors can cancel in the average while individual cases still receive inconsistent treatment.",
+                "Two judgements are enough to illustrate disagreement, even if a larger sample would estimate its size more reliably. The issue described is system noise.",
+                "Cancellation improves the average, not the individual outcomes. The system still contains unwanted variability."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A support team has an acceptable average resolution time, but similar requests range from one hour to five days. What is the best first question?",
+              "options": [
+                "Which agent should be rewarded for the fastest case, regardless of difficulty?",
+                "How can the team lower the average before examining individual cases?",
+                "Which differences are justified, and which depend on judge or occasion?",
+                "How can every request be forced into exactly the same resolution time?"
+              ],
+              "correctIndex": 2,
+              "feedback": "The useful first step is to separate legitimate case variation from unwanted system variation. The average alone cannot make that distinction.",
+              "feedbackByOption": [
+                "A fastest case may be easy, incomplete or exceptional. First distinguish legitimate differences from unwanted variability across comparable cases.",
+                "Optimising the average can leave equivalent users with inconsistent treatment. First inspect the spread and its causes.",
+                "Correct. This defines the comparison set before deciding how much of the observed range is unwanted noise.",
+                "Perfect uniformity can ignore real differences among requests. The goal is justified variation, not identical timing at any cost."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Run a noise audit",
+          "argument": [
+            "The authors recommend making hidden disagreement observable with a noise audit. Several qualified judges independently assess the same realistic cases under comparable conditions. Their answers are then compared as a distribution rather than debated one anecdote at a time.",
+            "Independence matters because early discussion creates social influence and can make agreement look stronger than it was. The audit is diagnostic: it reveals the scale and shape of disagreement before the organisation chooses a remedy."
+          ],
+          "extension": "For a small internal audit, use three representative cases, a shared prompt and a recorded scale. Collect answers silently, reveal them together, and discuss the widest gap by asking which evidence or rule produced it.",
+          "image": "../assets/lesson-visuals/noise-audit.svg",
+          "imageAlt": "A four-step noise audit flow shows shared cases, independent judgements, a revealed spread of scores, and a discussion of the widest gap. A side path warns that discussion before scoring can hide the original disagreement.",
+          "imageCaption": "Measure independent disagreement before group discussion changes it.",
+          "why": "People are usually more comfortable looking for bias than estimating their own inconsistency. A shared-case audit replaces intuition about consistency with inspectable evidence and gives the team a concrete place to improve definitions, scales or evidence.",
+          "apply": [
+            "Write one short case that your team encounters repeatedly and one decision it requires. Remove identifying details and include only evidence a judge would normally have.",
+            "Ask two colleagues to record a decision and confidence independently. Reveal all answers together, then capture the first rule or evidence difference that explains the largest gap."
+          ],
+          "caveat": "A tiny audit can reveal a mechanism but cannot estimate organisation-wide noise precisely. Cases must be representative, judges must understand the task, and confidentiality or employment rules may constrain what can be shared. Use the result to form a testable improvement, not to rank or shame individuals.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why should judges record their answers before discussing a noise-audit case?",
+              "options": [
+                "It guarantees that each initial answer is factually correct and unbiased.",
+                "It prevents the audit from exposing differences in reasoning.",
+                "It makes the most senior judge's answer easier to identify.",
+                "It preserves the disagreement that social influence might conceal."
+              ],
+              "correctIndex": 3,
+              "feedback": "Independent first judgements reveal the system's natural spread. Discussion can then explore differences without rewriting evidence about how much disagreement existed.",
+              "feedbackByOption": [
+                "Independence does not guarantee correctness. It preserves evidence about the initial variation among judgements.",
+                "The audit is meant to expose meaningful differences. Recording first prevents premature convergence from hiding them.",
+                "Status should not determine the benchmark. The purpose is to observe independent variation before influence begins.",
+                "Correct. Private first answers preserve the original distribution so later agreement is not mistaken for initial consistency."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Three reviewers disagree sharply on the severity of the same incident. What should the audit facilitator do next?",
+              "options": [
+                "Compare the evidence behind the widest gap before choosing a remedy.",
+                "Average the scores and end the review because the mean is objective.",
+                "Replace the lowest score with the highest to favour caution.",
+                "Publish each reviewer's historical accuracy as a league table."
+              ],
+              "correctIndex": 0,
+              "feedback": "The audit is diagnostic. Examining the widest gap can reveal ambiguous evidence, scales or rules that a process change should address.",
+              "feedbackByOption": [
+                "Correct. The reasoning behind the widest gap is the most informative place to look for an unclear rule, scale or evidence requirement.",
+                "An average summarises the scores but does not explain their spread or make the underlying judgement process reliable.",
+                "Substituting one answer imposes a preference without diagnosing why qualified reviewers disagreed.",
+                "A league table can shame people and invites defensive behaviour. The audit should diagnose the decision system, not rank individuals."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Use decision hygiene",
+          "argument": [
+            "The authors use decision hygiene for process design that reduces error without requiring people to predict their own biases. Useful moves include breaking a complex judgement into components, using shared reference scales, collecting independent views and delaying the final holistic impression until the evidence has been assessed.",
+            "The aim is not to remove judgement. It is to control the sequence so that an early story, a vivid detail or the first speaker does not dominate everything that follows. Aggregation can then use multiple informed views while preserving an explicit place for exceptions."
+          ],
+          "extension": "Turn one recurring decision into a short evidence card. Define three separate criteria with observable anchors, have each reviewer score them before seeing others' answers, then combine the scores and record any reasoned override separately.",
+          "image": "../assets/lesson-visuals/noise-decision-hygiene.svg",
+          "imageAlt": "A decision process moves from a shared case to three separately anchored criteria, then to independent scoring, aggregation, and an explicit documented override. A contrasting shortcut shows an early overall impression pulling every later judgement toward one story.",
+          "imageCaption": "Structure the evidence first; reserve holistic judgement and overrides for the end.",
+          "why": "A repeatable sequence makes decisions easier to explain, compare and improve. It also protects dissenting evidence long enough to be considered, while leaving a visible route for cases that genuinely do not fit the normal rule.",
+          "apply": [
+            "Choose one decision you will make this week. Write three criteria that can be judged separately and give each criterion a low and high observable anchor.",
+            "Score the criteria before writing an overall conclusion. If you override the combined result, record the new evidence or value that justifies the exception."
+          ],
+          "caveat": "Structure can create false precision, encode historical bias or crowd out expertise when criteria are poor. Test whether the process improves both reliability and outcomes, inspect impacts across affected groups, and retain a reviewable exception path rather than treating a score as the decision itself.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main purpose of delaying an overall impression until separate criteria have been assessed?",
+              "options": [
+                "To stop an early story from colouring every later judgement.",
+                "To ensure the combined score always replaces professional judgement.",
+                "To make every criterion equally important in every context.",
+                "To prevent reviewers from recording a reasoned exception."
+              ],
+              "correctIndex": 0,
+              "feedback": "Separating evidence assessment from the final impression reduces the chance that one early story will pull every component in the same direction.",
+              "feedbackByOption": [
+                "Correct. The sequence keeps each component inspectable before a holistic narrative can dominate the assessment.",
+                "Decision hygiene can inform judgement without replacing it. A documented exception may still be appropriate.",
+                "Criteria can have different justified weights. The key is to assess them distinctly before forming the overall view.",
+                "A reviewable exception path is valuable. The process delays the overall impression; it does not ban reasoned overrides."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A hiring panel wants more consistent interviews without making candidates interchangeable. Which design best fits decision hygiene?",
+              "options": [
+                "Let each interviewer improvise, then accept the chair's first impression.",
+                "Use one total score and conceal how any interviewer produced it.",
+                "Require identical final ratings and remove every exception path.",
+                "Use anchored criteria, score alone, then discuss evidence and exceptions."
+              ],
+              "correctIndex": 3,
+              "feedback": "Shared anchors and independent component judgements improve comparability, while evidence-based discussion and documented exceptions preserve relevant individual differences.",
+              "feedbackByOption": [
+                "Improvisation and a chair's early view increase dependence on judge and order. Shared anchored criteria and independent scoring better control noise.",
+                "A concealed total hides which evidence drove the judgement. Separate criteria make disagreement and trade-offs inspectable.",
+                "Forced identity can erase legitimate differences among candidates. The goal is consistent process with a reviewable exception path.",
+                "Correct. This combines comparable evidence, protected independent views and a visible place for case-specific judgement."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Expose one hidden spread",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose one repeated judgement, such as incident severity, estimate confidence or proposal priority, and write what should make two cases comparable.",
+          "Minutes 2 to 4: draft one realistic case and a response scale with observable low and high anchors.",
+          "Minutes 4 to 6: ask two available colleagues to record an independent answer and one reason. If nobody is available, score it yourself now and again after reviewing an unrelated task.",
+          "Minutes 6 to 8: reveal the answers and calculate the range. Circle the largest difference in evidence, rule or interpretation.",
+          "Minutes 8 to 10: write one process change to test next time, such as a clearer anchor, a missing evidence field or silent scoring before discussion."
+        ],
+        "result": "One shared case, at least two independently recorded judgements, an observed range, and one specific process change tied to the largest disagreement."
+      },
+      "spacedRecall": [
+        "From The Scout Mindset: what evidence would distinguish a shared directional bias from noisy disagreement around a reasonable centre?",
+        "From Thanks for the Feedback: which trigger might make a reviewer defend an initial score instead of examining the evidence behind a disagreement?",
+        "From Superforecasting: how could independent probability estimates help reveal both the group centre and its spread before discussion?"
+      ],
+      "takeaway": "A trustworthy judgement system needs more than a sensible average: reveal the spread, diagnose its causes, and structure the evidence before the final story forms.",
+      "sources": [
+        {
+          "label": "Little, Brown Spark: Noise book description, authors and edition details",
+          "url": "https://www.hachettebookgroup.com/titles/daniel-kahneman/noise/9780316451390/"
+        },
+        {
+          "label": "Daniel Kahneman at Princeton: publication record for Noise and related work on reducing noise",
+          "url": "https://kahneman.scholar.princeton.edu/publications"
+        },
+        {
+          "label": "Harvard Kennedy School: Cass Sunstein on unwanted variability across professional judgements",
+          "url": "https://www.hks.harvard.edu/centers/mrcbg/programs/growthpolicy/noise-flaw-human-judgment-cass-sunstein"
+        },
+        {
+          "label": "Kahneman, Sibony and Sunstein: response clarifying system noise, occasion noise and the costs of reduction",
+          "url": "https://journals.sagepub.com/doi/10.1177/26339137221078593"
+        },
+        {
+          "label": "McDaniel and colleagues: meta-analysis of structure and employment-interview validity",
+          "url": "https://home.ubalt.edu/tmitch/645/articles/McDanieletal1994CriterionValidityInterviewsMeta.pdf"
+        },
+        {
+          "label": "Schmidt and Zimmerman: mixed evidence on interview reliability, structure and independent aggregation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/15161412/"
+        }
+      ]
+    },
+    {
       "slug": "the-programmers-brain",
       "discussionId": "the-programmers-brain-felienne-hermans",
       "date": "2026-09-21",

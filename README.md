@@ -32,7 +32,7 @@ The homepage library progressively enhances the complete lesson archive. With Ja
 
 ## Learned progress
 
-Each of the 3 idea sections can be marked learned or not learned. A book is learned exactly when all 3 ideas are learned. Lesson pages and library cards show no progress label at 0 of 3, show the idea count at 1 or 2 of 3, and show **LEARNED** at 3 of 3. After all 6 learning-check answers are correct, **Mark book as learned** appears beside the checked-answer state and marks all 3 ideas learned. The learned list is stored only in the current browser profile, does not sync across browsers or devices, and can be removed with **Clear learning history** on the privacy page.
+Each of the 3 idea sections can be marked learned or not learned. A book is learned exactly when all 3 ideas are learned. Lesson pages and library cards show no progress label at 0 of 3, show the idea count at 1 or 2 of 3, and show **LEARNED** at 3 of 3. After all 6 learning-check answers are correct, **Mark book as learned** appears beside the checked-answer state and marks all 3 ideas learned. The learned list is stored only in the current browser profile and does not sync across browsers or devices. Clear learning history preserves learned markers; unmark an idea to remove its learned state.
 
 ## Learning checks
 
@@ -40,7 +40,7 @@ Each book has a six-question learning check after its three ideas: one concept q
 
 From the next local calendar day, the homepage can offer one **Quick review** of up to three questions per day. Questions missed on the first attempt are prioritised, choices are shown in a stable shuffled order for that day, missed review questions remain eligible for a later visit, and remembered questions leave the queue. This is intentionally a small spaced-retrieval loop rather than a notification or account-based scheduler.
 
-Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four plausible options, one correct index, an overall explanation and an explanation for every selected option. Learned markers, scores, answers and review state do not sync across browsers or devices. The privacy page can clear all learning history without removing saved ideas or useful markers. Daily Applied Wisdom does not deliberately send a learned list, answer or score as a Clarity event or tag, and it masks learning content from Clarity's recording. Allowed analytics can still record ordinary page interactions, and browser-local storage is not technical isolation from third-party scripts running on the page; the privacy page explains that boundary.
+Quiz data requires a stable `quizRevision`, stable `q1`/`q2` IDs, exactly four plausible options, one correct index, an overall explanation and an explanation for every selected option. Learned markers, scores, answers and review state do not sync across browsers or devices. The privacy page can clear first attempts and review history without removing learned markers, saved ideas or useful markers. Daily Applied Wisdom does not deliberately send a learned list, answer or score as a Clarity event or tag, and it masks learning content from Clarity's recording. Allowed analytics can still record ordinary page interactions, and browser-local storage is not technical isolation from third-party scripts running on the page; the privacy page explains that boundary.
 
 ## Book selection
 

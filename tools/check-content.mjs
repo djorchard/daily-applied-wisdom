@@ -523,7 +523,8 @@ if (
   !privacyPage.includes('A book is shown as learned when all 3 of its ideas are learned') ||
   !privacyPage.includes('does not intentionally send your learned list, answers or score to Clarity') ||
   !privacyPage.includes('Cusdis and Clarity run on some pages') ||
-  !privacyPage.includes('Your progress stays until you clear learning history') ||
+  !privacyPage.includes('Quiz and review progress stays until you clear learning history') ||
+  !privacyPage.includes('Learned markers, saved ideas and useful markers remain') ||
   !privacyPage.includes('data-learning-history-dialog') ||
   !privacyPage.includes('data-clear-learning-history') ||
   !privacyPage.includes('Microsoft Clarity') ||

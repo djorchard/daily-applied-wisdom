@@ -168,7 +168,7 @@ if (libraryControls) {
 
     if (status) {
       status.textContent = hasResults
-        ? `Showing ${startIndex + 1}–${Math.min(startIndex + PAGE_SIZE, matches.length)} of ${matches.length} ${matches.length === 1 ? 'lesson' : 'lessons'}.`
+        ? `Showing ${startIndex + 1} to ${Math.min(startIndex + PAGE_SIZE, matches.length)} of ${matches.length} ${matches.length === 1 ? 'lesson' : 'lessons'}.`
         : 'No lessons found.';
     }
     renderPagination(hasResults ? totalPages : 0);
@@ -951,7 +951,7 @@ document.querySelector('[data-clear-learning-history]')?.addEventListener('click
   let cleared = true;
   try {
     Object.keys(localStorage)
-      .filter((key) => key.startsWith('daw-quiz-first-') || key.startsWith('daw-quiz-review-') || key.startsWith('daw-learned-'))
+      .filter((key) => key.startsWith('daw-quiz-first-') || key.startsWith('daw-quiz-review-'))
       .forEach((key) => localStorage.removeItem(key));
   } catch {
     cleared = false;

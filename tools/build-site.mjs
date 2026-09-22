@@ -246,7 +246,7 @@ function renderLesson(lesson, index) {
           <p class="eyebrow">${esc(lesson.edition)} · <time datetime="${lesson.date}">${esc(lesson.dateLabel)}</time></p>
           <h1>${esc(lesson.title)}</h1>
           <p class="lesson-author">${esc(lesson.authors)}</p>
-          <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>5–8 minute read</span></div>
+          <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>${esc(lesson.readTime || '5\u20138 minute read')}</span></div>
           <p class="lesson-summary">${esc(lesson.summary)}</p>
           <aside class="evidence-note"><strong>Evidence lens.</strong> ${esc(lesson.evidenceNote)}</aside>
           <div class="lesson-progress" data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(lesson.ideas.map((idea) => ideaKey(lesson, idea))))}" data-clarity-mask="true" hidden>
@@ -541,13 +541,13 @@ function renderPrivacy() {
       </section>
       <section>
         <h2>Learning progress</h2>
-        <p>Idea learned markers, learning-check answers, scores and completion times stay in this browser. A book is shown as learned when all 3 of its ideas are learned. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your learned list, answers or score to Clarity, and it masks learning content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Your progress stays until you clear learning history or this site's data, and it does not appear in other browsers or on other devices.</p>
+        <p>Idea learned markers, learning-check answers, scores and completion times stay in this browser. A book is shown as learned when all 3 of its ideas are learned. Starting the next day, the homepage may offer up to 3 review questions. Questions you miss can return later. The site does not intentionally send your learned list, answers or score to Clarity, and it masks learning content from Clarity recordings. If you allow analytics, Clarity can still record general actions such as clicks and scrolling. Cusdis and Clarity run on some pages, so they may be able to read information stored by this site while they are active. Quiz and review progress stays until you clear learning history or this site's data. Learned markers stay until you unmark an idea or clear this site's data. None of this progress appears in other browsers or on other devices.</p>
         <button class="privacy-choice-button" type="button" data-learning-history-open>Clear learning history</button>
         <p data-learning-history-status aria-live="polite"></p>
         <dialog class="confirmation-dialog" data-learning-history-dialog aria-labelledby="clear-learning-history-title">
           <form method="dialog">
             <h3 id="clear-learning-history-title">Clear learning history?</h3>
-            <p>This removes learned markers, first attempts and quick-review progress from this browser. Saved ideas and useful markers remain.</p>
+            <p>This removes first attempts and quick-review progress from this browser. Learned markers, saved ideas and useful markers remain.</p>
             <div class="confirmation-dialog-actions">
               <button type="submit" value="cancel">Cancel</button>
               <button class="destructive-button" type="button" data-clear-learning-history>Clear history</button>
