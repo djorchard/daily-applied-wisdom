@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">From architectural intent to a fitness function</title>
+  <desc id="desc">A vague quality becomes an observable signal, a decision boundary and a repeatable check. Passing results continue and conflicts receive human review.</desc>
+  <defs>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#5f4b8b"/>
+    </marker>
+    <style>
+      text { font-family: Inter, Arial, sans-serif; fill: #1f2933; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="70" class="label">FROM INTENT TO EVIDENCE</text>
+  <g>
+    <rect x="70" y="125" width="230" height="150" rx="24" fill="#fffdf8" stroke="#9d8f7a" stroke-width="4"/>
+    <text x="185" y="170" class="label" text-anchor="middle">QUALITY</text>
+    <text x="185" y="218" class="body" text-anchor="middle">"Stay secure"</text>
+    <text x="185" y="250" class="small" text-anchor="middle" fill="#706759" style="fill:#706759">Too vague alone</text>
+    <rect x="350" y="125" width="230" height="150" rx="24" fill="#e8e0f2" stroke="#5f4b8b" stroke-width="4"/>
+    <text x="465" y="170" class="label" text-anchor="middle">SIGNAL</text>
+    <text x="465" y="214" class="body" text-anchor="middle">Forbidden path</text>
+    <text x="465" y="246" class="body" text-anchor="middle">in build graph</text>
+    <rect x="630" y="125" width="230" height="150" rx="24" fill="#dbe8e2" stroke="#2f6f5e" stroke-width="4"/>
+    <text x="745" y="170" class="label" text-anchor="middle">BOUNDARY</text>
+    <text x="745" y="214" class="body" text-anchor="middle">Zero imports</text>
+    <text x="745" y="246" class="body" text-anchor="middle">from that layer</text>
+    <rect x="910" y="125" width="220" height="150" rx="24" fill="#dce8f2" stroke="#356987" stroke-width="4"/>
+    <text x="1020" y="170" class="label" text-anchor="middle">CADENCE</text>
+    <text x="1020" y="214" class="body" text-anchor="middle">Every build</text>
+    <text x="1020" y="246" class="small" text-anchor="middle">Near the change</text>
+  </g>
+  <path d="M300 200 H338 M580 200 H618 M860 200 H898" stroke="#5f4b8b" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="185" y="355" width="830" height="120" rx="28" fill="#5f4b8b"/>
+  <text x="600" y="405" class="label" text-anchor="middle" style="fill:#ffffff">REPEATABLE FITNESS CHECK</text>
+  <text x="600" y="445" class="body" text-anchor="middle" style="fill:#ffffff">Same rule, timely result, visible owner</text>
+  <path d="M600 275 V343" stroke="#5f4b8b" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M440 475 V535" stroke="#2f6f5e" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M760 475 V535" stroke="#b55d12" stroke-width="5" marker-end="url(#arrow)"/>
+  <rect x="220" y="550" width="440" height="130" rx="26" fill="#dbe8e2" stroke="#2f6f5e" stroke-width="4"/>
+  <text x="440" y="600" class="label" text-anchor="middle">PASS</text>
+  <text x="440" y="642" class="body" text-anchor="middle">Continue with evidence</text>
+  <rect x="700" y="550" width="280" height="130" rx="26" fill="#f5dfc2" stroke="#b55d12" stroke-width="4"/>
+  <text x="840" y="600" class="label" text-anchor="middle">CONFLICT</text>
+  <text x="840" y="642" class="small" text-anchor="middle">Review the trade-off</text>
+</svg>

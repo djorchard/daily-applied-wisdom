@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "building-evolutionary-architectures",
+      "discussionId": "building-evolutionary-architectures-ford-parsons-kua-sadalage",
+      "date": "2026-09-25",
+      "dateLabel": "25 September 2026",
+      "edition": "Daily lesson",
+      "title": "Building Evolutionary Architectures",
+      "authors": "Neal Ford, Rebecca Parsons, Patrick Kua and Pramod Sadalage",
+      "year": "2017 · Second edition, 2022",
+      "category": "Software engineering · Evolutionary architecture · Automated governance",
+      "accent": "purple",
+      "readTime": "5 to 8 minute read",
+      "quizRevision": "2026-09-25-1",
+      "summary": "Build software that can change safely by making important architectural qualities explicit, checking them continuously, and shaping boundaries so one local change does not become a system-wide migration.",
+      "evidenceNote": "Ford, Parsons, Kua and Sadalage define evolutionary architecture as guided, incremental change across multiple dimensions. They use fitness functions for objective integrity checks and treat appropriate coupling as a structural condition for evolvability. Attribution is strong because these ideas are stated in the authors' book, sample chapter and supporting material. The framework is influential practitioner guidance, not a controlled empirical proof that every automated rule improves architecture. Its value is context-dependent: teams must choose characteristics that matter, accept trade-offs among them, and avoid turning imperfect proxies into unquestionable policy. The ten-minute exercise and examples below are practitioner interpretations.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Guide change in small increments",
+          "argument": [
+            "The authors define evolutionary architecture as guided, incremental change across multiple dimensions. Incremental means the system can move through small, deployable steps rather than waiting for a speculative final design. Guided means those steps are evaluated against the qualities the organisation needs to protect.",
+            "Multiple dimensions matter because architecture is more than code structure. Data, security, reliability, performance, operability and team responsibilities can all change at different speeds. An improvement in one dimension can damage another, so evolution needs explicit feedback rather than faith that local progress will preserve the whole system."
+          ],
+          "extension": "Describe the next architectural move as a small hypothesis: name the dimension being changed, the quality that must not regress, and the evidence that will let the team keep, revise or reverse the step.",
+          "image": "../assets/lesson-visuals/evolutionary-guided-change.svg",
+          "imageAlt": "A sequence of four small architecture increments crosses lanes for structure, data, security and operations. Each increment passes through a feedback gate before the next step, while a rejected large leap bypasses evidence and affects every lane at once.",
+          "imageCaption": "Evolve through small changes, with feedback protecting every dimension that matters.",
+          "why": "A smaller architectural step shortens the distance between decision and evidence. It limits the cost of a wrong assumption and makes conflicts among qualities visible while the team still has practical options.",
+          "apply": [
+            "Choose one planned architecture change and rewrite it as the smallest production-safe step that can produce useful evidence.",
+            "List the two dimensions most likely to be affected, then write one observation for each that would tell you whether to continue or adjust."
+          ],
+          "caveat": "Small steps are not automatically safe or coherent. Some migrations require coordinated changes, and excessive fragmentation can create temporary complexity. Define an end condition, manage transitional states, and use rollback or compatibility plans where partial deployment would be harmful.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which plan best matches guided, incremental architectural change?",
+              "options": [
+                "Choose the final platform now and migrate every capability before measuring it.",
+                "Make a small deployable change and check named qualities before continuing.",
+                "Allow every team to change independently without shared architectural signals.",
+                "Freeze the current architecture until future requirements become fully predictable."
+              ],
+              "correctIndex": 1,
+              "feedback": "Evolutionary architecture combines small steps with explicit guidance across the qualities that matter. Increment size alone is not enough.",
+              "feedbackByOption": [
+                "A complete migration before feedback creates a large, expensive bet. The better approach is a small deployable step with named checks.",
+                "Correct. The change is incremental, and the checks guide whether the next step should proceed or change direction.",
+                "Independent movement without shared signals is change, but it is not guided change across architectural dimensions.",
+                "Waiting for complete predictability blocks learning. The framework uses feedback to manage uncertainty through small steps."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team wants to split a large service but is uncertain about the operational cost. What is the best first move?",
+              "options": [
+                "Split every module at once so the target design is internally consistent.",
+                "Write a permanent rule that every module must become an independent service.",
+                "Extract one bounded capability and measure reliability and operating effort.",
+                "Delay all work until the team can forecast the final service count precisely."
+              ],
+              "correctIndex": 2,
+              "feedback": "One bounded extraction can test both structural and operational assumptions while limiting the cost of reversing course.",
+              "feedbackByOption": [
+                "A simultaneous split hides which boundary creates value and makes reversal expensive. One bounded experiment provides clearer evidence.",
+                "A universal service rule mistakes a possible structure for an objective. First test whether one bounded extraction improves the relevant qualities.",
+                "Correct. This creates a small, observable step and checks the operational dimension before scaling the pattern.",
+                "Precise long-range prediction is unlikely in a changing system. A small production-safe step can replace speculation with evidence."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make architecture testable",
+          "argument": [
+            "The authors borrow the fitness-function idea to make architectural intent observable. A fitness function objectively assesses whether an important characteristic remains within an acceptable state as the system changes. It can be a test, metric, policy check, review or other repeatable verification mechanism.",
+            "The second edition connects fitness functions to automated governance. Instead of relying only on periodic inspection or vague instructions such as keep the system maintainable, a team can check a specific rule or outcome close to the change. The authors also stress selection: the cost of creating and maintaining a check should be justified by the value of the characteristic it protects."
+          ],
+          "extension": "Translate one architecture adjective into a decision-ready check. Name the characteristic, the observable signal, the boundary or threshold, the cadence, and who reviews exceptions when two important qualities conflict.",
+          "image": "../assets/lesson-visuals/evolutionary-fitness-function.svg",
+          "imageAlt": "A funnel turns a vague architectural quality into an observable signal, a threshold and cadence, then a pipeline check. Passing changes continue, while failing or conflicting results move to an explicit trade-off review.",
+          "imageCaption": "Turn intent into repeatable evidence, then reserve human review for real trade-offs.",
+          "why": "An executable or repeatable rule gives developers feedback while the change is still fresh. It also exposes disagreements about what an architectural quality means, so governance can focus on exceptions and conflicts rather than rediscovering routine defects late.",
+          "apply": [
+            "Pick one costly failure mode, such as a forbidden dependency, an accessibility regression or lost-message risk. Write the smallest observable signal that would reveal it.",
+            "Choose where the check belongs: every build, deployment, scheduled review or explicit human checkpoint. Record what should happen when it fails."
+          ],
+          "caveat": "A measurable proxy can be precise and still be wrong. Thresholds can encourage gaming, generated alerts can become noise, and some qualities require informed human judgement. Review whether each fitness function still predicts the outcome that matters, and retire checks whose maintenance cost exceeds their value.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which statement is the strongest architectural fitness function?",
+              "options": [
+                "The application should remain elegant as more features are added.",
+                "Developers should use good judgement when adding dependencies.",
+                "The architecture should be maintainable for the foreseeable future.",
+                "No domain module may import a delivery-adapter module in the build graph."
+              ],
+              "correctIndex": 3,
+              "feedback": "A useful fitness function makes an important architectural characteristic objectively checkable. The dependency rule has a clear result and can run near the change.",
+              "feedbackByOption": [
+                "Elegant is not defined well enough to produce a repeatable result. A concrete dependency rule is objectively checkable.",
+                "Good judgement remains important, but this wording provides no shared result. The dependency rule turns intent into an inspectable check.",
+                "Maintainability is a desired outcome, not yet a fitness function. It needs an observable signal and decision boundary.",
+                "Correct. The rule protects a named boundary, has an unambiguous result and can be automated in the build."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A latency check and an encryption check cannot both pass for one legacy integration. What should governance do?",
+              "options": [
+                "Review the explicit trade-off and record a bounded exception or redesign.",
+                "Disable both checks so the team can keep delivery speed unchanged.",
+                "Always choose the check that was created first, regardless of impact.",
+                "Average the two results so a pass can cancel an important failure."
+              ],
+              "correctIndex": 0,
+              "feedback": "Fitness functions reveal a conflict; they do not decide every value trade-off. Human governance should assess the consequences and make any exception bounded and reviewable.",
+              "feedbackByOption": [
+                "Correct. The automated checks expose the conflict, while accountable human judgement decides the trade-off and its limits.",
+                "Removing both signals hides the risk. Keep the evidence and decide which bounded compromise is acceptable.",
+                "Creation order does not determine business or safety importance. The decision needs current consequence and value evidence.",
+                "A combined score can conceal failure of a non-negotiable quality. Treat the conflicting characteristics explicitly."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Shape coupling for change",
+          "argument": [
+            "The authors argue that evolvability depends heavily on structure, especially how parts of a system are coupled. Complex software needs connections, so the goal is not zero coupling. It is appropriate coupling: keep highly related behaviour cohesive while preventing implementation details and volatile decisions from leaking across boundaries.",
+            "The second edition examines architectural quanta, bounded contexts and independently deployable structure. When a local change forces coordinated edits, releases or data migrations across many components, the system has revealed a change boundary larger than its diagram suggests. Reversible decisions, clear contracts and anti-corruption boundaries can reduce that blast radius."
+          ],
+          "extension": "Map coupling by following one realistic change, not by counting boxes. Mark every codebase, database, contract, team and deployment that must move together. Treat the resulting change set as the real boundary, then remove one unnecessary dependency at its edge.",
+          "image": "../assets/lesson-visuals/evolutionary-appropriate-coupling.svg",
+          "imageAlt": "Two architectures receive the same policy change. In a tangled structure the change spreads through shared data and implementation links to five components. In a bounded structure it stays within one cohesive module and crosses a stable contract to one neighbour.",
+          "imageCaption": "The real boundary is revealed by what must change together, not by boxes on a diagram.",
+          "why": "A boundary that contains change lets teams release, learn and reverse locally. It also makes the cost of a proposed abstraction visible: reuse that spreads volatile details can increase coordination even when it reduces duplicated code.",
+          "apply": [
+            "Take the last cross-cutting change and list every component, data store, contract, team and deployment it required.",
+            "Circle one connection that transmitted implementation detail rather than a stable capability. Write one contract, adapter or ownership change that could contain the next similar change."
+          ],
+          "caveat": "More boundaries can add network failure modes, duplicated data, operational overhead and harder end-to-end reasoning. Do not split components to imitate a fashionable architecture. Optimise for the changes and qualities your system actually faces, and accept coupling that is stable, explicit and cheaper than separation.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What best indicates that an architectural boundary supports evolution?",
+              "options": [
+                "It uses a different technology stack from every neighbouring component.",
+                "A relevant change stays cohesive and crosses only explicit stable contracts.",
+                "It removes all duplication by sharing one implementation across the system.",
+                "Its diagram contains more boxes than the architecture it replaced."
+              ],
+              "correctIndex": 1,
+              "feedback": "An evolvable boundary contains related change and limits dependence on volatile implementation details. Technology variety and box count are not reliable evidence.",
+              "feedbackByOption": [
+                "Technology variety can increase operational cost without containing change. The stronger signal is a cohesive change behind stable contracts.",
+                "Correct. The boundary matches the change and prevents volatile details from spreading into neighbouring components.",
+                "Shared implementation can reduce duplication but also weld unrelated change together. Appropriate coupling matters more than eliminating all duplication.",
+                "Diagram granularity does not prove deployable or change independence. Trace what must move together in practice."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A shared library change forces six teams to coordinate releases. What is the best diagnostic next step?",
+              "options": [
+                "Mandate the shared library for more teams so its cost is distributed widely.",
+                "Trace which volatile implementation detail crosses the six team boundaries.",
+                "Replace the library with six services before studying the release dependency.",
+                "Accept the coordination because shared code always improves evolvability."
+              ],
+              "correctIndex": 1,
+              "feedback": "The coordinated release is evidence of a real coupling boundary. Tracing the volatile detail reveals whether a stable contract, adapter or duplicated local policy would contain future change.",
+              "feedbackByOption": [
+                "Expanding use increases the blast radius before the cause is understood. First identify the volatile detail that creates coordination.",
+                "Correct. The change path exposes the real coupling and gives the team a specific boundary to redesign or deliberately retain.",
+                "A service introduces new failure and operating costs. Diagnose the dependency before choosing a structural remedy.",
+                "Reuse can be valuable, but shared volatile implementation can reduce evolvability. The coordination cost deserves inspection."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Write one architecture safety signal",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose one planned change and name the architectural quality most likely to regress.",
+          "Minutes 2 to 4: write one observable signal for that quality, avoiding adjectives that cannot produce a shared result.",
+          "Minutes 4 to 6: set a boundary or review trigger, and choose when the signal should be checked.",
+          "Minutes 6 to 8: trace the change through code, data, contracts, teams and deployments. Mark the largest forced coordination point.",
+          "Minutes 8 to 10: write the smallest production-safe step that tests the signal without committing to the full architecture."
+        ],
+        "result": "One planned incremental change, one decision-ready fitness signal, and one visible coupling point to monitor or reduce."
+      },
+      "spacedRecall": [
+        "From Continuous Delivery: how do small batches change the cost of learning that an architectural assumption is wrong?",
+        "From Designing Event-Driven Systems: which ownership or replay boundary prevents one local data change from spreading unsafe coordination?",
+        "From The Programmer's Brain: what external trace would make a hidden dependency easier for the next developer to inspect?"
+      ],
+      "takeaway": "Architecture evolves safely when change is small, important qualities produce timely evidence, and boundaries contain the cost of being wrong.",
+      "sources": [
+        {
+          "label": "O'Reilly: Building Evolutionary Architectures, second edition details and contents",
+          "url": "https://www.oreilly.com/library/view/building-evolutionary-architectures/9781492097532/"
+        },
+        {
+          "label": "Thoughtworks: second edition overview, authors and expanded focus",
+          "url": "https://www.thoughtworks.com/insights/books/building-evolutionaryarchitectures-second-edition"
+        },
+        {
+          "label": "Thoughtworks: official second edition sample chapter on guided incremental change",
+          "url": "https://www.thoughtworks.com/content/dam/thoughtworks/documents/books/bk_building_evolutionary_architectures_second_edition_free_chapter.pdf"
+        },
+        {
+          "label": "Evolutionary Architecture authors' site: definition, dimensions and fitness functions",
+          "url": "https://evolutionaryarchitecture.com/precis.html"
+        },
+        {
+          "label": "Thoughtworks Technology Podcast: authors on automated governance and coupling",
+          "url": "https://www.thoughtworks.com/insights/podcasts/technology-podcasts/rethinking-software-governance-reflecting-second-edition-building-evolutionary-architectures"
+        },
+        {
+          "label": "Thoughtworks: fitness function-driven development and continuous feedback",
+          "url": "https://www.thoughtworks.com/en-in/insights/articles/fitness-function-driven-development"
+        }
+      ]
+    },
+    {
       "slug": "noise",
       "discussionId": "noise-kahneman-sibony-sunstein",
       "date": "2026-09-23",
