@@ -249,15 +249,15 @@
       "accent": "orange",
       "readTime": "5 to 8 minute read",
       "quizRevision": "2026-09-24-1",
-      "summary": "When a conversation matters and emotions rise, make your reasoning open to correction, protect the conditions for honest disagreement, and finish with commitments people can actually keep.",
-      "evidenceNote": "This lesson draws on the third edition of Crucial Conversations and the authors' published explanations of its skills. Attribution is strong; effectiveness is context-dependent practitioner guidance, not a guarantee of agreement or a controlled proof that a script works in every relationship. The authors' training company is an authoritative source for its own framework, but its promotional claims are not independent evaluation. Examples and the preparation exercise below are original applications. Compared with Thanks for the Feedback, this lesson focuses on initiating difficult dialogue and closing it; compared with The Scout Mindset, it turns uncertainty about an interpretation into a conversation another person can correct.",
+      "summary": "A crucial conversation combines meaningful consequences, different views and strong emotions. Make your reasoning open to correction, keep honest disagreement possible, and finish with commitments people understand.",
+      "evidenceNote": "The third edition and the authors' published explanations support the skills taught here. Treat them as context-dependent practitioner guidance, not a guarantee of agreement. Crucial Learning is authoritative about its own framework; its promotional claims are not independent evidence of effectiveness. The examples and ten-minute exercise are original applications. This is a selective lesson, not a substitute for reading the book.",
       "ideas": [
         {
           "id": "idea-1",
           "title": "Make your interpretation testable",
           "argument": [
             "The authors distinguish what you observed from the meaning you added. Their Master My Stories skill asks you to examine that interpretation before acting on the emotion it generates. A plausible account of someone's motives is still an account, even when your frustration is justified.",
-            "STATE My Path provides a way to make that reasoning discussable: begin with observations, explain your interpretation provisionally, invite the other person's account, and make disagreement welcome. The purpose is to add missing information to the conversation, rather than deliver an accusation disguised as a question."
+            "STATE My Path gives this reasoning a structure: S, share your facts; T, tell your story; A, ask for others' paths; T, talk tentatively; E, encourage testing. Start with observations, explain your interpretation, then invite the other person's account. Tentativeness and openness apply throughout: you can state verified facts firmly while holding your explanation of motives provisionally."
           ],
           "extension": "Before a release discussion, write two columns: what a meeting recording or ticket history could show, and what you inferred. Then prepare one question whose answer could change your view.",
           "image": "../assets/lesson-visuals/crucial-test-your-story.svg",
@@ -266,7 +266,7 @@
           "why": "A disputed motive sends the discussion into a defence of character. An observable event and a revisable interpretation give both people something specific to check.",
           "apply": [
             "Replace \"You keep undermining delivery\" with: \"The acceptance criteria changed after sign-off on two releases. I am concerned our approval process is unclear. What changed from your perspective?\"",
-            "Listen for information that would alter your explanation. If the criteria changed because a safety requirement emerged, update the diagnosis before proposing a remedy."
+            "After asking, pause and listen. Summarise what you heard and check it before replying: \"You are saying a new safety requirement changed the criteria. Have I understood?\" Then examine that information and revise your explanation if it warrants a change."
           ],
           "caveat": "Alternative explanations are hypotheses, not excuses or a requirement to assume good intent. Keep evidence of harmful conduct visible. The model is a practical prompt for reflection, not a complete scientific account of emotion.",
           "quiz": [
@@ -300,7 +300,7 @@
                 "\"Can you confirm you will support the product before I explain my concern?\""
               ],
               "correctIndex": 1,
-              "feedback": "The second opening identifies events, labels uncertainty and asks for the missing context.",
+              "feedback": "The opening that names the cancelled demos, acknowledges uncertainty and asks what changed makes the interpretation open to correction. It leaves room for scheduling, sponsorship or another explanation.",
               "feedbackByOption": [
                 "This moves directly from events to a conclusion and gives little room for another explanation.",
                 "Correct. The stakeholder can explain scheduling, sponsorship or a different issue without first defending their character.",
@@ -315,7 +315,7 @@
           "title": "Restore safety without dropping the issue",
           "argument": [
             "The authors treat mutual purpose and mutual respect as conditions that help people remain in dialogue. Under pressure, watch for withdrawal or attempts to overpower the conversation. When those appear, pause the disputed content and address what the interaction now seems to mean to the other person.",
-            "A repair can include an apology for your own conduct, a clarification of your intent, or a search for an outcome both people value. The goal is to make candid discussion possible again. It does not require pretending that a real disagreement has disappeared."
+            "Repair depends on what went wrong. Apologise when your conduct caused harm. If your purpose has been misunderstood, use contrasting: clarify the intention you do not hold and the constructive purpose you do hold. Then return to the concern. A statement of good intent cannot replace an apology for something you actually did."
           ],
           "extension": "In a tense planning meeting, distinguish the shared outcome from the competing proposals. A dependable release may be shared; a fixed launch date and a smaller scope are possible strategies that still need examination.",
           "image": "../assets/lesson-visuals/crucial-restore-safety.svg",
@@ -323,8 +323,8 @@
           "imageCaption": "Repair the conditions for dialogue, then return to the unresolved issue.",
           "why": "If someone expects humiliation or a predetermined verdict, asking for their opinion may produce little useful information. Repairing the interaction gives them a reason to contribute the concerns you need to hear.",
           "apply": [
-            "If a colleague becomes quiet after you interrupt, acknowledge the interruption and invite them to finish. Ask what concern your proposal has missed.",
-            "Name an outcome you both value, such as a reliable customer commitment. Keep the disputed estimate on the agenda and explore options together once both views are understood."
+            "If you interrupted a colleague, say: \"I cut you off. I am sorry. Please finish your concern before I respond.\" If the concern is misunderstood as a personal attack, clarify: \"I am not questioning your competence. I want us to understand the estimate so we can make a reliable commitment.\" Use only words you can honestly stand behind.",
+            "Ask whether a reliable customer commitment is an outcome you both want. If it is, explore the disputed estimate against that shared purpose. If it is not, first ask which outcome matters to the other person; do not declare agreement on their behalf."
           ],
           "caveat": "Good intent alone cannot remove a power imbalance or a credible threat of retaliation. A calm response is not proof of consent or safety. Where direct discussion is unsafe, use a supported or formal channel rather than insisting on private dialogue.",
           "quiz": [
@@ -372,7 +372,7 @@
           "id": "idea-3",
           "title": "Separate dialogue, decision and commitment",
           "argument": [
-            "The authors distinguish gathering shared understanding from deciding what to do. Clarify how the decision will be made: by an authorised decision maker, through consultation, by a vote, or through consensus. Being heard does not automatically mean everyone has a veto.",
+            "Dialogue gathers shared understanding; a decision method determines how a choice is made. The authors distinguish command (the decision maker chooses without seeking input), consult (input informs a decision owned by one or more people), vote (the majority decides), and consensus (everyone agrees to support the choice). Make the method explicit before people mistake consultation for a promise of veto power.",
             "Move to Action closes the gap between a good discussion and a usable commitment. Specify an owner, an observable outcome, a deadline and a follow-up arrangement. These details make misunderstandings visible while people can still correct them."
           ],
           "extension": "End a release-risk discussion with two short records: who owns the decision, and who accepted each next action. Read them back so people can correct the scope or flag a dependency before leaving.",
@@ -433,8 +433,8 @@
         "steps": [
           "Minutes 0 to 2: choose a manageable unresolved issue. Write the outcome you want for yourself, the other person and the working relationship.",
           "Minutes 2 to 4: record two observations separately from your interpretation. Add one plausible alternative explanation and a question that would distinguish them.",
-          "Minutes 4 to 6: draft a respectful opening that states the concern and invites correction. Identify a shared outcome without assuming the other person agrees.",
-          "Minutes 6 to 8: plan how you will respond if the discussion becomes defensive. Include an honest repair for any contribution you made to the problem.",
+          "Minutes 4 to 6: draft an opening with an observation, a tentative interpretation and a genuine question. Read it aloud once. Remove any phrase that assumes you already know the other person's motive.",
+          "Minutes 6 to 8: identify a possible shared outcome and how you will check it. Prepare an apology if you caused harm, or an honest clarification if your purpose could be misunderstood.",
           "Minutes 8 to 10: write how the decision should be made and a blank commitment card for owner, outcome, deadline and follow-up. Use the conversation to agree the details."
         ],
         "result": "A short preparation note with checkable observations, a revisable interpretation, a respectful opening and a route from discussion to an accepted next step. The exercise prepares the conversation; it does not claim to resolve it."
