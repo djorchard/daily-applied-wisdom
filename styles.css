@@ -389,7 +389,7 @@ button, .button, .share-button, .copy-button, summary, input, select, textarea {
   .library-pagination ol { order: 3; flex-basis: 100%; justify-content: center; }
   .about h2 { margin-bottom: 2rem; }
   .lesson-hero { padding: 14vw 7vw; }
-  .lesson-hero h1 { font-size: clamp(3.3rem, 17vw, 6rem); }
+  .lesson-hero h1 { font-size: clamp(2.7rem, 14vw, 6rem); }
   .lesson-meta span::after { display: none; }
   .idea-jump { grid-template-columns: 1fr; }
   .lesson-idea { grid-template-columns: 35px 1fr; padding: 15vw 6vw; }
