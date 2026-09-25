@@ -237,6 +237,242 @@
       ]
     },
     {
+      "slug": "crucial-conversations",
+      "discussionId": "crucial-conversations-grenny-patterson-mcmillan-switzler-gregory",
+      "date": "2026-09-24",
+      "dateLabel": "24 September 2026",
+      "edition": "Daily lesson",
+      "title": "Crucial Conversations",
+      "authors": "Joseph Grenny, Kerry Patterson, Ron McMillan, Al Switzler and Emily Gregory",
+      "year": "2002 · Third edition, 2021",
+      "category": "Career development · Communication · Difficult conversations",
+      "accent": "orange",
+      "readTime": "5 to 8 minute read",
+      "quizRevision": "2026-09-24-1",
+      "summary": "When a conversation matters and emotions rise, make your reasoning open to correction, protect the conditions for honest disagreement, and finish with commitments people can actually keep.",
+      "evidenceNote": "This lesson draws on the third edition of Crucial Conversations and the authors' published explanations of its skills. Attribution is strong; effectiveness is context-dependent practitioner guidance, not a guarantee of agreement or a controlled proof that a script works in every relationship. The authors' training company is an authoritative source for its own framework, but its promotional claims are not independent evaluation. Examples and the preparation exercise below are original applications. Compared with Thanks for the Feedback, this lesson focuses on initiating difficult dialogue and closing it; compared with The Scout Mindset, it turns uncertainty about an interpretation into a conversation another person can correct.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Make your interpretation testable",
+          "argument": [
+            "The authors distinguish what you observed from the meaning you added. Their Master My Stories skill asks you to examine that interpretation before acting on the emotion it generates. A plausible account of someone's motives is still an account, even when your frustration is justified.",
+            "STATE My Path provides a way to make that reasoning discussable: begin with observations, explain your interpretation provisionally, invite the other person's account, and make disagreement welcome. The purpose is to add missing information to the conversation, rather than deliver an accusation disguised as a question."
+          ],
+          "extension": "Before a release discussion, write two columns: what a meeting recording or ticket history could show, and what you inferred. Then prepare one question whose answer could change your view.",
+          "image": "../assets/lesson-visuals/crucial-test-your-story.svg",
+          "imageAlt": "An observed event branches into two possible interpretations, then both lead to an open question and an updated view.",
+          "imageCaption": "One observation can fit several stories. Ask a question that can distinguish them.",
+          "why": "A disputed motive sends the discussion into a defence of character. An observable event and a revisable interpretation give both people something specific to check.",
+          "apply": [
+            "Replace \"You keep undermining delivery\" with: \"The acceptance criteria changed after sign-off on two releases. I am concerned our approval process is unclear. What changed from your perspective?\"",
+            "Listen for information that would alter your explanation. If the criteria changed because a safety requirement emerged, update the diagnosis before proposing a remedy."
+          ],
+          "caveat": "Alternative explanations are hypotheses, not excuses or a requirement to assume good intent. Keep evidence of harmful conduct visible. The model is a practical prompt for reflection, not a complete scientific account of emotion.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes an interpretation genuinely testable in a difficult conversation?",
+              "options": [
+                "Expressing it with complete confidence so others take it seriously.",
+                "Replacing the troubling event with a more positive account.",
+                "Separating fact from inference and inviting correction.",
+                "Asking for agreement before describing what happened."
+              ],
+              "correctIndex": 2,
+              "feedback": "A testable interpretation can be revised when another person supplies relevant evidence. Polite wording alone does not make a claim open to correction.",
+              "feedbackByOption": [
+                "Confidence can conceal an inference. State the observation and allow the explanation to change.",
+                "A positive story is still an untested story. Keep the event visible and investigate its meaning.",
+                "Correct. The observation stays concrete while the interpretation remains open to evidence.",
+                "Agreement before evidence creates pressure to comply instead of an opportunity to correct the account."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A stakeholder cancelled two demos. You suspect they no longer support the product. Which opening best tests that story?",
+              "options": [
+                "\"You cancelled two demos, so I assume the product is no longer a priority.\"",
+                "\"The last two demos were cancelled. I am unsure what that means for sponsorship. What has changed?\"",
+                "\"I know you support us, so there is no need to discuss the cancellations.\"",
+                "\"Can you confirm you will support the product before I explain my concern?\""
+              ],
+              "correctIndex": 1,
+              "feedback": "The second opening identifies events, labels uncertainty and asks for the missing context.",
+              "feedbackByOption": [
+                "This moves directly from events to a conclusion and gives little room for another explanation.",
+                "Correct. The stakeholder can explain scheduling, sponsorship or a different issue without first defending their character.",
+                "Reassurance skips the uncertainty. Support and availability are separate questions to investigate.",
+                "This requests commitment before sharing the evidence that prompted the concern."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Restore safety without dropping the issue",
+          "argument": [
+            "The authors treat mutual purpose and mutual respect as conditions that help people remain in dialogue. Under pressure, watch for withdrawal or attempts to overpower the conversation. When those appear, pause the disputed content and address what the interaction now seems to mean to the other person.",
+            "A repair can include an apology for your own conduct, a clarification of your intent, or a search for an outcome both people value. The goal is to make candid discussion possible again. It does not require pretending that a real disagreement has disappeared."
+          ],
+          "extension": "In a tense planning meeting, distinguish the shared outcome from the competing proposals. A dependable release may be shared; a fixed launch date and a smaller scope are possible strategies that still need examination.",
+          "image": "../assets/lesson-visuals/crucial-restore-safety.svg",
+          "imageAlt": "A dialogue loop moves from discussing the issue to noticing withdrawal or pressure, checking respect and shared purpose, then returning to the original issue. The repair loop does not delete the unresolved problem.",
+          "imageCaption": "Repair the conditions for dialogue, then return to the unresolved issue.",
+          "why": "If someone expects humiliation or a predetermined verdict, asking for their opinion may produce little useful information. Repairing the interaction gives them a reason to contribute the concerns you need to hear.",
+          "apply": [
+            "If a colleague becomes quiet after you interrupt, acknowledge the interruption and invite them to finish. Ask what concern your proposal has missed.",
+            "Name an outcome you both value, such as a reliable customer commitment. Keep the disputed estimate on the agenda and explore options together once both views are understood."
+          ],
+          "caveat": "Good intent alone cannot remove a power imbalance or a credible threat of retaliation. A calm response is not proof of consent or safety. Where direct discussion is unsafe, use a supported or formal channel rather than insisting on private dialogue.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the purpose of pausing the issue to restore conversational safety?",
+              "options": [
+                "To make disagreement unnecessary by lowering the standard.",
+                "To give the more senior person time to restate the decision.",
+                "To secure a friendly tone before ending the discussion.",
+                "To make honest participation possible before returning to the issue."
+              ],
+              "correctIndex": 3,
+              "feedback": "Safety supports candid disagreement and examination of the issue; it is not the same as comfort, compliance or closure.",
+              "feedbackByOption": [
+                "Lowering the standard may hide the problem. Restore participation while preserving the real concern.",
+                "Repeating authority can increase pressure. The repair should make the other person able to contribute.",
+                "A friendly ending leaves the substantive issue unresolved. Return to it after the repair.",
+                "Correct. Repair is a route back to the difficult content, not a substitute for discussing it."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "After you dismiss an engineer's estimate in a meeting, they stop contributing. What is the best next move?",
+              "options": [
+                "Acknowledge the dismissal and invite their reasoning.",
+                "Accept their estimate immediately so the meeting feels comfortable.",
+                "Ask the room to vote before anyone becomes more emotional.",
+                "Continue explaining your estimate until they respond."
+              ],
+              "correctIndex": 0,
+              "feedback": "Repair your own contribution to the breakdown and reopen the evidence. Agreement on the final estimate can follow.",
+              "feedbackByOption": [
+                "Correct. This restores a chance to contribute while keeping the estimate open for examination.",
+                "Immediate acceptance confuses repair with agreement and may leave the reasoning unexamined.",
+                "A vote can bypass both the disrespect and the missing technical information.",
+                "More explanation may intensify the pressure that caused withdrawal. First repair the interaction."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Separate dialogue, decision and commitment",
+          "argument": [
+            "The authors distinguish gathering shared understanding from deciding what to do. Clarify how the decision will be made: by an authorised decision maker, through consultation, by a vote, or through consensus. Being heard does not automatically mean everyone has a veto.",
+            "Move to Action closes the gap between a good discussion and a usable commitment. Specify an owner, an observable outcome, a deadline and a follow-up arrangement. These details make misunderstandings visible while people can still correct them."
+          ],
+          "extension": "End a release-risk discussion with two short records: who owns the decision, and who accepted each next action. Read them back so people can correct the scope or flag a dependency before leaving.",
+          "image": "../assets/lesson-visuals/crucial-move-to-action.svg",
+          "imageAlt": "Three stages separate shared understanding, an explicit decision method, and a commitment card with owner, outcome, deadline and follow-up. A feedback arrow returns new evidence to the discussion.",
+          "imageCaption": "A shared understanding needs a decision method and an explicit handover to action.",
+          "why": "Two people can leave the same meeting with different assumptions about whether a proposal was approved, who will act, or when it matters. A brief readback exposes those differences before they become missed expectations.",
+          "apply": [
+            "Before a meeting, say whether you are seeking advice for a decision you own or asking the group to reach consensus. Invite challenges to that arrangement early.",
+            "Replace \"We will improve release communication\" with an accepted commitment: \"Alex drafts a one-page release checklist by 3 pm Friday; Priya reviews it at 10 am Monday.\" Confirm the people, dates and capacity in the real conversation."
+          ],
+          "caveat": "A precise instruction is not automatically an accepted or feasible commitment. Check authority, resources and dependencies. Follow-up should allow renegotiation when evidence changes, rather than punish people for surfacing a problem early.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why should a group clarify its decision method before closing a difficult discussion?",
+              "options": [
+                "It prevents participants from adding information after a leader speaks.",
+                "It distinguishes having a voice from having decision authority or a veto.",
+                "It guarantees consensus even when interests remain opposed.",
+                "It removes the need to document individual commitments."
+              ],
+              "correctIndex": 1,
+              "feedback": "Dialogue gathers relevant meaning; the decision method establishes how that meaning becomes a choice.",
+              "feedbackByOption": [
+                "People may still add important evidence. The method clarifies authority rather than ending inquiry.",
+                "Correct. Consultation can value everyone's input while leaving final authority with a named person.",
+                "No method guarantees agreement. Consensus is one deliberate choice, not an automatic result.",
+                "A decision still needs owners and follow-up to become action."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A meeting ends with \"Let us sort out the handover soon.\" What is the most useful follow-up?",
+              "options": [
+                "Write \"urgent\" in the meeting notes and send them to everyone.",
+                "Assume the person who raised the problem will own it.",
+                "Ask the most senior attendee to remind the group next month.",
+                "Agree an owner, artifact, deadline and review together."
+              ],
+              "correctIndex": 3,
+              "feedback": "An actionable commitment makes ownership, result, timing and review explicit and accepted.",
+              "feedbackByOption": [
+                "Urgency does not identify an owner, result or deadline.",
+                "Raising a problem is not the same as accepting the work. Confirm ownership explicitly.",
+                "A reminder alone leaves the actual task and responsible person ambiguous.",
+                "Correct. This replaces a vague intention with a commitment that can be checked and revised."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Prepare one conversation you have been avoiding",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose a manageable unresolved issue. Write the outcome you want for yourself, the other person and the working relationship.",
+          "Minutes 2 to 4: record two observations separately from your interpretation. Add one plausible alternative explanation and a question that would distinguish them.",
+          "Minutes 4 to 6: draft a respectful opening that states the concern and invites correction. Identify a shared outcome without assuming the other person agrees.",
+          "Minutes 6 to 8: plan how you will respond if the discussion becomes defensive. Include an honest repair for any contribution you made to the problem.",
+          "Minutes 8 to 10: write how the decision should be made and a blank commitment card for owner, outcome, deadline and follow-up. Use the conversation to agree the details."
+        ],
+        "result": "A short preparation note with checkable observations, a revisable interpretation, a respectful opening and a route from discussion to an accepted next step. The exercise prepares the conversation; it does not claim to resolve it."
+      },
+      "spacedRecall": [
+        "From The Scout Mindset: what evidence would change your explanation of the other person's behaviour?",
+        "From Thanks for the Feedback: how might a relationship trigger distract you from useful information in a difficult message?",
+        "From The First 90 Days: what would a learning agenda reveal before you make a commitment with a new stakeholder?"
+      ],
+      "takeaway": "Bring a view you can revise, protect the other person's ability to disagree, and close with a decision and commitments that everyone understands.",
+      "sources": [
+        {
+          "label": "Crucial Learning: third edition authors, publication date and changes",
+          "url": "https://cruciallearning.com/press/crucial-learning-releases-third-edition-of-acclaimed-bestselling-book-crucial-conversations/"
+        },
+        {
+          "label": "Crucial Learning: Master My Stories and the distinction between events and interpretations",
+          "url": "https://cruciallearning.com/blog/crucial-conversations-skill-summary-master-my-stories/"
+        },
+        {
+          "label": "Crucial Learning glossary: STATE My Path, decision methods and Move to Action",
+          "url": "https://cruciallearning.com/glossary/"
+        },
+        {
+          "label": "Crucial Learning: Make It Safe, mutual purpose and mutual respect",
+          "url": "https://cruciallearning.com/blog/crucial-conversations-skill-summary-make-it-safe/"
+        },
+        {
+          "label": "Al Switzler: Improve Results by Moving to Action, ownership and follow-up",
+          "url": "https://cruciallearning.com/blog/improve-results-by-moving-to-action/"
+        },
+        {
+          "label": "Ron McMillan: Seeking Accountability, observations before conclusions",
+          "url": "https://cruciallearning.com/blog/seeking-accountability/"
+        }
+      ]
+    },
+    {
       "slug": "noise",
       "discussionId": "noise-kahneman-sibony-sunstein",
       "date": "2026-09-23",
