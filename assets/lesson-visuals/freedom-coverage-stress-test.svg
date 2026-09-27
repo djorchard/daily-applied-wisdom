@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="coverage-title coverage-desc">
+  <title id="coverage-title">Stress-test a financial freedom estimate</title>
+  <desc id="coverage-desc">After-tax non-work income and meaningful spending enter a coverage test. A second gate lowers income and raises costs. A surviving margin increases choice, while a fragile match returns to planning.</desc>
+  <defs>
+    <marker id="coverage-arrow" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0 0 L16 8 L0 16 Z" fill="#8a6116"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #8a6116; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">FROM CROSSOVER POINT TO COVERAGE RANGE</text>
+
+  <rect class="card" x="70" y="120" width="330" height="180" rx="24" fill="#b8d5e5"/>
+  <text x="235" y="165" class="label" text-anchor="middle">NON-WORK INCOME</text>
+  <text x="235" y="212" class="body" text-anchor="middle">Use an after-tax range</text>
+  <text x="235" y="250" class="small" text-anchor="middle">Returns can vary</text>
+  <text x="235" y="280" class="small" text-anchor="middle">Income is not guaranteed</text>
+
+  <rect class="card" x="70" y="415" width="330" height="180" rx="24" fill="#e4cf8e"/>
+  <text x="235" y="460" class="label" text-anchor="middle">MEANINGFUL SPENDING</text>
+  <text x="235" y="507" class="body" text-anchor="middle">Essentials plus irregular</text>
+  <text x="235" y="545" class="small" text-anchor="middle">Include tax, fees</text>
+  <text x="235" y="575" class="small" text-anchor="middle">and changing needs</text>
+
+  <path class="line" d="M400 210 H440 V294" marker-end="url(#coverage-arrow)"/>
+  <path class="line" d="M400 505 H440 V416" marker-end="url(#coverage-arrow)"/>
+  <rect class="card" x="455" y="245" width="310" height="220" rx="28" fill="#d8cce8"/>
+  <text x="610" y="292" class="label" text-anchor="middle">COVERAGE TEST</text>
+  <text x="610" y="342" class="body" text-anchor="middle">Does the income range</text>
+  <text x="610" y="378" class="body" text-anchor="middle">cover the spending range?</text>
+  <text x="610" y="422" class="small" text-anchor="middle">A match is a signal</text>
+  <text x="610" y="452" class="small" text-anchor="middle">not a promise</text>
+
+  <path class="line" d="M765 355 H785" marker-end="url(#coverage-arrow)"/>
+  <rect class="card" x="800" y="180" width="350" height="355" rx="28" fill="#f5dfc2"/>
+  <text x="975" y="228" class="label" text-anchor="middle">STRESS THE MATCH</text>
+  <rect x="840" y="260" width="270" height="82" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="975" y="294" class="body" text-anchor="middle">Lower income</text>
+  <text x="975" y="326" class="small" text-anchor="middle">Market and vacancy risk</text>
+  <rect x="840" y="365" width="270" height="82" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="975" y="399" class="body" text-anchor="middle">Higher costs</text>
+  <text x="975" y="431" class="small" text-anchor="middle">Inflation and surprises</text>
+  <text x="975" y="482" class="small" text-anchor="middle">Name the controlling</text>
+  <text x="975" y="514" class="small" text-anchor="middle">assumption</text>
+
+  <path class="line" d="M975 535 V610" marker-end="url(#coverage-arrow)"/>
+  <rect class="card" x="475" y="620" width="655" height="90" rx="24" fill="#bdd9bf"/>
+  <text x="802" y="658" class="label" text-anchor="middle">MARGIN SURVIVES: MORE CHOICE</text>
+  <text x="802" y="692" class="small" text-anchor="middle">If it breaks, revise the plan rather than force the forecast.</text>
+
+  <path class="line" d="M475 665 H420 V722 H235 V607" marker-end="url(#coverage-arrow)"/>
+  <text x="325" y="710" class="small" text-anchor="middle">FRAGILE MATCH</text>
+</svg>

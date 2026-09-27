@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="fulfilment-title fulfilment-desc">
+  <title id="fulfilment-title">Review a spending category for enough</title>
+  <desc id="fulfilment-desc">One spending category moves through three checks for life hours, fulfilment and alignment. The evidence leads to keeping, reducing or redesigning the category, followed by a later review.</desc>
+  <defs>
+    <marker id="fulfilment-arrow" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0 0 L16 8 L0 16 Z" fill="#8a6116"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #8a6116; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">FIND ENOUGH BY REVIEWING ONE CATEGORY</text>
+
+  <rect class="card" x="70" y="130" width="240" height="150" rx="24" fill="#e4cf8e"/>
+  <text x="190" y="176" class="label" text-anchor="middle">CATEGORY</text>
+  <text x="190" y="222" class="body" text-anchor="middle">One month of</text>
+  <text x="190" y="256" class="body" text-anchor="middle">actual spending</text>
+
+  <path class="line" d="M310 205 H365" marker-end="url(#fulfilment-arrow)"/>
+  <rect class="card" x="380" y="110" width="230" height="190" rx="24" fill="#b8d5e5"/>
+  <text x="495" y="154" class="label" text-anchor="middle">LIFE HOURS</text>
+  <text x="495" y="200" class="body" text-anchor="middle">What time did</text>
+  <text x="495" y="234" class="body" text-anchor="middle">this category use?</text>
+  <text x="495" y="274" class="small" text-anchor="middle">Make the trade visible</text>
+
+  <path class="line" d="M610 205 H665" marker-end="url(#fulfilment-arrow)"/>
+  <rect class="card" x="680" y="110" width="210" height="190" rx="24" fill="#d8cce8"/>
+  <text x="785" y="154" class="label" text-anchor="middle">FULFILMENT</text>
+  <text x="785" y="200" class="body" text-anchor="middle">High, mixed</text>
+  <text x="785" y="234" class="body" text-anchor="middle">or low?</text>
+  <text x="785" y="274" class="small" text-anchor="middle">Use observed value</text>
+
+  <path class="line" d="M890 205 H905" marker-end="url(#fulfilment-arrow)"/>
+  <rect class="card" x="920" y="110" width="230" height="190" rx="24" fill="#bdd9bf"/>
+  <text x="1035" y="154" class="label" text-anchor="middle">ALIGNMENT</text>
+  <text x="1035" y="200" class="body" text-anchor="middle">Supports what</text>
+  <text x="1035" y="234" class="body" text-anchor="middle">matters now?</text>
+  <text x="1035" y="274" class="small" text-anchor="middle">Needs can change</text>
+
+  <path class="line" d="M1035 300 V365 H600 V405" marker-end="url(#fulfilment-arrow)"/>
+  <rect class="card" x="115" y="430" width="280" height="145" rx="24" fill="#bdd9bf"/>
+  <text x="255" y="478" class="label" text-anchor="middle">KEEP</text>
+  <text x="255" y="522" class="body" text-anchor="middle">Value justifies the</text>
+  <text x="255" y="556" class="body" text-anchor="middle">life hours used</text>
+
+  <rect class="card" x="460" y="430" width="280" height="145" rx="24" fill="#f5dfc2"/>
+  <text x="600" y="478" class="label" text-anchor="middle">REDUCE</text>
+  <text x="600" y="522" class="body" text-anchor="middle">Less may protect</text>
+  <text x="600" y="556" class="body" text-anchor="middle">higher priorities</text>
+
+  <rect class="card" x="805" y="430" width="280" height="145" rx="24" fill="#dce8f2"/>
+  <text x="945" y="478" class="label" text-anchor="middle">REDESIGN</text>
+  <text x="945" y="522" class="body" text-anchor="middle">Preserve the benefit</text>
+  <text x="945" y="556" class="body" text-anchor="middle">with a better method</text>
+
+  <path class="line" d="M600 405 V395 H255 V418" marker-end="url(#fulfilment-arrow)"/>
+  <path class="line" d="M600 405 V418" marker-end="url(#fulfilment-arrow)"/>
+  <path class="line" d="M600 395 H945 V418" marker-end="url(#fulfilment-arrow)"/>
+
+  <rect class="card" x="270" y="635" width="660" height="78" rx="22" fill="#fffdf8"/>
+  <text x="600" y="668" class="label" text-anchor="middle">REVIEW AGAIN AFTER THE NEXT CYCLE</text>
+  <text x="600" y="699" class="small" text-anchor="middle">Enough is a current judgement, not a permanent verdict.</text>
+  <path class="line" d="M255 575 V615 H600 V623"/>
+  <path class="line" d="M600 575 V623"/>
+  <path class="line" d="M945 575 V615 H600"/>
+</svg>

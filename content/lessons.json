@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "your-money-or-your-life",
+      "discussionId": "your-money-or-your-life-robin-dominguez",
+      "date": "2026-09-28",
+      "dateLabel": "28 September 2026",
+      "edition": "Daily lesson",
+      "title": "Your Money or Your Life",
+      "authors": "Vicki Robin and Joe Dominguez",
+      "year": "1992 · Fully revised and updated edition, 2018",
+      "category": "Personal finance · Spending decisions · Financial independence",
+      "accent": "gold",
+      "readTime": "6 to 9 minute read",
+      "quizRevision": "2026-09-28-1",
+      "summary": "Reconnect money with the time used to earn it, test whether spending delivers enough value, and measure financial freedom without pretending future income is guaranteed.",
+      "evidenceNote": "Robin and Dominguez present a nine-step personal finance program built around life energy, real hourly wage, category-level spending review and a financial-independence crossover point. Attribution is strong because the authors' official summary states these mechanisms directly, and the 2018 edition updates the original 1992 book. The accounting exercises are practitioner tools, not proof that one spending pattern maximises wellbeing. Evidence that tracking supports deliberate choices is strong as basic financial guidance; claims about fulfilment are context-dependent, and the crossover projection is uncertain because returns, inflation, tax, fees and needs change. The applications below are general education, not personal financial advice.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Price spending in life energy",
+          "argument": [
+            "Robin and Dominguez argue that money represents life energy: the finite time and attention exchanged to obtain it. They therefore replace headline hourly pay with a real hourly wage. Start with take-home income, subtract costs created by work, and divide by all the time work actually consumes, including travel and other necessary unpaid time.",
+            "A purchase can then be expressed in life hours by dividing its price by that real hourly wage. The point is not to make every choice grim or to declare money bad. It is to expose a hidden trade: a low sticker price can still require a meaningful part of a day, while a costly item may be worthwhile if it genuinely serves the life being funded."
+          ],
+          "extension": "Use life hours as a second price tag before one discretionary purchase. Estimate conservatively, then ask whether you would willingly exchange that portion of an ordinary working day for what the purchase will add.",
+          "image": "../assets/lesson-visuals/life-energy-price-tag.svg",
+          "imageAlt": "A flow converts take-home pay and work-linked costs into adjusted income, combines paid and unpaid work time into total hours, calculates a real hourly wage, then converts a purchase price into life hours before a deliberate choice.",
+          "imageCaption": "A price becomes more informative when it includes the time used to earn it.",
+          "why": "Normal prices hide the time, travel and supporting costs behind income. Making those inputs visible can interrupt automatic spending and help compare a purchase with alternatives such as rest, savings or time with other people.",
+          "apply": [
+            "Estimate one month's take-home pay, work-linked costs and total work-related hours. Divide adjusted income by total hours to get a rough real hourly wage.",
+            "Convert one planned discretionary purchase into life hours. Write buy, delay or decline, plus the reason, before opening the checkout."
+          ],
+          "caveat": "Real hourly wage is a decision aid, not precise cost accounting. Commute, care, clothing, recovery and convenience costs may have several causes, and buying time can improve wellbeing. Use a consistent rough estimate to reveal trade-offs, not to shame necessary spending or optimise every minute.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which calculation best represents the book's real hourly wage idea?",
+              "options": [
+                "Gross salary divided by contracted hours, with benefits counted as extra income.",
+                "Take-home income minus work-linked costs, divided by all work-related time.",
+                "Take-home income divided by paid hours, then adjusted for the desired savings rate.",
+                "Gross salary minus household costs, divided by all waking hours in the month."
+              ],
+              "correctIndex": 1,
+              "feedback": "The method adjusts both sides of the exchange: income is reduced by work-created costs, and time expands beyond paid hours to include what work actually consumes.",
+              "feedbackByOption": [
+                "Headline salary and contracted hours leave hidden costs and unpaid work-related time outside the calculation. The method uses adjusted take-home income and total work-related time.",
+                "Correct. It reveals the exchange more fully by reducing income for work-linked costs and including the unpaid time needed to earn it.",
+                "A savings rate is a later allocation choice, not part of the real hourly wage calculation. The denominator should also include unpaid work-related time.",
+                "Household costs and all waking hours are too broad. The adjustment focuses on costs and time reasonably linked to earning the income."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A purchase looks cheap at the checkout. What is the best life-energy check?",
+              "options": [
+                "Compare its price with the most expensive alternative available that day.",
+                "Divide its price by gross hourly pay and buy if the result is below one hour.",
+                "Wait until the item is discounted, then treat the saved amount as earned income.",
+                "Convert its price using real hourly wage, then judge whether those hours feel worthwhile."
+              ],
+              "correctIndex": 3,
+              "feedback": "The book's mechanism adds a time price and then asks for a value judgement. The result informs the choice; it does not impose an automatic spending ban.",
+              "feedbackByOption": [
+                "A more expensive comparison can make any purchase look reasonable without revealing its cost in lived time. Convert the actual price into life hours instead.",
+                "Gross pay omits tax, work costs and unpaid time, while a one-hour rule is arbitrary. Use a rough real hourly wage and judge the trade deliberately.",
+                "A discount changes the cash price but does not turn spending into income. The relevant question is whether the remaining life-hour cost is worthwhile.",
+                "Correct. The calculation reveals the time exchange, and the final decision still considers the real value the purchase may provide."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Ask whether spending delivers enough",
+          "argument": [
+            "The authors ask readers to track money flowing in and out, convert spending categories into life energy, and review each category for fulfilment and alignment with purpose. A category can be expensive yet deeply worthwhile, or familiar and convenient while adding little value.",
+            "Their fulfilment curve describes a progression from survival and comfort through genuine satisfaction to excess, where additional consumption can add maintenance, clutter or distraction. The practical move is to identify enough for each category rather than assume that either more spending or less spending is always better."
+          ],
+          "extension": "Review one spending category with two separate questions: did it deliver enough value for the life hours used, and did it support what matters now? Keep, reduce or redesign the category based on the pattern, not on guilt.",
+          "image": "../assets/lesson-visuals/fulfilment-review.svg",
+          "imageAlt": "A review board moves one spending category through three checks: life hours used, fulfilment received and alignment with current values. The evidence leads to keep, reduce or redesign, followed by a later review rather than a permanent verdict.",
+          "imageCaption": "Enough is found by reviewing value and alignment, not by treating less as automatically better.",
+          "why": "A conventional budget records where money went but may not show whether it improved life. Adding fulfilment and values to the review helps distinguish meaningful priorities from recurring spending that survives only through habit.",
+          "apply": [
+            "Choose one discretionary category from the last month and estimate the life hours it used.",
+            "Mark its fulfilment and values alignment as high, mixed or low. Decide one small keep, reduce or redesign action for the next purchase."
+          ],
+          "caveat": "Fulfilment is subjective and can change with health, dependants, accessibility, culture and season. Low spending is not moral superiority, and deprivation can damage wellbeing or shift costs onto others. Review patterns over time and protect essentials before reducing a category.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the main purpose of the book's category-level fulfilment review?",
+              "options": [
+                "To compare life hours used with value and alignment, then adjust deliberately.",
+                "To rank every category by cost and remove the most expensive one first.",
+                "To set one permanent spending limit that applies through every life stage.",
+                "To replace financial records with a personal judgement about each purchase."
+              ],
+              "correctIndex": 0,
+              "feedback": "The review combines records with reflection. It asks whether the life energy used produced enough fulfilment and supported current priorities.",
+              "feedbackByOption": [
+                "Correct. The method uses both spending evidence and a deliberate assessment of what the category contributes to life.",
+                "High cost does not prove low value. A costly category may be essential or deeply worthwhile, while a smaller recurring cost may add little.",
+                "Enough changes as needs and priorities change. The review is repeated rather than fixed permanently.",
+                "Personal judgement adds meaning to the records; it does not replace accurate tracking of income and spending."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A costly weekly service saves time and reliably reduces family stress. What is the best review decision?",
+              "options": [
+                "Cancel it because a high life-hour cost always lies beyond enough.",
+                "Keep it permanently because any time-saving purchase creates fulfilment.",
+                "Keep it for now, record the benefit, and review if cost or circumstances change.",
+                "Replace it with the cheapest option without checking whether the benefit remains."
+              ],
+              "correctIndex": 2,
+              "feedback": "The framework is about value and alignment, not automatic frugality. A time-saving service can be worthwhile, while a future review keeps the choice responsive to changed circumstances.",
+              "feedbackByOption": [
+                "Life hours expose the cost but do not prove the service is wasteful. The reliable reduction in stress is relevant value.",
+                "The benefit supports keeping it now, but permanent approval ignores changes in price, quality, need or alternatives.",
+                "Correct. This respects the observed value without turning today's judgement into an unchangeable rule.",
+                "A lower price is useful only if the service still delivers the benefit. Redesign should preserve what the category is meant to achieve."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Measure freedom with a stress test",
+          "argument": [
+            "Robin and Dominguez call the crossover point the moment when monthly investment income meets monthly expenses. Plotting both over time turns financial independence from a vague wish into a visible relationship between what life costs and what invested capital may provide.",
+            "The durable insight is optionality: lower recurring needs and reliable non-work income can reduce dependence on the next pay cycle. The projection itself is not a promise. A responsible reading treats the crossover as a scenario to test against lower returns, higher costs and changing needs rather than as a guaranteed retirement date."
+          ],
+          "extension": "Build a coverage range, not a single heroic forecast. Compare reliable after-tax non-work income with essential and meaningful spending, then test what happens if income falls or costs rise before calling the gap freedom.",
+          "image": "../assets/lesson-visuals/freedom-coverage-stress-test.svg",
+          "imageAlt": "A coverage test compares a band of after-tax non-work income with essential and meaningful spending. A second gate lowers income and raises costs to test uncertainty. Only a margin that survives the stress test leads to greater choice; a fragile match returns to planning.",
+          "imageCaption": "A crossover estimate becomes useful when it survives lower income and higher costs.",
+          "why": "A visible coverage relationship can connect today's spending and saving decisions with future choice. Stress-testing prevents one attractive return assumption from disguising how much the plan depends on markets, inflation or an unrealistically narrow estimate of needs.",
+          "apply": [
+            "Write a rough monthly range for essential and meaningful spending. Do not remove irregular costs just to improve the result.",
+            "Compare it with dependable after-tax non-work income, then lower that income and raise costs. Record the largest assumption that controls the outcome."
+          ],
+          "caveat": "Investment income and asset values fluctuate, and diversification reduces some risks rather than removing them. Inflation, tax, fees, longevity, sequence risk and changing responsibilities can move both sides of the estimate. Use current Australian guidance and licensed advice when a real investment or retirement decision requires it.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a crossover estimate more decision-ready in this lesson?",
+              "options": [
+                "Using the highest recent return so the estimate reflects current opportunity.",
+                "Treating one matching month as proof that work income is no longer needed.",
+                "Comparing income and spending ranges, then testing lower income and higher costs.",
+                "Excluding irregular expenses so recurring investment income covers the remainder."
+              ],
+              "correctIndex": 2,
+              "feedback": "A range and a stress test make the dependencies visible. A single matching point can disappear when returns, costs or needs change.",
+              "feedbackByOption": [
+                "A high recent return can make the projection fragile and may not repeat. Use a range and test weaker outcomes.",
+                "One month is too narrow to establish durable coverage. Income and expenses both vary, so the relationship needs a stress test.",
+                "Correct. This shows whether greater choice depends on one optimistic assumption or persists across a plausible adverse case.",
+                "Irregular costs are still real. Removing them improves the appearance of coverage while weakening the decision."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Projected non-work income exactly matches current monthly spending. What is the best next step?",
+              "options": [
+                "Declare the crossover reached because the two current figures are equal.",
+                "Stress-test lower income and higher costs, including tax, fees and irregular needs.",
+                "Move more money into the highest-yielding asset to create an immediate margin.",
+                "Reduce essential spending until the projection shows a large permanent surplus."
+              ],
+              "correctIndex": 1,
+              "feedback": "Exact equality leaves no visible margin for uncertainty. Testing both sides of the relationship is more useful than forcing a higher yield or cutting essentials blindly.",
+              "feedbackByOption": [
+                "Equality under one set of assumptions is a useful signal, not proof of durable independence. Test how easily the match breaks.",
+                "Correct. The stress test exposes whether the apparent crossover survives realistic variation in income, costs and financial frictions.",
+                "A higher yield can bring higher risk and is not guaranteed. First understand the fragility of the current projection.",
+                "Essentials should not be cut merely to manufacture a result. Test the estimate, then consider choices that protect wellbeing."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Put a life-hour price on one receipt",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 3: estimate monthly take-home income, work-linked costs and total work-related hours, then calculate a rough real hourly wage.",
+          "Minutes 3 to 5: choose one recent discretionary purchase and convert its price into life hours.",
+          "Minutes 5 to 7: mark the purchase's fulfilment and values alignment as high, mixed or low.",
+          "Minutes 7 to 9: decide keep, reduce or redesign for the next similar purchase, and write one sentence explaining why.",
+          "Minute 10: note one uncertainty in your estimate so the number remains a prompt, not false precision."
+        ],
+        "result": "One receipt with a visible life-hour cost, a value judgement, one next-purchase decision and one named uncertainty."
+      },
+      "spacedRecall": [
+        "From The Psychology of Money: how would a personal definition of enough change the category you just reviewed?",
+        "From Four Thousand Weeks: which finite-time trade becomes visible when a purchase is converted into life hours?",
+        "From The Little Book of Common Sense Investing: which costs or risks must remain visible when projected investment income is tested?"
+      ],
+      "takeaway": "Money becomes more useful when its price is measured in life, its spending is tested for enough, and its promise of freedom is stress-tested rather than assumed.",
+      "sources": [
+        {
+          "label": "Vicki Robin: official summary of the nine-step program",
+          "url": "https://vickirobin.com/your-money-or-your-life-summary/"
+        },
+        {
+          "label": "Penguin: fully revised and updated 2018 edition details",
+          "url": "https://www.penguin.co.nz/books/your-money-or-your-life-9780143115762"
+        },
+        {
+          "label": "Australian Government Moneysmart: track your spending",
+          "url": "https://moneysmart.gov.au/budgeting/track-your-spending"
+        },
+        {
+          "label": "Australian Government Moneysmart: choose investments for goals, time and risk",
+          "url": "https://moneysmart.gov.au/how-to-invest/choose-your-investments"
+        },
+        {
+          "label": "Australian Government Moneysmart: diversification reduces some risk, not all risk",
+          "url": "https://moneysmart.gov.au/how-to-invest/diversification"
+        },
+        {
+          "label": "PNAS: experimental evidence that buying time can improve wellbeing",
+          "url": "https://doi.org/10.1073/pnas.1706541114"
+        }
+      ]
+    },
+    {
       "slug": "building-evolutionary-architectures",
       "discussionId": "building-evolutionary-architectures-ford-parsons-kua-sadalage",
       "date": "2026-09-25",

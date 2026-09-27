@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="life-energy-title life-energy-desc">
+  <title id="life-energy-title">Convert a cash price into life hours</title>
+  <desc id="life-energy-desc">Adjusted take-home income and total work-related time produce a real hourly wage. A purchase price divided by that rate produces a second price tag in life hours, which informs a deliberate decision.</desc>
+  <defs>
+    <marker id="life-energy-arrow" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">
+      <path d="M0 0 L16 8 L0 16 Z" fill="#8a6116"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #8a6116; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">THE SECOND PRICE TAG</text>
+
+  <rect class="card" x="70" y="115" width="300" height="180" rx="24" fill="#fffdf8"/>
+  <text x="220" y="160" class="label" text-anchor="middle">ADJUSTED INCOME</text>
+  <text x="220" y="208" class="body" text-anchor="middle">Take-home pay</text>
+  <text x="220" y="244" class="body" text-anchor="middle">minus work-linked costs</text>
+  <text x="220" y="278" class="small" text-anchor="middle" fill="#706759" style="fill:#706759">Use a consistent estimate</text>
+
+  <rect class="card" x="70" y="395" width="300" height="180" rx="24" fill="#fffdf8"/>
+  <text x="220" y="440" class="label" text-anchor="middle">TOTAL TIME</text>
+  <text x="220" y="488" class="body" text-anchor="middle">Paid hours plus travel</text>
+  <text x="220" y="524" class="body" text-anchor="middle">and necessary unpaid time</text>
+  <text x="220" y="558" class="small" text-anchor="middle" fill="#706759" style="fill:#706759">Avoid false precision</text>
+
+  <path class="line" d="M370 205 H452 V292" marker-end="url(#life-energy-arrow)"/>
+  <path class="line" d="M370 485 H452 V398" marker-end="url(#life-energy-arrow)"/>
+  <rect class="card" x="465" y="245" width="300" height="200" rx="28" fill="#e4cf8e"/>
+  <text x="615" y="295" class="label" text-anchor="middle">REAL HOURLY WAGE</text>
+  <text x="615" y="350" class="body" text-anchor="middle">Adjusted income</text>
+  <line x1="520" y1="368" x2="710" y2="368" stroke="#18211d" stroke-width="3"/>
+  <text x="615" y="410" class="body" text-anchor="middle">Total work-related time</text>
+
+  <rect class="card" x="842" y="115" width="288" height="180" rx="24" fill="#b8d5e5"/>
+  <text x="986" y="160" class="label" text-anchor="middle">CASH PRICE</text>
+  <text x="986" y="212" class="body" text-anchor="middle">Planned purchase</text>
+  <text x="986" y="252" class="small" text-anchor="middle">What leaves the account</text>
+
+  <path class="line" d="M986 295 V365" marker-end="url(#life-energy-arrow)"/>
+  <path class="line" d="M765 345 H800 V477 H830" marker-end="url(#life-energy-arrow)"/>
+  <rect class="card" x="842" y="380" width="288" height="195" rx="24" fill="#d8cce8"/>
+  <text x="986" y="428" class="label" text-anchor="middle">LIFE-HOUR PRICE</text>
+  <text x="986" y="478" class="body" text-anchor="middle">Cash price divided by</text>
+  <text x="986" y="514" class="body" text-anchor="middle">real hourly wage</text>
+  <text x="986" y="551" class="small" text-anchor="middle">Would I trade this time?</text>
+
+  <path class="line" d="M986 575 V615" marker-end="url(#life-energy-arrow)"/>
+  <rect class="card" x="400" y="630" width="600" height="82" rx="22" fill="#bdd9bf"/>
+  <text x="700" y="665" class="label" text-anchor="middle">BUY, DELAY OR DECLINE</text>
+  <text x="700" y="696" class="small" text-anchor="middle">The number informs the choice; it does not make it.</text>
+</svg>
