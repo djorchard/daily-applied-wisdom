@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="life-energy-title life-energy-desc">
-  <title id="life-energy-title">Convert a cash price into life hours</title>
+  <title id="life-energy-title">Convert one cash price into life hours</title>
   <desc id="life-energy-desc">Adjusted take-home income and total work-related time produce a real hourly wage. A purchase price divided by that rate produces a second price tag in life hours, which informs a deliberate decision.</desc>
   <defs>
     <marker id="life-energy-arrow" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto">

@@ -24,7 +24,7 @@
             "A purchase can then be expressed in life hours by dividing its price by that real hourly wage. The point is not to make every choice grim or to declare money bad. It is to expose a hidden trade: a low sticker price can still require a meaningful part of a day, while a costly item may be worthwhile if it genuinely serves the life being funded."
           ],
           "extension": "Use life hours as a second price tag before one discretionary purchase. Estimate conservatively, then ask whether you would willingly exchange that portion of an ordinary working day for what the purchase will add.",
-          "image": "../assets/lesson-visuals/life-energy-price-tag.svg",
+          "image": "../assets/lesson-visuals/ymyl-life-energy-price-tag.svg",
           "imageAlt": "A flow converts take-home pay and work-linked costs into adjusted income, combines paid and unpaid work time into total hours, calculates a real hourly wage, then converts a purchase price into life hours before a deliberate choice.",
           "imageCaption": "A price becomes more informative when it includes the time used to earn it.",
           "why": "Normal prices hide the time, travel and supporting costs behind income. Making those inputs visible can interrupt automatic spending and help compare a purchase with alternatives such as rest, savings or time with other people.",
@@ -82,7 +82,7 @@
             "Their fulfilment curve describes a progression from survival and comfort through genuine satisfaction to excess, where additional consumption can add maintenance, clutter or distraction. The practical move is to identify enough for each category rather than assume that either more spending or less spending is always better."
           ],
           "extension": "Review one spending category with two separate questions: did it deliver enough value for the life hours used, and did it support what matters now? Keep, reduce or redesign the category based on the pattern, not on guilt.",
-          "image": "../assets/lesson-visuals/fulfilment-review.svg",
+          "image": "../assets/lesson-visuals/ymyl-fulfilment-review.svg",
           "imageAlt": "A review board moves one spending category through three checks: life hours used, fulfilment received and alignment with current values. The evidence leads to keep, reduce or redesign, followed by a later review rather than a permanent verdict.",
           "imageCaption": "Enough is found by reviewing value and alignment, not by treating less as automatically better.",
           "why": "A conventional budget records where money went but may not show whether it improved life. Adding fulfilment and values to the review helps distinguish meaningful priorities from recurring spending that survives only through habit.",
@@ -140,7 +140,7 @@
             "The durable insight is optionality: lower recurring needs and reliable non-work income can reduce dependence on the next pay cycle. The projection itself is not a promise. A responsible reading treats the crossover as a scenario to test against lower returns, higher costs and changing needs rather than as a guaranteed retirement date."
           ],
           "extension": "Build a coverage range, not a single heroic forecast. Compare reliable after-tax non-work income with essential and meaningful spending, then test what happens if income falls or costs rise before calling the gap freedom.",
-          "image": "../assets/lesson-visuals/freedom-coverage-stress-test.svg",
+          "image": "../assets/lesson-visuals/ymyl-freedom-coverage-stress-test.svg",
           "imageAlt": "A coverage test compares a band of after-tax non-work income with essential and meaningful spending. A second gate lowers income and raises costs to test uncertainty. Only a margin that survives the stress test leads to greater choice; a fragile match returns to planning.",
           "imageCaption": "A crossover estimate becomes useful when it survives lower income and higher costs.",
           "why": "A visible coverage relationship can connect today's spending and saving decisions with future choice. Stress-testing prevents one attractive return assumption from disguising how much the plan depends on markets, inflation or an unrealistically narrow estimate of needs.",
