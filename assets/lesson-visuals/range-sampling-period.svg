@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="range-sampling-title range-sampling-desc">
+  <title id="range-sampling-title">Use bounded samples to discover fit before deep commitment</title>
+  <desc id="range-sampling-desc">Three small trials produce comparable evidence about energy, progress and demand. A review gate selects one direction for a deeper commitment while keeping a dated decision to revisit.</desc>
+  <defs>
+    <marker id="range-sampling-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#8a6116"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #8a6116; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">SAMPLE TO LEARN, THEN COMMIT TO BUILD DEPTH</text>
+
+  <g>
+    <rect class="card" x="70" y="120" width="290" height="260" rx="26" fill="#dce8f2"/>
+    <text x="215" y="168" class="label" text-anchor="middle">TRIAL A</text>
+    <text x="105" y="220" class="body">Small real task</text>
+    <text x="105" y="260" class="small">Energy after doing</text>
+    <text x="105" y="298" class="small">Progress after feedback</text>
+    <text x="105" y="336" class="small">Demand for the result</text>
+
+    <rect class="card" x="455" y="120" width="290" height="260" rx="26" fill="#f5dfc2"/>
+    <text x="600" y="168" class="label" text-anchor="middle">TRIAL B</text>
+    <text x="490" y="220" class="body">Same time box</text>
+    <text x="490" y="260" class="small">Energy after doing</text>
+    <text x="490" y="298" class="small">Progress after feedback</text>
+    <text x="490" y="336" class="small">Demand for the result</text>
+
+    <rect class="card" x="840" y="120" width="290" height="260" rx="26" fill="#e8e0f2"/>
+    <text x="985" y="168" class="label" text-anchor="middle">TRIAL C</text>
+    <text x="875" y="220" class="body">Same evidence</text>
+    <text x="875" y="260" class="small">Energy after doing</text>
+    <text x="875" y="298" class="small">Progress after feedback</text>
+    <text x="875" y="336" class="small">Demand for the result</text>
+  </g>
+
+  <path class="line" d="M215 380 V438 H522" marker-end="url(#range-sampling-arrow)"/>
+  <path class="line" d="M600 380 V438" marker-end="url(#range-sampling-arrow)"/>
+  <path class="line" d="M985 380 V438 H678" marker-end="url(#range-sampling-arrow)"/>
+  <rect class="card" x="455" y="455" width="290" height="105" rx="24" fill="#fffdf8"/>
+  <text x="600" y="497" class="small" text-anchor="middle" font-weight="700">COMPARE THE SIGNALS</text>
+  <text x="600" y="533" class="small" text-anchor="middle">Fit is evidence, not a first impression</text>
+
+  <path class="line" d="M600 560 V605" marker-end="url(#range-sampling-arrow)"/>
+  <rect class="card" x="250" y="620" width="700" height="92" rx="24" fill="#bdd9bf"/>
+  <text x="600" y="657" class="label" text-anchor="middle">CHOOSE ONE DIRECTION FOR DEPTH</text>
+  <text x="600" y="691" class="small" text-anchor="middle">Set a review date; do not turn exploration into permanent drift.</text>
+</svg>

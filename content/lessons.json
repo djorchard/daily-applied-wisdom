@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "range",
+      "discussionId": "range-david-epstein",
+      "date": "2026-09-29",
+      "dateLabel": "29 September 2026",
+      "edition": "Daily lesson",
+      "title": "Range",
+      "authors": "David Epstein",
+      "year": "2019 · Paperback edition, 2021",
+      "category": "Learning and memory · Skill development · Transfer",
+      "accent": "blue",
+      "readTime": "7 to 10 minute read",
+      "quizRevision": "2026-09-29-1",
+      "summary": "Learn when focused repetition fits the environment, use bounded sampling to discover where depth is worth building, and compare distant cases to transfer structure rather than surface detail.",
+      "evidenceNote": "Epstein argues that early specialisation is valuable in some stable domains but is often overgeneralised to complex, unpredictable work. This lesson uses the original 2019 book and current 2021 paperback. Attribution is strong: Epstein's official book page presents sampling, breadth and delayed specialisation as central claims, while the book draws explicitly on research into kind and wicked learning environments, education pathways and analogical transfer. The environment and analogy mechanisms have direct research support. Claims that broad experience will improve any person's performance are mixed and context-dependent, because selection effects, opportunity costs and domain differences remain. The applications below are practitioner interpretations, not a promise that generalists always outperform specialists.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Match practice to the environment",
+          "argument": [
+            "Epstein contrasts learning environments where rules repeat and feedback is prompt and accurate with environments where rules change, outcomes are noisy, and feedback is delayed or incomplete. Focused repetition can build reliable intuition in the first setting. The same confidence can mislead in the second because experience may reinforce a pattern that no longer applies.",
+            "The argument is not that breadth always beats depth. It is that the value of a training method depends on the environment. In complex work, learners need more than repeated exposure: they need varied cases, explicit hypotheses, outcome tracking and opportunities to revise the model when the signal changes."
+          ],
+          "extension": "Before choosing a learning plan, classify the task by rule stability and feedback quality. Use focused repetition when errors are visible and patterns recur; add varied examples, independent checks and deliberate updating when feedback is noisy or late.",
+          "image": "../assets/lesson-visuals/range-match-learning-environment.svg",
+          "imageAlt": "A comparison shows a kinder learning environment with repeating rules, fast feedback and clear errors beside a wicked environment with changing rules, delayed feedback and noisy outcomes. Each side recommends a different learning strategy.",
+          "imageCaption": "The right practice method depends on the rules and feedback available.",
+          "why": "A familiar routine can feel like expertise even when the environment no longer supports it. Reading the feedback structure first helps avoid both needless breadth in a stable task and brittle overconfidence in a changing one.",
+          "apply": [
+            "Choose one skill you are trying to improve and rate its rules as stable or changing, then rate its feedback as fast or delayed.",
+            "Change one part of the learning plan to fit that diagnosis: repeat a precise drill, or add a varied case and an independent outcome check."
+          ],
+          "caveat": "Kind and wicked are useful endpoints, not a complete taxonomy. Most real work mixes stable and unstable parts, and feedback quality can be improved. Do not label a whole profession once and stop thinking; classify the specific decision or skill, then revisit the diagnosis.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which condition most strongly supports learning through focused repetition?",
+              "options": [
+                "The rules change often and success is judged months later.",
+                "The patterns recur and feedback reveals errors promptly.",
+                "The outcomes are noisy and the important signals stay hidden.",
+                "The task is prestigious and experts use specialised language."
+              ],
+              "correctIndex": 1,
+              "feedback": "Focused repetition is most dependable when patterns recur and feedback is accurate enough to correct errors. Status or familiarity does not establish that learning condition.",
+              "feedbackByOption": [
+                "Changing rules and delayed judgement can train confidence faster than accuracy. The best fit is recurring patterns with prompt error feedback.",
+                "Correct. Repeating a task can refine performance when the environment presents stable patterns and makes mistakes visible quickly.",
+                "Noisy outcomes and hidden signals make it difficult to tell whether repetition is reinforcing a valid pattern. Varied evidence and explicit checks are safer.",
+                "Prestige and technical vocabulary say nothing about whether practice provides stable rules and accurate feedback."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team estimates novel projects, but results arrive late and depend on changing external factors. What is the best learning adjustment?",
+              "options": [
+                "Repeat the same estimation ritual until the team feels more fluent.",
+                "Use only the most recent project because older examples are outdated.",
+                "Replace estimates with one permanent rule that avoids later review.",
+                "Compare varied projects, record assumptions, and review outcomes in parts."
+              ],
+              "correctIndex": 3,
+              "feedback": "Delayed, noisy feedback calls for a wider evidence base and explicit assumptions. Reviewing parts of the outcome can create more useful feedback than waiting for one final verdict.",
+              "feedbackByOption": [
+                "Fluency with the ritual can grow without improving judgement. The team needs varied evidence and explicit review of assumptions.",
+                "Recent evidence matters, but one project is still a fragile sample. Compare several relevant cases and record what differs.",
+                "A permanent rule hides learning when conditions change. Keep assumptions visible and update them after partial outcomes.",
+                "Correct. Varied cases, recorded assumptions and staged review make a difficult feedback environment more informative."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Sample before choosing depth",
+          "argument": [
+            "Epstein describes a sampling period: people try several activities or fields before concentrating. The purpose is not casual variety for its own sake. Sampling produces information about fit, motivation and the demands of the work that cannot be obtained from descriptions alone.",
+            "Research comparing earlier and later educational specialisation illustrates the trade-off. Later choice can improve match quality, while earlier choice gives more time for field-specific skill. The useful question is therefore not breadth or depth in isolation, but when exploration has produced enough evidence to make deeper commitment worthwhile."
+          ],
+          "extension": "Turn vague exploration into a bounded portfolio of small real trials. Give each trial the same time box, collect comparable evidence about energy, progress and demand, then choose one direction for deeper practice and set a review date.",
+          "image": "../assets/lesson-visuals/range-sampling-period.svg",
+          "imageAlt": "Three small time-boxed trials collect the same evidence about energy, progress and demand. Their signals are compared before one direction is chosen for deeper commitment with a later review date.",
+          "imageCaption": "Sampling is useful when it produces evidence that improves a later commitment.",
+          "why": "A commitment based only on reputation or first impressions can lock effort into a poor fit. Small trials preserve the value of exploration while creating a clear point at which depth begins.",
+          "apply": [
+            "List up to three plausible directions for one learning or career decision. Define a small real task that each direction could reveal within a week.",
+            "Choose common evidence for all trials, such as energy after doing, progress after feedback and demand for the result. Set the decision date before starting."
+          ],
+          "caveat": "Sampling has costs. Some fields require prerequisites before they become rewarding, while constant switching prevents the sustained practice that produces expertise. Use trials long enough to expose the real work, then commit provisionally instead of treating uncertainty as permission to drift forever.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a sampling period useful rather than aimless?",
+              "options": [
+                "It avoids commitment until every option has been explored equally.",
+                "It keeps each trial enjoyable so motivation never falls during practice.",
+                "It gathers comparable evidence before a bounded decision to build depth.",
+                "It selects the option with the fastest visible progress after one attempt."
+              ],
+              "correctIndex": 2,
+              "feedback": "Sampling earns its cost when trials create information that guides a later commitment. Equal exploration, constant enjoyment and instant progress are not required.",
+              "feedbackByOption": [
+                "Exploring every option equally can become endless. Useful sampling is bounded and serves a later commitment.",
+                "Real trials may include frustration or effort. The aim is informative evidence about fit and progress, not continuous enjoyment.",
+                "Correct. Comparable trials reduce guesswork, and a decision boundary turns exploration into preparation for depth.",
+                "One fast result can reflect prior knowledge or an easy task. Compare evidence across meaningful trials before choosing."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "You are choosing between three technical specialities. What is the best sampling plan?",
+              "options": [
+                "Complete one small real task in each, compare the same signals, then choose a deeper trial.",
+                "Read job titles for each, then choose the speciality with the highest stated salary.",
+                "Study all three indefinitely so no future opportunity is excluded by commitment.",
+                "Choose the first speciality that feels easy and avoid feedback that might reduce confidence."
+              ],
+              "correctIndex": 0,
+              "feedback": "Comparable real tasks reveal more about fit and learning than labels alone. The decision stays provisional, but it still directs the next period of depth.",
+              "feedbackByOption": [
+                "Correct. Small authentic tasks produce comparable evidence, and the next commitment remains deep enough to test further progress.",
+                "Salary can matter, but a title and advertised number do not reveal the daily work, fit or ability to improve.",
+                "Permanent exploration prevents the depth needed to test whether a speciality becomes valuable with practice.",
+                "Initial ease can reflect familiarity rather than long-term fit. Feedback is evidence to use, not a threat to avoid."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Compare cases to transfer structure",
+          "argument": [
+            "Epstein argues that range supplies distant examples that can reveal relationships hidden by a single familiar context. A learner who compares cases can abstract what they share, then recognise that structure when a later problem looks different on the surface.",
+            "Research on analogical encoding supports the mechanism in bounded settings. People who compared two cases and articulated their common relation transferred a negotiation principle more often than people who studied the same cases separately. The educational move is comparison, not merely collecting more stories."
+          ],
+          "extension": "When a problem resists the usual template, choose two cases from different contexts. Map roles, constraints, feedback and trade-offs, state the shared relation in one sentence, then test that sentence against the current evidence.",
+          "image": "../assets/lesson-visuals/range-analogical-transfer.svg",
+          "imageAlt": "Two cases with different shapes share the same underlying relation. Comparing them produces a provisional principle, which is then tested against evidence in a new problem.",
+          "imageCaption": "Transfer improves when comparison exposes a shared relation beneath different surfaces.",
+          "why": "A single example is easy to remember by its visible details. Comparing structurally similar cases makes the relationship more explicit, which can help knowledge travel to a new context.",
+          "apply": [
+            "Take one current problem and name two cases from different domains that may share its relationship, not just its vocabulary.",
+            "Write the common structure as roles, constraints and consequences. Name one observation that would show the analogy is false."
+          ],
+          "caveat": "Analogies generate hypotheses; they do not prove them. Surface similarity can conceal different causes, and distant comparisons can become storytelling after the fact. State the mapped relationship explicitly and look for disconfirming evidence before acting.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why can comparing two different cases improve transfer?",
+              "options": [
+                "It removes the need to learn domain facts before making a decision.",
+                "It guarantees that a shared pattern has the same cause in every setting.",
+                "It makes the more vivid case easier to recall word for word later.",
+                "It helps separate a shared relationship from each case's surface details."
+              ],
+              "correctIndex": 3,
+              "feedback": "Comparison can make relational structure explicit, which improves the chance of recognising it in a new setting. The resulting principle remains provisional.",
+              "feedbackByOption": [
+                "Analogical comparison supports transfer but does not replace the domain facts needed to judge whether the mapping is valid.",
+                "A shared pattern may still arise from different causes. Comparison creates a hypothesis that needs testing.",
+                "Verbatim recall of visible details is not the goal. The useful gain is separating structure from surface appearance.",
+                "Correct. By naming what remains constant as the details change, a learner builds a relation that can be tested elsewhere."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product problem resembles a traffic bottleneck. What is the best use of that analogy?",
+              "options": [
+                "Copy a road-widening solution because both situations contain a queue.",
+                "Map constraints and flow, then test whether the same relation drives the product queue.",
+                "Rename product stages as roads so stakeholders accept the comparison more easily.",
+                "Discard product evidence because traffic engineering already solved bottlenecks."
+              ],
+              "correctIndex": 1,
+              "feedback": "The analogy is useful only if the underlying relation matches. Mapping and testing protect against copying a solution based on superficial resemblance.",
+              "feedbackByOption": [
+                "A visible queue does not prove the cause or remedy is the same. Map the relation before importing a solution.",
+                "Correct. Explicit mapping turns the analogy into a testable hypothesis rather than a decorative comparison.",
+                "Shared labels can make a weak analogy sound stronger without establishing that the constraints actually match.",
+                "The source domain offers a candidate structure, not authority to ignore evidence from the current problem."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Build one structural analogy",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: write one current problem as a relationship among actors, constraints and an outcome.",
+          "Minutes 2 to 4: choose one case from a familiar domain and one from a distant domain that may share that relationship.",
+          "Minutes 4 to 6: list what is structurally the same across both cases, ignoring names and visible objects.",
+          "Minutes 6 to 8: write one provisional principle that could transfer to the current problem.",
+          "Minutes 8 to 10: name one observation that supports the principle and one that would reject the analogy."
+        ],
+        "result": "One mapped relationship, one transferable principle, and one clear condition for rejecting it."
+      },
+      "spacedRecall": [
+        "From Peak: which part of deliberate practice depends on receiving information that can guide the next attempt?",
+        "From The Scout Mindset: what question would help test whether a preferred analogy is being protected from contrary evidence?",
+        "From Building Evolutionary Architectures: how could a small automated check make feedback kinder for one changing system property?"
+      ],
+      "takeaway": "Build range with purpose: read the feedback environment, sample to discover fit, then compare cases until a transferable structure becomes testable.",
+      "sources": [
+        {
+          "label": "David Epstein: official Range book page and central argument",
+          "url": "https://davidepstein.com/range/"
+        },
+        {
+          "label": "Penguin Random House: Range publication and edition details",
+          "url": "https://www.penguinrandomhouse.com/books/550188/range-by-david-epstein/"
+        },
+        {
+          "label": "Current Directions in Psychological Science: kind and wicked learning environments",
+          "url": "https://doi.org/10.1177/0963721415591878"
+        },
+        {
+          "label": "NBER: breadth, specialisation timing and match quality in higher education",
+          "url": "https://www.nber.org/papers/w15943"
+        },
+        {
+          "label": "Psychonomic Bulletin and Review: analogical encoding and transfer",
+          "url": "https://groups.psych.northwestern.edu/gentner/papers/LoewensteinThompsonGentner99.pdf"
+        },
+        {
+          "label": "Cognitive Science: analogical comparison and relational retrieval",
+          "url": "https://doi.org/10.1111/j.1551-6709.2009.01070.x"
+        }
+      ]
+    },
+    {
       "slug": "your-money-or-your-life",
       "discussionId": "your-money-or-your-life-robin-dominguez",
       "date": "2026-09-28",
@@ -1196,7 +1432,7 @@
       "accent": "blue",
       "quizRevision": "2026-09-18-1",
       "summary": "Turn a new responsibility into a learning plan, match your approach to the situation you inherited, and agree what success requires before promises harden.",
-      "evidenceNote": "Watkins offers a practitioner framework for leadership transitions, informed by cases, teaching and advisory work. This lesson uses the 2013 updated edition, especially chapters 2–4, and checks the mechanisms against the author’s own articles and interview. Attribution is strong; the effectiveness of any particular transition plan is context-dependent. These sources do not establish a universal 90-day deadline or a guaranteed improvement rate. Our examples extend the framework to a new role, product or area of responsibility; they are applied interpretations, not reported research findings.",
+      "evidenceNote": "Watkins offers a practitioner framework for leadership transitions, informed by cases, teaching and advisory work. This lesson uses the 2013 updated edition, especially chapters 2 to 4, and checks the mechanisms against the author’s own articles and interview. Attribution is strong; the effectiveness of any particular transition plan is context-dependent. These sources do not establish a universal 90-day deadline or a guaranteed improvement rate. Our examples extend the framework to a new role, product or area of responsibility; they are applied interpretations, not reported research findings.",
       "ideas": [
         {
           "id": "idea-1",
@@ -1377,10 +1613,10 @@
         "title": "Write a one-page transition brief",
         "duration": "8 minutes",
         "steps": [
-          "Minutes 0–2: choose a real new responsibility, or an existing one whose expectations feel unclear. Write one decision you must make in the next fortnight.",
-          "Minutes 2–4: name your largest unknown, a person or record that could inform it, and a date for checking. Add a provisional STARS diagnosis with one supporting observation.",
-          "Minutes 4–6: write one promised result, its deadline and its most important resource assumption. Mark each as confirmed or unconfirmed.",
-          "Minutes 6–8: draft one question for your next check-in that would resolve the biggest gap. Do not send anything as part of the experiment; finish with a brief you can inspect."
+          "Minutes 0 to 2: choose a real new responsibility, or an existing one whose expectations feel unclear. Write one decision you must make in the next fortnight.",
+          "Minutes 2 to 4: name your largest unknown, a person or record that could inform it, and a date for checking. Add a provisional STARS diagnosis with one supporting observation.",
+          "Minutes 4 to 6: write one promised result, its deadline and its most important resource assumption. Mark each as confirmed or unconfirmed.",
+          "Minutes 6 to 8: draft one question for your next check-in that would resolve the biggest gap. Do not send anything as part of the experiment; finish with a brief you can inspect."
         ],
         "result": "One page with a decision, a dated learning task, a provisional situation diagnosis and a commitment whose unconfirmed dependency is visible. Count the unconfirmed assumptions; that is your starting point, not a score of personal competence."
       },
@@ -1615,10 +1851,10 @@
         "title": "Turn a trace into a narrower question",
         "duration": "8 minutes",
         "steps": [
-          "Minutes 0–2: use this synthetic case or an existing safe test trace. Three items cost 20 dollars each, with a 10% discount. The display should show 54.00 dollars. The trace records quantity 3, subtotal 60.00, discounted total 54.00, and displayed total 5.40.",
-          "Minutes 2–4: draw the calculation-to-display path. Mark the last observed value that matches its expectation and the first that does not. Write two different transformations inside that interval that could explain the discrepancy.",
-          "Minutes 4–6: specify one additional boundary value that would distinguish those explanations. Write the expected observation under each explanation before inspecting code or more logs.",
-          "Minutes 6–8: write a regression assertion for the original case and the before/after comparison a proposed repair must pass. Stop at eight minutes; a narrower suspect interval is the goal, not an invented diagnosis."
+          "Minutes 0 to 2: use this synthetic case or an existing safe test trace. Three items cost 20 dollars each, with a 10% discount. The display should show 54.00 dollars. The trace records quantity 3, subtotal 60.00, discounted total 54.00, and displayed total 5.40.",
+          "Minutes 2 to 4: draw the calculation-to-display path. Mark the last observed value that matches its expectation and the first that does not. Write two different transformations inside that interval that could explain the discrepancy.",
+          "Minutes 4 to 6: specify one additional boundary value that would distinguish those explanations. Write the expected observation under each explanation before inspecting code or more logs.",
+          "Minutes 6 to 8: write a regression assertion for the original case and the before/after comparison a proposed repair must pass. Stop at eight minutes; a narrower suspect interval is the goal, not an invented diagnosis."
         ],
         "result": "One annotated trace, a bounded suspect region, two competing explanations, and a discriminating next probe. You can point to the evidence that narrowed the search and to the evidence still missing."
       },

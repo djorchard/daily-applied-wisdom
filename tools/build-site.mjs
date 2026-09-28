@@ -246,7 +246,7 @@ function renderLesson(lesson, index) {
           <p class="eyebrow">${esc(lesson.edition)} · <time datetime="${lesson.date}">${esc(lesson.dateLabel)}</time></p>
           <h1>${esc(lesson.title)}</h1>
           <p class="lesson-author">${esc(lesson.authors)}</p>
-          <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>${esc(lesson.readTime || '5\u20138 minute read')}</span></div>
+          <div class="lesson-meta"><span>${esc(lesson.year)}</span><span>${esc(lesson.category)}</span><span>${esc(lesson.readTime || '5 to 8 minute read')}</span></div>
           <p class="lesson-summary">${esc(lesson.summary)}</p>
           <aside class="evidence-note"><strong>Evidence lens.</strong> ${esc(lesson.evidenceNote)}</aside>
           <div class="lesson-progress" data-book-progress data-book-slug="${esc(lesson.slug)}" data-book-idea-ids="${esc(JSON.stringify(lesson.ideas.map((idea) => ideaKey(lesson, idea))))}" data-clarity-mask="true" hidden>

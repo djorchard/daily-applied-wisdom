@@ -688,9 +688,9 @@ if (missingFiles.length) {
   fail(`Missing required site files:\n${missingFiles.map((message) => `- ${message}`).join('\n')}`);
 }
 
-const forbiddenDash = String.fromCodePoint(0x2014);
+const forbiddenDashes = [String.fromCodePoint(0x2013), String.fromCodePoint(0x2014)];
 const publicTextExtensions = new Set(['.css', '.html', '.js', '.json', '.md', '.mjs', '.svg', '.txt', '.xml', '.yaml', '.yml']);
-const scanSkipDirectories = new Set(['.git', '.playwright-cli', 'output']);
+const scanSkipDirectories = new Set(['.git', '.playwright-cli', '.playwright-mcp', 'output']);
 
 async function findForbiddenDashes(directory = root) {
   const matches = [];
@@ -704,14 +704,15 @@ async function findForbiddenDashes(directory = root) {
     }
     if (!entry.isFile()) continue;
     if (!publicTextExtensions.has(path.extname(entry.name).toLowerCase()) && entry.name !== '.gitignore') continue;
-    if ((await readFile(candidate, 'utf8')).includes(forbiddenDash)) matches.push(displayPath(candidate));
+    const contents = await readFile(candidate, 'utf8');
+    if (forbiddenDashes.some((dash) => contents.includes(dash))) matches.push(displayPath(candidate));
   }
   return matches;
 }
 
 const filesWithForbiddenDashes = await findForbiddenDashes();
 if (filesWithForbiddenDashes.length) {
-  fail(`Em dashes are forbidden in site files:\n${filesWithForbiddenDashes.map((file) => `- ${file}`).join('\n')}`);
+  fail(`En and em dashes are forbidden in site files:\n${filesWithForbiddenDashes.map((file) => `- ${file}`).join('\n')}`);
 }
 
 const generatedOutputCheck = spawnSync(
