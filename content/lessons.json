@@ -24,7 +24,7 @@
             "The definition is narrow on purpose. A turn-based strategy game can be excellent while falling outside this particular model, and a real-time game can contain some mechanics with strong feel and others with interrupted control. The model is a way to inspect an interaction, not a score for the whole game."
           ],
           "extension": "Audit one mechanic by asking three separate questions: can the player correct it continuously, what spatial relationship gives the motion meaning, and which sensory cues clarify the interaction? Diagnose the missing layer before adding features.",
-          "image": "../assets/lesson-visuals/game-feel-intersection-v2.svg",
+          "image": "../assets/lesson-visuals/game-feel-intersection-v3.svg",
           "imageAlt": "Three overlapping circles labelled real-time control, simulated space and polish meet at game feel. Notes distinguish continuous correction, meaningful spatial relationships and sensory emphasis.",
           "imageCaption": "Game feel sits where continuous control, meaningful space and sensory emphasis reinforce one another.",
           "why": "Vague complaints such as \"floaty\" or \"unresponsive\" can send a team toward random fixes. Separating control, space and polish narrows the search: the problem may be delayed response, weak collision context or feedback that fails to communicate impact.",
@@ -82,7 +82,7 @@
             "Measurement does not mean reducing feel to one number. Hard measures such as response delay and velocity sit beside soft measures such as perceived weight, precision and freedom. The aim is to compare versions and relationships deliberately instead of copying another game's finished values without its context."
           ],
           "extension": "Turn \"the steering feels loose\" into a tuning sheet: device range, input curve, response delay, turn rate, acceleration, obstacle spacing and collision behaviour. Change one relationship, record the result, then compare the same manoeuvre again.",
-          "image": "../assets/lesson-visuals/game-feel-control-loop-v2.svg",
+          "image": "../assets/lesson-visuals/game-feel-control-loop-v3.svg",
           "imageAlt": "A control loop runs from player intent through the input device and programmed response into movement inside spatial context, then returns perceptual feedback. Tuning points are shown at the relationships between stages.",
           "imageCaption": "Useful measures expose the relationships that vague feel words compress.",
           "why": "A single parameter rarely owns the sensation. Fast acceleration can feel precise in an open course and uncontrollable in a narrow one. Mapping the chain makes trade-offs repeatable and helps a team preserve a good relationship when another variable changes.",
@@ -140,7 +140,7 @@
             "Polish supplies artificial sensory cues about physical interaction: animation, sound, particles, camera movement and similar emphasis. These cues can make contact, weight and force easier to perceive. They work best when metaphor, rules, motion and feedback tell a compatible story."
           ],
           "extension": "Create a sensory contract for one interaction: what physical property should the player infer, which motion expresses it, and which single cue confirms it? Remove cues that communicate a competing property.",
-          "image": "../assets/lesson-visuals/game-feel-physical-story-v2.svg",
+          "image": "../assets/lesson-visuals/game-feel-physical-story-v3.svg",
           "imageAlt": "A sequence connects metaphor and rules to expected physical properties, tuned motion and confirming polish. A mismatch branch shows how conflicting cues create an unclear physical story.",
           "imageCaption": "Feel becomes readable when expectation, motion and sensory feedback agree.",
           "why": "More effects can make an interaction louder without making it clearer. Aligning the physical story helps each cue carry information: a brief sound can mark contact, a small deformation can suggest softness, and a rule can make the same motion feel risky rather than decorative.",
