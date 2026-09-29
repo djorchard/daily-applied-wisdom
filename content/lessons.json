@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "game-feel",
+      "discussionId": "game-feel-steve-swink",
+      "date": "2026-09-30",
+      "dateLabel": "30 September 2026",
+      "edition": "Daily lesson",
+      "title": "Game Feel",
+      "authors": "Steve Swink",
+      "year": "2009 · First edition",
+      "category": "Game design and interactive systems · Real-time control · Virtual sensation",
+      "accent": "orange",
+      "readTime": "8 to 11 minute read",
+      "quizRevision": "2026-09-30-1",
+      "summary": "Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable.",
+      "evidenceNote": "Swink offers a practitioner model for a specific class of moment-to-moment game interaction, not a scientific definition accepted by every designer. Attribution is strong: the book defines its central scope through real-time control, simulated space and polish, then develops six design dimensions: input, response, context, polish, metaphor and rules. Hard measures such as delay, acceleration and collision boundaries can be observed directly. Judgements such as weight, responsiveness and satisfaction remain soft, context-dependent measures that require player observation. The applications below treat the model as a diagnostic vocabulary, not a promise that low latency or more effects will make any game enjoyable.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Find the intersection that creates game feel",
+          "argument": [
+            "Swink draws a deliberate boundary around game feel: real-time control of virtual objects in a simulated space, with interactions emphasised by polish. Real-time control creates a continuous loop in which the player can act, perceive the result and correct the next action. Simulated space gives that motion scale, collision and relationships. Polish adds sensory cues that reinforce the interaction.",
+            "The definition is narrow on purpose. A turn-based strategy game can be excellent while falling outside this particular model, and a real-time game can contain some mechanics with strong feel and others with interrupted control. The model is a way to inspect an interaction, not a score for the whole game."
+          ],
+          "extension": "Audit one mechanic by asking three separate questions: can the player correct it continuously, what spatial relationship gives the motion meaning, and which sensory cues clarify the interaction? Diagnose the missing layer before adding features.",
+          "image": "../assets/lesson-visuals/game-feel-intersection.svg",
+          "imageAlt": "Three overlapping circles labelled real-time control, simulated space and polish meet at game feel. Notes distinguish continuous correction, meaningful spatial relationships and sensory emphasis.",
+          "imageCaption": "Game feel sits where continuous control, meaningful space and sensory emphasis reinforce one another.",
+          "why": "Vague complaints such as \"floaty\" or \"unresponsive\" can send a team toward random fixes. Separating control, space and polish narrows the search: the problem may be delayed response, weak collision context or feedback that fails to communicate impact.",
+          "apply": [
+            "Choose one repeated action such as jumping, steering or dragging and trace one complete input, response and correction loop.",
+            "Mark which of the three layers is weakest, then write one change that tests that diagnosis without altering the other two."
+          ],
+          "caveat": "Swink's boundary excludes many valuable forms of play and should not be turned into a universal definition of quality. Menu interaction, turn-based planning and narrative choice can feel satisfying through other mechanisms. Use this model where continuous embodied control is central, and name the parts it does not explain.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which interaction best fits Swink's working definition of game feel?",
+              "options": [
+                "A branching dialogue presents carefully written choices after each scene.",
+                "A player continuously steers an object through space with reinforced feedback.",
+                "A strategy game resolves each submitted turn after every player has finished.",
+                "A menu reveals detailed lore when the player selects highlighted entries."
+              ],
+              "correctIndex": 1,
+              "feedback": "Swink's model centres on continuous control of a virtual object in simulated space, with polish emphasising the interaction. Other interactions can still be well designed.",
+              "feedbackByOption": [
+                "Written choices can be compelling, but this example does not foreground continuous correction of an object in simulated space.",
+                "Correct. Continuous steering, spatial relationships and reinforcing feedback meet the three parts of Swink's working definition.",
+                "Turn resolution can support excellent strategy, but it interrupts the continuous input and correction loop central to this model.",
+                "Readable menus matter, but selecting lore entries does not by itself create the real-time spatial control Swink is defining."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A platformer's jump feels wrong. What is the strongest first diagnostic step?",
+              "options": [
+                "Trace input, motion, collision context and feedback to locate the weak layer.",
+                "Add particles and camera shake so every landing communicates greater impact.",
+                "Increase jump height because stronger movement usually feels more responsive.",
+                "Replace the controller because physical input devices determine the final feel."
+              ],
+              "correctIndex": 0,
+              "feedback": "Tracing the whole interaction loop separates possible control, context and polish problems before the team changes several variables at once.",
+              "feedbackByOption": [
+                "Correct. A traced loop reveals whether the problem starts in input, programmed response, spatial context or sensory communication.",
+                "Extra effects may amplify the landing, but they cannot identify whether the underlying motion or collision relationship is wrong.",
+                "Height is one parameter among many. Changing it before diagnosis may trade one problem for another without explaining the feel.",
+                "The device affects expression, but response, simulated space and feedback also shape the result. Test the complete chain first."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Tune the control loop with useful measures",
+          "argument": [
+            "Swink breaks the interaction into dimensions a designer can inspect. Input covers the physical device and the range of signals it can express. Response covers how the game maps and modulates those signals through values such as acceleration, speed, sensitivity and lockout. Context covers the space, obstacles and collision relationships that give movement practical meaning.",
+            "Measurement does not mean reducing feel to one number. Hard measures such as response delay and velocity sit beside soft measures such as perceived weight, precision and freedom. The aim is to compare versions and relationships deliberately instead of copying another game's finished values without its context."
+          ],
+          "extension": "Turn \"the steering feels loose\" into a tuning sheet: device range, input curve, response delay, turn rate, acceleration, obstacle spacing and collision behaviour. Change one relationship, record the result, then compare the same manoeuvre again.",
+          "image": "../assets/lesson-visuals/game-feel-control-loop.svg",
+          "imageAlt": "A control loop runs from player intent through the input device and programmed response into movement inside spatial context, then returns perceptual feedback. Tuning points are shown at the relationships between stages.",
+          "imageCaption": "Useful measures expose the relationships that vague feel words compress.",
+          "why": "A single parameter rarely owns the sensation. Fast acceleration can feel precise in an open course and uncontrollable in a narrow one. Mapping the chain makes trade-offs repeatable and helps a team preserve a good relationship when another variable changes.",
+          "apply": [
+            "Pick one troublesome manoeuvre and record its input, response delay, main motion values and nearest spatial constraint.",
+            "Change one value or one relationship, repeat the same manoeuvre three times and note both the measured difference and the felt difference."
+          ],
+          "caveat": "Metrics can create false confidence. A shorter delay or smoother curve is not automatically better, accessibility needs may require different mappings, and laboratory consistency may hide how players behave under pressure. Use measures to make changes legible, then test the complete interaction with representative players.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Why does Swink combine hard and soft measures when tuning game feel?",
+              "options": [
+                "Hard measures determine quality, while soft measures explain only player preference.",
+                "Soft measures replace technical data when the team cannot access the source code.",
+                "Technical values describe the system, while felt judgements describe its experience.",
+                "Both measures produce universal target values that can transfer between games."
+              ],
+              "correctIndex": 2,
+              "feedback": "Hard measures make implementation relationships visible, while soft measures capture experienced qualities those values do not settle on their own.",
+              "feedbackByOption": [
+                "Measured values are not an automatic quality ranking. Player perception remains necessary to interpret what those values produce.",
+                "Soft measures capture qualities such as weight and precision even when complete technical data is available.",
+                "Correct. Delay, velocity and spacing describe the system, while observed precision or heaviness describes what the relationship feels like.",
+                "Context changes what a value means. Measures support comparison and tuning, but they do not create one universal recipe."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A vehicle feels stable on a wide test track but twitchy in a narrow city level. What should the team examine first?",
+              "options": [
+                "Increase visual polish because the city provides more objects for effects to emphasise.",
+                "Copy steering values from a successful racing game with a similar camera angle.",
+                "Keep the response fixed because consistent controls should feel identical in every space.",
+                "Compare steering response with street width, obstacle spacing and collision behaviour."
+              ],
+              "correctIndex": 3,
+              "feedback": "The changed context can transform the same response values. The useful comparison is the relationship between steering, available space and collision consequences.",
+              "feedbackByOption": [
+                "Effects may clarify motion, but they do not diagnose why the same steering relationship fails in tighter space.",
+                "Reference values can inspire a test, but they depend on another game's speed, scale, collision and intended sensation.",
+                "Consistency of numbers does not guarantee consistency of experience when the spatial constraints change.",
+                "Correct. Control feel emerges from the response in context, so those relationships should be compared before isolated tuning."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Make feedback tell the same physical story",
+          "argument": [
+            "Swink uses metaphor for the expectations created by representation and treatment. A stone, balloon and spaceship suggest different mass, acceleration and collision behaviour before the player moves them. Rules add goals, danger and value, changing which motions matter and how the player interprets control.",
+            "Polish supplies artificial sensory cues about physical interaction: animation, sound, particles, camera movement and similar emphasis. These cues can make contact, weight and force easier to perceive. They work best when metaphor, rules, motion and feedback tell a compatible story."
+          ],
+          "extension": "Create a sensory contract for one interaction: what physical property should the player infer, which motion expresses it, and which single cue confirms it? Remove cues that communicate a competing property.",
+          "image": "../assets/lesson-visuals/game-feel-physical-story.svg",
+          "imageAlt": "A sequence connects metaphor and rules to expected physical properties, tuned motion and confirming polish. A mismatch branch shows how conflicting cues create an unclear physical story.",
+          "imageCaption": "Feel becomes readable when expectation, motion and sensory feedback agree.",
+          "why": "More effects can make an interaction louder without making it clearer. Aligning the physical story helps each cue carry information: a brief sound can mark contact, a small deformation can suggest softness, and a rule can make the same motion feel risky rather than decorative.",
+          "apply": [
+            "Choose one impact or movement and write the physical property the player should infer, such as heavy, elastic, fragile or precise.",
+            "List the motion, sound, visual and rule cues currently present. Remove one contradiction or add one missing confirmation, then compare both versions."
+          ],
+          "caveat": "Polish can amplify clutter, discomfort and accessibility barriers as easily as it amplifies clarity. Camera shake, flashes, vibration and loud transients need adjustable or alternative channels. A coherent physical story is still a design choice, not a demand for realism; stylised motion can be more readable than literal simulation.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What role does metaphor play in Swink's model of game feel?",
+              "options": [
+                "It converts every game object into a realistic simulation of its real counterpart.",
+                "It defines the input device and physical limits available to the player.",
+                "It adds optional effects after the control system has been fully tuned.",
+                "It shapes expectations about how represented objects should move and interact."
+              ],
+              "correctIndex": 3,
+              "feedback": "Metaphor helps players predict virtual behaviour from what an object appears to be. The prediction can support either realistic or deliberately stylised motion.",
+              "feedbackByOption": [
+                "Metaphor creates expectations, but the resulting motion can be stylised rather than physically literal.",
+                "Input describes how intent enters the system. Metaphor concerns the expectations created by representation and treatment.",
+                "Polish adds sensory emphasis. Metaphor operates earlier by shaping what behaviour the player expects from the object.",
+                "Correct. A stone, balloon or spaceship carries expectations that affect how its motion and collisions are interpreted."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A giant metal door opens instantly but uses heavy rumble and sparks. Players still call it weightless. What is the best next change?",
+              "options": [
+                "Add louder rumble and more sparks so the sensory emphasis dominates perception.",
+                "Change the motion timing to express mass, then use restrained cues to confirm it.",
+                "Replace the metal texture with stone because stone always communicates more weight.",
+                "Increase the reward behind the door so players value the interaction more highly."
+              ],
+              "correctIndex": 1,
+              "feedback": "The motion contradicts the intended physical story. Response and timing should express mass first, while polish confirms rather than fights that behaviour.",
+              "feedbackByOption": [
+                "More emphasis can make the contradiction louder. The instant motion still tells players that the door has little resistance.",
+                "Correct. Slower acceleration or follow-through can establish mass, and sensory cues can then reinforce the same property.",
+                "A different material changes expectation but does not resolve the conflicting motion that currently produces weightlessness.",
+                "Rules can add value and motivation, but the immediate physical mismatch between motion and feedback would remain."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Build a one-variable feel ladder",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose one repeated action and name the intended quality, such as precise, heavy or elastic.",
+          "Minutes 2 to 4: identify one adjustable relationship, such as acceleration to top speed or jump time to platform spacing.",
+          "Minutes 4 to 6: create low, current and high versions of that one value while holding the other layers steady.",
+          "Minutes 6 to 8: perform the same manoeuvre three times in each version and record one hard measure plus one felt description.",
+          "Minutes 8 to 10: choose the next range to test and name one context in which the preference might reverse."
+        ],
+        "result": "A three-point comparison that links one measured change to an observed difference in feel."
+      },
+      "spacedRecall": [
+        "From Game Design Workshop: which parts of a playtest report should keep observation separate from interpretation and proposed change?",
+        "From Range: what would make a comparison between two movement systems structural rather than merely visual?",
+        "From Building Evolutionary Architectures: what small fitness function could protect one important response-time boundary?"
+      ],
+      "takeaway": "Make control legible: trace the loop, tune relationships in context, and let every cue confirm the same physical story.",
+      "sources": [
+        {
+          "label": "Routledge: Game Feel edition, description and publication details",
+          "url": "https://www.routledge.com/Game-Feel-A-Game-Designers-Guide-to-Virtual-Sensation/Swink/p/book/9780123743282"
+        },
+        {
+          "label": "WorldCat: Game Feel bibliographic record and chapter contents",
+          "url": "https://search.worldcat.org/title/276339670"
+        },
+        {
+          "label": "Google Books: Game Feel publication record and preview",
+          "url": "https://books.google.com/books?id=5FTGhz9qC9MC"
+        },
+        {
+          "label": "Washington State University course extract: mechanics and metrics of game feel",
+          "url": "https://dtc-wsuv.org/wp/dtc338-engines/files/2017/01/Mechanics-and-Metrics-of-Game-Feel-Steve-Swink.pdf"
+        },
+        {
+          "label": "Game Developer: Steve Swink on control feel and physical input",
+          "url": "https://www.gamedeveloper.com/design/steve-swink-on-the-art-of-experimental-games"
+        },
+        {
+          "label": "Designing Game Feel: survey of tuning, juicing and streamlining",
+          "url": "https://arxiv.org/abs/2011.09201"
+        }
+      ]
+    },
+    {
       "slug": "range",
       "discussionId": "range-david-epstein",
       "date": "2026-09-29",

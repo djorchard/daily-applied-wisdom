@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="game-feel-story-title game-feel-story-desc">
+  <title id="game-feel-story-title">Make every cue tell the same physical story</title>
+  <desc id="game-feel-story-desc">A sequence connects metaphor and rules to expected physical properties, tuned motion and confirming polish. A mismatch branch shows how conflicting cues create an unclear physical story.</desc>
+  <defs>
+    <marker id="game-feel-story-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#5f4b8b"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #5f4b8b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .bad { fill: none; stroke: #c85a2e; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 12 12; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">ALIGN EXPECTATION, MOTION AND SENSORY CONFIRMATION</text>
+
+  <rect class="card" x="70" y="155" width="280" height="205" rx="26" fill="#e8e0f2"/>
+  <text x="210" y="205" class="label" text-anchor="middle">METAPHOR + RULES</text>
+  <text x="210" y="252" class="body" text-anchor="middle">What it appears to be</text>
+  <text x="210" y="288" class="small" text-anchor="middle">and why the motion matters</text>
+  <text x="210" y="326" class="small" text-anchor="middle">Heavy · fragile · elastic</text>
+
+  <rect class="card" x="460" y="155" width="280" height="205" rx="26" fill="#dbe8e2"/>
+  <text x="600" y="205" class="label" text-anchor="middle">TUNED MOTION</text>
+  <text x="600" y="252" class="body" text-anchor="middle">How it accelerates,</text>
+  <text x="600" y="288" class="small" text-anchor="middle">collides and settles</text>
+  <text x="600" y="326" class="small" text-anchor="middle">The physical claim</text>
+
+  <rect class="card" x="850" y="155" width="280" height="205" rx="26" fill="#f2d6a2"/>
+  <text x="990" y="205" class="label" text-anchor="middle">POLISH</text>
+  <text x="990" y="252" class="body" text-anchor="middle">Sound, animation,</text>
+  <text x="990" y="288" class="small" text-anchor="middle">particles and vibration</text>
+  <text x="990" y="326" class="small" text-anchor="middle">The confirming cue</text>
+
+  <path class="line" d="M350 257 H444" marker-end="url(#game-feel-story-arrow)"/>
+  <path class="line" d="M740 257 H834" marker-end="url(#game-feel-story-arrow)"/>
+
+  <rect class="card" x="330" y="465" width="540" height="105" rx="26" fill="#fffdf8"/>
+  <text x="600" y="506" class="label" text-anchor="middle">ONE READABLE PHYSICAL STORY</text>
+  <text x="600" y="546" class="body" text-anchor="middle">The player can predict, act and correct.</text>
+  <path class="line" d="M990 360 V412 Q990 430 972 430 H888 Q870 430 870 449" marker-end="url(#game-feel-story-arrow)"/>
+
+  <path class="bad" d="M600 360 V415 Q600 440 575 440 H220 Q190 440 190 470 V510"/>
+  <rect x="70" y="510" width="240" height="135" rx="24" fill="#ead9cb" stroke="#c85a2e" stroke-width="4"/>
+  <text x="190" y="551" class="label" text-anchor="middle">MISMATCH</text>
+  <text x="190" y="590" class="small" text-anchor="middle">Louder cues,</text>
+  <text x="190" y="621" class="small" text-anchor="middle">unclear property</text>
+
+  <rect x="270" y="680" width="860" height="50" rx="18" fill="#c85a2e"/>
+  <text x="700" y="713" class="body" text-anchor="middle" style="fill:#ffffff">Polish should confirm the motion, not argue with it.</text>
+</svg>

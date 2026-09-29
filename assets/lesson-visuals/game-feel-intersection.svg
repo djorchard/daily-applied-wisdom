@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="game-feel-intersection-title game-feel-intersection-desc">
+  <title id="game-feel-intersection-title">The three-part intersection of game feel</title>
+  <desc id="game-feel-intersection-desc">Three overlapping circles labelled real-time control, simulated space and polish meet at game feel. Notes distinguish continuous correction, meaningful spatial relationships and sensory emphasis.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .shape { stroke: #18211d; stroke-width: 4; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">DIAGNOSE THE INTERACTION BEFORE ADDING FEATURES</text>
+
+  <circle class="shape" cx="450" cy="310" r="225" fill="#dbe8e2" fill-opacity=".82"/>
+  <circle class="shape" cx="750" cy="310" r="225" fill="#dce5f2" fill-opacity=".82"/>
+  <circle class="shape" cx="600" cy="470" r="205" fill="#f2d6a2" fill-opacity=".82"/>
+
+  <text x="350" y="170" class="label" text-anchor="middle">REAL-TIME CONTROL</text>
+  <text x="315" y="220" class="small">Input, response,</text>
+  <text x="315" y="252" class="small">continuous correction</text>
+
+  <text x="850" y="170" class="label" text-anchor="middle">SIMULATED SPACE</text>
+  <text x="790" y="220" class="small">Scale, collision,</text>
+  <text x="790" y="252" class="small">spatial relationships</text>
+
+  <text x="600" y="555" class="label" text-anchor="middle">POLISH</text>
+  <text x="600" y="596" class="small" text-anchor="middle">Sensory cues that emphasise interaction</text>
+
+  <circle cx="600" cy="370" r="102" fill="#5f4b8b" stroke="#18211d" stroke-width="4"/>
+  <text x="600" y="360" class="label" text-anchor="middle" style="fill:#ffffff">GAME</text>
+  <text x="600" y="397" class="label" text-anchor="middle" style="fill:#ffffff">FEEL</text>
+
+  <rect x="135" y="680" width="930" height="52" rx="18" fill="#c85a2e"/>
+  <text x="600" y="714" class="body" text-anchor="middle" style="fill:#ffffff">A missing layer points to a different class of design change.</text>
+</svg>

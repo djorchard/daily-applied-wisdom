@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html" />
+    <meta property="og:title" content="Game Feel | Daily Applied Wisdom" />
+    <meta property="og:description" content="Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-09-30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Game Feel | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Game Feel","description":"Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable.","datePublished":"2026-09-30","about":{"@type":"Book","name":"Game Feel","author":[{"@type":"Person","name":"Steve Swink"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-09-30">30 September 2026</time></p>
+          <h1>Game Feel</h1>
+          <p class="lesson-author">Steve Swink</p>
+          <div class="lesson-meta"><span>2009 · First edition</span><span>Game design and interactive systems · Real-time control · Virtual sensation</span><span>8 to 11 minute read</span></div>
+          <p class="lesson-summary">Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Swink offers a practitioner model for a specific class of moment-to-moment game interaction, not a scientific definition accepted by every designer. Attribution is strong: the book defines its central scope through real-time control, simulated space and polish, then develops six design dimensions: input, response, context, polish, metaphor and rules. Hard measures such as delay, acceleration and collision boundaries can be observed directly. Judgements such as weight, responsiveness and satisfaction remain soft, context-dependent measures that require player observation. The applications below treat the model as a diagnostic vocabulary, not a promise that low latency or more effects will make any game enjoyable.</aside>
+          <div class="lesson-progress" data-book-progress data-book-slug="game-feel" data-book-idea-ids="[&quot;game-feel-idea-1&quot;,&quot;game-feel-idea-2&quot;,&quot;game-feel-idea-3&quot;]" data-clarity-mask="true" hidden>
+            <span class="learning-state" data-learning-state hidden>Learned</span>
+            <span class="learning-summary" data-learning-summary hidden></span>
+          </div>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Game Feel | Daily Applied Wisdom" data-share-text="Treat game feel as a controllable system: connect player input to immediate response, tune movement inside a meaningful space, and use metaphor, rules and polish to make interaction readable." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Find the intersection that creates game feel</a><a href="#idea-2"><span>02</span>Tune the control loop with useful measures</a><a href="#idea-3"><span>03</span>Make feedback tell the same physical story</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-orange" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Find the intersection that creates game feel <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Swink draws a deliberate boundary around game feel: real-time control of virtual objects in a simulated space, with interactions emphasised by polish. Real-time control creates a continuous loop in which the player can act, perceive the result and correct the next action. Simulated space gives that motion scale, collision and relationships. Polish adds sensory cues that reinforce the interaction.</p>
+<p>The definition is narrow on purpose. A turn-based strategy game can be excellent while falling outside this particular model, and a real-time game can contain some mechanics with strong feel and others with interrupted control. The model is a way to inspect an interaction, not a score for the whole game.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Audit one mechanic by asking three separate questions: can the player correct it continuously, what spatial relationship gives the motion meaning, and which sensory cues clarify the interaction? Diagnose the missing layer before adding features.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/game-feel-intersection.svg" alt="Three overlapping circles labelled real-time control, simulated space and polish meet at game feel. Notes distinguish continuous correction, meaningful spatial relationships and sensory emphasis." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Game feel sits where continuous control, meaningful space and sensory emphasis reinforce one another.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Vague complaints such as &quot;floaty&quot; or &quot;unresponsive&quot; can send a team toward random fixes. Separating control, space and polish narrows the search: the problem may be delayed response, weak collision context or feedback that fails to communicate impact.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one repeated action such as jumping, steering or dragging and trace one complete input, response and correction loop.</p>
+<p>Mark which of the three layers is weakest, then write one change that tests that diagnosis without altering the other two.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Swink's boundary excludes many valuable forms of play and should not be turned into a universal definition of quality. Menu interaction, turn-based planning and narrative choice can feel satisfying through other mechanisms. Use this model where continuous embodied control is central, and name the parts it does not explain.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="game-feel-idea-1" data-book-slug="game-feel" data-idea-number="1" aria-pressed="false" aria-label="Mark Idea 1 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="game-feel-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="game-feel-idea-1" data-lesson-slug="game-feel" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulGameFeelIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-orange" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Tune the control loop with useful measures <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Swink breaks the interaction into dimensions a designer can inspect. Input covers the physical device and the range of signals it can express. Response covers how the game maps and modulates those signals through values such as acceleration, speed, sensitivity and lockout. Context covers the space, obstacles and collision relationships that give movement practical meaning.</p>
+<p>Measurement does not mean reducing feel to one number. Hard measures such as response delay and velocity sit beside soft measures such as perceived weight, precision and freedom. The aim is to compare versions and relationships deliberately instead of copying another game's finished values without its context.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Turn &quot;the steering feels loose&quot; into a tuning sheet: device range, input curve, response delay, turn rate, acceleration, obstacle spacing and collision behaviour. Change one relationship, record the result, then compare the same manoeuvre again.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/game-feel-control-loop.svg" alt="A control loop runs from player intent through the input device and programmed response into movement inside spatial context, then returns perceptual feedback. Tuning points are shown at the relationships between stages." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Useful measures expose the relationships that vague feel words compress.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A single parameter rarely owns the sensation. Fast acceleration can feel precise in an open course and uncontrollable in a narrow one. Mapping the chain makes trade-offs repeatable and helps a team preserve a good relationship when another variable changes.</p></section>
+          <section><h3>Apply it today</h3><p>Pick one troublesome manoeuvre and record its input, response delay, main motion values and nearest spatial constraint.</p>
+<p>Change one value or one relationship, repeat the same manoeuvre three times and note both the measured difference and the felt difference.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Metrics can create false confidence. A shorter delay or smoother curve is not automatically better, accessibility needs may require different mappings, and laboratory consistency may hide how players behave under pressure. Use measures to make changes legible, then test the complete interaction with representative players.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="game-feel-idea-2" data-book-slug="game-feel" data-idea-number="2" aria-pressed="false" aria-label="Mark Idea 2 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="game-feel-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="game-feel-idea-2" data-lesson-slug="game-feel" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulGameFeelIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-orange" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Make feedback tell the same physical story <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Swink uses metaphor for the expectations created by representation and treatment. A stone, balloon and spaceship suggest different mass, acceleration and collision behaviour before the player moves them. Rules add goals, danger and value, changing which motions matter and how the player interprets control.</p>
+<p>Polish supplies artificial sensory cues about physical interaction: animation, sound, particles, camera movement and similar emphasis. These cues can make contact, weight and force easier to perceive. They work best when metaphor, rules, motion and feedback tell a compatible story.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Create a sensory contract for one interaction: what physical property should the player infer, which motion expresses it, and which single cue confirms it? Remove cues that communicate a competing property.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/game-feel-physical-story.svg" alt="A sequence connects metaphor and rules to expected physical properties, tuned motion and confirming polish. A mismatch branch shows how conflicting cues create an unclear physical story." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Feel becomes readable when expectation, motion and sensory feedback agree.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>More effects can make an interaction louder without making it clearer. Aligning the physical story helps each cue carry information: a brief sound can mark contact, a small deformation can suggest softness, and a rule can make the same motion feel risky rather than decorative.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one impact or movement and write the physical property the player should infer, such as heavy, elastic, fragile or precise.</p>
+<p>List the motion, sound, visual and rule cues currently present. Remove one contradiction or add one missing confirmation, then compare both versions.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Polish can amplify clutter, discomfort and accessibility barriers as easily as it amplifies clarity. Camera shake, flashes, vibration and loud transients need adjustable or alternative channels. A coherent physical story is still a design choice, not a demand for realism; stylised motion can be more readable than literal simulation.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="game-feel-idea-3" data-book-slug="game-feel" data-idea-number="3" aria-pressed="false" aria-label="Mark Idea 3 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="game-feel-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="game-feel-idea-3" data-lesson-slug="game-feel" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulGameFeelIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="game-feel" data-book-idea-ids="[&quot;game-feel-idea-1&quot;,&quot;game-feel-idea-2&quot;,&quot;game-feel-idea-3&quot;]" data-quiz-revision="2026-09-30-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-1-q1" data-question-type="concept" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>Which interaction best fits Swink's working definition of game feel?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-1-q1" value="0" required aria-describedby="game-feel-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>A branching dialogue presents carefully written choices after each scene.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-1-q1" value="1" required aria-describedby="game-feel-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>A player continuously steers an object through space with reinforced feedback.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-1-q1" value="2" required aria-describedby="game-feel-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>A strategy game resolves each submitted turn after every player has finished.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-1-q1" value="3" required aria-describedby="game-feel-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>A menu reveals detailed lore when the player selects highlighted entries.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Written choices can be compelling, but this example does not foreground continuous correction of an object in simulated space.</p><p data-feedback-for="1" hidden>Continuous steering, spatial relationships and reinforcing feedback meet the three parts of Swink's working definition.</p><p data-feedback-for="2" hidden>Turn resolution can support excellent strategy, but it interrupts the continuous input and correction loop central to this model.</p><p data-feedback-for="3" hidden>Readable menus matter, but selecting lore entries does not by itself create the real-time spatial control Swink is defining.</p>
+                    <p class="quiz-feedback-context">Swink's model centres on continuous control of a virtual object in simulated space, with polish emphasising the interaction. Other interactions can still be well designed.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-2-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Why does Swink combine hard and soft measures when tuning game feel?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-2-q1" value="0" required aria-describedby="game-feel-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Hard measures determine quality, while soft measures explain only player preference.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-2-q1" value="1" required aria-describedby="game-feel-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Soft measures replace technical data when the team cannot access the source code.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-2-q1" value="2" required aria-describedby="game-feel-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Technical values describe the system, while felt judgements describe its experience.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-2-q1" value="3" required aria-describedby="game-feel-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Both measures produce universal target values that can transfer between games.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Measured values are not an automatic quality ranking. Player perception remains necessary to interpret what those values produce.</p><p data-feedback-for="1" hidden>Soft measures capture qualities such as weight and precision even when complete technical data is available.</p><p data-feedback-for="2" hidden>Delay, velocity and spacing describe the system, while observed precision or heaviness describes what the relationship feels like.</p><p data-feedback-for="3" hidden>Context changes what a value means. Measures support comparison and tuning, but they do not create one universal recipe.</p>
+                    <p class="quiz-feedback-context">Hard measures make implementation relationships visible, while soft measures capture experienced qualities those values do not settle on their own.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-3-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What role does metaphor play in Swink's model of game feel?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-3-q1" value="0" required aria-describedby="game-feel-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>It converts every game object into a realistic simulation of its real counterpart.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-3-q1" value="1" required aria-describedby="game-feel-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>It defines the input device and physical limits available to the player.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-3-q1" value="2" required aria-describedby="game-feel-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>It adds optional effects after the control system has been fully tuned.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-3-q1" value="3" required aria-describedby="game-feel-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>It shapes expectations about how represented objects should move and interact.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Metaphor creates expectations, but the resulting motion can be stylised rather than physically literal.</p><p data-feedback-for="1" hidden>Input describes how intent enters the system. Metaphor concerns the expectations created by representation and treatment.</p><p data-feedback-for="2" hidden>Polish adds sensory emphasis. Metaphor operates earlier by shaping what behaviour the player expects from the object.</p><p data-feedback-for="3" hidden>A stone, balloon or spaceship carries expectations that affect how its motion and collisions are interpreted.</p>
+                    <p class="quiz-feedback-context">Metaphor helps players predict virtual behaviour from what an object appears to be. The prediction can support either realistic or deliberately stylised motion.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-1-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A platformer's jump feels wrong. What is the strongest first diagnostic step?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-1-q2" value="0" required aria-describedby="game-feel-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Trace input, motion, collision context and feedback to locate the weak layer.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-1-q2" value="1" required aria-describedby="game-feel-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Add particles and camera shake so every landing communicates greater impact.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-1-q2" value="2" required aria-describedby="game-feel-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Increase jump height because stronger movement usually feels more responsive.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-1-q2" value="3" required aria-describedby="game-feel-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Replace the controller because physical input devices determine the final feel.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A traced loop reveals whether the problem starts in input, programmed response, spatial context or sensory communication.</p><p data-feedback-for="1" hidden>Extra effects may amplify the landing, but they cannot identify whether the underlying motion or collision relationship is wrong.</p><p data-feedback-for="2" hidden>Height is one parameter among many. Changing it before diagnosis may trade one problem for another without explaining the feel.</p><p data-feedback-for="3" hidden>The device affects expression, but response, simulated space and feedback also shape the result. Test the complete chain first.</p>
+                    <p class="quiz-feedback-context">Tracing the whole interaction loop separates possible control, context and polish problems before the team changes several variables at once.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-2-q2" data-question-type="application" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A vehicle feels stable on a wide test track but twitchy in a narrow city level. What should the team examine first?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-2-q2" value="0" required aria-describedby="game-feel-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Increase visual polish because the city provides more objects for effects to emphasise.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-2-q2" value="1" required aria-describedby="game-feel-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Copy steering values from a successful racing game with a similar camera angle.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-2-q2" value="2" required aria-describedby="game-feel-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Keep the response fixed because consistent controls should feel identical in every space.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-2-q2" value="3" required aria-describedby="game-feel-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Compare steering response with street width, obstacle spacing and collision behaviour.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Effects may clarify motion, but they do not diagnose why the same steering relationship fails in tighter space.</p><p data-feedback-for="1" hidden>Reference values can inspire a test, but they depend on another game's speed, scale, collision and intended sensation.</p><p data-feedback-for="2" hidden>Consistency of numbers does not guarantee consistency of experience when the spatial constraints change.</p><p data-feedback-for="3" hidden>Control feel emerges from the response in context, so those relationships should be compared before isolated tuning.</p>
+                    <p class="quiz-feedback-context">The changed context can transform the same response values. The useful comparison is the relationship between steering, available space and collision consequences.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="game-feel-idea-3-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>A giant metal door opens instantly but uses heavy rumble and sparks. Players still call it weightless. What is the best next change?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="game-feel-idea-3-q2" value="0" required aria-describedby="game-feel-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Add louder rumble and more sparks so the sensory emphasis dominates perception.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="game-feel-idea-3-q2" value="1" required aria-describedby="game-feel-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Change the motion timing to express mass, then use restrained cues to confirm it.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="game-feel-idea-3-q2" value="2" required aria-describedby="game-feel-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Replace the metal texture with stone because stone always communicates more weight.</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="game-feel-idea-3-q2" value="3" required aria-describedby="game-feel-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Increase the reward behind the door so players value the interaction more highly.</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="game-feel-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>More emphasis can make the contradiction louder. The instant motion still tells players that the door has little resistance.</p><p data-feedback-for="1" hidden>Slower acceleration or follow-through can establish mass, and sensory cues can then reinforce the same property.</p><p data-feedback-for="2" hidden>A different material changes expectation but does not resolve the conflicting motion that currently produces weightlessness.</p><p data-feedback-for="3" hidden>Rules can add value and motivation, but the immediate physical mismatch between motion and feedback would remain.</p>
+                    <p class="quiz-feedback-context">The motion contradicts the intended physical story. Response and timing should express mass first, while polish confirms rather than fights that behaviour.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-mark-book-learned" type="button" data-mark-book-learned aria-pressed="false" hidden>Mark book as learned</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Build a one-variable feel ladder</h2>
+          <ol><li>Minutes 0 to 2: choose one repeated action and name the intended quality, such as precise, heavy or elastic.</li><li>Minutes 2 to 4: identify one adjustable relationship, such as acceleration to top speed or jump time to platform spacing.</li><li>Minutes 4 to 6: create low, current and high versions of that one value while holding the other layers steady.</li><li>Minutes 6 to 8: perform the same manoeuvre three times in each version and record one hard measure plus one felt description.</li><li>Minutes 8 to 10: choose the next range to test and name one context in which the preference might reverse.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> A three-point comparison that links one measured change to an observed difference in feel.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From Game Design Workshop: which parts of a playtest report should keep observation separate from interpretation and proposed change?</li><li>From Range: what would make a comparison between two movement systems structural rather than merely visual?</li><li>From Building Evolutionary Architectures: what small fitness function could protect one important response-time boundary?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://www.routledge.com/Game-Feel-A-Game-Designers-Guide-to-Virtual-Sensation/Swink/p/book/9780123743282" target="_blank" rel="noreferrer">Routledge: Game Feel edition, description and publication details <span aria-hidden="true">↗</span></a></li><li><a href="https://search.worldcat.org/title/276339670" target="_blank" rel="noreferrer">WorldCat: Game Feel bibliographic record and chapter contents <span aria-hidden="true">↗</span></a></li><li><a href="https://books.google.com/books?id=5FTGhz9qC9MC" target="_blank" rel="noreferrer">Google Books: Game Feel publication record and preview <span aria-hidden="true">↗</span></a></li><li><a href="https://dtc-wsuv.org/wp/dtc338-engines/files/2017/01/Mechanics-and-Metrics-of-Game-Feel-Steve-Swink.pdf" target="_blank" rel="noreferrer">Washington State University course extract: mechanics and metrics of game feel <span aria-hidden="true">↗</span></a></li><li><a href="https://www.gamedeveloper.com/design/steve-swink-on-the-art-of-experimental-games" target="_blank" rel="noreferrer">Game Developer: Steve Swink on control feel and physical input <span aria-hidden="true">↗</span></a></li><li><a href="https://arxiv.org/abs/2011.09201" target="_blank" rel="noreferrer">Designing Game Feel: survey of tuning, juicing and streamlining <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Make control legible: trace the loop, tune relationships in context, and let every cue confirm the same physical story.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="game-feel-steve-swink" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/game-feel.html" data-page-title="Game Feel | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="range.html"><span>Previous</span>Range</a>
+        <span></span>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026 Daniel Barnes</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

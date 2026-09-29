@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="game-feel-loop-title game-feel-loop-desc">
+  <title id="game-feel-loop-title">Tune the complete control loop</title>
+  <desc id="game-feel-loop-desc">A control loop runs from player intent through the input device and programmed response into movement inside spatial context, then returns perceptual feedback. Tuning points sit at the relationships between stages.</desc>
+  <defs>
+    <marker id="game-feel-loop-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#356987"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #356987; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">TRACE ONE COMPLETE ACTION AND CORRECTION LOOP</text>
+
+  <rect class="card" x="65" y="150" width="220" height="190" rx="26" fill="#e8e0f2"/>
+  <text x="175" y="198" class="label" text-anchor="middle">PLAYER INTENT</text>
+  <text x="175" y="245" class="body" text-anchor="middle">Desired motion</text>
+  <text x="175" y="282" class="small" text-anchor="middle">and next correction</text>
+
+  <rect class="card" x="335" y="150" width="220" height="190" rx="26" fill="#dbe8e2"/>
+  <text x="445" y="198" class="label" text-anchor="middle">INPUT</text>
+  <text x="445" y="245" class="body" text-anchor="middle">Device range</text>
+  <text x="445" y="282" class="small" text-anchor="middle">states and mapping</text>
+
+  <rect class="card" x="605" y="150" width="220" height="190" rx="26" fill="#f2d6a2"/>
+  <text x="715" y="198" class="label" text-anchor="middle">RESPONSE</text>
+  <text x="715" y="245" class="body" text-anchor="middle">Delay, speed</text>
+  <text x="715" y="282" class="small" text-anchor="middle">curves and lockout</text>
+
+  <rect class="card" x="875" y="150" width="260" height="190" rx="26" fill="#ead9cb"/>
+  <text x="1005" y="198" class="label" text-anchor="middle">CONTEXT</text>
+  <text x="1005" y="245" class="body" text-anchor="middle">Space, obstacles</text>
+  <text x="1005" y="282" class="small" text-anchor="middle">and collision behaviour</text>
+
+  <path class="line" d="M285 245 H319" marker-end="url(#game-feel-loop-arrow)"/>
+  <path class="line" d="M555 245 H589" marker-end="url(#game-feel-loop-arrow)"/>
+  <path class="line" d="M825 245 H859" marker-end="url(#game-feel-loop-arrow)"/>
+
+  <path class="line" d="M1005 340 V440 Q1005 475 970 475 H215 Q175 475 175 435 V358" marker-end="url(#game-feel-loop-arrow)"/>
+  <text x="600" y="430" class="label" text-anchor="middle">PERCEIVE THE RESULT, THEN CORRECT</text>
+  <text x="600" y="515" class="small" text-anchor="middle">Measure the parts and the relationships: the same response changes meaning in a tighter space.</text>
+
+  <rect class="card" x="130" y="585" width="940" height="105" rx="26" fill="#fffdf8"/>
+  <text x="600" y="626" class="label" text-anchor="middle">PAIR HARD AND SOFT MEASURES</text>
+  <text x="600" y="667" class="body" text-anchor="middle">Delay and velocity · Precision and weight · Repeated manoeuvre and player report</text>
+</svg>
