@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "how-to-measure-anything",
+      "discussionId": "how-to-measure-anything-douglas-hubbard",
+      "date": "2026-10-02",
+      "dateLabel": "2 October 2026",
+      "edition": "Daily lesson",
+      "title": "How to Measure Anything",
+      "authors": "Douglas W. Hubbard",
+      "year": "2007 · Third edition, 2014",
+      "category": "Applied mathematics and quantitative reasoning · Measurement · Decision analysis",
+      "accent": "blue",
+      "readTime": "9 to 12 minute read",
+      "quizRevision": "2026-10-02-1",
+      "summary": "Turn a vague unknown into a decision tool: define what would change the choice, express uncertainty honestly, then buy only the information worth more than it costs.",
+      "evidenceNote": "Attribution is strong: Hubbard defines measurement as uncertainty reduction, develops calibrated estimates, and uses value of information to decide what to observe next. The underlying decision-analysis principles are established, but the quality of any result remains context-dependent because ranges, probabilities, consequence models and proxies can be wrong. Evidence that feedback can improve probability calibration is mixed on transfer: controlled studies show improvement on trained tasks, with limited generalisation to dissimilar tasks. The applications below are practitioner interpretations for ordinary product and work decisions, not guarantees that every intangible can be measured cheaply or without contested value judgements.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Measure the decision, not the noun",
+          "argument": [
+            "Hubbard defines measurement as a quantitatively expressed reduction in uncertainty based on observations. That definition does not require one exact value. Moving from a very wide plausible range to a narrower one is already a measurement if it leaves you knowing more than before.",
+            "He begins by asking which decision the measurement should inform and what observable consequence gives the vague term meaning. A request to measure quality, risk or satisfaction becomes tractable only after naming the choice, the consequence that matters, and a quantity whose possible values could change that choice."
+          ],
+          "extension": "Before building a dashboard, write a decision sentence: We must choose between these alternatives, and we would change our choice if this observable outcome crossed this threshold. That sentence exposes decorative metrics and ambiguous proxies before they consume effort.",
+          "image": "../assets/lesson-visuals/measurement-decision-first.svg",
+          "imageAlt": "A flow begins with a choice, turns a vague unknown into an observable outcome, takes a small observation and ends with a narrower range that can inform the choice.",
+          "imageCaption": "A useful measurement narrows uncertainty about an observable consequence of a real choice.",
+          "why": "Teams often collect available data and only later ask what it means. Decision-first measurement reverses the sequence. It makes a metric useful or discardable by testing whether a realistic change in its value would alter an action.",
+          "apply": [
+            "Choose one live uncertainty and name the two actions currently under consideration.",
+            "Replace the abstract label with one observable outcome, a time window and the threshold at which the preferred action would change."
+          ],
+          "caveat": "Operational definitions can hide important values. A convenient proxy may be precise yet incomplete, and some outcomes are plural or contested rather than reducible to one number. Keep the decision and the construct visible, use multiple observations when needed, and do not let a proxy silently become the goal.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which result counts as measurement under Hubbard's definition?",
+              "options": [
+                "One exact value removes every remaining doubt from the decision.",
+                "An observation reduces uncertainty about a quantity relevant to the decision.",
+                "A standard metric replaces judgement across every possible outcome and context.",
+                "A larger dataset records more events than the team previously collected."
+              ],
+              "correctIndex": 1,
+              "feedback": "Measurement is useful uncertainty reduction expressed quantitatively. Exactness, standardisation and volume alone do not establish that the observation informs a decision.",
+              "feedbackByOption": [
+                "Exactness is not required and total certainty is rarely available. A narrower defensible range can already be a measurement.",
+                "Correct. The observation counts because it leaves the decision maker quantitatively less uncertain about something relevant.",
+                "A standard metric can still be a poor proxy. Measurement does not remove the need to judge what consequence matters.",
+                "More records can leave the important uncertainty unchanged. Dataset size alone does not show that useful information was gained."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team is asked to measure service quality before choosing whether to redesign support. What is the strongest first step?",
+              "options": [
+                "Track the team's confidence in its current support process each week.",
+                "Copy the service-quality score used by the largest competitor in the market.",
+                "Define the choice, observable customer outcome and decision threshold.",
+                "Collect every available support metric before choosing a model."
+              ],
+              "correctIndex": 2,
+              "feedback": "The first useful move is to connect the vague construct to the pending choice, an observable outcome and a threshold that could change action.",
+              "feedbackByOption": [
+                "Team confidence may be worth observing, but it does not yet define the customer consequence or the redesign decision.",
+                "A competitor's score may use different goals and constraints. Borrowing it avoids rather than clarifies the local decision.",
+                "Correct. This turns service quality into a testable uncertainty tied to a real choice before data collection begins.",
+                "Collecting everything is costly and may preserve ambiguity. The decision should determine which observations are relevant."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Calibrate the range before narrowing it",
+          "argument": [
+            "Hubbard asks estimators to express uncertainty as ranges and probabilities, then test whether their stated confidence matches outcomes across repeated estimates. A person using 90 percent intervals is calibrated when roughly 90 percent of comparable intervals contain the true value over time, not when every interval succeeds.",
+            "Calibration is a skill supported by feedback, decomposition and explicit practice. Research on probability judgement finds systematic overconfidence and shows that feedback can improve performance, while also warning that learning may not transfer to dissimilar tasks. A range should therefore communicate honest uncertainty, not decorate a guess with two numbers."
+          ],
+          "extension": "Estimate before searching. Write a defensible lower and upper bound, record why each boundary seems plausible, then compare the eventual outcome with the interval. Repeated scoring reveals whether your ranges are routinely too narrow, too wide or poorly discriminating.",
+          "image": "../assets/lesson-visuals/measurement-calibration-loop.svg",
+          "imageAlt": "A five-step calibration loop sets a confidence range, reveals the outcome, scores whether it fell inside, adjusts estimation habits and repeats across comparable questions.",
+          "imageCaption": "Calibration is a long-run match between stated confidence and observed outcomes, built through feedback.",
+          "why": "Single-point estimates conceal uncertainty and invite false precision. Calibrated ranges make disagreement inspectable, support simple risk models and create a record that can improve future estimates instead of rewarding lucky guesses.",
+          "apply": [
+            "For one uncertain delivery, cost or demand quantity, write a 90 percent confidence interval before looking up more data.",
+            "Name the assumption that sets each boundary and schedule a later check against the observed result."
+          ],
+          "caveat": "A calibrated forecaster can still be wrong on an individual case, and a well-calibrated range may have weak resolution if it is always extremely wide. Feedback from trivia or familiar domains may not transfer to a specialised estimate. Track calibration and usefulness separately, and obtain domain evidence where consequences are high.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What makes a set of 90 percent intervals calibrated?",
+              "options": [
+                "Every interval is centred on the final value once the outcome is known.",
+                "Each interval is narrow enough to force a single preferred action.",
+                "The estimates avoid subjective judgement by using historical averages from similar work.",
+                "Across comparable estimates, about 90 percent contain the actual outcomes."
+              ],
+              "correctIndex": 3,
+              "feedback": "Calibration concerns long-run correspondence between stated confidence and outcomes. It does not promise that every interval contains the truth or that intervals are automatically useful.",
+              "feedbackByOption": [
+                "Recentring after the outcome is hindsight, not calibration. The interval must be stated before the result is known.",
+                "Narrowness concerns resolution and decision usefulness. An unjustifiably narrow interval can be badly calibrated.",
+                "Historical data can help, but judgement remains in relevance, modelling and boundary choices. Its presence does not settle calibration.",
+                "Correct. Over many comparable estimates, the observed containment rate should match the stated confidence level."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A product owner gives very narrow delivery ranges, but only half of the actual dates fall inside them. What is the best next practice?",
+              "options": [
+                "Record confidence ranges before delivery, score outcomes and use feedback to widen or refine later estimates.",
+                "Replace every range with its midpoint so stakeholders receive one unambiguous date.",
+                "Keep the narrow ranges because precision encourages the team to work toward the estimate.",
+                "Use much wider ranges without recording assumptions, because wider intervals guarantee better forecasting performance."
+              ],
+              "correctIndex": 0,
+              "feedback": "The miss rate shows overconfidence relative to the stated ranges. Precommitted intervals, outcome scoring and repeated feedback create evidence for adjustment.",
+              "feedbackByOption": [
+                "Correct. This creates a calibration record and a feedback loop while preserving the assumptions that might explain misses.",
+                "A midpoint hides the demonstrated uncertainty and prevents the team from learning whether its confidence was justified.",
+                "A motivational target is different from a forecast. Calling the target a confidence range would misrepresent uncertainty.",
+                "Wider intervals may improve containment but can become uninformative. Assumptions and decision usefulness still need to be examined."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Buy information only where it can change the choice",
+          "argument": [
+            "Hubbard uses value of information to rank measurement opportunities. The first question is not which uncertainty is largest. It is whether resolving that uncertainty could change the preferred action and improve the expected outcome. A highly uncertain input can have little information value when every plausible value leads to the same choice.",
+            "The expected value of perfect information provides an upper bound on what complete resolution of an uncertainty could be worth. Real observations are imperfect, so their expected value is lower. Compare that potential improvement with the cost, delay and risk of obtaining the evidence, then measure the variables with the highest net value first."
+          ],
+          "extension": "For each disputed input, test the endpoints of its plausible range. If the preferred decision never changes, stop refining it for now. If the choice flips and the consequence matters, design the cheapest observation likely to narrow the range enough to choose.",
+          "image": "../assets/lesson-visuals/measurement-information-value.svg",
+          "imageAlt": "A decision filter asks whether plausible values can change the choice, whether being wrong matters, and whether expected decision improvement exceeds the study cost before recommending measurement.",
+          "imageCaption": "Information earns attention when it can change a consequential choice for less than its expected benefit.",
+          "why": "Teams can spend weeks improving a visible estimate while ignoring the uncertainty that actually drives a decision. Value of information turns measurement into an allocation problem: learn first where being less wrong is most likely to pay.",
+          "apply": [
+            "List three uncertain inputs in a current decision and test each input at its plausible low and high values.",
+            "Circle the inputs that flip the preferred action, then choose the cheapest credible observation whose expected benefit could exceed its cost."
+          ],
+          "caveat": "Information-value calculations inherit the assumptions, probabilities and values in the decision model. They can create false precision when consequences are omitted or moral and strategic concerns are forced into a crude monetary score. Use rough bounds for small decisions, expose value judgements, and revisit the model when new options appear.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which uncertainty should usually receive measurement effort first?",
+              "options": [
+                "The one whose resolution could most improve the expected decision after measurement cost.",
+                "The one with the widest numerical range, regardless of the alternatives under review.",
+                "The one stakeholders discuss most often, because attention reveals business importance.",
+                "The one that can be measured most precisely with the organisation's existing tools."
+              ],
+              "correctIndex": 0,
+              "feedback": "Value of information prioritises uncertainty by its expected effect on the decision, net of the cost of obtaining evidence, rather than by uncertainty or convenience alone.",
+              "feedbackByOption": [
+                "Correct. The priority is information that can improve the choice enough to justify the cost of obtaining it.",
+                "A wide range may not matter if the same action wins across its whole span. Uncertainty alone does not establish value.",
+                "Attention can reflect politics or familiarity. It does not show that resolving the issue would change the preferred action.",
+                "Easy precision can still target an irrelevant variable. Decision sensitivity should come before measurement convenience."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "Two architecture options depend on an uncertain traffic peak. Both low and high plausible peaks favour option A. What is the best next action?",
+              "options": [
+                "Commission a larger load study because traffic is the most uncertain input.",
+                "Choose option B temporarily so the study can compare both architectures equally.",
+                "Replace the traffic range with its average and rerun the same comparison.",
+                "Defer traffic measurement and test another uncertainty that might change the choice."
+              ],
+              "correctIndex": 3,
+              "feedback": "If option A wins across the plausible traffic range, more precision about that input has little immediate decision value. Attention should move to an uncertainty that can alter the choice.",
+              "feedbackByOption": [
+                "The size of the uncertainty is not enough. The sensitivity test shows that resolving this input is unlikely to change the decision.",
+                "Choosing B for procedural symmetry sacrifices the current evidence without creating information value.",
+                "A midpoint hides the robustness already visible at both ends of the range and adds no useful observation.",
+                "Correct. Measurement effort should move to an uncertainty with a realistic chance of changing a consequential decision."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Write a decision-first measurement brief",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: name one pending choice and the two most credible alternatives.",
+          "Minutes 2 to 4: define one observable outcome and the threshold that would change the choice.",
+          "Minutes 4 to 6: write a 90 percent range for that outcome and note what sets each boundary.",
+          "Minutes 6 to 8: test whether the preferred action changes at the low and high ends of the range.",
+          "Minutes 8 to 10: if it changes, choose one cheap observation and a stop rule; if it does not, name the next uncertainty to test."
+        ],
+        "result": "A one-page brief showing the decision, observable quantity, honest range, sensitivity result and next measurement or stop rule."
+      },
+      "spacedRecall": [
+        "From Noise: how would you distinguish unwanted variation between judges from genuine uncertainty in the outcome they are estimating?",
+        "From Range: what structural analogy could help you estimate an unfamiliar quantity without copying a superficial match?",
+        "From Your Money or Your Life: which spending decision might change if its true cost were measured in life energy rather than dollars alone?"
+      ],
+      "takeaway": "Measure less but learn more: tie uncertainty to a decision, calibrate what you know, and observe only where better information can change the choice.",
+      "sources": [
+        {
+          "label": "Wiley: How to Measure Anything, third edition companion and contents",
+          "url": "https://bcs.wiley.com/he-bcs/Books?action=index&bcsId=8797&itemId=1118539273"
+        },
+        {
+          "label": "Wiley excerpt: How to Measure Anything, third edition",
+          "url": "https://catalogimages.wiley.com/images/db/pdf/9781118539279.excerpt.pdf"
+        },
+        {
+          "label": "Hubbard Decision Research: seven principles for measuring anything",
+          "url": "https://hubbardresearch.com/7-simple-principles-for-measuring-anything/"
+        },
+        {
+          "label": "Lichtenstein, Fischhoff and Phillips: calibration and overconfidence research",
+          "url": "https://doi.org/10.1016/0030-5073(77)90001-0"
+        },
+        {
+          "label": "Lichtenstein and Fischhoff: training for calibration and limits to transfer",
+          "url": "https://doi.org/10.1016/0030-5073(80)90052-5"
+        },
+        {
+          "label": "Cambridge University Press: uncertainty, sensitivity analysis and value of information",
+          "url": "https://doi.org/10.1017/9781108633840.009"
+        }
+      ]
+    },
+    {
       "slug": "game-feel",
       "discussionId": "game-feel-steve-swink",
       "date": "2026-09-30",
