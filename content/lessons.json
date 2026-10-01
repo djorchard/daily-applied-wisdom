@@ -24,7 +24,7 @@
             "He begins by asking which decision the measurement should inform and what observable consequence gives the vague term meaning. A request to measure quality, risk or satisfaction becomes tractable only after naming the choice, the consequence that matters, and a quantity whose possible values could change that choice."
           ],
           "extension": "Before building a dashboard, write a decision sentence: We must choose between these alternatives, and we would change our choice if this observable outcome crossed this threshold. That sentence exposes decorative metrics and ambiguous proxies before they consume effort.",
-          "image": "../assets/lesson-visuals/measurement-decision-first.svg",
+          "image": "../assets/lesson-visuals/measurement-decision-first-v2.svg",
           "imageAlt": "A flow begins with a choice, turns a vague unknown into an observable outcome, takes a small observation and ends with a narrower range that can inform the choice.",
           "imageCaption": "A useful measurement narrows uncertainty about an observable consequence of a real choice.",
           "why": "Teams often collect available data and only later ask what it means. Decision-first measurement reverses the sequence. It makes a metric useful or discardable by testing whether a realistic change in its value would alter an action.",
@@ -82,7 +82,7 @@
             "Calibration is a skill supported by feedback, decomposition and explicit practice. Research on probability judgement finds systematic overconfidence and shows that feedback can improve performance, while also warning that learning may not transfer to dissimilar tasks. A range should therefore communicate honest uncertainty, not decorate a guess with two numbers."
           ],
           "extension": "Estimate before searching. Write a defensible lower and upper bound, record why each boundary seems plausible, then compare the eventual outcome with the interval. Repeated scoring reveals whether your ranges are routinely too narrow, too wide or poorly discriminating.",
-          "image": "../assets/lesson-visuals/measurement-calibration-loop.svg",
+          "image": "../assets/lesson-visuals/measurement-calibration-loop-v2.svg",
           "imageAlt": "A five-step calibration loop sets a confidence range, reveals the outcome, scores whether it fell inside, adjusts estimation habits and repeats across comparable questions.",
           "imageCaption": "Calibration is a long-run match between stated confidence and observed outcomes, built through feedback.",
           "why": "Single-point estimates conceal uncertainty and invite false precision. Calibrated ranges make disagreement inspectable, support simple risk models and create a record that can improve future estimates instead of rewarding lucky guesses.",
@@ -140,7 +140,7 @@
             "The expected value of perfect information provides an upper bound on what complete resolution of an uncertainty could be worth. Real observations are imperfect, so their expected value is lower. Compare that potential improvement with the cost, delay and risk of obtaining the evidence, then measure the variables with the highest net value first."
           ],
           "extension": "For each disputed input, test the endpoints of its plausible range. If the preferred decision never changes, stop refining it for now. If the choice flips and the consequence matters, design the cheapest observation likely to narrow the range enough to choose.",
-          "image": "../assets/lesson-visuals/measurement-information-value.svg",
+          "image": "../assets/lesson-visuals/measurement-information-value-v2.svg",
           "imageAlt": "A decision filter asks whether plausible values can change the choice, whether being wrong matters, and whether expected decision improvement exceeds the study cost before recommending measurement.",
           "imageCaption": "Information earns attention when it can change a consequential choice for less than its expected benefit.",
           "why": "Teams can spend weeks improving a visible estimate while ignoring the uncertainty that actually drives a decision. Value of information turns measurement into an allocation problem: learn first where being less wrong is most likely to pay.",
