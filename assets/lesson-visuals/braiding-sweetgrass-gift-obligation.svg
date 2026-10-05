@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="gift-obligation-title gift-obligation-desc">
+  <title id="gift-obligation-title">A gift begins a reciprocal relationship</title>
+  <desc id="gift-obligation-desc">A four-stage flow moves from a living source to receiving with attention, sharing the benefit and making a concrete return, which supports renewed conditions for future gifts.</desc>
+  <defs>
+    <marker id="gift-obligation-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#2f6f5e"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #2f6f5e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="70" class="label">A GIFT STARTS A RELATIONSHIP</text>
+
+  <rect class="card" x="55" y="150" width="235" height="245" rx="28" fill="#dbe8e2"/>
+  <circle cx="172" cy="218" r="38" fill="#2f6f5e"/>
+  <path d="M154 222 C160 190 186 190 192 222 C184 211 177 207 172 207 C166 207 160 211 154 222 Z" fill="#fffdf8"/>
+  <text x="172" y="290" class="label" text-anchor="middle">SOURCE</text>
+  <text x="172" y="334" class="small" text-anchor="middle">Living systems, people</text>
+  <text x="172" y="368" class="small" text-anchor="middle">and inherited knowledge</text>
+
+  <rect class="card" x="340" y="150" width="235" height="245" rx="28" fill="#e8e0f2"/>
+  <circle cx="457" cy="218" r="38" fill="#5f4b8b"/>
+  <path d="M439 220 H475 M457 202 V238" stroke="#fffdf8" stroke-width="7" stroke-linecap="round"/>
+  <text x="457" y="290" class="label" text-anchor="middle">RECEIVE</text>
+  <text x="457" y="334" class="small" text-anchor="middle">Notice dependence,</text>
+  <text x="457" y="368" class="small" text-anchor="middle">limits and consent</text>
+
+  <rect class="card" x="625" y="150" width="235" height="245" rx="28" fill="#f2d6a2"/>
+  <circle cx="742" cy="218" r="38" fill="#a46124"/>
+  <circle cx="730" cy="214" r="8" fill="#fffdf8"/>
+  <circle cx="754" cy="214" r="8" fill="#fffdf8"/>
+  <path d="M720 238 Q742 252 764 238" fill="none" stroke="#fffdf8" stroke-width="6" stroke-linecap="round"/>
+  <text x="742" y="290" class="label" text-anchor="middle">SHARE</text>
+  <text x="742" y="334" class="small" text-anchor="middle">Use well and widen</text>
+  <text x="742" y="368" class="small" text-anchor="middle">the benefit</text>
+
+  <rect class="card" x="910" y="150" width="235" height="245" rx="28" fill="#ead9cb"/>
+  <circle cx="1027" cy="218" r="38" fill="#b04f77"/>
+  <path d="M1009 224 Q1027 192 1045 224 Q1027 245 1009 224 Z" fill="#fffdf8"/>
+  <text x="1027" y="290" class="label" text-anchor="middle">RETURN</text>
+  <text x="1027" y="334" class="small" text-anchor="middle">Repair, replenish</text>
+  <text x="1027" y="368" class="small" text-anchor="middle">or protect access</text>
+
+  <path class="line" d="M290 272 H323" marker-end="url(#gift-obligation-arrow)"/>
+  <path class="line" d="M575 272 H608" marker-end="url(#gift-obligation-arrow)"/>
+  <path class="line" d="M860 272 H893" marker-end="url(#gift-obligation-arrow)"/>
+
+  <path class="line" d="M1027 395 V458 Q1027 490 995 490 H205 Q172 490 172 458 V412" marker-end="url(#gift-obligation-arrow)"/>
+  <rect class="card" x="185" y="535" width="830" height="125" rx="28" fill="#fffdf8"/>
+  <text x="600" y="582" class="label" text-anchor="middle">THE RECEIPT IS NOT THE END</text>
+  <text x="600" y="623" class="body" text-anchor="middle">A concrete return helps renew the conditions that made the gift possible.</text>
+</svg>

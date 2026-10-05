@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="attention-language-title attention-language-desc">
+  <title id="attention-language-title">Language can guide a loop of relational attention</title>
+  <desc id="attention-language-desc">A four-stage loop moves from words to directed attention, observed actions and relationships, and a more informed response. A comparison shows how the label unused land hides what a wetland does and supports.</desc>
+  <defs>
+    <marker id="attention-language-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#5f4b8b"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .04em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #5f4b8b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="70" y="68" class="label">WORDS CAN CHANGE THE NEXT QUESTION</text>
+
+  <rect class="card" x="75" y="130" width="230" height="205" rx="28" fill="#e8e0f2"/>
+  <text x="190" y="180" class="label" text-anchor="middle">WORDS</text>
+  <text x="190" y="230" class="body" text-anchor="middle">Choose labels,</text>
+  <text x="190" y="266" class="body" text-anchor="middle">verbs and subjects</text>
+  <text x="190" y="308" class="small" text-anchor="middle">What can be said?</text>
+
+  <rect class="card" x="355" y="130" width="230" height="205" rx="28" fill="#dbe8e2"/>
+  <text x="470" y="180" class="label" text-anchor="middle">ATTENTION</text>
+  <text x="470" y="230" class="body" text-anchor="middle">Notice actions,</text>
+  <text x="470" y="266" class="body" text-anchor="middle">needs and change</text>
+  <text x="470" y="308" class="small" text-anchor="middle">What becomes visible?</text>
+
+  <rect class="card" x="635" y="130" width="230" height="205" rx="28" fill="#f2d6a2"/>
+  <text x="750" y="180" class="label" text-anchor="middle">RELATIONS</text>
+  <text x="750" y="230" class="body" text-anchor="middle">Observe flows,</text>
+  <text x="750" y="266" class="body" text-anchor="middle">dependants and limits</text>
+  <text x="750" y="308" class="small" text-anchor="middle">What can be checked?</text>
+
+  <rect class="card" x="915" y="130" width="230" height="205" rx="28" fill="#ead9cb"/>
+  <text x="1030" y="180" class="label" text-anchor="middle">RESPONSE</text>
+  <text x="1030" y="230" class="body" text-anchor="middle">Ask better,</text>
+  <text x="1030" y="266" class="body" text-anchor="middle">then act with care</text>
+  <text x="1030" y="308" class="small" text-anchor="middle">What follows now?</text>
+
+  <path class="line" d="M305 232 H338" marker-end="url(#attention-language-arrow)"/>
+  <path class="line" d="M585 232 H618" marker-end="url(#attention-language-arrow)"/>
+  <path class="line" d="M865 232 H898" marker-end="url(#attention-language-arrow)"/>
+  <path class="line" d="M1030 335 V382 Q1030 410 1002 410 H218 Q190 410 190 382 V352" marker-end="url(#attention-language-arrow)"/>
+
+  <rect class="card" x="80" y="480" width="465" height="165" rx="28" fill="#f3d4d4"/>
+  <text x="312" y="527" class="label" text-anchor="middle">LABEL ONLY</text>
+  <text x="312" y="576" class="body" text-anchor="middle">Wetland equals unused land</text>
+  <text x="312" y="615" class="small" text-anchor="middle">A category hides activity and dependence.</text>
+
+  <rect class="card" x="655" y="480" width="465" height="165" rx="28" fill="#fffdf8"/>
+  <text x="887" y="527" class="label" text-anchor="middle">RELATIONAL DESCRIPTION</text>
+  <text x="887" y="570" class="body" text-anchor="middle">Stores water, shelters life, changes</text>
+  <text x="887" y="606" class="body" text-anchor="middle">with seasons and connects downstream.</text>
+
+  <text x="600" y="704" class="small" text-anchor="middle">Language guides attention; it does not guarantee knowledge, consent or ethical action.</text>
+</svg>

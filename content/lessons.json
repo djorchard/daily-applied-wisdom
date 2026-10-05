@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "braiding-sweetgrass",
+      "discussionId": "braiding-sweetgrass-robin-wall-kimmerer",
+      "date": "2026-10-06",
+      "dateLabel": "6 October 2026",
+      "edition": "Daily lesson",
+      "title": "Braiding Sweetgrass",
+      "authors": "Robin Wall Kimmerer",
+      "year": "2013 · First edition",
+      "category": "Better life and high-quality wildcards · Nature · Reciprocity",
+      "accent": "green",
+      "readTime": "10 to 13 minute read",
+      "quizRevision": "2026-10-06-1",
+      "summary": "Meet the living world as a relationship rather than a warehouse: receive gifts with attention, let restraint guide what you take, and make reciprocity visible through a concrete return.",
+      "evidenceNote": "Attribution is strong: Kimmerer explicitly braids Potawatomi teachings, botanical science and personal experience around gifts, the Honorable Harvest and the grammar of animacy. The ecological examples and her sweetgrass research are empirical, while the ethical meanings are Indigenous teachings and philosophical interpretation rather than universal scientific laws. Evidence that language can guide attention is context-dependent and does not prove that a grammatical form causes respectful behaviour. The applications below are practitioner interpretations for ordinary consumption and attention. They do not transfer Potawatomi ceremony, erase Indigenous sovereignty or replace local ecological and cultural knowledge.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Receive the gift, then notice the obligation",
+          "argument": [
+            "Kimmerer contrasts a commodity, which can seem finished once purchased, with a gift, which carries a relationship between giver, receiver and the wider community. Air, food, water and the work of other beings arrive through systems we did not create alone. Naming them as gifts makes dependence and gratitude harder to ignore.",
+            "In the book, gratitude is not a private feeling that settles the account. Receiving well calls for responsibility: use the gift carefully, share its benefits and contribute to the conditions that let the giver and future receivers flourish. Reciprocity turns appreciation into a continuing relationship."
+          ],
+          "extension": "Choose one ordinary benefit and trace the living, human and material sources that made it possible. Then name a return that serves the source or the shared system, rather than treating a thankful thought as the end of the exchange.",
+          "image": "../assets/lesson-visuals/braiding-sweetgrass-gift-obligation.svg",
+          "imageAlt": "A circular flow shows a living source offering a gift, a receiver using it with care, benefits being shared and a concrete return supporting renewed conditions.",
+          "imageCaption": "A gift becomes a relationship when receiving leads to care, sharing and a return.",
+          "why": "Consumption hides its upstream relationships easily. A gift lens restores visibility: it asks what sustains you, who bears the cost and what action could keep the exchange from ending at extraction.",
+          "apply": [
+            "Pick one thing you will use today, such as food, water, shade or a public place, and list three sources that made it available.",
+            "Choose one proportionate return you can complete or schedule, such as preventing waste, repairing damage, sharing access or supporting responsible care."
+          ],
+          "caveat": "Gift language must not romanticise unpaid labour, excuse exploitation or imply that land and knowledge are freely available to take. A genuine gift depends on consent and context. Reciprocity also does not entitle an outsider to copy Indigenous ceremony or claim authority over teachings that belong to particular peoples and places.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What most distinguishes Kimmerer's gift lens from a completed purchase?",
+              "options": [
+                "The receiver proves gratitude by refusing to place any value on the gift.",
+                "Receiving creates a relationship that carries responsibility beyond possession.",
+                "The giver retains control over every later use made by the receiver.",
+                "A gift removes scarcity because it circulates outside formal markets."
+              ],
+              "correctIndex": 1,
+              "feedback": "Kimmerer's gift lens keeps the relationship visible after receipt. Gratitude becomes responsibility, care, sharing and return, without denying limits, consent or material value.",
+              "feedbackByOption": [
+                "Refusing all valuation is not the central distinction. The lesson asks the receiver to recognise sources and responsibilities, including material ones.",
+                "Correct. The gift is not finished at possession; it links receiving with care for the giver, the community and future renewal.",
+                "Responsibility is not perpetual control by the giver. Consent and context matter, but reciprocity concerns how the receiver answers the relationship.",
+                "Gifts can still be scarce and can coexist with markets. Their distinctive feature here is the obligation carried by relationship, not unlimited supply."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team receives free access to a community-maintained garden for an event. Which response best applies the gift lens?",
+              "options": [
+                "Thank the organiser publicly, then leave future maintenance to regular members.",
+                "Estimate the commercial hire price so the team can treat access as a saving.",
+                "Avoid using the garden because accepting a gift always creates an unfair debt.",
+                "Use it carefully, share the benefit and agree on a useful return with its carers."
+              ],
+              "correctIndex": 3,
+              "feedback": "Receiving well combines care during use with a return shaped by the people responsible for the place. Visibility, consent and practical reciprocity matter more than a symbolic thank-you alone.",
+              "feedbackByOption": [
+                "Public thanks can recognise the gift, but it leaves the material relationship unfinished if the event creates work or uses shared capacity.",
+                "A market comparison can show value, yet it does not answer what the living place and its carers need after the team's use.",
+                "A gift need not create coercive debt. The stronger response is to clarify expectations and offer a proportionate, welcomed return.",
+                "Correct. Careful use, shared benefit and a return chosen with the carers keep gratitude connected to responsibility and consent."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Let restraint govern the harvest",
+          "argument": [
+            "Kimmerer presents the Honorable Harvest as teachings that regulate taking within reciprocal relationships. Its practices include asking permission, taking only what is needed, minimising harm, using what is taken well, sharing and giving back. Restraint begins before extraction, not after damage has been counted.",
+            "The sequence depends on knowledge of the place and the beings involved. Listening for permission can include close observation of abundance, health, regeneration and the needs of other users. In Kimmerer's sweetgrass research, Indigenous harvest knowledge and ecological study meet in a specific plant relationship rather than in a licence for unlimited generalisation."
+          ],
+          "extension": "Before taking time, material or attention from a shared system, ask five questions: Is taking welcome here? What is enough? What else depends on this? Can I use it fully? What return would support renewal? Treat a no or an uncertain answer as information, not inconvenience.",
+          "image": "../assets/lesson-visuals/braiding-sweetgrass-honorable-harvest.svg",
+          "imageAlt": "A five-question path asks whether taking is welcome, what is enough, who else depends on it, how it will be used and what return supports renewal, with a stop path when conditions are unclear.",
+          "imageCaption": "Restraint asks whether, how much and how to return before taking begins.",
+          "why": "Efficiency often optimises the act of taking while leaving the right amount and the renewal duty unexamined. A restraint-first practice makes limits, other claimants and future capacity part of the decision.",
+          "apply": [
+            "Choose one planned use of a shared resource today, then name its current condition, other users and the smallest amount that meets your real need.",
+            "Set a stop rule before taking and name one return that supports repair, replenishment or fair access."
+          ],
+          "caveat": "The Honorable Harvest is not a universal checklist detached from Indigenous peoples or local knowledge. An outsider cannot declare a harvest respectful by copying selected phrases. Ecological limits, law, ownership, consent and community authority still govern what is appropriate, and some places or beings should not be harvested at all.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Where does restraint enter the Honorable Harvest most importantly?",
+              "options": [
+                "After use, when the receiver calculates enough compensation for the loss.",
+                "During sharing, when benefits are divided equally among all possible users.",
+                "Before taking, when permission, need, limits and other dependants are considered.",
+                "During renewal, when the original quantity is restored as closely as possible."
+              ],
+              "correctIndex": 2,
+              "feedback": "The teaching begins upstream. Permission, sufficiency, other relationships and the possibility of refusal shape whether and how taking should occur before later sharing or return.",
+              "feedbackByOption": [
+                "Later compensation cannot make every act of taking acceptable. The decision must examine permission and limits before extraction.",
+                "Sharing matters, but equal division is not always possible or ecologically sound. Restraint starts before benefits are allocated.",
+                "Correct. The receiver asks whether taking is welcome and necessary, then limits harm before any resource leaves the system.",
+                "Renewal is part of reciprocity, but exact replacement may be impossible. It does not remove the need for an earlier stop decision."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A volunteer group wants plants from a recovering site for a display. What is the strongest first action?",
+              "options": [
+                "Ask the authorised carers whether taking is appropriate and accept a refusal.",
+                "Take a small sample because educational use creates a public benefit.",
+                "Promise to plant replacements after the display so the original quantity is restored.",
+                "Choose only common-looking plants so rare species remain untouched."
+              ],
+              "correctIndex": 0,
+              "feedback": "Local authority and condition come before the group's purpose. A small amount, replacement plan or visual guess cannot substitute for permission and place-specific knowledge.",
+              "feedbackByOption": [
+                "Correct. Asking the people responsible for the recovering site makes permission and local ecological knowledge part of the decision before taking.",
+                "Public benefit does not establish permission or show that the recovering population can spare material without harm.",
+                "Replacement may fail or disturb the site further. A future return cannot authorise taking that is inappropriate now.",
+                "Appearance is an unreliable guide to abundance, identity and ecological role. Carers with local knowledge should guide the choice."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Language can train attention toward relationship",
+          "argument": [
+            "In Learning the Grammar of Animacy, Kimmerer describes studying Potawatomi and encountering grammatical forms that treat many beings as animate. She contrasts that relationship-rich grammar with English habits that often turn living beings into an impersonal it. Her argument is that words can make some relationships easier to notice and others easier to ignore.",
+            "She does not present grammar as a magic cause of ethical conduct. Language, attention, knowledge and practice reinforce one another. Naming a maple or river as a participant invites questions about what it does, needs and connects, while science can test the observations that follow."
+          ],
+          "extension": "For one nonhuman being or place, replace a label-only description with verbs and relationships. Observe what it is doing, what conditions support it and what other lives depend on it. Let the richer description change the next question before claiming it changes the world.",
+          "image": "../assets/lesson-visuals/braiding-sweetgrass-attention-language.svg",
+          "imageAlt": "A loop connects words, directed attention, observed actions and relationships, and a more informed response, while a caution notes that language guides attention but does not guarantee care.",
+          "imageCaption": "Words guide attention; attention can reveal relationships that a label alone leaves unseen.",
+          "why": "People act on the world they notice. A vocabulary centred only on objects and uses can hide agency, dependence and change, while verbs and relationships create better questions for observation and care.",
+          "apply": [
+            "Spend two minutes with one plant, animal, waterway or patch of soil. Write three verbs describing what it is doing rather than three labels describing what it is.",
+            "Add two relationships you can observe or verify, then name one question that the first label did not prompt."
+          ],
+          "caveat": "Do not imitate Potawatomi grammar without knowledge or treat Indigenous language as a tool available for extraction. English speakers can practise attention in English while respecting the specific language and community Kimmerer discusses. Word choice may open perception, but it does not prove ecological understanding or ethical behaviour.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the most defensible claim about grammar and ecological attention?",
+              "options": [
+                "Animate grammar reliably produces respectful behaviour in every speaker and setting.",
+                "Scientific names prevent relationship because they classify beings as fixed objects.",
+                "English cannot describe reciprocity without borrowing an Indigenous grammatical system.",
+                "Language can direct attention toward relationships without guaranteeing ethical action."
+              ],
+              "correctIndex": 3,
+              "feedback": "Kimmerer's argument concerns the possibilities that grammar and word choice make easier to notice. Attention, knowledge and conduct remain distinct, context-dependent steps.",
+              "feedbackByOption": [
+                "Grammar does not determine conduct. Speakers can violate the relationships their language can express, and behaviour depends on wider conditions.",
+                "Scientific names can support careful knowledge. The risk is not classification itself but stopping before actions and relationships are observed.",
+                "English can express reciprocity. Respect does not require copying a language that belongs to a particular living community.",
+                "Correct. Words can make relations more available to attention, but care still requires knowledge, consent, judgement and action."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A park plan describes a wetland only as unused land. Which revision best applies this idea?",
+              "options": [
+                "Rename it a sacred place so development can no longer be considered.",
+                "Describe what the wetland does, what depends on it and how it changes.",
+                "Replace all technical terms with emotional language about the wetland.",
+                "Give the wetland a human name so readers feel personal affection for it."
+              ],
+              "correctIndex": 1,
+              "feedback": "A relationship-rich description adds observable functions, dependants and change. It improves the questions available for planning without inventing authority or replacing evidence with sentiment.",
+              "feedbackByOption": [
+                "Calling a place sacred can appropriate or invent authority and does not by itself provide the ecological knowledge needed for a decision.",
+                "Correct. Verbs, dependencies and change reveal relationships that the label unused land suppresses and can be checked with evidence.",
+                "Technical and emotional language can coexist. Removing testable description would weaken rather than deepen attention.",
+                "A human name may invite feeling, but it can also project ownership. Observable relationships provide a stronger basis for attention."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Trace one gift and make one return",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose one ordinary gift you will use today, such as water, food, shade or a public place.",
+          "Minutes 2 to 4: list three living, human or material sources that make it available.",
+          "Minutes 4 to 6: write what enough means for this use and one way you could reduce waste or harm.",
+          "Minutes 6 to 8: choose a return that serves renewal, repair or shared access, checking who has authority to welcome it.",
+          "Minutes 8 to 10: complete the return or put a specific time for it on your calendar."
+        ],
+        "result": "A visible chain from source to use to one completed or scheduled return, with a clear limit on what you take."
+      },
+      "spacedRecall": [
+        "From How to Measure Anything: what observable consequence would show whether your chosen return supports renewal rather than merely feeling generous?",
+        "From Range: what structurally similar situation could help you recognise a reciprocal relationship outside the first example that comes to mind?",
+        "From Your Money or Your Life: how might measuring the life energy behind a purchase change your idea of enough?"
+      ],
+      "takeaway": "Receive with attention, take with restraint, and let gratitude become a concrete return that keeps the relationship alive.",
+      "sources": [
+        {
+          "label": "Milkweed Editions: Braiding Sweetgrass publication details and central argument",
+          "url": "https://milkweed.org/book/braiding-sweetgrass"
+        },
+        {
+          "label": "SUNY College of Environmental Science and Forestry: Robin Wall Kimmerer faculty profile",
+          "url": "https://www.esf.edu/faculty/kimmerer/index.php"
+        },
+        {
+          "label": "Anthropology of Consciousness: Learning the Grammar of Animacy",
+          "url": "https://anthrosource.onlinelibrary.wiley.com/doi/10.1111/anoc.12081"
+        },
+        {
+          "label": "Emergence Magazine: Robin Wall Kimmerer on the Honorable Harvest and practical reverence",
+          "url": "https://emergencemagazine.org/conversation/practical-reverence/"
+        },
+        {
+          "label": "YES! Magazine: Robin Wall Kimmerer on the Honorable Harvest",
+          "url": "https://www.yesmagazine.org/issue/good-health/2015/11/26/the-honorable-harvest-lessons-from-an-indigenous-tradition-of-giving-thanks"
+        },
+        {
+          "label": "SUNY ESF research: integrating traditional and scientific ecological knowledge of sweetgrass",
+          "url": "https://experts.esf.edu/esploro/outputs/journalArticle/Population-trends-and-habitat-characteristics-of/99885912504826"
+        }
+      ]
+    },
+    {
       "slug": "how-to-measure-anything",
       "discussionId": "how-to-measure-anything-douglas-hubbard",
       "date": "2026-10-02",

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="honorable-harvest-title honorable-harvest-desc">
+  <title id="honorable-harvest-title">Five questions before taking from a shared living system</title>
+  <desc id="honorable-harvest-desc">A five-question path asks whether taking is welcome, what amount is enough, who else depends on it, whether it will be used fully and what return supports renewal. Unclear conditions lead to stopping and learning rather than taking.</desc>
+  <defs>
+    <marker id="honorable-harvest-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#356987"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .035em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #356987; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="60" y="68" class="label">ASK BEFORE THE HARVEST BEGINS</text>
+
+  <rect class="card" x="45" y="135" width="198" height="250" rx="26" fill="#dbe8e2"/>
+  <text x="144" y="183" class="label" text-anchor="middle">WELCOME?</text>
+  <text x="144" y="235" class="body" text-anchor="middle">Is taking</text>
+  <text x="144" y="270" class="body" text-anchor="middle">appropriate here?</text>
+  <text x="144" y="326" class="small" text-anchor="middle">Ask and listen</text>
+  <text x="144" y="357" class="small" text-anchor="middle">for the answer</text>
+
+  <rect class="card" x="273" y="135" width="198" height="250" rx="26" fill="#e8e0f2"/>
+  <text x="372" y="183" class="label" text-anchor="middle">ENOUGH?</text>
+  <text x="372" y="235" class="body" text-anchor="middle">What is the</text>
+  <text x="372" y="270" class="body" text-anchor="middle">real need?</text>
+  <text x="372" y="326" class="small" text-anchor="middle">Set the limit</text>
+  <text x="372" y="357" class="small" text-anchor="middle">before taking</text>
+
+  <rect class="card" x="501" y="135" width="198" height="250" rx="26" fill="#f2d6a2"/>
+  <text x="600" y="183" class="label" text-anchor="middle">OTHERS?</text>
+  <text x="600" y="235" class="body" text-anchor="middle">Who else</text>
+  <text x="600" y="270" class="body" text-anchor="middle">depends on it?</text>
+  <text x="600" y="326" class="small" text-anchor="middle">Leave capacity</text>
+  <text x="600" y="357" class="small" text-anchor="middle">for other lives</text>
+
+  <rect class="card" x="729" y="135" width="198" height="250" rx="26" fill="#ead9cb"/>
+  <text x="828" y="183" class="label" text-anchor="middle">USE?</text>
+  <text x="828" y="235" class="body" text-anchor="middle">Can it be used</text>
+  <text x="828" y="270" class="body" text-anchor="middle">fully and well?</text>
+  <text x="828" y="326" class="small" text-anchor="middle">Minimise waste</text>
+  <text x="828" y="357" class="small" text-anchor="middle">and harm</text>
+
+  <rect class="card" x="957" y="135" width="198" height="250" rx="26" fill="#dbe8e2"/>
+  <text x="1056" y="183" class="label" text-anchor="middle">RETURN?</text>
+  <text x="1056" y="235" class="body" text-anchor="middle">What supports</text>
+  <text x="1056" y="270" class="body" text-anchor="middle">renewal?</text>
+  <text x="1056" y="326" class="small" text-anchor="middle">Repair, replenish</text>
+  <text x="1056" y="357" class="small" text-anchor="middle">or share access</text>
+
+  <path class="line" d="M243 260 H256" marker-end="url(#honorable-harvest-arrow)"/>
+  <path class="line" d="M471 260 H484" marker-end="url(#honorable-harvest-arrow)"/>
+  <path class="line" d="M699 260 H712" marker-end="url(#honorable-harvest-arrow)"/>
+  <path class="line" d="M927 260 H940" marker-end="url(#honorable-harvest-arrow)"/>
+
+  <rect class="card" x="80" y="485" width="465" height="165" rx="28" fill="#f3d4d4"/>
+  <text x="312" y="530" class="label" text-anchor="middle">IF NO OR UNCLEAR</text>
+  <text x="312" y="577" class="body" text-anchor="middle">Stop, learn from the place and</text>
+  <text x="312" y="613" class="body" text-anchor="middle">people with authority, then reconsider.</text>
+
+  <rect class="card" x="655" y="485" width="465" height="165" rx="28" fill="#fffdf8"/>
+  <text x="887" y="530" class="label" text-anchor="middle">IF TAKING IS WELCOME</text>
+  <text x="887" y="577" class="body" text-anchor="middle">Take minimally, use fully, give thanks</text>
+  <text x="887" y="613" class="body" text-anchor="middle">and make the return visible.</text>
+</svg>
