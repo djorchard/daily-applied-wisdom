@@ -1,6 +1,242 @@
 {
   "lessons": [
     {
+      "slug": "domain-modeling-made-functional",
+      "discussionId": "domain-modeling-made-functional-scott-wlaschin",
+      "date": "2026-10-08",
+      "dateLabel": "8 October 2026",
+      "edition": "Daily lesson",
+      "title": "Domain Modeling Made Functional",
+      "authors": "Scott Wlaschin",
+      "year": "2018 · First edition",
+      "category": "Software engineering · Domain modeling · Functional design",
+      "accent": "blue",
+      "readTime": "11 to 14 minute read",
+      "quizRevision": "2026-10-08-1",
+      "summary": "Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries.",
+      "evidenceNote": "Attribution is strong: Wlaschin explicitly develops domain discovery, algebraic types, workflow pipelines, trust boundaries and error modeling across the book and his companion material. The design mechanisms are concrete and testable, but broad claims about speed, quality or customer satisfaction are practitioner arguments rather than universal empirical laws. Type-driven modeling can prevent some representational errors at compile time; it cannot prove that requirements are correct, external facts are current, or distributed side effects are safe. The applications below are language-neutral practitioner interpretations, although the book demonstrates them in F#.",
+      "ideas": [
+        {
+          "id": "idea-1",
+          "title": "Let the domain drive the first model",
+          "argument": [
+            "Wlaschin begins with conversations about business events, workflows and the language used by domain experts. The early model records inputs, outputs, decisions and terms in a form that technical and nontechnical people can inspect together. The aim is a shared model of the work, not merely a shared vocabulary pasted onto an existing design.",
+            "He warns that starting from tables or class hierarchies can distort the domain before it is understood. A storage flag might collapse a quote and an order even when their rules differ; a convenient base class might introduce a concept that no domain expert recognises. Persistence and implementation still matter, but they follow a model of the business process rather than silently defining it."
+          ],
+          "extension": "Before discussing screens, tables or endpoints, sketch one workflow as a trigger, named input, decision, output events and side effects. Ask a domain expert to correct the words and missing branches. Treat every disagreement as model information rather than a meeting problem.",
+          "image": "../assets/lesson-visuals/domain-model-shared-workflow.svg",
+          "imageAlt": "A domain conversation about events, terms and rules flows into a shared workflow model and then into implementation choices, while a shortcut from technology to design is marked as distortion risk.",
+          "imageCaption": "Shared workflow language should shape implementation choices, not be reconstructed from them later.",
+          "why": "A technically tidy model can still encode the wrong distinctions. Starting from observable work exposes disagreement early, keeps business rules visible and gives experts something they can challenge before implementation hardens assumptions.",
+          "apply": [
+            "Choose one current feature and write its trigger, primary input, successful output and one rejected outcome using the words stakeholders actually use.",
+            "Circle any term that a developer and stakeholder might define differently, then ask one precise question before naming a table, class or API."
+          ],
+          "caveat": "A shared language does not guarantee shared understanding. Experts can disagree, use political language or describe policy as if it were natural law. Small CRUD areas may not justify elaborate modeling, and a model must evolve when evidence changes. Domain focus also does not remove accessibility, security, legal or operational constraints that sit outside one expert group's vocabulary.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What should guide the first model in Wlaschin's approach?",
+              "options": [
+                "The database schema that offers the simplest persistence mapping",
+                "The class hierarchy that maximises reuse across technical modules",
+                "The domain events, workflows and language shared with experts",
+                "The screen layout that stakeholders can approve most quickly"
+              ],
+              "correctIndex": 2,
+              "feedback": "The first model should describe the domain's work in terms experts can inspect: events, inputs, outputs, rules and shared language. Technical representations come later and must serve that model.",
+              "feedbackByOption": [
+                "A convenient schema can distort distinctions before the domain is understood. Persistence should serve the domain model rather than define it.",
+                "Reuse is not the first criterion. A base class can introduce a technical abstraction that has no meaningful place in the domain.",
+                "Correct. Events, workflows and shared terms let experts and developers shape the model together before implementation choices harden it.",
+                "A screen can reveal useful workflow detail, but layout alone does not capture the domain's rules, outputs and rejected paths."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A team learns that quotes and orders use similar fields but follow different rules. What is the strongest next step?",
+              "options": [
+                "Store both in one table and defer the distinction to a status flag",
+                "Model their separate workflows and rules in language experts can review",
+                "Create one base class so shared fields determine the business structure",
+                "Build both screens first and infer the domain model from their controls"
+              ],
+              "correctIndex": 1,
+              "feedback": "Similar data shape does not prove identical meaning. The team should make the distinct workflows and rules explicit before deciding how to share storage, code or interface elements.",
+              "feedbackByOption": [
+                "One table may later be suitable, but choosing it first risks hiding rule differences behind a technical flag.",
+                "Correct. Separate workflow descriptions preserve the domain distinction while leaving later implementation choices open.",
+                "Shared fields do not establish a valid business abstraction. A base class should not decide what the domain means.",
+                "Screens can supply evidence, but deriving the whole model from controls can miss events, policies and rejected outcomes."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-2",
+          "title": "Make invalid states hard to represent",
+          "argument": [
+            "Wlaschin uses product types for values that exist together and choice types for alternatives. Instead of a record full of flags and nullable fields that permits contradictory combinations, the model names each legitimate case and gives that case only the data it needs. The compiler can then reject code that constructs a state outside those choices.",
+            "He also wraps primitive values behind constrained constructors, so a value enters the trusted model only after its relevant rule is checked. This makes types readable documentation and moves some tests from repeated runtime checks to the point of construction. Workflows can likewise expose transitions in their signatures, such as unvalidated input becoming validated input."
+          ],
+          "extension": "Find one primitive or flag cluster that carries a business promise. Replace it on paper with named valid cases and case-specific data. If an impossible combination still fits the sketch, the model has not captured the rule yet.",
+          "image": "../assets/lesson-visuals/domain-model-valid-states.svg",
+          "imageAlt": "A comparison shows loose flags and nullable fields admitting contradictory combinations, while a closed set of named cases admits only draft, confirmed with confirmation details, or cancelled with a reason.",
+          "imageCaption": "A good type model narrows construction to named states that the business actually recognises.",
+          "why": "When invalid combinations are representable, every consumer must remember the same defensive checks. Encoding alternatives and constraints once reduces ambiguity, makes missing cases visible and turns the data model into an executable statement of the rule.",
+          "apply": [
+            "Choose one status field, pair of booleans or nullable field cluster and list every combination the current structure permits.",
+            "Cross out combinations the business rejects, then sketch named cases whose required data cannot create those combinations."
+          ],
+          "caveat": "Types only enforce what the model expresses. They cannot prove that an address exists, a payment cleared or a stakeholder described the rule correctly. Cross-record, temporal and distributed invariants may still require transactions or runtime checks. Over-modeling every primitive can also bury simple work under conversion code, so apply constraints where failure has meaningful cost.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "Which design most directly makes an impossible business state unrepresentable?",
+              "options": [
+                "A closed choice type with one case for each valid state",
+                "A string status documented with the permitted values in comments",
+                "A record with nullable fields checked whenever the record is used",
+                "A group of booleans whose combinations are validated before saving"
+              ],
+              "correctIndex": 0,
+              "feedback": "A closed choice names the valid alternatives directly, and each case can carry only its required data. The other designs still admit invalid values or combinations that later code must detect.",
+              "feedbackByOption": [
+                "Correct. A closed choice limits construction to the valid cases and lets the compiler require handling of each alternative.",
+                "Comments can drift and a string can still contain any value. The rule remains outside the representation.",
+                "Repeated checks can catch bad states, but the record still permits them to exist and travel through the system.",
+                "Validation helps at one point, yet independent booleans continue to represent contradictory combinations between checks."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "A booking may be Draft, Confirmed with a confirmation code, or Cancelled with a reason. Which model best captures the rule?",
+              "options": [
+                "One status string plus optional code and reason fields",
+                "Three booleans plus required code and reason text fields",
+                "One record with a validation method called before persistence",
+                "Three named cases, with data attached only to the cases that need it"
+              ],
+              "correctIndex": 3,
+              "feedback": "Named cases express the allowed alternatives, and case-specific fields ensure that confirmation data belongs to Confirmed while cancellation data belongs to Cancelled.",
+              "feedbackByOption": [
+                "Optional fields allow a confirmed booking without a code or a draft with a cancellation reason unless every consumer rechecks them.",
+                "Independent booleans permit several states at once, while requiring irrelevant data for cases that do not use it.",
+                "A validation method may detect bad combinations, but the record can still exist in an invalid state before or after that call.",
+                "Correct. The choice admits only the recognised states and makes each state's required data part of its construction."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "idea-3",
+          "title": "Put explicit gates around a trusted core",
+          "argument": [
+            "Wlaschin separates serialization-friendly data transfer objects from the domain types inside a bounded context. Data arriving from JSON, a form, a queue or a database is untrusted. An input gate parses and validates it into a domain value; only then does the workflow treat the value as valid. An output gate deliberately converts domain results into a public contract and can omit private or irrelevant information.",
+            "Inside the boundary, small functions form a pipeline whose input and output types expose each step. Expected domain failures are modeled as part of the workflow, while programmer errors and infrastructure failures may need different handling. Keeping I/O and conversion at the edges protects the core model from serializer, storage and transport concerns."
+          ],
+          "extension": "Draw a boundary around one business workflow. Mark every place untrusted data enters, every validation that converts it to a domain value, every expected rejection and every side effect. If a transport object crosses into the core unchanged, make the missing gate visible.",
+          "image": "../assets/lesson-visuals/domain-model-trust-boundary.svg",
+          "imageAlt": "Untrusted forms, APIs and messages pass through an input validation gate into a trusted domain pipeline, then through an output contract gate to external systems, with expected domain errors leaving on a separate path.",
+          "imageCaption": "Edges translate and validate; the trusted core works with domain values and explicit outcomes.",
+          "why": "Without a visible boundary, defensive checks spread through the code and infrastructure shapes the domain. Explicit gates centralise translation, prevent accidental trust and let the core stay testable without databases, queues or HTTP.",
+          "apply": [
+            "Take one endpoint or message handler and draw its path from raw input to the first trusted domain value, including the rejection path.",
+            "Name one transport concern currently inside the core and one conversion function that could move it back to the boundary."
+          ],
+          "caveat": "A pure core does not make a distributed workflow atomic, available or secure. Boundary validation can become duplicated or inconsistent, and output contracts still create coupling that must be versioned deliberately. Wlaschin also cautions against forcing every I/O failure or programmer bug into a domain Result type; error handling should match the kind of failure and what the caller can do.",
+          "quiz": [
+            {
+              "id": "q1",
+              "type": "concept",
+              "question": "What is the input gate's central responsibility?",
+              "options": [
+                "Persist the incoming DTO before the workflow changes it",
+                "Reuse the transport object as the internal domain model",
+                "Catch every infrastructure and programmer failure as a domain error",
+                "Convert untrusted input into a validated domain value or rejection"
+              ],
+              "correctIndex": 3,
+              "feedback": "The input gate translates and validates outside data before it enters the trusted core. This keeps transport shapes and invalid values from becoming implicit domain assumptions.",
+              "feedbackByOption": [
+                "Persistence may be a later side effect. Saving first does not establish that the input satisfies the domain's rules.",
+                "Transport objects optimise serialization and compatibility, not domain integrity. Reusing them leaks edge concerns into the core.",
+                "Expected domain failures, infrastructure failures and programmer errors have different meanings and should not all be collapsed.",
+                "Correct. The gate either constructs a trusted domain value after validation or returns an explicit rejection."
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "application",
+              "question": "An API receives a registration DTO and calls domain logic. Which flow best applies the trust-boundary idea?",
+              "options": [
+                "Parse and validate into domain types, run the core, then map outcomes to API responses",
+                "Pass the DTO through every layer so each function can check the fields it uses",
+                "Deserialize directly into the domain type and let the serializer enforce business rules",
+                "Save the DTO first, then validate it when a later process needs the registration"
+              ],
+              "correctIndex": 0,
+              "feedback": "The boundary owns translation in both directions. The core receives a trusted value and returns domain outcomes; the API layer maps those outcomes to transport responses and handles infrastructure concerns.",
+              "feedbackByOption": [
+                "Correct. Validation creates the trusted input, the core handles domain work, and the edge translates the result for the API.",
+                "Passing the DTO inward spreads defensive checks and couples domain functions to the transport contract.",
+                "Serializers check data shape, not the complete domain meaning. Direct deserialization can bypass constrained constructors and explicit errors.",
+                "Saving unvalidated input may be a deliberate intake pattern, but it does not create a trusted registration for domain processing."
+              ]
+            }
+          ]
+        }
+      ],
+      "experiment": {
+        "title": "Expose one invalid state",
+        "duration": "10 minutes",
+        "steps": [
+          "Minutes 0 to 2: choose one status string, boolean pair or nullable field cluster in a current feature.",
+          "Minutes 2 to 4: list the combinations the structure permits and mark the ones the business rejects.",
+          "Minutes 4 to 6: sketch named valid cases, attaching data only to the cases that require it.",
+          "Minutes 6 to 8: write the boundary rule that converts raw input into one of those cases or a rejection.",
+          "Minutes 8 to 10: try to express one rejected combination in the new sketch and record what prevents it."
+        ],
+        "result": "A before-and-after model showing at least one previously representable invalid state that the revised cases cannot express."
+      },
+      "spacedRecall": [
+        "From Braiding Sweetgrass: before taking a technical shortcut, what would it mean to ask what the shared domain model needs to keep healthy?",
+        "From How to Measure Anything: what observable defect or rework signal would test whether a stronger domain type improves this workflow?",
+        "From Building Evolutionary Architectures: which lightweight fitness function could detect when an external DTO begins leaking into the trusted core?"
+      ],
+      "takeaway": "Model the work in shared language, admit only valid states, and make every crossing between the outside world and the trusted core explicit.",
+      "sources": [
+        {
+          "label": "Pragmatic Bookshelf: Domain Modeling Made Functional edition, scope and contents",
+          "url": "https://pragprog.com/titles/swdddf/domain-modeling-made-functional/"
+        },
+        {
+          "label": "Pragmatic Bookshelf extract: domain-first design and workflow documentation",
+          "url": "https://media.pragprog.com/titles/swdddf/understand.pdf"
+        },
+        {
+          "label": "Pragmatic Bookshelf extract: modeling data and workflows with product and choice types",
+          "url": "https://media.pragprog.com/titles/swdddf/modeling.pdf"
+        },
+        {
+          "label": "Scott Wlaschin: domain modeling with the F# type system",
+          "url": "https://fsharpforfunandprofit.com/ddd/"
+        },
+        {
+          "label": "Scott Wlaschin: trust boundaries, validation gates and DTO contracts",
+          "url": "https://fsharpforfunandprofit.com/posts/serializing-your-domain-model/"
+        },
+        {
+          "label": "Scott Wlaschin: choosing explicit domain errors without modeling every failure as Result",
+          "url": "https://fsharpforfunandprofit.com/posts/against-railway-oriented-programming/"
+        }
+      ]
+    },
+    {
       "slug": "braiding-sweetgrass",
       "discussionId": "braiding-sweetgrass-robin-wall-kimmerer",
       "date": "2026-10-06",

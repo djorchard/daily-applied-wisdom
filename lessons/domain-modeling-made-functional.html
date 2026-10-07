@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries." />
+    <link rel="canonical" href="https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html" />
+    <meta property="og:title" content="Domain Modeling Made Functional | Daily Applied Wisdom" />
+    <meta property="og:description" content="Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html" />
+    <meta property="og:image" content="https://djorchard.github.io/daily-applied-wisdom/assets/social-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Daily Applied Wisdom: One book. Three ideas. Better thinking." />
+    <meta property="article:published_time" content="2026-10-08" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Daily Applied Wisdom RSS" href="../feed.xml" />
+    <title>Domain Modeling Made Functional | Daily Applied Wisdom</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Article","LearningResource"],"headline":"Domain Modeling Made Functional","description":"Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries.","datePublished":"2026-10-08","about":{"@type":"Book","name":"Domain Modeling Made Functional","author":[{"@type":"Person","name":"Scott Wlaschin"}]},"isPartOf":{"@type":"WebSite","name":"Daily Applied Wisdom","url":"https://djorchard.github.io/daily-applied-wisdom"},"url":"https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html","educationalUse":"Active recall and practical application"}</script>
+  </head>
+  <body class="lesson-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Daily Applied Wisdom home">Daily Applied Wisdom</a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#latest">Latest</a>
+        <a href="../index.html#library">Library</a>
+        <a href="../saved.html">Saved ideas</a>
+        <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer" aria-label="Contact or send anonymous feedback (opens Tally in a new tab)">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article>
+        <header class="lesson-hero">
+          <a class="back-link" href="../index.html#library">← All lessons</a>
+          <p class="eyebrow">Daily lesson · <time datetime="2026-10-08">8 October 2026</time></p>
+          <h1>Domain Modeling Made Functional</h1>
+          <p class="lesson-author">Scott Wlaschin</p>
+          <div class="lesson-meta"><span>2018 · First edition</span><span>Software engineering · Domain modeling · Functional design</span><span>11 to 14 minute read</span></div>
+          <p class="lesson-summary">Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries.</p>
+          <aside class="evidence-note"><strong>Evidence lens.</strong> Attribution is strong: Wlaschin explicitly develops domain discovery, algebraic types, workflow pipelines, trust boundaries and error modeling across the book and his companion material. The design mechanisms are concrete and testable, but broad claims about speed, quality or customer satisfaction are practitioner arguments rather than universal empirical laws. Type-driven modeling can prevent some representational errors at compile time; it cannot prove that requirements are correct, external facts are current, or distributed side effects are safe. The applications below are language-neutral practitioner interpretations, although the book demonstrates them in F#.</aside>
+          <div class="lesson-progress" data-book-progress data-book-slug="domain-modeling-made-functional" data-book-idea-ids="[&quot;domain-modeling-made-functional-idea-1&quot;,&quot;domain-modeling-made-functional-idea-2&quot;,&quot;domain-modeling-made-functional-idea-3&quot;]" data-clarity-mask="true" hidden>
+            <span class="learning-state" data-learning-state hidden>Learned</span>
+            <span class="learning-summary" data-learning-summary hidden></span>
+          </div>
+          <div class="share-row">
+            <button class="share-button" type="button" data-share data-share-title="Domain Modeling Made Functional | Daily Applied Wisdom" data-share-text="Let the business domain shape the code: discover workflows in shared language, encode valid states directly, and admit outside data through explicit trust boundaries." data-share-url="https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html">Share this lesson <span aria-hidden="true">↗</span></button>
+            <button class="copy-button" type="button" data-copy-url="https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html">Copy link</button>
+            <span class="share-status" aria-live="polite"></span>
+          </div>
+          <nav class="idea-jump" aria-label="Ideas in this lesson">
+            <a href="#idea-1"><span>01</span>Let the domain drive the first model</a><a href="#idea-2"><span>02</span>Make invalid states hard to represent</a><a href="#idea-3"><span>03</span>Put explicit gates around a trusted core</a>
+          </nav>
+        </header>
+
+        <section class="lesson-idea accent-blue" id="idea-1" aria-labelledby="idea-1-title">
+      <div class="idea-marker" aria-hidden="true">01</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 1</p>
+        <h2 id="idea-1-title">Let the domain drive the first model <a class="anchor-link" href="#idea-1" aria-label="Link to Idea 1">#</a></h2>
+        <h3>The idea</h3>
+        <p>Wlaschin begins with conversations about business events, workflows and the language used by domain experts. The early model records inputs, outputs, decisions and terms in a form that technical and nontechnical people can inspect together. The aim is a shared model of the work, not merely a shared vocabulary pasted onto an existing design.</p>
+<p>He warns that starting from tables or class hierarchies can distort the domain before it is understood. A storage flag might collapse a quote and an order even when their rules differ; a convenient base class might introduce a concept that no domain expert recognises. Persistence and implementation still matter, but they follow a model of the business process rather than silently defining it.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Before discussing screens, tables or endpoints, sketch one workflow as a trigger, named input, decision, output events and side effects. Ask a domain expert to correct the words and missing branches. Treat every disagreement as model information rather than a meeting problem.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/domain-model-shared-workflow.svg" alt="A domain conversation about events, terms and rules flows into a shared workflow model and then into implementation choices, while a shortcut from technology to design is marked as distortion risk." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Shared workflow language should shape implementation choices, not be reconstructed from them later.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>A technically tidy model can still encode the wrong distinctions. Starting from observable work exposes disagreement early, keeps business rules visible and gives experts something they can challenge before implementation hardens assumptions.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one current feature and write its trigger, primary input, successful output and one rejected outcome using the words stakeholders actually use.</p>
+<p>Circle any term that a developer and stakeholder might define differently, then ask one precise question before naming a table, class or API.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A shared language does not guarantee shared understanding. Experts can disagree, use political language or describe policy as if it were natural law. Small CRUD areas may not justify elaborate modeling, and a model must evolve when evidence changes. Domain focus also does not remove accessibility, security, legal or operational constraints that sit outside one expert group's vocabulary.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="domain-modeling-made-functional-idea-1" data-book-slug="domain-modeling-made-functional" data-idea-number="1" aria-pressed="false" aria-label="Mark Idea 1 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="domain-modeling-made-functional-idea-1" data-idea-number="1" aria-pressed="false" aria-label="Save Idea 1 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="domain-modeling-made-functional-idea-1" data-lesson-slug="domain-modeling-made-functional" data-idea-id="idea-1" data-idea-number="1" data-clarity-event="dawUsefulDomainModelingMadeFunctionalIdea1" aria-label="Mark Idea 1 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-2" aria-labelledby="idea-2-title">
+      <div class="idea-marker" aria-hidden="true">02</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 2</p>
+        <h2 id="idea-2-title">Make invalid states hard to represent <a class="anchor-link" href="#idea-2" aria-label="Link to Idea 2">#</a></h2>
+        <h3>The idea</h3>
+        <p>Wlaschin uses product types for values that exist together and choice types for alternatives. Instead of a record full of flags and nullable fields that permits contradictory combinations, the model names each legitimate case and gives that case only the data it needs. The compiler can then reject code that constructs a state outside those choices.</p>
+<p>He also wraps primitive values behind constrained constructors, so a value enters the trusted model only after its relevant rule is checked. This makes types readable documentation and moves some tests from repeated runtime checks to the point of construction. Workflows can likewise expose transitions in their signatures, such as unvalidated input becoming validated input.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Find one primitive or flag cluster that carries a business promise. Replace it on paper with named valid cases and case-specific data. If an impossible combination still fits the sketch, the model has not captured the rule yet.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/domain-model-valid-states.svg" alt="A comparison shows loose flags and nullable fields admitting contradictory combinations, while a closed set of named cases admits only draft, confirmed with confirmation details, or cancelled with a reason." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>A good type model narrows construction to named states that the business actually recognises.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>When invalid combinations are representable, every consumer must remember the same defensive checks. Encoding alternatives and constraints once reduces ambiguity, makes missing cases visible and turns the data model into an executable statement of the rule.</p></section>
+          <section><h3>Apply it today</h3><p>Choose one status field, pair of booleans or nullable field cluster and list every combination the current structure permits.</p>
+<p>Cross out combinations the business rejects, then sketch named cases whose required data cannot create those combinations.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>Types only enforce what the model expresses. They cannot prove that an address exists, a payment cleared or a stakeholder described the rule correctly. Cross-record, temporal and distributed invariants may still require transactions or runtime checks. Over-modeling every primitive can also bury simple work under conversion code, so apply constraints where failure has meaningful cost.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="domain-modeling-made-functional-idea-2" data-book-slug="domain-modeling-made-functional" data-idea-number="2" aria-pressed="false" aria-label="Mark Idea 2 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="domain-modeling-made-functional-idea-2" data-idea-number="2" aria-pressed="false" aria-label="Save Idea 2 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="domain-modeling-made-functional-idea-2" data-lesson-slug="domain-modeling-made-functional" data-idea-id="idea-2" data-idea-number="2" data-clarity-event="dawUsefulDomainModelingMadeFunctionalIdea2" aria-label="Mark Idea 2 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+<section class="lesson-idea accent-blue" id="idea-3" aria-labelledby="idea-3-title">
+      <div class="idea-marker" aria-hidden="true">03</div>
+      <div class="idea-main">
+        <p class="eyebrow">Idea 3</p>
+        <h2 id="idea-3-title">Put explicit gates around a trusted core <a class="anchor-link" href="#idea-3" aria-label="Link to Idea 3">#</a></h2>
+        <h3>The idea</h3>
+        <p>Wlaschin separates serialization-friendly data transfer objects from the domain types inside a bounded context. Data arriving from JSON, a form, a queue or a database is untrusted. An input gate parses and validates it into a domain value; only then does the workflow treat the value as valid. An output gate deliberately converts domain results into a public contract and can omit private or irrelevant information.</p>
+<p>Inside the boundary, small functions form a pipeline whose input and output types expose each step. Expected domain failures are modeled as part of the workflow, while programmer errors and infrastructure failures may need different handling. Keeping I/O and conversion at the edges protects the core model from serializer, storage and transport concerns.</p>
+        <aside class="interpretation"><strong>Applied interpretation.</strong> Draw a boundary around one business workflow. Mark every place untrusted data enters, every validation that converts it to a domain value, every expected rejection and every side effect. If a transport object crosses into the core unchanged, make the missing gate visible.</aside>
+        <figure class="lesson-visual">
+          <div class="visual-scroll" data-visual-scroll>
+            <img src="../assets/lesson-visuals/domain-model-trust-boundary.svg" alt="Untrusted forms, APIs and messages pass through an input validation gate into a trusted domain pipeline, then through an output contract gate to external systems, with expected domain errors leaving on a separate path." width="1200" height="760" loading="lazy" decoding="async" />
+          </div>
+          <span class="visual-scroll-hint" data-visual-scroll-hint hidden aria-hidden="true">Swipe to explore the diagram →</span>
+          <figcaption>Edges translate and validate; the trusted core works with domain values and explicit outcomes.</figcaption>
+        </figure>
+        <div class="practice-grid">
+          <section><h3>Why it matters</h3><p>Without a visible boundary, defensive checks spread through the code and infrastructure shapes the domain. Explicit gates centralise translation, prevent accidental trust and let the core stay testable without databases, queues or HTTP.</p></section>
+          <section><h3>Apply it today</h3><p>Take one endpoint or message handler and draw its path from raw input to the first trusted domain value, including the rejection path.</p>
+<p>Name one transport concern currently inside the core and one conversion function that could move it back to the boundary.</p></section>
+          <section class="caveat"><h3>Caveat or failure mode</h3><p>A pure core does not make a distributed workflow atomic, available or secure. Boundary validation can become duplicated or inconsistent, and output contracts still create coupling that must be versioned deliberately. Wlaschin also cautions against forcing every I/O failure or programmer bug into a domain Result type; error handling should match the kind of failure and what the caller can do.</p></section>
+        </div>
+        <div class="idea-actions" data-clarity-mask="true">
+          <button class="idea-learned" type="button" data-idea-learned-id="domain-modeling-made-functional-idea-3" data-book-slug="domain-modeling-made-functional" data-idea-number="3" aria-pressed="false" aria-label="Mark Idea 3 as learned in this browser">
+            <span aria-hidden="true">○</span> Mark idea learned
+          </button>
+          <button class="idea-save" type="button" data-save-id="domain-modeling-made-functional-idea-3" data-idea-number="3" aria-pressed="false" aria-label="Save Idea 3 for later in this browser">
+            <span aria-hidden="true">♡</span> Save idea for later
+          </button>
+          <button class="idea-useful" type="button" data-useful-id="domain-modeling-made-functional-idea-3" data-lesson-slug="domain-modeling-made-functional" data-idea-id="idea-3" data-idea-number="3" data-clarity-event="dawUsefulDomainModelingMadeFunctionalIdea3" aria-label="Mark Idea 3 as useful">
+            <span aria-hidden="true">👍</span> Mark idea useful
+          </button>
+          <span class="idea-action-status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+        <section class="learning-check" id="learning-check" aria-labelledby="learning-check-title" data-learning-check data-lesson-slug="domain-modeling-made-functional" data-book-idea-ids="[&quot;domain-modeling-made-functional-idea-1&quot;,&quot;domain-modeling-made-functional-idea-2&quot;,&quot;domain-modeling-made-functional-idea-3&quot;]" data-quiz-revision="2026-10-08-1" data-clarity-mask="true">
+          <div class="learning-check-intro">
+          <p class="eyebrow">Knowledge check · 6 questions</p>
+            <h2 id="learning-check-title">Learning check</h2>
+            <p>Answer all 6, then check your answers. Your first result stays in this browser, and each explanation appears after you check. A 3-question review can appear on the homepage from tomorrow.</p>
+            <p class="learning-check-summary" data-quiz-summary>6 questions not yet answered.</p>
+          </div>
+          <form data-quiz-form novalidate>
+            <div class="quiz-question-list">
+              <fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-1-q1" data-question-type="concept" data-correct-index="2">
+                  <legend><span class="quiz-question-meta">Question 1 of 6 · Idea 1 · Concept</span>What should guide the first model in Wlaschin's approach?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q1" value="0" required aria-describedby="domain-modeling-made-functional-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>The database schema that offers the simplest persistence mapping</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q1" value="1" required aria-describedby="domain-modeling-made-functional-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>The class hierarchy that maximises reuse across technical modules</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q1" value="2" required aria-describedby="domain-modeling-made-functional-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>The domain events, workflows and language shared with experts</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q1" value="3" required aria-describedby="domain-modeling-made-functional-idea-1-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>The screen layout that stakeholders can approve most quickly</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-1-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A convenient schema can distort distinctions before the domain is understood. Persistence should serve the domain model rather than define it.</p><p data-feedback-for="1" hidden>Reuse is not the first criterion. A base class can introduce a technical abstraction that has no meaningful place in the domain.</p><p data-feedback-for="2" hidden>Events, workflows and shared terms let experts and developers shape the model together before implementation choices harden it.</p><p data-feedback-for="3" hidden>A screen can reveal useful workflow detail, but layout alone does not capture the domain's rules, outputs and rejected paths.</p>
+                    <p class="quiz-feedback-context">The first model should describe the domain's work in terms experts can inspect: events, inputs, outputs, rules and shared language. Technical representations come later and must serve that model.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-2-q1" data-question-type="concept" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 2 of 6 · Idea 2 · Concept</span>Which design most directly makes an impossible business state unrepresentable?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q1" value="0" required aria-describedby="domain-modeling-made-functional-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>A closed choice type with one case for each valid state</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q1" value="1" required aria-describedby="domain-modeling-made-functional-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>A string status documented with the permitted values in comments</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q1" value="2" required aria-describedby="domain-modeling-made-functional-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>A record with nullable fields checked whenever the record is used</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q1" value="3" required aria-describedby="domain-modeling-made-functional-idea-2-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>A group of booleans whose combinations are validated before saving</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-2-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>A closed choice limits construction to the valid cases and lets the compiler require handling of each alternative.</p><p data-feedback-for="1" hidden>Comments can drift and a string can still contain any value. The rule remains outside the representation.</p><p data-feedback-for="2" hidden>Repeated checks can catch bad states, but the record still permits them to exist and travel through the system.</p><p data-feedback-for="3" hidden>Validation helps at one point, yet independent booleans continue to represent contradictory combinations between checks.</p>
+                    <p class="quiz-feedback-context">A closed choice names the valid alternatives directly, and each case can carry only its required data. The other designs still admit invalid values or combinations that later code must detect.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-3-q1" data-question-type="concept" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 3 of 6 · Idea 3 · Concept</span>What is the input gate's central responsibility?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q1" value="0" required aria-describedby="domain-modeling-made-functional-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Persist the incoming DTO before the workflow changes it</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q1" value="1" required aria-describedby="domain-modeling-made-functional-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Reuse the transport object as the internal domain model</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q1" value="2" required aria-describedby="domain-modeling-made-functional-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Catch every infrastructure and programmer failure as a domain error</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q1" value="3" required aria-describedby="domain-modeling-made-functional-idea-3-q1-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Convert untrusted input into a validated domain value or rejection</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-3-q1-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Persistence may be a later side effect. Saving first does not establish that the input satisfies the domain's rules.</p><p data-feedback-for="1" hidden>Transport objects optimise serialization and compatibility, not domain integrity. Reusing them leaks edge concerns into the core.</p><p data-feedback-for="2" hidden>Expected domain failures, infrastructure failures and programmer errors have different meanings and should not all be collapsed.</p><p data-feedback-for="3" hidden>The gate either constructs a trusted domain value after validation or returns an explicit rejection.</p>
+                    <p class="quiz-feedback-context">The input gate translates and validates outside data before it enters the trusted core. This keeps transport shapes and invalid values from becoming implicit domain assumptions.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-1-q2" data-question-type="application" data-correct-index="1">
+                  <legend><span class="quiz-question-meta">Question 4 of 6 · Idea 1 · Application</span>A team learns that quotes and orders use similar fields but follow different rules. What is the strongest next step?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q2" value="0" required aria-describedby="domain-modeling-made-functional-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Store both in one table and defer the distinction to a status flag</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q2" value="1" required aria-describedby="domain-modeling-made-functional-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Model their separate workflows and rules in language experts can review</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q2" value="2" required aria-describedby="domain-modeling-made-functional-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Create one base class so shared fields determine the business structure</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-1-q2" value="3" required aria-describedby="domain-modeling-made-functional-idea-1-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Build both screens first and infer the domain model from their controls</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-1-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>One table may later be suitable, but choosing it first risks hiding rule differences behind a technical flag.</p><p data-feedback-for="1" hidden>Separate workflow descriptions preserve the domain distinction while leaving later implementation choices open.</p><p data-feedback-for="2" hidden>Shared fields do not establish a valid business abstraction. A base class should not decide what the domain means.</p><p data-feedback-for="3" hidden>Screens can supply evidence, but deriving the whole model from controls can miss events, policies and rejected outcomes.</p>
+                    <p class="quiz-feedback-context">Similar data shape does not prove identical meaning. The team should make the distinct workflows and rules explicit before deciding how to share storage, code or interface elements.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-2-q2" data-question-type="application" data-correct-index="3">
+                  <legend><span class="quiz-question-meta">Question 5 of 6 · Idea 2 · Application</span>A booking may be Draft, Confirmed with a confirmation code, or Cancelled with a reason. Which model best captures the rule?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q2" value="0" required aria-describedby="domain-modeling-made-functional-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>One status string plus optional code and reason fields</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q2" value="1" required aria-describedby="domain-modeling-made-functional-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Three booleans plus required code and reason text fields</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q2" value="2" required aria-describedby="domain-modeling-made-functional-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>One record with a validation method called before persistence</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-2-q2" value="3" required aria-describedby="domain-modeling-made-functional-idea-2-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Three named cases, with data attached only to the cases that need it</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-2-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Optional fields allow a confirmed booking without a code or a draft with a cancellation reason unless every consumer rechecks them.</p><p data-feedback-for="1" hidden>Independent booleans permit several states at once, while requiring irrelevant data for cases that do not use it.</p><p data-feedback-for="2" hidden>A validation method may detect bad combinations, but the record can still exist in an invalid state before or after that call.</p><p data-feedback-for="3" hidden>The choice admits only the recognised states and makes each state's required data part of its construction.</p>
+                    <p class="quiz-feedback-context">Named cases express the allowed alternatives, and case-specific fields ensure that confirmation data belongs to Confirmed while cancellation data belongs to Cancelled.</p>
+                  </div>
+                </fieldset><fieldset class="quiz-question" data-quiz-question data-question-id="domain-modeling-made-functional-idea-3-q2" data-question-type="application" data-correct-index="0">
+                  <legend><span class="quiz-question-meta">Question 6 of 6 · Idea 3 · Application</span>An API receives a registration DTO and calls domain logic. Which flow best applies the trust-boundary idea?</legend>
+                  <div class="quiz-options">
+                    <label class="quiz-option" data-quiz-option data-option-index="0">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q2" value="0" required aria-describedby="domain-modeling-made-functional-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">A</span>
+                      <span>Parse and validate into domain types, run the core, then map outcomes to API responses</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="1">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q2" value="1" required aria-describedby="domain-modeling-made-functional-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">B</span>
+                      <span>Pass the DTO through every layer so each function can check the fields it uses</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="2">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q2" value="2" required aria-describedby="domain-modeling-made-functional-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">C</span>
+                      <span>Deserialize directly into the domain type and let the serializer enforce business rules</span>
+                    </label><label class="quiz-option" data-quiz-option data-option-index="3">
+                      <input type="radio" name="domain-modeling-made-functional-idea-3-q2" value="3" required aria-describedby="domain-modeling-made-functional-idea-3-q2-validation" />
+                      <span class="quiz-option-letter" aria-hidden="true">D</span>
+                      <span>Save the DTO first, then validate it when a later process needs the registration</span>
+                    </label>
+                  </div>
+                  <p class="quiz-validation" id="domain-modeling-made-functional-idea-3-q2-validation" data-quiz-validation></p>
+                  <div class="quiz-feedback" data-quiz-feedback tabindex="-1" hidden>
+                    <p class="quiz-feedback-status" data-quiz-feedback-status></p>
+                    <p class="quiz-correct-answer" data-quiz-correct-answer hidden></p>
+                    <p data-feedback-for="0" hidden>Validation creates the trusted input, the core handles domain work, and the edge translates the result for the API.</p><p data-feedback-for="1" hidden>Passing the DTO inward spreads defensive checks and couples domain functions to the transport contract.</p><p data-feedback-for="2" hidden>Serializers check data shape, not the complete domain meaning. Direct deserialization can bypass constrained constructors and explicit errors.</p><p data-feedback-for="3" hidden>Saving unvalidated input may be a deliberate intake pattern, but it does not create a trusted registration for domain processing.</p>
+                    <p class="quiz-feedback-context">The boundary owns translation in both directions. The core receives a trusted value and returns domain outcomes; the API layer maps those outcomes to transport responses and handles infrastructure concerns.</p>
+                  </div>
+                </fieldset>
+            </div>
+            <div class="learning-check-actions">
+              <button class="quiz-submit" type="submit">Check answers</button>
+              <button class="quiz-mark-book-learned" type="button" data-mark-book-learned aria-pressed="false" hidden>Mark book as learned</button>
+              <button class="quiz-practice-again" type="button" data-practice-again hidden>Practice again</button>
+              <span class="learning-check-action-status" data-quiz-action-status aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="experiment" aria-labelledby="experiment-title">
+          <p class="eyebrow">Today's experiment · 10 minutes</p>
+          <h2 id="experiment-title">Expose one invalid state</h2>
+          <ol><li>Minutes 0 to 2: choose one status string, boolean pair or nullable field cluster in a current feature.</li><li>Minutes 2 to 4: list the combinations the structure permits and mark the ones the business rejects.</li><li>Minutes 4 to 6: sketch named valid cases, attaching data only to the cases that require it.</li><li>Minutes 6 to 8: write the boundary rule that converts raw input into one of those cases or a rejection.</li><li>Minutes 8 to 10: try to express one rejected combination in the new sketch and record what prevents it.</li></ol>
+          <p class="observable-result"><strong>Observable result:</strong> A before-and-after model showing at least one previously representable invalid state that the revised cases cannot express.</p>
+        </section>
+
+        <section class="recall" aria-labelledby="recall-title"><p class="eyebrow">Retrieval practice</p><h2 id="recall-title">Spaced recall</h2><ol><li>From Braiding Sweetgrass: before taking a technical shortcut, what would it mean to ask what the shared domain model needs to keep healthy?</li><li>From How to Measure Anything: what observable defect or rework signal would test whether a stronger domain type improves this workflow?</li><li>From Building Evolutionary Architectures: which lightweight fitness function could detect when an external DTO begins leaking into the trusted core?</li></ol></section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <p class="eyebrow">Verification</p>
+          <h2 id="sources-title">Source notes</h2>
+          <p>These links support the attributed claims and edition details; applications and extensions are labelled in the lesson.</p>
+          <ul><li><a href="https://pragprog.com/titles/swdddf/domain-modeling-made-functional/" target="_blank" rel="noreferrer">Pragmatic Bookshelf: Domain Modeling Made Functional edition, scope and contents <span aria-hidden="true">↗</span></a></li><li><a href="https://media.pragprog.com/titles/swdddf/understand.pdf" target="_blank" rel="noreferrer">Pragmatic Bookshelf extract: domain-first design and workflow documentation <span aria-hidden="true">↗</span></a></li><li><a href="https://media.pragprog.com/titles/swdddf/modeling.pdf" target="_blank" rel="noreferrer">Pragmatic Bookshelf extract: modeling data and workflows with product and choice types <span aria-hidden="true">↗</span></a></li><li><a href="https://fsharpforfunandprofit.com/ddd/" target="_blank" rel="noreferrer">Scott Wlaschin: domain modeling with the F# type system <span aria-hidden="true">↗</span></a></li><li><a href="https://fsharpforfunandprofit.com/posts/serializing-your-domain-model/" target="_blank" rel="noreferrer">Scott Wlaschin: trust boundaries, validation gates and DTO contracts <span aria-hidden="true">↗</span></a></li><li><a href="https://fsharpforfunandprofit.com/posts/against-railway-oriented-programming/" target="_blank" rel="noreferrer">Scott Wlaschin: choosing explicit domain errors without modeling every failure as Result <span aria-hidden="true">↗</span></a></li></ul>
+        </section>
+
+        <section class="takeaway" aria-labelledby="takeaway-title">
+          <p class="eyebrow">One-sentence takeaway</p>
+          <h2 id="takeaway-title">Model the work in shared language, admit only valid states, and make every crossing between the outside world and the trusted core explicit.</h2>
+        </section>
+      </article>
+
+      <aside class="reader-feedback" aria-labelledby="feedback-title" data-cusdis-comments data-clarity-mask="true">
+        <p class="eyebrow">The reading room</p>
+        <h2 id="feedback-title">What did this book change for you?</h2>
+        <p class="comments-note">Each book has its own discussion, hosted by Cusdis. When you open the comment form, Cusdis receives information such as your IP address and browser details. You can post without an account, email is optional, and comments may wait for approval before appearing.</p>
+        <p class="comments-status" data-cusdis-status role="status" aria-live="polite">Loading discussion…</p>
+        <button type="button" data-cusdis-retry hidden>Retry loading discussion</button>
+        <div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="714bda94-6019-4858-968f-91b3b5bb1c13" data-page-id="domain-modeling-made-functional-scott-wlaschin" data-page-url="https://djorchard.github.io/daily-applied-wisdom/lessons/domain-modeling-made-functional.html" data-page-title="Domain Modeling Made Functional | Daily Applied Wisdom" data-theme="light"></div>
+        <noscript><p>Enable JavaScript to read or join the discussion.</p></noscript>
+      </aside>
+
+      <nav class="lesson-pagination" aria-label="Lesson navigation">
+        <a href="braiding-sweetgrass.html"><span>Previous</span>Braiding Sweetgrass</a>
+        <span></span>
+      </nav>
+    </main>
+    <footer>
+      <span>Daily Applied Wisdom</span>
+      <span>One book. Three ideas. Better thinking.</span>
+      <a href="../feed.xml">RSS</a>
+      <a href="https://tally.so/r/RGelGj" target="_blank" rel="noreferrer">Contact or anonymous feedback <span aria-hidden="true">↗</span></a>
+      <a href="../privacy.html">Privacy and data use</a>
+      <span>© 2026 Daniel Barnes</span>
+    </footer>
+    <aside class="analytics-consent" data-analytics-consent hidden aria-labelledby="analytics-consent-title">
+      <div>
+        <h2 id="analytics-consent-title">Choose analytics preferences</h2>
+        <p>Microsoft Clarity can record page interactions to show which lessons help readers. Advertising storage stays off. <a href="../privacy.html">Read about privacy and data use</a>.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button type="button" data-analytics-allow>Allow analytics</button>
+        <button type="button" data-analytics-reject>Reject analytics</button>
+      </div>
+      <p class="analytics-consent-status" data-analytics-status aria-live="polite"></p>
+    </aside>
+    <script src="../script.js"></script>
+  </body>
+</html>

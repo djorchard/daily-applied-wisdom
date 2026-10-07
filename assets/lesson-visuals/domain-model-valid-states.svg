@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="valid-states-title valid-states-desc">
+  <title id="valid-states-title">Loose fields compared with named valid states</title>
+  <desc id="valid-states-desc">Loose status flags and nullable fields permit contradictory combinations. A closed choice type admits only Draft, Confirmed with a confirmation code, or Cancelled with a reason.</desc>
+  <defs>
+    <marker id="valid-states-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#356987"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .035em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #356987; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="60" y="66" class="label">REPRESENT ONLY STATES THE DOMAIN RECOGNISES</text>
+
+  <rect class="card" x="55" y="115" width="500" height="470" rx="30" fill="#f3d4d4"/>
+  <text x="305" y="164" class="label" text-anchor="middle">LOOSE FIELDS</text>
+  <text x="95" y="215" class="body">status: string</text>
+  <text x="95" y="252" class="body">isConfirmed: boolean</text>
+  <text x="95" y="289" class="body">isCancelled: boolean</text>
+  <text x="95" y="326" class="body">confirmationCode: nullable</text>
+  <text x="95" y="363" class="body">cancellationReason: nullable</text>
+  <rect x="90" y="405" width="430" height="128" rx="22" fill="#fffdf8" stroke="#a84b42" stroke-width="4"/>
+  <text x="305" y="449" class="label" text-anchor="middle" fill="#a84b42">CONTRADICTION FITS</text>
+  <text x="305" y="490" class="small" text-anchor="middle">Confirmed and cancelled</text>
+  <text x="305" y="520" class="small" text-anchor="middle">with neither required detail</text>
+
+  <path class="line" d="M575 348 H625" marker-end="url(#valid-states-arrow)"/>
+  <text x="600" y="300" class="small" text-anchor="middle">FILTER</text>
+
+  <rect class="card" x="645" y="115" width="500" height="470" rx="30" fill="#dbe8e2"/>
+  <text x="895" y="164" class="label" text-anchor="middle">NAMED VALID CASES</text>
+  <rect x="690" y="208" width="410" height="82" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="730" y="259" class="label">DRAFT</text>
+  <text x="1060" y="259" class="small" text-anchor="end">no extra data</text>
+  <rect x="690" y="315" width="410" height="82" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="730" y="366" class="label">CONFIRMED</text>
+  <text x="1060" y="366" class="small" text-anchor="end">code required</text>
+  <rect x="690" y="422" width="410" height="82" rx="22" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="730" y="473" class="label">CANCELLED</text>
+  <text x="1060" y="473" class="small" text-anchor="end">reason required</text>
+  <text x="895" y="545" class="small" text-anchor="middle">No case permits both states at once</text>
+
+  <rect class="card" x="175" y="630" width="850" height="82" rx="26" fill="#e8e0f2"/>
+  <text x="600" y="681" class="body" text-anchor="middle">Construction becomes the first business-rule check</text>
+</svg>

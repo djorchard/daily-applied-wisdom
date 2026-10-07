@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="shared-workflow-title shared-workflow-desc">
+  <title id="shared-workflow-title">From domain conversation to implementation</title>
+  <desc id="shared-workflow-desc">Domain experts and developers identify events, terms and rules. These shape a shared workflow model before code, storage and interface choices. A lower comparison warns that starting from technology can flatten meaningful distinctions.</desc>
+  <defs>
+    <marker id="shared-workflow-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#356987"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .035em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #356987; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .risk { fill: none; stroke: #a84b42; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 13 11; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="60" y="66" class="label">LET THE WORK SHAPE THE SOFTWARE</text>
+
+  <rect class="card" x="50" y="120" width="300" height="330" rx="28" fill="#dbe8e2"/>
+  <text x="200" y="160" class="label" text-anchor="middle">DOMAIN</text>
+  <text x="200" y="190" class="label" text-anchor="middle">CONVERSATION</text>
+  <rect x="84" y="205" width="232" height="58" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="200" y="243" class="body" text-anchor="middle">Events that happen</text>
+  <rect x="84" y="282" width="232" height="58" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="200" y="320" class="body" text-anchor="middle">Terms people use</text>
+  <rect x="84" y="359" width="232" height="58" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="200" y="397" class="body" text-anchor="middle">Rules and disputes</text>
+
+  <rect class="card" x="450" y="120" width="300" height="330" rx="28" fill="#e8e0f2"/>
+  <text x="600" y="170" class="label" text-anchor="middle">SHARED WORKFLOW</text>
+  <text x="490" y="224" class="small">TRIGGER</text>
+  <text x="708" y="224" class="body" text-anchor="end">event</text>
+  <path d="M490 242 H710" stroke="#8d7aa7" stroke-width="3"/>
+  <text x="490" y="283" class="small">INPUT</text>
+  <text x="708" y="283" class="body" text-anchor="end">named value</text>
+  <path d="M490 301 H710" stroke="#8d7aa7" stroke-width="3"/>
+  <text x="490" y="342" class="small">DECISION</text>
+  <text x="708" y="342" class="body" text-anchor="end">rule</text>
+  <path d="M490 360 H710" stroke="#8d7aa7" stroke-width="3"/>
+  <text x="490" y="392" class="small">OUTPUT</text>
+  <text x="708" y="423" class="body" text-anchor="end">event or rejection</text>
+
+  <rect class="card" x="850" y="120" width="300" height="330" rx="28" fill="#f2d6a2"/>
+  <text x="1000" y="170" class="label" text-anchor="middle">IMPLEMENTATION</text>
+  <circle cx="920" cy="250" r="48" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="920" y="258" class="body" text-anchor="middle">CODE</text>
+  <circle cx="1080" cy="250" r="48" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="1080" y="258" class="small" text-anchor="middle">STORE</text>
+  <rect x="910" y="332" width="180" height="66" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="1000" y="374" class="body" text-anchor="middle">INTERFACE</text>
+
+  <path class="line" d="M350 285 H425" marker-end="url(#shared-workflow-arrow)"/>
+  <path class="line" d="M750 285 H825" marker-end="url(#shared-workflow-arrow)"/>
+
+  <rect class="card" x="85" y="535" width="365" height="150" rx="28" fill="#f3d4d4"/>
+  <text x="267" y="580" class="label" text-anchor="middle">TECHNOLOGY FIRST</text>
+  <text x="267" y="625" class="body" text-anchor="middle">Table, base class or screen</text>
+  <text x="267" y="659" class="small" text-anchor="middle">becomes the assumed domain</text>
+
+  <path class="risk" d="M475 610 H710"/>
+  <path d="M710 600 L730 610 L710 620 Z" fill="#a84b42"/>
+  <text x="602" y="586" class="small" text-anchor="middle" fill="#a84b42">DISTORTION RISK</text>
+
+  <rect class="card" x="750" y="535" width="365" height="150" rx="28" fill="#dbe8e2"/>
+  <text x="932" y="580" class="label" text-anchor="middle">DOMAIN FIRST</text>
+  <text x="932" y="625" class="body" text-anchor="middle">Rules stay visible while</text>
+  <text x="932" y="659" class="small" text-anchor="middle">technology remains a choice</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="trust-boundary-title trust-boundary-desc">
+  <title id="trust-boundary-title">Explicit gates around a trusted domain core</title>
+  <desc id="trust-boundary-desc">Forms, APIs and messages are untrusted. An input gate parses and validates them before a trusted domain pipeline runs. An output gate maps domain outcomes to external contracts, while expected rejections leave on a separate path.</desc>
+  <defs>
+    <marker id="trust-boundary-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#356987"/>
+    </marker>
+    <marker id="trust-boundary-error-arrow" markerUnits="userSpaceOnUse" markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto">
+      <path d="M0 0 L18 9 L0 18 Z" fill="#a84b42"/>
+    </marker>
+    <style>
+      text { font-family: Arial, sans-serif; fill: #18211d; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: .035em; }
+      .body { font-size: 24px; }
+      .small { font-size: 22px; }
+      .card { stroke: #18211d; stroke-width: 4; }
+      .line { fill: none; stroke: #356987; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .error { fill: none; stroke: #a84b42; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  <rect width="1200" height="760" rx="36" fill="#f5f1e8"/>
+  <text x="60" y="66" class="label">TRANSLATE AT THE EDGES, TRUST INSIDE</text>
+
+  <rect class="card" x="45" y="145" width="205" height="330" rx="28" fill="#ead9cb"/>
+  <text x="147" y="192" class="label" text-anchor="middle">OUTSIDE</text>
+  <rect x="78" y="230" width="139" height="54" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="147" y="266" class="body" text-anchor="middle">FORM</text>
+  <rect x="78" y="307" width="139" height="54" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="147" y="343" class="body" text-anchor="middle">API</text>
+  <rect x="78" y="384" width="139" height="54" rx="18" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="147" y="420" class="body" text-anchor="middle">MESSAGE</text>
+
+  <rect class="card" x="305" y="185" width="175" height="250" rx="28" fill="#f2d6a2"/>
+  <text x="392" y="232" class="label" text-anchor="middle">INPUT GATE</text>
+  <text x="392" y="292" class="body" text-anchor="middle">Parse</text>
+  <text x="392" y="333" class="body" text-anchor="middle">Validate</text>
+  <text x="392" y="374" class="body" text-anchor="middle">Construct</text>
+
+  <rect class="card" x="535" y="120" width="360" height="390" rx="32" fill="#dbe8e2"/>
+  <text x="715" y="171" class="label" text-anchor="middle">TRUSTED DOMAIN CORE</text>
+  <rect x="585" y="220" width="260" height="62" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="715" y="260" class="body" text-anchor="middle">Validated input</text>
+  <path class="line" d="M715 290 V325" marker-end="url(#trust-boundary-arrow)"/>
+  <rect x="585" y="345" width="260" height="62" rx="20" fill="#fffdf8" stroke="#18211d" stroke-width="3"/>
+  <text x="715" y="385" class="body" text-anchor="middle">Workflow pipeline</text>
+  <text x="715" y="458" class="small" text-anchor="middle">Domain values and outcomes</text>
+
+  <rect class="card" x="950" y="185" width="205" height="250" rx="28" fill="#e8e0f2"/>
+  <text x="1052" y="232" class="label" text-anchor="middle">OUTPUT GATE</text>
+  <text x="1052" y="292" class="body" text-anchor="middle">Select</text>
+  <text x="1052" y="333" class="body" text-anchor="middle">Map</text>
+  <text x="1052" y="374" class="body" text-anchor="middle">Serialize</text>
+
+  <path class="line" d="M250 310 H280" marker-end="url(#trust-boundary-arrow)"/>
+  <path class="line" d="M480 310 H510" marker-end="url(#trust-boundary-arrow)"/>
+  <path class="line" d="M895 310 H925" marker-end="url(#trust-boundary-arrow)"/>
+
+  <path class="error" d="M392 435 V585 H585" marker-end="url(#trust-boundary-error-arrow)"/>
+  <rect class="card" x="610" y="550" width="450" height="130" rx="28" fill="#f3d4d4"/>
+  <text x="835" y="598" class="label" text-anchor="middle">EXPECTED REJECTION</text>
+  <text x="835" y="640" class="body" text-anchor="middle">Explicit outcome the caller can handle</text>
+
+  <text x="147" y="535" class="small" text-anchor="middle">Untrusted shapes</text>
+  <text x="1052" y="495" class="small" text-anchor="middle">Public contract</text>
+</svg>
